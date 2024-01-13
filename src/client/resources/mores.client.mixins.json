@@ -1,0 +1,11 @@
+{
+	"required": true,
+	"package": "mod.leronus.mores.mixin.client",
+	"compatibilityLevel": "JAVA_17",
+	"client": [
+		"MoresClientMixin"
+	],
+	"injectors": {
+		"defaultRequire": 1
+	}
+}
