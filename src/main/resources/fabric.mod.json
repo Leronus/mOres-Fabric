@@ -16,21 +16,17 @@
 	"environment": "*",
 	"entrypoints": {
 		"main": [
-			"mod.leronus.mores.MOres"
+			"mod.leronus.mores.Mores"
 		],
 		"client": [
-			"mod.leronus.mores.MOresClient"
+			"mod.leronus.mores.MoresClient"
 		],
 		"fabric-datagen": [
-			"mod.leronus.mores.MOresDataGenerator"
+			"mod.leronus.mores.MoresDataGenerator"
 		]
 	},
 	"mixins": [
-		"mores.mixins.json",
-		{
-			"config": "mores.client.mixins.json",
-			"environment": "client"
-		}
+		"mores.mixins.json"
 	],
 	"depends": {
 		"fabricloader": ">=0.15.3",
