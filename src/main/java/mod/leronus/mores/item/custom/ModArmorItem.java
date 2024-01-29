@@ -16,8 +16,31 @@ import java.util.Map;
 public class ModArmorItem extends ArmorItem {
     private static final Map<ArmorMaterial, StatusEffectInstance> MATERIAL_TO_EFFECT_MAP =
             (new ImmutableMap.Builder<ArmorMaterial, StatusEffectInstance>())
-                    .put(ModArmorMaterials.RUBY, new StatusEffectInstance(StatusEffects.HASTE, 400, 1,
-                            false, false, true)).build();
+                    .put(ModArmorMaterials.TIN, new StatusEffectInstance(StatusEffects.JUMP_BOOST, -1, 1,
+                            false, false, true))
+                    .put(ModArmorMaterials.COBALT, new StatusEffectInstance(StatusEffects.HASTE, -1, 0,
+                            false, false, true))
+                    .put(ModArmorMaterials.STEEL, new StatusEffectInstance(StatusEffects.STRENGTH, -1, 0,
+                            false, false, true))
+                    .put(ModArmorMaterials.AMETHYST, new StatusEffectInstance(StatusEffects.SLOW_FALLING, -1, 0,
+                            false, false, true))
+                    .put(ModArmorMaterials.EMERALD, new StatusEffectInstance(StatusEffects.LUCK, -1, 0,
+                            false, false, true))
+                    .put(ModArmorMaterials.TOPAZ, new StatusEffectInstance(StatusEffects.HASTE, -1, 1,
+                            false, false, true))
+                    .put(ModArmorMaterials.TOURMALINE, new StatusEffectInstance(StatusEffects.REGENERATION, -1, 0,
+                            false, false, true))
+                    .put(ModArmorMaterials.TANZANITE, new StatusEffectInstance(StatusEffects.SPEED, -1, 0,
+                            false, false, true))
+                    .put(ModArmorMaterials.RUBY, new StatusEffectInstance(StatusEffects.FIRE_RESISTANCE, -1, 0,
+                            false, false, true))
+                    .put(ModArmorMaterials.SAPPHIRE, new StatusEffectInstance(StatusEffects.NIGHT_VISION, -1, 0,
+                            false, false, true))
+                    .put(ModArmorMaterials.MOISSANITE, new StatusEffectInstance(StatusEffects.CONDUIT_POWER, -1, 0,
+                            false, false, true))
+                    .put(ModArmorMaterials.TURQUOISE, new StatusEffectInstance(StatusEffects.DOLPHINS_GRACE, -1, 0,
+                            false, false, true))
+                    .build();
 
     public ModArmorItem(ArmorMaterial material, Type type, Settings settings) {
         super(material, type, settings);

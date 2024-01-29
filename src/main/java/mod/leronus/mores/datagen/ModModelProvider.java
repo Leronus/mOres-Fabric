@@ -124,6 +124,24 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ModItems.TIN_MACE, Models.HANDHELD);
         itemModelGenerator.register(ModItems.TIN_DAGGER, Models.HANDHELD);
 
+        itemModelGenerator.register(ModItems.COPPER_SWORD, Models.HANDHELD);
+        itemModelGenerator.register(ModItems.COPPER_PICKAXE, Models.HANDHELD);
+        itemModelGenerator.register(ModItems.COPPER_SHOVEL, Models.HANDHELD);
+        itemModelGenerator.register(ModItems.COPPER_AXE, Models.HANDHELD);
+        itemModelGenerator.register(ModItems.COPPER_HOE, Models.HANDHELD);
+        itemModelGenerator.register(ModItems.COPPER_BATTLEAXE, Models.HANDHELD);
+        itemModelGenerator.register(ModItems.COPPER_MACE, Models.HANDHELD);
+        itemModelGenerator.register(ModItems.COPPER_DAGGER, Models.HANDHELD);
+
+        itemModelGenerator.register(ModItems.BRONZE_SWORD, Models.HANDHELD);
+        itemModelGenerator.register(ModItems.BRONZE_PICKAXE, Models.HANDHELD);
+        itemModelGenerator.register(ModItems.BRONZE_SHOVEL, Models.HANDHELD);
+        itemModelGenerator.register(ModItems.BRONZE_AXE, Models.HANDHELD);
+        itemModelGenerator.register(ModItems.BRONZE_HOE, Models.HANDHELD);
+        itemModelGenerator.register(ModItems.BRONZE_BATTLEAXE, Models.HANDHELD);
+        itemModelGenerator.register(ModItems.BRONZE_MACE, Models.HANDHELD);
+        itemModelGenerator.register(ModItems.BRONZE_DAGGER, Models.HANDHELD);
+
         itemModelGenerator.register(ModItems.SILVER_SWORD, Models.HANDHELD);
         itemModelGenerator.register(ModItems.SILVER_PICKAXE, Models.HANDHELD);
         itemModelGenerator.register(ModItems.SILVER_SHOVEL, Models.HANDHELD);
@@ -141,15 +159,6 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ModItems.COBALT_BATTLEAXE, Models.HANDHELD);
         itemModelGenerator.register(ModItems.COBALT_MACE, Models.HANDHELD);
         itemModelGenerator.register(ModItems.COBALT_DAGGER, Models.HANDHELD);
-
-        itemModelGenerator.register(ModItems.BRONZE_SWORD, Models.HANDHELD);
-        itemModelGenerator.register(ModItems.BRONZE_PICKAXE, Models.HANDHELD);
-        itemModelGenerator.register(ModItems.BRONZE_SHOVEL, Models.HANDHELD);
-        itemModelGenerator.register(ModItems.BRONZE_AXE, Models.HANDHELD);
-        itemModelGenerator.register(ModItems.BRONZE_HOE, Models.HANDHELD);
-        itemModelGenerator.register(ModItems.BRONZE_BATTLEAXE, Models.HANDHELD);
-        itemModelGenerator.register(ModItems.BRONZE_MACE, Models.HANDHELD);
-        itemModelGenerator.register(ModItems.BRONZE_DAGGER, Models.HANDHELD);
 
         itemModelGenerator.register(ModItems.STERLING_SWORD, Models.HANDHELD);
         itemModelGenerator.register(ModItems.STERLING_PICKAXE, Models.HANDHELD);
@@ -332,6 +341,11 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.registerArmor(((ArmorItem) ModItems.AMETHYST_LEGGINGS));
         itemModelGenerator.registerArmor(((ArmorItem) ModItems.AMETHYST_BOOTS));
 
+        itemModelGenerator.registerArmor(((ArmorItem) ModItems.EMERALD_HELMET));
+        itemModelGenerator.registerArmor(((ArmorItem) ModItems.EMERALD_CHESTPLATE));
+        itemModelGenerator.registerArmor(((ArmorItem) ModItems.EMERALD_LEGGINGS));
+        itemModelGenerator.registerArmor(((ArmorItem) ModItems.EMERALD_BOOTS));
+
         itemModelGenerator.registerArmor(((ArmorItem) ModItems.TOPAZ_HELMET));
         itemModelGenerator.registerArmor(((ArmorItem) ModItems.TOPAZ_CHESTPLATE));
         itemModelGenerator.registerArmor(((ArmorItem) ModItems.TOPAZ_LEGGINGS));
@@ -346,6 +360,16 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.registerArmor(((ArmorItem) ModItems.TANZANITE_CHESTPLATE));
         itemModelGenerator.registerArmor(((ArmorItem) ModItems.TANZANITE_LEGGINGS));
         itemModelGenerator.registerArmor(((ArmorItem) ModItems.TANZANITE_BOOTS));
+
+        itemModelGenerator.registerArmor(((ArmorItem) ModItems.RUBY_HELMET));
+        itemModelGenerator.registerArmor(((ArmorItem) ModItems.RUBY_CHESTPLATE));
+        itemModelGenerator.registerArmor(((ArmorItem) ModItems.RUBY_LEGGINGS));
+        itemModelGenerator.registerArmor(((ArmorItem) ModItems.RUBY_BOOTS));
+
+        itemModelGenerator.registerArmor(((ArmorItem) ModItems.SAPPHIRE_HELMET));
+        itemModelGenerator.registerArmor(((ArmorItem) ModItems.SAPPHIRE_CHESTPLATE));
+        itemModelGenerator.registerArmor(((ArmorItem) ModItems.SAPPHIRE_LEGGINGS));
+        itemModelGenerator.registerArmor(((ArmorItem) ModItems.SAPPHIRE_BOOTS));
 
         itemModelGenerator.registerArmor(((ArmorItem) ModItems.MOISSANITE_HELMET));
         itemModelGenerator.registerArmor(((ArmorItem) ModItems.MOISSANITE_CHESTPLATE));

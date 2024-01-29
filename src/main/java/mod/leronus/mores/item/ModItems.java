@@ -489,9 +489,254 @@ public class ModItems {
 //    public static final RegistryObject<ModShieldItem> GRAPHENE_SHIELD = registerShield("graphene_shield", ModShieldMaterials.GRAPHENE);
 
     private static void addItemsToIngredientItemGroup(FabricItemGroupEntries entries) {
-//        entries.add(SWEET_CAROLINE_MUSIC_DISC);
-//        entries.add(CIPHER_DISC);
+        entries.add(ANTHRACITE);
+
+        entries.add(RAW_TIN);
+        entries.add(RAW_SILVER);
+        entries.add(RAW_COBALT);
+
+        entries.add(TIN_INGOT);
+        entries.add(SILVER_INGOT);
+        entries.add(BRONZE_INGOT);
+        entries.add(STERLING_INGOT);
+        entries.add(COBALT_INGOT);
+        entries.add(STEEL_INGOT);
+        entries.add(OBSIDIAN_INGOT);
+
+        entries.add(TOURMALINE_GEM);
+        entries.add(TOPAZ_GEM);
+        entries.add(TANZANITE_GEM);
+        entries.add(RUBY_GEM);
+        entries.add(SAPPHIRE_GEM);
+        entries.add(MOISSANITE_GEM);
+        entries.add(TURQUOISE_GEM);
+        entries.add(ONYX_GEM);
+        entries.add(GRAPHENE_GEM);
+//      entries.add(SWEET_CAROLINE_MUSIC_DISC);
+//      entries.add(CIPHER_DISC);
     }
+    private static void addItemsToCombatItemGroup(FabricItemGroupEntries entries) {
+        entries.add(WOOD_BATTLEAXE);
+        entries.add(WOOD_MACE);
+        entries.add(WOOD_DAGGER);
+
+        entries.add(TIN_SWORD);
+        entries.add(TIN_BATTLEAXE);
+        entries.add(TIN_MACE);
+        entries.add(TIN_DAGGER);
+
+        entries.add(STONE_BATTLEAXE);
+        entries.add(STONE_MACE);
+        entries.add(STONE_DAGGER);
+
+        entries.add(SILVER_SWORD);
+        entries.add(SILVER_BATTLEAXE);
+        entries.add(SILVER_MACE);
+        entries.add(SILVER_DAGGER);
+
+        entries.add(COPPER_SWORD);
+        entries.add(COPPER_BATTLEAXE);
+        entries.add(COPPER_MACE);
+        entries.add(COPPER_DAGGER);
+
+        entries.add(BRONZE_SWORD);
+        entries.add(BRONZE_BATTLEAXE);
+        entries.add(BRONZE_MACE);
+        entries.add(BRONZE_DAGGER);
+
+        entries.add(GOLD_BATTLEAXE);
+        entries.add(GOLD_MACE);
+        entries.add(GOLD_DAGGER);
+
+        entries.add(IRON_BATTLEAXE);
+        entries.add(IRON_MACE);
+        entries.add(IRON_DAGGER);
+
+        entries.add(COBALT_SWORD);
+        entries.add(COBALT_BATTLEAXE);
+        entries.add(COBALT_MACE);
+        entries.add(COBALT_DAGGER);
+
+        entries.add(STERLING_SWORD);
+        entries.add(STERLING_BATTLEAXE);
+        entries.add(STERLING_MACE);
+        entries.add(STERLING_DAGGER);
+
+        entries.add(STEEL_SWORD);
+        entries.add(STEEL_BATTLEAXE);
+        entries.add(STEEL_MACE);
+        entries.add(STEEL_DAGGER);
+
+        entries.add(AMETHYST_SWORD);
+        entries.add(AMETHYST_BATTLEAXE);
+        entries.add(AMETHYST_MACE);
+        entries.add(AMETHYST_DAGGER);
+
+        entries.add(EMERALD_SWORD);
+        entries.add(EMERALD_BATTLEAXE);
+        entries.add(EMERALD_MACE);
+        entries.add(EMERALD_DAGGER);
+
+        entries.add(TOPAZ_SWORD);
+        entries.add(TOPAZ_BATTLEAXE);
+        entries.add(TOPAZ_MACE);
+        entries.add(TOPAZ_DAGGER);
+
+        entries.add(TOURMALINE_SWORD);
+        entries.add(TOURMALINE_BATTLEAXE);
+        entries.add(TOURMALINE_MACE);
+        entries.add(TOURMALINE_DAGGER);
+
+        entries.add(TANZANITE_SWORD);
+        entries.add(TANZANITE_BATTLEAXE);
+        entries.add(TANZANITE_MACE);
+        entries.add(TANZANITE_DAGGER);
+
+        entries.add(RUBY_SWORD);
+        entries.add(RUBY_BATTLEAXE);
+        entries.add(RUBY_MACE);
+        entries.add(RUBY_DAGGER);
+
+        entries.add(SAPPHIRE_SWORD);
+        entries.add(SAPPHIRE_BATTLEAXE);
+        entries.add(SAPPHIRE_MACE);
+        entries.add(SAPPHIRE_DAGGER);
+
+        entries.add(DIAMOND_BATTLEAXE);
+        entries.add(DIAMOND_MACE);
+        entries.add(DIAMOND_DAGGER);
+
+        entries.add(MOISSANITE_SWORD);
+        entries.add(MOISSANITE_BATTLEAXE);
+        entries.add(MOISSANITE_MACE);
+        entries.add(MOISSANITE_DAGGER);
+
+        entries.add(TURQUOISE_SWORD);
+        entries.add(TURQUOISE_BATTLEAXE);
+        entries.add(TURQUOISE_MACE);
+        entries.add(TURQUOISE_DAGGER);
+
+        entries.add(OBSIDIAN_SWORD);
+        entries.add(OBSIDIAN_BATTLEAXE);
+        entries.add(OBSIDIAN_MACE);
+        entries.add(OBSIDIAN_DAGGER);
+
+        entries.add(ONYX_SWORD);
+        entries.add(ONYX_BATTLEAXE);
+        entries.add(ONYX_MACE);
+        entries.add(ONYX_DAGGER);
+
+        entries.add(NETHERITE_BATTLEAXE);
+        entries.add(NETHERITE_MACE);
+        entries.add(NETHERITE_DAGGER);
+
+        entries.add(GRAPHENE_SWORD);
+        entries.add(GRAPHENE_BATTLEAXE);
+        entries.add(GRAPHENE_MACE);
+        entries.add(GRAPHENE_DAGGER);
+    }
+    private static void addItemsToFoodItemGroup(FabricItemGroupEntries entries) {
+        entries.add(CHOCOLATE);
+        entries.add(CARROT_PIE);
+        entries.add(VELVET);
+    }
+    private static void addItemsToToolsItemGroup(FabricItemGroupEntries entries) {
+        entries.add(TIN_PICKAXE);
+        entries.add(TIN_AXE);
+        entries.add(TIN_SHOVEL);
+        entries.add(TIN_HOE);
+
+        entries.add(COPPER_PICKAXE);
+        entries.add(COPPER_AXE);
+        entries.add(COPPER_SHOVEL);
+        entries.add(COPPER_HOE);
+
+        entries.add(BRONZE_PICKAXE);
+        entries.add(BRONZE_AXE);
+        entries.add(BRONZE_SHOVEL);
+        entries.add(BRONZE_HOE);
+
+        entries.add(SILVER_PICKAXE);
+        entries.add(SILVER_AXE);
+        entries.add(SILVER_SHOVEL);
+        entries.add(SILVER_HOE);
+
+        entries.add(STERLING_PICKAXE);
+        entries.add(STERLING_AXE);
+        entries.add(STERLING_SHOVEL);
+        entries.add(STERLING_HOE);
+
+        entries.add(STEEL_PICKAXE);
+        entries.add(STEEL_AXE);
+        entries.add(STEEL_SHOVEL);
+        entries.add(STEEL_HOE);
+
+        entries.add(COBALT_PICKAXE);
+        entries.add(COBALT_AXE);
+        entries.add(COBALT_SHOVEL);
+        entries.add(COBALT_HOE);
+
+        entries.add(AMETHYST_PICKAXE);
+        entries.add(AMETHYST_AXE);
+        entries.add(AMETHYST_SHOVEL);
+        entries.add(AMETHYST_HOE);
+
+        entries.add(EMERALD_PICKAXE);
+        entries.add(EMERALD_AXE);
+        entries.add(EMERALD_SHOVEL);
+        entries.add(EMERALD_HOE);
+
+        entries.add(TOPAZ_PICKAXE);
+        entries.add(TOPAZ_AXE);
+        entries.add(TOPAZ_SHOVEL);
+        entries.add(TOPAZ_HOE);
+
+        entries.add(TOURMALINE_PICKAXE);
+        entries.add(TOURMALINE_AXE);
+        entries.add(TOURMALINE_SHOVEL);
+        entries.add(TOURMALINE_HOE);
+
+        entries.add(TANZANITE_PICKAXE);
+        entries.add(TANZANITE_AXE);
+        entries.add(TANZANITE_SHOVEL);
+        entries.add(TANZANITE_HOE);
+
+        entries.add(RUBY_PICKAXE);
+        entries.add(RUBY_AXE);
+        entries.add(RUBY_SHOVEL);
+        entries.add(RUBY_HOE);
+
+        entries.add(SAPPHIRE_PICKAXE);
+        entries.add(SAPPHIRE_AXE);
+        entries.add(SAPPHIRE_SHOVEL);
+        entries.add(SAPPHIRE_HOE);
+
+        entries.add(MOISSANITE_PICKAXE);
+        entries.add(MOISSANITE_AXE);
+        entries.add(MOISSANITE_SHOVEL);
+        entries.add(MOISSANITE_HOE);
+
+        entries.add(TURQUOISE_PICKAXE);
+        entries.add(TURQUOISE_AXE);
+        entries.add(TURQUOISE_SHOVEL);
+        entries.add(TURQUOISE_HOE);
+
+        entries.add(OBSIDIAN_PICKAXE);
+        entries.add(OBSIDIAN_AXE);
+        entries.add(OBSIDIAN_SHOVEL);
+        entries.add(OBSIDIAN_HOE);
+
+        entries.add(ONYX_PICKAXE);
+        entries.add(ONYX_AXE);
+        entries.add(ONYX_SHOVEL);
+        entries.add(ONYX_HOE);
+
+        entries.add(GRAPHENE_PICKAXE);
+        entries.add(GRAPHENE_AXE);
+        entries.add(GRAPHENE_SHOVEL);
+        entries.add(GRAPHENE_HOE);
+    }
+
 
     private static Item registerItem(String name, Item item) {
         return Registry.register(Registries.ITEM, new Identifier(Mores.MOD_ID, name), item);
@@ -501,5 +746,8 @@ public class ModItems {
         Mores.LOGGER.info("Registering Mod Items for " + Mores.MOD_ID);
 
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.INGREDIENTS).register(ModItems::addItemsToIngredientItemGroup);
+        ItemGroupEvents.modifyEntriesEvent(ItemGroups.COMBAT).register(ModItems::addItemsToCombatItemGroup);
+        ItemGroupEvents.modifyEntriesEvent(ItemGroups.FOOD_AND_DRINK).register(ModItems::addItemsToFoodItemGroup);
+        ItemGroupEvents.modifyEntriesEvent(ItemGroups.TOOLS).register(ModItems::addItemsToToolsItemGroup);
     }
 }
