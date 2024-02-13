@@ -1,6 +1,6 @@
 package mod.leronus.mores.datagen;
 
-import mod.leronus.mores.blocks.ModBlocks;
+import mod.leronus.mores.block.ModBlocks;
 import mod.leronus.mores.item.ModItems;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricModelProvider;
@@ -21,6 +21,8 @@ public class ModModelProvider extends FabricModelProvider {
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.RAW_SILVER_BLOCK);
 
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.ANTHRACITE_ORE);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.DEEPSLATE_ANTHRACITE_ORE);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.NETHER_ANTHRACITE_ORE);
 
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.TIN_ORE);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.DEEPSLATE_TIN_ORE);
@@ -63,6 +65,7 @@ public class ModModelProvider extends FabricModelProvider {
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.TANZANITE_BLOCK);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.RUBY_BLOCK);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.SAPPHIRE_BLOCK);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.MOISSANITE_BLOCK);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.TURQUOISE_BLOCK);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.ONYX_BLOCK);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.GRAPHENE_BLOCK);
@@ -103,6 +106,14 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ModItems.STEEL_INGOT, Models.GENERATED);
         itemModelGenerator.register(ModItems.STERLING_INGOT, Models.GENERATED);
         itemModelGenerator.register(ModItems.OBSIDIAN_INGOT, Models.GENERATED);
+
+        itemModelGenerator.register(ModItems.TIN_NUGGET, Models.GENERATED);
+        itemModelGenerator.register(ModItems.SILVER_NUGGET, Models.GENERATED);
+        itemModelGenerator.register(ModItems.BRONZE_NUGGET, Models.GENERATED);
+        itemModelGenerator.register(ModItems.STEEL_NUGGET, Models.GENERATED);
+        itemModelGenerator.register(ModItems.STERLING_NUGGET, Models.GENERATED);
+        itemModelGenerator.register(ModItems.COPPER_NUGGET, Models.GENERATED);
+        itemModelGenerator.register(ModItems.COBALT_NUGGET, Models.GENERATED);
 
         itemModelGenerator.register(ModItems.TOPAZ_GEM, Models.GENERATED);
         itemModelGenerator.register(ModItems.TOURMALINE_GEM, Models.GENERATED);
@@ -316,15 +327,20 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.registerArmor(((ArmorItem) ModItems.SILVER_LEGGINGS));
         itemModelGenerator.registerArmor(((ArmorItem) ModItems.SILVER_BOOTS));
 
-        itemModelGenerator.registerArmor(((ArmorItem) ModItems.COBALT_HELMET));
-        itemModelGenerator.registerArmor(((ArmorItem) ModItems.COBALT_CHESTPLATE));
-        itemModelGenerator.registerArmor(((ArmorItem) ModItems.COBALT_LEGGINGS));
-        itemModelGenerator.registerArmor(((ArmorItem) ModItems.COBALT_BOOTS));
+        itemModelGenerator.registerArmor(((ArmorItem) ModItems.COPPER_HELMET));
+        itemModelGenerator.registerArmor(((ArmorItem) ModItems.COPPER_CHESTPLATE));
+        itemModelGenerator.registerArmor(((ArmorItem) ModItems.COPPER_LEGGINGS));
+        itemModelGenerator.registerArmor(((ArmorItem) ModItems.COPPER_BOOTS));
 
         itemModelGenerator.registerArmor(((ArmorItem) ModItems.BRONZE_HELMET));
         itemModelGenerator.registerArmor(((ArmorItem) ModItems.BRONZE_CHESTPLATE));
         itemModelGenerator.registerArmor(((ArmorItem) ModItems.BRONZE_LEGGINGS));
         itemModelGenerator.registerArmor(((ArmorItem) ModItems.BRONZE_BOOTS));
+
+        itemModelGenerator.registerArmor(((ArmorItem) ModItems.COBALT_HELMET));
+        itemModelGenerator.registerArmor(((ArmorItem) ModItems.COBALT_CHESTPLATE));
+        itemModelGenerator.registerArmor(((ArmorItem) ModItems.COBALT_LEGGINGS));
+        itemModelGenerator.registerArmor(((ArmorItem) ModItems.COBALT_BOOTS));
 
         itemModelGenerator.registerArmor(((ArmorItem) ModItems.STERLING_HELMET));
         itemModelGenerator.registerArmor(((ArmorItem) ModItems.STERLING_CHESTPLATE));
@@ -400,6 +416,7 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ModItems.COPPER_HORSE_ARMOR, Models.GENERATED);
         itemModelGenerator.register(ModItems.BRONZE_HORSE_ARMOR, Models.GENERATED);
         itemModelGenerator.register(ModItems.SILVER_HORSE_ARMOR, Models.GENERATED);
+        itemModelGenerator.register(ModItems.COBALT_HORSE_ARMOR, Models.GENERATED);
         itemModelGenerator.register(ModItems.STERLING_HORSE_ARMOR, Models.GENERATED);
         itemModelGenerator.register(ModItems.STEEL_HORSE_ARMOR, Models.GENERATED);
         itemModelGenerator.register(ModItems.AMETHYST_HORSE_ARMOR, Models.GENERATED);
@@ -414,6 +431,7 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ModItems.OBSIDIAN_HORSE_ARMOR, Models.GENERATED);
         itemModelGenerator.register(ModItems.ONYX_HORSE_ARMOR, Models.GENERATED);
         itemModelGenerator.register(ModItems.GRAPHENE_HORSE_ARMOR, Models.GENERATED);
+        itemModelGenerator.register(ModItems.NETHERITE_HORSE_ARMOR, Models.GENERATED);
 
         itemModelGenerator.register(ModItems.ANTHRACITE, Models.GENERATED);
 

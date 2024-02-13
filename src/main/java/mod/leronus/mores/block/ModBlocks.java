@@ -1,7 +1,8 @@
-package mod.leronus.mores.blocks;
+package mod.leronus.mores.block;
 
 import mod.leronus.mores.Mores;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
+import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroupEntries;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
@@ -85,6 +86,64 @@ public class ModBlocks {
     public static final Block GRAPHENE_BLOCK = registerBlock("graphene_block", new Block(FabricBlockSettings.copyOf(Blocks.NETHERITE_BLOCK).mapColor(MapColor.GREEN).strength(5.0F, 6.0F).sounds(BlockSoundGroup.METAL).requiresTool()));
 
 //    public static final AlloyFurnaceBlock ALLOY_FURNACE = registerBlock("alloy_furnace", new AlloyFurnaceBlock(FabricBlockSettings.copyOf(Blocks.FURNACE).mapColor(MapColor.LIGHT_GRAY).strength(4.0F, 6.0F).sounds(BlockSoundGroup.METAL).requiresTool().lightLevel(LightUtils.setSwitchedLight(BlockStateProperties.LIT, 13))));
+
+    private static void addItemsToBuildingBlockItemGroup(FabricItemGroupEntries entries) {
+        entries.add(TIN_BLOCK);
+        entries.add(TIN_ORE);
+        entries.add(DEEPSLATE_TIN_ORE);
+        entries.add(RAW_TIN_BLOCK);
+
+        entries.add(SILVER_BLOCK);
+        entries.add(SILVER_ORE);
+        entries.add(NETHER_SILVER_ORE);
+        entries.add(DEEPSLATE_SILVER_ORE);
+        entries.add(RAW_SILVER_BLOCK);
+
+        entries.add(BRONZE_BLOCK);
+
+        entries.add(COBALT_BLOCK);
+        entries.add(COBALT_ORE);
+        entries.add(DEEPSLATE_COBALT_ORE);
+        entries.add(RAW_COBALT_BLOCK);
+
+        entries.add(STERLING_BLOCK);
+        entries.add(STEEL_BLOCK);
+        entries.add(AMETHYST_BLOCK);
+
+        entries.add(TOPAZ_BLOCK);
+        entries.add(TOPAZ_ORE);
+        entries.add(DEEPSLATE_TOPAZ_ORE);
+
+        entries.add(TOURMALINE_BLOCK);
+        entries.add(TOURMALINE_ORE);
+        entries.add(DEEPSLATE_TOURMALINE_ORE);
+
+        entries.add(TANZANITE_BLOCK);
+        entries.add(NETHER_TANZANITE_ORE);
+
+        entries.add(RUBY_BLOCK);
+        entries.add(RUBY_ORE);
+        entries.add(DEEPSLATE_RUBY_ORE);
+        entries.add(NETHER_RUBY_ORE);
+
+        entries.add(SAPPHIRE_BLOCK);
+        entries.add(SAPPHIRE_ORE);
+        entries.add(DEEPSLATE_SAPPHIRE_ORE);
+        entries.add(NETHER_SAPPHIRE_ORE);
+
+        entries.add(MOISSANITE_BLOCK);
+        entries.add(MOISSANITE_ORE);
+        entries.add(DEEPSLATE_MOISSANITE_ORE);
+        entries.add(NETHER_MOISSANITE_ORE);
+
+        entries.add(TURQUOISE_BLOCK);
+        entries.add(TURQUOISE_ORE);
+        entries.add(DEEPSLATE_TURQUOISE_ORE);
+
+        entries.add(ONYX_ORE);
+
+        entries.add(GRAPHENE_BLOCK);
+    }
 
     private static Block registerBlock(String name, Block block) {
         registerBlockItem(name, block);
