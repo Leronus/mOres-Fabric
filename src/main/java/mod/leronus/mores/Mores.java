@@ -3,6 +3,7 @@ package mod.leronus.mores;
 import mod.leronus.mores.block.ModBlocks;
 import mod.leronus.mores.item.ModItemGroups;
 import mod.leronus.mores.item.ModItems;
+import mod.leronus.mores.world.gen.ModWorldGeneration;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.registry.FuelRegistry;
 import net.kyrptonaught.customportalapi.api.CustomPortalBuilder;
@@ -35,7 +36,7 @@ public class Mores implements ModInitializer {
 		FuelRegistry.INSTANCE.add(ModItems.ANTHRACITE, 4000);
 //		FabricDefaultAttributeRegistry.register(ModEntities.ALLOY_BLOCK, AlloyBlockEntity.createAlloyAttributes());
 
-//		ModWorldGeneration.generateModWorldGen();
+		ModWorldGeneration.generateModWorldGen();
 
 		CustomPortalBuilder.beginPortal()
 				.frameBlock(ModBlocks.SILVER_BLOCK)

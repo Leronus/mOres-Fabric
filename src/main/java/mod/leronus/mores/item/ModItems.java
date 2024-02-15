@@ -1,5 +1,6 @@
 package mod.leronus.mores.item;
 
+import com.github.crimsondawn45.fabricshieldlib.lib.object.FabricShieldItem;
 import mod.leronus.mores.Mores;
 import mod.leronus.mores.item.custom.ModArmorItem;
 import mod.leronus.mores.item.custom.ModBattleAxeItem;
@@ -468,25 +469,25 @@ public class ModItems {
 
 
     //Shields
-//    public static final RegistryObject<ModShieldItem> TIN_SHIELD = registerShield("tin_shield", ModShieldMaterials.TIN);
-//    public static final RegistryObject<ModShieldItem> COPPER_SHIELD = registerShield("copper_shield", ModShieldMaterials.COPPER);
-//    public static final RegistryObject<ModShieldItem> SILVER_SHIELD = registerShield("silver_shield", ModShieldMaterials.SILVER);
-//    public static final RegistryObject<ModShieldItem> BRONZE_SHIELD = registerShield("bronze_shield", ModShieldMaterials.BRONZE);
-//    public static final RegistryObject<ModShieldItem> COBALT_SHIELD = registerShield("cobalt_shield", ModShieldMaterials.COBALT);
-//    public static final RegistryObject<ModShieldItem> OBSIDIAN_SHIELD = registerShield("obsidian_shield", ModShieldMaterials.OBSIDIAN);
-//    public static final RegistryObject<ModShieldItem> STERLING_SHIELD = registerShield("sterling_shield", ModShieldMaterials.STERLING);
-//    public static final RegistryObject<ModShieldItem> STEEL_SHIELD = registerShield("steel_shield", ModShieldMaterials.STEEL);
-//    public static final RegistryObject<ModShieldItem> AMETHYST_SHIELD = registerShield("amethyst_shield", ModShieldMaterials.AMETHYST);
-//    public static final RegistryObject<ModShieldItem> EMERALD_SHIELD = registerShield("emerald_shield", ModShieldMaterials.EMERALD);
-//    public static final RegistryObject<ModShieldItem> TOPAZ_SHIELD = registerShield("topaz_shield", ModShieldMaterials.TOPAZ);
-//    public static final RegistryObject<ModShieldItem> TOURMALINE_SHIELD = registerShield("tourmaline_shield", ModShieldMaterials.TOURMALINE);
-//    public static final RegistryObject<ModShieldItem> TANZANITE_SHIELD = registerShield("tanzanite_shield", ModShieldMaterials.TANZANITE);
-//    public static final RegistryObject<ModShieldItem> RUBY_SHIELD = registerShield("ruby_shield", ModShieldMaterials.RUBY);
-//    public static final RegistryObject<ModShieldItem> SAPPHIRE_SHIELD = registerShield("sapphire_shield", ModShieldMaterials.SAPPHIRE);
-//    public static final RegistryObject<ModShieldItem> TURQUOISE_SHIELD = registerShield("turquoise_shield", ModShieldMaterials.TURQUOISE);
-//    public static final RegistryObject<ModShieldItem> MOISSANITE_SHIELD = registerShield("moissanite_shield", ModShieldMaterials.MOISSANITE);
-//    public static final RegistryObject<ModShieldItem> ONYX_SHIELD = registerShield("onyx_shield", ModShieldMaterials.ONYX);
-//    public static final RegistryObject<ModShieldItem> GRAPHENE_SHIELD = registerShield("graphene_shield", ModShieldMaterials.GRAPHENE);
+    public static final Item TIN_SHIELD = registerItem("tin_shield", new FabricShieldItem(new FabricItemSettings().maxDamage(84), 10, 5, ModItems.TIN_INGOT)); // FabricShieldItem(maxDamage(durability), cooldownTicks, enchantability, repairItems)
+    public static final Item COPPER_SHIELD = registerItem("copper_shield", new FabricShieldItem(new FabricItemSettings().maxDamage(112), 10, 10, Items.COPPER_INGOT));
+    public static final Item SILVER_SHIELD = registerItem("silver_shield", new FabricShieldItem(new FabricItemSettings().maxDamage(134), 10, 15, ModItems.SILVER_INGOT));
+    public static final Item BRONZE_SHIELD = registerItem("bronze_shield", new FabricShieldItem(new FabricItemSettings().maxDamage(299), 10, 13, ModItems.BRONZE_INGOT));
+    public static final Item COBALT_SHIELD = registerItem("cobalt_shield", new FabricShieldItem(new FabricItemSettings().maxDamage(388), 10, 22, ModItems.COBALT_INGOT));
+    public static final Item STERLING_SHIELD = registerItem("sterling_shield", new FabricShieldItem(new FabricItemSettings().maxDamage(333), 10, 17, ModItems.STERLING_INGOT));
+    public static final Item AMETHYST_SHIELD = registerItem("amethyst_shield", new FabricShieldItem(new FabricItemSettings().maxDamage(420), 10, 15, Items.AMETHYST_SHARD));
+    public static final Item STEEL_SHIELD = registerItem("steel_shield", new FabricShieldItem(new FabricItemSettings().maxDamage(555), 10, 14, ModItems.STEEL_INGOT));
+    public static final Item EMERALD_SHIELD = registerItem("emerald_shield", new FabricShieldItem(new FabricItemSettings().maxDamage(500), 10, 18, Items.EMERALD));
+    public static final Item TOPAZ_SHIELD = registerItem("topaz_shield", new FabricShieldItem(new FabricItemSettings().maxDamage(632), 10, 14, ModItems.TOPAZ_GEM));
+    public static final Item TOURMALINE_SHIELD = registerItem("tourmaline_shield", new FabricShieldItem(new FabricItemSettings().maxDamage(621), 10, 16, ModItems.TOURMALINE_GEM));
+    public static final Item TANZANITE_SHIELD = registerItem("tanzanite_shield", new FabricShieldItem(new FabricItemSettings().maxDamage(784), 10, 11, ModItems.TANZANITE_GEM));
+    public static final Item RUBY_SHIELD = registerItem("ruby_shield", new FabricShieldItem(new FabricItemSettings().maxDamage(809), 10, 15, ModItems.RUBY_GEM));
+    public static final Item SAPPHIRE_SHIELD = registerItem("sapphire_shield", new FabricShieldItem(new FabricItemSettings().maxDamage(711), 10, 18, ModItems.SAPPHIRE_GEM));
+    public static final Item OBSIDIAN_SHIELD = registerItem("obsidian_shield", new FabricShieldItem(new FabricItemSettings().maxDamage(821), 10, 21, ModItems.OBSIDIAN_INGOT));
+    public static final Item TURQUOISE_SHIELD = registerItem("turquoise_shield", new FabricShieldItem(new FabricItemSettings().maxDamage(999), 10, 25, ModItems.TURQUOISE_GEM));
+    public static final Item MOISSANITE_SHIELD = registerItem("moissanite_shield", new FabricShieldItem(new FabricItemSettings().maxDamage(913), 10, 10, ModItems.MOISSANITE_GEM));
+    public static final Item ONYX_SHIELD = registerItem("onyx_shield", new FabricShieldItem(new FabricItemSettings().maxDamage(1111), 10, 13, ModItems.ONYX_GEM));
+    public static final Item GRAPHENE_SHIELD = registerItem("graphene_shield", new FabricShieldItem(new FabricItemSettings().maxDamage(1333), 10, 19, ModItems.GRAPHENE_GEM));
 
     private static void addItemsToIngredientItemGroup(FabricItemGroupEntries entries) {
         entries.add(ANTHRACITE);
@@ -634,6 +635,26 @@ public class ModItems {
         entries.add(GRAPHENE_BATTLEAXE);
         entries.add(GRAPHENE_MACE);
         entries.add(GRAPHENE_DAGGER);
+
+        entries.add(TIN_SHIELD);
+        entries.add(SILVER_SHIELD);
+        entries.add(COPPER_SHIELD);
+        entries.add(BRONZE_SHIELD);
+        entries.add(COBALT_SHIELD);
+        entries.add(STERLING_SHIELD);
+        entries.add(STEEL_SHIELD);
+        entries.add(AMETHYST_SHIELD);
+        entries.add(EMERALD_SHIELD);
+        entries.add(TOPAZ_SHIELD);
+        entries.add(TOURMALINE_SHIELD);
+        entries.add(TANZANITE_SHIELD);
+        entries.add(RUBY_SHIELD);
+        entries.add(SAPPHIRE_SHIELD);
+        entries.add(MOISSANITE_SHIELD);
+        entries.add(TURQUOISE_SHIELD);
+        entries.add(OBSIDIAN_SHIELD);
+        entries.add(ONYX_SHIELD);
+        entries.add(GRAPHENE_SHIELD);
     }
     private static void addItemsToFoodItemGroup(FabricItemGroupEntries entries) {
         entries.add(CHOCOLATE);

@@ -368,30 +368,30 @@ public class ModItemGroups {
                         entries.add(ModItems.GRAPHENE_BOOTS);
                     }).build());
 
-//    public static final ItemGroup SHIELDS_GROUP = Registry.register(Registries.ITEM_GROUP,
-//            new Identifier(Mores.MOD_ID, "shields"),
-//            FabricItemGroup.builder().displayName(Text.translatable("creativemodetab.mores_shields"))
-//                    .icon(() -> new ItemStack(ModItems.BRONZE_SHIELD)).entries((displayContext, entries) -> {
-//                        entries.add(ModItems.TIN_SHIELD);
-//                        entries.add(ModItems.COPPER_SHIELD);
-//                        entries.add(ModItems.BRONZE_SHIELD);
-//                        entries.add(ModItems.SILVER_SHIELD);
-//                        entries.add(ModItems.COBALT_SHIELD);
-//                        entries.add(ModItems.STERLING_SHIELD);
-//                        entries.add(ModItems.STEEL_SHIELD);
-//                        entries.add(ModItems.AMETHYST_SHIELD);
-//                        entries.add(ModItems.EMERALD_SHIELD);
-//                        entries.add(ModItems.TOPAZ_SHIELD);
-//                        entries.add(ModItems.TOURMALINE_SHIELD);
-//                        entries.add(ModItems.RUBY_SHIELD);
-//                        entries.add(ModItems.SAPPHIRE_SHIELD);
-//                        entries.add(ModItems.TANZANITE_SHIELD);
-//                        entries.add(ModItems.MOISSANITE_SHIELD);
-//                        entries.add(ModItems.TURQUOISE_SHIELD);
-//                        entries.add(ModItems.OBSIDIAN_SHIELD);
-//                        entries.add(ModItems.ONYX_SHIELD);
-//                        entries.add(ModItems.GRAPHENE_SHIELD);
-//                    }).build());
+    public static final ItemGroup SHIELDS_GROUP = Registry.register(Registries.ITEM_GROUP,
+            new Identifier(Mores.MOD_ID, "shields"),
+            FabricItemGroup.builder().displayName(Text.translatable("creativemodetab.mores_shields"))
+                    .icon(() -> new ItemStack(ModItems.BRONZE_SHIELD)).entries((displayContext, entries) -> {
+                        entries.add(ModItems.TIN_SHIELD);
+                        entries.add(ModItems.COPPER_SHIELD);
+                        entries.add(ModItems.BRONZE_SHIELD);
+                        entries.add(ModItems.SILVER_SHIELD);
+                        entries.add(ModItems.COBALT_SHIELD);
+                        entries.add(ModItems.STERLING_SHIELD);
+                        entries.add(ModItems.STEEL_SHIELD);
+                        entries.add(ModItems.AMETHYST_SHIELD);
+                        entries.add(ModItems.EMERALD_SHIELD);
+                        entries.add(ModItems.TOPAZ_SHIELD);
+                        entries.add(ModItems.TOURMALINE_SHIELD);
+                        entries.add(ModItems.RUBY_SHIELD);
+                        entries.add(ModItems.SAPPHIRE_SHIELD);
+                        entries.add(ModItems.TANZANITE_SHIELD);
+                        entries.add(ModItems.MOISSANITE_SHIELD);
+                        entries.add(ModItems.TURQUOISE_SHIELD);
+                        entries.add(ModItems.OBSIDIAN_SHIELD);
+                        entries.add(ModItems.ONYX_SHIELD);
+                        entries.add(ModItems.GRAPHENE_SHIELD);
+                    }).build());
 
         public static final ItemGroup HORSE_ARMOR_GROUP = Registry.register(Registries.ITEM_GROUP,
             new Identifier(Mores.MOD_ID, "horse_armor"),
