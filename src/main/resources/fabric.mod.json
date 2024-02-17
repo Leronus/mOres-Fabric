@@ -3,13 +3,13 @@
 	"id": "mores",
 	"version": "${version}",
 	"name": "mOres",
-	"description": "This is an example description! Tell everyone what your mod is about!",
+	"description": "This mod adds tons of new tools, weapons and materials.\nThis improves combat, exploration, and mining in particular.\nIt adds much more variety and is very entertaining to play with friends.",
 	"authors": [
-		"Me!"
+		"Leronus"
 	],
 	"contact": {
 		"homepage": "https://fabricmc.net/",
-		"sources": "https://github.com/FabricMC/fabric-example-mod"
+		"sources": "https://github.com/Leronus/mOres"
 	},
 	"license": "CC0-1.0",
 	"icon": "assets/mores/icon.png",
