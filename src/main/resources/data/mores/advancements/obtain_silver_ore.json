@@ -26,6 +26,9 @@
     }
   },
   "rewards": {
+    "loot": [
+      "mores:sterling_alloy_smithing_template"
+    ],
     "experience": 20
   }
 }

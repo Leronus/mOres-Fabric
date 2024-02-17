@@ -1,10 +1,10 @@
 {
   "display": {
-    "title": "Even Worse Than Copper",
-    "description": "Obtain raw tin",
     "icon": {
       "item": "mores:raw_tin"
     },
+    "title": "Even Worse Than Copper",
+    "description": "Obtain raw tin",
     "background": "minecraft:textures/gui/advancements/backgrounds/stone.png",
     "frame": "task",
     "announce_to_chat": true,
@@ -26,6 +26,9 @@
     }
   },
   "rewards": {
+    "loot": [
+      "mores:bronze_alloy_smithing_template"
+    ],
     "experience": 5
   }
 }

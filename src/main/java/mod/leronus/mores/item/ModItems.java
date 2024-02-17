@@ -4,7 +4,9 @@ import com.github.crimsondawn45.fabricshieldlib.lib.object.FabricShieldItem;
 import mod.leronus.mores.Mores;
 import mod.leronus.mores.item.custom.ModArmorItem;
 import mod.leronus.mores.item.custom.ModBattleAxeItem;
+import mod.leronus.mores.item.custom.ModSmithingTemplateItem;
 import mod.leronus.mores.item.custom.ModSwordItem;
+import mod.leronus.mores.sound.ModSounds;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroupEntries;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
@@ -12,6 +14,7 @@ import net.minecraft.item.*;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
+import net.minecraft.util.Rarity;
 
 /**
  * Class that initialise all items from mOres
@@ -20,9 +23,14 @@ public class ModItems {
     /**
      * Fills the registry with items
      */
-//    public static final Item SWEET_CAROLINE_MUSIC_DISC = registerItem("sweet_caroline_music_disc", new MusicDiscItem(4, ModSounds.SWEET_CAROLINE_BOOTLEG, new FabricItemSettings(1).rarity(Rarity.RARE), 4040));
-//    public static final Item CIPHER_DISC = registerItem("cipher_music_disc", new MusicDiscItem(5, ModSounds.CIPHER, new FabricItemSettings(1).rarity(Rarity.RARE), 3820));
+    public static final Item SWEET_CAROLINE_MUSIC_DISC = registerItem("sweet_caroline_music_disc", new MusicDiscItem(4, ModSounds.SWEET_CAROLINE_BOOTLEG, new FabricItemSettings().rarity(Rarity.RARE), 4040));
+    public static final Item CIPHER_DISC = registerItem("cipher_music_disc", new MusicDiscItem(5, ModSounds.CIPHER, new FabricItemSettings().rarity(Rarity.RARE), 3820));
 
+    public static final Item OBSIDIAN_UPGRADE_SMITHING_TEMPLATE = registerItem("obsidian_upgrade_smithing_template", (Item) ModSmithingTemplateItem.createObsidianUpgrade());
+    public static final Item BRONZE_ALLOY_SMITHING_TEMPLATE = registerItem("bronze_alloy_smithing_template", (Item) ModSmithingTemplateItem.createBronzeAlloyTemplate());
+    public static final Item STERLING_ALLOY_SMITHING_TEMPLATE = registerItem("sterling_alloy_smithing_template", (Item) ModSmithingTemplateItem.createSterlingAlloyTemplate());
+    public static final Item STEEL_ALLOY_SMITHING_TEMPLATE = registerItem("steel_alloy_smithing_template", (Item) ModSmithingTemplateItem.createSteelAlloyTemplate());
+    public static final Item GRAPHENE_ALLOY_SMITHING_TEMPLATE = registerItem("graphene_alloy_smithing_template", (Item) ModSmithingTemplateItem.createGrapheneAlloyTemplate());
 
     public static final Item CHOCOLATE = registerItem("chocolate", new Item(new FabricItemSettings().food(ModFoodComponents.CHOCOLATE)));
     public static final Item CARROT_PIE = registerItem("carrot_pie", new Item(new FabricItemSettings().food(ModFoodComponents.CARROT_PIE)));
@@ -513,8 +521,8 @@ public class ModItems {
         entries.add(TURQUOISE_GEM);
         entries.add(ONYX_GEM);
         entries.add(GRAPHENE_GEM);
-//      entries.add(SWEET_CAROLINE_MUSIC_DISC);
-//      entries.add(CIPHER_DISC);
+        entries.add(SWEET_CAROLINE_MUSIC_DISC);
+        entries.add(CIPHER_DISC);
     }
     private static void addItemsToCombatItemGroup(FabricItemGroupEntries entries) {
         entries.add(WOOD_BATTLEAXE);
@@ -636,6 +644,11 @@ public class ModItems {
         entries.add(GRAPHENE_MACE);
         entries.add(GRAPHENE_DAGGER);
 
+        entries.add(OBSIDIAN_UPGRADE_SMITHING_TEMPLATE);
+        entries.add(BRONZE_ALLOY_SMITHING_TEMPLATE);
+        entries.add(STERLING_ALLOY_SMITHING_TEMPLATE);
+        entries.add(STEEL_ALLOY_SMITHING_TEMPLATE);
+        entries.add(GRAPHENE_ALLOY_SMITHING_TEMPLATE);
 //        entries.add(TIN_SHIELD);
 //        entries.add(SILVER_SHIELD);
 //        entries.add(COPPER_SHIELD);
