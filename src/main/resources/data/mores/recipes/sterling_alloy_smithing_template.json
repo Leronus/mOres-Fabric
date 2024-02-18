@@ -5,7 +5,7 @@
       "item": "mores:silver_ingot"
     },
     "C": {
-      "tag": "minecraft:stone"
+      "tag": "minecraft:stone_crafting_materials"
     },
     "S": {
       "item": "mores:sterling_alloy_smithing_template"

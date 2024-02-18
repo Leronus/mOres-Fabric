@@ -155,9 +155,9 @@ public class ModConfiguredFeatures {
         register(context, SAPPHIRE_BURIED_ORE_KEY, Feature.ORE, new OreFeatureConfig(OVERWORLD_SAPPHIRE_ORES,8, 1.0F));
         register(context, NETHER_SAPPHIRE_ORE_KEY, Feature.ORE, new OreFeatureConfig(NETHER_SAPPHIRE_ORES,5, 0.7F));
 
-        register(context, TURQUOISE_SMALL_ORE_KEY, Feature.ORE, new OreFeatureConfig(OVERWORLD_TURQUOISE_ORES,4, 0.5F));
-        register(context, TURQUOISE_LARGE_ORE_KEY, Feature.ORE, new OreFeatureConfig(OVERWORLD_TURQUOISE_ORES,10, 0.7F));
-        register(context, TURQUOISE_BURIED_ORE_KEY, Feature.ORE, new OreFeatureConfig(OVERWORLD_TURQUOISE_ORES,8, 1.0F));
+        register(context, TURQUOISE_SMALL_ORE_KEY, Feature.ORE, new OreFeatureConfig(OVERWORLD_TURQUOISE_ORES,6, 0.5F));
+        register(context, TURQUOISE_LARGE_ORE_KEY, Feature.ORE, new OreFeatureConfig(OVERWORLD_TURQUOISE_ORES,7, 0.7F));
+        register(context, TURQUOISE_BURIED_ORE_KEY, Feature.ORE, new OreFeatureConfig(OVERWORLD_TURQUOISE_ORES,6, 1.0F));
 
         register(context, END_ONYX_ORE_KEY, Feature.ORE, new OreFeatureConfig(END_ONYX_ORES,6));
 

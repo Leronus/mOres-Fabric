@@ -2,10 +2,10 @@
   "type": "minecraft:crafting_shaped",
   "key": {
     "#": {
-      "tag": "minecraft:stone"
+      "item": "minecraft:iron_ingot"
     },
     "C": {
-      "item": "minecraft:iron_block"
+      "tag": "stone_crafting_materials"
     },
     "S": {
       "item": "mores:steel_alloy_smithing_template"
@@ -17,7 +17,7 @@
     "###"
   ],
   "result": {
-    "count": 2,
+    "count": 7,
     "item": "mores:steel_alloy_smithing_template"
   },
   "show_notification": true

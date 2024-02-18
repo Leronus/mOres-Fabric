@@ -5,7 +5,7 @@
       "item": "minecraft:copper_ingot"
     },
     "C": {
-      "tag": "minecraft:stone"
+      "tag": "minecraft:stone_crafting_materials"
     },
     "S": {
       "item": "mores:bronze_alloy_smithing_template"
@@ -17,7 +17,7 @@
     "###"
   ],
   "result": {
-    "count": 2,
+    "count": 7,
     "item": "mores:bronze_alloy_smithing_template"
   },
   "show_notification": true

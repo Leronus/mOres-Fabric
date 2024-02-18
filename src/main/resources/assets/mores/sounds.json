@@ -16,5 +16,23 @@
         "stream" : true
       }
     ]
+  },
+  "wortel9": {
+    "subtitle" : "sound.mores.wortel9",
+    "sounds" : [
+      {
+        "name" : "mores:wortel9",
+        "stream" : true
+      }
+    ]
+  },
+  "watwaarom": {
+    "subtitle" : "sound.mores.watwaarom",
+    "sounds" : [
+      {
+        "name" : "mores:watwaarom",
+        "stream" : true
+      }
+    ]
   }
 }

@@ -9,6 +9,8 @@ import net.minecraft.util.Identifier;
 public class ModSounds {
     public static final SoundEvent SWEET_CAROLINE_BOOTLEG = registerSoundEvent("sweet_caroline_bootleg");
     public static final SoundEvent CIPHER = registerSoundEvent( "cipher");
+    public static final SoundEvent WORTEL9 = registerSoundEvent( "wortel9");
+    public static final SoundEvent WATWAAROM = registerSoundEvent( "watwaarom");
 
     private static SoundEvent registerSoundEvent(String name) {
         Identifier id = new Identifier(Mores.MOD_ID, name);
