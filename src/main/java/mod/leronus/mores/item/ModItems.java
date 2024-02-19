@@ -2,10 +2,7 @@ package mod.leronus.mores.item;
 
 import com.github.crimsondawn45.fabricshieldlib.lib.object.FabricShieldItem;
 import mod.leronus.mores.Mores;
-import mod.leronus.mores.item.custom.ModArmorItem;
-import mod.leronus.mores.item.custom.ModBattleAxeItem;
-import mod.leronus.mores.item.custom.ModSmithingTemplateItem;
-import mod.leronus.mores.item.custom.ModSwordItem;
+import mod.leronus.mores.item.custom.*;
 import mod.leronus.mores.sound.ModSounds;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroupEntries;
@@ -354,122 +351,122 @@ public class ModItems {
 
 
     // All pickaxes
-    public static final Item TIN_PICKAXE = registerItem("tin_pickaxe", new PickaxeItem(ModToolMaterials.TIN, 1, -2.8F, new FabricItemSettings()));
-    public static final Item COPPER_PICKAXE = registerItem("copper_pickaxe", new PickaxeItem(ModToolMaterials.COPPER, 1, -2.8F, new FabricItemSettings()));
+    public static final Item TIN_PICKAXE = registerItem("tin_pickaxe", new ModPickaxeItem(ModToolMaterials.TIN, 1, -2.8F, new FabricItemSettings()));
+    public static final Item COPPER_PICKAXE = registerItem("copper_pickaxe", new ModPickaxeItem(ModToolMaterials.COPPER, 1, -2.8F, new FabricItemSettings()));
 
-    public static final Item SILVER_PICKAXE = registerItem("silver_pickaxe", new PickaxeItem(ModToolMaterials.SILVER, 1, -2.8F, new FabricItemSettings()));
+    public static final Item SILVER_PICKAXE = registerItem("silver_pickaxe", new ModPickaxeItem(ModToolMaterials.SILVER, 1, -2.8F, new FabricItemSettings()));
 
-    public static final Item BRONZE_PICKAXE = registerItem("bronze_pickaxe", new PickaxeItem(ModToolMaterials.BRONZE, 1, -2.8F, new FabricItemSettings()));
+    public static final Item BRONZE_PICKAXE = registerItem("bronze_pickaxe", new ModPickaxeItem(ModToolMaterials.BRONZE, 1, -2.8F, new FabricItemSettings()));
 
-    public static final Item OBSIDIAN_PICKAXE = registerItem("obsidian_pickaxe", new PickaxeItem(ModToolMaterials.OBSIDIAN, 1, -2.8F, new FabricItemSettings()));
-    public static final Item COBALT_PICKAXE = registerItem("cobalt_pickaxe", new PickaxeItem(ModToolMaterials.COBALT, 1, -2.8F, new FabricItemSettings()));
-    public static final Item STEEL_PICKAXE = registerItem("steel_pickaxe", new PickaxeItem(ModToolMaterials.STEEL, 1, -2.8F, new FabricItemSettings()));
-    public static final Item STERLING_PICKAXE = registerItem("sterling_pickaxe", new PickaxeItem(ModToolMaterials.STERLING, 1, -2.8F, new FabricItemSettings()));
+    public static final Item OBSIDIAN_PICKAXE = registerItem("obsidian_pickaxe", new ModPickaxeItem(ModToolMaterials.OBSIDIAN, 1, -2.8F, new FabricItemSettings()));
+    public static final Item COBALT_PICKAXE = registerItem("cobalt_pickaxe", new ModPickaxeItem(ModToolMaterials.COBALT, 1, -2.8F, new FabricItemSettings()));
+    public static final Item STEEL_PICKAXE = registerItem("steel_pickaxe", new ModPickaxeItem(ModToolMaterials.STEEL, 1, -2.8F, new FabricItemSettings()));
+    public static final Item STERLING_PICKAXE = registerItem("sterling_pickaxe", new ModPickaxeItem(ModToolMaterials.STERLING, 1, -2.8F, new FabricItemSettings()));
 
-    public static final Item AMETHYST_PICKAXE = registerItem("amethyst_pickaxe", new PickaxeItem(ModToolMaterials.AMETHYST, 1, -2.8F, new FabricItemSettings()));
-    public static final Item EMERALD_PICKAXE = registerItem("emerald_pickaxe", new PickaxeItem(ModToolMaterials.EMERALD, 1, -2.8F, new FabricItemSettings()));
+    public static final Item AMETHYST_PICKAXE = registerItem("amethyst_pickaxe", new ModPickaxeItem(ModToolMaterials.AMETHYST, 1, -2.8F, new FabricItemSettings()));
+    public static final Item EMERALD_PICKAXE = registerItem("emerald_pickaxe", new ModPickaxeItem(ModToolMaterials.EMERALD, 1, -2.8F, new FabricItemSettings()));
 
-    public static final Item TOPAZ_PICKAXE = registerItem("topaz_pickaxe", new PickaxeItem(ModToolMaterials.TOPAZ, 1, -2.8F, new FabricItemSettings()));
-    public static final Item TOURMALINE_PICKAXE = registerItem("tourmaline_pickaxe", new PickaxeItem(ModToolMaterials.TOURMALINE, 1, -2.8F, new FabricItemSettings()));
-    public static final Item TANZANITE_PICKAXE = registerItem("tanzanite_pickaxe", new PickaxeItem(ModToolMaterials.TANZANITE, 1, -2.8F, new FabricItemSettings()));
+    public static final Item TOPAZ_PICKAXE = registerItem("topaz_pickaxe", new ModPickaxeItem(ModToolMaterials.TOPAZ, 1, -2.8F, new FabricItemSettings()));
+    public static final Item TOURMALINE_PICKAXE = registerItem("tourmaline_pickaxe", new ModPickaxeItem(ModToolMaterials.TOURMALINE, 1, -2.8F, new FabricItemSettings()));
+    public static final Item TANZANITE_PICKAXE = registerItem("tanzanite_pickaxe", new ModPickaxeItem(ModToolMaterials.TANZANITE, 1, -2.8F, new FabricItemSettings()));
 
-    public static final Item RUBY_PICKAXE = registerItem("ruby_pickaxe", new PickaxeItem(ModToolMaterials.RUBY, 1, -2.8F, new FabricItemSettings()));
-    public static final Item SAPPHIRE_PICKAXE = registerItem("sapphire_pickaxe", new PickaxeItem(ModToolMaterials.SAPPHIRE, 1, -2.8F, new FabricItemSettings()));
-    public static final Item TURQUOISE_PICKAXE = registerItem("turquoise_pickaxe", new PickaxeItem(ModToolMaterials.TURQUOISE, 1, -2.8F, new FabricItemSettings()));
+    public static final Item RUBY_PICKAXE = registerItem("ruby_pickaxe", new ModPickaxeItem(ModToolMaterials.RUBY, 1, -2.8F, new FabricItemSettings()));
+    public static final Item SAPPHIRE_PICKAXE = registerItem("sapphire_pickaxe", new ModPickaxeItem(ModToolMaterials.SAPPHIRE, 1, -2.8F, new FabricItemSettings()));
+    public static final Item TURQUOISE_PICKAXE = registerItem("turquoise_pickaxe", new ModPickaxeItem(ModToolMaterials.TURQUOISE, 1, -2.8F, new FabricItemSettings()));
 
-    public static final Item MOISSANITE_PICKAXE = registerItem("moissanite_pickaxe", new PickaxeItem(ModToolMaterials.MOISSANITE, 3, -2.8F, new FabricItemSettings()));
-    public static final Item ONYX_PICKAXE = registerItem("onyx_pickaxe", new PickaxeItem(ModToolMaterials.ONYX, 1, -2.8F, new FabricItemSettings()));
+    public static final Item MOISSANITE_PICKAXE = registerItem("moissanite_pickaxe", new ModPickaxeItem(ModToolMaterials.MOISSANITE, 3, -2.8F, new FabricItemSettings()));
+    public static final Item ONYX_PICKAXE = registerItem("onyx_pickaxe", new ModPickaxeItem(ModToolMaterials.ONYX, 1, -2.8F, new FabricItemSettings()));
 
-    public static final Item GRAPHENE_PICKAXE = registerItem("graphene_pickaxe", new PickaxeItem(ModToolMaterials.GRAPHENE, 1, -2.8F, new FabricItemSettings()));
+    public static final Item GRAPHENE_PICKAXE = registerItem("graphene_pickaxe", new ModPickaxeItem(ModToolMaterials.GRAPHENE, 1, -2.8F, new FabricItemSettings()));
 
 
     //All axes
     //TODO Checkout items for proper atk dmg and speed values
-    public static final Item TIN_AXE = registerItem("tin_axe", new AxeItem(ModToolMaterials.TIN, 6.0F, -3.2F, new FabricItemSettings()));
-    public static final Item COPPER_AXE = registerItem("copper_axe", new AxeItem(ModToolMaterials.COPPER, 6.0F, -3.2F, new FabricItemSettings()));
+    public static final Item TIN_AXE = registerItem("tin_axe", new ModAxeItem(ModToolMaterials.TIN, 6.0F, -3.2F, new FabricItemSettings()));
+    public static final Item COPPER_AXE = registerItem("copper_axe", new ModAxeItem(ModToolMaterials.COPPER, 6.0F, -3.2F, new FabricItemSettings()));
 
-    public static final Item SILVER_AXE = registerItem("silver_axe", new AxeItem(ModToolMaterials.SILVER, 6.0F, -3.2F, new FabricItemSettings()));
+    public static final Item SILVER_AXE = registerItem("silver_axe", new ModAxeItem(ModToolMaterials.SILVER, 6.0F, -3.2F, new FabricItemSettings()));
 
-    public static final Item BRONZE_AXE = registerItem("bronze_axe", new AxeItem(ModToolMaterials.BRONZE, 6.0F, -3.2F, new FabricItemSettings()));
+    public static final Item BRONZE_AXE = registerItem("bronze_axe", new ModAxeItem(ModToolMaterials.BRONZE, 6.0F, -3.2F, new FabricItemSettings()));
 
-    public static final Item OBSIDIAN_AXE = registerItem("obsidian_axe", new AxeItem(ModToolMaterials.OBSIDIAN, 6.0F, -3.2F, new FabricItemSettings()));
-    public static final Item COBALT_AXE = registerItem("cobalt_axe", new AxeItem(ModToolMaterials.COBALT, 6.0F, -3.2F, new FabricItemSettings()));
-    public static final Item STEEL_AXE = registerItem("steel_axe", new AxeItem(ModToolMaterials.STEEL, 6.0F, -3.2F, new FabricItemSettings()));
-    public static final Item STERLING_AXE = registerItem("sterling_axe", new AxeItem(ModToolMaterials.STERLING, 6.0F, -3.2F, new FabricItemSettings()));
+    public static final Item OBSIDIAN_AXE = registerItem("obsidian_axe", new ModAxeItem(ModToolMaterials.OBSIDIAN, 6.0F, -3.2F, new FabricItemSettings()));
+    public static final Item COBALT_AXE = registerItem("cobalt_axe", new ModAxeItem(ModToolMaterials.COBALT, 6.0F, -3.2F, new FabricItemSettings()));
+    public static final Item STEEL_AXE = registerItem("steel_axe", new ModAxeItem(ModToolMaterials.STEEL, 6.0F, -3.2F, new FabricItemSettings()));
+    public static final Item STERLING_AXE = registerItem("sterling_axe", new ModAxeItem(ModToolMaterials.STERLING, 6.0F, -3.2F, new FabricItemSettings()));
 
-    public static final Item AMETHYST_AXE = registerItem("amethyst_axe", new AxeItem(ModToolMaterials.AMETHYST, 6.0F, -3.2F, new FabricItemSettings()));
-    public static final Item EMERALD_AXE = registerItem("emerald_axe", new AxeItem(ModToolMaterials.EMERALD, 6.0F, -3.2F, new FabricItemSettings()));
+    public static final Item AMETHYST_AXE = registerItem("amethyst_axe", new ModAxeItem(ModToolMaterials.AMETHYST, 6.0F, -3.2F, new FabricItemSettings()));
+    public static final Item EMERALD_AXE = registerItem("emerald_axe", new ModAxeItem(ModToolMaterials.EMERALD, 6.0F, -3.2F, new FabricItemSettings()));
 
-    public static final Item TOPAZ_AXE = registerItem("topaz_axe", new AxeItem(ModToolMaterials.TOPAZ, 6.0F, -3.2F, new FabricItemSettings()));
-    public static final Item TOURMALINE_AXE = registerItem("tourmaline_axe", new AxeItem(ModToolMaterials.TOURMALINE, 6.0F, -3.2F, new FabricItemSettings()));
-    public static final Item TANZANITE_AXE = registerItem("tanzanite_axe", new AxeItem(ModToolMaterials.TANZANITE, 6.0F, -3.2F, new FabricItemSettings()));
+    public static final Item TOPAZ_AXE = registerItem("topaz_axe", new ModAxeItem(ModToolMaterials.TOPAZ, 6.0F, -3.2F, new FabricItemSettings()));
+    public static final Item TOURMALINE_AXE = registerItem("tourmaline_axe", new ModAxeItem(ModToolMaterials.TOURMALINE, 6.0F, -3.2F, new FabricItemSettings()));
+    public static final Item TANZANITE_AXE = registerItem("tanzanite_axe", new ModAxeItem(ModToolMaterials.TANZANITE, 6.0F, -3.2F, new FabricItemSettings()));
 
-    public static final Item RUBY_AXE = registerItem("ruby_axe", new AxeItem(ModToolMaterials.RUBY, 6.0F, -3.2F, new FabricItemSettings()));
-    public static final Item SAPPHIRE_AXE = registerItem("sapphire_axe", new AxeItem(ModToolMaterials.SAPPHIRE, 6.0F, -3.2F, new FabricItemSettings()));
-    public static final Item TURQUOISE_AXE = registerItem("turquoise_axe", new AxeItem(ModToolMaterials.TURQUOISE, 6.0F, -3.2F, new FabricItemSettings()));
+    public static final Item RUBY_AXE = registerItem("ruby_axe", new ModAxeItem(ModToolMaterials.RUBY, 6.0F, -3.2F, new FabricItemSettings()));
+    public static final Item SAPPHIRE_AXE = registerItem("sapphire_axe", new ModAxeItem(ModToolMaterials.SAPPHIRE, 6.0F, -3.2F, new FabricItemSettings()));
+    public static final Item TURQUOISE_AXE = registerItem("turquoise_axe", new ModAxeItem(ModToolMaterials.TURQUOISE, 6.0F, -3.2F, new FabricItemSettings()));
 
-    public static final Item MOISSANITE_AXE = registerItem("moissanite_axe", new AxeItem(ModToolMaterials.MOISSANITE, 6.0F, -3.2F, new FabricItemSettings()));
-    public static final Item ONYX_AXE = registerItem("onyx_axe", new AxeItem(ModToolMaterials.ONYX, 6.0F, -3.2F, new FabricItemSettings()));
+    public static final Item MOISSANITE_AXE = registerItem("moissanite_axe", new ModAxeItem(ModToolMaterials.MOISSANITE, 6.0F, -3.2F, new FabricItemSettings()));
+    public static final Item ONYX_AXE = registerItem("onyx_axe", new ModAxeItem(ModToolMaterials.ONYX, 6.0F, -3.2F, new FabricItemSettings()));
 
-    public static final Item GRAPHENE_AXE = registerItem("graphene_axe", new AxeItem(ModToolMaterials.GRAPHENE, 6.0F, -3.2F, new FabricItemSettings()));
+    public static final Item GRAPHENE_AXE = registerItem("graphene_axe", new ModAxeItem(ModToolMaterials.GRAPHENE, 6.0F, -3.2F, new FabricItemSettings()));
 
 
     //All shovels
-    public static final Item TIN_SHOVEL = registerItem("tin_shovel", new ShovelItem(ModToolMaterials.TIN, 1.5F, -3.0F, new FabricItemSettings()));
-    public static final Item COPPER_SHOVEL = registerItem("copper_shovel", new ShovelItem(ModToolMaterials.TIN, 1.5F, -3.0F, new FabricItemSettings()));
+    public static final Item TIN_SHOVEL = registerItem("tin_shovel", new ModShovelItem(ModToolMaterials.TIN, 1.5F, -3.0F, new FabricItemSettings()));
+    public static final Item COPPER_SHOVEL = registerItem("copper_shovel", new ModShovelItem(ModToolMaterials.TIN, 1.5F, -3.0F, new FabricItemSettings()));
 
-    public static final Item SILVER_SHOVEL = registerItem("silver_shovel", new ShovelItem(ModToolMaterials.SILVER, 1.5F, -3.0F, new FabricItemSettings()));
-    public static final Item BRONZE_SHOVEL = registerItem("bronze_shovel", new ShovelItem(ModToolMaterials.BRONZE, 1.5F, -3.0F, new FabricItemSettings()));
+    public static final Item SILVER_SHOVEL = registerItem("silver_shovel", new ModShovelItem(ModToolMaterials.SILVER, 1.5F, -3.0F, new FabricItemSettings()));
+    public static final Item BRONZE_SHOVEL = registerItem("bronze_shovel", new ModShovelItem(ModToolMaterials.BRONZE, 1.5F, -3.0F, new FabricItemSettings()));
 
-    public static final Item OBSIDIAN_SHOVEL = registerItem("obsidian_shovel", new ShovelItem(ModToolMaterials.OBSIDIAN, 1.5F, -3.0F, new FabricItemSettings()));
-    public static final Item COBALT_SHOVEL = registerItem("cobalt_shovel", new ShovelItem(ModToolMaterials.COBALT, 1.5F, -3.0F, new FabricItemSettings()));
-    public static final Item STEEL_SHOVEL = registerItem("steel_shovel", new ShovelItem(ModToolMaterials.STEEL, 1.5F, -3.0F, new FabricItemSettings()));
-    public static final Item STERLING_SHOVEL = registerItem("sterling_shovel", new ShovelItem(ModToolMaterials.STERLING, 1.5F, -3.0F, new FabricItemSettings()));
+    public static final Item OBSIDIAN_SHOVEL = registerItem("obsidian_shovel", new ModShovelItem(ModToolMaterials.OBSIDIAN, 1.5F, -3.0F, new FabricItemSettings()));
+    public static final Item COBALT_SHOVEL = registerItem("cobalt_shovel", new ModShovelItem(ModToolMaterials.COBALT, 1.5F, -3.0F, new FabricItemSettings()));
+    public static final Item STEEL_SHOVEL = registerItem("steel_shovel", new ModShovelItem(ModToolMaterials.STEEL, 1.5F, -3.0F, new FabricItemSettings()));
+    public static final Item STERLING_SHOVEL = registerItem("sterling_shovel", new ModShovelItem(ModToolMaterials.STERLING, 1.5F, -3.0F, new FabricItemSettings()));
 
-    public static final Item AMETHYST_SHOVEL = registerItem("amethyst_shovel", new ShovelItem(ModToolMaterials.AMETHYST, 1.5F, -3.0F, new FabricItemSettings()));
-    public static final Item EMERALD_SHOVEL = registerItem("emerald_shovel", new ShovelItem(ModToolMaterials.EMERALD, 1.5F, -3.0F, new FabricItemSettings()));
+    public static final Item AMETHYST_SHOVEL = registerItem("amethyst_shovel", new ModShovelItem(ModToolMaterials.AMETHYST, 1.5F, -3.0F, new FabricItemSettings()));
+    public static final Item EMERALD_SHOVEL = registerItem("emerald_shovel", new ModShovelItem(ModToolMaterials.EMERALD, 1.5F, -3.0F, new FabricItemSettings()));
 
-    public static final Item TOPAZ_SHOVEL = registerItem("topaz_shovel", new ShovelItem(ModToolMaterials.TOPAZ, 1.5F, -3.0F, new FabricItemSettings()));
-    public static final Item TOURMALINE_SHOVEL = registerItem("tourmaline_shovel", new ShovelItem(ModToolMaterials.TOURMALINE, 1.5F, -3.0F, new FabricItemSettings()));
-    public static final Item TANZANITE_SHOVEL = registerItem("tanzanite_shovel", new ShovelItem(ModToolMaterials.TANZANITE, 1.5F, -3.0F, new FabricItemSettings()));
+    public static final Item TOPAZ_SHOVEL = registerItem("topaz_shovel", new ModShovelItem(ModToolMaterials.TOPAZ, 1.5F, -3.0F, new FabricItemSettings()));
+    public static final Item TOURMALINE_SHOVEL = registerItem("tourmaline_shovel", new ModShovelItem(ModToolMaterials.TOURMALINE, 1.5F, -3.0F, new FabricItemSettings()));
+    public static final Item TANZANITE_SHOVEL = registerItem("tanzanite_shovel", new ModShovelItem(ModToolMaterials.TANZANITE, 1.5F, -3.0F, new FabricItemSettings()));
 
-    public static final Item RUBY_SHOVEL = registerItem("ruby_shovel", new ShovelItem(ModToolMaterials.RUBY, 1.5F, -3.0F, new FabricItemSettings()));
-    public static final Item SAPPHIRE_SHOVEL = registerItem("sapphire_shovel", new ShovelItem(ModToolMaterials.SAPPHIRE, 1.5F, -3.0F, new FabricItemSettings()));
-    public static final Item TURQUOISE_SHOVEL = registerItem("turquoise_shovel", new ShovelItem(ModToolMaterials.TURQUOISE, 1.5F, -3.0F, new FabricItemSettings()));
+    public static final Item RUBY_SHOVEL = registerItem("ruby_shovel", new ModShovelItem(ModToolMaterials.RUBY, 1.5F, -3.0F, new FabricItemSettings()));
+    public static final Item SAPPHIRE_SHOVEL = registerItem("sapphire_shovel", new ModShovelItem(ModToolMaterials.SAPPHIRE, 1.5F, -3.0F, new FabricItemSettings()));
+    public static final Item TURQUOISE_SHOVEL = registerItem("turquoise_shovel", new ModShovelItem(ModToolMaterials.TURQUOISE, 1.5F, -3.0F, new FabricItemSettings()));
 
-    public static final Item MOISSANITE_SHOVEL = registerItem("moissanite_shovel", new ShovelItem(ModToolMaterials.MOISSANITE, 1.5F, -3.0F, new FabricItemSettings()));
-    public static final Item ONYX_SHOVEL = registerItem("onyx_shovel", new ShovelItem(ModToolMaterials.ONYX, 1.5F, -3.0F, new FabricItemSettings()));
+    public static final Item MOISSANITE_SHOVEL = registerItem("moissanite_shovel", new ModShovelItem(ModToolMaterials.MOISSANITE, 1.5F, -3.0F, new FabricItemSettings()));
+    public static final Item ONYX_SHOVEL = registerItem("onyx_shovel", new ModShovelItem(ModToolMaterials.ONYX, 1.5F, -3.0F, new FabricItemSettings()));
 
-    public static final Item GRAPHENE_SHOVEL = registerItem("graphene_shovel", new ShovelItem(ModToolMaterials.GRAPHENE, 1.5F, -3.0F, new FabricItemSettings()));
+    public static final Item GRAPHENE_SHOVEL = registerItem("graphene_shovel", new ModShovelItem(ModToolMaterials.GRAPHENE, 1.5F, -3.0F, new FabricItemSettings()));
 
 
     //All hoes
-    public static final Item TIN_HOE = registerItem("tin_hoe", new HoeItem(ModToolMaterials.TIN, 0, -3.0F, new FabricItemSettings()));
-    public static final Item COPPER_HOE = registerItem("copper_hoe", new HoeItem(ModToolMaterials.COPPER, 0, -3.0F, new FabricItemSettings()));
+    public static final Item TIN_HOE = registerItem("tin_hoe", new ModHoeItem(ModToolMaterials.TIN, 0, -3.0F, new FabricItemSettings()));
+    public static final Item COPPER_HOE = registerItem("copper_hoe", new ModHoeItem(ModToolMaterials.COPPER, 0, -3.0F, new FabricItemSettings()));
 
-    public static final Item SILVER_HOE = registerItem("silver_hoe", new HoeItem(ModToolMaterials.SILVER, 0, -3.0F, new FabricItemSettings()));
-    public static final Item BRONZE_HOE = registerItem("bronze_hoe", new HoeItem(ModToolMaterials.BRONZE, 0, -3.0F, new FabricItemSettings()));
+    public static final Item SILVER_HOE = registerItem("silver_hoe", new ModHoeItem(ModToolMaterials.SILVER, 0, -3.0F, new FabricItemSettings()));
+    public static final Item BRONZE_HOE = registerItem("bronze_hoe", new ModHoeItem(ModToolMaterials.BRONZE, 0, -3.0F, new FabricItemSettings()));
 
-    public static final Item OBSIDIAN_HOE = registerItem("obsidian_hoe", new HoeItem(ModToolMaterials.OBSIDIAN, 0, -3.0F, new FabricItemSettings()));
-    public static final Item COBALT_HOE = registerItem("cobalt_hoe", new HoeItem(ModToolMaterials.COBALT, 0, -3.0F, new FabricItemSettings()));
-    public static final Item STEEL_HOE = registerItem("steel_hoe", new HoeItem(ModToolMaterials.STEEL, 0, -3.0F, new FabricItemSettings()));
-    public static final Item STERLING_HOE = registerItem("sterling_hoe", new HoeItem(ModToolMaterials.STERLING, 0, -3.0F, new FabricItemSettings()));
+    public static final Item OBSIDIAN_HOE = registerItem("obsidian_hoe", new ModHoeItem(ModToolMaterials.OBSIDIAN, 0, -3.0F, new FabricItemSettings()));
+    public static final Item COBALT_HOE = registerItem("cobalt_hoe", new ModHoeItem(ModToolMaterials.COBALT, 0, -3.0F, new FabricItemSettings()));
+    public static final Item STEEL_HOE = registerItem("steel_hoe", new ModHoeItem(ModToolMaterials.STEEL, 0, -3.0F, new FabricItemSettings()));
+    public static final Item STERLING_HOE = registerItem("sterling_hoe", new ModHoeItem(ModToolMaterials.STERLING, 0, -3.0F, new FabricItemSettings()));
 
-    public static final Item AMETHYST_HOE = registerItem("amethyst_hoe", new HoeItem(ModToolMaterials.AMETHYST, 0, -3.0F, new FabricItemSettings()));
-    public static final Item EMERALD_HOE = registerItem("emerald_hoe", new HoeItem(ModToolMaterials.EMERALD, 0, -3.0F, new FabricItemSettings()));
+    public static final Item AMETHYST_HOE = registerItem("amethyst_hoe", new ModHoeItem(ModToolMaterials.AMETHYST, 0, -3.0F, new FabricItemSettings()));
+    public static final Item EMERALD_HOE = registerItem("emerald_hoe", new ModHoeItem(ModToolMaterials.EMERALD, 0, -3.0F, new FabricItemSettings()));
 
-    public static final Item TOPAZ_HOE = registerItem("topaz_hoe", new HoeItem(ModToolMaterials.TOPAZ, 0, -3.0F, new FabricItemSettings()));
-    public static final Item TOURMALINE_HOE = registerItem("tourmaline_hoe", new HoeItem(ModToolMaterials.TOURMALINE, 0, -3.0F, new FabricItemSettings()));
-    public static final Item TANZANITE_HOE = registerItem("tanzanite_hoe", new HoeItem(ModToolMaterials.TANZANITE, 0, -3.0F, new FabricItemSettings()));
+    public static final Item TOPAZ_HOE = registerItem("topaz_hoe", new ModHoeItem(ModToolMaterials.TOPAZ, 0, -3.0F, new FabricItemSettings()));
+    public static final Item TOURMALINE_HOE = registerItem("tourmaline_hoe", new ModHoeItem(ModToolMaterials.TOURMALINE, 0, -3.0F, new FabricItemSettings()));
+    public static final Item TANZANITE_HOE = registerItem("tanzanite_hoe", new ModHoeItem(ModToolMaterials.TANZANITE, 0, -3.0F, new FabricItemSettings()));
 
-    public static final Item RUBY_HOE = registerItem("ruby_hoe", new HoeItem(ModToolMaterials.RUBY, 0, -3.0F, new FabricItemSettings()));
-    public static final Item SAPPHIRE_HOE = registerItem("sapphire_hoe", new HoeItem(ModToolMaterials.SAPPHIRE, 0, -3.0F, new FabricItemSettings()));
-    public static final Item TURQUOISE_HOE = registerItem("turquoise_hoe", new HoeItem(ModToolMaterials.TURQUOISE, 0, -3.0F, new FabricItemSettings()));
+    public static final Item RUBY_HOE = registerItem("ruby_hoe", new ModHoeItem(ModToolMaterials.RUBY, 0, -3.0F, new FabricItemSettings()));
+    public static final Item SAPPHIRE_HOE = registerItem("sapphire_hoe", new ModHoeItem(ModToolMaterials.SAPPHIRE, 0, -3.0F, new FabricItemSettings()));
+    public static final Item TURQUOISE_HOE = registerItem("turquoise_hoe", new ModHoeItem(ModToolMaterials.TURQUOISE, 0, -3.0F, new FabricItemSettings()));
 
-    public static final Item MOISSANITE_HOE = registerItem("moissanite_hoe", new HoeItem(ModToolMaterials.MOISSANITE, 0, -3.0F, new FabricItemSettings()));
-    public static final Item ONYX_HOE = registerItem("onyx_hoe", new HoeItem(ModToolMaterials.ONYX, 0, -3.0F, new FabricItemSettings()));
+    public static final Item MOISSANITE_HOE = registerItem("moissanite_hoe", new ModHoeItem(ModToolMaterials.MOISSANITE, 0, -3.0F, new FabricItemSettings()));
+    public static final Item ONYX_HOE = registerItem("onyx_hoe", new ModHoeItem(ModToolMaterials.ONYX, 0, -3.0F, new FabricItemSettings()));
 
-    public static final Item GRAPHENE_HOE = registerItem("graphene_hoe", new HoeItem(ModToolMaterials.GRAPHENE, 0, -3.0F, new FabricItemSettings()));
+    public static final Item GRAPHENE_HOE = registerItem("graphene_hoe", new ModHoeItem(ModToolMaterials.GRAPHENE, 0, -3.0F, new FabricItemSettings()));
 
 
     //Vanilla tools

@@ -2,8 +2,10 @@ package mod.leronus.mores.item.custom;
 
 import com.google.common.collect.ImmutableMultimap;
 import com.google.common.collect.Multimap;
+import mod.leronus.mores.item.ModItems;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
+import net.minecraft.client.item.TooltipContext;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.attribute.EntityAttribute;
@@ -15,8 +17,13 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.item.SwordItem;
 import net.minecraft.item.ToolMaterial;
 import net.minecraft.registry.tag.BlockTags;
+import net.minecraft.text.Text;
+import net.minecraft.util.Formatting;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
+import org.jetbrains.annotations.Nullable;
+
+import java.util.List;
 
 public class ModSwordItem extends SwordItem {
     private final float attackDamage;
@@ -35,10 +42,6 @@ public class ModSwordItem extends SwordItem {
         return this.attackDamage;
     }
 
-    public boolean canMine(BlockState state, World world, BlockPos pos, PlayerEntity miner) {
-        return !miner.isCreative();
-    }
-
     public float getMiningSpeedMultiplier(ItemStack stack, BlockState state) {
         if (state.isOf(Blocks.COBWEB)) {
             return 15.0F;
@@ -47,28 +50,21 @@ public class ModSwordItem extends SwordItem {
         }
     }
 
-    public boolean postHit(ItemStack stack, LivingEntity target, LivingEntity attacker) {
-        stack.damage(1, attacker, (e) -> {
-            e.sendEquipmentBreakStatus(EquipmentSlot.MAINHAND);
-        });
-        return true;
-    }
-
-    public boolean postMine(ItemStack stack, World world, BlockState state, BlockPos pos, LivingEntity miner) {
-        if (state.getHardness(world, pos) != 0.0F) {
-            stack.damage(2, miner, (e) -> {
-                e.sendEquipmentBreakStatus(EquipmentSlot.MAINHAND);
-            });
-        }
-
-        return true;
-    }
-
-    public boolean isSuitableFor(BlockState state) {
-        return state.isOf(Blocks.COBWEB);
-    }
-
     public Multimap<EntityAttribute, EntityAttributeModifier> getAttributeModifiers(EquipmentSlot slot) {
         return slot == EquipmentSlot.MAINHAND ? this.attributeModifiers : super.getAttributeModifiers(slot);
+    }
+
+    @Override
+    public void appendTooltip(ItemStack stack, @Nullable World world, List<Text> tooltip, TooltipContext context) {
+        if (stack.getItem() instanceof ModSwordItem){
+        tooltip.add(Text.translatable(""));
+        if (stack.getItem() == ModItems.ONYX_SWORD || stack.getItem() == ModItems.ONYX_MACE || stack.getItem() == ModItems.ONYX_DAGGER) {
+            tooltip.add(Text.translatable("mores.bonus").formatted(Formatting.GRAY).append(Text.translatable("mores.wither_effect").formatted(Formatting.DARK_GRAY)));
+        }
+        tooltip.add(Text.translatable("mores.durability").formatted(Formatting.GRAY).append(Text.translatable(String.valueOf(stack.getItem().getMaxDamage())).formatted(Formatting.LIGHT_PURPLE)));
+//            if (stack.getItem() == ModItems.RUBY_SWORD || stack.getItem() == ModItems.RUBY_MACE || stack.getItem() == ModItems.RUBY_BATTLEAXE || stack.getItem() == ModItems.RUBY_DAGGER) {
+//                tooltip.add(Text.translatable(Formatting.GRAY + "mores.bonus" + Formatting.RED + "Burn Effect"));
+//            }
+        }
     }
 }

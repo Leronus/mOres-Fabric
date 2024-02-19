@@ -2,6 +2,7 @@ package mod.leronus.mores.item.custom;
 
 import com.google.common.collect.ImmutableMap;
 import mod.leronus.mores.item.ModArmorMaterials;
+import net.minecraft.client.item.TooltipContext;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.effect.StatusEffect;
 import net.minecraft.entity.effect.StatusEffectInstance;
@@ -10,8 +11,12 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ArmorItem;
 import net.minecraft.item.ArmorMaterial;
 import net.minecraft.item.ItemStack;
+import net.minecraft.text.Text;
+import net.minecraft.util.Formatting;
 import net.minecraft.world.World;
+import org.jetbrains.annotations.Nullable;
 
+import java.util.List;
 import java.util.Map;
 
 public class ModArmorItem extends ArmorItem {
@@ -105,5 +110,102 @@ public class ModArmorItem extends ArmorItem {
 
         return helmet.getMaterial() == material && breastplate.getMaterial() == material &&
                 leggings.getMaterial() == material && boots.getMaterial() == material;
+    }
+
+    @Override
+    public void appendTooltip(ItemStack stack, @Nullable World world, List<Text> tooltip, TooltipContext context) {
+        if (stack.getItem() instanceof ModArmorItem){
+            ModArmorItem item = (ModArmorItem) stack.getItem();
+
+            if (item.getMaterial() == ModArmorMaterials.TIN) {
+                //Making the tooltips
+                tooltip.add(Text.translatable(""));
+                tooltip.add(Text.translatable("mores.full_set_bonus").formatted(Formatting.GRAY).append(Text.translatable("mores.jump_boost").formatted(Formatting.YELLOW)));
+                tooltip.add(Text.translatable("mores.durability").formatted(Formatting.GRAY).append(Text.translatable(String.valueOf(ModArmorMaterials.TIN.getDurability(item.getType()))).formatted(Formatting.LIGHT_PURPLE)));
+            } else if (item.getMaterial() == ModArmorMaterials.COBALT) {
+                //Making the tooltips
+                tooltip.add(Text.translatable(""));
+                tooltip.add(Text.translatable("mores.full_set_bonus").formatted(Formatting.GRAY).append(Text.translatable("mores.haste").formatted(Formatting.GOLD)));
+                tooltip.add(Text.translatable("mores.durability").formatted(Formatting.GRAY).append(Text.translatable(String.valueOf(ModArmorMaterials.COBALT.getDurability(item.getType()))).formatted(Formatting.LIGHT_PURPLE)));
+            } else if (item.getMaterial() == ModArmorMaterials.AMETHYST) {
+                //Making the tooltips
+                tooltip.add(Text.translatable(""));
+                tooltip.add(Text.translatable("mores.full_set_bonus").formatted(Formatting.GRAY).append(Text.translatable("mores.slow_falling").formatted(Formatting.YELLOW)));
+                tooltip.add(Text.translatable("mores.durability").formatted(Formatting.GRAY).append(Text.translatable(String.valueOf(ModArmorMaterials.AMETHYST.getDurability(item.getType()))).formatted(Formatting.LIGHT_PURPLE)));
+            } else if (item.getMaterial() == ModArmorMaterials.OBSIDIAN) {
+                //Making the tooltips
+                tooltip.add(Text.translatable(""));
+                tooltip.add(Text.translatable("mores.durability").formatted(Formatting.GRAY).append(Text.translatable(String.valueOf(ModArmorMaterials.OBSIDIAN.getDurability(item.getType()))).formatted(Formatting.LIGHT_PURPLE)));
+            } else if (item.getMaterial() == ModArmorMaterials.EMERALD) {
+                //Making the tooltips
+                tooltip.add(Text.translatable(""));
+                tooltip.add(Text.translatable("mores.full_set_bonus").formatted(Formatting.GRAY).append(Text.translatable("mores.luck").formatted(Formatting.GREEN)));
+                tooltip.add(Text.translatable("mores.durability").formatted(Formatting.GRAY).append(Text.translatable(String.valueOf(ModArmorMaterials.EMERALD.getDurability(item.getType()))).formatted(Formatting.LIGHT_PURPLE)));
+            } else if (item.getMaterial() == ModArmorMaterials.TOURMALINE) {
+                //Making the tooltips
+                tooltip.add(Text.translatable(""));
+                tooltip.add(Text.translatable("mores.full_set_bonus").formatted(Formatting.GRAY).append(Text.translatable("mores.regeneration").formatted(Formatting.RED)));
+                tooltip.add(Text.translatable("mores.durability").formatted(Formatting.GRAY).append(Text.translatable(String.valueOf(ModArmorMaterials.TOURMALINE.getDurability(item.getType()))).formatted(Formatting.LIGHT_PURPLE)));
+            } else if (item.getMaterial() == ModArmorMaterials.TANZANITE) {
+                //Making the tooltips
+                tooltip.add(Text.translatable(""));
+                tooltip.add(Text.translatable("mores.full_set_bonus").formatted(Formatting.GRAY).append(Text.translatable("mores.speed").formatted(Formatting.YELLOW)));
+                tooltip.add(Text.translatable("mores.durability").formatted(Formatting.GRAY).append(Text.translatable(String.valueOf(ModArmorMaterials.TANZANITE.getDurability(item.getType()))).formatted(Formatting.LIGHT_PURPLE)));
+            } else if (item.getMaterial() == ModArmorMaterials.RUBY) {
+                //Making the tooltips
+                tooltip.add(Text.translatable(""));
+                tooltip.add(Text.translatable("mores.full_set_bonus").formatted(Formatting.GRAY).append(Text.translatable("mores.fire_resistance").formatted(Formatting.DARK_RED)));
+                tooltip.add(Text.translatable("mores.durability").formatted(Formatting.GRAY).append(Text.translatable(String.valueOf(ModArmorMaterials.RUBY.getDurability(item.getType()))).formatted(Formatting.LIGHT_PURPLE)));
+            } else if (item.getMaterial() == ModArmorMaterials.SAPPHIRE) {
+                //Making the tooltips
+                tooltip.add(Text.translatable(""));
+                tooltip.add(Text.translatable("mores.full_set_bonus").formatted(Formatting.GRAY).append(Text.translatable("mores.night_vision").formatted(Formatting.BLUE)));
+                tooltip.add(Text.translatable("mores.durability").formatted(Formatting.GRAY).append(Text.translatable(String.valueOf(ModArmorMaterials.SAPPHIRE.getDurability(item.getType()))).formatted(Formatting.LIGHT_PURPLE)));
+            } else if (item.getMaterial() == ModArmorMaterials.TURQUOISE) {
+                //Making the tooltips
+                tooltip.add(Text.translatable(""));
+                tooltip.add(Text.translatable("mores.full_set_bonus").formatted(Formatting.GRAY).append(Text.translatable("mores.water_effects").formatted(Formatting.AQUA)));
+                tooltip.add(Text.translatable("mores.durability").formatted(Formatting.GRAY).append(Text.translatable(String.valueOf(ModArmorMaterials.TURQUOISE.getDurability(item.getType()))).formatted(Formatting.LIGHT_PURPLE)));
+            } else if (item.getMaterial() == ModArmorMaterials.COPPER) {
+                //Making the tooltips
+                tooltip.add(Text.translatable(""));
+                tooltip.add(Text.translatable("mores.durability").formatted(Formatting.GRAY).append(Text.translatable(String.valueOf(ModArmorMaterials.COPPER.getDurability(item.getType()))).formatted(Formatting.LIGHT_PURPLE)));
+            } else if (item.getMaterial() == ModArmorMaterials.BRONZE) {
+                //Making the tooltips
+                tooltip.add(Text.translatable(""));
+                tooltip.add(Text.translatable("mores.durability").formatted(Formatting.GRAY).append(Text.translatable(String.valueOf(ModArmorMaterials.BRONZE.getDurability(item.getType()))).formatted(Formatting.LIGHT_PURPLE)));
+            } else if (item.getMaterial() == ModArmorMaterials.SILVER) {
+                //Making the tooltips
+                tooltip.add(Text.translatable(""));
+                tooltip.add(Text.translatable("mores.durability").formatted(Formatting.GRAY).append(Text.translatable(String.valueOf(ModArmorMaterials.SILVER.getDurability(item.getType()))).formatted(Formatting.LIGHT_PURPLE)));
+            } else if (item.getMaterial() == ModArmorMaterials.STERLING) {
+                //Making the tooltips
+                tooltip.add(Text.translatable(""));
+                tooltip.add(Text.translatable("mores.durability").formatted(Formatting.GRAY).append(Text.translatable(String.valueOf(ModArmorMaterials.STERLING.getDurability(item.getType()))).formatted(Formatting.LIGHT_PURPLE)));
+            } else if (item.getMaterial() == ModArmorMaterials.STEEL) {
+                //Making the tooltips
+                tooltip.add(Text.translatable(""));
+                tooltip.add(Text.translatable("mores.full_set_bonus").formatted(Formatting.GRAY).append(Text.translatable("mores.strength").formatted(Formatting.DARK_PURPLE)));
+                tooltip.add(Text.translatable("mores.durability").formatted(Formatting.GRAY).append(Text.translatable(String.valueOf(ModArmorMaterials.STEEL.getDurability(item.getType()))).formatted(Formatting.LIGHT_PURPLE)));
+            } else if (item.getMaterial() == ModArmorMaterials.TOPAZ) {
+                //Making the tooltips
+                tooltip.add(Text.translatable(""));
+                tooltip.add(Text.translatable("mores.full_set_bonus").formatted(Formatting.GRAY).append(Text.translatable("mores.haste").formatted(Formatting.GOLD)));
+                tooltip.add(Text.translatable("mores.durability").formatted(Formatting.GRAY).append(Text.translatable(String.valueOf(ModArmorMaterials.TOPAZ.getDurability(item.getType()))).formatted(Formatting.LIGHT_PURPLE)));
+            } else if (item.getMaterial() == ModArmorMaterials.MOISSANITE) {
+                //Making the tooltips
+                tooltip.add(Text.translatable(""));
+                tooltip.add(Text.translatable("mores.full_set_bonus").formatted(Formatting.GRAY).append(Text.translatable("mores.conduit").formatted(Formatting.AQUA)));
+                tooltip.add(Text.translatable("mores.durability").formatted(Formatting.GRAY).append(Text.translatable(String.valueOf(ModArmorMaterials.MOISSANITE.getDurability(item.getType()))).formatted(Formatting.LIGHT_PURPLE)));
+            } else if (item.getMaterial() == ModArmorMaterials.ONYX) {
+                //Making the tooltips
+                tooltip.add(Text.translatable(""));
+                tooltip.add(Text.translatable("mores.durability").formatted(Formatting.GRAY).append(Text.translatable(String.valueOf(ModArmorMaterials.ONYX.getDurability(item.getType()))).formatted(Formatting.LIGHT_PURPLE)));
+            } else if (item.getMaterial() == ModArmorMaterials.GRAPHENE) {
+                //Making the tooltips
+                tooltip.add(Text.translatable(""));
+                tooltip.add(Text.translatable("mores.durability").formatted(Formatting.GRAY).append(Text.translatable(String.valueOf(ModArmorMaterials.GRAPHENE.getDurability(item.getType()))).formatted(Formatting.LIGHT_PURPLE)));
+            }
+        }
     }
 }

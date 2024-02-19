@@ -1,4 +1,4 @@
-// 1.20.1	2024-02-16T18:32:37.8136072	mOres/Model Definitions
+// 1.20.1	2024-02-18T19:23:46.0328223	mOres/Model Definitions
 70b93ac6b2cafc29c96c052e35420efd695b2bd1 assets\mores\models\block\silver_ore.json
 7b36a9c184b62472b1a1651804dd25c39b02032b assets\mores\models\block\onyx_ore.json
 bcc706b56e41cc042f035e5207be1c94139a051b assets\mores\models\item\cobalt_nugget.json
@@ -55,8 +55,8 @@ f2c190be7b436a50180a941acc83456ffa95aa09 assets\mores\models\item\amethyst_picka
 fb38515dc98bb3c72fcc75a4c3663fbe01d8b7bc assets\mores\models\item\nether_sapphire_ore.json
 f494e8ef5ffc6385a82bac8b9c0b25646b427b0a assets\mores\models\item\ruby_hoe.json
 023d309adb73173d7571608f3e8d6033d5ce88ce assets\mores\models\item\topaz_ore.json
-2aff4b3e186410ce5bcc19fae3bc3752aaccd79f assets\mores\blockstates\onyx_ore.json
 8bcc88fcd9ff0a61da9cc980058c48e08afdc409 assets\mores\models\block\tourmaline_ore.json
+2aff4b3e186410ce5bcc19fae3bc3752aaccd79f assets\mores\blockstates\onyx_ore.json
 7e6e3b863060eb4d1982f68d8d4392a7d628701e assets\mores\models\item\onyx_pickaxe.json
 7d8cae06dd398b57a550ec52afeb06411d9c735d assets\mores\models\item\stone_battleaxe.json
 630ae611ded181c3c8e50b16c4286c93845cbea6 assets\mores\models\item\silver_block.json
@@ -132,8 +132,8 @@ b4215a146e1fc9bd2fc86d9e70741ebd521d80b0 assets\mores\models\item\graphene_axe.j
 45b897a92496f1a09fc32a9d65080954357ed179 assets\mores\models\block\amethyst_block.json
 54d1cbe9543645d2a6b45d2445dde0600147d302 assets\mores\models\item\steel_dagger.json
 dd0c331d18976f659e45d21820adf369217fa98d assets\mores\models\item\silver_pickaxe.json
-48f3bfc8f352dda10bc6b8fa80cf8f105e2da48e assets\mores\blockstates\nether_moissanite_ore.json
 ce187f02c883a956ffb5cb214cf6a56e04978885 assets\mores\blockstates\tourmaline_block.json
+48f3bfc8f352dda10bc6b8fa80cf8f105e2da48e assets\mores\blockstates\nether_moissanite_ore.json
 5b3c1fc0459b3188349bef2d02962958f1f08a5d assets\mores\models\item\wood_battleaxe.json
 8d9a53f4f357a3b5e7ef012ba8cadf6cc4578f96 assets\mores\models\block\turquoise_block.json
 d1568590ddbcc52cbe11875c0277ac644165ab64 assets\mores\models\item\sapphire_hoe.json
@@ -211,8 +211,8 @@ a29515a0a95231e928cce6f29bf2a58514f7ed96 assets\mores\models\block\deepslate_moi
 dddf6ad9bc93752421d3684241e0969a094c85ef assets\mores\models\item\iron_battleaxe.json
 b28daf04fc7f558264024ab26a1f4cc56933583a assets\mores\models\item\graphene_shovel.json
 4ca8ccd117272dcd2f01e70bc67fb78d4803078e assets\mores\models\block\silver_block.json
-ee7eb3099d9342bb111266dfa1398f81af1725c3 assets\mores\blockstates\deepslate_ruby_ore.json
 789e33a9ec48a34264ea766554905b12c952abd5 assets\mores\blockstates\raw_cobalt_block.json
+ee7eb3099d9342bb111266dfa1398f81af1725c3 assets\mores\blockstates\deepslate_ruby_ore.json
 57c36d1ac61d04a1a6649eeea19ce1615fb0f9c3 assets\mores\models\item\moissanite_battleaxe.json
 bd69280c8d7ff475b7a5872e818165e59c8501d2 assets\mores\models\item\moissanite_dagger.json
 9b56c5025970367c8b62683b4ef55c399c0a9a8c assets\mores\models\item\tourmaline_hoe.json
@@ -294,8 +294,8 @@ e5889b2bc964037b1de3e87ccdbb7e0300a0ce63 assets\mores\models\block\moissanite_or
 60ff7570cdaea66966fe2a11067d845e03abcae0 assets\mores\models\item\moissanite_horse_armor.json
 52ab78e246b0b1fb9d82c33cfcc974237e22cdec assets\mores\models\item\tanzanite_shovel.json
 31179b4fe611eba047639f51212f51f7adceb965 assets\mores\models\item\emerald_hoe.json
-70b672b9d23edc36266eb1f9bfb0a0a0eba398e2 assets\mores\models\item\iron_mace.json
 87d03455bdcea956b389075e499328b1307b7788 assets\mores\models\item\emerald_axe.json
+70b672b9d23edc36266eb1f9bfb0a0a0eba398e2 assets\mores\models\item\iron_mace.json
 cae3126f36dd055d334e7ea363e13d9168c4adc0 assets\mores\models\item\tin_nugget.json
 a4d77f2de2246b033c82ba0af4af6ab78aba6e2d assets\mores\models\block\topaz_ore.json
 6887c7c909ff39ae9d786214e719a3302b1c9d45 assets\mores\models\block\raw_cobalt_block.json
@@ -351,8 +351,8 @@ e2a80a32aec925ce638a970a409ab78fe70a7281 assets\mores\models\item\nether_silver_
 4b0c834a55dda3c51197e21c99965c14ebb2ee2f assets\mores\models\item\velvet.json
 6694a096aed3fcd123c664746c371ad21b31da80 assets\mores\models\item\onyx_horse_armor.json
 111a8dab5a1b126ea31daff4b035e313d4ddcf99 assets\mores\models\item\onyx_ore.json
-edfa7e86ab92ea956b7aa54e0436df27eaf05061 assets\mores\blockstates\moissanite_ore.json
 dd742ced46edec69ef35b95c162e8262b6cba4dd assets\mores\blockstates\turquoise_block.json
+edfa7e86ab92ea956b7aa54e0436df27eaf05061 assets\mores\blockstates\moissanite_ore.json
 d6beaf14fda1758d04bffb49c716d0990d6eb9a3 assets\mores\models\item\tourmaline_ore.json
 e72a8d763c6208ac6b0913acda9a37dc0f75f414 assets\mores\models\item\graphene_battleaxe.json
 c26990ea4d6175bf82172b8dc46ba942cc76d9a8 assets\mores\models\item\raw_tin_block.json
