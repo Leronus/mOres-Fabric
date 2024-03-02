@@ -47,6 +47,13 @@ public class Mores implements ModInitializer {
 				.registerPortal();
 
 		CustomPortalBuilder.beginPortal()
+				.frameBlock(ModBlocks.RUBY_BLOCK)
+				.lightWithItem(ModItems.ANTHRACITE)
+				.destDimID(new Identifier(Mores.MOD_ID, "reloaded"))
+				.tintColor(13061821)
+				.registerPortal();
+
+		CustomPortalBuilder.beginPortal()
 				.frameBlock(ModBlocks.ONYX_BLOCK)
 				.lightWithItem(ModItems.ANTHRACITE)
 				.destDimID(new Identifier("the_end"))

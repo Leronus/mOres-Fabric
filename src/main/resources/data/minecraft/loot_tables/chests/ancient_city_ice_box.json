@@ -11,7 +11,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "mores:cooked_duck",
+          "name": "mores:anthracite",
           "functions": [
             {
               "function": "minecraft:set_count",
