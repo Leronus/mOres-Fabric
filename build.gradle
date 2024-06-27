@@ -1,5 +1,5 @@
 plugins {
-	id 'fabric-loom' version '1.5-SNAPSHOT'
+	id 'fabric-loom' version '1.6-SNAPSHOT'
 	id 'maven-publish'
 }
 
@@ -65,36 +65,36 @@ dependencies {
 	// Fabric API. This is technically optional, but you probably want it anyway.
 	modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
 
-	modImplementation "maven.modrinth:sodium:mc1.20.1-0.5.3"
-	modImplementation "maven.modrinth:lithium:mc1.20.1-0.11.2"
+	modImplementation "maven.modrinth:sodium:${project.sodium_version}"
+	modImplementation "maven.modrinth:lithium:${project.lithium_version}"
 
 	//Iris
-	modImplementation "maven.modrinth:YL57xq9U:ogjxrwGQ"
+	modImplementation "maven.modrinth:YL57xq9U:Cjwm9s3i"
 	//Indium
-	modImplementation "maven.modrinth:Orvt0mRa:Lue6O9z9"
+	modImplementation "maven.modrinth:Orvt0mRa:tD2IqHXC"
 	//EntityCulling
-	modImplementation "maven.modrinth:NNAgCjsB:BDwHAdWc"
+	modImplementation "maven.modrinth:NNAgCjsB:KRGWwoZW"
 	//Continuity
-	modImplementation "maven.modrinth:1IjD5062:Z9FJWLMt"
+	modImplementation "maven.modrinth:1IjD5062:Ox1racg8"
 //	//Bobby
 //	modImplementation "maven.modrinth:M08ruV16:2cuVyTav"
 	//Nvidium
 	modImplementation "maven.modrinth:SfMw2IZN:UO1crPGk"
 
 	//Custom Shields
-	modImplementation "com.github.CrimsonDawn45:Fabric-Shield-Lib:v${project.fabric_shield_lib_version}"
+	modImplementation "maven.modrinth:7SDalH12:xY16zX6k"
 	modImplementation "com.terraformersmc:modmenu:${project.mod_menu_version}"
 	modImplementation "maven.modrinth:midnightlib:${project.midnightlib_version}"
 	modImplementation "com.github.Chocohead:Fabric-ASM:v${project.fabricasm_version}"
 
 	//CustomPortalAPI
-	modImplementation 'net.kyrptonaught:customportalapi:0.0.1-beta64-1.20'
-	include 'net.kyrptonaught:customportalapi:0.0.1-beta64-1.20'
+//	modImplementation 'net.kyrptonaught:customportalapi:0.0.1-beta64-1.20'
+//	include 'net.kyrptonaught:customportalapi:0.0.1-beta64-1.20'
 
 	modImplementation "net.fabricmc.fabric-api:fabric-api-deprecated:${project.fabric_version}"
 
-	//XRay
-	modImplementation "curse.maven:advanced-xray-fabric-edition-444663:4595168"
+//	//XRay
+//	modImplementation "curse.maven:advanced-xray-fabric-edition-444663:4595168"
 }
 
 processResources {
