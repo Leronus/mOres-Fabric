@@ -69,21 +69,21 @@ dependencies {
 	modImplementation "maven.modrinth:lithium:${project.lithium_version}"
 
 	//Iris
-	modImplementation "maven.modrinth:YL57xq9U:Cjwm9s3i"
+	modImplementation "maven.modrinth:YL57xq9U:${project.iris_version}"
 	//Indium
-	modImplementation "maven.modrinth:Orvt0mRa:tD2IqHXC"
+	modImplementation "maven.modrinth:Orvt0mRa:${project.indium_version}"
 	//EntityCulling
-	modImplementation "maven.modrinth:NNAgCjsB:KRGWwoZW"
+	modImplementation "maven.modrinth:NNAgCjsB:${project.entity_culling_version}"
 	//Continuity
-	modImplementation "maven.modrinth:1IjD5062:Ox1racg8"
+	modImplementation "maven.modrinth:1IjD5062:${project.continuity_version}"
 //	//Bobby
 //	modImplementation "maven.modrinth:M08ruV16:2cuVyTav"
 	//Nvidium
-	modImplementation "maven.modrinth:SfMw2IZN:UO1crPGk"
+	modImplementation "maven.modrinth:SfMw2IZN:${project.nvidium_version}"
 
 	//Custom Shields
 	modImplementation "maven.modrinth:7SDalH12:xY16zX6k"
-	modImplementation "com.terraformersmc:modmenu:${project.mod_menu_version}"
+	modImplementation "maven.modrinth:modmenu:${project.mod_menu_version}"
 	modImplementation "maven.modrinth:midnightlib:${project.midnightlib_version}"
 	modImplementation "com.github.Chocohead:Fabric-ASM:v${project.fabricasm_version}"
 
