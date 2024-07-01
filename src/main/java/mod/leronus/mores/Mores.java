@@ -1,7 +1,7 @@
 package mod.leronus.mores;
 
 import mod.leronus.mores.block.ModBlocks;
-import mod.leronus.mores.item.ModItemGroups;
+//import mod.leronus.mores.item.ModItemGroups;
 import mod.leronus.mores.item.ModItems;
 import mod.leronus.mores.sound.ModSounds;
 import mod.leronus.mores.world.gen.ModWorldGeneration;
@@ -18,7 +18,7 @@ public class Mores implements ModInitializer {
 
 	@Override
 	public void onInitialize() {
-		ModItemGroups.registerItemGroups();
+//		ModItemGroups.registerItemGroups();
 
 		ModItems.registerModItems();
 		ModBlocks.registerModBlocks();

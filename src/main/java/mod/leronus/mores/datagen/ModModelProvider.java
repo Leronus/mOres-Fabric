@@ -412,36 +412,36 @@ public class ModModelProvider extends FabricModelProvider {
 //        itemModelGenerator.registerArmor(((ArmorItem) ModItems.GRAPHENE_LEGGINGS));
 //        itemModelGenerator.registerArmor(((ArmorItem) ModItems.GRAPHENE_BOOTS));
 
-        itemModelGenerator.register(ModItems.TIN_HORSE_ARMOR, Models.GENERATED);
-        itemModelGenerator.register(ModItems.COPPER_HORSE_ARMOR, Models.GENERATED);
-        itemModelGenerator.register(ModItems.BRONZE_HORSE_ARMOR, Models.GENERATED);
-        itemModelGenerator.register(ModItems.SILVER_HORSE_ARMOR, Models.GENERATED);
-        itemModelGenerator.register(ModItems.COBALT_HORSE_ARMOR, Models.GENERATED);
-        itemModelGenerator.register(ModItems.STERLING_HORSE_ARMOR, Models.GENERATED);
-        itemModelGenerator.register(ModItems.STEEL_HORSE_ARMOR, Models.GENERATED);
-        itemModelGenerator.register(ModItems.AMETHYST_HORSE_ARMOR, Models.GENERATED);
-        itemModelGenerator.register(ModItems.EMERALD_HORSE_ARMOR, Models.GENERATED);
-        itemModelGenerator.register(ModItems.TOPAZ_HORSE_ARMOR, Models.GENERATED);
-        itemModelGenerator.register(ModItems.TOURMALINE_HORSE_ARMOR, Models.GENERATED);
-        itemModelGenerator.register(ModItems.TANZANITE_HORSE_ARMOR, Models.GENERATED);
-        itemModelGenerator.register(ModItems.RUBY_HORSE_ARMOR, Models.GENERATED);
-        itemModelGenerator.register(ModItems.SAPPHIRE_HORSE_ARMOR, Models.GENERATED);
-        itemModelGenerator.register(ModItems.MOISSANITE_HORSE_ARMOR, Models.GENERATED);
-        itemModelGenerator.register(ModItems.TURQUOISE_HORSE_ARMOR, Models.GENERATED);
-        itemModelGenerator.register(ModItems.OBSIDIAN_HORSE_ARMOR, Models.GENERATED);
-        itemModelGenerator.register(ModItems.ONYX_HORSE_ARMOR, Models.GENERATED);
-        itemModelGenerator.register(ModItems.GRAPHENE_HORSE_ARMOR, Models.GENERATED);
-        itemModelGenerator.register(ModItems.NETHERITE_HORSE_ARMOR, Models.GENERATED);
+//        itemModelGenerator.register(ModItems.TIN_HORSE_ARMOR, Models.GENERATED);
+//        itemModelGenerator.register(ModItems.COPPER_HORSE_ARMOR, Models.GENERATED);
+//        itemModelGenerator.register(ModItems.BRONZE_HORSE_ARMOR, Models.GENERATED);
+//        itemModelGenerator.register(ModItems.SILVER_HORSE_ARMOR, Models.GENERATED);
+//        itemModelGenerator.register(ModItems.COBALT_HORSE_ARMOR, Models.GENERATED);
+//        itemModelGenerator.register(ModItems.STERLING_HORSE_ARMOR, Models.GENERATED);
+//        itemModelGenerator.register(ModItems.STEEL_HORSE_ARMOR, Models.GENERATED);
+//        itemModelGenerator.register(ModItems.AMETHYST_HORSE_ARMOR, Models.GENERATED);
+//        itemModelGenerator.register(ModItems.EMERALD_HORSE_ARMOR, Models.GENERATED);
+//        itemModelGenerator.register(ModItems.TOPAZ_HORSE_ARMOR, Models.GENERATED);
+//        itemModelGenerator.register(ModItems.TOURMALINE_HORSE_ARMOR, Models.GENERATED);
+//        itemModelGenerator.register(ModItems.TANZANITE_HORSE_ARMOR, Models.GENERATED);
+//        itemModelGenerator.register(ModItems.RUBY_HORSE_ARMOR, Models.GENERATED);
+//        itemModelGenerator.register(ModItems.SAPPHIRE_HORSE_ARMOR, Models.GENERATED);
+//        itemModelGenerator.register(ModItems.MOISSANITE_HORSE_ARMOR, Models.GENERATED);
+//        itemModelGenerator.register(ModItems.TURQUOISE_HORSE_ARMOR, Models.GENERATED);
+//        itemModelGenerator.register(ModItems.OBSIDIAN_HORSE_ARMOR, Models.GENERATED);
+//        itemModelGenerator.register(ModItems.ONYX_HORSE_ARMOR, Models.GENERATED);
+//        itemModelGenerator.register(ModItems.GRAPHENE_HORSE_ARMOR, Models.GENERATED);
+//        itemModelGenerator.register(ModItems.NETHERITE_HORSE_ARMOR, Models.GENERATED);
 
         itemModelGenerator.register(ModItems.ANTHRACITE, Models.GENERATED);
 
-        itemModelGenerator.register(ModItems.BRONZE_APPLE, Models.GENERATED);
-        itemModelGenerator.register(ModItems.SILVER_APPLE, Models.GENERATED);
-        itemModelGenerator.register(ModItems.COBALT_APPLE, Models.GENERATED);
-
-        itemModelGenerator.register(ModItems.VELVET, Models.GENERATED);
-        itemModelGenerator.register(ModItems.CHOCOLATE, Models.GENERATED);
-        itemModelGenerator.register(ModItems.CARROT_PIE, Models.GENERATED);
+//        itemModelGenerator.register(ModItems.BRONZE_APPLE, Models.GENERATED);
+//        itemModelGenerator.register(ModItems.SILVER_APPLE, Models.GENERATED);
+//        itemModelGenerator.register(ModItems.COBALT_APPLE, Models.GENERATED);
+//
+//        itemModelGenerator.register(ModItems.VELVET, Models.GENERATED);
+//        itemModelGenerator.register(ModItems.CHOCOLATE, Models.GENERATED);
+//        itemModelGenerator.register(ModItems.CARROT_PIE, Models.GENERATED);
         itemModelGenerator.register(ModItems.CHAIN, Models.GENERATED);
 //        itemModelGenerator.register(ModItems.DUCK, Models.GENERATED);
 //        itemModelGenerator.register(ModItems.COOKED_DUCK, Models.GENERATED);
