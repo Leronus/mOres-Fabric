@@ -5,6 +5,7 @@ import com.google.common.collect.Multimap;
 import mod.leronus.mores.item.ModItems;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
+import net.minecraft.client.item.TooltipType;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.attribute.EntityAttribute;
@@ -17,6 +18,10 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.item.SwordItem;
 import net.minecraft.item.ToolMaterial;
 import net.minecraft.registry.tag.BlockTags;
+import net.minecraft.text.Text;
+import net.minecraft.util.Formatting;
+
+import java.util.List;
 
 public class ModSwordItem extends SwordItem {
     private final float attackDamage;
@@ -47,20 +52,20 @@ public class ModSwordItem extends SwordItem {
 //        return slot == EquipmentSlot.MAINHAND ? this.attributeModifiers : super.getAttributeModifiers(slot);
 //    }
 
-//    @Override
-//    public void appendTooltip(ItemStack stack, @Nullable World world, List<Text> tooltip, TooltipContext context) {
-//        if (stack.getItem() instanceof ModSwordItem){
-//        tooltip.add(Text.literal(""));
-//        if (stack.getItem() == ModItems.ONYX_SWORD || stack.getItem() == ModItems.ONYX_MACE || stack.getItem() == ModItems.ONYX_DAGGER) {
-//            tooltip.add(Text.translatable("mores.bonus").formatted(Formatting.GRAY).append(Text.translatable("mores.wither_effect").formatted(Formatting.DARK_GRAY)));
-//        }
-//        tooltip.add(Text.literal(""));
-//        tooltip.add(Text.translatable("mores.durability").formatted(Formatting.GRAY).append(Text.translatable(String.valueOf(stack.getItem().getMaxDamage())).formatted(Formatting.LIGHT_PURPLE)));
-//            if (stack.getItem() == ModItems.RUBY_SWORD || stack.getItem() == ModItems.RUBY_MACE || stack.getItem() == ModItems.RUBY_BATTLEAXE || stack.getItem() == ModItems.RUBY_DAGGER) {
-//                tooltip.add(Text.translatable(Formatting.GRAY + "mores.bonus" + Formatting.RED + "Burn Effect"));
-//            }
-//        }
-//    }
+    @Override
+    public void appendTooltip(ItemStack stack, TooltipContext context, List<Text> tooltip, TooltipType type) {
+        if (stack.getItem() instanceof ModSwordItem){
+        tooltip.add(Text.literal(""));
+        if (stack.getItem() == ModItems.ONYX_SWORD || stack.getItem() == ModItems.ONYX_MACE || stack.getItem() == ModItems.ONYX_DAGGER) {
+            tooltip.add(Text.translatable("mores.bonus").formatted(Formatting.GRAY).append(Text.translatable("mores.wither_effect").formatted(Formatting.DARK_GRAY)));
+        }
+        tooltip.add(Text.literal(""));
+        tooltip.add(Text.translatable("mores.durability").formatted(Formatting.GRAY).append(Text.translatable(String.valueOf(((ModSwordItem) stack.getItem()).getMaterial().getDurability())).formatted(Formatting.LIGHT_PURPLE)));
+            if (stack.getItem() == ModItems.RUBY_SWORD || stack.getItem() == ModItems.RUBY_MACE || stack.getItem() == ModItems.RUBY_BATTLEAXE || stack.getItem() == ModItems.RUBY_DAGGER) {
+                tooltip.add(Text.translatable(Formatting.GRAY + "mores.bonus" + Formatting.RED + "Burn Effect"));
+            }
+        }
+    }
 
     /**
      * Called when an enemy is attacked using the sword

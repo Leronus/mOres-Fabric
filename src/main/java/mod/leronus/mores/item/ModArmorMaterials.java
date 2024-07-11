@@ -1,5 +1,6 @@
 package mod.leronus.mores.item;
 
+import com.terraformersmc.modmenu.util.mod.Mod;
 import mod.leronus.mores.Mores;
 import net.minecraft.item.ArmorItem;
 import net.minecraft.item.ArmorMaterial;
@@ -48,29 +49,35 @@ public class ModArmorMaterials
             0.0f, 0.0f,
             () -> Ingredient.ofItems(Items.COPPER_INGOT));
 
-//    SILVER("silver", 12, new int[] {1, 4, 5, 1}, 24, SoundEvents.ITEM_ARMOR_EQUIP_GOLD, 0.0F, 0.0F, () -> Ingredient.ofItems(ModItems.SILVER_INGOT)),
-//    //    CHAIN("chainmail", 15, new int[]{1, 4, 5, 2}, 12, SoundEvents.ARMOR_EQUIP_CHAIN, 0.0F, 0.0F, () -> Ingredient.ofItems(Items.IRON_INGOT)),
-//    BRONZE("bronze", 11, new int[] {2, 5, 6, 2}, 11, SoundEvents.ITEM_ARMOR_EQUIP_IRON, 0.0F, 0.0F, () -> Ingredient.ofItems(ModItems.BRONZE_INGOT)),
-//    //    IRON("iron", 15, new int[]{2, 5, 6, 2}, 9, SoundEvents.ITEM_ARMOR_EQUIP_IRON, 0.0F, 0.0F, () -> Ingredient.ofItems(Items.IRON_INGOT)),
-//    STERLING("sterling", 17, new int[] {2, 5, 6, 2}, 17, SoundEvents.ITEM_ARMOR_EQUIP_IRON, 0.0F, 0.0F, () -> Ingredient.ofItems(ModItems.STERLING_INGOT)),
-//    COBALT("cobalt", 18, new int[] {2, 5, 6, 2}, 10, SoundEvents.ITEM_ARMOR_EQUIP_GOLD, 0.0F, 0.0F, () -> Ingredient.ofItems(ModItems.COBALT_INGOT)),
-//    STEEL("steel", 22, new int[] {2, 6, 7, 2}, 15, SoundEvents.ITEM_ARMOR_EQUIP_CHAIN, 1.0F, 0.1F, () -> Ingredient.ofItems(ModItems.STEEL_INGOT)),
-//    AMETHYST("amethyst", 22, new int[] {2, 6, 7, 3}, 16, SoundEvents.ITEM_ARMOR_EQUIP_DIAMOND, 0.0F, 0.0F, () -> Ingredient.ofItems(Items.AMETHYST_SHARD)),
-//    EMERALD("emerald", 26, new int[] {2, 6, 7, 3}, 25, SoundEvents.ITEM_ARMOR_EQUIP_DIAMOND, 1.0F, 0.0F, () -> Ingredient.ofItems(Items.EMERALD)),
-//    TOPAZ("topaz", 22, new int[] {2, 6, 7, 3}, 8, SoundEvents.ITEM_ARMOR_EQUIP_DIAMOND, 1.0F, 0.0F, () -> Ingredient.ofItems(ModItems.TOPAZ_GEM)),
-//    TOURMALINE("tourmaline", 25, new int[] {2, 6, 7, 3}, 12, SoundEvents.ITEM_ARMOR_EQUIP_DIAMOND, 1.0F, 0.0F, () -> Ingredient.ofItems(ModItems.TOURMALINE_GEM)),
-//    //    DIAMOND("diamond", 33, new int[]{3, 6, 8, 3}, 10, SoundEvents.ITEM_ARMOR_EQUIP_DIAMOND, 2.0F, 0.0F, () -> Ingredient.ofItems(Items.DIAMOND)),
-//    RUBY("ruby", 35, new int[] {2, 6, 8, 3}, 12, SoundEvents.ITEM_ARMOR_EQUIP_DIAMOND, 2.0F, 0.0F, () -> Ingredient.ofItems(ModItems.RUBY_GEM)),
-//    SAPPHIRE("sapphire", 39, new int[] {3, 6, 8, 3}, 16, SoundEvents.ITEM_ARMOR_EQUIP_DIAMOND, 2.0F, 0.0F, () -> Ingredient.ofItems(ModItems.SAPPHIRE_GEM)),
-//    MOISSANITE("moissanite", 36, new int[] {3, 6, 8, 3}, 10, SoundEvents.ITEM_ARMOR_EQUIP_DIAMOND, 2.0F, 0.0F, () -> Ingredient.ofItems(ModItems.MOISSANITE_GEM)),
-//    TANZANITE("tanzanite", 38, new int[] {3, 7, 8, 4}, 18, SoundEvents.ITEM_ARMOR_EQUIP_DIAMOND, 1.0F, 0.0F, () -> Ingredient.ofItems(ModItems.TANZANITE_GEM)),
-//    OBSIDIAN("obsidian", 44, new int[] {3, 7, 8, 4}, 12, SoundEvents.ITEM_ARMOR_EQUIP_NETHERITE, 2.0F, 0.5F, () -> Ingredient.ofItems(ModItems.OBSIDIAN_INGOT)),
-//    TURQUOISE("turquoise", 38, new int[] {3, 6, 8, 3}, 14, SoundEvents.ITEM_ARMOR_EQUIP_DIAMOND, 2.0F, 0.0F, () -> Ingredient.ofItems(ModItems.TURQUOISE_GEM)),
-//    ONYX("onyx", 51, new int[] {3, 7, 8, 4}, 18, SoundEvents.ITEM_ARMOR_EQUIP_DIAMOND, 3.0F, 0.0F, () -> Ingredient.ofItems(ModItems.ONYX_GEM)),
-//    //    NETHERITE("netherite", 37, new int[]{3, 6, 8, 3}, 15, SoundEvents.ITEM_ARMOR_EQUIP_NETHERITE, 3.0F, 0.1F, () -> Ingredient.ofItems(Items.NETHERITE_INGOT)),
-//    GRAPHENE("graphene", 66, new int[] {3, 7, 8, 4}, 16, SoundEvents.ITEM_ARMOR_EQUIP_NETHERITE, 4.0F, 0.2F, () -> Ingredient.ofItems(ModItems.GRAPHENE_GEM));
-
     public static final RegistryEntry<ArmorMaterial> SILVER = register("silver",
+            Util.make(new EnumMap(ArmorItem.Type.class),
+                    map ->
+                    {
+                        map.put(ArmorItem.Type.BOOTS, 1);
+                        map.put(ArmorItem.Type.LEGGINGS, 4);
+                        map.put(ArmorItem.Type.CHESTPLATE, 5);
+                        map.put(ArmorItem.Type.HELMET, 1);
+                        map.put(ArmorItem.Type.BODY, 5);
+                    }),
+            24, SoundEvents.ITEM_ARMOR_EQUIP_GOLD,
+            0.0f, 0.0f,
+            () -> Ingredient.ofItems(ModItems.SILVER_INGOT));
+
+    public static final RegistryEntry<ArmorMaterial> CHAINMAIL = register("chainmail",
+            Util.make(new EnumMap(ArmorItem.Type.class),
+                    map ->
+                    {
+                        map.put(ArmorItem.Type.BOOTS, 1);
+                        map.put(ArmorItem.Type.LEGGINGS, 4);
+                        map.put(ArmorItem.Type.CHESTPLATE, 5);
+                        map.put(ArmorItem.Type.HELMET, 2);
+                        map.put(ArmorItem.Type.BODY, 5);
+                    }),
+            12, SoundEvents.ITEM_ARMOR_EQUIP_CHAIN,
+            0.0f, 0.0f,
+            () -> Ingredient.ofItems(ModItems.CHAIN));
+
+    public static final RegistryEntry<ArmorMaterial> BRONZE = register("bronze",
             Util.make(new EnumMap(ArmorItem.Type.class),
                     map ->
                     {
@@ -78,23 +85,9 @@ public class ModArmorMaterials
                         map.put(ArmorItem.Type.LEGGINGS, 5);
                         map.put(ArmorItem.Type.CHESTPLATE, 6);
                         map.put(ArmorItem.Type.HELMET, 2);
-                        map.put(ArmorItem.Type.BODY, 7);
+                        map.put(ArmorItem.Type.BODY, 5);
                     }),
-            0, SoundEvents.ITEM_ARMOR_EQUIP_GOLD,
-            0.0f, 0.0f,
-            () -> Ingredient.ofItems(ModItems.SILVER_INGOT));
-
-    public static final RegistryEntry<ArmorMaterial> BRONZE = register("bronze",
-            Util.make(new EnumMap(ArmorItem.Type.class),
-                    map ->
-                    {
-                        map.put(ArmorItem.Type.BOOTS, 1);
-                        map.put(ArmorItem.Type.LEGGINGS, 5);
-                        map.put(ArmorItem.Type.CHESTPLATE, 7);
-                        map.put(ArmorItem.Type.HELMET, 2);
-                        map.put(ArmorItem.Type.BODY, 7);
-                    }),
-            0, SoundEvents.ITEM_ARMOR_EQUIP_IRON,
+            11, SoundEvents.ITEM_ARMOR_EQUIP_IRON,
             0.0f, 0.0f,
             () -> Ingredient.ofItems(ModItems.BRONZE_INGOT));
 
@@ -102,13 +95,13 @@ public class ModArmorMaterials
             Util.make(new EnumMap(ArmorItem.Type.class),
                     map ->
                     {
-                        map.put(ArmorItem.Type.BOOTS, 3);
-                        map.put(ArmorItem.Type.LEGGINGS, 6);
-                        map.put(ArmorItem.Type.CHESTPLATE, 8);
-                        map.put(ArmorItem.Type.HELMET, 3);
-                        map.put(ArmorItem.Type.BODY, 15);
+                        map.put(ArmorItem.Type.BOOTS, 2);
+                        map.put(ArmorItem.Type.LEGGINGS, 5);
+                        map.put(ArmorItem.Type.CHESTPLATE, 6);
+                        map.put(ArmorItem.Type.HELMET, 2);
+                        map.put(ArmorItem.Type.BODY, 5);
                     }),
-            0, SoundEvents.ITEM_ARMOR_EQUIP_IRON,
+            17, SoundEvents.ITEM_ARMOR_EQUIP_IRON,
             0.0f, 0.0f,
             () -> Ingredient.ofItems(ModItems.STERLING_INGOT));
 
@@ -116,13 +109,13 @@ public class ModArmorMaterials
             Util.make(new EnumMap(ArmorItem.Type.class),
                     map ->
                     {
-                        map.put(ArmorItem.Type.BOOTS, 3);
-                        map.put(ArmorItem.Type.LEGGINGS, 6);
-                        map.put(ArmorItem.Type.CHESTPLATE, 8);
-                        map.put(ArmorItem.Type.HELMET, 3);
-                        map.put(ArmorItem.Type.BODY, 7);
+                        map.put(ArmorItem.Type.BOOTS, 2);
+                        map.put(ArmorItem.Type.LEGGINGS, 5);
+                        map.put(ArmorItem.Type.CHESTPLATE, 6);
+                        map.put(ArmorItem.Type.HELMET, 2);
+                        map.put(ArmorItem.Type.BODY, 5);
                     }),
-            0, SoundEvents.ITEM_ARMOR_EQUIP_IRON,
+            10, SoundEvents.ITEM_ARMOR_EQUIP_GOLD,
             0.0f, 0.0f,
             () -> Ingredient.ofItems(ModItems.COBALT_INGOT));
 
@@ -130,15 +123,183 @@ public class ModArmorMaterials
             Util.make(new EnumMap(ArmorItem.Type.class),
                     map ->
                     {
+                        map.put(ArmorItem.Type.BOOTS, 2);
+                        map.put(ArmorItem.Type.LEGGINGS, 6);
+                        map.put(ArmorItem.Type.CHESTPLATE, 7);
+                        map.put(ArmorItem.Type.HELMET, 2);
+                        map.put(ArmorItem.Type.BODY, 5);
+                    }),
+            15, SoundEvents.ITEM_ARMOR_EQUIP_GOLD,
+            1.0f, 0.5f,
+            () -> Ingredient.ofItems(ModItems.STEEL_INGOT));
+
+    public static final RegistryEntry<ArmorMaterial> AMETHYST = register("amethyst",
+            Util.make(new EnumMap(ArmorItem.Type.class),
+                    map ->
+                    {
+                        map.put(ArmorItem.Type.BOOTS, 2);
+                        map.put(ArmorItem.Type.LEGGINGS, 6);
+                        map.put(ArmorItem.Type.CHESTPLATE, 7);
+                        map.put(ArmorItem.Type.HELMET, 3);
+                        map.put(ArmorItem.Type.BODY, 5);
+                    }),
+            16, SoundEvents.ITEM_ARMOR_EQUIP_DIAMOND,
+            0.0f, 0.0f,
+            () -> Ingredient.ofItems(Items.AMETHYST_SHARD));
+
+    public static final RegistryEntry<ArmorMaterial> EMERALD = register("emerald",
+            Util.make(new EnumMap(ArmorItem.Type.class),
+                    map ->
+                    {
+                        map.put(ArmorItem.Type.BOOTS, 2);
+                        map.put(ArmorItem.Type.LEGGINGS, 6);
+                        map.put(ArmorItem.Type.CHESTPLATE, 7);
+                        map.put(ArmorItem.Type.HELMET, 3);
+                        map.put(ArmorItem.Type.BODY, 5);
+                    }),
+            25, SoundEvents.ITEM_ARMOR_EQUIP_DIAMOND,
+            0.0f, 0.0f,
+            () -> Ingredient.ofItems(Items.EMERALD));
+
+    public static final RegistryEntry<ArmorMaterial> TOPAZ = register("topaz",
+            Util.make(new EnumMap(ArmorItem.Type.class),
+                    map ->
+                    {
+                        map.put(ArmorItem.Type.BOOTS, 2);
+                        map.put(ArmorItem.Type.LEGGINGS, 6);
+                        map.put(ArmorItem.Type.CHESTPLATE, 7);
+                        map.put(ArmorItem.Type.HELMET, 3);
+                        map.put(ArmorItem.Type.BODY, 5);
+                    }),
+            8, SoundEvents.ITEM_ARMOR_EQUIP_DIAMOND,
+            1.0f, 0.0f,
+            () -> Ingredient.ofItems(ModItems.TOPAZ_GEM));
+
+    public static final RegistryEntry<ArmorMaterial> TOURMALINE = register("tourmaline",
+            Util.make(new EnumMap(ArmorItem.Type.class),
+                    map ->
+                    {
+                        map.put(ArmorItem.Type.BOOTS, 2);
+                        map.put(ArmorItem.Type.LEGGINGS, 6);
+                        map.put(ArmorItem.Type.CHESTPLATE, 7);
+                        map.put(ArmorItem.Type.HELMET, 3);
+                        map.put(ArmorItem.Type.BODY, 5);
+                    }),
+            12, SoundEvents.ITEM_ARMOR_EQUIP_DIAMOND,
+            1.0f, 0.0f,
+            () -> Ingredient.ofItems(ModItems.TOURMALINE_GEM));
+
+    public static final RegistryEntry<ArmorMaterial> RUBY = register("ruby",
+            Util.make(new EnumMap(ArmorItem.Type.class),
+                    map ->
+                    {
+                        map.put(ArmorItem.Type.BOOTS, 2);
+                        map.put(ArmorItem.Type.LEGGINGS, 6);
+                        map.put(ArmorItem.Type.CHESTPLATE, 8);
+                        map.put(ArmorItem.Type.HELMET, 3);
+                        map.put(ArmorItem.Type.BODY, 5);
+                    }),
+            12, SoundEvents.ITEM_ARMOR_EQUIP_DIAMOND,
+            2.0f, 0.0f,
+            () -> Ingredient.ofItems(ModItems.RUBY_GEM));
+
+    public static final RegistryEntry<ArmorMaterial> SAPPHIRE = register("sapphire",
+            Util.make(new EnumMap(ArmorItem.Type.class),
+                    map ->
+                    {
                         map.put(ArmorItem.Type.BOOTS, 3);
                         map.put(ArmorItem.Type.LEGGINGS, 6);
                         map.put(ArmorItem.Type.CHESTPLATE, 8);
                         map.put(ArmorItem.Type.HELMET, 3);
-                        map.put(ArmorItem.Type.BODY, 7);
+                        map.put(ArmorItem.Type.BODY, 5);
                     }),
-            0, SoundEvents.ITEM_ARMOR_EQUIP_IRON,
-            0.0f, 0.0f,
-            () -> Ingredient.ofItems(ModItems.STEEL_INGOT));
+            16, SoundEvents.ITEM_ARMOR_EQUIP_DIAMOND,
+            2.0f, 0.0f,
+            () -> Ingredient.ofItems(ModItems.SAPPHIRE_GEM));
+
+    public static final RegistryEntry<ArmorMaterial> MOISSANITE = register("moissanite",
+            Util.make(new EnumMap(ArmorItem.Type.class),
+                    map ->
+                    {
+                        map.put(ArmorItem.Type.BOOTS, 3);
+                        map.put(ArmorItem.Type.LEGGINGS, 6);
+                        map.put(ArmorItem.Type.CHESTPLATE, 8);
+                        map.put(ArmorItem.Type.HELMET, 3);
+                        map.put(ArmorItem.Type.BODY, 5);
+                    }),
+            10, SoundEvents.ITEM_ARMOR_EQUIP_DIAMOND,
+            2.0f, 0.0f,
+            () -> Ingredient.ofItems(ModItems.MOISSANITE_GEM));
+
+    public static final RegistryEntry<ArmorMaterial> TANZANITE = register("tanzanite",
+            Util.make(new EnumMap(ArmorItem.Type.class),
+                    map ->
+                    {
+                        map.put(ArmorItem.Type.BOOTS, 3);
+                        map.put(ArmorItem.Type.LEGGINGS, 7);
+                        map.put(ArmorItem.Type.CHESTPLATE, 8);
+                        map.put(ArmorItem.Type.HELMET, 4);
+                        map.put(ArmorItem.Type.BODY, 5);
+                    }),
+            18, SoundEvents.ITEM_ARMOR_EQUIP_DIAMOND,
+            2.0f, 0.0f,
+            () -> Ingredient.ofItems(ModItems.TANZANITE_GEM));
+
+    public static final RegistryEntry<ArmorMaterial> OBSIDIAN = register("obsidian",
+            Util.make(new EnumMap(ArmorItem.Type.class),
+                    map ->
+                    {
+                        map.put(ArmorItem.Type.BOOTS, 3);
+                        map.put(ArmorItem.Type.LEGGINGS, 7);
+                        map.put(ArmorItem.Type.CHESTPLATE, 8);
+                        map.put(ArmorItem.Type.HELMET, 4);
+                        map.put(ArmorItem.Type.BODY, 5);
+                    }),
+            13, SoundEvents.ITEM_ARMOR_EQUIP_NETHERITE,
+            2.0f, 0.2f,
+            () -> Ingredient.ofItems(ModItems.OBSIDIAN_INGOT));
+
+    public static final RegistryEntry<ArmorMaterial> TURQUOISE = register("turquoise",
+            Util.make(new EnumMap(ArmorItem.Type.class),
+                    map ->
+                    {
+                        map.put(ArmorItem.Type.BOOTS, 3);
+                        map.put(ArmorItem.Type.LEGGINGS, 7);
+                        map.put(ArmorItem.Type.CHESTPLATE, 8);
+                        map.put(ArmorItem.Type.HELMET, 4);
+                        map.put(ArmorItem.Type.BODY, 5);
+                    }),
+            14, SoundEvents.ITEM_ARMOR_EQUIP_DIAMOND,
+            2.0f, 0.0f,
+            () -> Ingredient.ofItems(ModItems.TURQUOISE_GEM));
+
+    public static final RegistryEntry<ArmorMaterial> ONYX = register("onyx",
+            Util.make(new EnumMap(ArmorItem.Type.class),
+                    map ->
+                    {
+                        map.put(ArmorItem.Type.BOOTS, 3);
+                        map.put(ArmorItem.Type.LEGGINGS, 7);
+                        map.put(ArmorItem.Type.CHESTPLATE, 8);
+                        map.put(ArmorItem.Type.HELMET, 4);
+                        map.put(ArmorItem.Type.BODY, 5);
+                    }),
+            18, SoundEvents.ITEM_ARMOR_EQUIP_DIAMOND,
+            3.0f, 0.0f,
+            () -> Ingredient.ofItems(ModItems.ONYX_GEM));
+
+    public static final RegistryEntry<ArmorMaterial> GRAPHENE = register("graphene",
+            Util.make(new EnumMap(ArmorItem.Type.class),
+                    map ->
+                    {
+                        map.put(ArmorItem.Type.BOOTS, 3);
+                        map.put(ArmorItem.Type.LEGGINGS, 7);
+                        map.put(ArmorItem.Type.CHESTPLATE, 8);
+                        map.put(ArmorItem.Type.HELMET, 4);
+                        map.put(ArmorItem.Type.BODY, 5);
+                    }),
+            16, SoundEvents.ITEM_ARMOR_EQUIP_NETHERITE,
+            4.0f, 0.1f,
+            () -> Ingredient.ofItems(ModItems.GRAPHENE_GEM));
 
     public ModArmorMaterials()
     {

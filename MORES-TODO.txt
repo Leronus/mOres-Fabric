@@ -1,4 +1,3 @@
 check block xp values
 fix horse armor
-fix armor
 fix foods

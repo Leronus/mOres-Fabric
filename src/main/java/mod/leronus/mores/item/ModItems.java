@@ -103,101 +103,100 @@ public class ModItems {
 
 
     //All armor
-    //TODO Set max damage
-    public static final Item TIN_HELMET = registerItem("tin_helmet", new ModArmorItem(ModArmorMaterials.TIN, ArmorItem.Type.HELMET, (new Item.Settings()).maxDamage(5)));
-    public static final Item TIN_CHESTPLATE = registerItem("tin_chestplate", new ModArmorItem(ModArmorMaterials.TIN, ArmorItem.Type.CHESTPLATE, (new Item.Settings())));
-    public static final Item TIN_LEGGINGS = registerItem("tin_leggings", new ModArmorItem(ModArmorMaterials.TIN, ArmorItem.Type.LEGGINGS, (new Item.Settings())));
-    public static final Item TIN_BOOTS = registerItem("tin_boots", new ModArmorItem(ModArmorMaterials.TIN, ArmorItem.Type.BOOTS, (new Item.Settings())));
+    public static final Item TIN_HELMET = registerItem("tin_helmet", new ModArmorItem(ModArmorMaterials.TIN, ArmorItem.Type.HELMET, (new Item.Settings()).maxDamage(55)));
+    public static final Item TIN_CHESTPLATE = registerItem("tin_chestplate", new ModArmorItem(ModArmorMaterials.TIN, ArmorItem.Type.CHESTPLATE, (new Item.Settings()).maxDamage(80)));
+    public static final Item TIN_LEGGINGS = registerItem("tin_leggings", new ModArmorItem(ModArmorMaterials.TIN, ArmorItem.Type.LEGGINGS, (new Item.Settings()).maxDamage(75)));
+    public static final Item TIN_BOOTS = registerItem("tin_boots", new ModArmorItem(ModArmorMaterials.TIN, ArmorItem.Type.BOOTS, (new Item.Settings()).maxDamage(65)));
 
-    public static final Item COPPER_HELMET = registerItem("copper_helmet", new ModArmorItem(ModArmorMaterials.COPPER, ArmorItem.Type.HELMET, (new Item.Settings())));
-    public static final Item COPPER_CHESTPLATE = registerItem("copper_chestplate", new ModArmorItem(ModArmorMaterials.COPPER, ArmorItem.Type.CHESTPLATE, (new Item.Settings())));
-    public static final Item COPPER_LEGGINGS = registerItem("copper_leggings", new ModArmorItem(ModArmorMaterials.COPPER, ArmorItem.Type.LEGGINGS, (new Item.Settings())));
-    public static final Item COPPER_BOOTS = registerItem("copper_boots", new ModArmorItem(ModArmorMaterials.COPPER, ArmorItem.Type.BOOTS, (new Item.Settings())));
+    public static final Item COPPER_HELMET = registerItem("copper_helmet", new ModArmorItem(ModArmorMaterials.COPPER, ArmorItem.Type.HELMET, (new Item.Settings()).maxDamage(66)));
+    public static final Item COPPER_CHESTPLATE = registerItem("copper_chestplate", new ModArmorItem(ModArmorMaterials.COPPER, ArmorItem.Type.CHESTPLATE, (new Item.Settings()).maxDamage(96)));
+    public static final Item COPPER_LEGGINGS = registerItem("copper_leggings", new ModArmorItem(ModArmorMaterials.COPPER, ArmorItem.Type.LEGGINGS, (new Item.Settings()).maxDamage(90)));
+    public static final Item COPPER_BOOTS = registerItem("copper_boots", new ModArmorItem(ModArmorMaterials.COPPER, ArmorItem.Type.BOOTS, (new Item.Settings()).maxDamage(78)));
 
-    public static final Item SILVER_HELMET = registerItem("silver_helmet", new ModArmorItem(ModArmorMaterials.SILVER, ArmorItem.Type.HELMET, (new Item.Settings())));
-    public static final Item SILVER_CHESTPLATE = registerItem("silver_chestplate", new ModArmorItem(ModArmorMaterials.SILVER, ArmorItem.Type.CHESTPLATE, (new Item.Settings())));
-    public static final Item SILVER_LEGGINGS = registerItem("silver_leggings", new ModArmorItem(ModArmorMaterials.SILVER, ArmorItem.Type.LEGGINGS, (new Item.Settings())));
-    public static final Item SILVER_BOOTS = registerItem("silver_boots", new ModArmorItem(ModArmorMaterials.SILVER, ArmorItem.Type.BOOTS, (new Item.Settings())));
+    public static final Item SILVER_HELMET = registerItem("silver_helmet", new ModArmorItem(ModArmorMaterials.SILVER, ArmorItem.Type.HELMET, (new Item.Settings()).maxDamage(132)));
+    public static final Item SILVER_CHESTPLATE = registerItem("silver_chestplate", new ModArmorItem(ModArmorMaterials.SILVER, ArmorItem.Type.CHESTPLATE, (new Item.Settings()).maxDamage(192)));
+    public static final Item SILVER_LEGGINGS = registerItem("silver_leggings", new ModArmorItem(ModArmorMaterials.SILVER, ArmorItem.Type.LEGGINGS, (new Item.Settings()).maxDamage(180)));
+    public static final Item SILVER_BOOTS = registerItem("silver_boots", new ModArmorItem(ModArmorMaterials.SILVER, ArmorItem.Type.BOOTS, (new Item.Settings()).maxDamage(156)));
 
-    public static final Item BRONZE_HELMET = registerItem("bronze_helmet", new ModArmorItem(ModArmorMaterials.BRONZE, ArmorItem.Type.HELMET, (new Item.Settings())));
-    public static final Item BRONZE_CHESTPLATE = registerItem("bronze_chestplate", new ModArmorItem(ModArmorMaterials.BRONZE, ArmorItem.Type.CHESTPLATE, (new Item.Settings())));
-    public static final Item BRONZE_LEGGINGS = registerItem("bronze_leggings", new ModArmorItem(ModArmorMaterials.BRONZE, ArmorItem.Type.LEGGINGS, (new Item.Settings())));
-    public static final Item BRONZE_BOOTS = registerItem("bronze_boots", new ModArmorItem(ModArmorMaterials.BRONZE, ArmorItem.Type.BOOTS, (new Item.Settings())));
+    public static final Item BRONZE_HELMET = registerItem("bronze_helmet", new ModArmorItem(ModArmorMaterials.BRONZE, ArmorItem.Type.HELMET, (new Item.Settings()).maxDamage(121)));
+    public static final Item BRONZE_CHESTPLATE = registerItem("bronze_chestplate", new ModArmorItem(ModArmorMaterials.BRONZE, ArmorItem.Type.CHESTPLATE, (new Item.Settings()).maxDamage(176)));
+    public static final Item BRONZE_LEGGINGS = registerItem("bronze_leggings", new ModArmorItem(ModArmorMaterials.BRONZE, ArmorItem.Type.LEGGINGS, (new Item.Settings()).maxDamage(165)));
+    public static final Item BRONZE_BOOTS = registerItem("bronze_boots", new ModArmorItem(ModArmorMaterials.BRONZE, ArmorItem.Type.BOOTS, (new Item.Settings()).maxDamage(143)));
 
-    public static final Item STERLING_HELMET = registerItem("sterling_helmet", new ModArmorItem(ModArmorMaterials.STERLING, ArmorItem.Type.HELMET, (new Item.Settings())));
-    public static final Item STERLING_CHESTPLATE = registerItem("sterling_chestplate", new ModArmorItem(ModArmorMaterials.STERLING, ArmorItem.Type.CHESTPLATE, (new Item.Settings())));
-    public static final Item STERLING_LEGGINGS = registerItem("sterling_leggings", new ModArmorItem(ModArmorMaterials.STERLING, ArmorItem.Type.LEGGINGS, (new Item.Settings())));
-    public static final Item STERLING_BOOTS = registerItem("sterling_boots", new ModArmorItem(ModArmorMaterials.STERLING, ArmorItem.Type.BOOTS, (new Item.Settings())));
+    public static final Item STERLING_HELMET = registerItem("sterling_helmet", new ModArmorItem(ModArmorMaterials.STERLING, ArmorItem.Type.HELMET, (new Item.Settings()).maxDamage(187)));
+    public static final Item STERLING_CHESTPLATE = registerItem("sterling_chestplate", new ModArmorItem(ModArmorMaterials.STERLING, ArmorItem.Type.CHESTPLATE, (new Item.Settings()).maxDamage(272)));
+    public static final Item STERLING_LEGGINGS = registerItem("sterling_leggings", new ModArmorItem(ModArmorMaterials.STERLING, ArmorItem.Type.LEGGINGS, (new Item.Settings()).maxDamage(255)));
+    public static final Item STERLING_BOOTS = registerItem("sterling_boots", new ModArmorItem(ModArmorMaterials.STERLING, ArmorItem.Type.BOOTS, (new Item.Settings()).maxDamage(221)));
 
-//    public static final Item OBSIDIAN_HELMET = registerItem("obsidian_helmet", new ModArmorItem(ModArmorMaterials.OBSIDIAN, ArmorItem.Type.HELMET, (new Item.Settings())));
-//    public static final Item OBSIDIAN_CHESTPLATE = registerItem("obsidian_chestplate", new ModArmorItem(ModArmorMaterials.OBSIDIAN, ArmorItem.Type.CHESTPLATE, (new Item.Settings())));
-//    public static final Item OBSIDIAN_LEGGINGS = registerItem("obsidian_leggings", new ModArmorItem(ModArmorMaterials.OBSIDIAN, ArmorItem.Type.LEGGINGS, (new Item.Settings())));
-//    public static final Item OBSIDIAN_BOOTS = registerItem("obsidian_boots", new ModArmorItem(ModArmorMaterials.OBSIDIAN, ArmorItem.Type.BOOTS, (new Item.Settings())));
+    public static final Item OBSIDIAN_HELMET = registerItem("obsidian_helmet", new ModArmorItem(ModArmorMaterials.OBSIDIAN, ArmorItem.Type.HELMET, (new Item.Settings()).maxDamage(484)));
+    public static final Item OBSIDIAN_CHESTPLATE = registerItem("obsidian_chestplate", new ModArmorItem(ModArmorMaterials.OBSIDIAN, ArmorItem.Type.CHESTPLATE, (new Item.Settings()).maxDamage(704)));
+    public static final Item OBSIDIAN_LEGGINGS = registerItem("obsidian_leggings", new ModArmorItem(ModArmorMaterials.OBSIDIAN, ArmorItem.Type.LEGGINGS, (new Item.Settings()).maxDamage(660)));
+    public static final Item OBSIDIAN_BOOTS = registerItem("obsidian_boots", new ModArmorItem(ModArmorMaterials.OBSIDIAN, ArmorItem.Type.BOOTS, (new Item.Settings()).maxDamage(572)));
 
-    public static final Item COBALT_HELMET = registerItem("cobalt_helmet", new ModArmorItem(ModArmorMaterials.COBALT, ArmorItem.Type.HELMET, (new Item.Settings())));
-    public static final Item COBALT_CHESTPLATE = registerItem("cobalt_chestplate", new ModArmorItem(ModArmorMaterials.COBALT, ArmorItem.Type.CHESTPLATE, (new Item.Settings())));
-    public static final Item COBALT_LEGGINGS = registerItem("cobalt_leggings", new ModArmorItem(ModArmorMaterials.COBALT, ArmorItem.Type.LEGGINGS, (new Item.Settings())));
-    public static final Item COBALT_BOOTS = registerItem("cobalt_boots", new ModArmorItem(ModArmorMaterials.COBALT, ArmorItem.Type.BOOTS, (new Item.Settings())));
+    public static final Item COBALT_HELMET = registerItem("cobalt_helmet", new ModArmorItem(ModArmorMaterials.COBALT, ArmorItem.Type.HELMET, (new Item.Settings()).maxDamage(198)));
+    public static final Item COBALT_CHESTPLATE = registerItem("cobalt_chestplate", new ModArmorItem(ModArmorMaterials.COBALT, ArmorItem.Type.CHESTPLATE, (new Item.Settings()).maxDamage(288)));
+    public static final Item COBALT_LEGGINGS = registerItem("cobalt_leggings", new ModArmorItem(ModArmorMaterials.COBALT, ArmorItem.Type.LEGGINGS, (new Item.Settings()).maxDamage(270)));
+    public static final Item COBALT_BOOTS = registerItem("cobalt_boots", new ModArmorItem(ModArmorMaterials.COBALT, ArmorItem.Type.BOOTS, (new Item.Settings()).maxDamage(234)));
 
-    public static final Item STEEL_HELMET = registerItem("steel_helmet", new ModArmorItem(ModArmorMaterials.STEEL, ArmorItem.Type.HELMET, (new Item.Settings())));
-    public static final Item STEEL_CHESTPLATE = registerItem("steel_chestplate", new ModArmorItem(ModArmorMaterials.STEEL, ArmorItem.Type.CHESTPLATE, (new Item.Settings())));
-    public static final Item STEEL_LEGGINGS = registerItem("steel_leggings", new ModArmorItem(ModArmorMaterials.STEEL, ArmorItem.Type.LEGGINGS, (new Item.Settings())));
-    public static final Item STEEL_BOOTS = registerItem("steel_boots", new ModArmorItem(ModArmorMaterials.STEEL, ArmorItem.Type.BOOTS, (new Item.Settings())));
+    public static final Item STEEL_HELMET = registerItem("steel_helmet", new ModArmorItem(ModArmorMaterials.STEEL, ArmorItem.Type.HELMET, (new Item.Settings()).maxDamage(242)));
+    public static final Item STEEL_CHESTPLATE = registerItem("steel_chestplate", new ModArmorItem(ModArmorMaterials.STEEL, ArmorItem.Type.CHESTPLATE, (new Item.Settings()).maxDamage(352)));
+    public static final Item STEEL_LEGGINGS = registerItem("steel_leggings", new ModArmorItem(ModArmorMaterials.STEEL, ArmorItem.Type.LEGGINGS, (new Item.Settings()).maxDamage(330)));
+    public static final Item STEEL_BOOTS = registerItem("steel_boots", new ModArmorItem(ModArmorMaterials.STEEL, ArmorItem.Type.BOOTS, (new Item.Settings()).maxDamage(286)));
 
-//    public static final Item AMETHYST_HELMET = registerItem("amethyst_helmet", new ModArmorItem(ModArmorMaterials.AMETHYST, ArmorItem.Type.HELMET, (new Item.Settings())));
-//    public static final Item AMETHYST_CHESTPLATE = registerItem("amethyst_chestplate", new ModArmorItem(ModArmorMaterials.AMETHYST, ArmorItem.Type.CHESTPLATE, (new Item.Settings())));
-//    public static final Item AMETHYST_LEGGINGS = registerItem("amethyst_leggings", new ModArmorItem(ModArmorMaterials.AMETHYST, ArmorItem.Type.LEGGINGS, (new Item.Settings())));
-//    public static final Item AMETHYST_BOOTS = registerItem("amethyst_boots", new ModArmorItem(ModArmorMaterials.AMETHYST, ArmorItem.Type.BOOTS, (new Item.Settings())));
-//
-//    public static final Item EMERALD_HELMET = registerItem("emerald_helmet", new ModArmorItem(ModArmorMaterials.EMERALD, ArmorItem.Type.HELMET, (new Item.Settings())));
-//    public static final Item EMERALD_CHESTPLATE = registerItem("emerald_chestplate", new ModArmorItem(ModArmorMaterials.EMERALD, ArmorItem.Type.CHESTPLATE, (new Item.Settings())));
-//    public static final Item EMERALD_LEGGINGS = registerItem("emerald_leggings", new ModArmorItem(ModArmorMaterials.EMERALD, ArmorItem.Type.LEGGINGS, (new Item.Settings())));
-//    public static final Item EMERALD_BOOTS = registerItem("emerald_boots", new ModArmorItem(ModArmorMaterials.EMERALD, ArmorItem.Type.BOOTS, (new Item.Settings())));
-//
-//    public static final Item TOPAZ_HELMET = registerItem("topaz_helmet", new ModArmorItem(ModArmorMaterials.TOPAZ, ArmorItem.Type.HELMET, (new Item.Settings())));
-//    public static final Item TOPAZ_CHESTPLATE = registerItem("topaz_chestplate", new ModArmorItem(ModArmorMaterials.TOPAZ, ArmorItem.Type.CHESTPLATE, (new Item.Settings())));
-//    public static final Item TOPAZ_LEGGINGS = registerItem("topaz_leggings", new ModArmorItem(ModArmorMaterials.TOPAZ, ArmorItem.Type.LEGGINGS, (new Item.Settings())));
-//    public static final Item TOPAZ_BOOTS = registerItem("topaz_boots", new ModArmorItem(ModArmorMaterials.TOPAZ, ArmorItem.Type.BOOTS, (new Item.Settings())));
-//
-//    public static final Item TOURMALINE_HELMET = registerItem("tourmaline_helmet", new ModArmorItem(ModArmorMaterials.TOURMALINE, ArmorItem.Type.HELMET, (new Item.Settings())));
-//    public static final Item TOURMALINE_CHESTPLATE = registerItem("tourmaline_chestplate", new ModArmorItem(ModArmorMaterials.TOURMALINE, ArmorItem.Type.CHESTPLATE, (new Item.Settings())));
-//    public static final Item TOURMALINE_LEGGINGS = registerItem("tourmaline_leggings", new ModArmorItem(ModArmorMaterials.TOURMALINE, ArmorItem.Type.LEGGINGS, (new Item.Settings())));
-//    public static final Item TOURMALINE_BOOTS = registerItem("tourmaline_boots", new ModArmorItem(ModArmorMaterials.TOURMALINE, ArmorItem.Type.BOOTS, (new Item.Settings())));
-//
-//    public static final Item TANZANITE_HELMET = registerItem("tanzanite_helmet", new ModArmorItem(ModArmorMaterials.TANZANITE, ArmorItem.Type.HELMET, (new Item.Settings())));
-//    public static final Item TANZANITE_CHESTPLATE = registerItem("tanzanite_chestplate", new ModArmorItem(ModArmorMaterials.TANZANITE, ArmorItem.Type.CHESTPLATE, (new Item.Settings())));
-//    public static final Item TANZANITE_LEGGINGS = registerItem("tanzanite_leggings", new ModArmorItem(ModArmorMaterials.TANZANITE, ArmorItem.Type.LEGGINGS, (new Item.Settings())));
-//    public static final Item TANZANITE_BOOTS = registerItem("tanzanite_boots", new ModArmorItem(ModArmorMaterials.TANZANITE, ArmorItem.Type.BOOTS, (new Item.Settings())));
-//
-//    public static final Item RUBY_HELMET = registerItem("ruby_helmet", new ModArmorItem(ModArmorMaterials.RUBY, ArmorItem.Type.HELMET, (new Item.Settings())));
-//    public static final Item RUBY_CHESTPLATE = registerItem("ruby_chestplate", new ModArmorItem(ModArmorMaterials.RUBY, ArmorItem.Type.CHESTPLATE, (new Item.Settings())));
-//    public static final Item RUBY_LEGGINGS = registerItem("ruby_leggings", new ModArmorItem(ModArmorMaterials.RUBY, ArmorItem.Type.LEGGINGS, (new Item.Settings())));
-//    public static final Item RUBY_BOOTS = registerItem("ruby_boots", new ModArmorItem(ModArmorMaterials.RUBY, ArmorItem.Type.BOOTS, (new Item.Settings())));
-//
-//    public static final Item SAPPHIRE_HELMET = registerItem("sapphire_helmet", new ModArmorItem(ModArmorMaterials.SAPPHIRE, ArmorItem.Type.HELMET, (new Item.Settings())));
-//    public static final Item SAPPHIRE_CHESTPLATE = registerItem("sapphire_chestplate", new ModArmorItem(ModArmorMaterials.SAPPHIRE, ArmorItem.Type.CHESTPLATE, (new Item.Settings())));
-//    public static final Item SAPPHIRE_LEGGINGS = registerItem("sapphire_leggings", new ModArmorItem(ModArmorMaterials.SAPPHIRE, ArmorItem.Type.LEGGINGS, (new Item.Settings())));
-//    public static final Item SAPPHIRE_BOOTS = registerItem("sapphire_boots", new ModArmorItem(ModArmorMaterials.SAPPHIRE, ArmorItem.Type.BOOTS, (new Item.Settings())));
-//
-//    public static final Item TURQUOISE_HELMET = registerItem("turquoise_helmet", new ModArmorItem(ModArmorMaterials.TURQUOISE, ArmorItem.Type.HELMET, (new Item.Settings())));
-//    public static final Item TURQUOISE_CHESTPLATE = registerItem("turquoise_chestplate", new ModArmorItem(ModArmorMaterials.TURQUOISE, ArmorItem.Type.CHESTPLATE, (new Item.Settings())));
-//    public static final Item TURQUOISE_LEGGINGS = registerItem("turquoise_leggings", new ModArmorItem(ModArmorMaterials.TURQUOISE, ArmorItem.Type.LEGGINGS, (new Item.Settings())));
-//    public static final Item TURQUOISE_BOOTS = registerItem("turquoise_boots", new ModArmorItem(ModArmorMaterials.TURQUOISE, ArmorItem.Type.BOOTS, (new Item.Settings())));
-//
-//    public static final Item MOISSANITE_HELMET = registerItem("moissanite_helmet", new ModArmorItem(ModArmorMaterials.MOISSANITE, ArmorItem.Type.HELMET, (new Item.Settings())));
-//    public static final Item MOISSANITE_CHESTPLATE = registerItem("moissanite_chestplate", new ModArmorItem(ModArmorMaterials.MOISSANITE, ArmorItem.Type.CHESTPLATE, (new Item.Settings())));
-//    public static final Item MOISSANITE_LEGGINGS = registerItem("moissanite_leggings", new ModArmorItem(ModArmorMaterials.MOISSANITE, ArmorItem.Type.LEGGINGS, (new Item.Settings())));
-//    public static final Item MOISSANITE_BOOTS = registerItem("moissanite_boots", new ModArmorItem(ModArmorMaterials.MOISSANITE, ArmorItem.Type.BOOTS, (new Item.Settings())));
-//
-//    public static final Item ONYX_HELMET = registerItem("onyx_helmet", new ModArmorItem(ModArmorMaterials.ONYX, ArmorItem.Type.HELMET, (new Item.Settings())));
-//    public static final Item ONYX_CHESTPLATE = registerItem("onyx_chestplate", new ModArmorItem(ModArmorMaterials.ONYX, ArmorItem.Type.CHESTPLATE, (new Item.Settings())));
-//    public static final Item ONYX_LEGGINGS = registerItem("onyx_leggings", new ModArmorItem(ModArmorMaterials.ONYX, ArmorItem.Type.LEGGINGS, (new Item.Settings())));
-//    public static final Item ONYX_BOOTS = registerItem("onyx_boots", new ModArmorItem(ModArmorMaterials.ONYX, ArmorItem.Type.BOOTS, (new Item.Settings())));
-//
-//    public static final Item GRAPHENE_HELMET = registerItem("graphene_helmet", new ModArmorItem(ModArmorMaterials.GRAPHENE, ArmorItem.Type.HELMET, (new Item.Settings())));
-//    public static final Item GRAPHENE_CHESTPLATE = registerItem("graphene_chestplate", new ModArmorItem(ModArmorMaterials.GRAPHENE, ArmorItem.Type.CHESTPLATE, (new Item.Settings())));
-//    public static final Item GRAPHENE_LEGGINGS = registerItem("graphene_leggings", new ModArmorItem(ModArmorMaterials.GRAPHENE, ArmorItem.Type.LEGGINGS, (new Item.Settings())));
-//    public static final Item GRAPHENE_BOOTS = registerItem("graphene_boots", new ModArmorItem(ModArmorMaterials.GRAPHENE, ArmorItem.Type.BOOTS, (new Item.Settings())));
+    public static final Item AMETHYST_HELMET = registerItem("amethyst_helmet", new ModArmorItem(ModArmorMaterials.AMETHYST, ArmorItem.Type.HELMET, (new Item.Settings()).maxDamage(242)));
+    public static final Item AMETHYST_CHESTPLATE = registerItem("amethyst_chestplate", new ModArmorItem(ModArmorMaterials.AMETHYST, ArmorItem.Type.CHESTPLATE, (new Item.Settings()).maxDamage(352)));
+    public static final Item AMETHYST_LEGGINGS = registerItem("amethyst_leggings", new ModArmorItem(ModArmorMaterials.AMETHYST, ArmorItem.Type.LEGGINGS, (new Item.Settings()).maxDamage(330)));
+    public static final Item AMETHYST_BOOTS = registerItem("amethyst_boots", new ModArmorItem(ModArmorMaterials.AMETHYST, ArmorItem.Type.BOOTS, (new Item.Settings()).maxDamage(286)));
+
+    public static final Item EMERALD_HELMET = registerItem("emerald_helmet", new ModArmorItem(ModArmorMaterials.EMERALD, ArmorItem.Type.HELMET, (new Item.Settings()).maxDamage(286)));
+    public static final Item EMERALD_CHESTPLATE = registerItem("emerald_chestplate", new ModArmorItem(ModArmorMaterials.EMERALD, ArmorItem.Type.CHESTPLATE, (new Item.Settings()).maxDamage(416)));
+    public static final Item EMERALD_LEGGINGS = registerItem("emerald_leggings", new ModArmorItem(ModArmorMaterials.EMERALD, ArmorItem.Type.LEGGINGS, (new Item.Settings()).maxDamage(390)));
+    public static final Item EMERALD_BOOTS = registerItem("emerald_boots", new ModArmorItem(ModArmorMaterials.EMERALD, ArmorItem.Type.BOOTS, (new Item.Settings()).maxDamage(338)));
+
+    public static final Item TOPAZ_HELMET = registerItem("topaz_helmet", new ModArmorItem(ModArmorMaterials.TOPAZ, ArmorItem.Type.HELMET, (new Item.Settings()).maxDamage(242)));
+    public static final Item TOPAZ_CHESTPLATE = registerItem("topaz_chestplate", new ModArmorItem(ModArmorMaterials.TOPAZ, ArmorItem.Type.CHESTPLATE, (new Item.Settings()).maxDamage(352)));
+    public static final Item TOPAZ_LEGGINGS = registerItem("topaz_leggings", new ModArmorItem(ModArmorMaterials.TOPAZ, ArmorItem.Type.LEGGINGS, (new Item.Settings()).maxDamage(330)));
+    public static final Item TOPAZ_BOOTS = registerItem("topaz_boots", new ModArmorItem(ModArmorMaterials.TOPAZ, ArmorItem.Type.BOOTS, (new Item.Settings()).maxDamage(286)));
+
+    public static final Item TOURMALINE_HELMET = registerItem("tourmaline_helmet", new ModArmorItem(ModArmorMaterials.TOURMALINE, ArmorItem.Type.HELMET, (new Item.Settings()).maxDamage(275)));
+    public static final Item TOURMALINE_CHESTPLATE = registerItem("tourmaline_chestplate", new ModArmorItem(ModArmorMaterials.TOURMALINE, ArmorItem.Type.CHESTPLATE, (new Item.Settings()).maxDamage(400)));
+    public static final Item TOURMALINE_LEGGINGS = registerItem("tourmaline_leggings", new ModArmorItem(ModArmorMaterials.TOURMALINE, ArmorItem.Type.LEGGINGS, (new Item.Settings()).maxDamage(375)));
+    public static final Item TOURMALINE_BOOTS = registerItem("tourmaline_boots", new ModArmorItem(ModArmorMaterials.TOURMALINE, ArmorItem.Type.BOOTS, (new Item.Settings()).maxDamage(325)));
+
+    public static final Item TANZANITE_HELMET = registerItem("tanzanite_helmet", new ModArmorItem(ModArmorMaterials.TANZANITE, ArmorItem.Type.HELMET, (new Item.Settings()).maxDamage(418)));
+    public static final Item TANZANITE_CHESTPLATE = registerItem("tanzanite_chestplate", new ModArmorItem(ModArmorMaterials.TANZANITE, ArmorItem.Type.CHESTPLATE, (new Item.Settings()).maxDamage(608)));
+    public static final Item TANZANITE_LEGGINGS = registerItem("tanzanite_leggings", new ModArmorItem(ModArmorMaterials.TANZANITE, ArmorItem.Type.LEGGINGS, (new Item.Settings()).maxDamage(570)));
+    public static final Item TANZANITE_BOOTS = registerItem("tanzanite_boots", new ModArmorItem(ModArmorMaterials.TANZANITE, ArmorItem.Type.BOOTS, (new Item.Settings()).maxDamage(494)));
+
+    public static final Item RUBY_HELMET = registerItem("ruby_helmet", new ModArmorItem(ModArmorMaterials.RUBY, ArmorItem.Type.HELMET, (new Item.Settings()).maxDamage(385)));
+    public static final Item RUBY_CHESTPLATE = registerItem("ruby_chestplate", new ModArmorItem(ModArmorMaterials.RUBY, ArmorItem.Type.CHESTPLATE, (new Item.Settings()).maxDamage(560)));
+    public static final Item RUBY_LEGGINGS = registerItem("ruby_leggings", new ModArmorItem(ModArmorMaterials.RUBY, ArmorItem.Type.LEGGINGS, (new Item.Settings()).maxDamage(525)));
+    public static final Item RUBY_BOOTS = registerItem("ruby_boots", new ModArmorItem(ModArmorMaterials.RUBY, ArmorItem.Type.BOOTS, (new Item.Settings()).maxDamage(455)));
+
+    public static final Item SAPPHIRE_HELMET = registerItem("sapphire_helmet", new ModArmorItem(ModArmorMaterials.SAPPHIRE, ArmorItem.Type.HELMET, (new Item.Settings()).maxDamage(429)));
+    public static final Item SAPPHIRE_CHESTPLATE = registerItem("sapphire_chestplate", new ModArmorItem(ModArmorMaterials.SAPPHIRE, ArmorItem.Type.CHESTPLATE, (new Item.Settings()).maxDamage(624)));
+    public static final Item SAPPHIRE_LEGGINGS = registerItem("sapphire_leggings", new ModArmorItem(ModArmorMaterials.SAPPHIRE, ArmorItem.Type.LEGGINGS, (new Item.Settings()).maxDamage(585)));
+    public static final Item SAPPHIRE_BOOTS = registerItem("sapphire_boots", new ModArmorItem(ModArmorMaterials.SAPPHIRE, ArmorItem.Type.BOOTS, (new Item.Settings()).maxDamage(507)));
+
+    public static final Item TURQUOISE_HELMET = registerItem("turquoise_helmet", new ModArmorItem(ModArmorMaterials.TURQUOISE, ArmorItem.Type.HELMET, (new Item.Settings()).maxDamage(418)));
+    public static final Item TURQUOISE_CHESTPLATE = registerItem("turquoise_chestplate", new ModArmorItem(ModArmorMaterials.TURQUOISE, ArmorItem.Type.CHESTPLATE, (new Item.Settings()).maxDamage(608)));
+    public static final Item TURQUOISE_LEGGINGS = registerItem("turquoise_leggings", new ModArmorItem(ModArmorMaterials.TURQUOISE, ArmorItem.Type.LEGGINGS, (new Item.Settings()).maxDamage(570)));
+    public static final Item TURQUOISE_BOOTS = registerItem("turquoise_boots", new ModArmorItem(ModArmorMaterials.TURQUOISE, ArmorItem.Type.BOOTS, (new Item.Settings()).maxDamage(494)));
+
+    public static final Item MOISSANITE_HELMET = registerItem("moissanite_helmet", new ModArmorItem(ModArmorMaterials.MOISSANITE, ArmorItem.Type.HELMET, (new Item.Settings()).maxDamage(396)));
+    public static final Item MOISSANITE_CHESTPLATE = registerItem("moissanite_chestplate", new ModArmorItem(ModArmorMaterials.MOISSANITE, ArmorItem.Type.CHESTPLATE, (new Item.Settings()).maxDamage(576)));
+    public static final Item MOISSANITE_LEGGINGS = registerItem("moissanite_leggings", new ModArmorItem(ModArmorMaterials.MOISSANITE, ArmorItem.Type.LEGGINGS, (new Item.Settings()).maxDamage(540)));
+    public static final Item MOISSANITE_BOOTS = registerItem("moissanite_boots", new ModArmorItem(ModArmorMaterials.MOISSANITE, ArmorItem.Type.BOOTS, (new Item.Settings()).maxDamage(468)));
+
+    public static final Item ONYX_HELMET = registerItem("onyx_helmet", new ModArmorItem(ModArmorMaterials.ONYX, ArmorItem.Type.HELMET, (new Item.Settings()).maxDamage(561)));
+    public static final Item ONYX_CHESTPLATE = registerItem("onyx_chestplate", new ModArmorItem(ModArmorMaterials.ONYX, ArmorItem.Type.CHESTPLATE, (new Item.Settings()).maxDamage(816)));
+    public static final Item ONYX_LEGGINGS = registerItem("onyx_leggings", new ModArmorItem(ModArmorMaterials.ONYX, ArmorItem.Type.LEGGINGS, (new Item.Settings()).maxDamage(765)));
+    public static final Item ONYX_BOOTS = registerItem("onyx_boots", new ModArmorItem(ModArmorMaterials.ONYX, ArmorItem.Type.BOOTS, (new Item.Settings()).maxDamage(663)));
+
+    public static final Item GRAPHENE_HELMET = registerItem("graphene_helmet", new ModArmorItem(ModArmorMaterials.GRAPHENE, ArmorItem.Type.HELMET, (new Item.Settings()).maxDamage(726)));
+    public static final Item GRAPHENE_CHESTPLATE = registerItem("graphene_chestplate", new ModArmorItem(ModArmorMaterials.GRAPHENE, ArmorItem.Type.CHESTPLATE, (new Item.Settings()).maxDamage(1056)));
+    public static final Item GRAPHENE_LEGGINGS = registerItem("graphene_leggings", new ModArmorItem(ModArmorMaterials.GRAPHENE, ArmorItem.Type.LEGGINGS, (new Item.Settings()).maxDamage(990)));
+    public static final Item GRAPHENE_BOOTS = registerItem("graphene_boots", new ModArmorItem(ModArmorMaterials.GRAPHENE, ArmorItem.Type.BOOTS, (new Item.Settings()).maxDamage(858)));
 
 
     //All swords
@@ -517,8 +516,12 @@ public class ModItems {
         entries.add(TURQUOISE_GEM);
         entries.add(ONYX_GEM);
         entries.add(GRAPHENE_GEM);
-        entries.add(SWEET_CAROLINE_MUSIC_DISC);
-        entries.add(CIPHER_DISC);
+
+        entries.add(OBSIDIAN_UPGRADE_SMITHING_TEMPLATE);
+        entries.add(BRONZE_ALLOY_SMITHING_TEMPLATE);
+        entries.add(STERLING_ALLOY_SMITHING_TEMPLATE);
+        entries.add(STEEL_ALLOY_SMITHING_TEMPLATE);
+        entries.add(GRAPHENE_ALLOY_SMITHING_TEMPLATE);
     }
     private static void addItemsToCombatItemGroup(FabricItemGroupEntries entries) {
         entries.add(WOOD_BATTLEAXE);
@@ -640,11 +643,83 @@ public class ModItems {
         entries.add(GRAPHENE_MACE);
         entries.add(GRAPHENE_DAGGER);
 
-        entries.add(OBSIDIAN_UPGRADE_SMITHING_TEMPLATE);
-        entries.add(BRONZE_ALLOY_SMITHING_TEMPLATE);
-        entries.add(STERLING_ALLOY_SMITHING_TEMPLATE);
-        entries.add(STEEL_ALLOY_SMITHING_TEMPLATE);
-        entries.add(GRAPHENE_ALLOY_SMITHING_TEMPLATE);
+        entries.add(ModItems.TIN_HELMET);
+        entries.add(ModItems.TIN_CHESTPLATE);
+        entries.add(ModItems.TIN_LEGGINGS);
+        entries.add(ModItems.TIN_BOOTS);
+        entries.add(ModItems.COPPER_HELMET);
+        entries.add(ModItems.COPPER_CHESTPLATE);
+        entries.add(ModItems.COPPER_LEGGINGS);
+        entries.add(ModItems.COPPER_BOOTS);
+        entries.add(ModItems.BRONZE_HELMET);
+        entries.add(ModItems.BRONZE_CHESTPLATE);
+        entries.add(ModItems.BRONZE_LEGGINGS);
+        entries.add(ModItems.BRONZE_BOOTS);
+        entries.add(ModItems.SILVER_HELMET);
+        entries.add(ModItems.SILVER_CHESTPLATE);
+        entries.add(ModItems.SILVER_LEGGINGS);
+        entries.add(ModItems.SILVER_BOOTS);
+        entries.add(ModItems.COBALT_HELMET);
+        entries.add(ModItems.COBALT_CHESTPLATE);
+        entries.add(ModItems.COBALT_LEGGINGS);
+        entries.add(ModItems.COBALT_BOOTS);
+        entries.add(ModItems.STERLING_HELMET);
+        entries.add(ModItems.STERLING_CHESTPLATE);
+        entries.add(ModItems.STERLING_LEGGINGS);
+        entries.add(ModItems.STERLING_BOOTS);
+        entries.add(ModItems.STEEL_HELMET);
+        entries.add(ModItems.STEEL_CHESTPLATE);
+        entries.add(ModItems.STEEL_LEGGINGS);
+        entries.add(ModItems.STEEL_BOOTS);
+        entries.add(ModItems.AMETHYST_HELMET);
+        entries.add(ModItems.AMETHYST_CHESTPLATE);
+        entries.add(ModItems.AMETHYST_LEGGINGS);
+        entries.add(ModItems.AMETHYST_BOOTS);
+        entries.add(ModItems.EMERALD_HELMET);
+        entries.add(ModItems.EMERALD_CHESTPLATE);
+        entries.add(ModItems.EMERALD_LEGGINGS);
+        entries.add(ModItems.EMERALD_BOOTS);
+        entries.add(ModItems.TOPAZ_HELMET);
+        entries.add(ModItems.TOPAZ_CHESTPLATE);
+        entries.add(ModItems.TOPAZ_LEGGINGS);
+        entries.add(ModItems.TOPAZ_BOOTS);
+        entries.add(ModItems.TOURMALINE_HELMET);
+        entries.add(ModItems.TOURMALINE_CHESTPLATE);
+        entries.add(ModItems.TOURMALINE_LEGGINGS);
+        entries.add(ModItems.TOURMALINE_BOOTS);
+        entries.add(ModItems.RUBY_HELMET);
+        entries.add(ModItems.RUBY_CHESTPLATE);
+        entries.add(ModItems.RUBY_LEGGINGS);
+        entries.add(ModItems.RUBY_BOOTS);
+        entries.add(ModItems.SAPPHIRE_HELMET);
+        entries.add(ModItems.SAPPHIRE_CHESTPLATE);
+        entries.add(ModItems.SAPPHIRE_LEGGINGS);
+        entries.add(ModItems.SAPPHIRE_BOOTS);
+        entries.add(ModItems.TANZANITE_HELMET);
+        entries.add(ModItems.TANZANITE_CHESTPLATE);
+        entries.add(ModItems.TANZANITE_LEGGINGS);
+        entries.add(ModItems.TANZANITE_BOOTS);
+        entries.add(ModItems.MOISSANITE_HELMET);
+        entries.add(ModItems.MOISSANITE_CHESTPLATE);
+        entries.add(ModItems.MOISSANITE_LEGGINGS);
+        entries.add(ModItems.MOISSANITE_BOOTS);
+        entries.add(ModItems.TURQUOISE_HELMET);
+        entries.add(ModItems.TURQUOISE_CHESTPLATE);
+        entries.add(ModItems.TURQUOISE_LEGGINGS);
+        entries.add(ModItems.TURQUOISE_BOOTS);
+        entries.add(ModItems.OBSIDIAN_HELMET);
+        entries.add(ModItems.OBSIDIAN_CHESTPLATE);
+        entries.add(ModItems.OBSIDIAN_LEGGINGS);
+        entries.add(ModItems.OBSIDIAN_BOOTS);
+        entries.add(ModItems.ONYX_HELMET);
+        entries.add(ModItems.ONYX_CHESTPLATE);
+        entries.add(ModItems.ONYX_LEGGINGS);
+        entries.add(ModItems.ONYX_BOOTS);
+        entries.add(ModItems.GRAPHENE_HELMET);
+        entries.add(ModItems.GRAPHENE_CHESTPLATE);
+        entries.add(ModItems.GRAPHENE_LEGGINGS);
+        entries.add(ModItems.GRAPHENE_BOOTS);
+
 //        entries.add(TIN_SHIELD);
 //        entries.add(SILVER_SHIELD);
 //        entries.add(COPPER_SHIELD);
@@ -765,6 +840,9 @@ public class ModItems {
         entries.add(GRAPHENE_AXE);
         entries.add(GRAPHENE_SHOVEL);
         entries.add(GRAPHENE_HOE);
+
+        entries.add(SWEET_CAROLINE_MUSIC_DISC);
+        entries.add(CIPHER_DISC);
     }
 
 

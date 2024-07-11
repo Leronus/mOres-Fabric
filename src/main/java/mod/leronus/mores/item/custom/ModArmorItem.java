@@ -23,24 +23,24 @@ public class ModArmorItem extends ArmorItem
     static
     {
         MATERIAL_TO_EFFECT = new HashMap<>();
-        addValue(ModArmorMaterials.TIN, StatusEffects.JUMP_BOOST);
-        addValue(ModArmorMaterials.COBALT, StatusEffects.HASTE);
-        addValue(ModArmorMaterials.STEEL, StatusEffects.STRENGTH);
+        addValue(ModArmorMaterials.TIN, StatusEffects.JUMP_BOOST, 10, 0);
+        addValue(ModArmorMaterials.COBALT, StatusEffects.HASTE, 10, 0);
+        addValue(ModArmorMaterials.STEEL, StatusEffects.STRENGTH, 10, 0);
 
-//        addValue(ModArmorMaterials.AMETHYST, StatusEffects.SLOW_FALLING);
-//        addValue(ModArmorMaterials.EMERALD, StatusEffects.LUCK);
-//
-//        addValue(ModArmorMaterials.TOPAZ, StatusEffects.HASTE, 10, 1);
-//        addValue(ModArmorMaterials.TOURMALINE, StatusEffects.REGENERATION);
-//
-//        addValue(ModArmorMaterials.TANZANITE, StatusEffects.SPEED);
-//        addValue(ModArmorMaterials.RUBY, StatusEffects.FIRE_RESISTANCE);
-//
-//        addValue(ModArmorMaterials.SAPPHIRE, StatusEffects.NIGHT_VISION);
-//        addValue(ModArmorMaterials.MOISSANITE, StatusEffects.CONDUIT_POWER);
-//
-//        addValue(ModArmorMaterials.TURQUOISE, StatusEffects.WATER_BREATHING);
-//        addValue(ModArmorMaterials.TURQUOISE, StatusEffects.DOLPHINS_GRACE);
+        addValue(ModArmorMaterials.AMETHYST, StatusEffects.SLOW_FALLING, 10, 0);
+        addValue(ModArmorMaterials.EMERALD, StatusEffects.LUCK, 10, 0);
+
+        addValue(ModArmorMaterials.TOPAZ, StatusEffects.HASTE, 10, 1);
+        addValue(ModArmorMaterials.TOURMALINE, StatusEffects.REGENERATION, 10, 0);
+
+        addValue(ModArmorMaterials.TANZANITE, StatusEffects.SPEED, 10, 0);
+        addValue(ModArmorMaterials.RUBY, StatusEffects.FIRE_RESISTANCE, 10, 0);
+
+        addValue(ModArmorMaterials.SAPPHIRE, StatusEffects.NIGHT_VISION, 1200, 0);
+        addValue(ModArmorMaterials.MOISSANITE, StatusEffects.CONDUIT_POWER, 10, 0);
+
+        addValue(ModArmorMaterials.TURQUOISE, StatusEffects.WATER_BREATHING, 10, 0);
+        addValue(ModArmorMaterials.TURQUOISE, StatusEffects.DOLPHINS_GRACE, 10, 0);
     }
 
     public ModArmorItem(RegistryEntry<ArmorMaterial> material, Type type, Settings settings)
@@ -48,11 +48,11 @@ public class ModArmorItem extends ArmorItem
         super(material, type, settings);
     }
 
-    private static void addValue(RegistryEntry<ArmorMaterial> key, RegistryEntry<StatusEffect> effect)
+    private static void addValue(RegistryEntry<ArmorMaterial> key, RegistryEntry<StatusEffect> effect, int duration, int amplifier)
     {
         ArrayList tempList;
 
-        StatusEffectInstance newEffect = new StatusEffectInstance(effect, 1200, 3, false, false, true);
+        StatusEffectInstance newEffect = new StatusEffectInstance(effect, duration, amplifier, false, false, true);
 
         if (MATERIAL_TO_EFFECT.containsKey(key))
         {
