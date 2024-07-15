@@ -1,3 +1,4 @@
 check block xp values
 fix horse armor
-fix foods
+bronze armor trim?
+add vanilla mOres weapons

@@ -421,19 +421,19 @@ public class ModItemGroups {
 //                        entries.add(ModItems.NETHERITE_HORSE_ARMOR);
 //                    }).build());
 //
-//    public static final ItemGroup FOOD_GROUP = Registry.register(Registries.ITEM_GROUP,
-//            new Identifier(Mores.MOD_ID, "food"),
-//            FabricItemGroup.builder().displayName(Text.translatable("creativemodetab.mores_foods"))
-//                    .icon(() -> new ItemStack(ModItems.COBALT_APPLE)).entries((displayContext, entries) -> {
-//                        entries.add(ModItems.BRONZE_APPLE);
-//                        entries.add(ModItems.SILVER_APPLE);
-//                        entries.add(ModItems.COBALT_APPLE);
-//                        entries.add(ModItems.CHOCOLATE);
-//                        entries.add(ModItems.VELVET);
-//                        entries.add(ModItems.CARROT_PIE);
-////                        entries.add(ModItems.DUCK);
-////                        entries.add(ModItems.COOKED_DUCK);
-//                    }).build());
+    public static final ItemGroup FOOD_GROUP = Registry.register(Registries.ITEM_GROUP,
+            new Identifier(Mores.MOD_ID, "food"),
+            FabricItemGroup.builder().displayName(Text.translatable("creativemodetab.mores_foods"))
+                    .icon(() -> new ItemStack(ModItems.COBALT_APPLE)).entries((displayContext, entries) -> {
+                        entries.add(ModItems.BRONZE_APPLE);
+                        entries.add(ModItems.SILVER_APPLE);
+                        entries.add(ModItems.COBALT_APPLE);
+                        entries.add(ModItems.CHOCOLATE);
+                        entries.add(ModItems.VELVET);
+                        entries.add(ModItems.CARROT_PIE);
+//                        entries.add(ModItems.DUCK);
+//                        entries.add(ModItems.COOKED_DUCK);
+                    }).build());
 
 //    public static final ItemGroup ENTITIES_GROUP = Registry.register(Registries.ITEM_GROUP,
 //            new Identifier(Mores.MOD_ID, "Entities"),

@@ -95,7 +95,7 @@ public class ModSmithingTemplateItem extends SmithingTemplateItem {
     private static List<Identifier> createGemAlloyIconList() {
         return List.of(EMPTY_SLOT_DIAMOND);
     }
-    public static SmithingTemplateItem createObsidianUpgrade() {
+    public static SmithingTemplateItem createObsidianUpgradeTemplate() {
         return new SmithingTemplateItem(OBSIDIAN_UPGRADE_APPLIES_TO, OBSIDIAN_UPGRADE_INGREDIENTS, OBSIDIAN_UPGRADE, OBSIDIAN_UPGRADE_BASE_SLOT_DESCRIPTION, OBSIDIAN_UPGRADE_ADDITIONS_SLOT_DESCRIPTION, ModSmithingTemplateItem.getObsidianUpgradeEmptyBaseSlotTextures(), ModSmithingTemplateItem.createIngotAlloyIconList());
     }
 

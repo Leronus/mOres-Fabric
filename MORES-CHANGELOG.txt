@@ -1,5 +1,10 @@
 v1.6.0
 Updated to Minecraft 1.20.6
-- Updated item groups to match vanilla
-- Harvest level (temporarily?) removed from tooltips
--
+- Updated full armor effects to show infinite instead of a countdown timer that keeps refreshing
+- Updated item groups to match vanilla Minecraft item groups
+- All armor trims are working correctly (bronze was missing before)
+- All food items working (velvet, chocolate, carrot pie & 3 metal apples)
+- Ruby tools autosmelter working
+- Swords working (speeds / dmg still need testing)
+- Harvest level (temporarily?) removed from tooltips on tools
+- Horse armor and shields currently not present in 1.20 versions

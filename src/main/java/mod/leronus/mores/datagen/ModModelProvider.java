@@ -435,18 +435,19 @@ public class ModModelProvider extends FabricModelProvider {
 
         itemModelGenerator.register(ModItems.ANTHRACITE, Models.GENERATED);
 
-//        itemModelGenerator.register(ModItems.BRONZE_APPLE, Models.GENERATED);
-//        itemModelGenerator.register(ModItems.SILVER_APPLE, Models.GENERATED);
-//        itemModelGenerator.register(ModItems.COBALT_APPLE, Models.GENERATED);
-//
-//        itemModelGenerator.register(ModItems.VELVET, Models.GENERATED);
-//        itemModelGenerator.register(ModItems.CHOCOLATE, Models.GENERATED);
-//        itemModelGenerator.register(ModItems.CARROT_PIE, Models.GENERATED);
+        itemModelGenerator.register(ModItems.BRONZE_APPLE, Models.GENERATED);
+        itemModelGenerator.register(ModItems.SILVER_APPLE, Models.GENERATED);
+        itemModelGenerator.register(ModItems.COBALT_APPLE, Models.GENERATED);
+
+        itemModelGenerator.register(ModItems.VELVET, Models.GENERATED);
+        itemModelGenerator.register(ModItems.CHOCOLATE, Models.GENERATED);
+        itemModelGenerator.register(ModItems.CARROT_PIE, Models.GENERATED);
         itemModelGenerator.register(ModItems.CHAIN, Models.GENERATED);
 //        itemModelGenerator.register(ModItems.DUCK, Models.GENERATED);
 //        itemModelGenerator.register(ModItems.COOKED_DUCK, Models.GENERATED);
 //        itemModelGenerator.register(ModItems.DUCK_EGG, Models.GENERATED);
-//        itemModelGenerator.register(ModItems.SWEET_CAROLINE_MUSIC_DISC, Models.GENERATED);
+        itemModelGenerator.register(ModItems.SWEET_CAROLINE_MUSIC_DISC, Models.GENERATED);
+        itemModelGenerator.register(ModItems.CIPHER_DISC, Models.GENERATED);
 
 //        itemModelGenerator.register(ModItems.DUCK_SPAWN_EGG,
 //                new Model(Optional.of(new Identifier("item/template_spawn_egg")), Optional.empty()));

@@ -12,7 +12,7 @@ import net.minecraft.util.Formatting;
 import java.util.List;
 
 public class ModBattleAxeItem extends SwordItem {
-    public ModBattleAxeItem(ToolMaterial toolMaterial, int attackDamageModifier, float attackSpeedModifier, Item.Settings settings) {
+    public ModBattleAxeItem(ToolMaterial toolMaterial, Item.Settings settings) {
         super(toolMaterial, settings);
     }
 

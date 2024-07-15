@@ -23,24 +23,24 @@ public class ModArmorItem extends ArmorItem
     static
     {
         MATERIAL_TO_EFFECT = new HashMap<>();
-        addValue(ModArmorMaterials.TIN, StatusEffects.JUMP_BOOST, 10, 0);
-        addValue(ModArmorMaterials.COBALT, StatusEffects.HASTE, 10, 0);
-        addValue(ModArmorMaterials.STEEL, StatusEffects.STRENGTH, 10, 0);
+        addValue(ModArmorMaterials.TIN, StatusEffects.JUMP_BOOST, -1, 0);
+        addValue(ModArmorMaterials.COBALT, StatusEffects.HASTE, -1, 0);
+        addValue(ModArmorMaterials.STEEL, StatusEffects.STRENGTH, -1, 0);
 
-        addValue(ModArmorMaterials.AMETHYST, StatusEffects.SLOW_FALLING, 10, 0);
-        addValue(ModArmorMaterials.EMERALD, StatusEffects.LUCK, 10, 0);
+        addValue(ModArmorMaterials.AMETHYST, StatusEffects.SLOW_FALLING, -1, 0);
+        addValue(ModArmorMaterials.EMERALD, StatusEffects.LUCK, -1, 0);
 
-        addValue(ModArmorMaterials.TOPAZ, StatusEffects.HASTE, 10, 1);
-        addValue(ModArmorMaterials.TOURMALINE, StatusEffects.REGENERATION, 10, 0);
+        addValue(ModArmorMaterials.TOPAZ, StatusEffects.HASTE, -1, 1);
+        addValue(ModArmorMaterials.TOURMALINE, StatusEffects.REGENERATION, -1, 0);
 
-        addValue(ModArmorMaterials.TANZANITE, StatusEffects.SPEED, 10, 0);
-        addValue(ModArmorMaterials.RUBY, StatusEffects.FIRE_RESISTANCE, 10, 0);
+        addValue(ModArmorMaterials.TANZANITE, StatusEffects.SPEED, -1, 0);
+        addValue(ModArmorMaterials.RUBY, StatusEffects.FIRE_RESISTANCE, -1, 0);
 
-        addValue(ModArmorMaterials.SAPPHIRE, StatusEffects.NIGHT_VISION, 1200, 0);
-        addValue(ModArmorMaterials.MOISSANITE, StatusEffects.CONDUIT_POWER, 10, 0);
+        addValue(ModArmorMaterials.SAPPHIRE, StatusEffects.NIGHT_VISION, -1, 0);
+        addValue(ModArmorMaterials.MOISSANITE, StatusEffects.CONDUIT_POWER, -1, 0);
 
-        addValue(ModArmorMaterials.TURQUOISE, StatusEffects.WATER_BREATHING, 10, 0);
-        addValue(ModArmorMaterials.TURQUOISE, StatusEffects.DOLPHINS_GRACE, 10, 0);
+        addValue(ModArmorMaterials.TURQUOISE, StatusEffects.WATER_BREATHING, -1, 0);
+        addValue(ModArmorMaterials.TURQUOISE, StatusEffects.DOLPHINS_GRACE, -1, 0);
     }
 
     public ModArmorItem(RegistryEntry<ArmorMaterial> material, Type type, Settings settings)
@@ -74,8 +74,11 @@ public class ModArmorItem extends ArmorItem
     public void inventoryTick(ItemStack stack, World world, Entity entity, int slot, boolean selected)
     {
         if (!world.isClient())
-            if (entity instanceof PlayerEntity player && hasFullArmorSet(player))
+            if (entity instanceof PlayerEntity player && hasFullArmorSet(player)) {
                 evaluateArmorEffect(player);
+            } else if (entity instanceof PlayerEntity player && hasRemovedFullArmorSet(player)){
+                removeArmorEffect(player);
+            }
         super.inventoryTick(stack, world, entity, slot, selected);
     }
 
@@ -89,6 +92,19 @@ public class ModArmorItem extends ArmorItem
         return !helmet.isEmpty() && !chestplate.isEmpty() && !leggings.isEmpty() && !boots.isEmpty();
     }
 
+    private boolean hasRemovedFullArmorSet(PlayerEntity player)
+    {
+        ItemStack boots = player.getInventory().getArmorStack(0);
+        ItemStack leggings = player.getInventory().getArmorStack(1);
+        ItemStack chestplate = player.getInventory().getArmorStack(2);
+        ItemStack helmet = player.getInventory().getArmorStack(3);
+
+        return (boots.isEmpty() && !leggings.isEmpty() && !chestplate.isEmpty() && !helmet.isEmpty()) ||
+                (!boots.isEmpty() && leggings.isEmpty() && !chestplate.isEmpty() && !helmet.isEmpty()) ||
+                (!boots.isEmpty() && !leggings.isEmpty() && chestplate.isEmpty() && !helmet.isEmpty()) ||
+                (!boots.isEmpty() && !leggings.isEmpty() && !chestplate.isEmpty() && helmet.isEmpty());
+    }
+
     private void evaluateArmorEffect(PlayerEntity player)
     {
         for (Map.Entry<RegistryEntry<ArmorMaterial>, ArrayList<StatusEffectInstance>> entry : MATERIAL_TO_EFFECT.entrySet())
@@ -97,8 +113,22 @@ public class ModArmorItem extends ArmorItem
 
             entry.getValue().forEach((effect) ->
             {
-                if (hasCorrectArmor(material, player) && isStatusFading(player, effect))
+                if (hasCorrectArmor(material, player) && isStatusFading(player, effect)){
                     addStatus(player, effect);
+                }
+            });
+        }
+    }
+
+    private void removeArmorEffect(PlayerEntity player)
+    {
+        for (Map.Entry<RegistryEntry<ArmorMaterial>, ArrayList<StatusEffectInstance>> entry : MATERIAL_TO_EFFECT.entrySet())
+        {
+            entry.getValue().forEach((effect) ->
+            {
+                if (isStatusInfinite(player, effect)){
+                    removeStatus(player, effect);
+                }
             });
         }
     }
@@ -126,9 +156,16 @@ public class ModArmorItem extends ArmorItem
         StatusEffectInstance playerEffect = player.getStatusEffect(effect.getEffectType());
 
         return playerEffect == null ||
-                !player.hasStatusEffect(effect.getEffectType()) ||
-                playerEffect.isDurationBelow(220);
+                !player.hasStatusEffect(effect.getEffectType());
     }
+    private boolean isStatusInfinite(PlayerEntity player, StatusEffectInstance effect)
+    {
+        StatusEffectInstance playerEffect = player.getStatusEffect(effect.getEffectType());
+
+        return playerEffect == null ||
+                playerEffect.isInfinite();
+    }
+
 
     private void addStatus(PlayerEntity player, StatusEffectInstance effect)
     {
@@ -138,5 +175,10 @@ public class ModArmorItem extends ArmorItem
                 effect.isAmbient(),
                 effect.shouldShowParticles(),
                 effect.shouldShowIcon()));
+    }
+
+    private void removeStatus(PlayerEntity player, StatusEffectInstance effect)
+    {
+        player.removeStatusEffect(effect.getEffectType());
     }
 }
