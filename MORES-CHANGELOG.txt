@@ -1,0 +1,8 @@
+v1.4.1
+- Added bronze armor to trimmable armor
+
+v1.4.0
+Updated to Minecraft 1.20.4
+- Updated full armor effects to show infinite instead of a countdown timer that keeps refreshing
+- Updated item groups to match vanilla Minecraft item groups
+- Harvest level (temporarily?) removed from tooltips on tools
