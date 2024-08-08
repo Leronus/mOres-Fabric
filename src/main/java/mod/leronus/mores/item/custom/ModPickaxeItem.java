@@ -1,7 +1,11 @@
 package mod.leronus.mores.item.custom;
 
+import mod.leronus.mores.item.ModItems;
 import mod.leronus.mores.item.ModToolMaterials;
 import net.minecraft.client.item.TooltipContext;
+import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.effect.StatusEffectInstance;
+import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.MiningToolItem;
 import net.minecraft.item.PickaxeItem;
@@ -19,9 +23,22 @@ public class ModPickaxeItem extends PickaxeItem {
     }
 
     @Override
+    public boolean postHit(ItemStack stack, LivingEntity target, LivingEntity attacker) {
+        //If the item is an onyx battleaxe, apply wither effect on targetEntity
+        if(stack.getItem() == ModItems.ONYX_PICKAXE) {
+            target.addStatusEffect(new StatusEffectInstance(StatusEffects.WITHER, 250, 1, false, false));
+        }
+        //If the item is a ruby sword, apply fire effect on targetEntity
+        if(stack.getItem() == ModItems.RUBY_PICKAXE) {
+            target.setOnFireFor(5);
+        }
+        return super.postHit(stack, target, attacker);
+    }
+
+    @Override
     public void appendTooltip(ItemStack stack, @Nullable World world, List<Text> tooltip, TooltipContext context) {
         if (stack.getItem() instanceof MiningToolItem item) {
-                        if (item.getMaterial() == ModToolMaterials.RUBY){
+            if (item.getMaterial() == ModToolMaterials.RUBY){
                 tooltip.add(Text.literal(""));
                 tooltip.add(Text.translatable("mores.bonus").formatted(Formatting.GRAY).append(Text.translatable("mores.auto_smelt").formatted(Formatting.DARK_RED)));
             }

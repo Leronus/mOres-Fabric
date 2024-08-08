@@ -1,5 +1,6 @@
 v1.4.1
 - Added bronze armor to trimmable armor
+- Fixed ruby tools burn effect tooltip (and added to tools)
 
 v1.4.0
 Updated to Minecraft 1.20.4
