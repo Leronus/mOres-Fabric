@@ -82,7 +82,7 @@ dependencies {
 	modImplementation "maven.modrinth:SfMw2IZN:UO1crPGk"
 
 	//Custom Shields
-	modImplementation "com.github.CrimsonDawn45:Fabric-Shield-Lib:v${project.fabric_shield_lib_version}"
+	modImplementation "maven.modrinth:7SDalH12:xY16zX6k"
 	modImplementation "com.terraformersmc:modmenu:${project.mod_menu_version}"
 	modImplementation "maven.modrinth:midnightlib:${project.midnightlib_version}"
 	modImplementation "com.github.Chocohead:Fabric-ASM:v${project.fabricasm_version}"
