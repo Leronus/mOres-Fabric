@@ -3,7 +3,8 @@
     "title": "Look at my horse",
     "description": "My horse is amazing! - Craft horse armor",
     "icon": {
-      "item": "mores:tin_horse_armor"
+      "count": 1,
+      "id": "mores:tin_horse_armor"
     },
     "background": "minecraft:textures/gui/advancements/backgrounds/stone.png",
     "frame": "task",

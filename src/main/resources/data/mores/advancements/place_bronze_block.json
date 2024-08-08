@@ -1,7 +1,8 @@
 {
   "display": {
     "icon": {
-      "item": "mores:bronze_block"
+      "count": 1,
+      "id": "mores:bronze_block"
     },
     "title": "Third Place",
     "description": "Place a bronze block",

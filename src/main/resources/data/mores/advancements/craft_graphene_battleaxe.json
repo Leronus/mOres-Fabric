@@ -3,7 +3,8 @@
     "title": "Kratos",
     "description": "Craft the strongest weapon in the game, the graphene battleaxe",
     "icon": {
-      "item": "mores:graphene_battleaxe"
+      "count": 1,
+      "id": "mores:graphene_battleaxe"
     },
     "background": "minecraft:textures/gui/advancements/backgrounds/stone.png",
     "frame": "task",

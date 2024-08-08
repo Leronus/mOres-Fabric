@@ -3,7 +3,8 @@
     "title": "The Dark Knight",
     "description": "Craft full onyx armor",
     "icon": {
-      "item": "mores:onyx_helmet"
+      "count": 1,
+      "id": "mores:onyx_helmet"
     },
     "background": "minecraft:textures/gui/advancements/backgrounds/stone.png",
     "frame": "task",

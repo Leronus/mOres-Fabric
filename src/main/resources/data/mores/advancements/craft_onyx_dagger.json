@@ -3,7 +3,8 @@
     "title": "Dagger of Doom",
     "description": "Craft one scary dagger, forged in the eternal depths of the End",
     "icon": {
-      "item": "mores:onyx_dagger"
+      "count": 1,
+      "id": "mores:onyx_dagger"
     },
     "background": "minecraft:textures/gui/advancements/backgrounds/stone.png",
     "frame": "task",

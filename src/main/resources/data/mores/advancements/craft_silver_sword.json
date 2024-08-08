@@ -3,7 +3,8 @@
     "title": "Death To Werewolves!",
     "description": "Craft a silver sword",
     "icon": {
-      "item": "mores:silver_sword"
+      "count": 1,
+      "id": "mores:silver_sword"
     },
     "background": "minecraft:textures/gui/advancements/backgrounds/stone.png",
     "frame": "task",

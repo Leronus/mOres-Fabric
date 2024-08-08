@@ -3,7 +3,8 @@
     "title": "Pyromaniac",
     "description": "Craft all ruby tools as well as full ruby fire resistant armor",
     "icon": {
-      "item": "mores:ruby_axe"
+      "count": 1,
+      "id": "mores:ruby_axe"
     },
     "background": "minecraft:textures/gui/advancements/backgrounds/stone.png",
     "frame": "task",

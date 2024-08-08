@@ -3,7 +3,8 @@
     "title": "Heartbreaker",
     "description": "Craft a tourmaline dagger",
     "icon": {
-      "item": "mores:tourmaline_dagger"
+      "count": 1,
+      "id": "mores:tourmaline_dagger"
     },
     "background": "minecraft:textures/gui/advancements/backgrounds/stone.png",
     "frame": "task",

@@ -3,7 +3,8 @@
     "title": "Bitcoin",
     "description": "Obtain a turquoise gem",
     "icon": {
-      "item": "mores:turquoise_gem"
+      "count": 1,
+      "id": "mores:turquoise_gem"
     },
     "background": "minecraft:textures/gui/advancements/backgrounds/stone.png",
     "frame": "task",

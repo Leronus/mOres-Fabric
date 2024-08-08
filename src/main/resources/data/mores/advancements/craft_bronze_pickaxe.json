@@ -3,7 +3,8 @@
     "title": "Time To Dig Deeper",
     "description": "Craft a bronze pickaxe",
     "icon": {
-      "item": "mores:bronze_pickaxe"
+      "count": 1,
+      "id": "mores:bronze_pickaxe"
     },
     "background": "minecraft:textures/gui/advancements/backgrounds/stone.png",
     "frame": "task",

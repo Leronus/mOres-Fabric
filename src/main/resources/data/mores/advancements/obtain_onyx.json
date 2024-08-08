@@ -3,7 +3,8 @@
     "title": "This Is The End",
     "description": "Obtain an onyx gem",
     "icon": {
-      "item": "mores:onyx_gem"
+      "count": 1,
+      "id": "mores:onyx_gem"
     },
     "background": "minecraft:textures/gui/advancements/backgrounds/stone.png",
     "frame": "task",

@@ -3,7 +3,8 @@
     "title": "The Bronze Age",
     "description": "Craft first alloy out of tin and copper",
     "icon": {
-      "item": "mores:bronze_ingot"
+      "count": 1,
+      "id": "mores:bronze_ingot"
     },
     "background": "minecraft:textures/gui/advancements/backgrounds/stone.png",
     "frame": "task",

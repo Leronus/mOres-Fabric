@@ -3,7 +3,8 @@
     "title": "Whiter Than Bart",
     "description": "Craft full silver armor",
     "icon": {
-      "item": "mores:silver_chestplate"
+      "count": 1,
+      "id": "mores:silver_chestplate"
     },
     "background": "minecraft:textures/gui/advancements/backgrounds/stone.png",
     "frame": "task",

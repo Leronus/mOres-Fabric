@@ -3,7 +3,8 @@
     "title": "Quicksilver",
     "description": "Obtain raw silver",
     "icon": {
-      "item": "mores:raw_silver"
+      "count": 1,
+      "id": "mores:raw_silver"
     },
     "background": "minecraft:textures/gui/advancements/backgrounds/stone.png",
     "frame": "task",

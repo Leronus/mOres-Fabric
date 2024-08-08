@@ -1,7 +1,8 @@
 {
   "display": {
     "icon": {
-      "item": "mores:bronze_apple"
+      "count": 1,
+      "id": "mores:bronze_apple"
     },
     "title": "Oooruk",
     "description": "Eat a bronze apple",

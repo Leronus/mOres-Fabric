@@ -3,7 +3,8 @@
     "title": "The Ultimate Simp",
     "description": "Impress the ladies with beautiful tourmaline armor",
     "icon": {
-      "item": "mores:tourmaline_leggings"
+      "count": 1,
+      "id": "mores:tourmaline_leggings"
     },
     "background": "minecraft:textures/gui/advancements/backgrounds/stone.png",
     "frame": "task",

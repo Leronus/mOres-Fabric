@@ -3,7 +3,8 @@
     "title": "What Are You Doing In My Swamp",
     "description": "Craft full moissanite armor",
     "icon": {
-      "item": "mores:moissanite_chestplate"
+      "count": 1,
+      "id": "mores:moissanite_chestplate"
     },
     "background": "minecraft:textures/gui/advancements/backgrounds/stone.png",
     "frame": "task",

@@ -1,7 +1,8 @@
 {
   "display": {
     "icon": {
-      "item": "mores:cobalt_apple"
+      "count": 1,
+      "id": "mores:cobalt_apple"
     },
     "title": "The Grand Escape",
     "description": "Eat a cobalt apple and mine your way to safety",

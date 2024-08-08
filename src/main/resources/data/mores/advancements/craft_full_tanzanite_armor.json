@@ -3,7 +3,8 @@
     "title": "Purple Flash",
     "description": "Craft full tanzanite armor",
     "icon": {
-      "item": "mores:tanzanite_boots"
+      "count": 1,
+      "id": "mores:tanzanite_boots"
     },
     "background": "minecraft:textures/gui/advancements/backgrounds/stone.png",
     "frame": "task",

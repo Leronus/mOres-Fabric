@@ -3,7 +3,8 @@
     "title": "Shanks Longer Than 20cm",
     "description": "You sure like fookin shanks don't ye - Craft all daggers",
     "icon": {
-      "item": "mores:emerald_dagger"
+      "count": 1,
+      "id": "mores:emerald_dagger"
     },
     "background": "minecraft:textures/gui/advancements/backgrounds/stone.png",
     "frame": "task",

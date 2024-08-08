@@ -3,7 +3,8 @@
     "title": "Efficiency 100",
     "description": "Craft full topaz armor and tools",
     "icon": {
-      "item": "mores:topaz_sword"
+      "count": 1,
+      "id": "mores:topaz_sword"
     },
     "background": "minecraft:textures/gui/advancements/backgrounds/stone.png",
     "frame": "task",

@@ -3,7 +3,8 @@
     "title": "Hephaestos",
     "description": "You have alloyed coal and iron into steel",
     "icon": {
-      "item": "mores:steel_ingot"
+      "count": 1,
+      "id": "mores:steel_ingot"
     },
     "background": "minecraft:textures/gui/advancements/backgrounds/stone.png",
     "frame": "task",

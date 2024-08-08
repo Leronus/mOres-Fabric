@@ -3,7 +3,8 @@
     "title": "Fiery Diamond",
     "description": "Obtain a ruby gem",
     "icon": {
-      "item": "mores:ruby_gem"
+      "count": 1,
+      "id": "mores:ruby_gem"
     },
     "background": "minecraft:textures/gui/advancements/backgrounds/stone.png",
     "frame": "task",

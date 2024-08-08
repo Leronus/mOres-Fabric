@@ -1,7 +1,8 @@
 {
   "display": {
     "icon": {
-      "item": "mores:turquoise_block"
+      "count": 1,
+      "id": "mores:turquoise_block"
     },
     "title": "√9 = 3",
     "description": "Craft a turquoise block",

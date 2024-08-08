@@ -3,7 +3,8 @@
     "title": "Unbreakable Four",
     "description": "Craft all obsidian tools",
     "icon": {
-      "item": "mores:obsidian_axe"
+      "count": 1,
+      "id": "mores:obsidian_axe"
     },
     "background": "minecraft:textures/gui/advancements/backgrounds/stone.png",
     "frame": "task",

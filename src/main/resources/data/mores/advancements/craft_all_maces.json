@@ -3,7 +3,8 @@
     "title": "Amacing",
     "description": "Craft all maces in the game. Whack 'em champ!",
     "icon": {
-      "item": "mores:steel_mace"
+      "count": 1,
+      "id": "mores:steel_mace"
     },
     "background": "minecraft:textures/gui/advancements/backgrounds/stone.png",
     "frame": "task",

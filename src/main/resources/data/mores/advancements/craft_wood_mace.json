@@ -3,7 +3,8 @@
     "title": "The Knuppel",
     "description": "Craft a wooden mace",
     "icon": {
-      "item": "mores:wood_mace"
+      "count": 1,
+      "id": "mores:wood_mace"
     },
     "background": "minecraft:textures/gui/advancements/backgrounds/stone.png",
     "frame": "task",

@@ -3,7 +3,8 @@
     "title": "Immovable",
     "description": "Craft full obsidian armor",
     "icon": {
-      "item": "mores:obsidian_chestplate"
+      "count": 1,
+      "id": "mores:obsidian_chestplate"
     },
     "background": "minecraft:textures/gui/advancements/backgrounds/stone.png",
     "frame": "task",

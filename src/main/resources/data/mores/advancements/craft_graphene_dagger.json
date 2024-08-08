@@ -3,7 +3,8 @@
     "title": "Jack The Ripper",
     "description": "Craft a graphene dagger",
     "icon": {
-      "item": "mores:graphene_dagger"
+      "count": 1,
+      "id": "mores:graphene_dagger"
     },
     "background": "minecraft:textures/gui/advancements/backgrounds/stone.png",
     "frame": "task",

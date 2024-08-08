@@ -1,7 +1,8 @@
 {
   "display": {
     "icon": {
-      "item": "minecraft:bedrock"
+      "count": 1,
+      "id": "minecraft:bedrock"
     },
     "title": "WHAT? WHERE?",
     "description": "You wandered too far off just like Martijn... Find bedrock",

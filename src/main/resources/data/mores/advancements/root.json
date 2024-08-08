@@ -3,7 +3,8 @@
     "title": "mOres",
     "description": "made by Leronus",
     "icon": {
-      "item": "mores:raw_tin_block"
+      "count": 1,
+      "id": "mores:raw_tin_block"
     },
     "background": "minecraft:textures/gui/advancements/backgrounds/stone.png",
     "frame": "task",

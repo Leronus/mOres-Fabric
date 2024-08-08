@@ -3,7 +3,8 @@
     "title": "More Metal",
     "description": "Smelt a mOres metal",
     "icon": {
-      "item": "mores:tin_ingot"
+      "count": 1,
+      "id": "mores:tin_ingot"
     },
     "background": "minecraft:textures/gui/advancements/backgrounds/stone.png",
     "frame": "task",

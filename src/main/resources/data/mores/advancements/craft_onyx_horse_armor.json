@@ -3,7 +3,8 @@
     "title": "Dark Horse",
     "description": "Obtain onyx horse armor",
     "icon": {
-      "item": "mores:onyx_horse_armor"
+      "count": 1,
+      "id": "mores:onyx_horse_armor"
     },
     "background": "minecraft:textures/gui/advancements/backgrounds/stone.png",
     "frame": "task",

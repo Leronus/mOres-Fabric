@@ -3,7 +3,8 @@
     "title": "Feeling Lucky",
     "description": "Craft full emerald armor",
     "icon": {
-      "item": "mores:emerald_chestplate"
+      "count": 1,
+      "id": "mores:emerald_chestplate"
     },
     "background": "minecraft:textures/gui/advancements/backgrounds/stone.png",
     "frame": "task",

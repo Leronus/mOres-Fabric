@@ -3,7 +3,8 @@
     "title": "The Chemist",
     "description": "Alloy onyx and diamond, the ultimate material...",
     "icon": {
-      "item": "mores:graphene_gem"
+      "count": 1,
+      "id": "mores:graphene_gem"
     },
     "background": "minecraft:textures/gui/advancements/backgrounds/stone.png",
     "frame": "task",

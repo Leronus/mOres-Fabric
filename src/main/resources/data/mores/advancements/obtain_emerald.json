@@ -3,7 +3,8 @@
     "title": "The Negotiator",
     "description": "Obtain an emerald",
     "icon": {
-      "item": "minecraft:emerald"
+      "count": 1,
+      "id": "minecraft:emerald"
     },
     "background": "minecraft:textures/gui/advancements/backgrounds/stone.png",
     "frame": "task",

@@ -3,7 +3,8 @@
     "title": "Less Shine, More Power",
     "description": "Alloy a stronger version of silver using copper",
     "icon": {
-      "item": "mores:sterling_ingot"
+      "count": 1,
+      "id": "mores:sterling_ingot"
     },
     "background": "minecraft:textures/gui/advancements/backgrounds/stone.png",
     "frame": "task",

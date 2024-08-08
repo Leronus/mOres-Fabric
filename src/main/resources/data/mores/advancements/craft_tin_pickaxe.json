@@ -3,7 +3,8 @@
     "title": "Might As Well Use Stone",
     "description": "Craft a tin pickaxe",
     "icon": {
-      "item": "mores:tin_pickaxe"
+      "count": 1,
+      "id": "mores:tin_pickaxe"
     },
     "background": "minecraft:textures/gui/advancements/backgrounds/stone.png",
     "frame": "task",

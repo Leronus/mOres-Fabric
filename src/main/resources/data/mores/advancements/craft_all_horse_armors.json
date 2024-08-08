@@ -3,7 +3,8 @@
     "title": "Give it a lick",
     "description": "Tastes just like raisins - Craft all horse armor",
     "icon": {
-      "item": "mores:graphene_horse_armor"
+      "count": 1,
+      "id": "mores:graphene_horse_armor"
     },
     "background": "minecraft:textures/gui/advancements/backgrounds/stone.png",
     "frame": "task",

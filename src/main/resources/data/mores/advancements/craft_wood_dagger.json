@@ -3,7 +3,8 @@
     "title": "Prison Shank",
     "description": "Craft a makeshift dagger",
     "icon": {
-      "item": "mores:wood_dagger"
+      "count": 1,
+      "id": "mores:wood_dagger"
     },
     "background": "minecraft:textures/gui/advancements/backgrounds/stone.png",
     "frame": "task",

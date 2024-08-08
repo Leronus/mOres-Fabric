@@ -3,7 +3,8 @@
     "title": "Man of Steel",
     "description": "You have crafted all tools and armor made from carbon steel",
     "icon": {
-      "item": "mores:steel_boots"
+      "count": 1,
+      "id": "mores:steel_boots"
     },
     "background": "minecraft:textures/gui/advancements/backgrounds/stone.png",
     "frame": "task",

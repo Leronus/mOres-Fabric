@@ -3,7 +3,8 @@
     "title": "Taneleer Tivan",
     "description": "Collect all mOres materials! Dat smaakt als een godverdomme lekker broodje.",
     "icon": {
-      "item": "mores:deepslate_turquoise_ore"
+      "count": 1,
+      "id": "mores:deepslate_turquoise_ore"
     },
     "background": "minecraft:textures/gui/advancements/backgrounds/stone.png",
     "frame": "task",

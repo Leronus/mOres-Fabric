@@ -3,7 +3,8 @@
     "title": "Toss A Coin To This Miner",
     "description": "Craft a copper pickaxe",
     "icon": {
-      "item": "mores:copper_pickaxe"
+      "count": 1,
+      "id": "mores:copper_pickaxe"
     },
     "background": "minecraft:textures/gui/advancements/backgrounds/stone.png",
     "frame": "task",

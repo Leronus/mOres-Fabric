@@ -3,7 +3,8 @@
     "title": "Topazzler",
     "description": "Obtain a topaz gem",
     "icon": {
-      "item": "mores:topaz_gem"
+      "count": 1,
+      "id": "mores:topaz_gem"
     },
     "background": "minecraft:textures/gui/advancements/backgrounds/stone.png",
     "frame": "task",

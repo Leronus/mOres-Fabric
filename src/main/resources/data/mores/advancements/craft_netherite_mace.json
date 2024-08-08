@@ -3,7 +3,8 @@
     "title": "The Bat Man",
     "description": "Craft a netherite mace",
     "icon": {
-      "item": "mores:netherite_mace"
+      "count": 1,
+      "id": "mores:netherite_mace"
     },
     "background": "minecraft:textures/gui/advancements/backgrounds/stone.png",
     "frame": "task",

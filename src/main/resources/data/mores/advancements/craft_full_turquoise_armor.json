@@ -3,7 +3,8 @@
     "title": "Poseidon",
     "description": "Craft full turquoise armor",
     "icon": {
-      "item": "mores:turquoise_chestplate"
+      "count": 1,
+      "id": "mores:turquoise_chestplate"
     },
     "background": "minecraft:textures/gui/advancements/backgrounds/stone.png",
     "frame": "task",

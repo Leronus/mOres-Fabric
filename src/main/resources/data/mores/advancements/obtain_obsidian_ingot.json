@@ -1,7 +1,8 @@
 {
   "display": {
     "icon": {
-      "item": "mores:obsidian_ingot"
+      "count": 1,
+      "id": "mores:obsidian_ingot"
     },
     "title": "Leveling Up",
     "description": "Obtain an obsidian ingot",

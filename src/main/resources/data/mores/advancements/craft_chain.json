@@ -3,7 +3,8 @@
     "title": "What Is This Kinky Stuff??",
     "description": "Craft metal wire for chainmail",
     "icon": {
-      "item": "mores:chain"
+      "count": 1,
+      "id": "mores:chain"
     },
     "background": "minecraft:textures/gui/advancements/backgrounds/stone.png",
     "frame": "task",

@@ -3,7 +3,8 @@
     "title": "The Villagers Love Me",
     "description": "Craft all emerald gear",
     "icon": {
-      "item": "mores:emerald_sword"
+      "count": 1,
+      "id": "mores:emerald_sword"
     },
     "background": "minecraft:textures/gui/advancements/backgrounds/stone.png",
     "frame": "task",

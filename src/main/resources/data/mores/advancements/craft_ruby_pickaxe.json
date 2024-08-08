@@ -3,7 +3,8 @@
     "title": "The Autosmelter",
     "description": "Craft a ruby pickaxe",
     "icon": {
-      "item": "mores:ruby_pickaxe"
+      "count": 1,
+      "id": "mores:ruby_pickaxe"
     },
     "background": "minecraft:textures/gui/advancements/backgrounds/stone.png",
     "frame": "task",

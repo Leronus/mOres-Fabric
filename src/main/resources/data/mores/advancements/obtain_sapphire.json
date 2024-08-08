@@ -3,7 +3,8 @@
     "title": "Massive Improvement",
     "description": "Obtain a sapphire gem",
     "icon": {
-      "item": "mores:sapphire_gem"
+      "count": 1,
+      "id": "mores:sapphire_gem"
     },
     "background": "minecraft:textures/gui/advancements/backgrounds/stone.png",
     "frame": "task",

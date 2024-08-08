@@ -3,7 +3,8 @@
     "title": "Just Because I Can",
     "description": "Craft full chainmail armor",
     "icon": {
-      "item": "minecraft:chainmail_chestplate"
+      "count": 1,
+      "id": "mores:chainmail_chestplate"
     },
     "background": "minecraft:textures/gui/advancements/backgrounds/stone.png",
     "frame": "task",

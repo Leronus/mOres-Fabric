@@ -3,7 +3,8 @@
     "title": "Hi Elmo",
     "description": "Craft full ruby armor",
     "icon": {
-      "item": "mores:ruby_helmet"
+      "count": 1,
+      "id": "mores:ruby_helmet"
     },
     "background": "minecraft:textures/gui/advancements/backgrounds/stone.png",
     "frame": "task",
