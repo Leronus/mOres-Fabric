@@ -29,7 +29,7 @@ public class ModSwordItem extends SwordItem {
         }
         tooltip.add(Text.literal(""));
         tooltip.add(Text.translatable("mores.durability").formatted(Formatting.GRAY).append(Text.translatable(String.valueOf(((ModSwordItem) stack.getItem()).getMaterial().getDurability())).formatted(Formatting.LIGHT_PURPLE)));
-            if (stack.getItem() == ModItems.RUBY_SWORD || stack.getItem() == ModItems.RUBY_MACE || stack.getItem() == ModItems.RUBY_BATTLEAXE || stack.getItem() == ModItems.RUBY_DAGGER) {
+            if (stack.getItem() == ModItems.RUBY_SWORD || stack.getItem() == ModItems.RUBY_MACE || stack.getItem() == ModItems.RUBY_DAGGER) {
                 tooltip.add(Text.translatable(Formatting.GRAY + "mores.bonus" + Formatting.RED + "Burn Effect"));
             }
         }
@@ -45,11 +45,11 @@ public class ModSwordItem extends SwordItem {
     @Override
     public boolean postHit(ItemStack stack, LivingEntity target, LivingEntity attacker) {
         //If the item is an onyx sword, apply wither effect on targetEntity
-        if(stack.getItem() == ModItems.ONYX_SWORD || stack.getItem() == ModItems.ONYX_MACE || stack.getItem() == ModItems.ONYX_DAGGER || stack.getItem() == ModItems.ONYX_BATTLEAXE) {
+        if(stack.getItem() == ModItems.ONYX_SWORD || stack.getItem() == ModItems.ONYX_MACE || stack.getItem() == ModItems.ONYX_DAGGER) {
             target.addStatusEffect(new StatusEffectInstance(StatusEffects.WITHER, 250, 1, false, false));
         }
         //If the item is a ruby sword, apply fire effect on targetEntity
-        if(stack.getItem() == ModItems.RUBY_SWORD || stack.getItem() == ModItems.RUBY_MACE || stack.getItem() == ModItems.RUBY_DAGGER || stack.getItem() == ModItems.RUBY_BATTLEAXE) {
+        if(stack.getItem() == ModItems.RUBY_SWORD || stack.getItem() == ModItems.RUBY_MACE || stack.getItem() == ModItems.RUBY_DAGGER) {
             target.setOnFireFor(5);
         }
         return super.postHit(stack, target, attacker);
