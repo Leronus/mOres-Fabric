@@ -56,14 +56,15 @@ public class ModSwordItem extends SwordItem {
     public void appendTooltip(ItemStack stack, @Nullable World world, List<Text> tooltip, TooltipContext context) {
         if (stack.getItem() instanceof ToolItem){
             tooltip.add(Text.literal(""));
-            if (stack.getItem() == ModItems.ONYX_SWORD || stack.getItem() == ModItems.ONYX_MACE || stack.getItem() == ModItems.ONYX_DAGGER) {
+            tooltip.add(Text.literal(""));
+            if (((ToolItem) stack.getItem()).getMaterial() == ModToolMaterials.ONYX) {
                 tooltip.add(Text.translatable("mores.bonus").formatted(Formatting.GRAY).append(Text.translatable("mores.wither_effect").formatted(Formatting.DARK_GRAY)));
+            }
+            if (((ToolItem) stack.getItem()).getMaterial() == ModToolMaterials.RUBY) {
+                tooltip.add(Text.translatable("mores.bonus").formatted(Formatting.GRAY).append(Text.translatable("mores.burn_effect").formatted(Formatting.DARK_RED)));
             }
             tooltip.add(Text.literal(""));
             tooltip.add(Text.translatable("mores.durability").formatted(Formatting.GRAY).append(Text.translatable(String.valueOf(stack.getItem().getMaxDamage())).formatted(Formatting.LIGHT_PURPLE)));
-            if (((ToolItem) stack.getItem()).getMaterial() == ModToolMaterials.RUBY) {
-                tooltip.add(Text.translatable("mores.bonus").formatted(Formatting.GRAY).append(Text.translatable("mores.burn_effect").formatted(Formatting.RED)));
-            }
         }
     }
 

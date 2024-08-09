@@ -6,10 +6,7 @@ import net.minecraft.client.item.TooltipContext;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
-import net.minecraft.item.HoeItem;
-import net.minecraft.item.ItemStack;
-import net.minecraft.item.MiningToolItem;
-import net.minecraft.item.ToolMaterial;
+import net.minecraft.item.*;
 import net.minecraft.text.Text;
 import net.minecraft.util.Formatting;
 import net.minecraft.world.World;
@@ -38,9 +35,12 @@ public class ModHoeItem extends HoeItem {
     @Override
     public void appendTooltip(ItemStack stack, @Nullable World world, List<Text> tooltip, TooltipContext context) {
         if (stack.getItem() instanceof MiningToolItem item) {
-            if (item.getMaterial() == ModToolMaterials.RUBY){
-                tooltip.add(Text.literal(""));
-                tooltip.add(Text.translatable("mores.bonus").formatted(Formatting.GRAY).append(Text.translatable("mores.auto_smelt").formatted(Formatting.DARK_RED)));
+            tooltip.add(Text.literal(""));
+            if (((ToolItem) stack.getItem()).getMaterial() == ModToolMaterials.ONYX) {
+                tooltip.add(Text.translatable("mores.bonus").formatted(Formatting.GRAY).append(Text.translatable("mores.wither_effect").formatted(Formatting.DARK_GRAY)));
+            }
+            if (((ToolItem) stack.getItem()).getMaterial() == ModToolMaterials.RUBY) {
+                tooltip.add(Text.translatable("mores.bonus").formatted(Formatting.GRAY).append(Text.translatable("mores.burn_effect").formatted(Formatting.DARK_RED)));
             }
             tooltip.add(Text.literal(""));
             tooltip.add(Text.translatable("mores.harvest_level").formatted(Formatting.GRAY).append(Text.translatable(String.valueOf(item.getMaterial().getMiningLevel())).formatted(Formatting.GOLD)));

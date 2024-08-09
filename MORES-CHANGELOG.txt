@@ -1,3 +1,6 @@
+v1.4.2
+- Updated ruby tooltips (matched colors and fixed accidental double line)
+
 v1.4.1
 - Added bronze armor to trimmable armor
 - Fixed ruby tools burn effect tooltip (and added to tools)
