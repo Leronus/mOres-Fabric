@@ -1,3 +1,6 @@
+v1.0.2
+- Updated ruby tooltips (matched colors and fixed accidental double line)
+
 v1.0.1
 - Added bronze armor to trimmable armor
 - Updated full armor effects to show infinite instead of a countdown timer that keeps refreshing
