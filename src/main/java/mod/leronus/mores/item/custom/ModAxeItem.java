@@ -2,7 +2,7 @@ package mod.leronus.mores.item.custom;
 
 import mod.leronus.mores.item.ModItems;
 import mod.leronus.mores.item.ModToolMaterials;
-import net.minecraft.client.item.TooltipType;
+import net.minecraft.item.tooltip.TooltipType;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
@@ -34,6 +34,7 @@ public class ModAxeItem extends AxeItem {
         }
         return super.postHit(stack, target, attacker);
     }
+
 
     @Override
     public void appendTooltip(ItemStack stack, TooltipContext context, List<Text> tooltip, TooltipType type) {

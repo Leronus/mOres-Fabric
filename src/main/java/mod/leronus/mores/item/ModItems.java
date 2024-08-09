@@ -18,8 +18,8 @@ public class ModItems {
     /**
      * Fills the registry with items
      */
-    public static final Item SWEET_CAROLINE_MUSIC_DISC = registerItem("sweet_caroline_music_disc", new MusicDiscItem(4, ModSounds.SWEET_CAROLINE_BOOTLEG, new Item.Settings().rarity(Rarity.RARE), 4040));
-    public static final Item CIPHER_DISC = registerItem("cipher_music_disc", new MusicDiscItem(5, ModSounds.CIPHER, new Item.Settings().rarity(Rarity.RARE), 3820));
+//    public static final Item SWEET_CAROLINE_MUSIC_DISC = registerItem("sweet_caroline_music_disc", new MusicDiscItem(4, ModSounds.SWEET_CAROLINE_BOOTLEG, new Item.Settings().rarity(Rarity.RARE), 4040));
+//    public static final Item CIPHER_DISC = registerItem("cipher_music_disc", new MusicDiscItem(5, ModSounds.CIPHER, new Item.Settings().rarity(Rarity.RARE), 3820));
 
     public static final Item OBSIDIAN_UPGRADE_SMITHING_TEMPLATE = registerItem("obsidian_upgrade_smithing_template", ModSmithingTemplateItem.createObsidianUpgradeTemplate());
     public static final Item BRONZE_ALLOY_SMITHING_TEMPLATE = registerItem("bronze_alloy_smithing_template", ModSmithingTemplateItem.createBronzeAlloyTemplate());
@@ -837,13 +837,13 @@ public class ModItems {
         entries.add(GRAPHENE_SHOVEL);
         entries.add(GRAPHENE_HOE);
 
-        entries.add(SWEET_CAROLINE_MUSIC_DISC);
-        entries.add(CIPHER_DISC);
+//        entries.add(SWEET_CAROLINE_MUSIC_DISC);
+//        entries.add(CIPHER_DISC);
     }
 
 
     private static Item registerItem(String name, Item item) {
-        return Registry.register(Registries.ITEM, new Identifier(Mores.MOD_ID, name), item);
+        return Registry.register(Registries.ITEM, Identifier.of(Mores.MOD_ID, name), item);
     }
 
     public static void registerModItems() {

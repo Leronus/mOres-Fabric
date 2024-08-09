@@ -38,6 +38,18 @@ repositories {
 	}
 }
 
+loom {
+	splitEnvironmentSourceSets()
+
+	mods {
+		"mores" {
+			sourceSet sourceSets.main
+			sourceSet sourceSets.client
+		}
+	}
+
+}
+
 fabricApi {
 	configureDataGeneration()
 }
@@ -58,12 +70,12 @@ dependencies {
 
 	//Iris
 	modImplementation "maven.modrinth:YL57xq9U:${project.iris_version}"
-	//Indium
-	modImplementation "maven.modrinth:Orvt0mRa:${project.indium_version}"
+//	//Indium
+//	modImplementation "maven.modrinth:Orvt0mRa:${project.indium_version}"
 	//EntityCulling
 	modImplementation "maven.modrinth:NNAgCjsB:${project.entity_culling_version}"
 	//Continuity
-	modImplementation "maven.modrinth:1IjD5062:${project.continuity_version}"
+//	modImplementation "maven.modrinth:1IjD5062:${project.continuity_version}"
 //	//Bobby
 //	modImplementation "maven.modrinth:M08ruV16:2cuVyTav"
 	//Nvidium

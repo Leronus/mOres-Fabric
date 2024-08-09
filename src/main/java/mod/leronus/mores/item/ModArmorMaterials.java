@@ -309,7 +309,7 @@ public class ModArmorMaterials
     //region HELPER METHODS
     private static RegistryEntry<ArmorMaterial> register(String id, EnumMap<ArmorItem.Type, Integer> defense, int enchantability, RegistryEntry<SoundEvent> equipSound, float toughness, float knockbackResistance, Supplier<Ingredient> repairIngredient)
     {
-        List<ArmorMaterial.Layer> list = List.of(new ArmorMaterial.Layer(new Identifier(Mores.MOD_ID, id)));
+        List<ArmorMaterial.Layer> list = List.of(new ArmorMaterial.Layer(Identifier.of(Mores.MOD_ID, id)));
         return register(id, defense, enchantability, equipSound, toughness, knockbackResistance, repairIngredient, list);
     }
 
@@ -320,7 +320,7 @@ public class ModArmorMaterials
         {
             enumMap.put(type, defense.get(type));
         }
-        return Registry.registerReference(Registries.ARMOR_MATERIAL, new Identifier(Mores.MOD_ID, id),
+        return Registry.registerReference(Registries.ARMOR_MATERIAL, Identifier.of(Mores.MOD_ID, id),
                 new ArmorMaterial(enumMap, enchantability, equipSound, repairIngredient,
                         layers, toughness, knockbackResistance));
     }

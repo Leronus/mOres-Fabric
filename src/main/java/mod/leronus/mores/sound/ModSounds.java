@@ -13,7 +13,7 @@ public class ModSounds {
     public static final SoundEvent WATWAAROM = registerSoundEvent( "watwaarom");
 
     private static SoundEvent registerSoundEvent(String name) {
-        Identifier id = new Identifier(Mores.MOD_ID, name);
+        Identifier id = Identifier.of(Mores.MOD_ID, name);
         return Registry.register(Registries.SOUND_EVENT, id, SoundEvent.of(id));
     }
 

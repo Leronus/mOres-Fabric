@@ -37,8 +37,8 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
                         ModItems.GRAPHENE_HELMET, ModItems.GRAPHENE_CHESTPLATE, ModItems.GRAPHENE_LEGGINGS, ModItems.GRAPHENE_BOOTS
                      );
 
-        getOrCreateTagBuilder(ItemTags.MUSIC_DISCS)
-                .add(ModItems.SWEET_CAROLINE_MUSIC_DISC, ModItems.CIPHER_DISC);
+//        getOrCreateTagBuilder(ItemTags.MUSIC_DISCS)
+//                .add(ModItems.SWEET_CAROLINE_MUSIC_DISC, ModItems.CIPHER_DISC);
 
         getOrCreateTagBuilder(ItemTags.IRON_ORES)
                 .add(ModBlocks.SILVER_ORE.asItem());

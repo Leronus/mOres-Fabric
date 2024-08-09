@@ -12,7 +12,7 @@ import net.minecraft.util.Identifier;
 
 public class ModItemGroups {
     public static final ItemGroup MATERIAL_GROUP = Registry.register(Registries.ITEM_GROUP,
-            new Identifier(Mores.MOD_ID, "materials"),
+            Identifier.of(Mores.MOD_ID, "materials"),
             FabricItemGroup.builder().displayName(Text.translatable("creativemodetab.mores_materials"))
                     .icon(() -> new ItemStack(ModItems.RUBY_GEM)).entries((displayContext, entries) -> {
                        entries.add(ModItems.ANTHRACITE);
@@ -48,7 +48,7 @@ public class ModItemGroups {
                        entries.add(ModItems.GRAPHENE_GEM);
                     }).build());
     public static final ItemGroup BLOCK_GROUP = Registry.register(Registries.ITEM_GROUP,
-            new Identifier(Mores.MOD_ID, "blocks"),
+            Identifier.of(Mores.MOD_ID, "blocks"),
             FabricItemGroup.builder().displayName(Text.translatable("creativemodetab.mores_blocks"))
                     .icon(() -> new ItemStack(ModBlocks.TURQUOISE_BLOCK)).entries((displayContext, entries) -> {
 //                        entries.add(ModBlocks.ALLOY_FURNACE);
@@ -73,7 +73,7 @@ public class ModItemGroups {
                     }).build());
 
     public static final ItemGroup ORE_GROUP = Registry.register(Registries.ITEM_GROUP,
-            new Identifier(Mores.MOD_ID, "ores"),
+            Identifier.of(Mores.MOD_ID, "ores"),
             FabricItemGroup.builder().displayName(Text.translatable("creativemodetab.mores_ores"))
                     .icon(() -> new ItemStack(ModBlocks.DEEPSLATE_TURQUOISE_ORE)).entries((displayContext, entries) -> {
                         entries.add(ModBlocks.ANTHRACITE_ORE);
@@ -105,7 +105,7 @@ public class ModItemGroups {
                     }).build());
 
     public static final ItemGroup TOOLS_GROUP = Registry.register(Registries.ITEM_GROUP,
-            new Identifier(Mores.MOD_ID, "tools"),
+            Identifier.of(Mores.MOD_ID, "tools"),
             FabricItemGroup.builder().displayName(Text.translatable("creativemodetab.mores_tools"))
                     .icon(() -> new ItemStack(ModItems.COBALT_PICKAXE)).entries((displayContext, entries) -> {
                         entries.add(ModItems.TIN_PICKAXE);
@@ -184,12 +184,12 @@ public class ModItemGroups {
                         entries.add(ModItems.GRAPHENE_AXE);
                         entries.add(ModItems.GRAPHENE_SHOVEL);
                         entries.add(ModItems.GRAPHENE_HOE);
-                        entries.add(ModItems.SWEET_CAROLINE_MUSIC_DISC);
-                        entries.add(ModItems.CIPHER_DISC);
+//                        entries.add(ModItems.SWEET_CAROLINE_MUSIC_DISC);
+//                        entries.add(ModItems.CIPHER_DISC);
                     }).build());
 
     public static final ItemGroup WEAPONS_GROUP = Registry.register(Registries.ITEM_GROUP,
-            new Identifier(Mores.MOD_ID, "weapons"),
+            Identifier.of(Mores.MOD_ID, "weapons"),
             FabricItemGroup.builder().displayName(Text.translatable("creativemodetab.mores_weapons"))
                     .icon(() -> new ItemStack(ModItems.NETHERITE_BATTLEAXE)).entries((displayContext, entries) -> {
                         entries.add(ModItems.WOOD_BATTLEAXE);
@@ -289,7 +289,7 @@ public class ModItemGroups {
                     }).build());
 
     public static final ItemGroup ARMOR_GROUP = Registry.register(Registries.ITEM_GROUP,
-            new Identifier(Mores.MOD_ID, "armor"),
+            Identifier.of(Mores.MOD_ID, "armor"),
             FabricItemGroup.builder().displayName(Text.translatable("creativemodetab.mores_armor"))
                     .icon(() -> new ItemStack(ModItems.GRAPHENE_CHESTPLATE)).entries((displayContext, entries) -> {
                         entries.add(ModItems.TIN_HELMET);
@@ -371,7 +371,7 @@ public class ModItemGroups {
                     }).build());
 
 //    public static final ItemGroup SHIELDS_GROUP = Registry.register(Registries.ITEM_GROUP,
-//            new Identifier(Mores.MOD_ID, "shields"),
+//            Identifier.of(Mores.MOD_ID, "shields"),
 //            FabricItemGroup.builder().displayName(Text.translatable("creativemodetab.mores_shields"))
 //                    .icon(() -> new ItemStack(ModItems.BRONZE_SHIELD)).entries((displayContext, entries) -> {
 //                        entries.add(ModItems.TIN_SHIELD);
@@ -396,7 +396,7 @@ public class ModItemGroups {
 //                    }).build());
 
 //        public static final ItemGroup HORSE_ARMOR_GROUP = Registry.register(Registries.ITEM_GROUP,
-//            new Identifier(Mores.MOD_ID, "horse_armor"),
+//            Identifier.of(Mores.MOD_ID, "horse_armor"),
 //            FabricItemGroup.builder().displayName(Text.translatable("creativemodetab.mores_horse_armor"))
 //                    .icon(() -> new ItemStack(ModItems.TOURMALINE_HORSE_ARMOR)).entries((displayContext, entries) -> {
 //                        entries.add(ModItems.TIN_HORSE_ARMOR);
@@ -422,7 +422,7 @@ public class ModItemGroups {
 //                    }).build());
 //
     public static final ItemGroup FOOD_GROUP = Registry.register(Registries.ITEM_GROUP,
-            new Identifier(Mores.MOD_ID, "food"),
+            Identifier.of(Mores.MOD_ID, "food"),
             FabricItemGroup.builder().displayName(Text.translatable("creativemodetab.mores_foods"))
                     .icon(() -> new ItemStack(ModItems.COBALT_APPLE)).entries((displayContext, entries) -> {
                         entries.add(ModItems.BRONZE_APPLE);
@@ -436,7 +436,7 @@ public class ModItemGroups {
                     }).build());
 
 //    public static final ItemGroup ENTITIES_GROUP = Registry.register(Registries.ITEM_GROUP,
-//            new Identifier(Mores.MOD_ID, "Entities"),
+//            Identifier.of(Mores.MOD_ID, "Entities"),
 //            FabricItemGroup.builder().displayName(Text.translatable("creativemodetab.mores_entities"))
 //                    .icon(() -> new ItemStack(ModItems.DUCK_SPAWN_EGG)).entries((displayContext, entries) -> {
 //                        entries.add(ModItems.DUCK_SPAWN_EGG);
