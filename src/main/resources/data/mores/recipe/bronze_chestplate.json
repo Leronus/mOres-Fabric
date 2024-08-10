@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shaped",
+
+  "pattern":
+  [
+    "# #",
+    "###",
+    "###"
+  ],
+
+
+  "key":
+  {
+    "#":
+    {
+      "tag": "mores:ingot/bronze"
+    }
+  },
+
+  "result":
+  {
+    "id":  "mores:bronze_chestplate",
+    "count": 1
+  }
+}

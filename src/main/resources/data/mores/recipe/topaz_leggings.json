@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shaped",
+
+  "pattern":
+  [
+    "###",
+    "# #",
+    "# #"
+  ],
+
+
+  "key":
+  {
+    "#":
+    {
+      "tag": "mores:gem/topaz"
+    }
+  },
+
+  "result":
+  {
+    "id":  "mores:topaz_leggings",
+    "count": 1
+  }
+}

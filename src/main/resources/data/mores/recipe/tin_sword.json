@@ -1,0 +1,28 @@
+{
+  "type": "minecraft:crafting_shaped",
+
+  "pattern":
+  [
+    "$",
+    "$",
+    "#"
+  ],
+
+  "key":
+  {
+    "#":
+    {
+      "item": "minecraft:stick"
+    },
+    "$":
+    {
+      "tag": "mores:ingot/tin"
+    }
+  },
+
+  "result":
+  {
+    "id":  "mores:tin_sword",
+    "count": 1
+  }
+}

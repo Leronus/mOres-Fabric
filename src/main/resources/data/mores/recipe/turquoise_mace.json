@@ -1,0 +1,29 @@
+{
+  "type": "minecraft:crafting_shaped",
+
+  "pattern":
+  [
+    " $$",
+    " $$",
+    "#  "
+  ],
+
+
+  "key":
+  {
+    "#":
+    {
+      "item": "minecraft:stick"
+    },
+    "$":
+    {
+      "tag": "mores:gem/turquoise"
+    }
+  },
+
+  "result":
+  {
+    "id":  "mores:turquoise_mace",
+    "count": 1
+  }
+}

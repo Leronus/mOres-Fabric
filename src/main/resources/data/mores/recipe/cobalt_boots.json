@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+
+  "pattern":
+  [
+    "# #",
+    "# #"
+  ],
+
+
+  "key":
+  {
+    "#":
+    {
+      "tag": "mores:ingot/cobalt"
+    }
+  },
+
+  "result":
+  {
+    "id":  "mores:cobalt_boots",
+    "count": 1
+  }
+}

@@ -40,11 +40,12 @@ public class ModBattleAxeItem extends SwordItem {
     @Override
     public void appendTooltip(ItemStack stack, TooltipContext context, List<Text> tooltip, TooltipType type) {
         if (stack.getItem() instanceof ModBattleAxeItem){
-            tooltip.add(Text.literal(""));
             if (((ToolItem) stack.getItem()).getMaterial() == ModToolMaterials.ONYX) {
+                tooltip.add(Text.literal(""));
                 tooltip.add(Text.translatable("mores.bonus").formatted(Formatting.GRAY).append(Text.translatable("mores.wither_effect").formatted(Formatting.DARK_GRAY)));
             }
             if (((ToolItem) stack.getItem()).getMaterial() == ModToolMaterials.RUBY) {
+                tooltip.add(Text.literal(""));
                 tooltip.add(Text.translatable("mores.bonus").formatted(Formatting.GRAY).append(Text.translatable("mores.burn_effect").formatted(Formatting.DARK_RED)));
             }
             tooltip.add(Text.literal(""));

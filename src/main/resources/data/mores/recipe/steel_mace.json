@@ -1,0 +1,29 @@
+{
+  "type": "minecraft:crafting_shaped",
+
+  "pattern":
+  [
+    " $$",
+    " $$",
+    "#  "
+  ],
+
+
+  "key":
+  {
+    "#":
+    {
+      "item": "minecraft:stick"
+    },
+    "$":
+    {
+      "tag": "mores:ingot/steel"
+    }
+  },
+
+  "result":
+  {
+    "id":  "mores:steel_mace",
+    "count": 1
+  }
+}

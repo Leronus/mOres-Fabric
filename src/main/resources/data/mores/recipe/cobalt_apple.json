@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "###",
+    "#X#",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "tag": "mores:ingot/cobalt"
+    },
+    "X": {
+      "item": "minecraft:apple"
+    }
+  },
+  "result": {
+    "id":   "mores:cobalt_apple"
+  }
+}

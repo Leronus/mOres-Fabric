@@ -1,0 +1,29 @@
+{
+  "type": "minecraft:crafting_shaped",
+
+  "pattern":
+  [
+    "$$",
+    "$#",
+    " #"
+  ],
+
+
+  "key":
+  {
+    "#":
+    {
+      "item": "minecraft:stick"
+    },
+    "$":
+    {
+      "tag": "mores:gem/topaz"
+    }
+  },
+
+  "result":
+  {
+    "id":  "mores:topaz_axe",
+    "count": 1
+  }
+}
