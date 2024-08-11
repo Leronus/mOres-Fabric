@@ -412,6 +412,17 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.registerArmor(((ArmorItem) ModItems.GRAPHENE_LEGGINGS));
         itemModelGenerator.registerArmor(((ArmorItem) ModItems.GRAPHENE_BOOTS));
 
+        itemModelGenerator.register(ModItems.ANTHRACITE, Models.GENERATED);
+
+        itemModelGenerator.register(ModItems.BRONZE_APPLE, Models.GENERATED);
+        itemModelGenerator.register(ModItems.SILVER_APPLE, Models.GENERATED);
+        itemModelGenerator.register(ModItems.COBALT_APPLE, Models.GENERATED);
+
+        itemModelGenerator.register(ModItems.VELVET, Models.GENERATED);
+        itemModelGenerator.register(ModItems.CHOCOLATE, Models.GENERATED);
+        itemModelGenerator.register(ModItems.CARROT_PIE, Models.GENERATED);
+        itemModelGenerator.register(ModItems.CHAIN, Models.GENERATED);
+
 //        itemModelGenerator.register(ModItems.TIN_HORSE_ARMOR, Models.GENERATED);
 //        itemModelGenerator.register(ModItems.COPPER_HORSE_ARMOR, Models.GENERATED);
 //        itemModelGenerator.register(ModItems.BRONZE_HORSE_ARMOR, Models.GENERATED);
@@ -433,16 +444,6 @@ public class ModModelProvider extends FabricModelProvider {
 //        itemModelGenerator.register(ModItems.GRAPHENE_HORSE_ARMOR, Models.GENERATED);
 //        itemModelGenerator.register(ModItems.NETHERITE_HORSE_ARMOR, Models.GENERATED);
 
-        itemModelGenerator.register(ModItems.ANTHRACITE, Models.GENERATED);
-
-        itemModelGenerator.register(ModItems.BRONZE_APPLE, Models.GENERATED);
-        itemModelGenerator.register(ModItems.SILVER_APPLE, Models.GENERATED);
-        itemModelGenerator.register(ModItems.COBALT_APPLE, Models.GENERATED);
-
-        itemModelGenerator.register(ModItems.VELVET, Models.GENERATED);
-        itemModelGenerator.register(ModItems.CHOCOLATE, Models.GENERATED);
-        itemModelGenerator.register(ModItems.CARROT_PIE, Models.GENERATED);
-        itemModelGenerator.register(ModItems.CHAIN, Models.GENERATED);
 //        itemModelGenerator.register(ModItems.DUCK, Models.GENERATED);
 //        itemModelGenerator.register(ModItems.COOKED_DUCK, Models.GENERATED);
 //        itemModelGenerator.register(ModItems.DUCK_EGG, Models.GENERATED);

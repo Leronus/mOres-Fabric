@@ -1,2 +1,4 @@
 v2.0.0
 Updated to Minecraft 1.21
+- Fixed items not craftable in mOres alpha 2.0.0
+- Fixed ore blocks dropping themselves in mOres alpha 2.0.0
