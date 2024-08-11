@@ -1,18 +1,18 @@
-// 1.21	2024-08-11T08:18:24.6887237	mOres/Tags for minecraft:item
-ae4a3668a772771ca6c965f69b5f5bed18de030d data\mores\tags\item\gem\tanzanite.json
-4c34e8219f3e2170a1990a840a7117fdb3abbcd8 data\mores\tags\item\ingot\obsidian.json
+// 1.21.1	2024-08-11T08:45:32.9045468	mOres/Tags for minecraft:item
+ad0a1e9afcacf1d0e0eb4ecfcf9926254af8423b data\mores\tags\item\ingot\bronze.json
+70786b5bc271625b44fc429e19f42953c435c592 data\mores\tags\item\ingot\tin.json
 d04b1b66fa03ef3e9f2ace80be81491c8bac4a11 data\mores\tags\item\gem\turquoise.json
+0e8693bf73f004de7722ed0c4797ab8cba29ee28 data\mores\tags\item\ingot\sterling_silver.json
+4c34e8219f3e2170a1990a840a7117fdb3abbcd8 data\mores\tags\item\ingot\obsidian.json
 f5e1fe67b2d51770071784fad8397530debe35f7 data\minecraft\tags\item\trimmable_armor.json
+dc2f94bc4311ebc23cb6391771eca90d2f0aac4b data\mores\tags\item\gem\moissanite.json
+bb22b2f566360ba138b6f73e4992a52575c1318e data\mores\tags\item\gem\sapphire.json
+394b206d66b6caa0d9e90b621dbcffce2b9d4624 data\mores\tags\item\gem\graphene.json
 33db88e9cdfa2a07fad99136c608e6fb7f035326 data\mores\tags\item\ingot\cobalt.json
-a53be1137d0a011903fe3bbd027eb184fd533525 data\mores\tags\item\ingot\steel.json
+b0d485c06fbb49eff2c1d4c2bee2fa85e0df115c data\mores\tags\item\gem\onyx.json
 16ec202a5b626b538cbe2691cc7f4b4a3dfbfa0e data\mores\tags\item\gem\tourmaline.json
 97a93a5d81c8bc030425eccf7ee25e749a480b92 data\mores\tags\item\gem\topaz.json
-bb22b2f566360ba138b6f73e4992a52575c1318e data\mores\tags\item\gem\sapphire.json
 41868eab6d7d70a8d9fdb1fadd2874ba471221f1 data\mores\tags\item\ingot\silver.json
-70786b5bc271625b44fc429e19f42953c435c592 data\mores\tags\item\ingot\tin.json
 c790279fd36ba74aadc3410aa141ab62cd23f373 data\mores\tags\item\gem\ruby.json
-b0d485c06fbb49eff2c1d4c2bee2fa85e0df115c data\mores\tags\item\gem\onyx.json
-394b206d66b6caa0d9e90b621dbcffce2b9d4624 data\mores\tags\item\gem\graphene.json
-0e8693bf73f004de7722ed0c4797ab8cba29ee28 data\mores\tags\item\ingot\sterling_silver.json
-ad0a1e9afcacf1d0e0eb4ecfcf9926254af8423b data\mores\tags\item\ingot\bronze.json
-dc2f94bc4311ebc23cb6391771eca90d2f0aac4b data\mores\tags\item\gem\moissanite.json
+a53be1137d0a011903fe3bbd027eb184fd533525 data\mores\tags\item\ingot\steel.json
+ae4a3668a772771ca6c965f69b5f5bed18de030d data\mores\tags\item\gem\tanzanite.json
