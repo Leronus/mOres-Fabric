@@ -1,10 +1,13 @@
 {
   "type": "minecraft:blasting",
+  "category": "misc",
+  "cookingtime": 100,
+  "experience": 0.3,
   "group": "anthracite",
   "ingredient": {
     "item": "mores:anthracite_ore"
   },
-  "result": "mores:anthracite",
-  "experience": 0.2,
-  "cookingtime": 100
+  "result": {
+    "id": "mores:anthracite"
+  }
 }

@@ -1,9 +1,11 @@
 {
   "type": "minecraft:smelting",
+  "cookingtime": 1800,
+  "experience": 6.3,
   "ingredient": {
     "item": "mores:raw_tin_block"
   },
-  "result": "mores:tin_block",
-  "experience": 6.3,
-  "cookingtime": 1800
+  "result": {
+    "id": "mores:tin_block"
+  }
 }

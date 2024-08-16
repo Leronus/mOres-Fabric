@@ -1,10 +1,12 @@
 {
   "type": "minecraft:smelting",
+  "cookingtime": 200,
+  "experience": 1.0,
   "group": "ruby_gem",
   "ingredient": {
     "item": "mores:ruby_ore"
   },
-  "result": "mores:ruby_gem",
-  "experience": 1.0,
-  "cookingtime": 200
+  "result": {
+    "id": "mores:ruby_gem"
+  }
 }

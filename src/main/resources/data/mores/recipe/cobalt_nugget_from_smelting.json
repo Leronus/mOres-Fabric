@@ -1,6 +1,6 @@
 {
   "type": "minecraft:smelting",
-  "cookingtime": 100,
+  "cookingtime": 200,
   "experience": 0.1,
   "ingredient": [
     {
@@ -43,5 +43,7 @@
       "item": "mores:cobalt_battleaxe"
     }
   ],
-  "result": "mores:cobalt_nugget"
+  "result": {
+    "id":   "mores:cobalt_nugget"
+  }
 }

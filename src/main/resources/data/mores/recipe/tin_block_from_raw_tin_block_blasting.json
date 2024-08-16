@@ -1,9 +1,11 @@
 {
   "type": "minecraft:blasting",
+  "cookingtime": 900,
+  "experience": 6.3,
   "ingredient": {
     "item": "mores:raw_tin_block"
   },
-  "result": "mores:tin_block",
-  "experience": 6.3,
-  "cookingtime": 900
+  "result": {
+    "id": "mores:tin_block"
+  }
 }

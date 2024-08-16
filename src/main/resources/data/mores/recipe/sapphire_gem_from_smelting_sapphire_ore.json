@@ -1,10 +1,12 @@
 {
   "type": "minecraft:smelting",
+  "cookingtime": 200,
+  "experience": 1.0,
   "group": "sapphire_gem",
   "ingredient": {
     "item": "mores:sapphire_ore"
   },
-  "result": "mores:sapphire_gem",
-  "experience": 1.0,
-  "cookingtime": 200
+  "result": {
+    "id": "mores:sapphire_gem"
+  }
 }

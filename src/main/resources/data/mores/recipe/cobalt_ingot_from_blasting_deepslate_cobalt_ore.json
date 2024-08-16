@@ -1,10 +1,13 @@
 {
   "type": "minecraft:blasting",
+  "category": "misc",
+  "cookingtime": 100,
+  "experience": 0.8,
   "group": "cobalt_ingot",
   "ingredient": {
     "item": "mores:deepslate_cobalt_ore"
   },
-  "result": "mores:cobalt_ingot",
-  "experience": 0.8,
-  "cookingtime": 100
+  "result": {
+    "id": "mores:cobalt_ingot"
+  }
 }

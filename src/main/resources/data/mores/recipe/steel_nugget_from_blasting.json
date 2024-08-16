@@ -43,5 +43,7 @@
       "item": "mores:steel_battleaxe"
     }
   ],
-  "result": "mores:steel_nugget"
+  "result": {
+    "id": "mores:steel_nugget"
+  }
 }

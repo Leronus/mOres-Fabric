@@ -43,5 +43,7 @@
       "item": "mores:tin_battleaxe"
     }
   ],
-  "result": "mores:tin_nugget"
+  "result": {
+    "id": "mores:tin_nugget"
+  }
 }
