@@ -1,5 +1,6 @@
 {
-  "type": "minecraft:smithing_transform",
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
   "template": {
     "item": "mores:bronze_alloy_smithing_template"
   },

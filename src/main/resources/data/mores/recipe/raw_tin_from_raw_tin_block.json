@@ -1,5 +1,6 @@
 {
-  "type": "minecraft:crafting_shapeless",
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
   "group": "raw_tin",
   "ingredients": [
     {

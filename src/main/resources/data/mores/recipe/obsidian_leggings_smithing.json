@@ -1,5 +1,6 @@
 {
-  "type": "minecraft:smithing_transform",
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
   "template": {
     "item": "mores:obsidian_upgrade_smithing_template"
   },

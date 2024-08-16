@@ -1,5 +1,6 @@
 {
-  "type": "minecraft:smithing_transform",
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
   "template": {
     "item": "minecraft:netherite_upgrade_smithing_template"
   },
