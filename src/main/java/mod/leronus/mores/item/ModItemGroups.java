@@ -184,8 +184,8 @@ public class ModItemGroups {
                         entries.add(ModItems.GRAPHENE_AXE);
                         entries.add(ModItems.GRAPHENE_SHOVEL);
                         entries.add(ModItems.GRAPHENE_HOE);
-//                        entries.add(ModItems.SWEET_CAROLINE_MUSIC_DISC);
-//                        entries.add(ModItems.CIPHER_DISC);
+                        entries.add(ModItems.SWEET_CAROLINE_MUSIC_DISC);
+                        entries.add(ModItems.CIPHER_DISC);
                     }).build());
 
     public static final ItemGroup WEAPONS_GROUP = Registry.register(Registries.ITEM_GROUP,
