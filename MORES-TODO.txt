@@ -1,2 +1,4 @@
 check block xp values
 fix horse armor
+
+raw tin seems to be missing from needs_tool in other versions?
