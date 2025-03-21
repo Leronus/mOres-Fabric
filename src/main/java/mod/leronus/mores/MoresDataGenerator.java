@@ -1,8 +1,10 @@
 package mod.leronus.mores;
 
+import mod.leronus.mores.datagen.ModBlockTagProvider;
 import mod.leronus.mores.datagen.ModItemTagProvider;
 import mod.leronus.mores.datagen.ModModelProvider;
 import mod.leronus.mores.datagen.ModWorldGenerator;
+import mod.leronus.mores.trim.ModTrimMaterials;
 import mod.leronus.mores.world.ModConfiguredFeatures;
 import mod.leronus.mores.world.ModPlacedFeatures;
 import net.fabricmc.fabric.api.datagen.v1.DataGeneratorEntrypoint;
@@ -15,7 +17,7 @@ public class MoresDataGenerator implements DataGeneratorEntrypoint {
 	public void onInitializeDataGenerator(FabricDataGenerator fabricDataGenerator) {
 		FabricDataGenerator.Pack pack = fabricDataGenerator.createPack();
 
-//		pack.addProvider(ModBlockTagProvider::new);
+		pack.addProvider(ModBlockTagProvider::new);
 		pack.addProvider(ModItemTagProvider::new);
 //		pack.addProvider(ModBlockLootTableGenerator::new);
 //		pack.addProvider(ModModelProvider::new);
@@ -27,6 +29,8 @@ public class MoresDataGenerator implements DataGeneratorEntrypoint {
 
 	@Override
 	public void buildRegistry(RegistryBuilder registryBuilder) {
+		registryBuilder.addRegistry(RegistryKeys.TRIM_MATERIAL, ModTrimMaterials::bootstrap);
+
 		registryBuilder.addRegistry(RegistryKeys.CONFIGURED_FEATURE, ModConfiguredFeatures::bootstrap);
 		registryBuilder.addRegistry(RegistryKeys.PLACED_FEATURE, ModPlacedFeatures::bootstrap);
 	}

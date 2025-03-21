@@ -1,0 +1,11 @@
+{
+  "values": [
+    "mores:silver_ore",
+    "mores:cobalt_ore",
+    "mores:anthracite_ore",
+    "mores:deepslate_anthracite_ore",
+    "mores:deepslate_silver_ore",
+    "mores:deepslate_cobalt_ore",
+    "mores:deepslate_tin_ore"
+  ]
+}
