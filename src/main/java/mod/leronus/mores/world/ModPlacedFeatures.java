@@ -49,7 +49,7 @@ public class ModPlacedFeatures {
     public static final RegistryKey<PlacedFeature> SAPPHIRE_BURIED_PLACED_KEY = registerKey("sapphire_buried_placed");
     public static final RegistryKey<PlacedFeature> NETHER_SAPPHIRE_PLACED_KEY = registerKey("nether_sapphire_placed");
 
-    public static final RegistryKey<PlacedFeature> NETHER_TANZANITE_PLACED_KEY = registerKey("nether_tanzanite_placed");
+    public static final RegistryKey<PlacedFeature> NETHER_CITRINE_PLACED_KEY = registerKey("nether_citrine_placed");
 
     public static final RegistryKey<PlacedFeature> MOISSANITE_SMALL_PLACED_KEY = registerKey("moissanite_small_placed");
     public static final RegistryKey<PlacedFeature> MOISSANITE_LARGE_PLACED_KEY = registerKey("moissanite_large_placed");
@@ -60,7 +60,7 @@ public class ModPlacedFeatures {
     public static final RegistryKey<PlacedFeature> TURQUOISE_LARGE_PLACED_KEY = registerKey("turquoise_large_placed");
     public static final RegistryKey<PlacedFeature> TURQUOISE_BURIED_PLACED_KEY = registerKey("turquoise_buried_placed");
 
-    public static final RegistryKey<PlacedFeature> END_ONYX_PLACED_KEY = registerKey("end_onyx_placed");
+    public static final RegistryKey<PlacedFeature> ENDER_ONYX_PLACED_KEY = registerKey("ender_onyx_placed");
 
     public static void bootstrap(Registerable<PlacedFeature> context) {
         var configuredFeatureRegistryEntryLookup = context.getRegistryLookup(RegistryKeys.CONFIGURED_FEATURE);
@@ -155,7 +155,7 @@ public class ModPlacedFeatures {
                         HeightRangePlacementModifier.trapezoid(YOffset.aboveBottom(0), YOffset.aboveBottom(312))));
 
 
-        register(context, NETHER_TANZANITE_PLACED_KEY, configuredFeatureRegistryEntryLookup.getOrThrow(ModConfiguredFeatures.NETHER_TANZANITE_ORE_KEY),
+        register(context, NETHER_CITRINE_PLACED_KEY, configuredFeatureRegistryEntryLookup.getOrThrow(ModConfiguredFeatures.NETHER_CITRINE_ORE_KEY),
                 ModOrePlacement.modifiersWithCount(9, // VeinsPerChunk
                         HeightRangePlacementModifier.trapezoid(YOffset.aboveBottom(0), YOffset.aboveBottom(312))));
 
@@ -183,7 +183,7 @@ public class ModPlacedFeatures {
                 ModOrePlacement.modifiersWithRarity(2, // VeinsPerChunk
                         HeightRangePlacementModifier.uniform(YOffset.aboveBottom(0), YOffset.aboveBottom(16))));
 
-        register(context, END_ONYX_PLACED_KEY, configuredFeatureRegistryEntryLookup.getOrThrow(ModConfiguredFeatures.END_ONYX_ORE_KEY),
+        register(context, ENDER_ONYX_PLACED_KEY, configuredFeatureRegistryEntryLookup.getOrThrow(ModConfiguredFeatures.ENDER_ONYX_ORE_KEY),
                 ModOrePlacement.modifiersWithCount(7, // VeinsPerChunk
                         HeightRangePlacementModifier.trapezoid(YOffset.aboveBottom(0), YOffset.aboveBottom(312))));
     }

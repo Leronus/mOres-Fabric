@@ -44,11 +44,11 @@ public class ModSwordItem extends SwordItem {
     @Override
     public boolean postHit(ItemStack stack, LivingEntity target, LivingEntity attacker) {
         //If the item is an onyx sword, apply wither effect on targetEntity
-        if(stack.getItem() == ModItems.ONYX_SWORD || stack.getItem() == ModItems.ONYX_MACE || stack.getItem() == ModItems.ONYX_DAGGER) {
+        if(stack.getItem() == ModItems.ONYX_SWORD || stack.getItem() == ModItems.ONYX_BATTLE_MACE || stack.getItem() == ModItems.ONYX_DAGGER) {
             target.addStatusEffect(new StatusEffectInstance(StatusEffects.WITHER, 250, 1, false, false));
         }
         //If the item is a ruby sword, apply fire effect on targetEntity
-        if(stack.getItem() == ModItems.RUBY_SWORD || stack.getItem() == ModItems.RUBY_MACE || stack.getItem() == ModItems.RUBY_DAGGER) {
+        if(stack.getItem() == ModItems.RUBY_SWORD || stack.getItem() == ModItems.RUBY_BATTLE_MACE || stack.getItem() == ModItems.RUBY_DAGGER) {
             target.setOnFireFor(5);
         }
         return super.postHit(stack, target, attacker);

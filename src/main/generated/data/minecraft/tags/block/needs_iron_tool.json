@@ -1,22 +1,28 @@
 {
   "values": [
+    "mores:bronze_block",
+    "mores:cobalt_block",
+    "mores:sterling_silver_block",
+    "mores:carbon_steel_block",
+    "mores:hardened_steel_block",
+    "mores:rose_gold_block",
+    "mores:amethyst_block",
+    "mores:topaz_block",
+    "mores:tourmaline_block",
+    "mores:turquoise_block",
     "mores:topaz_ore",
     "mores:tourmaline_ore",
     "mores:ruby_ore",
     "mores:sapphire_ore",
-    "mores:nether_silver_ore",
-    "mores:nether_tanzanite_ore",
-    "mores:nether_anthracite_ore",
     "mores:deepslate_topaz_ore",
     "mores:deepslate_tourmaline_ore",
     "mores:deepslate_ruby_ore",
     "mores:silver_block",
-    "mores:bronze_block",
-    "mores:cobalt_block",
-    "mores:sterling_block",
-    "mores:steel_block",
-    "mores:amethyst_block",
+    "mores:raw_cobalt_block",
     "mores:raw_silver_block",
-    "mores:raw_cobalt_block"
+    "mores:nether_anthracite_ore",
+    "mores:nether_silver_ore",
+    "mores:turquoise_ore",
+    "mores:deepslate_turquoise_ore"
   ]
 }

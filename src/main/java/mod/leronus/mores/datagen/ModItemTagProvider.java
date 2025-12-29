@@ -17,199 +17,198 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
 
     @Override
     protected void configure(RegistryWrapper.WrapperLookup arg) {
-        getOrCreateTagBuilder(ItemTags.SWORDS)
-                .add(ModItems.TIN_SWORD)
-                .add(ModItems.COPPER_SWORD)
-                .add(ModItems.SILVER_SWORD)
-                .add(ModItems.BRONZE_SWORD)
-                .add(ModItems.COBALT_SWORD)
-                .add(ModItems.STERLING_SWORD)
-                .add(ModItems.STEEL_SWORD)
-                .add(ModItems.AMETHYST_SWORD)
-                .add(ModItems.EMERALD_SWORD)
-                .add(ModItems.OBSIDIAN_SWORD)
-                .add(ModItems.TOPAZ_SWORD)
-                .add(ModItems.TOURMALINE_SWORD)
-                .add(ModItems.TANZANITE_SWORD)
-                .add(ModItems.RUBY_SWORD)
-                .add(ModItems.SAPPHIRE_SWORD)
-                .add(ModItems.MOISSANITE_SWORD)
-                .add(ModItems.TURQUOISE_SWORD)
-                .add(ModItems.ONYX_SWORD)
-                .add(ModItems.GRAPHENE_SWORD);
-        getOrCreateTagBuilder(ItemTags.PICKAXES)
-                .add(ModItems.TIN_PICKAXE)
-                .add(ModItems.COPPER_PICKAXE)
-                .add(ModItems.SILVER_PICKAXE)
-                .add(ModItems.BRONZE_PICKAXE)
-                .add(ModItems.COBALT_PICKAXE)
-                .add(ModItems.STERLING_PICKAXE)
-                .add(ModItems.STEEL_PICKAXE)
-                .add(ModItems.AMETHYST_PICKAXE)
-                .add(ModItems.EMERALD_PICKAXE)
-                .add(ModItems.OBSIDIAN_PICKAXE)
-                .add(ModItems.TOPAZ_PICKAXE)
-                .add(ModItems.TOURMALINE_PICKAXE)
-                .add(ModItems.TANZANITE_PICKAXE)
-                .add(ModItems.RUBY_PICKAXE)
-                .add(ModItems.SAPPHIRE_PICKAXE)
-                .add(ModItems.MOISSANITE_PICKAXE)
-                .add(ModItems.TURQUOISE_PICKAXE)
-                .add(ModItems.ONYX_PICKAXE)
-                .add(ModItems.GRAPHENE_PICKAXE);
-        getOrCreateTagBuilder(ItemTags.SHOVELS)
-                .add(ModItems.TIN_SHOVEL)
-                .add(ModItems.COPPER_SHOVEL)
-                .add(ModItems.SILVER_SHOVEL)
-                .add(ModItems.BRONZE_SHOVEL)
-                .add(ModItems.COBALT_SHOVEL)
-                .add(ModItems.STERLING_SHOVEL)
-                .add(ModItems.STEEL_SHOVEL)
-                .add(ModItems.AMETHYST_SHOVEL)
-                .add(ModItems.EMERALD_SHOVEL)
-                .add(ModItems.OBSIDIAN_SHOVEL)
-                .add(ModItems.TOPAZ_SHOVEL)
-                .add(ModItems.TOURMALINE_SHOVEL)
-                .add(ModItems.TANZANITE_SHOVEL)
-                .add(ModItems.RUBY_SHOVEL)
-                .add(ModItems.SAPPHIRE_SHOVEL)
-                .add(ModItems.MOISSANITE_SHOVEL)
-                .add(ModItems.TURQUOISE_SHOVEL)
-                .add(ModItems.ONYX_SHOVEL)
-                .add(ModItems.GRAPHENE_SHOVEL);
-        getOrCreateTagBuilder(ItemTags.AXES)
-                .add(ModItems.TIN_AXE)
-                .add(ModItems.COPPER_AXE)
-                .add(ModItems.SILVER_AXE)
-                .add(ModItems.BRONZE_AXE)
-                .add(ModItems.COBALT_AXE)
-                .add(ModItems.STERLING_AXE)
-                .add(ModItems.STEEL_AXE)
-                .add(ModItems.AMETHYST_AXE)
-                .add(ModItems.EMERALD_AXE)
-                .add(ModItems.OBSIDIAN_AXE)
-                .add(ModItems.TOPAZ_AXE)
-                .add(ModItems.TOURMALINE_AXE)
-                .add(ModItems.TANZANITE_AXE)
-                .add(ModItems.RUBY_AXE)
-                .add(ModItems.SAPPHIRE_AXE)
-                .add(ModItems.MOISSANITE_AXE)
-                .add(ModItems.TURQUOISE_AXE)
-                .add(ModItems.ONYX_AXE)
-                .add(ModItems.GRAPHENE_AXE);
-        getOrCreateTagBuilder(ItemTags.HOES)
-                .add(ModItems.TIN_HOE)
-                .add(ModItems.COPPER_HOE)
-                .add(ModItems.SILVER_HOE)
-                .add(ModItems.BRONZE_HOE)
-                .add(ModItems.COBALT_HOE)
-                .add(ModItems.STERLING_HOE)
-                .add(ModItems.STEEL_HOE)
-                .add(ModItems.AMETHYST_HOE)
-                .add(ModItems.EMERALD_HOE)
-                .add(ModItems.OBSIDIAN_HOE)
-                .add(ModItems.TOPAZ_HOE)
-                .add(ModItems.TOURMALINE_HOE)
-                .add(ModItems.TANZANITE_HOE)
-                .add(ModItems.RUBY_HOE)
-                .add(ModItems.SAPPHIRE_HOE)
-                .add(ModItems.MOISSANITE_HOE)
-                .add(ModItems.TURQUOISE_HOE)
-                .add(ModItems.ONYX_HOE)
-                .add(ModItems.GRAPHENE_HOE);
+        //Meat
+        getOrCreateTagBuilder(ItemTags.MEAT).add(ModItems.RAW_DUCK, ModItems.COOKED_DUCK);
+        //Tools
+        getOrCreateTagBuilder(ItemTags.SWORDS).add(
+                ModItems.TIN_SWORD, ModItems.COPPER_SWORD, ModItems.SILVER_SWORD, ModItems.BRONZE_SWORD, ModItems.COBALT_SWORD, ModItems.STERLING_SILVER_SWORD,
+                ModItems.ROSE_GOLD_SWORD, ModItems.CARBON_STEEL_SWORD, ModItems.HARDENED_STEEL_SWORD, ModItems.TURQUOISE_SWORD,
+                ModItems.AMETHYST_SWORD, ModItems.TOPAZ_SWORD, ModItems.TOURMALINE_SWORD, ModItems.EMERALD_SWORD,
+                ModItems.RUBY_SWORD, ModItems.SAPPHIRE_SWORD, ModItems.SPINEL_SWORD, ModItems.CITRINE_SWORD,
+                ModItems.MOISSANITE_SWORD, ModItems.ONYX_SWORD, ModItems.OBSIDIAN_SWORD, ModItems.GRAPHENE_SWORD);
+        getOrCreateTagBuilder(ItemTags.PICKAXES).add(
+                ModItems.TIN_PICKAXE, ModItems.COPPER_PICKAXE, ModItems.SILVER_PICKAXE, ModItems.BRONZE_PICKAXE, ModItems.COBALT_PICKAXE,
+                ModItems.STERLING_SILVER_PICKAXE, ModItems.ROSE_GOLD_PICKAXE, ModItems.CARBON_STEEL_PICKAXE, ModItems.HARDENED_STEEL_PICKAXE, ModItems.AMETHYST_PICKAXE, ModItems.EMERALD_PICKAXE, ModItems.OBSIDIAN_PICKAXE,
+                ModItems.TOPAZ_PICKAXE, ModItems.TOURMALINE_PICKAXE, ModItems.CITRINE_PICKAXE, ModItems.RUBY_PICKAXE, ModItems.SAPPHIRE_PICKAXE, ModItems.SPINEL_PICKAXE,
+                ModItems.MOISSANITE_PICKAXE, ModItems.TURQUOISE_PICKAXE, ModItems.ONYX_PICKAXE, ModItems.GRAPHENE_PICKAXE);
+        getOrCreateTagBuilder(ItemTags.SHOVELS).add(
+                ModItems.TIN_SHOVEL, ModItems.COPPER_SHOVEL, ModItems.SILVER_SHOVEL, ModItems.BRONZE_SHOVEL, ModItems.COBALT_SHOVEL,
+                ModItems.STERLING_SILVER_SHOVEL, ModItems.ROSE_GOLD_SHOVEL, ModItems.CARBON_STEEL_SHOVEL, ModItems.HARDENED_STEEL_SHOVEL, ModItems.AMETHYST_SHOVEL, ModItems.EMERALD_SHOVEL, ModItems.OBSIDIAN_SHOVEL,
+                ModItems.TOPAZ_SHOVEL, ModItems.TOURMALINE_SHOVEL, ModItems.CITRINE_SHOVEL, ModItems.RUBY_SHOVEL, ModItems.SAPPHIRE_SHOVEL, ModItems.SPINEL_SHOVEL,
+                ModItems.MOISSANITE_SHOVEL, ModItems.TURQUOISE_SHOVEL, ModItems.ONYX_SHOVEL, ModItems.GRAPHENE_SHOVEL);
+        getOrCreateTagBuilder(ItemTags.AXES).add(
+                ModItems.TIN_AXE, ModItems.COPPER_AXE, ModItems.SILVER_AXE, ModItems.BRONZE_AXE, ModItems.COBALT_AXE, ModItems.STERLING_SILVER_AXE, ModItems.ROSE_GOLD_AXE,
+                ModItems.CARBON_STEEL_AXE, ModItems.HARDENED_STEEL_AXE, ModItems.AMETHYST_AXE, ModItems.EMERALD_AXE, ModItems.OBSIDIAN_AXE, ModItems.TOPAZ_AXE, ModItems.TOURMALINE_AXE,
+                ModItems.CITRINE_AXE, ModItems.RUBY_AXE, ModItems.SAPPHIRE_AXE, ModItems.SPINEL_AXE,ModItems.MOISSANITE_AXE, ModItems.TURQUOISE_AXE, ModItems.ONYX_AXE,
+                ModItems.GRAPHENE_AXE);
+        getOrCreateTagBuilder(ItemTags.HOES).add(
+                ModItems.TIN_HOE, ModItems.COPPER_HOE, ModItems.SILVER_HOE, ModItems.BRONZE_HOE, ModItems.COBALT_HOE, ModItems.STERLING_SILVER_HOE, ModItems.ROSE_GOLD_HOE,
+                ModItems.CARBON_STEEL_HOE, ModItems.HARDENED_STEEL_HOE, ModItems.AMETHYST_HOE, ModItems.EMERALD_HOE, ModItems.OBSIDIAN_HOE, ModItems.TOPAZ_HOE, ModItems.TOURMALINE_HOE,
+                ModItems.CITRINE_HOE, ModItems.RUBY_HOE, ModItems.SAPPHIRE_HOE, ModItems.SPINEL_HOE,ModItems.MOISSANITE_HOE, ModItems.TURQUOISE_HOE, ModItems.ONYX_HOE,
+                ModItems.GRAPHENE_HOE);
 
-        getOrCreateTagBuilder(ItemTags.TRIMMABLE_ARMOR)
-                .add(
-                        ModItems.SILVER_HELMET, ModItems.SILVER_CHESTPLATE, ModItems.SILVER_LEGGINGS, ModItems.SILVER_BOOTS,
-                        ModItems.COPPER_HELMET, ModItems.COPPER_CHESTPLATE, ModItems.COPPER_LEGGINGS, ModItems.COPPER_BOOTS,
-                        ModItems.COBALT_HELMET, ModItems.COBALT_CHESTPLATE, ModItems.COBALT_LEGGINGS, ModItems.COBALT_BOOTS,
-                        ModItems.BRONZE_HELMET, ModItems.BRONZE_CHESTPLATE, ModItems.BRONZE_LEGGINGS, ModItems.BRONZE_BOOTS,
-                        ModItems.TIN_HELMET, ModItems.TIN_CHESTPLATE, ModItems.TIN_LEGGINGS, ModItems.TIN_BOOTS,
-                        ModItems.STERLING_HELMET, ModItems.STERLING_CHESTPLATE, ModItems.STERLING_LEGGINGS, ModItems.STERLING_BOOTS,
-                        ModItems.STEEL_HELMET, ModItems.STEEL_CHESTPLATE, ModItems.STEEL_LEGGINGS, ModItems.STEEL_BOOTS,
-                        ModItems.AMETHYST_HELMET, ModItems.AMETHYST_CHESTPLATE, ModItems.AMETHYST_LEGGINGS, ModItems.AMETHYST_BOOTS,
-                        ModItems.EMERALD_HELMET, ModItems.EMERALD_CHESTPLATE, ModItems.EMERALD_LEGGINGS, ModItems.EMERALD_BOOTS,
-                        ModItems.TOURMALINE_HELMET, ModItems.TOURMALINE_CHESTPLATE, ModItems.TOURMALINE_LEGGINGS, ModItems.TOURMALINE_BOOTS,
-                        ModItems.TOPAZ_HELMET, ModItems.TOPAZ_CHESTPLATE, ModItems.TOPAZ_LEGGINGS, ModItems.TOPAZ_BOOTS,
-                        ModItems.RUBY_HELMET, ModItems.RUBY_CHESTPLATE, ModItems.RUBY_LEGGINGS, ModItems.RUBY_BOOTS,
-                        ModItems.SAPPHIRE_HELMET, ModItems.SAPPHIRE_CHESTPLATE, ModItems.SAPPHIRE_LEGGINGS, ModItems.SAPPHIRE_BOOTS,
-                        ModItems.TANZANITE_HELMET, ModItems.TANZANITE_CHESTPLATE, ModItems.TANZANITE_LEGGINGS, ModItems.TANZANITE_BOOTS,
-                        ModItems.TURQUOISE_HELMET, ModItems.TURQUOISE_CHESTPLATE, ModItems.TURQUOISE_LEGGINGS, ModItems.TURQUOISE_BOOTS,
-                        ModItems.MOISSANITE_HELMET, ModItems.MOISSANITE_CHESTPLATE, ModItems.MOISSANITE_LEGGINGS, ModItems.MOISSANITE_BOOTS,
-                        ModItems.ONYX_HELMET, ModItems.ONYX_CHESTPLATE, ModItems.ONYX_LEGGINGS, ModItems.ONYX_BOOTS,
-                        ModItems.OBSIDIAN_HELMET, ModItems.OBSIDIAN_CHESTPLATE, ModItems.OBSIDIAN_LEGGINGS, ModItems.OBSIDIAN_BOOTS,
-                        ModItems.GRAPHENE_HELMET, ModItems.GRAPHENE_CHESTPLATE, ModItems.GRAPHENE_LEGGINGS, ModItems.GRAPHENE_BOOTS
-                     );
-
-        getOrCreateTagBuilder(ItemTags.TRIM_MATERIALS)
-                .add(ModItems.TIN_INGOT);
-
-        getOrCreateTagBuilder(ItemTags.ARMOR_ENCHANTABLE)
-                .add(
-                        ModItems.SILVER_HELMET, ModItems.SILVER_CHESTPLATE, ModItems.SILVER_LEGGINGS, ModItems.SILVER_BOOTS,
-                        ModItems.COPPER_HELMET, ModItems.COPPER_CHESTPLATE, ModItems.COPPER_LEGGINGS, ModItems.COPPER_BOOTS,
-                        ModItems.COBALT_HELMET, ModItems.COBALT_CHESTPLATE, ModItems.COBALT_LEGGINGS, ModItems.COBALT_BOOTS,
-                        ModItems.BRONZE_HELMET, ModItems.BRONZE_CHESTPLATE, ModItems.BRONZE_LEGGINGS, ModItems.BRONZE_BOOTS,
-                        ModItems.TIN_HELMET, ModItems.TIN_CHESTPLATE, ModItems.TIN_LEGGINGS, ModItems.TIN_BOOTS,
-                        ModItems.STERLING_HELMET, ModItems.STERLING_CHESTPLATE, ModItems.STERLING_LEGGINGS, ModItems.STERLING_BOOTS,
-                        ModItems.STEEL_HELMET, ModItems.STEEL_CHESTPLATE, ModItems.STEEL_LEGGINGS, ModItems.STEEL_BOOTS,
-                        ModItems.AMETHYST_HELMET, ModItems.AMETHYST_CHESTPLATE, ModItems.AMETHYST_LEGGINGS, ModItems.AMETHYST_BOOTS,
-                        ModItems.EMERALD_HELMET, ModItems.EMERALD_CHESTPLATE, ModItems.EMERALD_LEGGINGS, ModItems.EMERALD_BOOTS,
-                        ModItems.TOURMALINE_HELMET, ModItems.TOURMALINE_CHESTPLATE, ModItems.TOURMALINE_LEGGINGS, ModItems.TOURMALINE_BOOTS,
-                        ModItems.TOPAZ_HELMET, ModItems.TOPAZ_CHESTPLATE, ModItems.TOPAZ_LEGGINGS, ModItems.TOPAZ_BOOTS,
-                        ModItems.RUBY_HELMET, ModItems.RUBY_CHESTPLATE, ModItems.RUBY_LEGGINGS, ModItems.RUBY_BOOTS,
-                        ModItems.SAPPHIRE_HELMET, ModItems.SAPPHIRE_CHESTPLATE, ModItems.SAPPHIRE_LEGGINGS, ModItems.SAPPHIRE_BOOTS,
-                        ModItems.TANZANITE_HELMET, ModItems.TANZANITE_CHESTPLATE, ModItems.TANZANITE_LEGGINGS, ModItems.TANZANITE_BOOTS,
-                        ModItems.TURQUOISE_HELMET, ModItems.TURQUOISE_CHESTPLATE, ModItems.TURQUOISE_LEGGINGS, ModItems.TURQUOISE_BOOTS,
-                        ModItems.MOISSANITE_HELMET, ModItems.MOISSANITE_CHESTPLATE, ModItems.MOISSANITE_LEGGINGS, ModItems.MOISSANITE_BOOTS,
-                        ModItems.ONYX_HELMET, ModItems.ONYX_CHESTPLATE, ModItems.ONYX_LEGGINGS, ModItems.ONYX_BOOTS,
-                        ModItems.OBSIDIAN_HELMET, ModItems.OBSIDIAN_CHESTPLATE, ModItems.OBSIDIAN_LEGGINGS, ModItems.OBSIDIAN_BOOTS,
-                        ModItems.GRAPHENE_HELMET, ModItems.GRAPHENE_CHESTPLATE, ModItems.GRAPHENE_LEGGINGS, ModItems.GRAPHENE_BOOTS
+        getOrCreateTagBuilder(ItemTags.SWORD_ENCHANTABLE).add(ModItems.WOOD_BATTLE_AXE, ModItems.WOOD_BATTLE_MACE, ModItems.WOOD_DAGGER,
+                ModItems.TIN_SWORD, ModItems.COPPER_SWORD, ModItems.SILVER_SWORD, ModItems.BRONZE_SWORD, ModItems.COBALT_SWORD, ModItems.STERLING_SILVER_SWORD, ModItems.ROSE_GOLD_SWORD,
+                ModItems.CARBON_STEEL_SWORD, ModItems.HARDENED_STEEL_SWORD, ModItems.AMETHYST_SWORD, ModItems.EMERALD_SWORD, ModItems.OBSIDIAN_SWORD, ModItems.TOPAZ_SWORD,
+                ModItems.TOURMALINE_SWORD, ModItems.CITRINE_SWORD, ModItems.RUBY_SWORD, ModItems.SAPPHIRE_SWORD, ModItems.SPINEL_SWORD, ModItems.MOISSANITE_SWORD,
+                ModItems.TURQUOISE_SWORD, ModItems.ONYX_SWORD, ModItems.GRAPHENE_SWORD,
+                ModItems.DIAMOND_BATTLE_AXE, ModItems.DIAMOND_BATTLE_MACE, ModItems.DIAMOND_DAGGER,
+                ModItems.IRON_BATTLE_AXE, ModItems.IRON_BATTLE_MACE, ModItems.IRON_DAGGER,
+                ModItems.NETHERITE_BATTLE_AXE, ModItems.NETHERITE_BATTLE_MACE, ModItems.NETHERITE_DAGGER,
+                ModItems.GOLD_BATTLE_AXE, ModItems.GOLD_BATTLE_MACE, ModItems.GOLD_DAGGER,
+                ModItems.TIN_BATTLE_AXE, ModItems.COPPER_BATTLE_AXE, ModItems.SILVER_BATTLE_AXE, ModItems.BRONZE_BATTLE_AXE, ModItems.COBALT_BATTLE_AXE, ModItems.STERLING_SILVER_BATTLE_AXE, ModItems.ROSE_GOLD_BATTLE_AXE,
+                ModItems.CARBON_STEEL_BATTLE_AXE, ModItems.HARDENED_STEEL_BATTLE_AXE, ModItems.AMETHYST_BATTLE_AXE, ModItems.EMERALD_BATTLE_AXE, ModItems.OBSIDIAN_BATTLE_AXE, ModItems.TOPAZ_BATTLE_AXE,
+                ModItems.TOURMALINE_BATTLE_AXE, ModItems.CITRINE_BATTLE_AXE, ModItems.RUBY_BATTLE_AXE, ModItems.SAPPHIRE_BATTLE_AXE, ModItems.SPINEL_BATTLE_AXE, ModItems.MOISSANITE_BATTLE_AXE,
+                ModItems.TURQUOISE_BATTLE_AXE, ModItems.ONYX_BATTLE_AXE, ModItems.GRAPHENE_BATTLE_AXE,
+                ModItems.TIN_BATTLE_MACE, ModItems.COPPER_BATTLE_MACE, ModItems.SILVER_BATTLE_MACE, ModItems.BRONZE_BATTLE_MACE, ModItems.COBALT_BATTLE_MACE, ModItems.STERLING_SILVER_BATTLE_MACE, ModItems.ROSE_GOLD_BATTLE_MACE,
+                ModItems.CARBON_STEEL_BATTLE_MACE, ModItems.HARDENED_STEEL_BATTLE_MACE, ModItems.AMETHYST_BATTLE_MACE, ModItems.EMERALD_BATTLE_MACE, ModItems.OBSIDIAN_BATTLE_MACE, ModItems.TOPAZ_BATTLE_MACE,
+                ModItems.TOURMALINE_BATTLE_MACE, ModItems.CITRINE_BATTLE_MACE, ModItems.RUBY_BATTLE_MACE, ModItems.SAPPHIRE_BATTLE_MACE, ModItems.SPINEL_BATTLE_MACE, ModItems.MOISSANITE_BATTLE_MACE,
+                ModItems.TURQUOISE_BATTLE_MACE, ModItems.ONYX_BATTLE_MACE, ModItems.GRAPHENE_BATTLE_MACE,
+                ModItems.TIN_DAGGER, ModItems.COPPER_DAGGER, ModItems.SILVER_DAGGER, ModItems.BRONZE_DAGGER, ModItems.COBALT_DAGGER, ModItems.STERLING_SILVER_DAGGER, ModItems.ROSE_GOLD_DAGGER,
+                ModItems.CARBON_STEEL_DAGGER, ModItems.HARDENED_STEEL_DAGGER, ModItems.AMETHYST_DAGGER, ModItems.EMERALD_DAGGER, ModItems.OBSIDIAN_DAGGER, ModItems.TOPAZ_DAGGER,
+                ModItems.TOURMALINE_DAGGER, ModItems.CITRINE_DAGGER, ModItems.RUBY_DAGGER, ModItems.SAPPHIRE_DAGGER, ModItems.SPINEL_DAGGER, ModItems.MOISSANITE_DAGGER,
+                ModItems.TURQUOISE_DAGGER, ModItems.ONYX_DAGGER, ModItems.GRAPHENE_DAGGER
                 );
 
+        //Raw Materials
+        getOrCreateTagBuilder(ConventionalItemTags.RAW_MATERIALS).add(
+                ModItems.RAW_TIN, ModItems.RAW_SILVER ,ModItems.RAW_COBALT
+                );
+        //Trim Materials
+        getOrCreateTagBuilder(ItemTags.TRIM_MATERIALS).add(
+                ModItems.TIN_INGOT, ModItems.SILVER_INGOT, ModItems.BRONZE_INGOT, ModItems.COBALT_INGOT, ModItems.STERLING_SILVER_INGOT, ModItems.ROSE_GOLD_INGOT,
+                ModItems.CARBON_STEEL_INGOT, ModItems.HARDENED_STEEL_INGOT, ModItems.TURQUOISE_GEM, ModItems.TOURMALINE_GEM, ModItems.TOPAZ_GEM, ModItems.TURQUOISE_GEM,
+                ModItems.SAPPHIRE_GEM, ModItems.RUBY_GEM, ModItems.SPINEL_GEM, ModItems.MOISSANITE_GEM, ModItems.CITRINE_GEM, ModItems.ONYX_GEM,
+                ModItems.OBSIDIAN_INGOT, ModItems.GRAPHENE_GEM
+                );
+        //Trimmable Armor
+        getOrCreateTagBuilder(ItemTags.TRIMMABLE_ARMOR).add(
+                ModItems.COPPER_HELMET, ModItems.COPPER_CHESTPLATE, ModItems.COPPER_LEGGINGS, ModItems.COPPER_BOOTS,
+                ModItems.TIN_HELMET, ModItems.TIN_CHESTPLATE, ModItems.TIN_LEGGINGS, ModItems.TIN_BOOTS,
+                ModItems.SILVER_HELMET, ModItems.SILVER_CHESTPLATE, ModItems.SILVER_LEGGINGS, ModItems.SILVER_BOOTS,
+                ModItems.COBALT_HELMET, ModItems.COBALT_CHESTPLATE, ModItems.COBALT_LEGGINGS, ModItems.COBALT_BOOTS,
+                ModItems.BRONZE_HELMET, ModItems.BRONZE_CHESTPLATE, ModItems.BRONZE_LEGGINGS, ModItems.BRONZE_BOOTS,
+                ModItems.STERLING_SILVER_HELMET, ModItems.STERLING_SILVER_CHESTPLATE, ModItems.STERLING_SILVER_LEGGINGS, ModItems.STERLING_SILVER_BOOTS,
+                ModItems.ROSE_GOLD_HELMET, ModItems.ROSE_GOLD_CHESTPLATE, ModItems.ROSE_GOLD_LEGGINGS, ModItems.ROSE_GOLD_BOOTS,
+                ModItems.CARBON_STEEL_HELMET, ModItems.CARBON_STEEL_CHESTPLATE, ModItems.CARBON_STEEL_LEGGINGS, ModItems.CARBON_STEEL_BOOTS,
+                ModItems.HARDENED_STEEL_HELMET, ModItems.HARDENED_STEEL_CHESTPLATE, ModItems.HARDENED_STEEL_LEGGINGS, ModItems.HARDENED_STEEL_BOOTS,
+                ModItems.AMETHYST_HELMET, ModItems.AMETHYST_CHESTPLATE, ModItems.AMETHYST_LEGGINGS, ModItems.AMETHYST_BOOTS,
+                ModItems.EMERALD_HELMET, ModItems.EMERALD_CHESTPLATE, ModItems.EMERALD_LEGGINGS, ModItems.EMERALD_BOOTS,
+                ModItems.TURQUOISE_HELMET, ModItems.TURQUOISE_CHESTPLATE, ModItems.TURQUOISE_LEGGINGS, ModItems.TURQUOISE_BOOTS,
+                ModItems.TOURMALINE_HELMET, ModItems.TOURMALINE_CHESTPLATE, ModItems.TOURMALINE_LEGGINGS, ModItems.TOURMALINE_BOOTS,
+                ModItems.TOPAZ_HELMET, ModItems.TOPAZ_CHESTPLATE, ModItems.TOPAZ_LEGGINGS, ModItems.TOPAZ_BOOTS,
+                ModItems.RUBY_HELMET, ModItems.RUBY_CHESTPLATE, ModItems.RUBY_LEGGINGS, ModItems.RUBY_BOOTS,
+                ModItems.SAPPHIRE_HELMET, ModItems.SAPPHIRE_CHESTPLATE, ModItems.SAPPHIRE_LEGGINGS, ModItems.SAPPHIRE_BOOTS,
+                ModItems.SPINEL_HELMET, ModItems.SPINEL_CHESTPLATE, ModItems.SPINEL_LEGGINGS, ModItems.SPINEL_BOOTS,
+                ModItems.MOISSANITE_HELMET, ModItems.MOISSANITE_CHESTPLATE, ModItems.MOISSANITE_LEGGINGS, ModItems.MOISSANITE_BOOTS,
+                ModItems.CITRINE_HELMET, ModItems.CITRINE_CHESTPLATE, ModItems.CITRINE_LEGGINGS, ModItems.CITRINE_BOOTS,
+                ModItems.ONYX_HELMET, ModItems.ONYX_CHESTPLATE, ModItems.ONYX_LEGGINGS, ModItems.ONYX_BOOTS,
+                ModItems.OBSIDIAN_HELMET, ModItems.OBSIDIAN_CHESTPLATE, ModItems.OBSIDIAN_LEGGINGS, ModItems.OBSIDIAN_BOOTS,
+                ModItems.GRAPHENE_HELMET, ModItems.GRAPHENE_CHESTPLATE, ModItems.GRAPHENE_LEGGINGS, ModItems.GRAPHENE_BOOTS
+                     );
+        //Enchantable Armor
+        getOrCreateTagBuilder(ItemTags.ARMOR_ENCHANTABLE).add(
+                ModItems.TIN_HELMET, ModItems.TIN_CHESTPLATE, ModItems.TIN_LEGGINGS, ModItems.TIN_BOOTS,
+                ModItems.COPPER_HELMET, ModItems.COPPER_CHESTPLATE, ModItems.COPPER_LEGGINGS, ModItems.COPPER_BOOTS,
+                ModItems.SILVER_HELMET, ModItems.SILVER_CHESTPLATE, ModItems.SILVER_LEGGINGS, ModItems.SILVER_BOOTS,
+                ModItems.BRONZE_HELMET, ModItems.BRONZE_CHESTPLATE, ModItems.BRONZE_LEGGINGS, ModItems.BRONZE_BOOTS,
+                ModItems.COBALT_HELMET, ModItems.COBALT_CHESTPLATE, ModItems.COBALT_LEGGINGS, ModItems.COBALT_BOOTS,
+                ModItems.STERLING_SILVER_HELMET, ModItems.STERLING_SILVER_CHESTPLATE, ModItems.STERLING_SILVER_LEGGINGS, ModItems.STERLING_SILVER_BOOTS,
+                ModItems.ROSE_GOLD_HELMET, ModItems.ROSE_GOLD_CHESTPLATE, ModItems.ROSE_GOLD_LEGGINGS, ModItems.ROSE_GOLD_BOOTS,
+                ModItems.CARBON_STEEL_HELMET, ModItems.CARBON_STEEL_CHESTPLATE, ModItems.CARBON_STEEL_LEGGINGS, ModItems.CARBON_STEEL_BOOTS,
+                ModItems.HARDENED_STEEL_HELMET, ModItems.HARDENED_STEEL_CHESTPLATE, ModItems.HARDENED_STEEL_LEGGINGS, ModItems.HARDENED_STEEL_BOOTS,
+                ModItems.AMETHYST_HELMET, ModItems.AMETHYST_CHESTPLATE, ModItems.AMETHYST_LEGGINGS, ModItems.AMETHYST_BOOTS,
+                ModItems.EMERALD_HELMET, ModItems.EMERALD_CHESTPLATE, ModItems.EMERALD_LEGGINGS, ModItems.EMERALD_BOOTS,
+                ModItems.TURQUOISE_HELMET, ModItems.TURQUOISE_CHESTPLATE, ModItems.TURQUOISE_LEGGINGS, ModItems.TURQUOISE_BOOTS,
+                ModItems.TOURMALINE_HELMET, ModItems.TOURMALINE_CHESTPLATE, ModItems.TOURMALINE_LEGGINGS, ModItems.TOURMALINE_BOOTS,
+                ModItems.TOPAZ_HELMET, ModItems.TOPAZ_CHESTPLATE, ModItems.TOPAZ_LEGGINGS, ModItems.TOPAZ_BOOTS,
+                ModItems.RUBY_HELMET, ModItems.RUBY_CHESTPLATE, ModItems.RUBY_LEGGINGS, ModItems.RUBY_BOOTS,
+                ModItems.SAPPHIRE_HELMET, ModItems.SAPPHIRE_CHESTPLATE, ModItems.SAPPHIRE_LEGGINGS, ModItems.SAPPHIRE_BOOTS,
+                ModItems.SPINEL_HELMET, ModItems.SPINEL_CHESTPLATE, ModItems.SPINEL_LEGGINGS, ModItems.SPINEL_BOOTS,
+                ModItems.CITRINE_HELMET, ModItems.CITRINE_CHESTPLATE, ModItems.CITRINE_LEGGINGS, ModItems.CITRINE_BOOTS,
+                ModItems.MOISSANITE_HELMET, ModItems.MOISSANITE_CHESTPLATE, ModItems.MOISSANITE_LEGGINGS, ModItems.MOISSANITE_BOOTS,
+                ModItems.ONYX_HELMET, ModItems.ONYX_CHESTPLATE, ModItems.ONYX_LEGGINGS, ModItems.ONYX_BOOTS,
+                ModItems.OBSIDIAN_HELMET, ModItems.OBSIDIAN_CHESTPLATE, ModItems.OBSIDIAN_LEGGINGS, ModItems.OBSIDIAN_BOOTS,
+                ModItems.GRAPHENE_HELMET, ModItems.GRAPHENE_CHESTPLATE, ModItems.GRAPHENE_LEGGINGS, ModItems.GRAPHENE_BOOTS
+                );
+        getOrCreateTagBuilder(ItemTags.HEAD_ARMOR_ENCHANTABLE).add(
+                ModItems.TIN_HELMET, ModItems.COPPER_HELMET, ModItems.SILVER_HELMET, ModItems.BRONZE_HELMET, ModItems.COBALT_HELMET, ModItems.STERLING_SILVER_HELMET, ModItems.ROSE_GOLD_HELMET,
+                ModItems.CARBON_STEEL_HELMET, ModItems.HARDENED_STEEL_HELMET, ModItems.AMETHYST_HELMET, ModItems.EMERALD_HELMET, ModItems.TURQUOISE_HELMET, ModItems.TOURMALINE_HELMET, ModItems.TOPAZ_HELMET,
+                ModItems.RUBY_HELMET, ModItems.SAPPHIRE_HELMET, ModItems.SPINEL_HELMET, ModItems.CITRINE_HELMET, ModItems.MOISSANITE_HELMET, ModItems.ONYX_HELMET, ModItems.OBSIDIAN_HELMET,
+                ModItems.GRAPHENE_HELMET
+        );
+        getOrCreateTagBuilder(ItemTags.CHEST_ARMOR_ENCHANTABLE).add(
+                ModItems.TIN_CHESTPLATE, ModItems.COPPER_CHESTPLATE, ModItems.SILVER_CHESTPLATE, ModItems.BRONZE_CHESTPLATE, ModItems.COBALT_CHESTPLATE, ModItems.STERLING_SILVER_CHESTPLATE, ModItems.ROSE_GOLD_CHESTPLATE,
+                ModItems.CARBON_STEEL_CHESTPLATE, ModItems.HARDENED_STEEL_CHESTPLATE, ModItems.AMETHYST_CHESTPLATE, ModItems.EMERALD_CHESTPLATE, ModItems.TURQUOISE_CHESTPLATE, ModItems.TOURMALINE_CHESTPLATE,
+                ModItems.TOPAZ_CHESTPLATE, ModItems.RUBY_CHESTPLATE, ModItems.SAPPHIRE_CHESTPLATE, ModItems.SPINEL_CHESTPLATE, ModItems.CITRINE_CHESTPLATE, ModItems.MOISSANITE_CHESTPLATE, ModItems.ONYX_CHESTPLATE,
+                ModItems.OBSIDIAN_CHESTPLATE, ModItems.GRAPHENE_CHESTPLATE
+        );
+        getOrCreateTagBuilder(ItemTags.LEG_ARMOR_ENCHANTABLE).add(
+                ModItems.TIN_LEGGINGS, ModItems.COPPER_LEGGINGS, ModItems.SILVER_LEGGINGS, ModItems.BRONZE_LEGGINGS, ModItems.COBALT_LEGGINGS, ModItems.STERLING_SILVER_LEGGINGS, ModItems.ROSE_GOLD_LEGGINGS,
+                ModItems.CARBON_STEEL_LEGGINGS, ModItems.HARDENED_STEEL_LEGGINGS, ModItems.AMETHYST_LEGGINGS, ModItems.EMERALD_LEGGINGS, ModItems.TURQUOISE_LEGGINGS, ModItems.TOURMALINE_LEGGINGS, ModItems.TOPAZ_LEGGINGS,
+                ModItems.RUBY_LEGGINGS, ModItems.SAPPHIRE_LEGGINGS, ModItems.SPINEL_LEGGINGS, ModItems.CITRINE_LEGGINGS, ModItems.MOISSANITE_LEGGINGS, ModItems.ONYX_LEGGINGS, ModItems.OBSIDIAN_LEGGINGS,
+                ModItems.GRAPHENE_LEGGINGS
+        );
+        getOrCreateTagBuilder(ItemTags.FOOT_ARMOR_ENCHANTABLE).add(
+                ModItems.TIN_BOOTS, ModItems.COPPER_BOOTS, ModItems.SILVER_BOOTS, ModItems.BRONZE_BOOTS, ModItems.COBALT_BOOTS, ModItems.STERLING_SILVER_BOOTS, ModItems.ROSE_GOLD_BOOTS,
+                ModItems.CARBON_STEEL_BOOTS, ModItems.HARDENED_STEEL_BOOTS, ModItems.AMETHYST_BOOTS, ModItems.EMERALD_BOOTS, ModItems.TURQUOISE_BOOTS, ModItems.TOURMALINE_BOOTS, ModItems.TOPAZ_BOOTS,
+                ModItems.RUBY_BOOTS, ModItems.SAPPHIRE_BOOTS, ModItems.SPINEL_BOOTS, ModItems.CITRINE_BOOTS, ModItems.MOISSANITE_BOOTS, ModItems.ONYX_BOOTS, ModItems.OBSIDIAN_BOOTS,
+                ModItems.GRAPHENE_BOOTS
+        );
+        //Regular Armor tags
+        getOrCreateTagBuilder(ItemTags.HEAD_ARMOR).add(
+                ModItems.TIN_HELMET, ModItems.COPPER_HELMET, ModItems.SILVER_HELMET, ModItems.BRONZE_HELMET, ModItems.COBALT_HELMET, ModItems.STERLING_SILVER_HELMET, ModItems.ROSE_GOLD_HELMET,
+                ModItems.CARBON_STEEL_HELMET, ModItems.HARDENED_STEEL_HELMET, ModItems.AMETHYST_HELMET, ModItems.EMERALD_HELMET, ModItems.TURQUOISE_HELMET, ModItems.TOURMALINE_HELMET, ModItems.TOPAZ_HELMET,
+                ModItems.RUBY_HELMET, ModItems.SAPPHIRE_HELMET, ModItems.SPINEL_HELMET, ModItems.CITRINE_HELMET, ModItems.MOISSANITE_HELMET, ModItems.ONYX_HELMET, ModItems.OBSIDIAN_HELMET,
+                ModItems.GRAPHENE_HELMET
+        );
+        getOrCreateTagBuilder(ItemTags.CHEST_ARMOR).add(
+                ModItems.TIN_CHESTPLATE, ModItems.COPPER_CHESTPLATE, ModItems.SILVER_CHESTPLATE, ModItems.BRONZE_CHESTPLATE, ModItems.COBALT_CHESTPLATE, ModItems.STERLING_SILVER_CHESTPLATE, ModItems.ROSE_GOLD_CHESTPLATE,
+                ModItems.CARBON_STEEL_CHESTPLATE, ModItems.HARDENED_STEEL_CHESTPLATE, ModItems.AMETHYST_CHESTPLATE, ModItems.EMERALD_CHESTPLATE, ModItems.TURQUOISE_CHESTPLATE, ModItems.TOURMALINE_CHESTPLATE,
+                ModItems.TOPAZ_CHESTPLATE, ModItems.RUBY_CHESTPLATE, ModItems.SAPPHIRE_CHESTPLATE, ModItems.SPINEL_CHESTPLATE, ModItems.CITRINE_CHESTPLATE, ModItems.MOISSANITE_CHESTPLATE, ModItems.ONYX_CHESTPLATE,
+                ModItems.OBSIDIAN_CHESTPLATE, ModItems.GRAPHENE_CHESTPLATE
+        );
+        getOrCreateTagBuilder(ItemTags.LEG_ARMOR).add(
+                ModItems.TIN_LEGGINGS, ModItems.COPPER_LEGGINGS, ModItems.SILVER_LEGGINGS, ModItems.BRONZE_LEGGINGS, ModItems.COBALT_LEGGINGS, ModItems.STERLING_SILVER_LEGGINGS, ModItems.ROSE_GOLD_LEGGINGS,
+                ModItems.CARBON_STEEL_LEGGINGS, ModItems.HARDENED_STEEL_LEGGINGS, ModItems.AMETHYST_LEGGINGS, ModItems.EMERALD_LEGGINGS, ModItems.TURQUOISE_LEGGINGS, ModItems.TOURMALINE_LEGGINGS, ModItems.TOPAZ_LEGGINGS,
+                ModItems.RUBY_LEGGINGS, ModItems.SAPPHIRE_LEGGINGS, ModItems.SPINEL_LEGGINGS, ModItems.CITRINE_LEGGINGS, ModItems.MOISSANITE_LEGGINGS, ModItems.ONYX_LEGGINGS, ModItems.OBSIDIAN_LEGGINGS,
+                ModItems.GRAPHENE_LEGGINGS
+        );
+        getOrCreateTagBuilder(ItemTags.FOOT_ARMOR).add(
+                ModItems.TIN_BOOTS, ModItems.COPPER_BOOTS, ModItems.SILVER_BOOTS, ModItems.BRONZE_BOOTS, ModItems.COBALT_BOOTS, ModItems.STERLING_SILVER_BOOTS, ModItems.ROSE_GOLD_BOOTS,
+                ModItems.CARBON_STEEL_BOOTS, ModItems.HARDENED_STEEL_BOOTS, ModItems.AMETHYST_BOOTS, ModItems.EMERALD_BOOTS, ModItems.TURQUOISE_BOOTS, ModItems.TOURMALINE_BOOTS, ModItems.TOPAZ_BOOTS,
+                ModItems.RUBY_BOOTS, ModItems.SAPPHIRE_BOOTS, ModItems.SPINEL_BOOTS, ModItems.CITRINE_BOOTS, ModItems.MOISSANITE_BOOTS, ModItems.ONYX_BOOTS, ModItems.OBSIDIAN_BOOTS,
+                ModItems.GRAPHENE_BOOTS
+        );
+
+        //Music Discs
+        getOrCreateTagBuilder(ItemTags.CREEPER_DROP_MUSIC_DISCS).add(
+                ModItems.SWEET_CAROLINE_MUSIC_DISC, ModItems.CIPHER_DISC
+        );
         getOrCreateTagBuilder(ConventionalItemTags.MUSIC_DISCS)
                 .add(ModItems.SWEET_CAROLINE_MUSIC_DISC, ModItems.CIPHER_DISC);
 
-//        getOrCreateTagBuilder(ItemTags.IRON_ORES)
-//                .add(ModBlocks.SILVER_ORE.asItem());
-//
-//        getOrCreateTagBuilder(ItemTags.DIAMOND_ORES)
-//                .add(ModBlocks.TURQUOISE_ORE.asItem());
-
-        /**
-         * Tags for recipes (universal)
+        /*
+         * Modded tags for recipes (universal)
          */
-        getOrCreateTagBuilder(ModTags.Items.GRAPHENE_GEM)
-            .add(ModItems.GRAPHENE_GEM);
-        getOrCreateTagBuilder(ModTags.Items.MOISSANITE_GEM)
-                .add(ModItems.MOISSANITE_GEM);
-        getOrCreateTagBuilder(ModTags.Items.ONYX_GEM)
-                .add(ModItems.ONYX_GEM);
-        getOrCreateTagBuilder(ModTags.Items.RUBY_GEM)
-                .add(ModItems.RUBY_GEM);
-        getOrCreateTagBuilder(ModTags.Items.SAPPHIRE_GEM)
-                .add(ModItems.SAPPHIRE_GEM);
-        getOrCreateTagBuilder(ModTags.Items.TANZANITE_GEM)
-                .add(ModItems.TANZANITE_GEM);
-        getOrCreateTagBuilder(ModTags.Items.TOPAZ_GEM)
-                .add(ModItems.TOPAZ_GEM);
-        getOrCreateTagBuilder(ModTags.Items.TOURMALINE_GEM)
-                .add(ModItems.TOURMALINE_GEM);
-        getOrCreateTagBuilder(ModTags.Items.TURQUOISE_GEM)
-                .add(ModItems.TURQUOISE_GEM);
-        getOrCreateTagBuilder(ModTags.Items.BRONZE_INGOT)
-                .add(ModItems.BRONZE_INGOT);
-        getOrCreateTagBuilder(ModTags.Items.COBALT_INGOT)
-                .add(ModItems.COBALT_INGOT);
-        getOrCreateTagBuilder(ModTags.Items.OBSIDIAN_INGOT)
-                .add(ModItems.OBSIDIAN_INGOT);
-        getOrCreateTagBuilder(ModTags.Items.SILVER_INGOT)
-                .add(ModItems.SILVER_INGOT);
-        getOrCreateTagBuilder(ModTags.Items.STEEL_INGOT)
-                .add(ModItems.STEEL_INGOT);
-        getOrCreateTagBuilder(ModTags.Items.STERLING_INGOT)
-                .add(ModItems.STERLING_INGOT);
-        getOrCreateTagBuilder(ModTags.Items.TIN_INGOT)
-                .add(ModItems.TIN_INGOT);
+        getOrCreateTagBuilder(ModTags.Items.TIN_INGOT).add(ModItems.TIN_INGOT);
+        getOrCreateTagBuilder(ModTags.Items.SILVER_INGOT).add(ModItems.SILVER_INGOT);
+        getOrCreateTagBuilder(ModTags.Items.BRONZE_INGOT).add(ModItems.BRONZE_INGOT);
+        getOrCreateTagBuilder(ModTags.Items.COBALT_INGOT).add(ModItems.COBALT_INGOT);
+        getOrCreateTagBuilder(ModTags.Items.STERLING_SILVER_INGOT).add(ModItems.STERLING_SILVER_INGOT);
+        getOrCreateTagBuilder(ModTags.Items.ROSE_GOLD_INGOT).add(ModItems.ROSE_GOLD_INGOT);
+        getOrCreateTagBuilder(ModTags.Items.CARBON_STEEL_INGOT).add(ModItems.CARBON_STEEL_INGOT);
+        getOrCreateTagBuilder(ModTags.Items.HARDENED_STEEL_INGOT).add(ModItems.HARDENED_STEEL_INGOT);
+        getOrCreateTagBuilder(ModTags.Items.TURQUOISE_GEM).add(ModItems.TURQUOISE_GEM);
+        getOrCreateTagBuilder(ModTags.Items.TOURMALINE_GEM).add(ModItems.TOURMALINE_GEM);
+        getOrCreateTagBuilder(ModTags.Items.TOPAZ_GEM).add(ModItems.TOPAZ_GEM);
+        getOrCreateTagBuilder(ModTags.Items.RUBY_GEM).add(ModItems.RUBY_GEM);
+        getOrCreateTagBuilder(ModTags.Items.SAPPHIRE_GEM).add(ModItems.SAPPHIRE_GEM);
+        getOrCreateTagBuilder(ModTags.Items.SPINEL_GEM).add(ModItems.SPINEL_GEM);
+        getOrCreateTagBuilder(ModTags.Items.CITRINE_GEM).add(ModItems.CITRINE_GEM);
+        getOrCreateTagBuilder(ModTags.Items.MOISSANITE_GEM).add(ModItems.MOISSANITE_GEM);
+        getOrCreateTagBuilder(ModTags.Items.ONYX_GEM).add(ModItems.ONYX_GEM);
+        getOrCreateTagBuilder(ModTags.Items.OBSIDIAN_INGOT).add(ModItems.OBSIDIAN_INGOT);
+        getOrCreateTagBuilder(ModTags.Items.GRAPHENE_GEM).add(ModItems.GRAPHENE_GEM);
     }
 }

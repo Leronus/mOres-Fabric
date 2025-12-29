@@ -16,34 +16,50 @@ public class ModItemGroups {
             FabricItemGroup.builder().displayName(Text.translatable("creativemodetab.mores_materials"))
                     .icon(() -> new ItemStack(ModItems.RUBY_GEM)).entries((displayContext, entries) -> {
                        entries.add(ModItems.ANTHRACITE);
+                       entries.add(ModItems.CITRINE);
+                       entries.add(ModItems.ONYX);
+
                        entries.add(ModItems.RAW_TIN);
                        entries.add(ModItems.RAW_SILVER);
                        entries.add(ModItems.RAW_COBALT);
+
+                       entries.add(ModItems.HOT_CARBON_STEEL_SCRAP);
+                       entries.add(ModItems.CARBON_STEEL_SCRAP);
+
                        entries.add(ModItems.TIN_NUGGET);
-
-                       entries.add(ModItems.BRONZE_NUGGET);
                        entries.add(ModItems.SILVER_NUGGET);
+                       entries.add(ModItems.COPPER_NUGGET);
+                       entries.add(ModItems.STERLING_SILVER_NUGGET);
+                       entries.add(ModItems.ROSE_GOLD_NUGGET);
+                       entries.add(ModItems.BRONZE_NUGGET);
                        entries.add(ModItems.COBALT_NUGGET);
-                       entries.add(ModItems.STERLING_NUGGET);
-                       entries.add(ModItems.STEEL_NUGGET);
-                       entries.add(ModItems.TIN_INGOT);
+                       entries.add(ModItems.CARBON_STEEL_NUGGET);
+                       entries.add(ModItems.HARDENED_STEEL_NUGGET);
 
+                       entries.add(ModItems.LAPIS_LAZULI_DUST);
+                       entries.add(ModItems.TURQUOISE_DUST);
+                       entries.add(ModItems.AMETHYST_DUST);
+
+                       entries.add(ModItems.TIN_INGOT);
                        entries.add(ModItems.BRONZE_INGOT);
                        entries.add(ModItems.SILVER_INGOT);
+                       entries.add(ModItems.STERLING_SILVER_INGOT);
+                       entries.add(ModItems.ROSE_GOLD_INGOT);
                        entries.add(ModItems.COBALT_INGOT);
-                       entries.add(ModItems.STERLING_INGOT);
-
-                       entries.add(ModItems.STEEL_INGOT);
+                       entries.add(ModItems.CARBON_STEEL_INGOT);
+                       entries.add(ModItems.HARDENED_STEEL_INGOT);
                        entries.add(ModItems.OBSIDIAN_INGOT);
-                       entries.add(ModItems.TOPAZ_GEM);
-                       entries.add(ModItems.TOURMALINE_GEM);
-                       entries.add(ModItems.TANZANITE_GEM);
 
+                       entries.add(ModItems.AMETHYST_GEM);
+                       entries.add(ModItems.LAPIS_LAZULI_GEM);
+                       entries.add(ModItems.TURQUOISE_GEM);
+                       entries.add(ModItems.TOURMALINE_GEM);
+                       entries.add(ModItems.TOPAZ_GEM);
                        entries.add(ModItems.RUBY_GEM);
                        entries.add(ModItems.SAPPHIRE_GEM);
+                       entries.add(ModItems.SPINEL_GEM);
+                       entries.add(ModItems.CITRINE_GEM);
                        entries.add(ModItems.MOISSANITE_GEM);
-
-                       entries.add(ModItems.TURQUOISE_GEM);
                        entries.add(ModItems.ONYX_GEM);
                        entries.add(ModItems.GRAPHENE_GEM);
                     }).build());
@@ -56,18 +72,21 @@ public class ModItemGroups {
                         entries.add(ModBlocks.RAW_SILVER_BLOCK);
                         entries.add(ModBlocks.RAW_COBALT_BLOCK);
                         entries.add(ModBlocks.TIN_BLOCK);
-                        entries.add(ModBlocks.BRONZE_BLOCK);
                         entries.add(ModBlocks.SILVER_BLOCK);
+                        entries.add(ModBlocks.STERLING_SILVER_BLOCK);
+                        entries.add(ModBlocks.ROSE_GOLD_BLOCK);
+                        entries.add(ModBlocks.BRONZE_BLOCK);
                         entries.add(ModBlocks.COBALT_BLOCK);
-                        entries.add(ModBlocks.STERLING_BLOCK);
-                        entries.add(ModBlocks.STEEL_BLOCK);
-                        entries.add(ModBlocks.TOPAZ_BLOCK);
+                        entries.add(ModBlocks.CARBON_STEEL_BLOCK);
+                        entries.add(ModBlocks.HARDENED_STEEL_BLOCK);
+                        entries.add(ModBlocks.TURQUOISE_BLOCK);
                         entries.add(ModBlocks.TOURMALINE_BLOCK);
-                        entries.add(ModBlocks.TANZANITE_BLOCK);
+                        entries.add(ModBlocks.TOPAZ_BLOCK);
                         entries.add(ModBlocks.RUBY_BLOCK);
                         entries.add(ModBlocks.SAPPHIRE_BLOCK);
+                        entries.add(ModBlocks.SPINEL_BLOCK);
+                        entries.add(ModBlocks.CITRINE_BLOCK);
                         entries.add(ModBlocks.MOISSANITE_BLOCK);
-                        entries.add(ModBlocks.TURQUOISE_BLOCK);
                         entries.add(ModBlocks.ONYX_BLOCK);
                         entries.add(ModBlocks.GRAPHENE_BLOCK);
                     }).build());
@@ -90,7 +109,7 @@ public class ModItemGroups {
                         entries.add(ModBlocks.DEEPSLATE_TOPAZ_ORE);
                         entries.add(ModBlocks.TOURMALINE_ORE);
                         entries.add(ModBlocks.DEEPSLATE_TOURMALINE_ORE);
-                        entries.add(ModBlocks.NETHER_TANZANITE_ORE);
+                        entries.add(ModBlocks.NETHER_CITRINE_ORE);
                         entries.add(ModBlocks.RUBY_ORE);
                         entries.add(ModBlocks.DEEPSLATE_RUBY_ORE);
                         entries.add(ModBlocks.NETHER_RUBY_ORE);
@@ -101,7 +120,7 @@ public class ModItemGroups {
                         entries.add(ModBlocks.DEEPSLATE_MOISSANITE_ORE);
                         entries.add(ModBlocks.TURQUOISE_ORE);
                         entries.add(ModBlocks.DEEPSLATE_TURQUOISE_ORE);
-                        entries.add(ModBlocks.ONYX_ORE);
+                        entries.add(ModBlocks.ENDER_ONYX_ORE);
                     }).build());
 
     public static final ItemGroup TOOLS_GROUP = Registry.register(Registries.ITEM_GROUP,
@@ -128,14 +147,14 @@ public class ModItemGroups {
                         entries.add(ModItems.COBALT_AXE);
                         entries.add(ModItems.COBALT_SHOVEL);
                         entries.add(ModItems.COBALT_HOE);
-                        entries.add(ModItems.STERLING_PICKAXE);
-                        entries.add(ModItems.STERLING_AXE);
-                        entries.add(ModItems.STERLING_SHOVEL);
-                        entries.add(ModItems.STERLING_HOE);
-                        entries.add(ModItems.STEEL_PICKAXE);
-                        entries.add(ModItems.STEEL_AXE);
-                        entries.add(ModItems.STEEL_SHOVEL);
-                        entries.add(ModItems.STEEL_HOE);
+                        entries.add(ModItems.STERLING_SILVER_PICKAXE);
+                        entries.add(ModItems.STERLING_SILVER_AXE);
+                        entries.add(ModItems.STERLING_SILVER_SHOVEL);
+                        entries.add(ModItems.STERLING_SILVER_HOE);
+                        entries.add(ModItems.CARBON_STEEL_PICKAXE);
+                        entries.add(ModItems.CARBON_STEEL_AXE);
+                        entries.add(ModItems.CARBON_STEEL_SHOVEL);
+                        entries.add(ModItems.CARBON_STEEL_HOE);
                         entries.add(ModItems.AMETHYST_PICKAXE);
                         entries.add(ModItems.AMETHYST_AXE);
                         entries.add(ModItems.AMETHYST_SHOVEL);
@@ -160,10 +179,10 @@ public class ModItemGroups {
                         entries.add(ModItems.SAPPHIRE_AXE);
                         entries.add(ModItems.SAPPHIRE_SHOVEL);
                         entries.add(ModItems.SAPPHIRE_HOE);
-                        entries.add(ModItems.TANZANITE_PICKAXE);
-                        entries.add(ModItems.TANZANITE_AXE);
-                        entries.add(ModItems.TANZANITE_SHOVEL);
-                        entries.add(ModItems.TANZANITE_HOE);
+                        entries.add(ModItems.CITRINE_PICKAXE);
+                        entries.add(ModItems.CITRINE_AXE);
+                        entries.add(ModItems.CITRINE_SHOVEL);
+                        entries.add(ModItems.CITRINE_HOE);
                         entries.add(ModItems.MOISSANITE_PICKAXE);
                         entries.add(ModItems.MOISSANITE_AXE);
                         entries.add(ModItems.MOISSANITE_SHOVEL);
@@ -191,100 +210,100 @@ public class ModItemGroups {
     public static final ItemGroup WEAPONS_GROUP = Registry.register(Registries.ITEM_GROUP,
             Identifier.of(Mores.MOD_ID, "weapons"),
             FabricItemGroup.builder().displayName(Text.translatable("creativemodetab.mores_weapons"))
-                    .icon(() -> new ItemStack(ModItems.NETHERITE_BATTLEAXE)).entries((displayContext, entries) -> {
-                        entries.add(ModItems.WOOD_BATTLEAXE);
-                        entries.add(ModItems.WOOD_MACE);
+                    .icon(() -> new ItemStack(ModItems.NETHERITE_BATTLE_AXE)).entries((displayContext, entries) -> {
+                        entries.add(ModItems.WOOD_BATTLE_AXE);
+                        entries.add(ModItems.WOOD_BATTLE_MACE);
                         entries.add(ModItems.WOOD_DAGGER);
-                        entries.add(ModItems.STONE_BATTLEAXE);
-                        entries.add(ModItems.STONE_MACE);
+                        entries.add(ModItems.STONE_BATTLE_AXE);
+                        entries.add(ModItems.STONE_BATTLE_MACE);
                         entries.add(ModItems.STONE_DAGGER);
                         entries.add(ModItems.TIN_SWORD);
-                        entries.add(ModItems.TIN_BATTLEAXE);
-                        entries.add(ModItems.TIN_MACE);
+                        entries.add(ModItems.TIN_BATTLE_AXE);
+                        entries.add(ModItems.TIN_BATTLE_MACE);
                         entries.add(ModItems.TIN_DAGGER);
                         entries.add(ModItems.COPPER_SWORD);
-                        entries.add(ModItems.COPPER_BATTLEAXE);
-                        entries.add(ModItems.COPPER_MACE);
+                        entries.add(ModItems.COPPER_BATTLE_AXE);
+                        entries.add(ModItems.COPPER_BATTLE_MACE);
                         entries.add(ModItems.COPPER_DAGGER);
                         entries.add(ModItems.BRONZE_SWORD);
-                        entries.add(ModItems.BRONZE_BATTLEAXE);
-                        entries.add(ModItems.BRONZE_MACE);
+                        entries.add(ModItems.BRONZE_BATTLE_AXE);
+                        entries.add(ModItems.BRONZE_BATTLE_MACE);
                         entries.add(ModItems.BRONZE_DAGGER);
                         entries.add(ModItems.SILVER_SWORD);
-                        entries.add(ModItems.SILVER_BATTLEAXE);
-                        entries.add(ModItems.SILVER_MACE);
+                        entries.add(ModItems.SILVER_BATTLE_AXE);
+                        entries.add(ModItems.SILVER_BATTLE_MACE);
                         entries.add(ModItems.SILVER_DAGGER);
-                        entries.add(ModItems.GOLD_BATTLEAXE);
-                        entries.add(ModItems.GOLD_MACE);
+                        entries.add(ModItems.GOLD_BATTLE_AXE);
+                        entries.add(ModItems.GOLD_BATTLE_MACE);
                         entries.add(ModItems.GOLD_DAGGER);
-                        entries.add(ModItems.IRON_BATTLEAXE);
-                        entries.add(ModItems.IRON_MACE);
+                        entries.add(ModItems.IRON_BATTLE_AXE);
+                        entries.add(ModItems.IRON_BATTLE_MACE);
                         entries.add(ModItems.IRON_DAGGER);
                         entries.add(ModItems.COBALT_SWORD);
-                        entries.add(ModItems.COBALT_BATTLEAXE);
-                        entries.add(ModItems.COBALT_MACE);
+                        entries.add(ModItems.COBALT_BATTLE_AXE);
+                        entries.add(ModItems.COBALT_BATTLE_MACE);
                         entries.add(ModItems.COBALT_DAGGER);
-                        entries.add(ModItems.STERLING_SWORD);
-                        entries.add(ModItems.STERLING_BATTLEAXE);
-                        entries.add(ModItems.STERLING_MACE);
-                        entries.add(ModItems.STERLING_DAGGER);
-                        entries.add(ModItems.STEEL_SWORD);
-                        entries.add(ModItems.STEEL_BATTLEAXE);
-                        entries.add(ModItems.STEEL_MACE);
-                        entries.add(ModItems.STEEL_DAGGER);
+                        entries.add(ModItems.STERLING_SILVER_SWORD);
+                        entries.add(ModItems.STERLING_SILVER_BATTLE_AXE);
+                        entries.add(ModItems.STERLING_SILVER_BATTLE_MACE);
+                        entries.add(ModItems.STERLING_SILVER_DAGGER);
+                        entries.add(ModItems.CARBON_STEEL_SWORD);
+                        entries.add(ModItems.CARBON_STEEL_BATTLE_AXE);
+                        entries.add(ModItems.CARBON_STEEL_BATTLE_MACE);
+                        entries.add(ModItems.CARBON_STEEL_DAGGER);
                         entries.add(ModItems.AMETHYST_SWORD);
-                        entries.add(ModItems.AMETHYST_BATTLEAXE);
-                        entries.add(ModItems.AMETHYST_MACE);
+                        entries.add(ModItems.AMETHYST_BATTLE_AXE);
+                        entries.add(ModItems.AMETHYST_BATTLE_MACE);
                         entries.add(ModItems.AMETHYST_DAGGER);
                         entries.add(ModItems.EMERALD_SWORD);
-                        entries.add(ModItems.EMERALD_BATTLEAXE);
-                        entries.add(ModItems.EMERALD_MACE);
+                        entries.add(ModItems.EMERALD_BATTLE_AXE);
+                        entries.add(ModItems.EMERALD_BATTLE_MACE);
                         entries.add(ModItems.EMERALD_DAGGER);
                         entries.add(ModItems.TOPAZ_SWORD);
-                        entries.add(ModItems.TOPAZ_BATTLEAXE);
-                        entries.add(ModItems.TOPAZ_MACE);
+                        entries.add(ModItems.TOPAZ_BATTLE_AXE);
+                        entries.add(ModItems.TOPAZ_BATTLE_MACE);
                         entries.add(ModItems.TOPAZ_DAGGER);
                         entries.add(ModItems.TOURMALINE_SWORD);
-                        entries.add(ModItems.TOURMALINE_BATTLEAXE);
-                        entries.add(ModItems.TOURMALINE_MACE);
+                        entries.add(ModItems.TOURMALINE_BATTLE_AXE);
+                        entries.add(ModItems.TOURMALINE_BATTLE_MACE);
                         entries.add(ModItems.TOURMALINE_DAGGER);
-                        entries.add(ModItems.DIAMOND_BATTLEAXE);
-                        entries.add(ModItems.DIAMOND_MACE);
+                        entries.add(ModItems.DIAMOND_BATTLE_AXE);
+                        entries.add(ModItems.DIAMOND_BATTLE_MACE);
                         entries.add(ModItems.DIAMOND_DAGGER);
                         entries.add(ModItems.RUBY_SWORD);
-                        entries.add(ModItems.RUBY_BATTLEAXE);
-                        entries.add(ModItems.RUBY_MACE);
+                        entries.add(ModItems.RUBY_BATTLE_AXE);
+                        entries.add(ModItems.RUBY_BATTLE_MACE);
                         entries.add(ModItems.RUBY_DAGGER);
                         entries.add(ModItems.SAPPHIRE_SWORD);
-                        entries.add(ModItems.SAPPHIRE_BATTLEAXE);
-                        entries.add(ModItems.SAPPHIRE_MACE);
+                        entries.add(ModItems.SAPPHIRE_BATTLE_AXE);
+                        entries.add(ModItems.SAPPHIRE_BATTLE_MACE);
                         entries.add(ModItems.SAPPHIRE_DAGGER);
-                        entries.add(ModItems.TANZANITE_SWORD);
-                        entries.add(ModItems.TANZANITE_BATTLEAXE);
-                        entries.add(ModItems.TANZANITE_MACE);
-                        entries.add(ModItems.TANZANITE_DAGGER);
+                        entries.add(ModItems.CITRINE_SWORD);
+                        entries.add(ModItems.CITRINE_BATTLE_AXE);
+                        entries.add(ModItems.CITRINE_BATTLE_MACE);
+                        entries.add(ModItems.CITRINE_DAGGER);
                         entries.add(ModItems.MOISSANITE_SWORD);
-                        entries.add(ModItems.MOISSANITE_BATTLEAXE);
-                        entries.add(ModItems.MOISSANITE_MACE);
+                        entries.add(ModItems.MOISSANITE_BATTLE_AXE);
+                        entries.add(ModItems.MOISSANITE_BATTLE_MACE);
                         entries.add(ModItems.MOISSANITE_DAGGER);
                         entries.add(ModItems.TURQUOISE_SWORD);
-                        entries.add(ModItems.TURQUOISE_BATTLEAXE);
-                        entries.add(ModItems.TURQUOISE_MACE);
+                        entries.add(ModItems.TURQUOISE_BATTLE_AXE);
+                        entries.add(ModItems.TURQUOISE_BATTLE_MACE);
                         entries.add(ModItems.TURQUOISE_DAGGER);
                         entries.add(ModItems.OBSIDIAN_SWORD);
-                        entries.add(ModItems.OBSIDIAN_BATTLEAXE);
-                        entries.add(ModItems.OBSIDIAN_MACE);
+                        entries.add(ModItems.OBSIDIAN_BATTLE_AXE);
+                        entries.add(ModItems.OBSIDIAN_BATTLE_MACE);
                         entries.add(ModItems.OBSIDIAN_DAGGER);
-                        entries.add(ModItems.NETHERITE_BATTLEAXE);
-                        entries.add(ModItems.NETHERITE_MACE);
+                        entries.add(ModItems.NETHERITE_BATTLE_AXE);
+                        entries.add(ModItems.NETHERITE_BATTLE_MACE);
                         entries.add(ModItems.NETHERITE_DAGGER);
                         entries.add(ModItems.ONYX_SWORD);
-                        entries.add(ModItems.ONYX_BATTLEAXE);
-                        entries.add(ModItems.ONYX_MACE);
+                        entries.add(ModItems.ONYX_BATTLE_AXE);
+                        entries.add(ModItems.ONYX_BATTLE_MACE);
                         entries.add(ModItems.ONYX_DAGGER);
                         entries.add(ModItems.GRAPHENE_SWORD);
-                        entries.add(ModItems.GRAPHENE_BATTLEAXE);
-                        entries.add(ModItems.GRAPHENE_MACE);
+                        entries.add(ModItems.GRAPHENE_BATTLE_AXE);
+                        entries.add(ModItems.GRAPHENE_BATTLE_MACE);
                         entries.add(ModItems.GRAPHENE_DAGGER);
                     }).build());
 
@@ -312,14 +331,14 @@ public class ModItemGroups {
                         entries.add(ModItems.COBALT_CHESTPLATE);
                         entries.add(ModItems.COBALT_LEGGINGS);
                         entries.add(ModItems.COBALT_BOOTS);
-                        entries.add(ModItems.STERLING_HELMET);
-                        entries.add(ModItems.STERLING_CHESTPLATE);
-                        entries.add(ModItems.STERLING_LEGGINGS);
-                        entries.add(ModItems.STERLING_BOOTS);
-                        entries.add(ModItems.STEEL_HELMET);
-                        entries.add(ModItems.STEEL_CHESTPLATE);
-                        entries.add(ModItems.STEEL_LEGGINGS);
-                        entries.add(ModItems.STEEL_BOOTS);
+                        entries.add(ModItems.STERLING_SILVER_HELMET);
+                        entries.add(ModItems.STERLING_SILVER_CHESTPLATE);
+                        entries.add(ModItems.STERLING_SILVER_LEGGINGS);
+                        entries.add(ModItems.STERLING_SILVER_BOOTS);
+                        entries.add(ModItems.CARBON_STEEL_HELMET);
+                        entries.add(ModItems.CARBON_STEEL_CHESTPLATE);
+                        entries.add(ModItems.CARBON_STEEL_LEGGINGS);
+                        entries.add(ModItems.CARBON_STEEL_BOOTS);
                         entries.add(ModItems.AMETHYST_HELMET);
                         entries.add(ModItems.AMETHYST_CHESTPLATE);
                         entries.add(ModItems.AMETHYST_LEGGINGS);
@@ -344,10 +363,10 @@ public class ModItemGroups {
                         entries.add(ModItems.SAPPHIRE_CHESTPLATE);
                         entries.add(ModItems.SAPPHIRE_LEGGINGS);
                         entries.add(ModItems.SAPPHIRE_BOOTS);
-                        entries.add(ModItems.TANZANITE_HELMET);
-                        entries.add(ModItems.TANZANITE_CHESTPLATE);
-                        entries.add(ModItems.TANZANITE_LEGGINGS);
-                        entries.add(ModItems.TANZANITE_BOOTS);
+                        entries.add(ModItems.CITRINE_HELMET);
+                        entries.add(ModItems.CITRINE_CHESTPLATE);
+                        entries.add(ModItems.CITRINE_LEGGINGS);
+                        entries.add(ModItems.CITRINE_BOOTS);
                         entries.add(ModItems.MOISSANITE_HELMET);
                         entries.add(ModItems.MOISSANITE_CHESTPLATE);
                         entries.add(ModItems.MOISSANITE_LEGGINGS);
@@ -370,30 +389,30 @@ public class ModItemGroups {
                         entries.add(ModItems.GRAPHENE_BOOTS);
                     }).build());
 
-//    public static final ItemGroup SHIELDS_GROUP = Registry.register(Registries.ITEM_GROUP,
-//            Identifier.of(Mores.MOD_ID, "shields"),
-//            FabricItemGroup.builder().displayName(Text.translatable("creativemodetab.mores_shields"))
-//                    .icon(() -> new ItemStack(ModItems.BRONZE_SHIELD)).entries((displayContext, entries) -> {
-//                        entries.add(ModItems.TIN_SHIELD);
-//                        entries.add(ModItems.COPPER_SHIELD);
-//                        entries.add(ModItems.BRONZE_SHIELD);
-//                        entries.add(ModItems.SILVER_SHIELD);
-//                        entries.add(ModItems.COBALT_SHIELD);
-//                        entries.add(ModItems.STERLING_SHIELD);
-//                        entries.add(ModItems.STEEL_SHIELD);
-//                        entries.add(ModItems.AMETHYST_SHIELD);
-//                        entries.add(ModItems.EMERALD_SHIELD);
-//                        entries.add(ModItems.TOPAZ_SHIELD);
-//                        entries.add(ModItems.TOURMALINE_SHIELD);
-//                        entries.add(ModItems.RUBY_SHIELD);
-//                        entries.add(ModItems.SAPPHIRE_SHIELD);
-//                        entries.add(ModItems.TANZANITE_SHIELD);
-//                        entries.add(ModItems.MOISSANITE_SHIELD);
-//                        entries.add(ModItems.TURQUOISE_SHIELD);
-//                        entries.add(ModItems.OBSIDIAN_SHIELD);
-//                        entries.add(ModItems.ONYX_SHIELD);
-//                        entries.add(ModItems.GRAPHENE_SHIELD);
-//                    }).build());
+    public static final ItemGroup SHIELDS_GROUP = Registry.register(Registries.ITEM_GROUP,
+            Identifier.of(Mores.MOD_ID, "shields"),
+            FabricItemGroup.builder().displayName(Text.translatable("creativemodetab.mores_shields"))
+                    .icon(() -> new ItemStack(ModItems.BRONZE_SHIELD)).entries((displayContext, entries) -> {
+                        entries.add(ModItems.TIN_SHIELD);
+                        entries.add(ModItems.COPPER_SHIELD);
+                        entries.add(ModItems.BRONZE_SHIELD);
+                        entries.add(ModItems.SILVER_SHIELD);
+                        entries.add(ModItems.COBALT_SHIELD);
+                        entries.add(ModItems.STERLING_SILVER_SHIELD);
+                        entries.add(ModItems.CARBON_STEEL_SHIELD);
+                        entries.add(ModItems.AMETHYST_SHIELD);
+                        entries.add(ModItems.EMERALD_SHIELD);
+                        entries.add(ModItems.TOPAZ_SHIELD);
+                        entries.add(ModItems.TOURMALINE_SHIELD);
+                        entries.add(ModItems.RUBY_SHIELD);
+                        entries.add(ModItems.SAPPHIRE_SHIELD);
+                        entries.add(ModItems.CITRINE_SHIELD);
+                        entries.add(ModItems.MOISSANITE_SHIELD);
+                        entries.add(ModItems.TURQUOISE_SHIELD);
+                        entries.add(ModItems.OBSIDIAN_SHIELD);
+                        entries.add(ModItems.ONYX_SHIELD);
+                        entries.add(ModItems.GRAPHENE_SHIELD);
+                    }).build());
 
 //        public static final ItemGroup HORSE_ARMOR_GROUP = Registry.register(Registries.ITEM_GROUP,
 //            Identifier.of(Mores.MOD_ID, "horse_armor"),
@@ -405,14 +424,14 @@ public class ModItemGroups {
 //                        entries.add(ModItems.SILVER_HORSE_ARMOR);
 //                        entries.add(ModItems.COBALT_HORSE_ARMOR);
 //                        entries.add(ModItems.STERLING_HORSE_ARMOR);
-//                        entries.add(ModItems.STEEL_HORSE_ARMOR);
+//                        entries.add(ModItems.CARBON_STEEL_HORSE_ARMOR);
 //                        entries.add(ModItems.AMETHYST_HORSE_ARMOR);
 //                        entries.add(ModItems.EMERALD_HORSE_ARMOR);
 //                        entries.add(ModItems.TOPAZ_HORSE_ARMOR);
 //                        entries.add(ModItems.TOURMALINE_HORSE_ARMOR);
 //                        entries.add(ModItems.RUBY_HORSE_ARMOR);
 //                        entries.add(ModItems.SAPPHIRE_HORSE_ARMOR);
-//                        entries.add(ModItems.TANZANITE_HORSE_ARMOR);
+//                        entries.add(ModItems.CITRINE_HORSE_ARMOR);
 //                        entries.add(ModItems.MOISSANITE_HORSE_ARMOR);
 //                        entries.add(ModItems.TURQUOISE_HORSE_ARMOR);
 //                        entries.add(ModItems.OBSIDIAN_HORSE_ARMOR);
@@ -431,8 +450,8 @@ public class ModItemGroups {
                         entries.add(ModItems.CHOCOLATE);
                         entries.add(ModItems.VELVET);
                         entries.add(ModItems.CARROT_PIE);
-//                        entries.add(ModItems.DUCK);
-//                        entries.add(ModItems.COOKED_DUCK);
+                        entries.add(ModItems.RAW_DUCK);
+                        entries.add(ModItems.COOKED_DUCK);
                     }).build());
 
 //    public static final ItemGroup ENTITIES_GROUP = Registry.register(Registries.ITEM_GROUP,

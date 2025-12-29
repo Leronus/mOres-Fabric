@@ -57,13 +57,13 @@ public class ModConfiguredFeatures {
     public static final RegistryKey<ConfiguredFeature<?, ?>> MOISSANITE_BURIED_ORE_KEY = registerKey("moissanite_buried_ore");
     public static final RegistryKey<ConfiguredFeature<?, ?>> NETHER_MOISSANITE_ORE_KEY = registerKey("nether_moissanite_ore");
 
-    public static final RegistryKey<ConfiguredFeature<?, ?>> NETHER_TANZANITE_ORE_KEY = registerKey("nether_tanzanite_ore");
+    public static final RegistryKey<ConfiguredFeature<?, ?>> NETHER_CITRINE_ORE_KEY = registerKey("nether_citrine_ore");
 
     public static final RegistryKey<ConfiguredFeature<?, ?>> TURQUOISE_SMALL_ORE_KEY = registerKey("turquoise_small_ore");
     public static final RegistryKey<ConfiguredFeature<?, ?>> TURQUOISE_LARGE_ORE_KEY = registerKey("turquoise_large_ore");
     public static final RegistryKey<ConfiguredFeature<?, ?>> TURQUOISE_BURIED_ORE_KEY = registerKey("turquoise_buried_ore");
 
-    public static final RegistryKey<ConfiguredFeature<?, ?>> END_ONYX_ORE_KEY = registerKey("end_onyx_ore");
+    public static final RegistryKey<ConfiguredFeature<?, ?>> ENDER_ONYX_ORE_KEY = registerKey("ender_onyx_ore");
 
     public static void bootstrap(Registerable<ConfiguredFeature<?, ?>> context) {
         List<OreFeatureConfig.Target> OVERWORLD_TIN_ORES = List.of(
@@ -100,8 +100,8 @@ public class ModConfiguredFeatures {
 
         List<OreFeatureConfig.Target> NETHER_SILVER_ORES = List.of(
                 OreFeatureConfig.createTarget(new BlockMatchRuleTest(Blocks.NETHERRACK), ModBlocks.NETHER_SILVER_ORE.getDefaultState()));
-        List<OreFeatureConfig.Target> NETHER_TANZANITE_ORES = List.of(
-                OreFeatureConfig.createTarget(new BlockMatchRuleTest(Blocks.NETHERRACK), ModBlocks.NETHER_TANZANITE_ORE.getDefaultState())
+        List<OreFeatureConfig.Target> NETHER_CITRINE_ORES = List.of(
+                OreFeatureConfig.createTarget(new BlockMatchRuleTest(Blocks.NETHERRACK), ModBlocks.NETHER_CITRINE_ORE.getDefaultState())
                 /*,OreFeatureConfig.createTarget(new TagMatchRuleTest(BlockTags.DEEPSLATE_ORE_REPLACEABLES), BlockInit.DEEPSLATE_TANZANITE_ORE.getDefaultState()())*/);
 
         List<OreFeatureConfig.Target> NETHER_RUBY_ORES = List.of(
@@ -117,7 +117,7 @@ public class ModConfiguredFeatures {
                 OreFeatureConfig.createTarget(new BlockMatchRuleTest(Blocks.NETHERRACK), ModBlocks.NETHER_ANTHRACITE_ORE.getDefaultState()));
 
         List<OreFeatureConfig.Target> END_ONYX_ORES = List.of(
-                OreFeatureConfig.createTarget(new BlockMatchRuleTest(Blocks.END_STONE), ModBlocks.ONYX_ORE.getDefaultState()));
+                OreFeatureConfig.createTarget(new BlockMatchRuleTest(Blocks.END_STONE), ModBlocks.ENDER_ONYX_ORE.getDefaultState()));
 
         register(context, OVERWORLD_ANTHRACITE_ORE_KEY, Feature.ORE, new OreFeatureConfig(OVERWORLD_ANTHRACITE_ORES,6, 0.3F));
         register(context, NETHER_ANTHRACITE_ORE_KEY, Feature.ORE, new OreFeatureConfig(NETHER_ANTHRACITE_ORES,13, 0.65F));
@@ -143,7 +143,7 @@ public class ModConfiguredFeatures {
         register(context, TOURMALINE_LARGE_ORE_KEY, Feature.ORE, new OreFeatureConfig(OVERWORLD_TOURMALINE_ORES,10, 0.8F));
         register(context, TOURMALINE_BURIED_ORE_KEY, Feature.ORE, new OreFeatureConfig(OVERWORLD_TOURMALINE_ORES,8, 0.6F));
 
-        register(context, NETHER_TANZANITE_ORE_KEY, Feature.ORE, new OreFeatureConfig(NETHER_TANZANITE_ORES,9, 0.5F));
+        register(context, NETHER_CITRINE_ORE_KEY, Feature.ORE, new OreFeatureConfig(NETHER_CITRINE_ORES,9, 0.5F));
 
         register(context, RUBY_SMALL_ORE_KEY, Feature.ORE, new OreFeatureConfig(OVERWORLD_RUBY_ORES,4, 0.5F));
         register(context, RUBY_LARGE_ORE_KEY, Feature.ORE, new OreFeatureConfig(OVERWORLD_RUBY_ORES,10, 0.7F));
@@ -159,7 +159,7 @@ public class ModConfiguredFeatures {
         register(context, TURQUOISE_LARGE_ORE_KEY, Feature.ORE, new OreFeatureConfig(OVERWORLD_TURQUOISE_ORES,7, 0.7F));
         register(context, TURQUOISE_BURIED_ORE_KEY, Feature.ORE, new OreFeatureConfig(OVERWORLD_TURQUOISE_ORES,6, 1.0F));
 
-        register(context, END_ONYX_ORE_KEY, Feature.ORE, new OreFeatureConfig(END_ONYX_ORES,6));
+        register(context, ENDER_ONYX_ORE_KEY, Feature.ORE, new OreFeatureConfig(END_ONYX_ORES,6));
 
         register(context, MOISSANITE_SMALL_ORE_KEY, Feature.ORE, new OreFeatureConfig(OVERWORLD_MOISSANITE_ORES,2, 0.5F));
         register(context, MOISSANITE_LARGE_ORE_KEY, Feature.ORE, new OreFeatureConfig(OVERWORLD_MOISSANITE_ORES,6, 0.7F));

@@ -1,4 +1,32 @@
-check block xp values
-fix horse armor
+Fabric 1.21.1 
+
+Doing:
+- Datagenerators
+- Recipes
+- Tags
+
+Todo:
+- Update lang
+- Add citrine, rose gold, rename carbon steel, add hardened steel
+- Add electrum ore (block + oregen)
+- Silver carrot
+- Alloy Furnace
+- Config
+- Test Armor Trims & add missing
+- Check armor models
+- Check armor durability
+- Update Tooltips -> No shuffling, add armor
+- Horse Armor
+- Shields
+- Check Block Experience
+- Check creative tabs
+- Universal ores (diorite/granite/andesite) - look for textures?
+- Advancements (need fixing)
+- Duck entity
+- Villager trades
+- Spears
+- Make sure hostile mobs have a chance to spawn with my gear
+
 
 raw tin seems to be missing from needs_tool in other versions?
+

@@ -41,41 +41,55 @@ public class ModBlocks {
     public static final Block DEEPSLATE_COBALT_ORE = registerBlock("deepslate_cobalt_ore", new ExperienceDroppingBlock(UniformIntProvider.create(0, 2), AbstractBlock.Settings.copy(Blocks.DEEPSLATE_IRON_ORE).mapColor(MapColor.LIGHT_BLUE).strength(4.5F, 3.0F).sounds(BlockSoundGroup.DEEPSLATE).requiresTool()));
 
     public static final Block BRONZE_BLOCK = registerBlock("bronze_block", new Block(AbstractBlock.Settings.copy(Blocks.IRON_BLOCK).mapColor(MapColor.BROWN).strength(5.0F, 6.0F).sounds(BlockSoundGroup.METAL).requiresTool()));
-
-    public static final Block STERLING_BLOCK = registerBlock("sterling_block", new Block(AbstractBlock.Settings.copy(Blocks.IRON_BLOCK).mapColor(MapColor.LIGHT_GRAY).strength(5.0F, 6.0F).sounds(BlockSoundGroup.METAL).requiresTool()));
+    public static final Block STERLING_SILVER_BLOCK = registerBlock("sterling_silver_block", new Block(AbstractBlock.Settings.copy(Blocks.IRON_BLOCK).mapColor(MapColor.LIGHT_GRAY).strength(5.0F, 6.0F).sounds(BlockSoundGroup.METAL).requiresTool()));
+    //TODO CHECK STATS
+    public static final Block ROSE_GOLD_BLOCK = registerBlock("rose_gold_block", new Block(AbstractBlock.Settings.copy(Blocks.IRON_BLOCK).mapColor(MapColor.LIGHT_GRAY).strength(5.0F, 6.0F).sounds(BlockSoundGroup.METAL).requiresTool()));
+    public static final Block CARBON_STEEL_BLOCK = registerBlock("carbon_steel_block", new Block(AbstractBlock.Settings.copy(Blocks.IRON_BLOCK).mapColor(MapColor.GRAY).strength(5.0F, 6.0F).sounds(BlockSoundGroup.METAL).requiresTool()));
+    public static final Block HARDENED_STEEL_BLOCK = registerBlock("hardened_steel_block", new Block(AbstractBlock.Settings.copy(Blocks.IRON_BLOCK).mapColor(MapColor.GRAY).strength(5.0F, 6.0F).sounds(BlockSoundGroup.METAL).requiresTool()));
 
     public static final Block AMETHYST_BLOCK = registerBlock("amethyst_block", new Block(AbstractBlock.Settings.copy(Blocks.AMETHYST_BLOCK).strength(5.0F, 6.0F).sounds(BlockSoundGroup.AMETHYST_BLOCK).requiresTool()));
 
-    public static final Block STEEL_BLOCK = registerBlock("steel_block", new Block(AbstractBlock.Settings.copy(Blocks.IRON_BLOCK).mapColor(MapColor.GRAY).strength(5.0F, 6.0F).sounds(BlockSoundGroup.METAL).requiresTool()));
-    public static final Block TOPAZ_ORE = registerBlock("topaz_ore", new ExperienceDroppingBlock(UniformIntProvider.create(3, 6), AbstractBlock.Settings.copy(Blocks.DIAMOND_ORE).mapColor(MapColor.LIGHT_BLUE).strength(3.0F, 3.0F).sounds(BlockSoundGroup.STONE).requiresTool()));
-    public static final Block TOPAZ_BLOCK = registerBlock("topaz_block", new Block(AbstractBlock.Settings.copy(Blocks.DIAMOND_BLOCK).mapColor(MapColor.LIGHT_BLUE).strength(5.0F, 6.0F).sounds(BlockSoundGroup.METAL).requiresTool()));
-    public static final Block DEEPSLATE_TOPAZ_ORE = registerBlock("deepslate_topaz_ore", new ExperienceDroppingBlock(UniformIntProvider.create(3, 6), AbstractBlock.Settings.copy(Blocks.DEEPSLATE_DIAMOND_ORE).mapColor(MapColor.LIGHT_BLUE).strength(4.5F, 3.0F).sounds(BlockSoundGroup.DEEPSLATE).requiresTool()));
+    //TODO CHECK STATS
+    public static final Block TURQUOISE_ORE = registerBlock("turquoise_ore", new ExperienceDroppingBlock(UniformIntProvider.create(3, 9), AbstractBlock.Settings.copy(Blocks.DIAMOND_ORE).mapColor(MapColor.CYAN).strength(4.0F, 3.0F).sounds(BlockSoundGroup.STONE).requiresTool()));
+    public static final Block TURQUOISE_BLOCK = registerBlock("turquoise_block", new Block(AbstractBlock.Settings.copy(Blocks.DIAMOND_BLOCK).mapColor(MapColor.CYAN).strength(5.0F, 6.0F).sounds(BlockSoundGroup.METAL).requiresTool()));
+    public static final Block DEEPSLATE_TURQUOISE_ORE = registerBlock("deepslate_turquoise_ore", new ExperienceDroppingBlock(UniformIntProvider.create(3, 9), AbstractBlock.Settings.copy(Blocks.DEEPSLATE_DIAMOND_ORE).mapColor(MapColor.CYAN).strength(5.5F, 3.0F).sounds(BlockSoundGroup.DEEPSLATE).requiresTool()));
 
     public static final Block TOURMALINE_ORE = registerBlock("tourmaline_ore", new ExperienceDroppingBlock(UniformIntProvider.create(3, 7), AbstractBlock.Settings.copy(Blocks.DIAMOND_ORE).mapColor(MapColor.PINK).strength(3.0F, 3.0F).sounds(BlockSoundGroup.STONE).requiresTool()));
     public static final Block TOURMALINE_BLOCK = registerBlock("tourmaline_block", new Block(AbstractBlock.Settings.copy(Blocks.DIAMOND_BLOCK).mapColor(MapColor.PINK).strength(5.0F, 6.0F).sounds(BlockSoundGroup.METAL).requiresTool()));
     public static final Block DEEPSLATE_TOURMALINE_ORE = registerBlock("deepslate_tourmaline_ore", new ExperienceDroppingBlock(UniformIntProvider.create(3, 7), AbstractBlock.Settings.copy(Blocks.DEEPSLATE_DIAMOND_ORE).mapColor(MapColor.PINK).strength(4.5F, 3.0F).sounds(BlockSoundGroup.STONE).requiresTool()));
 
-    public static final Block NETHER_TANZANITE_ORE = registerBlock("nether_tanzanite_ore", new ExperienceDroppingBlock(UniformIntProvider.create(3, 7), AbstractBlock.Settings.copy(Blocks.NETHER_GOLD_ORE).mapColor(MapColor.PURPLE).strength(3.0F, 3.0F).sounds(BlockSoundGroup.NETHER_ORE).requiresTool()));
-    public static final Block TANZANITE_BLOCK = registerBlock("tanzanite_block", new Block(AbstractBlock.Settings.copy(Blocks.DIAMOND_BLOCK).mapColor(MapColor.PURPLE).strength(5.0F, 6.0F).sounds(BlockSoundGroup.METAL).requiresTool()));
+    public static final Block TOPAZ_ORE = registerBlock("topaz_ore", new ExperienceDroppingBlock(UniformIntProvider.create(3, 6), AbstractBlock.Settings.copy(Blocks.DIAMOND_ORE).mapColor(MapColor.LIGHT_BLUE).strength(3.0F, 3.0F).sounds(BlockSoundGroup.STONE).requiresTool()));
+    public static final Block TOPAZ_BLOCK = registerBlock("topaz_block", new Block(AbstractBlock.Settings.copy(Blocks.DIAMOND_BLOCK).mapColor(MapColor.LIGHT_BLUE).strength(5.0F, 6.0F).sounds(BlockSoundGroup.METAL).requiresTool()));
+    public static final Block DEEPSLATE_TOPAZ_ORE = registerBlock("deepslate_topaz_ore", new ExperienceDroppingBlock(UniformIntProvider.create(3, 6), AbstractBlock.Settings.copy(Blocks.DEEPSLATE_DIAMOND_ORE).mapColor(MapColor.LIGHT_BLUE).strength(4.5F, 3.0F).sounds(BlockSoundGroup.DEEPSLATE).requiresTool()));
+
+//    public static final Block NETHER_TANZANITE_ORE = registerBlock("nether_tanzanite_ore", new ExperienceDroppingBlock(UniformIntProvider.create(3, 7), AbstractBlock.Settings.copy(Blocks.NETHER_GOLD_ORE).mapColor(MapColor.PURPLE).strength(3.0F, 3.0F).sounds(BlockSoundGroup.NETHER_ORE).requiresTool()));
+//    public static final Block TANZANITE_BLOCK = registerBlock("tanzanite_block", new Block(AbstractBlock.Settings.copy(Blocks.DIAMOND_BLOCK).mapColor(MapColor.PURPLE).strength(5.0F, 6.0F).sounds(BlockSoundGroup.METAL).requiresTool()));
+
+    public static final Block RUBY_ORE = registerBlock("ruby_ore", new ExperienceDroppingBlock(UniformIntProvider.create(3, 8), AbstractBlock.Settings.copy(Blocks.DIAMOND_ORE).mapColor(MapColor.RED).strength(3.0F, 3.0F).sounds(BlockSoundGroup.STONE).requiresTool()));
+    public static final Block RUBY_BLOCK = registerBlock("ruby_block", new Block(AbstractBlock.Settings.copy(Blocks.DIAMOND_BLOCK).mapColor(MapColor.RED).strength(5.0F, 6.0F).sounds(BlockSoundGroup.METAL).requiresTool()));
+    public static final Block NETHER_RUBY_ORE = registerBlock("nether_ruby_ore", new ExperienceDroppingBlock(UniformIntProvider.create(3, 8), AbstractBlock.Settings.copy(Blocks.NETHER_GOLD_ORE).mapColor(MapColor.RED).strength(4.0F, 3.0F).sounds(BlockSoundGroup.NETHER_ORE).requiresTool()));
+    public static final Block DEEPSLATE_RUBY_ORE = registerBlock("deepslate_ruby_ore", new ExperienceDroppingBlock(UniformIntProvider.create(3, 8), AbstractBlock.Settings.copy(Blocks.DEEPSLATE_DIAMOND_ORE).mapColor(MapColor.RED).strength(4.5F, 3.0F).sounds(BlockSoundGroup.DEEPSLATE).requiresTool()));
 
     public static final Block SAPPHIRE_ORE = registerBlock("sapphire_ore", new ExperienceDroppingBlock(UniformIntProvider.create(2, 5), AbstractBlock.Settings.copy(Blocks.DIAMOND_ORE).mapColor(MapColor.BLUE).strength(3.0F, 3.0F).sounds(BlockSoundGroup.STONE).requiresTool()));
     public static final Block SAPPHIRE_BLOCK = registerBlock("sapphire_block", new Block(AbstractBlock.Settings.copy(Blocks.DIAMOND_ORE).mapColor(MapColor.BLUE).strength(5.0F, 6.0F).sounds(BlockSoundGroup.METAL).requiresTool()));
     public static final Block DEEPSLATE_SAPPHIRE_ORE = registerBlock("deepslate_sapphire_ore", new ExperienceDroppingBlock(UniformIntProvider.create(3, 8), AbstractBlock.Settings.copy(Blocks.DEEPSLATE_DIAMOND_ORE).mapColor(MapColor.BLUE).strength(4.5F, 3.0F).sounds(BlockSoundGroup.DEEPSLATE).requiresTool()));
     public static final Block NETHER_SAPPHIRE_ORE = registerBlock("nether_sapphire_ore", new ExperienceDroppingBlock(UniformIntProvider.create(3, 8), AbstractBlock.Settings.copy(Blocks.NETHER_GOLD_ORE).mapColor(MapColor.BLUE).strength(4.0F, 3.0F).sounds(BlockSoundGroup.NETHER_ORE).requiresTool()));
 
-    public static final Block TURQUOISE_ORE = registerBlock("turquoise_ore", new ExperienceDroppingBlock(UniformIntProvider.create(3, 9), AbstractBlock.Settings.copy(Blocks.DIAMOND_ORE).mapColor(MapColor.CYAN).strength(4.0F, 3.0F).sounds(BlockSoundGroup.STONE).requiresTool()));
-    public static final Block TURQUOISE_BLOCK = registerBlock("turquoise_block", new Block(AbstractBlock.Settings.copy(Blocks.DIAMOND_BLOCK).mapColor(MapColor.CYAN).strength(5.0F, 6.0F).sounds(BlockSoundGroup.METAL).requiresTool()));
-    public static final Block DEEPSLATE_TURQUOISE_ORE = registerBlock("deepslate_turquoise_ore", new ExperienceDroppingBlock(UniformIntProvider.create(3, 9), AbstractBlock.Settings.copy(Blocks.DEEPSLATE_DIAMOND_ORE).mapColor(MapColor.CYAN).strength(5.5F, 3.0F).sounds(BlockSoundGroup.DEEPSLATE).requiresTool()));
-    public static final Block RUBY_ORE = registerBlock("ruby_ore", new ExperienceDroppingBlock(UniformIntProvider.create(3, 8), AbstractBlock.Settings.copy(Blocks.DIAMOND_ORE).mapColor(MapColor.RED).strength(3.0F, 3.0F).sounds(BlockSoundGroup.STONE).requiresTool()));
-    public static final Block RUBY_BLOCK = registerBlock("ruby_block", new Block(AbstractBlock.Settings.copy(Blocks.DIAMOND_BLOCK).mapColor(MapColor.RED).strength(5.0F, 6.0F).sounds(BlockSoundGroup.METAL).requiresTool()));
-    public static final Block NETHER_RUBY_ORE = registerBlock("nether_ruby_ore", new ExperienceDroppingBlock(UniformIntProvider.create(3, 8), AbstractBlock.Settings.copy(Blocks.NETHER_GOLD_ORE).mapColor(MapColor.RED).strength(4.0F, 3.0F).sounds(BlockSoundGroup.NETHER_ORE).requiresTool()));
-    public static final Block DEEPSLATE_RUBY_ORE = registerBlock("deepslate_ruby_ore", new ExperienceDroppingBlock(UniformIntProvider.create(3, 8), AbstractBlock.Settings.copy(Blocks.DEEPSLATE_DIAMOND_ORE).mapColor(MapColor.RED).strength(4.5F, 3.0F).sounds(BlockSoundGroup.DEEPSLATE).requiresTool()));
+    //TODO CHECK STATS
+    public static final Block SPINEL_ORE = registerBlock("spinel_ore", new ExperienceDroppingBlock(UniformIntProvider.create(2, 5), AbstractBlock.Settings.copy(Blocks.DIAMOND_ORE).mapColor(MapColor.BLUE).strength(3.0F, 3.0F).sounds(BlockSoundGroup.STONE).requiresTool()));
+    public static final Block SPINEL_BLOCK = registerBlock("spinel_block", new Block(AbstractBlock.Settings.copy(Blocks.DIAMOND_ORE).mapColor(MapColor.BLUE).strength(5.0F, 6.0F).sounds(BlockSoundGroup.METAL).requiresTool()));
+    public static final Block DEEPSLATE_SPINEL_ORE = registerBlock("deepslate_spinel_ore", new ExperienceDroppingBlock(UniformIntProvider.create(3, 8), AbstractBlock.Settings.copy(Blocks.DEEPSLATE_DIAMOND_ORE).mapColor(MapColor.BLUE).strength(4.5F, 3.0F).sounds(BlockSoundGroup.DEEPSLATE).requiresTool()));
+    public static final Block NETHER_SPINEL_ORE = registerBlock("nether_spinel_ore", new ExperienceDroppingBlock(UniformIntProvider.create(3, 8), AbstractBlock.Settings.copy(Blocks.NETHER_GOLD_ORE).mapColor(MapColor.BLUE).strength(4.0F, 3.0F).sounds(BlockSoundGroup.NETHER_ORE).requiresTool()));
+
+    //TODO CHECK STATS
+    public static final Block CITRINE_BLOCK = registerBlock("citrine_block", new Block(AbstractBlock.Settings.copy(Blocks.DIAMOND_BLOCK).mapColor(MapColor.ORANGE).strength(5.0F, 6.0F).sounds(BlockSoundGroup.METAL).requiresTool()));
+    public static final Block NETHER_CITRINE_ORE = registerBlock("nether_citrine_ore", new ExperienceDroppingBlock(UniformIntProvider.create(3, 8), AbstractBlock.Settings.copy(Blocks.NETHER_GOLD_ORE).mapColor(MapColor.BLUE).strength(4.0F, 3.0F).sounds(BlockSoundGroup.NETHER_ORE).requiresTool()));
 
     public static final Block MOISSANITE_ORE = registerBlock("moissanite_ore", new ExperienceDroppingBlock(UniformIntProvider.create(3, 8), AbstractBlock.Settings.copy(Blocks.DIAMOND_ORE).mapColor(MapColor.LICHEN_GREEN).strength(3.0F, 3.0F).sounds(BlockSoundGroup.STONE).requiresTool()));
     public static final Block MOISSANITE_BLOCK = registerBlock("moissanite_block", new Block(AbstractBlock.Settings.copy(Blocks.DIAMOND_BLOCK).mapColor(MapColor.LICHEN_GREEN).strength(5.0F, 6.0F).sounds(BlockSoundGroup.METAL).requiresTool()));
     public static final Block NETHER_MOISSANITE_ORE = registerBlock("nether_moissanite_ore", new ExperienceDroppingBlock(UniformIntProvider.create(2, 8), AbstractBlock.Settings.copy(Blocks.NETHER_GOLD_ORE).mapColor(MapColor.LICHEN_GREEN).strength(5.0F, 3.0F).sounds(BlockSoundGroup.NETHER_ORE).requiresTool()));
     public static final Block DEEPSLATE_MOISSANITE_ORE = registerBlock("deepslate_moissanite_ore", new ExperienceDroppingBlock(UniformIntProvider.create(2, 8), AbstractBlock.Settings.copy(Blocks.DEEPSLATE_DIAMOND_ORE).mapColor(MapColor.LICHEN_GREEN).strength(4.5F, 3.0F).sounds(BlockSoundGroup.DEEPSLATE).requiresTool()));
-    public static final Block ONYX_ORE = registerBlock("onyx_ore", new ExperienceDroppingBlock(UniformIntProvider.create(4, 10), AbstractBlock.Settings.copy(Blocks.ANCIENT_DEBRIS).mapColor(MapColor.BLACK).sounds(BlockSoundGroup.STONE).requiresTool()));
+    public static final Block ENDER_ONYX_ORE = registerBlock("ender_onyx_ore", new ExperienceDroppingBlock(UniformIntProvider.create(4, 10), AbstractBlock.Settings.copy(Blocks.ANCIENT_DEBRIS).mapColor(MapColor.BLACK).sounds(BlockSoundGroup.STONE).requiresTool()));
     public static final Block ONYX_BLOCK = registerBlock("onyx_block", new Block(AbstractBlock.Settings.copy(Blocks.NETHERITE_BLOCK).mapColor(MapColor.BLACK).strength(5.0F, 6.0F).sounds(BlockSoundGroup.METAL).requiresTool()));
 
     public static final Block GRAPHENE_BLOCK = registerBlock("graphene_block", new Block(AbstractBlock.Settings.copy(Blocks.NETHERITE_BLOCK).mapColor(MapColor.GREEN).strength(5.0F, 6.0F).sounds(BlockSoundGroup.METAL).requiresTool()));
@@ -94,27 +108,30 @@ public class ModBlocks {
         entries.add(DEEPSLATE_SILVER_ORE);
         entries.add(RAW_SILVER_BLOCK);
 
-        entries.add(BRONZE_BLOCK);
-
         entries.add(COBALT_BLOCK);
         entries.add(COBALT_ORE);
         entries.add(DEEPSLATE_COBALT_ORE);
         entries.add(RAW_COBALT_BLOCK);
 
-        entries.add(STERLING_BLOCK);
-        entries.add(STEEL_BLOCK);
-        entries.add(AMETHYST_BLOCK);
+        entries.add(BRONZE_BLOCK);
+        entries.add(STERLING_SILVER_BLOCK);
+        entries.add(ROSE_GOLD_BLOCK);
+        entries.add(CARBON_STEEL_BLOCK);
+        entries.add(HARDENED_STEEL_BLOCK);
 
-        entries.add(TOPAZ_BLOCK);
-        entries.add(TOPAZ_ORE);
-        entries.add(DEEPSLATE_TOPAZ_ORE);
+        entries.add(TURQUOISE_BLOCK);
+        entries.add(TURQUOISE_ORE);
+        entries.add(DEEPSLATE_TURQUOISE_ORE);
+
+        entries.add(AMETHYST_BLOCK);
 
         entries.add(TOURMALINE_BLOCK);
         entries.add(TOURMALINE_ORE);
         entries.add(DEEPSLATE_TOURMALINE_ORE);
 
-        entries.add(TANZANITE_BLOCK);
-        entries.add(NETHER_TANZANITE_ORE);
+        entries.add(TOPAZ_BLOCK);
+        entries.add(TOPAZ_ORE);
+        entries.add(DEEPSLATE_TOPAZ_ORE);
 
         entries.add(RUBY_BLOCK);
         entries.add(RUBY_ORE);
@@ -126,16 +143,20 @@ public class ModBlocks {
         entries.add(DEEPSLATE_SAPPHIRE_ORE);
         entries.add(NETHER_SAPPHIRE_ORE);
 
+        entries.add(SPINEL_BLOCK);
+        entries.add(SPINEL_ORE);
+        entries.add(DEEPSLATE_SPINEL_ORE);
+        entries.add(NETHER_SPINEL_ORE);
+
+        entries.add(CITRINE_BLOCK);
+        entries.add(NETHER_CITRINE_ORE);
+
         entries.add(MOISSANITE_BLOCK);
         entries.add(MOISSANITE_ORE);
         entries.add(DEEPSLATE_MOISSANITE_ORE);
         entries.add(NETHER_MOISSANITE_ORE);
 
-        entries.add(TURQUOISE_BLOCK);
-        entries.add(TURQUOISE_ORE);
-        entries.add(DEEPSLATE_TURQUOISE_ORE);
-
-        entries.add(ONYX_ORE);
+        entries.add(ENDER_ONYX_ORE);
 
         entries.add(GRAPHENE_BLOCK);
     }

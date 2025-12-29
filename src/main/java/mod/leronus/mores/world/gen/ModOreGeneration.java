@@ -70,12 +70,12 @@ public class ModOreGeneration {
         BiomeModifications.addFeature(BiomeSelectors.foundInTheNether(),
                         GenerationStep.Feature.UNDERGROUND_ORES, ModPlacedFeatures.NETHER_SAPPHIRE_PLACED_KEY);
         BiomeModifications.addFeature(BiomeSelectors.foundInTheNether(),
-                        GenerationStep.Feature.UNDERGROUND_ORES, ModPlacedFeatures.NETHER_TANZANITE_PLACED_KEY);
+                        GenerationStep.Feature.UNDERGROUND_ORES, ModPlacedFeatures.NETHER_CITRINE_PLACED_KEY);
         BiomeModifications.addFeature(BiomeSelectors.foundInTheNether(),
                         GenerationStep.Feature.UNDERGROUND_ORES, ModPlacedFeatures.NETHER_MOISSANITE_PLACED_KEY);
 
 
         BiomeModifications.addFeature(BiomeSelectors.foundInTheEnd(),
-                GenerationStep.Feature.UNDERGROUND_ORES, ModPlacedFeatures.END_ONYX_PLACED_KEY);
+                GenerationStep.Feature.UNDERGROUND_ORES, ModPlacedFeatures.ENDER_ONYX_PLACED_KEY);
     }
 }

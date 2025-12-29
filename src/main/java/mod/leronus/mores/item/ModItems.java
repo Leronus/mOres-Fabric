@@ -1,11 +1,15 @@
 package mod.leronus.mores.item;
 
+import com.github.crimsondawn45.fabricshieldlib.lib.object.FabricShieldItem;
 import mod.leronus.mores.Mores;
 import mod.leronus.mores.item.custom.*;
 import mod.leronus.mores.sound.ModSounds;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroupEntries;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
-import net.minecraft.block.jukebox.JukeboxSongs;
+import net.minecraft.component.type.FoodComponent;
+import net.minecraft.entity.EntityType;
+import net.minecraft.entity.effect.StatusEffectInstance;
+import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.item.*;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
@@ -22,12 +26,8 @@ public class ModItems {
     public static final Item SWEET_CAROLINE_MUSIC_DISC = registerItem("sweet_caroline_music_disc", new Item(new Item.Settings().jukeboxPlayable(ModSounds.SWEET_CAROLINE_KEY).rarity(Rarity.RARE).maxCount(1)));
     public static final Item CIPHER_DISC = registerItem("cipher_music_disc", new Item(new Item.Settings().jukeboxPlayable(ModSounds.CIPHER_KEY).rarity(Rarity.RARE).maxCount(1)));
 
-
+    public static final Item HARDENED_STEEL_UPGRADE_SMITHING_TEMPLATE = registerItem("hardened_steel_upgrade_smithing_template", ModSmithingTemplateItem.createHardenedSteelUpgradeTemplate());
     public static final Item OBSIDIAN_UPGRADE_SMITHING_TEMPLATE = registerItem("obsidian_upgrade_smithing_template", ModSmithingTemplateItem.createObsidianUpgradeTemplate());
-    public static final Item BRONZE_ALLOY_SMITHING_TEMPLATE = registerItem("bronze_alloy_smithing_template", ModSmithingTemplateItem.createBronzeAlloyTemplate());
-    public static final Item STERLING_ALLOY_SMITHING_TEMPLATE = registerItem("sterling_alloy_smithing_template", ModSmithingTemplateItem.createSterlingAlloyTemplate());
-    public static final Item STEEL_ALLOY_SMITHING_TEMPLATE = registerItem("steel_alloy_smithing_template", ModSmithingTemplateItem.createSteelAlloyTemplate());
-    public static final Item GRAPHENE_ALLOY_SMITHING_TEMPLATE = registerItem("graphene_alloy_smithing_template", ModSmithingTemplateItem.createGrapheneAlloyTemplate());
 
     public static final Item CHOCOLATE = registerItem("chocolate", new Item(new Item.Settings().food(ModFoodComponents.CHOCOLATE)));
     public static final Item CARROT_PIE = registerItem("carrot_pie", new Item(new Item.Settings().food(ModFoodComponents.CARROT_PIE)));
@@ -39,46 +39,96 @@ public class ModItems {
 
     public static final Item TIN_INGOT = registerItem("tin_ingot", new Item(new Item.Settings()));
     public static final Item SILVER_INGOT = registerItem("silver_ingot", new Item(new Item.Settings()));
-    public static final Item COBALT_INGOT = registerItem("cobalt_ingot", new Item(new Item.Settings()));
+    public static final Item STERLING_SILVER_INGOT = registerItem("sterling_silver_ingot", new Item(new Item.Settings()));
     public static final Item BRONZE_INGOT = registerItem("bronze_ingot", new Item(new Item.Settings()));
-    public static final Item STEEL_INGOT = registerItem("steel_ingot", new Item(new Item.Settings()));
-    public static final Item STERLING_INGOT = registerItem("sterling_ingot", new Item(new Item.Settings()));
+    public static final Item COBALT_INGOT = registerItem("cobalt_ingot", new Item(new Item.Settings()));
+    public static final Item ROSE_GOLD_INGOT = registerItem("rose_gold_ingot", new Item(new Item.Settings()));
+    public static final Item CARBON_STEEL_INGOT = registerItem("carbon_steel_ingot", new Item(new Item.Settings()));
+    public static final Item HARDENED_STEEL_INGOT = registerItem("hardened_steel_ingot", new Item(new Item.Settings()));
     public static final Item OBSIDIAN_INGOT = registerItem("obsidian_ingot", new Item(new Item.Settings()));
+    public static final Item ENDERITE_INGOT = registerItem("enderite_ingot", new Item(new Item.Settings()));
 
+    public static final Item HOT_CARBON_STEEL_SCRAP = registerItem("hot_carbon_steel_scrap", new Item(new Item.Settings()));
+    public static final Item CARBON_STEEL_SCRAP = registerItem("carbon_steel_scrap", new Item(new Item.Settings()));
+
+    public static final Item LAPIS_LAZULI_DUST = registerItem("lapis_lazuli_dust", new Item(new Item.Settings()));
+    public static final Item TURQUOISE_DUST = registerItem("turquoise_dust", new Item(new Item.Settings()));
+    public static final Item AMETHYST_DUST = registerItem("amethyst_dust", new Item(new Item.Settings()));
+
+    public static final Item LAPIS_LAZULI_GEM = registerItem("lapis_lazuli_gem", new Item(new Item.Settings()));
+    public static final Item TURQUOISE_GEM = registerItem("turquoise_gem", new Item(new Item.Settings()));
+    public static final Item AMETHYST_GEM = registerItem("amethyst_gem", new Item(new Item.Settings()));
+    public static final Item TANZANITE_GEM = registerItem("tanzanite_gem", new Item(new Item.Settings()));
     public static final Item TOPAZ_GEM = registerItem("topaz_gem", new Item(new Item.Settings()));
     public static final Item TOURMALINE_GEM = registerItem("tourmaline_gem", new Item(new Item.Settings()));
-    public static final Item TANZANITE_GEM = registerItem("tanzanite_gem", new Item(new Item.Settings()));
     public static final Item RUBY_GEM = registerItem("ruby_gem", new Item(new Item.Settings()));
     public static final Item SAPPHIRE_GEM = registerItem("sapphire_gem", new Item(new Item.Settings()));
-    public static final Item TURQUOISE_GEM = registerItem("turquoise_gem", new Item(new Item.Settings()));
+    public static final Item SPINEL_GEM = registerItem("spinel_gem", new Item(new Item.Settings()));
+    public static final Item CITRINE_GEM = registerItem("citrine_gem", new Item(new Item.Settings()));
     public static final Item MOISSANITE_GEM = registerItem("moissanite_gem", new Item(new Item.Settings()));
     public static final Item ONYX_GEM = registerItem("onyx_gem", new Item(new Item.Settings()));
     public static final Item GRAPHENE_GEM = registerItem("graphene_gem", new Item(new Item.Settings()));
+    public static final Item ADAMANTIUM_GEM = registerItem("adamantium_gem", new Item(new Item.Settings()));
 
-    public static final Item CHAIN = registerItem("chain", new Item(new Item.Settings()));
+    public static final Item CHAINMAIL = registerItem("chainmail", new Item(new Item.Settings()));
+    public static final Item CITRINE = registerItem("citrine", new Item(new Item.Settings()));
+    public static final Item TURQUOISE = registerItem("turquoise", new Item(new Item.Settings()));
+    public static final Item ONYX = registerItem("onyx", new Item(new Item.Settings()));
 
     public static final Item TIN_NUGGET = registerItem("tin_nugget", new Item(new Item.Settings()));
-    public static final Item COPPER_NUGGET = registerItem("copper_nugget", new Item(new Item.Settings()));
     public static final Item SILVER_NUGGET = registerItem("silver_nugget", new Item(new Item.Settings()));
-    public static final Item COBALT_NUGGET = registerItem("cobalt_nugget", new Item(new Item.Settings()));
+    public static final Item COPPER_NUGGET = registerItem("copper_nugget", new Item(new Item.Settings()));
+    public static final Item STERLING_SILVER_NUGGET = registerItem("sterling_silver_nugget", new Item(new Item.Settings()));
+    public static final Item ROSE_GOLD_NUGGET = registerItem("rose_gold_nugget", new Item(new Item.Settings()));
     public static final Item BRONZE_NUGGET = registerItem("bronze_nugget", new Item(new Item.Settings()));
-    public static final Item STEEL_NUGGET = registerItem("steel_nugget", new Item(new Item.Settings()));
-    public static final Item STERLING_NUGGET = registerItem("sterling_nugget", new Item(new Item.Settings()));
+    public static final Item COBALT_NUGGET = registerItem("cobalt_nugget", new Item(new Item.Settings()));
+    public static final Item CARBON_STEEL_NUGGET = registerItem("carbon_steel_nugget", new Item(new Item.Settings()));
+    public static final Item HARDENED_STEEL_NUGGET = registerItem("hardened_steel_nugget", new Item(new Item.Settings()));
 
     public static final Item SILVER_APPLE = registerItem("silver_apple", new Item(new Item.Settings().food(ModFoodComponents.SILVER_APPLE)));
     public static final Item BRONZE_APPLE = registerItem("bronze_apple", new Item(new Item.Settings().food(ModFoodComponents.BRONZE_APPLE)));
     public static final Item COBALT_APPLE = registerItem("cobalt_apple", new Item(new Item.Settings().food(ModFoodComponents.COBALT_APPLE)));
 
-//    public static final Item DUCK = registerItem("duck", new Item(new Item.Settings()).food(new FoodProperties.Builder().nutrition(2).saturationMod(0.3F).effect(new MobEffectInstance(MobEffects.HUNGER, 600, 0), 0.3F).meat().build())));
-//    public static final Item COOKED_DUCK = registerItem("cooked_duck", new Item(new Item.Settings()).food(new FoodProperties.Builder().nutrition(6).saturationMod(0.6F).meat().build())));
-//
+    public static final Item RAW_DUCK = registerItem("raw_duck", new Item(new Item.Settings().food(new FoodComponent.Builder().nutrition(2).saturationModifier(0.3F).statusEffect(new StatusEffectInstance(StatusEffects.HUNGER, 600, 0), 0.3F).build())));
+    public static final Item COOKED_DUCK = registerItem("cooked_duck", new Item(new Item.Settings().food(new FoodComponent.Builder().nutrition(6).saturationModifier(0.6F).build())));
+
     public static final Item ANTHRACITE = registerItem("anthracite", new Item(new Item.Settings()));
 
-//    public static final Item DUCK_SPAWN_EGG  = registerItem("duck_spawn_egg", new ForgeSpawnEggItem(ModEntityTypes.DUCK, 0x006808, 0xFFD400, new FabricItemSettings));
-//    public static final Item DUCK_EGG  = registerItem("duck_egg", new ModEggItem(new FabricItemSettings));
+    //TODO Needs update
+    public static final Item DUCK_SPAWN_EGG  = registerItem("duck_spawn_egg", new SpawnEggItem(EntityType.CHICKEN, 0x006808, 0xFFD400, new Item.Settings()));
+    public static final Item DUCK_EGG  = registerItem("duck_egg", new EggItem(new Item.Settings()));
 
     //All horse armor
-//    public static final Item COPPER_HORSE_ARMOR = registerItem("copper_horse_armor", new HorseArmorItem(3, "copper", (new Item.Settings()).maxCount(1)));
+    //TODO TEMP
+    public static final Item TIN_HORSE_ARMOR = registerItem("tin_horse_armor", new Item(new Item.Settings()));
+    public static final Item SILVER_HORSE_ARMOR = registerItem("silver_horse_armor", new Item(new Item.Settings()));
+    public static final Item COPPER_HORSE_ARMOR = registerItem("copper_horse_armor", new Item(new Item.Settings()));
+    public static final Item STERLING_SILVER_HORSE_ARMOR = registerItem("sterling_silver_horse_armor", new Item(new Item.Settings()));
+    public static final Item ROSE_GOLD_HORSE_ARMOR = registerItem("rose_gold_horse_armor", new Item(new Item.Settings()));
+    public static final Item BRONZE_HORSE_ARMOR = registerItem("bronze_horse_armor", new Item(new Item.Settings()));
+    public static final Item COBALT_HORSE_ARMOR = registerItem("cobalt_horse_armor", new Item(new Item.Settings()));
+    public static final Item CARBON_STEEL_HORSE_ARMOR = registerItem("carbon_steel_horse_armor", new Item(new Item.Settings()));
+    public static final Item HARDENED_STEEL_HORSE_ARMOR = registerItem("hardened_steel_horse_armor", new Item(new Item.Settings()));
+    public static final Item TURQUOISE_HORSE_ARMOR = registerItem("turquoise_horse_armor", new Item(new Item.Settings()));
+    public static final Item AMETHYST_HORSE_ARMOR = registerItem("amethyst_horse_armor", new Item(new Item.Settings()));
+    public static final Item LAPIS_LAZULI_HORSE_ARMOR = registerItem("lapis_lazuli_horse_armor", new Item(new Item.Settings()));
+    public static final Item TOURMALINE_HORSE_ARMOR = registerItem("tourmaline_horse_armor", new Item(new Item.Settings()));
+    public static final Item TOPAZ_HORSE_ARMOR = registerItem("topaz_horse_armor", new Item(new Item.Settings()));
+    public static final Item EMERALD_HORSE_ARMOR = registerItem("emerald_horse_armor", new Item(new Item.Settings()));
+    public static final Item RUBY_HORSE_ARMOR = registerItem("ruby_horse_armor", new Item(new Item.Settings()));
+    public static final Item SAPPHIRE_HORSE_ARMOR = registerItem("sapphire_horse_armor", new Item(new Item.Settings()));
+    public static final Item SPINEL_HORSE_ARMOR = registerItem("spinel_horse_armor", new Item(new Item.Settings()));
+    public static final Item CITRINE_HORSE_ARMOR = registerItem("citrine_horse_armor", new Item(new Item.Settings()));
+    public static final Item MOISSANITE_HORSE_ARMOR = registerItem("moissanite_horse_armor", new Item(new Item.Settings()));
+    public static final Item ONYX_HORSE_ARMOR = registerItem("onyx_horse_armor", new Item(new Item.Settings()));
+    public static final Item OBSIDIAN_HORSE_ARMOR = registerItem("obsidian_horse_armor", new Item(new Item.Settings()));
+    public static final Item GRAPHENE_HORSE_ARMOR = registerItem("graphene_horse_armor", new Item(new Item.Settings()));
+    public static final Item NETHERITE_HORSE_ARMOR = registerItem("netherite_horse_armor", new Item(new Item.Settings()));
+    public static final Item ADAMANTIUM_HORSE_ARMOR = registerItem("adamantium_horse_armor", new Item(new Item.Settings()));
+//    public static final Item ENDERITE_HORSE_ARMOR = registerItem("enderite_horse_armor", new Item(new Item.Settings()));
+
+    //TODO Check stats as well
+//    public static final Item COPPER_HORSE_ARMOR = registerItem("copper_horse_armor", new Item(3, "copper", (new Item.Settings()).maxCount(1)));
 //    public static final Item TIN_HORSE_ARMOR = registerItem("tin_horse_armor", new HorseArmorItem(2, "tin", (new Item.Settings()).maxCount(1)));
 //    public static final Item SILVER_HORSE_ARMOR = registerItem("silver_horse_armor", new HorseArmorItem(5, "silver", (new Item.Settings()).maxCount(1)));
 //    public static final Item COBALT_HORSE_ARMOR = registerItem("cobalt_horse_armor", new HorseArmorItem(6, "cobalt", (new Item.Settings()).maxCount(1)));
@@ -90,7 +140,7 @@ public class ModItems {
 //    public static final Item EMERALD_HORSE_ARMOR = registerItem("emerald_horse_armor", new HorseArmorItem(8, "emerald", (new Item.Settings()).maxCount(1)));
 //    public static final Item TOPAZ_HORSE_ARMOR = registerItem("topaz_horse_armor", new HorseArmorItem(9, "topaz", (new Item.Settings()).maxCount(1)));
 //    public static final Item TOURMALINE_HORSE_ARMOR = registerItem("tourmaline_horse_armor", new HorseArmorItem(10, "tourmaline", (new Item.Settings()).maxCount(1)));
-//    public static final Item TANZANITE_HORSE_ARMOR = registerItem("tanzanite_horse_armor", new HorseArmorItem(10, "tanzanite", (new Item.Settings()).maxCount(1)));
+//    public static final Item CITRINE_HORSE_ARMOR = registerItem("citrine_horse_armor", new HorseArmorItem(10, "citrine", (new Item.Settings()).maxCount(1)));
 //    public static final Item RUBY_HORSE_ARMOR = registerItem("ruby_horse_armor", new HorseArmorItem(12, "ruby", (new Item.Settings()).maxCount(1)));
 //    public static final Item SAPPHIRE_HORSE_ARMOR = registerItem("sapphire_horse_armor", new HorseArmorItem(11, "sapphire", (new Item.Settings()).maxCount(1)));
 //    public static final Item TURQUOISE_HORSE_ARMOR = registerItem("turquoise_horse_armor", new HorseArmorItem(12, "turquoise", (new Item.Settings()).maxCount(1)));
@@ -99,72 +149,89 @@ public class ModItems {
 //    public static final Item GRAPHENE_HORSE_ARMOR = registerItem("graphene_horse_armor", new HorseArmorItem(16, "graphene", (new Item.Settings()).maxCount(1)));
 //    public static final Item NETHERITE_HORSE_ARMOR = registerItem("netherite_horse_armor", new HorseArmorItem(15, "netherite", (new Item.Settings()).maxCount(1)));
 
-
+    //TODO CHECK DURABILITY
     //All armor
     public static final Item TIN_HELMET = registerItem("tin_helmet", new ModArmorItem(ModArmorMaterials.TIN, ArmorItem.Type.HELMET, (new Item.Settings()).maxDamage(55)));
     public static final Item TIN_CHESTPLATE = registerItem("tin_chestplate", new ModArmorItem(ModArmorMaterials.TIN, ArmorItem.Type.CHESTPLATE, (new Item.Settings()).maxDamage(80)));
     public static final Item TIN_LEGGINGS = registerItem("tin_leggings", new ModArmorItem(ModArmorMaterials.TIN, ArmorItem.Type.LEGGINGS, (new Item.Settings()).maxDamage(75)));
     public static final Item TIN_BOOTS = registerItem("tin_boots", new ModArmorItem(ModArmorMaterials.TIN, ArmorItem.Type.BOOTS, (new Item.Settings()).maxDamage(65)));
 
+    public static final Item SILVER_HELMET = registerItem("silver_helmet", new ModArmorItem(ModArmorMaterials.SILVER, ArmorItem.Type.HELMET, (new Item.Settings()).maxDamage(132)));
+    public static final Item SILVER_CHESTPLATE = registerItem("silver_chestplate", new ModArmorItem(ModArmorMaterials.SILVER, ArmorItem.Type.CHESTPLATE, (new Item.Settings()).maxDamage(192)));
+    public static final Item SILVER_LEGGINGS = registerItem("silver_leggings", new ModArmorItem(ModArmorMaterials.SILVER, ArmorItem.Type.LEGGINGS, (new Item.Settings()).maxDamage(180)));
+    public static final Item SILVER_BOOTS = registerItem("silver_boots", new ModArmorItem(ModArmorMaterials.SILVER, ArmorItem.Type.BOOTS, (new Item.Settings()).maxDamage(156)));
+
     public static final Item COPPER_HELMET = registerItem("copper_helmet", new ModArmorItem(ModArmorMaterials.COPPER, ArmorItem.Type.HELMET, (new Item.Settings()).maxDamage(66)));
     public static final Item COPPER_CHESTPLATE = registerItem("copper_chestplate", new ModArmorItem(ModArmorMaterials.COPPER, ArmorItem.Type.CHESTPLATE, (new Item.Settings()).maxDamage(96)));
     public static final Item COPPER_LEGGINGS = registerItem("copper_leggings", new ModArmorItem(ModArmorMaterials.COPPER, ArmorItem.Type.LEGGINGS, (new Item.Settings()).maxDamage(90)));
     public static final Item COPPER_BOOTS = registerItem("copper_boots", new ModArmorItem(ModArmorMaterials.COPPER, ArmorItem.Type.BOOTS, (new Item.Settings()).maxDamage(78)));
 
-    public static final Item SILVER_HELMET = registerItem("silver_helmet", new ModArmorItem(ModArmorMaterials.SILVER, ArmorItem.Type.HELMET, (new Item.Settings()).maxDamage(132)));
-    public static final Item SILVER_CHESTPLATE = registerItem("silver_chestplate", new ModArmorItem(ModArmorMaterials.SILVER, ArmorItem.Type.CHESTPLATE, (new Item.Settings()).maxDamage(192)));
-    public static final Item SILVER_LEGGINGS = registerItem("silver_leggings", new ModArmorItem(ModArmorMaterials.SILVER, ArmorItem.Type.LEGGINGS, (new Item.Settings()).maxDamage(180)));
-    public static final Item SILVER_BOOTS = registerItem("silver_boots", new ModArmorItem(ModArmorMaterials.SILVER, ArmorItem.Type.BOOTS, (new Item.Settings()).maxDamage(156)));
+    public static final Item STERLING_SILVER_HELMET = registerItem("sterling_silver_helmet", new ModArmorItem(ModArmorMaterials.STERLING_SILVER, ArmorItem.Type.HELMET, (new Item.Settings()).maxDamage(187)));
+    public static final Item STERLING_SILVER_CHESTPLATE = registerItem("sterling_silver_chestplate", new ModArmorItem(ModArmorMaterials.STERLING_SILVER, ArmorItem.Type.CHESTPLATE, (new Item.Settings()).maxDamage(272)));
+    public static final Item STERLING_SILVER_LEGGINGS = registerItem("sterling_silver_leggings", new ModArmorItem(ModArmorMaterials.STERLING_SILVER, ArmorItem.Type.LEGGINGS, (new Item.Settings()).maxDamage(255)));
+    public static final Item STERLING_SILVER_BOOTS = registerItem("sterling_silver_boots", new ModArmorItem(ModArmorMaterials.STERLING_SILVER, ArmorItem.Type.BOOTS, (new Item.Settings()).maxDamage(221)));
+
+    //TODO Check stats
+    public static final Item ROSE_GOLD_HELMET = registerItem("rose_gold_helmet", new ModArmorItem(ModArmorMaterials.ROSE_GOLD, ArmorItem.Type.HELMET, (new Item.Settings()).maxDamage(242)));
+    public static final Item ROSE_GOLD_CHESTPLATE = registerItem("rose_gold_chestplate", new ModArmorItem(ModArmorMaterials.ROSE_GOLD, ArmorItem.Type.CHESTPLATE, (new Item.Settings()).maxDamage(352)));
+    public static final Item ROSE_GOLD_LEGGINGS = registerItem("rose_gold_leggings", new ModArmorItem(ModArmorMaterials.ROSE_GOLD, ArmorItem.Type.LEGGINGS, (new Item.Settings()).maxDamage(330)));
+    public static final Item ROSE_GOLD_BOOTS = registerItem("rose_gold_boots", new ModArmorItem(ModArmorMaterials.ROSE_GOLD, ArmorItem.Type.BOOTS, (new Item.Settings()).maxDamage(286)));
 
     public static final Item BRONZE_HELMET = registerItem("bronze_helmet", new ModArmorItem(ModArmorMaterials.BRONZE, ArmorItem.Type.HELMET, (new Item.Settings()).maxDamage(121)));
     public static final Item BRONZE_CHESTPLATE = registerItem("bronze_chestplate", new ModArmorItem(ModArmorMaterials.BRONZE, ArmorItem.Type.CHESTPLATE, (new Item.Settings()).maxDamage(176)));
     public static final Item BRONZE_LEGGINGS = registerItem("bronze_leggings", new ModArmorItem(ModArmorMaterials.BRONZE, ArmorItem.Type.LEGGINGS, (new Item.Settings()).maxDamage(165)));
     public static final Item BRONZE_BOOTS = registerItem("bronze_boots", new ModArmorItem(ModArmorMaterials.BRONZE, ArmorItem.Type.BOOTS, (new Item.Settings()).maxDamage(143)));
 
-    public static final Item STERLING_HELMET = registerItem("sterling_helmet", new ModArmorItem(ModArmorMaterials.STERLING, ArmorItem.Type.HELMET, (new Item.Settings()).maxDamage(187)));
-    public static final Item STERLING_CHESTPLATE = registerItem("sterling_chestplate", new ModArmorItem(ModArmorMaterials.STERLING, ArmorItem.Type.CHESTPLATE, (new Item.Settings()).maxDamage(272)));
-    public static final Item STERLING_LEGGINGS = registerItem("sterling_leggings", new ModArmorItem(ModArmorMaterials.STERLING, ArmorItem.Type.LEGGINGS, (new Item.Settings()).maxDamage(255)));
-    public static final Item STERLING_BOOTS = registerItem("sterling_boots", new ModArmorItem(ModArmorMaterials.STERLING, ArmorItem.Type.BOOTS, (new Item.Settings()).maxDamage(221)));
-
-    public static final Item OBSIDIAN_HELMET = registerItem("obsidian_helmet", new ModArmorItem(ModArmorMaterials.OBSIDIAN, ArmorItem.Type.HELMET, (new Item.Settings()).maxDamage(484)));
-    public static final Item OBSIDIAN_CHESTPLATE = registerItem("obsidian_chestplate", new ModArmorItem(ModArmorMaterials.OBSIDIAN, ArmorItem.Type.CHESTPLATE, (new Item.Settings()).maxDamage(704)));
-    public static final Item OBSIDIAN_LEGGINGS = registerItem("obsidian_leggings", new ModArmorItem(ModArmorMaterials.OBSIDIAN, ArmorItem.Type.LEGGINGS, (new Item.Settings()).maxDamage(660)));
-    public static final Item OBSIDIAN_BOOTS = registerItem("obsidian_boots", new ModArmorItem(ModArmorMaterials.OBSIDIAN, ArmorItem.Type.BOOTS, (new Item.Settings()).maxDamage(572)));
-
     public static final Item COBALT_HELMET = registerItem("cobalt_helmet", new ModArmorItem(ModArmorMaterials.COBALT, ArmorItem.Type.HELMET, (new Item.Settings()).maxDamage(198)));
     public static final Item COBALT_CHESTPLATE = registerItem("cobalt_chestplate", new ModArmorItem(ModArmorMaterials.COBALT, ArmorItem.Type.CHESTPLATE, (new Item.Settings()).maxDamage(288)));
     public static final Item COBALT_LEGGINGS = registerItem("cobalt_leggings", new ModArmorItem(ModArmorMaterials.COBALT, ArmorItem.Type.LEGGINGS, (new Item.Settings()).maxDamage(270)));
     public static final Item COBALT_BOOTS = registerItem("cobalt_boots", new ModArmorItem(ModArmorMaterials.COBALT, ArmorItem.Type.BOOTS, (new Item.Settings()).maxDamage(234)));
 
-    public static final Item STEEL_HELMET = registerItem("steel_helmet", new ModArmorItem(ModArmorMaterials.STEEL, ArmorItem.Type.HELMET, (new Item.Settings()).maxDamage(242)));
-    public static final Item STEEL_CHESTPLATE = registerItem("steel_chestplate", new ModArmorItem(ModArmorMaterials.STEEL, ArmorItem.Type.CHESTPLATE, (new Item.Settings()).maxDamage(352)));
-    public static final Item STEEL_LEGGINGS = registerItem("steel_leggings", new ModArmorItem(ModArmorMaterials.STEEL, ArmorItem.Type.LEGGINGS, (new Item.Settings()).maxDamage(330)));
-    public static final Item STEEL_BOOTS = registerItem("steel_boots", new ModArmorItem(ModArmorMaterials.STEEL, ArmorItem.Type.BOOTS, (new Item.Settings()).maxDamage(286)));
+    public static final Item CARBON_STEEL_HELMET = registerItem("carbon_steel_helmet", new ModArmorItem(ModArmorMaterials.CARBON_STEEL, ArmorItem.Type.HELMET, (new Item.Settings()).maxDamage(242)));
+    public static final Item CARBON_STEEL_CHESTPLATE = registerItem("carbon_steel_chestplate", new ModArmorItem(ModArmorMaterials.CARBON_STEEL, ArmorItem.Type.CHESTPLATE, (new Item.Settings()).maxDamage(352)));
+    public static final Item CARBON_STEEL_LEGGINGS = registerItem("carbon_steel_leggings", new ModArmorItem(ModArmorMaterials.CARBON_STEEL, ArmorItem.Type.LEGGINGS, (new Item.Settings()).maxDamage(330)));
+    public static final Item CARBON_STEEL_BOOTS = registerItem("carbon_steel_boots", new ModArmorItem(ModArmorMaterials.CARBON_STEEL, ArmorItem.Type.BOOTS, (new Item.Settings()).maxDamage(286)));
+
+    //TODO Check stats
+    public static final Item HARDENED_STEEL_HELMET = registerItem("hardened_steel_helmet", new ModArmorItem(ModArmorMaterials.HARDENED_STEEL, ArmorItem.Type.HELMET, (new Item.Settings()).maxDamage(242)));
+    public static final Item HARDENED_STEEL_CHESTPLATE = registerItem("hardened_steel_chestplate", new ModArmorItem(ModArmorMaterials.HARDENED_STEEL, ArmorItem.Type.CHESTPLATE, (new Item.Settings()).maxDamage(352)));
+    public static final Item HARDENED_STEEL_LEGGINGS = registerItem("hardened_steel_leggings", new ModArmorItem(ModArmorMaterials.HARDENED_STEEL, ArmorItem.Type.LEGGINGS, (new Item.Settings()).maxDamage(330)));
+    public static final Item HARDENED_STEEL_BOOTS = registerItem("hardened_steel_boots", new ModArmorItem(ModArmorMaterials.HARDENED_STEEL, ArmorItem.Type.BOOTS, (new Item.Settings()).maxDamage(286)));
+
+    public static final Item TURQUOISE_HELMET = registerItem("turquoise_helmet", new ModArmorItem(ModArmorMaterials.TURQUOISE, ArmorItem.Type.HELMET, (new Item.Settings()).maxDamage(418)));
+    public static final Item TURQUOISE_CHESTPLATE = registerItem("turquoise_chestplate", new ModArmorItem(ModArmorMaterials.TURQUOISE, ArmorItem.Type.CHESTPLATE, (new Item.Settings()).maxDamage(608)));
+    public static final Item TURQUOISE_LEGGINGS = registerItem("turquoise_leggings", new ModArmorItem(ModArmorMaterials.TURQUOISE, ArmorItem.Type.LEGGINGS, (new Item.Settings()).maxDamage(570)));
+    public static final Item TURQUOISE_BOOTS = registerItem("turquoise_boots", new ModArmorItem(ModArmorMaterials.TURQUOISE, ArmorItem.Type.BOOTS, (new Item.Settings()).maxDamage(494)));
+
+    public static final Item LAPIS_LAZULI_HELMET = registerItem("lapis_lazuli_helmet", new ModArmorItem(ModArmorMaterials.LAPIS_LAZULI, ArmorItem.Type.HELMET, (new Item.Settings()).maxDamage(418)));
+    public static final Item LAPIS_LAZULI_CHESTPLATE = registerItem("lapis_lazuli_chestplate", new ModArmorItem(ModArmorMaterials.LAPIS_LAZULI, ArmorItem.Type.CHESTPLATE, (new Item.Settings()).maxDamage(608)));
+    public static final Item LAPIS_LAZULI_LEGGINGS = registerItem("lapis_lazuli_leggings", new ModArmorItem(ModArmorMaterials.LAPIS_LAZULI, ArmorItem.Type.LEGGINGS, (new Item.Settings()).maxDamage(570)));
+    public static final Item LAPIS_LAZULI_BOOTS = registerItem("lapis_lazuli_boots", new ModArmorItem(ModArmorMaterials.LAPIS_LAZULI, ArmorItem.Type.BOOTS, (new Item.Settings()).maxDamage(494)));
 
     public static final Item AMETHYST_HELMET = registerItem("amethyst_helmet", new ModArmorItem(ModArmorMaterials.AMETHYST, ArmorItem.Type.HELMET, (new Item.Settings()).maxDamage(242)));
     public static final Item AMETHYST_CHESTPLATE = registerItem("amethyst_chestplate", new ModArmorItem(ModArmorMaterials.AMETHYST, ArmorItem.Type.CHESTPLATE, (new Item.Settings()).maxDamage(352)));
     public static final Item AMETHYST_LEGGINGS = registerItem("amethyst_leggings", new ModArmorItem(ModArmorMaterials.AMETHYST, ArmorItem.Type.LEGGINGS, (new Item.Settings()).maxDamage(330)));
     public static final Item AMETHYST_BOOTS = registerItem("amethyst_boots", new ModArmorItem(ModArmorMaterials.AMETHYST, ArmorItem.Type.BOOTS, (new Item.Settings()).maxDamage(286)));
 
-    public static final Item EMERALD_HELMET = registerItem("emerald_helmet", new ModArmorItem(ModArmorMaterials.EMERALD, ArmorItem.Type.HELMET, (new Item.Settings()).maxDamage(286)));
-    public static final Item EMERALD_CHESTPLATE = registerItem("emerald_chestplate", new ModArmorItem(ModArmorMaterials.EMERALD, ArmorItem.Type.CHESTPLATE, (new Item.Settings()).maxDamage(416)));
-    public static final Item EMERALD_LEGGINGS = registerItem("emerald_leggings", new ModArmorItem(ModArmorMaterials.EMERALD, ArmorItem.Type.LEGGINGS, (new Item.Settings()).maxDamage(390)));
-    public static final Item EMERALD_BOOTS = registerItem("emerald_boots", new ModArmorItem(ModArmorMaterials.EMERALD, ArmorItem.Type.BOOTS, (new Item.Settings()).maxDamage(338)));
-
-    public static final Item TOPAZ_HELMET = registerItem("topaz_helmet", new ModArmorItem(ModArmorMaterials.TOPAZ, ArmorItem.Type.HELMET, new Item.Settings().maxDamage(ArmorItem.Type.HELMET.getMaxDamage(242))));
-    public static final Item TOPAZ_CHESTPLATE = registerItem("topaz_chestplate", new ModArmorItem(ModArmorMaterials.TOPAZ, ArmorItem.Type.CHESTPLATE, (new Item.Settings()).maxDamage(352)));
-    public static final Item TOPAZ_LEGGINGS = registerItem("topaz_leggings", new ModArmorItem(ModArmorMaterials.TOPAZ, ArmorItem.Type.LEGGINGS, (new Item.Settings()).maxDamage(330)));
-    public static final Item TOPAZ_BOOTS = registerItem("topaz_boots", new ModArmorItem(ModArmorMaterials.TOPAZ, ArmorItem.Type.BOOTS, (new Item.Settings()).maxDamage(286)));
+    public static final Item TANZANITE_HELMET = registerItem("tanzanite_helmet", new ModArmorItem(ModArmorMaterials.TANZANITE, ArmorItem.Type.HELMET, (new Item.Settings()).maxDamage(275)));
+    public static final Item TANZANITE_CHESTPLATE = registerItem("tanzanite_chestplate", new ModArmorItem(ModArmorMaterials.TANZANITE, ArmorItem.Type.CHESTPLATE, (new Item.Settings()).maxDamage(400)));
+    public static final Item TANZANITE_LEGGINGS = registerItem("tanzanite_leggings", new ModArmorItem(ModArmorMaterials.TANZANITE, ArmorItem.Type.LEGGINGS, (new Item.Settings()).maxDamage(375)));
+    public static final Item TANZANITE_BOOTS = registerItem("tanzanite_boots", new ModArmorItem(ModArmorMaterials.TANZANITE, ArmorItem.Type.BOOTS, (new Item.Settings()).maxDamage(325)));
 
     public static final Item TOURMALINE_HELMET = registerItem("tourmaline_helmet", new ModArmorItem(ModArmorMaterials.TOURMALINE, ArmorItem.Type.HELMET, (new Item.Settings()).maxDamage(275)));
     public static final Item TOURMALINE_CHESTPLATE = registerItem("tourmaline_chestplate", new ModArmorItem(ModArmorMaterials.TOURMALINE, ArmorItem.Type.CHESTPLATE, (new Item.Settings()).maxDamage(400)));
     public static final Item TOURMALINE_LEGGINGS = registerItem("tourmaline_leggings", new ModArmorItem(ModArmorMaterials.TOURMALINE, ArmorItem.Type.LEGGINGS, (new Item.Settings()).maxDamage(375)));
     public static final Item TOURMALINE_BOOTS = registerItem("tourmaline_boots", new ModArmorItem(ModArmorMaterials.TOURMALINE, ArmorItem.Type.BOOTS, (new Item.Settings()).maxDamage(325)));
 
-    public static final Item TANZANITE_HELMET = registerItem("tanzanite_helmet", new ModArmorItem(ModArmorMaterials.TANZANITE, ArmorItem.Type.HELMET, (new Item.Settings()).maxDamage(418)));
-    public static final Item TANZANITE_CHESTPLATE = registerItem("tanzanite_chestplate", new ModArmorItem(ModArmorMaterials.TANZANITE, ArmorItem.Type.CHESTPLATE, (new Item.Settings()).maxDamage(608)));
-    public static final Item TANZANITE_LEGGINGS = registerItem("tanzanite_leggings", new ModArmorItem(ModArmorMaterials.TANZANITE, ArmorItem.Type.LEGGINGS, (new Item.Settings()).maxDamage(570)));
-    public static final Item TANZANITE_BOOTS = registerItem("tanzanite_boots", new ModArmorItem(ModArmorMaterials.TANZANITE, ArmorItem.Type.BOOTS, (new Item.Settings()).maxDamage(494)));
+    public static final Item TOPAZ_HELMET = registerItem("topaz_helmet", new ModArmorItem(ModArmorMaterials.TOPAZ, ArmorItem.Type.HELMET, new Item.Settings().maxDamage(ArmorItem.Type.HELMET.getMaxDamage(242))));
+    public static final Item TOPAZ_CHESTPLATE = registerItem("topaz_chestplate", new ModArmorItem(ModArmorMaterials.TOPAZ, ArmorItem.Type.CHESTPLATE, (new Item.Settings()).maxDamage(352)));
+    public static final Item TOPAZ_LEGGINGS = registerItem("topaz_leggings", new ModArmorItem(ModArmorMaterials.TOPAZ, ArmorItem.Type.LEGGINGS, (new Item.Settings()).maxDamage(330)));
+    public static final Item TOPAZ_BOOTS = registerItem("topaz_boots", new ModArmorItem(ModArmorMaterials.TOPAZ, ArmorItem.Type.BOOTS, (new Item.Settings()).maxDamage(286)));
+
+    public static final Item EMERALD_HELMET = registerItem("emerald_helmet", new ModArmorItem(ModArmorMaterials.EMERALD, ArmorItem.Type.HELMET, (new Item.Settings()).maxDamage(286)));
+    public static final Item EMERALD_CHESTPLATE = registerItem("emerald_chestplate", new ModArmorItem(ModArmorMaterials.EMERALD, ArmorItem.Type.CHESTPLATE, (new Item.Settings()).maxDamage(416)));
+    public static final Item EMERALD_LEGGINGS = registerItem("emerald_leggings", new ModArmorItem(ModArmorMaterials.EMERALD, ArmorItem.Type.LEGGINGS, (new Item.Settings()).maxDamage(390)));
+    public static final Item EMERALD_BOOTS = registerItem("emerald_boots", new ModArmorItem(ModArmorMaterials.EMERALD, ArmorItem.Type.BOOTS, (new Item.Settings()).maxDamage(338)));
 
     public static final Item RUBY_HELMET = registerItem("ruby_helmet", new ModArmorItem(ModArmorMaterials.RUBY, ArmorItem.Type.HELMET, (new Item.Settings()).maxDamage(385)));
     public static final Item RUBY_CHESTPLATE = registerItem("ruby_chestplate", new ModArmorItem(ModArmorMaterials.RUBY, ArmorItem.Type.CHESTPLATE, (new Item.Settings()).maxDamage(560)));
@@ -176,15 +243,25 @@ public class ModItems {
     public static final Item SAPPHIRE_LEGGINGS = registerItem("sapphire_leggings", new ModArmorItem(ModArmorMaterials.SAPPHIRE, ArmorItem.Type.LEGGINGS, (new Item.Settings()).maxDamage(585)));
     public static final Item SAPPHIRE_BOOTS = registerItem("sapphire_boots", new ModArmorItem(ModArmorMaterials.SAPPHIRE, ArmorItem.Type.BOOTS, (new Item.Settings()).maxDamage(507)));
 
-    public static final Item TURQUOISE_HELMET = registerItem("turquoise_helmet", new ModArmorItem(ModArmorMaterials.TURQUOISE, ArmorItem.Type.HELMET, (new Item.Settings()).maxDamage(418)));
-    public static final Item TURQUOISE_CHESTPLATE = registerItem("turquoise_chestplate", new ModArmorItem(ModArmorMaterials.TURQUOISE, ArmorItem.Type.CHESTPLATE, (new Item.Settings()).maxDamage(608)));
-    public static final Item TURQUOISE_LEGGINGS = registerItem("turquoise_leggings", new ModArmorItem(ModArmorMaterials.TURQUOISE, ArmorItem.Type.LEGGINGS, (new Item.Settings()).maxDamage(570)));
-    public static final Item TURQUOISE_BOOTS = registerItem("turquoise_boots", new ModArmorItem(ModArmorMaterials.TURQUOISE, ArmorItem.Type.BOOTS, (new Item.Settings()).maxDamage(494)));
+    public static final Item SPINEL_HELMET = registerItem("spinel_helmet", new ModArmorItem(ModArmorMaterials.SPINEL, ArmorItem.Type.HELMET, (new Item.Settings()).maxDamage(429)));
+    public static final Item SPINEL_CHESTPLATE = registerItem("spinel_chestplate", new ModArmorItem(ModArmorMaterials.SPINEL, ArmorItem.Type.CHESTPLATE, (new Item.Settings()).maxDamage(624)));
+    public static final Item SPINEL_LEGGINGS = registerItem("spinel_leggings", new ModArmorItem(ModArmorMaterials.SPINEL, ArmorItem.Type.LEGGINGS, (new Item.Settings()).maxDamage(585)));
+    public static final Item SPINEL_BOOTS = registerItem("spinel_boots", new ModArmorItem(ModArmorMaterials.SPINEL, ArmorItem.Type.BOOTS, (new Item.Settings()).maxDamage(507)));
+
+    public static final Item CITRINE_HELMET = registerItem("citrine_helmet", new ModArmorItem(ModArmorMaterials.CITRINE, ArmorItem.Type.HELMET, (new Item.Settings()).maxDamage(418)));
+    public static final Item CITRINE_CHESTPLATE = registerItem("citrine_chestplate", new ModArmorItem(ModArmorMaterials.CITRINE, ArmorItem.Type.CHESTPLATE, (new Item.Settings()).maxDamage(608)));
+    public static final Item CITRINE_LEGGINGS = registerItem("citrine_leggings", new ModArmorItem(ModArmorMaterials.CITRINE, ArmorItem.Type.LEGGINGS, (new Item.Settings()).maxDamage(570)));
+    public static final Item CITRINE_BOOTS = registerItem("citrine_boots", new ModArmorItem(ModArmorMaterials.CITRINE, ArmorItem.Type.BOOTS, (new Item.Settings()).maxDamage(494)));
 
     public static final Item MOISSANITE_HELMET = registerItem("moissanite_helmet", new ModArmorItem(ModArmorMaterials.MOISSANITE, ArmorItem.Type.HELMET, (new Item.Settings()).maxDamage(396)));
     public static final Item MOISSANITE_CHESTPLATE = registerItem("moissanite_chestplate", new ModArmorItem(ModArmorMaterials.MOISSANITE, ArmorItem.Type.CHESTPLATE, (new Item.Settings()).maxDamage(576)));
     public static final Item MOISSANITE_LEGGINGS = registerItem("moissanite_leggings", new ModArmorItem(ModArmorMaterials.MOISSANITE, ArmorItem.Type.LEGGINGS, (new Item.Settings()).maxDamage(540)));
     public static final Item MOISSANITE_BOOTS = registerItem("moissanite_boots", new ModArmorItem(ModArmorMaterials.MOISSANITE, ArmorItem.Type.BOOTS, (new Item.Settings()).maxDamage(468)));
+
+    public static final Item OBSIDIAN_HELMET = registerItem("obsidian_helmet", new ModArmorItem(ModArmorMaterials.OBSIDIAN, ArmorItem.Type.HELMET, (new Item.Settings()).maxDamage(484)));
+    public static final Item OBSIDIAN_CHESTPLATE = registerItem("obsidian_chestplate", new ModArmorItem(ModArmorMaterials.OBSIDIAN, ArmorItem.Type.CHESTPLATE, (new Item.Settings()).maxDamage(704)));
+    public static final Item OBSIDIAN_LEGGINGS = registerItem("obsidian_leggings", new ModArmorItem(ModArmorMaterials.OBSIDIAN, ArmorItem.Type.LEGGINGS, (new Item.Settings()).maxDamage(660)));
+    public static final Item OBSIDIAN_BOOTS = registerItem("obsidian_boots", new ModArmorItem(ModArmorMaterials.OBSIDIAN, ArmorItem.Type.BOOTS, (new Item.Settings()).maxDamage(572)));
 
     public static final Item ONYX_HELMET = registerItem("onyx_helmet", new ModArmorItem(ModArmorMaterials.ONYX, ArmorItem.Type.HELMET, (new Item.Settings()).maxDamage(561)));
     public static final Item ONYX_CHESTPLATE = registerItem("onyx_chestplate", new ModArmorItem(ModArmorMaterials.ONYX, ArmorItem.Type.CHESTPLATE, (new Item.Settings()).maxDamage(816)));
@@ -196,115 +273,133 @@ public class ModItems {
     public static final Item GRAPHENE_LEGGINGS = registerItem("graphene_leggings", new ModArmorItem(ModArmorMaterials.GRAPHENE, ArmorItem.Type.LEGGINGS, new Item.Settings().maxDamage(ArmorItem.Type.LEGGINGS.getMaxDamage(990))));
     public static final Item GRAPHENE_BOOTS = registerItem("graphene_boots", new ModArmorItem(ModArmorMaterials.GRAPHENE, ArmorItem.Type.BOOTS, new Item.Settings().maxDamage(ArmorItem.Type.BOOTS.getMaxDamage(858))));
 
+    public static final Item ADAMANTIUM_HELMET = registerItem("adamantium_helmet", new ModArmorItem(ModArmorMaterials.ADAMANTIUM, ArmorItem.Type.HELMET, new Item.Settings().maxDamage(ArmorItem.Type.HELMET.getMaxDamage(726))));
+    public static final Item ADAMANTIUM_CHESTPLATE = registerItem("adamantium_chestplate", new ModArmorItem(ModArmorMaterials.ADAMANTIUM, ArmorItem.Type.CHESTPLATE, new Item.Settings().maxDamage(ArmorItem.Type.CHESTPLATE.getMaxDamage(1056))));
+    public static final Item ADAMANTIUM_LEGGINGS = registerItem("adamantium_leggings", new ModArmorItem(ModArmorMaterials.ADAMANTIUM, ArmorItem.Type.LEGGINGS, new Item.Settings().maxDamage(ArmorItem.Type.LEGGINGS.getMaxDamage(990))));
+    public static final Item ADAMANTIUM_BOOTS = registerItem("adamantium_boots", new ModArmorItem(ModArmorMaterials.ADAMANTIUM, ArmorItem.Type.BOOTS, new Item.Settings().maxDamage(ArmorItem.Type.BOOTS.getMaxDamage(858))));
+
+//    public static final Item ENDERITE_HELMET = registerItem("enderite_helmet", new ModArmorItem(ModArmorMaterials.ENDERITE, ArmorItem.Type.HELMET, new Item.Settings().maxDamage(ArmorItem.Type.HELMET.getMaxDamage(726))));
+//    public static final Item ENDERITE_CHESTPLATE = registerItem("enderite_chestplate", new ModArmorItem(ModArmorMaterials.ENDERITE, ArmorItem.Type.CHESTPLATE, new Item.Settings().maxDamage(ArmorItem.Type.CHESTPLATE.getMaxDamage(1056))));
+//    public static final Item ENDERITE_LEGGINGS = registerItem("enderite_leggings", new ModArmorItem(ModArmorMaterials.ENDERITE, ArmorItem.Type.LEGGINGS, new Item.Settings().maxDamage(ArmorItem.Type.LEGGINGS.getMaxDamage(990))));
+//    public static final Item ENDERITE_BOOTS = registerItem("enderite_boots", new ModArmorItem(ModArmorMaterials.ENDERITE, ArmorItem.Type.BOOTS, new Item.Settings().maxDamage(ArmorItem.Type.BOOTS.getMaxDamage(858))));
 
     //All swords
     //p_i48460_2_: Attack Damage (1 = 1 Attack Point)
     //p_i48460_3_: Attack Speed (1.0F = ... Attack Speed)
     public static final Item TIN_SWORD = registerItem("tin_sword", new ModSwordItem(ModToolMaterials.TIN, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ModToolMaterials.TIN, 3, -2.4f))));
+    public static final Item SILVER_SWORD = registerItem("silver_sword", new ModSwordItem(ModToolMaterials.STERLING_SILVER, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ModToolMaterials.STERLING_SILVER, 3, -2.4f))));
     public static final Item COPPER_SWORD = registerItem("copper_sword", new ModSwordItem(ModToolMaterials.COPPER, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ModToolMaterials.COPPER, 3, -2.4f))));
-
-    public static final Item SILVER_SWORD = registerItem("silver_sword", new ModSwordItem(ModToolMaterials.SILVER, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ModToolMaterials.SILVER, 3, -2.4f))));
-
+    public static final Item STERLING_SILVER_SWORD = registerItem("sterling_silver_sword", new ModSwordItem(ModToolMaterials.STERLING_SILVER, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ModToolMaterials.STERLING_SILVER, 3, -2.4f))));
+    public static final Item ROSE_GOLD_SWORD = registerItem("rose_gold_sword", new ModSwordItem(ModToolMaterials.ROSE_GOLD, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ModToolMaterials.STERLING_SILVER, 3, -2.4f))));
     public static final Item BRONZE_SWORD = registerItem("bronze_sword", new ModSwordItem(ModToolMaterials.BRONZE, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ModToolMaterials.BRONZE, 3, -2.4f))));
-
-    public static final Item OBSIDIAN_SWORD = registerItem("obsidian_sword", new ModSwordItem(ModToolMaterials.OBSIDIAN, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ModToolMaterials.OBSIDIAN, 3, -2.4f))));
     public static final Item COBALT_SWORD = registerItem("cobalt_sword", new ModSwordItem(ModToolMaterials.COBALT, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ModToolMaterials.COBALT, 3, -2.4f))));
-    public static final Item STEEL_SWORD = registerItem("steel_sword", new ModSwordItem(ModToolMaterials.STEEL, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ModToolMaterials.STEEL, 3, -2.4f))));
-    public static final Item STERLING_SWORD = registerItem("sterling_sword", new ModSwordItem(ModToolMaterials.STERLING, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ModToolMaterials.STERLING, 3, -2.4f))));
+    public static final Item CARBON_STEEL_SWORD = registerItem("carbon_steel_sword", new ModSwordItem(ModToolMaterials.CARBON_STEEL, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ModToolMaterials.CARBON_STEEL, 3, -2.4f))));
+    public static final Item HARDENED_STEEL_SWORD = registerItem("hardened_steel_sword", new ModSwordItem(ModToolMaterials.HARDENED_STEEL, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ModToolMaterials.CARBON_STEEL, 3, -2.4f))));
 
+    public static final Item TURQUOISE_SWORD = registerItem("turquoise_sword", new ModSwordItem(ModToolMaterials.TURQUOISE, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ModToolMaterials.TURQUOISE, 3, -2.4f))));
+    public static final Item LAPIS_LAZULI_SWORD = registerItem("lapis_lazuli_sword", new ModSwordItem(ModToolMaterials.LAPIS_LAZULI, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ModToolMaterials.LAPIS_LAZULI, 3, -2.4f))));
     public static final Item AMETHYST_SWORD = registerItem("amethyst_sword", new ModSwordItem(ModToolMaterials.AMETHYST, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ModToolMaterials.AMETHYST, 3, -2.4f))));
-    public static final Item EMERALD_SWORD = registerItem("emerald_sword", new ModSwordItem(ModToolMaterials.EMERALD, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ModToolMaterials.EMERALD, 3, -2.4f))));
 
-    public static final Item TOPAZ_SWORD = registerItem("topaz_sword", new ModSwordItem(ModToolMaterials.TOPAZ, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ModToolMaterials.TOPAZ, 3, -2.4f))));
-    public static final Item TOURMALINE_SWORD = registerItem("tourmaline_sword", new ModSwordItem(ModToolMaterials.TOURMALINE, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ModToolMaterials.TOURMALINE, 3, -2.4f))));
+    public static final Item CITRINE_SWORD = registerItem("citrine_sword", new ModSwordItem(ModToolMaterials.CITRINE, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ModToolMaterials.CITRINE, 3, -2.4f))));
     public static final Item TANZANITE_SWORD = registerItem("tanzanite_sword", new ModSwordItem(ModToolMaterials.TANZANITE, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ModToolMaterials.TANZANITE, 3, -2.4f))));
+    public static final Item TOURMALINE_SWORD = registerItem("tourmaline_sword", new ModSwordItem(ModToolMaterials.TOURMALINE, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ModToolMaterials.TOURMALINE, 3, -2.4f))));
+    public static final Item TOPAZ_SWORD = registerItem("topaz_sword", new ModSwordItem(ModToolMaterials.TOPAZ, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ModToolMaterials.TOPAZ, 3, -2.4f))));
 
+    public static final Item SPINEL_SWORD = registerItem("spinel_sword", new ModSwordItem(ModToolMaterials.SPINEL, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ModToolMaterials.CITRINE, 3, -2.4f))));
+    public static final Item EMERALD_SWORD = registerItem("emerald_sword", new ModSwordItem(ModToolMaterials.EMERALD, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ModToolMaterials.EMERALD, 3, -2.4f))));
     public static final Item RUBY_SWORD = registerItem("ruby_sword", new ModSwordItem(ModToolMaterials.RUBY, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ModToolMaterials.RUBY, 3, -2.4f))));
     public static final Item SAPPHIRE_SWORD = registerItem("sapphire_sword", new ModSwordItem(ModToolMaterials.SAPPHIRE, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ModToolMaterials.SAPPHIRE, 3, -2.4f))));
-    public static final Item TURQUOISE_SWORD = registerItem("turquoise_sword", new ModSwordItem(ModToolMaterials.TURQUOISE, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ModToolMaterials.TURQUOISE, 3, -2.4f))));
 
     public static final Item MOISSANITE_SWORD = registerItem("moissanite_sword", new ModSwordItem(ModToolMaterials.MOISSANITE, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ModToolMaterials.MOISSANITE, 3, -2.4f))));
     public static final Item ONYX_SWORD = registerItem("onyx_sword", new ModSwordItem(ModToolMaterials.ONYX, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ModToolMaterials.ONYX, 3, -2.4f))));
+    public static final Item OBSIDIAN_SWORD = registerItem("obsidian_sword", new ModSwordItem(ModToolMaterials.OBSIDIAN, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ModToolMaterials.OBSIDIAN, 3, -2.4f))));
 
     public static final Item GRAPHENE_SWORD = registerItem("graphene_sword", new ModSwordItem(ModToolMaterials.GRAPHENE, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ModToolMaterials.GRAPHENE, 3, -2.4f))));
+    public static final Item ADAMANTIUM_SWORD = registerItem("adamantium_sword", new ModSwordItem(ModToolMaterials.ADAMANTIUM, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ModToolMaterials.ADAMANTIUM, 3, -2.4f))));
+//    public static final Item ENDERITE_SWORD = registerItem("enderite_sword", new ModSwordItem(ModToolMaterials.ENDERITE, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ModToolMaterials.ENDERITE, 3, -2.4f))));
 
-    //All battleaxes
+    //All battle_axes
     //p_i48460_2_: Attack Damage (1 = 1 Attack Point)
     //p_i48460_3_: Attack Speed (1.0F = ... Attack Speed)
-    public static final Item WOOD_BATTLEAXE = registerItem("wood_battleaxe", new ModBattleAxeItem(ToolMaterials.WOOD, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ToolMaterials.WOOD, 5, -2.8f))));
-    public static final Item STONE_BATTLEAXE = registerItem("stone_battleaxe", new ModBattleAxeItem(ToolMaterials.STONE, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ToolMaterials.STONE, 5, -2.8f))));
-    public static final Item IRON_BATTLEAXE = registerItem("iron_battleaxe", new ModBattleAxeItem(ToolMaterials.IRON, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ToolMaterials.IRON, 5, -2.8f))));
-    public static final Item GOLD_BATTLEAXE = registerItem("gold_battleaxe", new ModBattleAxeItem(ToolMaterials.GOLD, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ToolMaterials.GOLD, 5, -2.8f))));
-    public static final Item DIAMOND_BATTLEAXE = registerItem("diamond_battleaxe", new ModBattleAxeItem(ToolMaterials.DIAMOND, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ToolMaterials.DIAMOND, 5, -2.8f))));
-    public static final Item NETHERITE_BATTLEAXE = registerItem("netherite_battleaxe", new ModBattleAxeItem(ToolMaterials.NETHERITE, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ToolMaterials.NETHERITE, 5, -2.8f))));
+    public static final Item WOOD_BATTLE_AXE = registerItem("wood_battle_axe", new ModBattleAxeItem(ToolMaterials.WOOD, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ToolMaterials.WOOD, 5, -2.8f))));
+    public static final Item STONE_BATTLE_AXE = registerItem("stone_battle_axe", new ModBattleAxeItem(ToolMaterials.STONE, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ToolMaterials.STONE, 5, -2.8f))));
+    public static final Item TIN_BATTLE_AXE = registerItem("tin_battle_axe", new ModBattleAxeItem(ModToolMaterials.TIN, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ModToolMaterials.TIN, 5, -2.8f))));
+    public static final Item GOLD_BATTLE_AXE = registerItem("gold_battle_axe", new ModBattleAxeItem(ToolMaterials.GOLD, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ToolMaterials.GOLD, 5, -2.8f))));
+    public static final Item SILVER_BATTLE_AXE = registerItem("silver_battle_axe", new ModBattleAxeItem(ModToolMaterials.STERLING_SILVER, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ModToolMaterials.STERLING_SILVER, 5, -2.8f))));
+    public static final Item COPPER_BATTLE_AXE = registerItem("copper_battle_axe", new ModBattleAxeItem(ModToolMaterials.COPPER, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ModToolMaterials.COPPER, 5, -2.8f))));
+    public static final Item STERLING_SILVER_BATTLE_AXE = registerItem("sterling_silver_battle_axe", new ModBattleAxeItem(ModToolMaterials.STERLING_SILVER, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ModToolMaterials.STERLING_SILVER, 5, -2.7f))));
+    public static final Item ROSE_GOLD_BATTLE_AXE = registerItem("rose_gold_battle_axe", new ModBattleAxeItem(ModToolMaterials.ROSE_GOLD, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ModToolMaterials.STERLING_SILVER, 5, -2.7f))));
+    public static final Item BRONZE_BATTLE_AXE = registerItem("bronze_battle_axe", new ModBattleAxeItem(ModToolMaterials.BRONZE, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ModToolMaterials.BRONZE, 5, -2.8f))));
+    public static final Item IRON_BATTLE_AXE = registerItem("iron_battle_axe", new ModBattleAxeItem(ToolMaterials.IRON, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ToolMaterials.IRON, 5, -2.8f))));
+    public static final Item COBALT_BATTLE_AXE = registerItem("cobalt_battle_axe", new ModBattleAxeItem(ModToolMaterials.COBALT, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ModToolMaterials.COBALT, 5, -2.7f))));
+    public static final Item CARBON_STEEL_BATTLE_AXE = registerItem("carbon_steel_battle_axe", new ModBattleAxeItem(ModToolMaterials.CARBON_STEEL, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ModToolMaterials.CARBON_STEEL, 5, -2.7f))));
+    public static final Item HARDENED_STEEL_BATTLE_AXE = registerItem("hardened_steel_battle_axe", new ModBattleAxeItem(ModToolMaterials.HARDENED_STEEL, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ModToolMaterials.CARBON_STEEL, 5, -2.7f))));
 
-    public static final Item TIN_BATTLEAXE = registerItem("tin_battleaxe", new ModBattleAxeItem(ModToolMaterials.TIN, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ModToolMaterials.TIN, 5, -2.8f))));
-    public static final Item COPPER_BATTLEAXE = registerItem("copper_battleaxe", new ModBattleAxeItem(ModToolMaterials.COPPER, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ModToolMaterials.COPPER, 5, -2.8f))));
+    public static final Item TURQUOISE_BATTLE_AXE = registerItem("turquoise_battle_axe", new ModBattleAxeItem(ModToolMaterials.TURQUOISE, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ModToolMaterials.TURQUOISE, 5, -2.6f))));
+    public static final Item LAPIS_LAZULI_BATTLE_AXE = registerItem("lapis_lazuli_battle_axe", new ModBattleAxeItem(ModToolMaterials.LAPIS_LAZULI, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ModToolMaterials.LAPIS_LAZULI, 5, -2.6f))));
+    public static final Item AMETHYST_BATTLE_AXE = registerItem("amethyst_battle_axe", new ModBattleAxeItem(ModToolMaterials.AMETHYST, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ModToolMaterials.AMETHYST, 5, -2.7f))));
+    public static final Item TANZANITE_BATTLE_AXE = registerItem("tanzanite_battle_axe", new ModBattleAxeItem(ModToolMaterials.TANZANITE, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ModToolMaterials.TANZANITE, 5, -2.5f))));
+    public static final Item TOURMALINE_BATTLE_AXE = registerItem("tourmaline_battle_axe", new ModBattleAxeItem(ModToolMaterials.TOURMALINE, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ModToolMaterials.TOURMALINE, 5, -2.5f))));
+    public static final Item TOPAZ_BATTLE_AXE = registerItem("topaz_battle_axe", new ModBattleAxeItem(ModToolMaterials.TOPAZ, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ModToolMaterials.TOPAZ, 5, -2.5f))));
 
-    public static final Item SILVER_BATTLEAXE = registerItem("silver_battleaxe", new ModBattleAxeItem(ModToolMaterials.SILVER, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ModToolMaterials.SILVER, 5, -2.8f))));
+    public static final Item EMERALD_BATTLE_AXE = registerItem("emerald_battle_axe", new ModBattleAxeItem(ModToolMaterials.EMERALD, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ModToolMaterials.EMERALD, 5, -2.7f))));
+    public static final Item DIAMOND_BATTLE_AXE = registerItem("diamond_battle_axe", new ModBattleAxeItem(ToolMaterials.DIAMOND, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ToolMaterials.DIAMOND, 5, -2.8f))));
+    public static final Item RUBY_BATTLE_AXE = registerItem("ruby_battle_axe", new ModBattleAxeItem(ModToolMaterials.RUBY, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ModToolMaterials.RUBY, 5, -2.6f))));
+    public static final Item SAPPHIRE_BATTLE_AXE = registerItem("sapphire_battle_axe", new ModBattleAxeItem(ModToolMaterials.SAPPHIRE, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ModToolMaterials.SAPPHIRE, 5, -2.6f))));
+    public static final Item SPINEL_BATTLE_AXE = registerItem("spinel_battle_axe", new ModBattleAxeItem(ModToolMaterials.SPINEL, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ModToolMaterials.CITRINE, 5, -2.5f))));
 
-    public static final Item BRONZE_BATTLEAXE = registerItem("bronze_battleaxe", new ModBattleAxeItem(ModToolMaterials.BRONZE, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ModToolMaterials.BRONZE, 5, -2.8f))));
+    public static final Item CITRINE_BATTLE_AXE = registerItem("citrine_battle_axe", new ModBattleAxeItem(ModToolMaterials.CITRINE, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ModToolMaterials.CITRINE, 5, -2.5f))));
+    public static final Item MOISSANITE_BATTLE_AXE = registerItem("moissanite_battle_axe", new ModBattleAxeItem(ModToolMaterials.MOISSANITE, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ModToolMaterials.MOISSANITE, 5, -2.6f))));
+    public static final Item ONYX_BATTLE_AXE = registerItem("onyx_battle_axe", new ModBattleAxeItem(ModToolMaterials.ONYX, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ModToolMaterials.ONYX, 5, -2.6f))));
 
-    public static final Item OBSIDIAN_BATTLEAXE = registerItem("obsidian_battleaxe", new ModBattleAxeItem(ModToolMaterials.OBSIDIAN, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ModToolMaterials.OBSIDIAN, 5, -2.7f))));
-    public static final Item COBALT_BATTLEAXE = registerItem("cobalt_battleaxe", new ModBattleAxeItem(ModToolMaterials.COBALT, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ModToolMaterials.COBALT, 5, -2.7f))));
-    public static final Item STEEL_BATTLEAXE = registerItem("steel_battleaxe", new ModBattleAxeItem(ModToolMaterials.STEEL, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ModToolMaterials.STEEL, 5, -2.7f))));
-    public static final Item STERLING_BATTLEAXE = registerItem("sterling_battleaxe", new ModBattleAxeItem(ModToolMaterials.STERLING, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ModToolMaterials.STERLING, 5, -2.7f))));
-
-    public static final Item AMETHYST_BATTLEAXE = registerItem("amethyst_battleaxe", new ModBattleAxeItem(ModToolMaterials.AMETHYST, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ModToolMaterials.AMETHYST, 5, -2.7f))));
-    public static final Item EMERALD_BATTLEAXE = registerItem("emerald_battleaxe", new ModBattleAxeItem(ModToolMaterials.EMERALD, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ModToolMaterials.EMERALD, 5, -2.7f))));
-
-    public static final Item TOPAZ_BATTLEAXE = registerItem("topaz_battleaxe", new ModBattleAxeItem(ModToolMaterials.TOPAZ, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ModToolMaterials.TOPAZ, 5, -2.5f))));
-    public static final Item TOURMALINE_BATTLEAXE = registerItem("tourmaline_battleaxe", new ModBattleAxeItem(ModToolMaterials.TOURMALINE, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ModToolMaterials.TOURMALINE, 5, -2.5f))));
-    public static final Item TANZANITE_BATTLEAXE = registerItem("tanzanite_battleaxe", new ModBattleAxeItem(ModToolMaterials.TANZANITE, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ModToolMaterials.TANZANITE, 5, -2.5f))));
-
-    public static final Item RUBY_BATTLEAXE = registerItem("ruby_battleaxe", new ModBattleAxeItem(ModToolMaterials.RUBY, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ModToolMaterials.RUBY, 5, -2.6f))));
-    public static final Item SAPPHIRE_BATTLEAXE = registerItem("sapphire_battleaxe", new ModBattleAxeItem(ModToolMaterials.SAPPHIRE, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ModToolMaterials.SAPPHIRE, 5, -2.6f))));
-    public static final Item TURQUOISE_BATTLEAXE = registerItem("turquoise_battleaxe", new ModBattleAxeItem(ModToolMaterials.TURQUOISE, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ModToolMaterials.TURQUOISE, 5, -2.6f))));
-
-    public static final Item MOISSANITE_BATTLEAXE = registerItem("moissanite_battleaxe", new ModBattleAxeItem(ModToolMaterials.MOISSANITE, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ModToolMaterials.MOISSANITE, 5, -2.6f))));
-    public static final Item ONYX_BATTLEAXE = registerItem("onyx_battleaxe", new ModBattleAxeItem(ModToolMaterials.ONYX, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ModToolMaterials.ONYX, 5, -2.6f))));
-
-    public static final Item GRAPHENE_BATTLEAXE = registerItem("graphene_battleaxe", new ModBattleAxeItem(ModToolMaterials.GRAPHENE, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ModToolMaterials.GRAPHENE, 5, -2.6f))));
+    public static final Item OBSIDIAN_BATTLE_AXE = registerItem("obsidian_battle_axe", new ModBattleAxeItem(ModToolMaterials.OBSIDIAN, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ModToolMaterials.OBSIDIAN, 5, -2.7f))));
+    public static final Item NETHERITE_BATTLE_AXE = registerItem("netherite_battle_axe", new ModBattleAxeItem(ToolMaterials.NETHERITE, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ToolMaterials.NETHERITE, 5, -2.8f))));
+    public static final Item GRAPHENE_BATTLE_AXE = registerItem("graphene_battle_axe", new ModBattleAxeItem(ModToolMaterials.GRAPHENE, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ModToolMaterials.GRAPHENE, 5, -2.6f))));
+    public static final Item ADAMANTIUM_BATTLE_AXE = registerItem("adamantium_battle_axe", new ModBattleAxeItem(ModToolMaterials.ADAMANTIUM, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ModToolMaterials.ADAMANTIUM, 5, -2.6f))));
+//    public static final Item ENDERITE_BATTLE_AXE = registerItem("enderite_battle_axe", new ModBattleAxeItem(ModToolMaterials.ENDERITE, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ModToolMaterials.ENDERITE, 5, -2.6f))));
 
 
-    //All maces
+    //All battle_maces
     //p_i48460_2_: Attack Damage (1 = 1 Attack Point)
     //p_i48460_3_: Attack Speed (1.0F = ... Attack Speed)
     //TODO Check attack values
-    public static final Item WOOD_MACE = registerItem("wood_mace", new ModSwordItem(ToolMaterials.WOOD, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ToolMaterials.WOOD, 3, -2.2f))));
-    public static final Item STONE_MACE = registerItem("stone_mace", new ModSwordItem(ToolMaterials.STONE, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ToolMaterials.STONE, 3, -2.2f))));
-    public static final Item IRON_MACE = registerItem("iron_mace", new ModSwordItem(ToolMaterials.IRON, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ToolMaterials.IRON, 3, -2.2f))));
-    public static final Item GOLD_MACE = registerItem("gold_mace", new ModSwordItem(ToolMaterials.GOLD, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ToolMaterials.GOLD, 3, -2.2f))));
-    public static final Item DIAMOND_MACE = registerItem("diamond_mace", new ModSwordItem(ToolMaterials.DIAMOND, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ToolMaterials.DIAMOND, 3, -2.1f))));
-    public static final Item NETHERITE_MACE = registerItem("netherite_mace", new ModSwordItem(ToolMaterials.NETHERITE, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ToolMaterials.NETHERITE, 3, -2.0f))));
+    public static final Item WOOD_BATTLE_MACE = registerItem("wood_battle_mace", new ModSwordItem(ToolMaterials.WOOD, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ToolMaterials.WOOD, 3, -2.2f))));
+    public static final Item STONE_BATTLE_MACE = registerItem("stone_battle_mace", new ModSwordItem(ToolMaterials.STONE, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ToolMaterials.STONE, 3, -2.2f))));
+    public static final Item TIN_BATTLE_MACE = registerItem("tin_battle_mace", new ModBattleAxeItem(ModToolMaterials.TIN, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ModToolMaterials.TIN, 3, -2.2f))));
+    public static final Item GOLD_BATTLE_MACE = registerItem("gold_battle_mace", new ModSwordItem(ToolMaterials.GOLD, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ToolMaterials.GOLD, 3, -2.2f))));
+    public static final Item SILVER_BATTLE_MACE = registerItem("silver_battle_mace", new ModBattleAxeItem(ModToolMaterials.STERLING_SILVER, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ModToolMaterials.STERLING_SILVER, 3, -2.2f))));
+    public static final Item COPPER_BATTLE_MACE = registerItem("copper_battle_mace", new ModBattleAxeItem(ModToolMaterials.COPPER, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ModToolMaterials.COPPER, 3, -2.2f))));
+    public static final Item STERLING_SILVER_BATTLE_MACE = registerItem("sterling_silver_battle_mace", new ModBattleAxeItem(ModToolMaterials.STERLING_SILVER, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ModToolMaterials.STERLING_SILVER, 3, -2.1f))));
+    public static final Item ROSE_GOLD_BATTLE_MACE = registerItem("rose_gold_battle_mace", new ModBattleAxeItem(ModToolMaterials.ROSE_GOLD, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ModToolMaterials.STERLING_SILVER, 3, -2.1f))));
+    public static final Item BRONZE_BATTLE_MACE = registerItem("bronze_battle_mace", new ModBattleAxeItem(ModToolMaterials.BRONZE, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ModToolMaterials.BRONZE, 3, -2.2f))));
+    public static final Item IRON_BATTLE_MACE = registerItem("iron_battle_mace", new ModSwordItem(ToolMaterials.IRON, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ToolMaterials.IRON, 3, -2.2f))));
+    public static final Item COBALT_BATTLE_MACE = registerItem("cobalt_battle_mace", new ModBattleAxeItem(ModToolMaterials.COBALT, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ModToolMaterials.COBALT, 3, -2.1f))));
+    public static final Item CARBON_STEEL_BATTLE_MACE = registerItem("carbon_steel_battle_mace", new ModBattleAxeItem(ModToolMaterials.CARBON_STEEL, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ModToolMaterials.CARBON_STEEL, 3, -2.1f))));
+    public static final Item HARDENED_STEEL_BATTLE_MACE = registerItem("hardened_steel_battle_mace", new ModBattleAxeItem(ModToolMaterials.HARDENED_STEEL, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ModToolMaterials.CARBON_STEEL, 3, -2.1f))));
 
-    public static final Item TIN_MACE = registerItem("tin_mace", new ModBattleAxeItem(ModToolMaterials.TIN, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ModToolMaterials.TIN, 3, -2.2f))));
-    public static final Item COPPER_MACE = registerItem("copper_mace", new ModBattleAxeItem(ModToolMaterials.COPPER, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ModToolMaterials.COPPER, 3, -2.2f))));
+    public static final Item TURQUOISE_BATTLE_MACE = registerItem("turquoise_battle_mace", new ModBattleAxeItem(ModToolMaterials.TURQUOISE, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ModToolMaterials.TURQUOISE, 3, -2.0f))));
+    public static final Item LAPIS_LAZULI_BATTLE_MACE = registerItem("lapis_lazuli_battle_mace", new ModBattleAxeItem(ModToolMaterials.LAPIS_LAZULI, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ModToolMaterials.LAPIS_LAZULI, 3, -2.0f))));
+    public static final Item AMETHYST_BATTLE_MACE = registerItem("amethyst_battle_mace", new ModBattleAxeItem(ModToolMaterials.AMETHYST, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ModToolMaterials.AMETHYST, 3, -2.1f))));
 
-    public static final Item SILVER_MACE = registerItem("silver_mace", new ModBattleAxeItem(ModToolMaterials.SILVER, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ModToolMaterials.SILVER, 3, -2.2f))));
+    public static final Item TANZANITE_BATTLE_MACE = registerItem("tanzanite_battle_mace", new ModBattleAxeItem(ModToolMaterials.TANZANITE, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ModToolMaterials.TANZANITE, 3, -2.0f))));
+    public static final Item TOURMALINE_BATTLE_MACE = registerItem("tourmaline_battle_mace", new ModBattleAxeItem(ModToolMaterials.TOURMALINE, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ModToolMaterials.TOURMALINE, 3, -2.1f))));
+    public static final Item TOPAZ_BATTLE_MACE = registerItem("topaz_battle_mace", new ModBattleAxeItem(ModToolMaterials.TOPAZ, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ModToolMaterials.TOPAZ, 3, -2.1f))));
 
-    public static final Item BRONZE_MACE = registerItem("bronze_mace", new ModBattleAxeItem(ModToolMaterials.BRONZE, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ModToolMaterials.BRONZE, 3, -2.2f))));
+    public static final Item EMERALD_BATTLE_MACE = registerItem("emerald_battle_mace", new ModBattleAxeItem(ModToolMaterials.EMERALD, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ModToolMaterials.EMERALD, 3, -2.1f))));
+    public static final Item DIAMOND_BATTLE_MACE = registerItem("diamond_battle_mace", new ModSwordItem(ToolMaterials.DIAMOND, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ToolMaterials.DIAMOND, 3, -2.1f))));
+    public static final Item RUBY_BATTLE_MACE = registerItem("ruby_battle_mace", new ModBattleAxeItem(ModToolMaterials.RUBY, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ModToolMaterials.RUBY, 3, -2.0f))));
+    public static final Item SAPPHIRE_BATTLE_MACE = registerItem("sapphire_battle_mace", new ModBattleAxeItem(ModToolMaterials.SAPPHIRE, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ModToolMaterials.SAPPHIRE, 3, -2.0f))));
+    public static final Item SPINEL_BATTLE_MACE = registerItem("spinel_battle_mace", new ModBattleAxeItem(ModToolMaterials.SPINEL, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ModToolMaterials.SAPPHIRE, 3, -2.0f))));
 
-    public static final Item OBSIDIAN_MACE = registerItem("obsidian_mace", new ModBattleAxeItem(ModToolMaterials.OBSIDIAN, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ModToolMaterials.OBSIDIAN, 3, -2.1f))));
-    public static final Item COBALT_MACE = registerItem("cobalt_mace", new ModBattleAxeItem(ModToolMaterials.COBALT, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ModToolMaterials.COBALT, 3, -2.1f))));
-    public static final Item STEEL_MACE = registerItem("steel_mace", new ModBattleAxeItem(ModToolMaterials.STEEL, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ModToolMaterials.STEEL, 3, -2.1f))));
-    public static final Item STERLING_MACE = registerItem("sterling_mace", new ModBattleAxeItem(ModToolMaterials.STERLING, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ModToolMaterials.STERLING, 3, -2.1f))));
+    public static final Item CITRINE_BATTLE_MACE = registerItem("citrine_battle_mace", new ModBattleAxeItem(ModToolMaterials.CITRINE, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ModToolMaterials.CITRINE, 3, -2.1f))));
+    public static final Item MOISSANITE_BATTLE_MACE = registerItem("moissanite_battle_mace", new ModBattleAxeItem(ModToolMaterials.MOISSANITE, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ModToolMaterials.MOISSANITE, 3, -2.0f))));
+    public static final Item ONYX_BATTLE_MACE = registerItem("onyx_battle_mace", new ModBattleAxeItem(ModToolMaterials.ONYX, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ModToolMaterials.ONYX, 3, -2.0f))));
 
-    public static final Item AMETHYST_MACE = registerItem("amethyst_mace", new ModBattleAxeItem(ModToolMaterials.AMETHYST, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ModToolMaterials.AMETHYST, 3, -2.1f))));
-    public static final Item EMERALD_MACE = registerItem("emerald_mace", new ModBattleAxeItem(ModToolMaterials.EMERALD, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ModToolMaterials.EMERALD, 3, -2.1f))));
-
-    public static final Item TOPAZ_MACE = registerItem("topaz_mace", new ModBattleAxeItem(ModToolMaterials.TOPAZ, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ModToolMaterials.TOPAZ, 3, -2.1f))));
-    public static final Item TOURMALINE_MACE = registerItem("tourmaline_mace", new ModBattleAxeItem(ModToolMaterials.TOURMALINE, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ModToolMaterials.TOURMALINE, 3, -2.1f))));
-    public static final Item TANZANITE_MACE = registerItem("tanzanite_mace", new ModBattleAxeItem(ModToolMaterials.TANZANITE, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ModToolMaterials.TANZANITE, 3, -2.1f))));
-
-    public static final Item RUBY_MACE = registerItem("ruby_mace", new ModBattleAxeItem(ModToolMaterials.RUBY, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ModToolMaterials.RUBY, 3, -2.0f))));
-    public static final Item SAPPHIRE_MACE = registerItem("sapphire_mace", new ModBattleAxeItem(ModToolMaterials.SAPPHIRE, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ModToolMaterials.SAPPHIRE, 3, -2.0f))));
-    public static final Item TURQUOISE_MACE = registerItem("turquoise_mace", new ModBattleAxeItem(ModToolMaterials.TURQUOISE, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ModToolMaterials.TURQUOISE, 3, -2.0f))));
-
-    public static final Item MOISSANITE_MACE = registerItem("moissanite_mace", new ModBattleAxeItem(ModToolMaterials.MOISSANITE, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ModToolMaterials.MOISSANITE, 3, -2.0f))));
-    public static final Item ONYX_MACE = registerItem("onyx_mace", new ModBattleAxeItem(ModToolMaterials.ONYX, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ModToolMaterials.ONYX, 3, -2.0f))));
-
-    public static final Item GRAPHENE_MACE = registerItem("graphene_mace", new ModBattleAxeItem(ModToolMaterials.GRAPHENE, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ModToolMaterials.GRAPHENE, 3, -2.0f))));
+    public static final Item OBSIDIAN_BATTLE_MACE = registerItem("obsidian_battle_mace", new ModBattleAxeItem(ModToolMaterials.OBSIDIAN, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ModToolMaterials.OBSIDIAN, 3, -2.1f))));
+    public static final Item NETHERITE_BATTLE_MACE = registerItem("netherite_battle_mace", new ModSwordItem(ToolMaterials.NETHERITE, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ToolMaterials.NETHERITE, 3, -2.0f))));
+    public static final Item GRAPHENE_BATTLE_MACE = registerItem("graphene_battle_mace", new ModBattleAxeItem(ModToolMaterials.GRAPHENE, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ModToolMaterials.GRAPHENE, 3, -2.0f))));
+    public static final Item ADAMANTIUM_BATTLE_MACE = registerItem("adamantium_battle_mace", new ModBattleAxeItem(ModToolMaterials.ADAMANTIUM, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ModToolMaterials.ADAMANTIUM, 3, -2.0f))));
+//    public static final Item ENDERITE_BATTLE_MACE = registerItem("enderite_battle_mace", new ModBattleAxeItem(ModToolMaterials.ENDERITE, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ModToolMaterials.ENDERITE, 3, -2.0f))));
 
 
     //All daggers
@@ -312,379 +407,472 @@ public class ModItems {
     //p_i48460_3_: Attack Speed (1.0F = ... Attack Speed)
     public static final Item WOOD_DAGGER = registerItem("wood_dagger", new ModSwordItem(ToolMaterials.WOOD, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ToolMaterials.WOOD, 1, -1.8f))));
     public static final Item STONE_DAGGER = registerItem("stone_dagger", new ModSwordItem(ToolMaterials.STONE, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ToolMaterials.STONE, 1, -1.8f))));
-    public static final Item IRON_DAGGER = registerItem("iron_dagger", new ModSwordItem(ToolMaterials.IRON, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ToolMaterials.IRON, 1, -1.8f))));
-    public static final Item GOLD_DAGGER = registerItem("gold_dagger", new ModSwordItem(ToolMaterials.GOLD, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ToolMaterials.GOLD, 1, -1.8f))));
-    public static final Item DIAMOND_DAGGER = registerItem("diamond_dagger", new ModSwordItem(ToolMaterials.DIAMOND, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ToolMaterials.DIAMOND, 1, -1.7f))));
-    public static final Item NETHERITE_DAGGER = registerItem("netherite_dagger", new ModSwordItem(ToolMaterials.NETHERITE, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ToolMaterials.NETHERITE, 1, -1.6f))));
-
     public static final Item TIN_DAGGER = registerItem("tin_dagger", new ModBattleAxeItem(ModToolMaterials.TIN, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ModToolMaterials.TIN, 1, -1.8f))));
+    public static final Item GOLD_DAGGER = registerItem("gold_dagger", new ModSwordItem(ToolMaterials.GOLD, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ToolMaterials.GOLD, 1, -1.8f))));
+    public static final Item SILVER_DAGGER = registerItem("silver_dagger", new ModBattleAxeItem(ModToolMaterials.STERLING_SILVER, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ModToolMaterials.STERLING_SILVER, 1, -1.8f))));
     public static final Item COPPER_DAGGER = registerItem("copper_dagger", new ModBattleAxeItem(ModToolMaterials.COPPER, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ModToolMaterials.COPPER, 1, -1.8f))));
-
-    public static final Item SILVER_DAGGER = registerItem("silver_dagger", new ModBattleAxeItem(ModToolMaterials.SILVER, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ModToolMaterials.SILVER, 1, -1.8f))));
-
+    public static final Item STERLING_SILVER_DAGGER = registerItem("sterling_silver_dagger", new ModBattleAxeItem(ModToolMaterials.STERLING_SILVER, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ModToolMaterials.STERLING_SILVER, 1, -1.8f))));
+    public static final Item ROSE_GOLD_DAGGER = registerItem("rose_gold_dagger", new ModBattleAxeItem(ModToolMaterials.ROSE_GOLD, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ModToolMaterials.STERLING_SILVER, 1, -1.8f))));
     public static final Item BRONZE_DAGGER = registerItem("bronze_dagger", new ModBattleAxeItem(ModToolMaterials.BRONZE, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ModToolMaterials.BRONZE, 1, -1.8f))));
-
-    public static final Item OBSIDIAN_DAGGER = registerItem("obsidian_dagger", new ModBattleAxeItem(ModToolMaterials.OBSIDIAN, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ModToolMaterials.OBSIDIAN, 1, -1.8f))));
+    public static final Item IRON_DAGGER = registerItem("iron_dagger", new ModSwordItem(ToolMaterials.IRON, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ToolMaterials.IRON, 1, -1.8f))));
     public static final Item COBALT_DAGGER = registerItem("cobalt_dagger", new ModBattleAxeItem(ModToolMaterials.COBALT, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ModToolMaterials.COBALT, 1, -1.8f))));
-    public static final Item STEEL_DAGGER = registerItem("steel_dagger", new ModBattleAxeItem(ModToolMaterials.STEEL, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ModToolMaterials.STEEL, 1, -1.8f))));
-    public static final Item STERLING_DAGGER = registerItem("sterling_dagger", new ModBattleAxeItem(ModToolMaterials.STERLING, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ModToolMaterials.STERLING, 1, -1.8f))));
+    public static final Item CARBON_STEEL_DAGGER = registerItem("carbon_steel_dagger", new ModBattleAxeItem(ModToolMaterials.CARBON_STEEL, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ModToolMaterials.CARBON_STEEL, 1, -1.8f))));
+    public static final Item HARDENED_STEEL_DAGGER = registerItem("hardened_steel_dagger", new ModBattleAxeItem(ModToolMaterials.HARDENED_STEEL, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ModToolMaterials.CARBON_STEEL, 1, -1.8f))));
 
+    public static final Item TURQUOISE_DAGGER = registerItem("turquoise_dagger", new ModBattleAxeItem(ModToolMaterials.TURQUOISE, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ModToolMaterials.TURQUOISE, 1, -1.7f))));
+    public static final Item LAPIS_LAZULI_DAGGER = registerItem("lapis_lazuli_dagger", new ModBattleAxeItem(ModToolMaterials.LAPIS_LAZULI, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ModToolMaterials.LAPIS_LAZULI, 1, -1.7f))));
     public static final Item AMETHYST_DAGGER = registerItem("amethyst_dagger", new ModBattleAxeItem(ModToolMaterials.AMETHYST, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ModToolMaterials.AMETHYST, 1, -1.8f))));
-    public static final Item EMERALD_DAGGER = registerItem("emerald_dagger", new ModBattleAxeItem(ModToolMaterials.EMERALD, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ModToolMaterials.EMERALD, 1, -1.8f))));
-
-    public static final Item TOPAZ_DAGGER = registerItem("topaz_dagger", new ModBattleAxeItem(ModToolMaterials.TOPAZ, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ModToolMaterials.TOPAZ, 1, -1.7f))));
-    public static final Item TOURMALINE_DAGGER = registerItem("tourmaline_dagger", new ModBattleAxeItem(ModToolMaterials.TOURMALINE, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ModToolMaterials.TOURMALINE, 1, -1.7f))));
     public static final Item TANZANITE_DAGGER = registerItem("tanzanite_dagger", new ModBattleAxeItem(ModToolMaterials.TANZANITE, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ModToolMaterials.TANZANITE, 1, -1.7f))));
+    public static final Item TOURMALINE_DAGGER = registerItem("tourmaline_dagger", new ModBattleAxeItem(ModToolMaterials.TOURMALINE, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ModToolMaterials.TOURMALINE, 1, -1.7f))));
+    public static final Item TOPAZ_DAGGER = registerItem("topaz_dagger", new ModBattleAxeItem(ModToolMaterials.TOPAZ, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ModToolMaterials.TOPAZ, 1, -1.7f))));
 
+    public static final Item EMERALD_DAGGER = registerItem("emerald_dagger", new ModBattleAxeItem(ModToolMaterials.EMERALD, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ModToolMaterials.EMERALD, 1, -1.8f))));
+    public static final Item DIAMOND_DAGGER = registerItem("diamond_dagger", new ModSwordItem(ToolMaterials.DIAMOND, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ToolMaterials.DIAMOND, 1, -1.7f))));
     public static final Item RUBY_DAGGER = registerItem("ruby_dagger", new ModBattleAxeItem(ModToolMaterials.RUBY, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ModToolMaterials.RUBY, 1, -1.7f))));
     public static final Item SAPPHIRE_DAGGER = registerItem("sapphire_dagger", new ModBattleAxeItem(ModToolMaterials.SAPPHIRE, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ModToolMaterials.SAPPHIRE, 1, -1.7f))));
-    public static final Item TURQUOISE_DAGGER = registerItem("turquoise_dagger", new ModBattleAxeItem(ModToolMaterials.TURQUOISE, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ModToolMaterials.TURQUOISE, 1, -1.7f))));
+    public static final Item SPINEL_DAGGER = registerItem("spinel_dagger", new ModBattleAxeItem(ModToolMaterials.SPINEL, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ModToolMaterials.CITRINE, 1, -1.7f))));
 
+    public static final Item CITRINE_DAGGER = registerItem("citrine_dagger", new ModBattleAxeItem(ModToolMaterials.CITRINE, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ModToolMaterials.CITRINE, 1, -1.7f))));
     public static final Item MOISSANITE_DAGGER = registerItem("moissanite_dagger", new ModBattleAxeItem(ModToolMaterials.MOISSANITE, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ModToolMaterials.MOISSANITE, 1, -1.7f))));
     public static final Item ONYX_DAGGER = registerItem("onyx_dagger", new ModBattleAxeItem(ModToolMaterials.ONYX, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ModToolMaterials.ONYX, 1, -1.6f))));
 
+    public static final Item OBSIDIAN_DAGGER = registerItem("obsidian_dagger", new ModBattleAxeItem(ModToolMaterials.OBSIDIAN, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ModToolMaterials.OBSIDIAN, 1, -1.8f))));
+    public static final Item NETHERITE_DAGGER = registerItem("netherite_dagger", new ModSwordItem(ToolMaterials.NETHERITE, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ToolMaterials.NETHERITE, 1, -1.6f))));
     public static final Item GRAPHENE_DAGGER = registerItem("graphene_dagger", new ModBattleAxeItem(ModToolMaterials.GRAPHENE, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ModToolMaterials.GRAPHENE, 1, -1.5f))));
+    public static final Item ADAMANTIUM_DAGGER = registerItem("adamantium_dagger", new ModBattleAxeItem(ModToolMaterials.ADAMANTIUM, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ModToolMaterials.ADAMANTIUM, 1, -1.5f))));
+//    public static final Item ENDERITE_DAGGER = registerItem("enderite_dagger", new ModBattleAxeItem(ModToolMaterials.ENDERITE, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ModToolMaterials.ENDERITE, 1, -1.5f))));
 
 
     // All pickaxes
     public static final Item TIN_PICKAXE = registerItem("tin_pickaxe", new ModPickaxeItem(ModToolMaterials.TIN, 1, -2.8F, new Item.Settings()));
+    public static final Item SILVER_PICKAXE = registerItem("silver_pickaxe", new ModPickaxeItem(ModToolMaterials.STERLING_SILVER, 1, -2.8F, new Item.Settings()));
     public static final Item COPPER_PICKAXE = registerItem("copper_pickaxe", new ModPickaxeItem(ModToolMaterials.COPPER, 1, -2.8F, new Item.Settings()));
-
-    public static final Item SILVER_PICKAXE = registerItem("silver_pickaxe", new ModPickaxeItem(ModToolMaterials.SILVER, 1, -2.8F, new Item.Settings()));
-
+    public static final Item STERLING_SILVER_PICKAXE = registerItem("sterling_silver_pickaxe", new ModPickaxeItem(ModToolMaterials.STERLING_SILVER, 1, -2.8F, new Item.Settings()));
+    public static final Item ROSE_GOLD_PICKAXE = registerItem("rose_gold_pickaxe", new ModPickaxeItem(ModToolMaterials.ROSE_GOLD, 1, -2.8F, new Item.Settings()));
     public static final Item BRONZE_PICKAXE = registerItem("bronze_pickaxe", new ModPickaxeItem(ModToolMaterials.BRONZE, 1, -2.8F, new Item.Settings()));
-
-    public static final Item OBSIDIAN_PICKAXE = registerItem("obsidian_pickaxe", new ModPickaxeItem(ModToolMaterials.OBSIDIAN, 1, -2.8F, new Item.Settings()));
     public static final Item COBALT_PICKAXE = registerItem("cobalt_pickaxe", new ModPickaxeItem(ModToolMaterials.COBALT, 1, -2.8F, new Item.Settings()));
-    public static final Item STEEL_PICKAXE = registerItem("steel_pickaxe", new ModPickaxeItem(ModToolMaterials.STEEL, 1, -2.8F, new Item.Settings()));
-    public static final Item STERLING_PICKAXE = registerItem("sterling_pickaxe", new ModPickaxeItem(ModToolMaterials.STERLING, 1, -2.8F, new Item.Settings()));
+    public static final Item CARBON_STEEL_PICKAXE = registerItem("carbon_steel_pickaxe", new ModPickaxeItem(ModToolMaterials.CARBON_STEEL, 1, -2.8F, new Item.Settings()));
+    public static final Item HARDENED_STEEL_PICKAXE = registerItem("hardened_steel_pickaxe", new ModPickaxeItem(ModToolMaterials.HARDENED_STEEL, 1, -2.8F, new Item.Settings()));
 
+    public static final Item TURQUOISE_PICKAXE = registerItem("turquoise_pickaxe", new ModPickaxeItem(ModToolMaterials.TURQUOISE, 1, -2.8F, new Item.Settings()));
+    public static final Item LAPIS_LAZULI_PICKAXE = registerItem("lapis_lazuli_pickaxe", new ModPickaxeItem(ModToolMaterials.LAPIS_LAZULI, 1, -2.8F, new Item.Settings()));
     public static final Item AMETHYST_PICKAXE = registerItem("amethyst_pickaxe", new ModPickaxeItem(ModToolMaterials.AMETHYST, 1, -2.8F, new Item.Settings()));
-    public static final Item EMERALD_PICKAXE = registerItem("emerald_pickaxe", new ModPickaxeItem(ModToolMaterials.EMERALD, 1, -2.8F, new Item.Settings()));
-
-    public static final Item TOPAZ_PICKAXE = registerItem("topaz_pickaxe", new ModPickaxeItem(ModToolMaterials.TOPAZ, 1, -2.8F, new Item.Settings()));
-    public static final Item TOURMALINE_PICKAXE = registerItem("tourmaline_pickaxe", new ModPickaxeItem(ModToolMaterials.TOURMALINE, 1, -2.8F, new Item.Settings()));
     public static final Item TANZANITE_PICKAXE = registerItem("tanzanite_pickaxe", new ModPickaxeItem(ModToolMaterials.TANZANITE, 1, -2.8F, new Item.Settings()));
+    public static final Item TOURMALINE_PICKAXE = registerItem("tourmaline_pickaxe", new ModPickaxeItem(ModToolMaterials.TOURMALINE, 1, -2.8F, new Item.Settings()));
+    public static final Item TOPAZ_PICKAXE = registerItem("topaz_pickaxe", new ModPickaxeItem(ModToolMaterials.TOPAZ, 1, -2.8F, new Item.Settings()));
 
+    public static final Item EMERALD_PICKAXE = registerItem("emerald_pickaxe", new ModPickaxeItem(ModToolMaterials.EMERALD, 1, -2.8F, new Item.Settings()));
     public static final Item RUBY_PICKAXE = registerItem("ruby_pickaxe", new ModPickaxeItem(ModToolMaterials.RUBY, 1, -2.8F, new Item.Settings()));
     public static final Item SAPPHIRE_PICKAXE = registerItem("sapphire_pickaxe", new ModPickaxeItem(ModToolMaterials.SAPPHIRE, 1, -2.8F, new Item.Settings()));
-    public static final Item TURQUOISE_PICKAXE = registerItem("turquoise_pickaxe", new ModPickaxeItem(ModToolMaterials.TURQUOISE, 1, -2.8F, new Item.Settings()));
+    public static final Item SPINEL_PICKAXE = registerItem("spinel_pickaxe", new ModPickaxeItem(ModToolMaterials.SPINEL, 1, -2.8F, new Item.Settings()));
 
+    public static final Item CITRINE_PICKAXE = registerItem("citrine_pickaxe", new ModPickaxeItem(ModToolMaterials.CITRINE, 1, -2.8F, new Item.Settings()));
     public static final Item MOISSANITE_PICKAXE = registerItem("moissanite_pickaxe", new ModPickaxeItem(ModToolMaterials.MOISSANITE, 3, -2.8F, new Item.Settings()));
     public static final Item ONYX_PICKAXE = registerItem("onyx_pickaxe", new ModPickaxeItem(ModToolMaterials.ONYX, 1, -2.8F, new Item.Settings()));
 
+    public static final Item OBSIDIAN_PICKAXE = registerItem("obsidian_pickaxe", new ModPickaxeItem(ModToolMaterials.OBSIDIAN, 1, -2.8F, new Item.Settings()));
     public static final Item GRAPHENE_PICKAXE = registerItem("graphene_pickaxe", new ModPickaxeItem(ModToolMaterials.GRAPHENE, 1, -2.8F, new Item.Settings()));
+    public static final Item ADAMANTIUM_PICKAXE = registerItem("adamantium_pickaxe", new ModPickaxeItem(ModToolMaterials.ADAMANTIUM, 1, -2.8F, new Item.Settings()));
+//    public static final Item ENDERITE_PICKAXE = registerItem("enderite_pickaxe", new ModPickaxeItem(ModToolMaterials.ENDERITE, 1, -2.8F, new Item.Settings()));
 
 
     //All axes
     //TODO Checkout items for proper atk dmg and speed values
     public static final Item TIN_AXE = registerItem("tin_axe", new ModAxeItem(ModToolMaterials.TIN, 6.0F, -3.2F, new Item.Settings()));
+    public static final Item SILVER_AXE = registerItem("silver_axe", new ModAxeItem(ModToolMaterials.STERLING_SILVER, 6.0F, -3.2F, new Item.Settings()));
     public static final Item COPPER_AXE = registerItem("copper_axe", new ModAxeItem(ModToolMaterials.COPPER, 6.0F, -3.2F, new Item.Settings()));
-
-    public static final Item SILVER_AXE = registerItem("silver_axe", new ModAxeItem(ModToolMaterials.SILVER, 6.0F, -3.2F, new Item.Settings()));
-
+    public static final Item STERLING_SILVER_AXE = registerItem("sterling_silver_axe", new ModAxeItem(ModToolMaterials.STERLING_SILVER, 6.0F, -3.2F, new Item.Settings()));
+    public static final Item ROSE_GOLD_AXE = registerItem("rose_gold_axe", new ModAxeItem(ModToolMaterials.ROSE_GOLD, 6.0F, -3.2F, new Item.Settings()));
     public static final Item BRONZE_AXE = registerItem("bronze_axe", new ModAxeItem(ModToolMaterials.BRONZE, 6.0F, -3.2F, new Item.Settings()));
-
-    public static final Item OBSIDIAN_AXE = registerItem("obsidian_axe", new ModAxeItem(ModToolMaterials.OBSIDIAN, 6.0F, -3.2F, new Item.Settings()));
     public static final Item COBALT_AXE = registerItem("cobalt_axe", new ModAxeItem(ModToolMaterials.COBALT, 6.0F, -3.2F, new Item.Settings()));
-    public static final Item STEEL_AXE = registerItem("steel_axe", new ModAxeItem(ModToolMaterials.STEEL, 6.0F, -3.2F, new Item.Settings()));
-    public static final Item STERLING_AXE = registerItem("sterling_axe", new ModAxeItem(ModToolMaterials.STERLING, 6.0F, -3.2F, new Item.Settings()));
+    public static final Item CARBON_STEEL_AXE = registerItem("carbon_steel_axe", new ModAxeItem(ModToolMaterials.CARBON_STEEL, 6.0F, -3.2F, new Item.Settings()));
+    public static final Item HARDENED_STEEL_AXE = registerItem("hardened_steel_axe", new ModAxeItem(ModToolMaterials.HARDENED_STEEL, 6.0F, -3.2F, new Item.Settings()));
 
+    public static final Item LAPIS_LAZULI_AXE = registerItem("lapis_lazuli_axe", new ModAxeItem(ModToolMaterials.LAPIS_LAZULI, 6.0F, -3.2F, new Item.Settings()));
     public static final Item AMETHYST_AXE = registerItem("amethyst_axe", new ModAxeItem(ModToolMaterials.AMETHYST, 6.0F, -3.2F, new Item.Settings()));
-    public static final Item EMERALD_AXE = registerItem("emerald_axe", new ModAxeItem(ModToolMaterials.EMERALD, 6.0F, -3.2F, new Item.Settings()));
-
-    public static final Item TOPAZ_AXE = registerItem("topaz_axe", new ModAxeItem(ModToolMaterials.TOPAZ, 6.0F, -3.2F, new Item.Settings()));
-    public static final Item TOURMALINE_AXE = registerItem("tourmaline_axe", new ModAxeItem(ModToolMaterials.TOURMALINE, 6.0F, -3.2F, new Item.Settings()));
     public static final Item TANZANITE_AXE = registerItem("tanzanite_axe", new ModAxeItem(ModToolMaterials.TANZANITE, 6.0F, -3.2F, new Item.Settings()));
+    public static final Item TURQUOISE_AXE = registerItem("turquoise_axe", new ModAxeItem(ModToolMaterials.TURQUOISE, 6.0F, -3.2F, new Item.Settings()));
+    public static final Item TOURMALINE_AXE = registerItem("tourmaline_axe", new ModAxeItem(ModToolMaterials.TOURMALINE, 6.0F, -3.2F, new Item.Settings()));
+    public static final Item TOPAZ_AXE = registerItem("topaz_axe", new ModAxeItem(ModToolMaterials.TOPAZ, 6.0F, -3.2F, new Item.Settings()));
 
+    public static final Item EMERALD_AXE = registerItem("emerald_axe", new ModAxeItem(ModToolMaterials.EMERALD, 6.0F, -3.2F, new Item.Settings()));
     public static final Item RUBY_AXE = registerItem("ruby_axe", new ModAxeItem(ModToolMaterials.RUBY, 6.0F, -3.2F, new Item.Settings()));
     public static final Item SAPPHIRE_AXE = registerItem("sapphire_axe", new ModAxeItem(ModToolMaterials.SAPPHIRE, 6.0F, -3.2F, new Item.Settings()));
-    public static final Item TURQUOISE_AXE = registerItem("turquoise_axe", new ModAxeItem(ModToolMaterials.TURQUOISE, 6.0F, -3.2F, new Item.Settings()));
+    public static final Item SPINEL_AXE = registerItem("spinel_axe", new ModAxeItem(ModToolMaterials.SPINEL, 6.0F, -3.2F, new Item.Settings()));
 
+    public static final Item CITRINE_AXE = registerItem("citrine_axe", new ModAxeItem(ModToolMaterials.CITRINE, 6.0F, -3.2F, new Item.Settings()));
     public static final Item MOISSANITE_AXE = registerItem("moissanite_axe", new ModAxeItem(ModToolMaterials.MOISSANITE, 6.0F, -3.2F, new Item.Settings()));
     public static final Item ONYX_AXE = registerItem("onyx_axe", new ModAxeItem(ModToolMaterials.ONYX, 6.0F, -3.2F, new Item.Settings()));
 
+    public static final Item OBSIDIAN_AXE = registerItem("obsidian_axe", new ModAxeItem(ModToolMaterials.OBSIDIAN, 6.0F, -3.2F, new Item.Settings()));
     public static final Item GRAPHENE_AXE = registerItem("graphene_axe", new ModAxeItem(ModToolMaterials.GRAPHENE, 6.0F, -3.2F, new Item.Settings()));
+    public static final Item ADAMANTIUM_AXE = registerItem("adamantium_axe", new ModAxeItem(ModToolMaterials.ADAMANTIUM, 6.0F, -3.2F, new Item.Settings()));
+//    public static final Item ENDERITE_AXE = registerItem("enderite_axe", new ModAxeItem(ModToolMaterials.ENDERITE, 6.0F, -3.2F, new Item.Settings()));
 
 
     //All shovels
     public static final Item TIN_SHOVEL = registerItem("tin_shovel", new ModShovelItem(ModToolMaterials.TIN, 1.5F, -3.0F, new Item.Settings()));
+    public static final Item SILVER_SHOVEL = registerItem("silver_shovel", new ModShovelItem(ModToolMaterials.STERLING_SILVER, 1.5F, -3.0F, new Item.Settings()));
     public static final Item COPPER_SHOVEL = registerItem("copper_shovel", new ModShovelItem(ModToolMaterials.TIN, 1.5F, -3.0F, new Item.Settings()));
-
-    public static final Item SILVER_SHOVEL = registerItem("silver_shovel", new ModShovelItem(ModToolMaterials.SILVER, 1.5F, -3.0F, new Item.Settings()));
+    public static final Item STERLING_SILVER_SHOVEL = registerItem("sterling_silver_shovel", new ModShovelItem(ModToolMaterials.STERLING_SILVER, 1.5F, -3.0F, new Item.Settings()));
+    public static final Item ROSE_GOLD_SHOVEL = registerItem("rose_gold_shovel", new ModShovelItem(ModToolMaterials.ROSE_GOLD, 1.5F, -3.0F, new Item.Settings()));
     public static final Item BRONZE_SHOVEL = registerItem("bronze_shovel", new ModShovelItem(ModToolMaterials.BRONZE, 1.5F, -3.0F, new Item.Settings()));
-
-    public static final Item OBSIDIAN_SHOVEL = registerItem("obsidian_shovel", new ModShovelItem(ModToolMaterials.OBSIDIAN, 1.5F, -3.0F, new Item.Settings()));
     public static final Item COBALT_SHOVEL = registerItem("cobalt_shovel", new ModShovelItem(ModToolMaterials.COBALT, 1.5F, -3.0F, new Item.Settings()));
-    public static final Item STEEL_SHOVEL = registerItem("steel_shovel", new ModShovelItem(ModToolMaterials.STEEL, 1.5F, -3.0F, new Item.Settings()));
-    public static final Item STERLING_SHOVEL = registerItem("sterling_shovel", new ModShovelItem(ModToolMaterials.STERLING, 1.5F, -3.0F, new Item.Settings()));
+    public static final Item CARBON_STEEL_SHOVEL = registerItem("carbon_steel_shovel", new ModShovelItem(ModToolMaterials.CARBON_STEEL, 1.5F, -3.0F, new Item.Settings()));
+    public static final Item HARDENED_STEEL_SHOVEL = registerItem("hardened_steel_shovel", new ModShovelItem(ModToolMaterials.HARDENED_STEEL, 1.5F, -3.0F, new Item.Settings()));
 
+    public static final Item LAPIS_LAZULI_SHOVEL = registerItem("lapis_lazuli_shovel", new ModShovelItem(ModToolMaterials.LAPIS_LAZULI, 1.5F, -3.0F, new Item.Settings()));
     public static final Item AMETHYST_SHOVEL = registerItem("amethyst_shovel", new ModShovelItem(ModToolMaterials.AMETHYST, 1.5F, -3.0F, new Item.Settings()));
-    public static final Item EMERALD_SHOVEL = registerItem("emerald_shovel", new ModShovelItem(ModToolMaterials.EMERALD, 1.5F, -3.0F, new Item.Settings()));
-
-    public static final Item TOPAZ_SHOVEL = registerItem("topaz_shovel", new ModShovelItem(ModToolMaterials.TOPAZ, 1.5F, -3.0F, new Item.Settings()));
-    public static final Item TOURMALINE_SHOVEL = registerItem("tourmaline_shovel", new ModShovelItem(ModToolMaterials.TOURMALINE, 1.5F, -3.0F, new Item.Settings()));
+    public static final Item TURQUOISE_SHOVEL = registerItem("turquoise_shovel", new ModShovelItem(ModToolMaterials.TURQUOISE, 1.5F, -3.0F, new Item.Settings()));
     public static final Item TANZANITE_SHOVEL = registerItem("tanzanite_shovel", new ModShovelItem(ModToolMaterials.TANZANITE, 1.5F, -3.0F, new Item.Settings()));
+    public static final Item TOURMALINE_SHOVEL = registerItem("tourmaline_shovel", new ModShovelItem(ModToolMaterials.TOURMALINE, 1.5F, -3.0F, new Item.Settings()));
+    public static final Item TOPAZ_SHOVEL = registerItem("topaz_shovel", new ModShovelItem(ModToolMaterials.TOPAZ, 1.5F, -3.0F, new Item.Settings()));
 
+    public static final Item EMERALD_SHOVEL = registerItem("emerald_shovel", new ModShovelItem(ModToolMaterials.EMERALD, 1.5F, -3.0F, new Item.Settings()));
     public static final Item RUBY_SHOVEL = registerItem("ruby_shovel", new ModShovelItem(ModToolMaterials.RUBY, 1.5F, -3.0F, new Item.Settings()));
     public static final Item SAPPHIRE_SHOVEL = registerItem("sapphire_shovel", new ModShovelItem(ModToolMaterials.SAPPHIRE, 1.5F, -3.0F, new Item.Settings()));
-    public static final Item TURQUOISE_SHOVEL = registerItem("turquoise_shovel", new ModShovelItem(ModToolMaterials.TURQUOISE, 1.5F, -3.0F, new Item.Settings()));
+    public static final Item SPINEL_SHOVEL = registerItem("spinel_shovel", new ModShovelItem(ModToolMaterials.SPINEL, 1.5F, -3.0F, new Item.Settings()));
 
+    public static final Item CITRINE_SHOVEL = registerItem("citrine_shovel", new ModShovelItem(ModToolMaterials.CITRINE, 1.5F, -3.0F, new Item.Settings()));
     public static final Item MOISSANITE_SHOVEL = registerItem("moissanite_shovel", new ModShovelItem(ModToolMaterials.MOISSANITE, 1.5F, -3.0F, new Item.Settings()));
     public static final Item ONYX_SHOVEL = registerItem("onyx_shovel", new ModShovelItem(ModToolMaterials.ONYX, 1.5F, -3.0F, new Item.Settings()));
 
+    public static final Item OBSIDIAN_SHOVEL = registerItem("obsidian_shovel", new ModShovelItem(ModToolMaterials.OBSIDIAN, 1.5F, -3.0F, new Item.Settings()));
     public static final Item GRAPHENE_SHOVEL = registerItem("graphene_shovel", new ModShovelItem(ModToolMaterials.GRAPHENE, 1.5F, -3.0F, new Item.Settings()));
+    public static final Item ADAMANTIUM_SHOVEL = registerItem("adamantium_shovel", new ModShovelItem(ModToolMaterials.ADAMANTIUM, 1.5F, -3.0F, new Item.Settings()));
+//    public static final Item ENDERITE_SHOVEL = registerItem("enderite_shovel", new ModShovelItem(ModToolMaterials.ENDERITE, 1.5F, -3.0F, new Item.Settings()));
 
 
     //All hoes
     public static final Item TIN_HOE = registerItem("tin_hoe", new ModHoeItem(ModToolMaterials.TIN, 0, -3.0F, new Item.Settings()));
+    public static final Item SILVER_HOE = registerItem("silver_hoe", new ModHoeItem(ModToolMaterials.STERLING_SILVER, 0, -3.0F, new Item.Settings()));
     public static final Item COPPER_HOE = registerItem("copper_hoe", new ModHoeItem(ModToolMaterials.COPPER, 0, -3.0F, new Item.Settings()));
-
-    public static final Item SILVER_HOE = registerItem("silver_hoe", new ModHoeItem(ModToolMaterials.SILVER, 0, -3.0F, new Item.Settings()));
+    public static final Item STERLING_SILVER_HOE = registerItem("sterling_silver_hoe", new ModHoeItem(ModToolMaterials.STERLING_SILVER, 0, -3.0F, new Item.Settings()));
+    public static final Item ROSE_GOLD_HOE = registerItem("rose_gold_hoe", new ModHoeItem(ModToolMaterials.ROSE_GOLD, 0, -3.0F, new Item.Settings()));
     public static final Item BRONZE_HOE = registerItem("bronze_hoe", new ModHoeItem(ModToolMaterials.BRONZE, 0, -3.0F, new Item.Settings()));
-
-    public static final Item OBSIDIAN_HOE = registerItem("obsidian_hoe", new ModHoeItem(ModToolMaterials.OBSIDIAN, 0, -3.0F, new Item.Settings()));
     public static final Item COBALT_HOE = registerItem("cobalt_hoe", new ModHoeItem(ModToolMaterials.COBALT, 0, -3.0F, new Item.Settings()));
-    public static final Item STEEL_HOE = registerItem("steel_hoe", new ModHoeItem(ModToolMaterials.STEEL, 0, -3.0F, new Item.Settings()));
-    public static final Item STERLING_HOE = registerItem("sterling_hoe", new ModHoeItem(ModToolMaterials.STERLING, 0, -3.0F, new Item.Settings()));
+    public static final Item CARBON_STEEL_HOE = registerItem("carbon_steel_hoe", new ModHoeItem(ModToolMaterials.CARBON_STEEL, 0, -3.0F, new Item.Settings()));
+    public static final Item HARDENED_STEEL_HOE = registerItem("hardened_steel_hoe", new ModHoeItem(ModToolMaterials.HARDENED_STEEL, 0, -3.0F, new Item.Settings()));
 
+    public static final Item LAPIS_LAZULI_HOE = registerItem("lapis_lazuli_hoe", new ModHoeItem(ModToolMaterials.LAPIS_LAZULI, 0, -3.0F, new Item.Settings()));
+    public static final Item TURQUOISE_HOE = registerItem("turquoise_hoe", new ModHoeItem(ModToolMaterials.TURQUOISE, 0, -3.0F, new Item.Settings()));
+    public static final Item TANZANITE_HOE = registerItem("tanzanite_hoe", new ModHoeItem(ModToolMaterials.TANZANITE, 0, -3.0F, new Item.Settings()));
     public static final Item AMETHYST_HOE = registerItem("amethyst_hoe", new ModHoeItem(ModToolMaterials.AMETHYST, 0, -3.0F, new Item.Settings()));
-    public static final Item EMERALD_HOE = registerItem("emerald_hoe", new ModHoeItem(ModToolMaterials.EMERALD, 0, -3.0F, new Item.Settings()));
-
     public static final Item TOPAZ_HOE = registerItem("topaz_hoe", new ModHoeItem(ModToolMaterials.TOPAZ, 0, -3.0F, new Item.Settings()));
     public static final Item TOURMALINE_HOE = registerItem("tourmaline_hoe", new ModHoeItem(ModToolMaterials.TOURMALINE, 0, -3.0F, new Item.Settings()));
-    public static final Item TANZANITE_HOE = registerItem("tanzanite_hoe", new ModHoeItem(ModToolMaterials.TANZANITE, 0, -3.0F, new Item.Settings()));
 
+    public static final Item EMERALD_HOE = registerItem("emerald_hoe", new ModHoeItem(ModToolMaterials.EMERALD, 0, -3.0F, new Item.Settings()));
     public static final Item RUBY_HOE = registerItem("ruby_hoe", new ModHoeItem(ModToolMaterials.RUBY, 0, -3.0F, new Item.Settings()));
     public static final Item SAPPHIRE_HOE = registerItem("sapphire_hoe", new ModHoeItem(ModToolMaterials.SAPPHIRE, 0, -3.0F, new Item.Settings()));
-    public static final Item TURQUOISE_HOE = registerItem("turquoise_hoe", new ModHoeItem(ModToolMaterials.TURQUOISE, 0, -3.0F, new Item.Settings()));
+    public static final Item SPINEL_HOE = registerItem("spinel_hoe", new ModHoeItem(ModToolMaterials.SPINEL, 0, -3.0F, new Item.Settings()));
 
+    public static final Item CITRINE_HOE = registerItem("citrine_hoe", new ModHoeItem(ModToolMaterials.CITRINE, 0, -3.0F, new Item.Settings()));
     public static final Item MOISSANITE_HOE = registerItem("moissanite_hoe", new ModHoeItem(ModToolMaterials.MOISSANITE, 0, -3.0F, new Item.Settings()));
     public static final Item ONYX_HOE = registerItem("onyx_hoe", new ModHoeItem(ModToolMaterials.ONYX, 0, -3.0F, new Item.Settings()));
 
+    public static final Item OBSIDIAN_HOE = registerItem("obsidian_hoe", new ModHoeItem(ModToolMaterials.OBSIDIAN, 0, -3.0F, new Item.Settings()));
     public static final Item GRAPHENE_HOE = registerItem("graphene_hoe", new ModHoeItem(ModToolMaterials.GRAPHENE, 0, -3.0F, new Item.Settings()));
+    public static final Item ADAMANTIUM_HOE = registerItem("adamantium_hoe", new ModHoeItem(ModToolMaterials.ADAMANTIUM, 0, -3.0F, new Item.Settings()));
+//    public static final Item ENDERITE_HOE = registerItem("enderite_hoe", new ModHoeItem(ModToolMaterials.ENDERITE, 0, -3.0F, new Item.Settings()));
 
 
     //Vanilla tools
     //W.I.P.
 
-
+    //TODO CHECK STATS
     //Shields
-//    public static final Item TIN_SHIELD = registerItem("tin_shield", new FabricShieldItem(new Item.Settings().maxDamage(84), 10, 5, ModItems.TIN_INGOT)); // FabricShieldItem(maxDamage(durability), cooldownTicks, enchantability, repairItems)
-//    public static final Item COPPER_SHIELD = registerItem("copper_shield", new FabricShieldItem(new Item.Settings().maxDamage(112), 10, 10, Items.COPPER_INGOT));
-//    public static final Item SILVER_SHIELD = registerItem("silver_shield", new FabricShieldItem(new Item.Settings().maxDamage(134), 10, 15, ModItems.SILVER_INGOT));
-//    public static final Item BRONZE_SHIELD = registerItem("bronze_shield", new FabricShieldItem(new Item.Settings().maxDamage(299), 10, 13, ModItems.BRONZE_INGOT));
-//    public static final Item COBALT_SHIELD = registerItem("cobalt_shield", new FabricShieldItem(new Item.Settings().maxDamage(388), 10, 22, ModItems.COBALT_INGOT));
-//    public static final Item STERLING_SHIELD = registerItem("sterling_shield", new FabricShieldItem(new Item.Settings().maxDamage(333), 10, 17, ModItems.STERLING_INGOT));
-//    public static final Item AMETHYST_SHIELD = registerItem("amethyst_shield", new FabricShieldItem(new Item.Settings().maxDamage(420), 10, 15, Items.AMETHYST_SHARD));
-//    public static final Item STEEL_SHIELD = registerItem("steel_shield", new FabricShieldItem(new Item.Settings().maxDamage(555), 10, 14, ModItems.STEEL_INGOT));
-//    public static final Item EMERALD_SHIELD = registerItem("emerald_shield", new FabricShieldItem(new Item.Settings().maxDamage(500), 10, 18, Items.EMERALD));
-//    public static final Item TOPAZ_SHIELD = registerItem("topaz_shield", new FabricShieldItem(new Item.Settings().maxDamage(632), 10, 14, ModItems.TOPAZ_GEM));
-//    public static final Item TOURMALINE_SHIELD = registerItem("tourmaline_shield", new FabricShieldItem(new Item.Settings().maxDamage(621), 10, 16, ModItems.TOURMALINE_GEM));
-//    public static final Item TANZANITE_SHIELD = registerItem("tanzanite_shield", new FabricShieldItem(new Item.Settings().maxDamage(784), 10, 11, ModItems.TANZANITE_GEM));
-//    public static final Item RUBY_SHIELD = registerItem("ruby_shield", new FabricShieldItem(new Item.Settings().maxDamage(809), 10, 15, ModItems.RUBY_GEM));
-//    public static final Item SAPPHIRE_SHIELD = registerItem("sapphire_shield", new FabricShieldItem(new Item.Settings().maxDamage(711), 10, 18, ModItems.SAPPHIRE_GEM));
-//    public static final Item OBSIDIAN_SHIELD = registerItem("obsidian_shield", new FabricShieldItem(new Item.Settings().maxDamage(821), 10, 21, ModItems.OBSIDIAN_INGOT));
-//    public static final Item TURQUOISE_SHIELD = registerItem("turquoise_shield", new FabricShieldItem(new Item.Settings().maxDamage(999), 10, 25, ModItems.TURQUOISE_GEM));
-//    public static final Item MOISSANITE_SHIELD = registerItem("moissanite_shield", new FabricShieldItem(new Item.Settings().maxDamage(913), 10, 10, ModItems.MOISSANITE_GEM));
-//    public static final Item ONYX_SHIELD = registerItem("onyx_shield", new FabricShieldItem(new Item.Settings().maxDamage(1111), 10, 13, ModItems.ONYX_GEM));
-//    public static final Item GRAPHENE_SHIELD = registerItem("graphene_shield", new FabricShieldItem(new Item.Settings().maxDamage(1333), 10, 19, ModItems.GRAPHENE_GEM));
+    public static final Item TIN_SHIELD = registerItem("tin_shield", new FabricShieldItem(new Item.Settings().maxDamage(84), 10, 5, ModItems.TIN_INGOT)); // FabricShieldItem(maxDamage(durability), cooldownTicks, enchantability, repairItems)
+//    public static final Item GOLD_SHIELD = registerItem("gold_shield", new FabricShieldItem(new Item.Settings().maxDamage(84), 10, 5, Items.GOLD_INGOT)); // FabricShieldItem(maxDamage(durability), cooldownTicks, enchantability, repairItems)
+    public static final Item SILVER_SHIELD = registerItem("silver_shield", new FabricShieldItem(new Item.Settings().maxDamage(134), 10, 15, ModItems.SILVER_INGOT));
+    public static final Item COPPER_SHIELD = registerItem("copper_shield", new FabricShieldItem(new Item.Settings().maxDamage(112), 10, 10, Items.COPPER_INGOT));
+    public static final Item STERLING_SILVER_SHIELD = registerItem("sterling_silver_shield", new FabricShieldItem(new Item.Settings().maxDamage(333), 10, 17, ModItems.STERLING_SILVER_INGOT));
+    public static final Item ROSE_GOLD_SHIELD = registerItem("rose_gold_shield", new FabricShieldItem(new Item.Settings().maxDamage(333), 10, 17, ModItems.ROSE_GOLD_INGOT));
+    public static final Item BRONZE_SHIELD = registerItem("bronze_shield", new FabricShieldItem(new Item.Settings().maxDamage(299), 10, 13, ModItems.BRONZE_INGOT));
+    public static final Item COBALT_SHIELD = registerItem("cobalt_shield", new FabricShieldItem(new Item.Settings().maxDamage(388), 10, 22, ModItems.COBALT_INGOT));
+    public static final Item CARBON_STEEL_SHIELD = registerItem("carbon_steel_shield", new FabricShieldItem(new Item.Settings().maxDamage(555), 10, 14, ModItems.CARBON_STEEL_INGOT));
+    public static final Item HARDENED_STEEL_SHIELD = registerItem("hardened_steel_shield", new FabricShieldItem(new Item.Settings().maxDamage(555), 10, 14, ModItems.CARBON_STEEL_INGOT));
+    public static final Item TURQUOISE_SHIELD = registerItem("turquoise_shield", new FabricShieldItem(new Item.Settings().maxDamage(999), 10, 25, ModItems.TURQUOISE_GEM));
+    public static final Item LAPIS_LAZULI_SHIELD = registerItem("lapis_lazuli_shield", new FabricShieldItem(new Item.Settings().maxDamage(999), 10, 25, ModItems.TURQUOISE_GEM));
+    public static final Item AMETHYST_SHIELD = registerItem("amethyst_shield", new FabricShieldItem(new Item.Settings().maxDamage(420), 10, 15, Items.AMETHYST_SHARD));
+    public static final Item TANZANITE_SHIELD = registerItem("tanzanite_shield", new FabricShieldItem(new Item.Settings().maxDamage(621), 10, 16, ModItems.TOURMALINE_GEM));
+    public static final Item TOURMALINE_SHIELD = registerItem("tourmaline_shield", new FabricShieldItem(new Item.Settings().maxDamage(621), 10, 16, ModItems.TOURMALINE_GEM));
+    public static final Item TOPAZ_SHIELD = registerItem("topaz_shield", new FabricShieldItem(new Item.Settings().maxDamage(632), 10, 14, ModItems.TOPAZ_GEM));
+    public static final Item EMERALD_SHIELD = registerItem("emerald_shield", new FabricShieldItem(new Item.Settings().maxDamage(500), 10, 18, Items.EMERALD));
+//    public static final Item DIAMOND_SHIELD = registerItem("diamond_shield", new FabricShieldItem(new Item.Settings().maxDamage(500), 10, 18, Items.DIAMOND));
+    public static final Item RUBY_SHIELD = registerItem("ruby_shield", new FabricShieldItem(new Item.Settings().maxDamage(809), 10, 15, ModItems.RUBY_GEM));
+    public static final Item SAPPHIRE_SHIELD = registerItem("sapphire_shield", new FabricShieldItem(new Item.Settings().maxDamage(711), 10, 18, ModItems.SAPPHIRE_GEM));
+    public static final Item CITRINE_SHIELD = registerItem("citrine_shield", new FabricShieldItem(new Item.Settings().maxDamage(784), 10, 11, ModItems.CITRINE_GEM));
+    public static final Item SPINEL_SHIELD = registerItem("spinel_shield", new FabricShieldItem(new Item.Settings().maxDamage(784), 10, 11, ModItems.SPINEL_GEM));
+    public static final Item MOISSANITE_SHIELD = registerItem("moissanite_shield", new FabricShieldItem(new Item.Settings().maxDamage(913), 10, 10, ModItems.MOISSANITE_GEM));
+    public static final Item ONYX_SHIELD = registerItem("onyx_shield", new FabricShieldItem(new Item.Settings().maxDamage(1111), 10, 13, ModItems.ONYX_GEM));
+    public static final Item OBSIDIAN_SHIELD = registerItem("obsidian_shield", new FabricShieldItem(new Item.Settings().maxDamage(821), 10, 21, ModItems.OBSIDIAN_INGOT));
+    public static final Item GRAPHENE_SHIELD = registerItem("graphene_shield", new FabricShieldItem(new Item.Settings().maxDamage(1333), 10, 19, ModItems.GRAPHENE_GEM));
+    public static final Item ADAMANTIUM_SHIELD = registerItem("adamantium_shield", new FabricShieldItem(new Item.Settings().maxDamage(1333), 10, 19, ModItems.GRAPHENE_GEM));
+//    public static final Item ENDERITE_SHIELD = registerItem("enderite_shield", new FabricShieldItem(new Item.Settings().maxDamage(1333), 10, 19, ModItems.GRAPHENE_GEM));
+//    public static final Item NETHERITE_SHIELD = registerItem("netherite_shield", new FabricShieldItem(new Item.Settings().maxDamage(1333), 10, 19, Items.NETHERITE_INGOT));
 
     private static void addItemsToIngredientItemGroup(FabricItemGroupEntries entries) {
         entries.add(ANTHRACITE);
+        entries.add(CITRINE);
+        entries.add(TURQUOISE);
+        entries.add(ONYX);
 
         entries.add(RAW_TIN);
         entries.add(RAW_SILVER);
         entries.add(RAW_COBALT);
 
+        entries.add(HOT_CARBON_STEEL_SCRAP);
+        entries.add(CARBON_STEEL_SCRAP);
+
+        entries.add(AMETHYST_DUST);
+        entries.add(LAPIS_LAZULI_DUST);
+        entries.add(TURQUOISE_DUST);
+
         entries.add(TIN_INGOT);
         entries.add(SILVER_INGOT);
+        entries.add(STERLING_SILVER_INGOT);
+        entries.add(ROSE_GOLD_INGOT);
         entries.add(BRONZE_INGOT);
-        entries.add(STERLING_INGOT);
         entries.add(COBALT_INGOT);
-        entries.add(STEEL_INGOT);
+        entries.add(CARBON_STEEL_INGOT);
+        entries.add(HARDENED_STEEL_INGOT);
         entries.add(OBSIDIAN_INGOT);
-
+        entries.add(AMETHYST_GEM);
+        entries.add(LAPIS_LAZULI_GEM);
+        entries.add(TURQUOISE_GEM);
+        entries.add(TANZANITE_GEM);
         entries.add(TOURMALINE_GEM);
         entries.add(TOPAZ_GEM);
-        entries.add(TANZANITE_GEM);
         entries.add(RUBY_GEM);
         entries.add(SAPPHIRE_GEM);
+        entries.add(SPINEL_GEM);
+        entries.add(CITRINE_GEM);
         entries.add(MOISSANITE_GEM);
-        entries.add(TURQUOISE_GEM);
         entries.add(ONYX_GEM);
         entries.add(GRAPHENE_GEM);
 
+        entries.add(HARDENED_STEEL_UPGRADE_SMITHING_TEMPLATE);
         entries.add(OBSIDIAN_UPGRADE_SMITHING_TEMPLATE);
-        entries.add(BRONZE_ALLOY_SMITHING_TEMPLATE);
-        entries.add(STERLING_ALLOY_SMITHING_TEMPLATE);
-        entries.add(STEEL_ALLOY_SMITHING_TEMPLATE);
-        entries.add(GRAPHENE_ALLOY_SMITHING_TEMPLATE);
     }
     private static void addItemsToCombatItemGroup(FabricItemGroupEntries entries) {
-        entries.add(WOOD_BATTLEAXE);
-        entries.add(WOOD_MACE);
+        entries.add(WOOD_BATTLE_AXE);
+        entries.add(WOOD_BATTLE_MACE);
         entries.add(WOOD_DAGGER);
 
-        entries.add(TIN_SWORD);
-        entries.add(TIN_BATTLEAXE);
-        entries.add(TIN_MACE);
-        entries.add(TIN_DAGGER);
-
-        entries.add(STONE_BATTLEAXE);
-        entries.add(STONE_MACE);
+        entries.add(STONE_BATTLE_AXE);
+        entries.add(STONE_BATTLE_MACE);
         entries.add(STONE_DAGGER);
 
+        entries.add(TIN_SWORD);
+        entries.add(TIN_BATTLE_AXE);
+        entries.add(TIN_BATTLE_MACE);
+        entries.add(TIN_DAGGER);
+
+        entries.add(GOLD_BATTLE_AXE);
+        entries.add(GOLD_BATTLE_MACE);
+        entries.add(GOLD_DAGGER);
+
         entries.add(SILVER_SWORD);
-        entries.add(SILVER_BATTLEAXE);
-        entries.add(SILVER_MACE);
+        entries.add(SILVER_BATTLE_AXE);
+        entries.add(SILVER_BATTLE_MACE);
         entries.add(SILVER_DAGGER);
 
         entries.add(COPPER_SWORD);
-        entries.add(COPPER_BATTLEAXE);
-        entries.add(COPPER_MACE);
+        entries.add(COPPER_BATTLE_AXE);
+        entries.add(COPPER_BATTLE_MACE);
         entries.add(COPPER_DAGGER);
 
+        entries.add(STERLING_SILVER_SWORD);
+        entries.add(STERLING_SILVER_BATTLE_AXE);
+        entries.add(STERLING_SILVER_BATTLE_MACE);
+        entries.add(STERLING_SILVER_DAGGER);
+
+        entries.add(ROSE_GOLD_SWORD);
+        entries.add(ROSE_GOLD_BATTLE_AXE);
+        entries.add(ROSE_GOLD_BATTLE_MACE);
+        entries.add(ROSE_GOLD_DAGGER);
+
         entries.add(BRONZE_SWORD);
-        entries.add(BRONZE_BATTLEAXE);
-        entries.add(BRONZE_MACE);
+        entries.add(BRONZE_BATTLE_AXE);
+        entries.add(BRONZE_BATTLE_MACE);
         entries.add(BRONZE_DAGGER);
 
-        entries.add(GOLD_BATTLEAXE);
-        entries.add(GOLD_MACE);
-        entries.add(GOLD_DAGGER);
-
-        entries.add(IRON_BATTLEAXE);
-        entries.add(IRON_MACE);
+        entries.add(IRON_BATTLE_AXE);
+        entries.add(IRON_BATTLE_MACE);
         entries.add(IRON_DAGGER);
 
         entries.add(COBALT_SWORD);
-        entries.add(COBALT_BATTLEAXE);
-        entries.add(COBALT_MACE);
+        entries.add(COBALT_BATTLE_AXE);
+        entries.add(COBALT_BATTLE_MACE);
         entries.add(COBALT_DAGGER);
 
-        entries.add(STERLING_SWORD);
-        entries.add(STERLING_BATTLEAXE);
-        entries.add(STERLING_MACE);
-        entries.add(STERLING_DAGGER);
+        entries.add(CARBON_STEEL_SWORD);
+        entries.add(CARBON_STEEL_BATTLE_AXE);
+        entries.add(CARBON_STEEL_BATTLE_MACE);
+        entries.add(CARBON_STEEL_DAGGER);
 
-        entries.add(STEEL_SWORD);
-        entries.add(STEEL_BATTLEAXE);
-        entries.add(STEEL_MACE);
-        entries.add(STEEL_DAGGER);
+        entries.add(HARDENED_STEEL_SWORD);
+        entries.add(HARDENED_STEEL_BATTLE_AXE);
+        entries.add(HARDENED_STEEL_BATTLE_MACE);
+        entries.add(HARDENED_STEEL_DAGGER);
+
+        entries.add(TURQUOISE_SWORD);
+        entries.add(TURQUOISE_BATTLE_AXE);
+        entries.add(TURQUOISE_BATTLE_MACE);
+        entries.add(TURQUOISE_DAGGER);
+
+        entries.add(LAPIS_LAZULI_SWORD);
+        entries.add(LAPIS_LAZULI_BATTLE_AXE);
+        entries.add(LAPIS_LAZULI_BATTLE_MACE);
+        entries.add(LAPIS_LAZULI_DAGGER);
 
         entries.add(AMETHYST_SWORD);
-        entries.add(AMETHYST_BATTLEAXE);
-        entries.add(AMETHYST_MACE);
+        entries.add(AMETHYST_BATTLE_AXE);
+        entries.add(AMETHYST_BATTLE_MACE);
         entries.add(AMETHYST_DAGGER);
 
-        entries.add(EMERALD_SWORD);
-        entries.add(EMERALD_BATTLEAXE);
-        entries.add(EMERALD_MACE);
-        entries.add(EMERALD_DAGGER);
-
-        entries.add(TOPAZ_SWORD);
-        entries.add(TOPAZ_BATTLEAXE);
-        entries.add(TOPAZ_MACE);
-        entries.add(TOPAZ_DAGGER);
-
-        entries.add(TOURMALINE_SWORD);
-        entries.add(TOURMALINE_BATTLEAXE);
-        entries.add(TOURMALINE_MACE);
-        entries.add(TOURMALINE_DAGGER);
-
         entries.add(TANZANITE_SWORD);
-        entries.add(TANZANITE_BATTLEAXE);
-        entries.add(TANZANITE_MACE);
+        entries.add(TANZANITE_BATTLE_AXE);
+        entries.add(TANZANITE_BATTLE_MACE);
         entries.add(TANZANITE_DAGGER);
 
+        entries.add(TOURMALINE_SWORD);
+        entries.add(TOURMALINE_BATTLE_AXE);
+        entries.add(TOURMALINE_BATTLE_MACE);
+        entries.add(TOURMALINE_DAGGER);
+
+        entries.add(TOPAZ_SWORD);
+        entries.add(TOPAZ_BATTLE_AXE);
+        entries.add(TOPAZ_BATTLE_MACE);
+        entries.add(TOPAZ_DAGGER);
+
+        entries.add(EMERALD_SWORD);
+        entries.add(EMERALD_BATTLE_AXE);
+        entries.add(EMERALD_BATTLE_MACE);
+        entries.add(EMERALD_DAGGER);
+
+        entries.add(DIAMOND_BATTLE_AXE);
+        entries.add(DIAMOND_BATTLE_MACE);
+        entries.add(DIAMOND_DAGGER);
+
         entries.add(RUBY_SWORD);
-        entries.add(RUBY_BATTLEAXE);
-        entries.add(RUBY_MACE);
+        entries.add(RUBY_BATTLE_AXE);
+        entries.add(RUBY_BATTLE_MACE);
         entries.add(RUBY_DAGGER);
 
         entries.add(SAPPHIRE_SWORD);
-        entries.add(SAPPHIRE_BATTLEAXE);
-        entries.add(SAPPHIRE_MACE);
+        entries.add(SAPPHIRE_BATTLE_AXE);
+        entries.add(SAPPHIRE_BATTLE_MACE);
         entries.add(SAPPHIRE_DAGGER);
 
-        entries.add(DIAMOND_BATTLEAXE);
-        entries.add(DIAMOND_MACE);
-        entries.add(DIAMOND_DAGGER);
+        entries.add(SPINEL_SWORD);
+        entries.add(SPINEL_BATTLE_AXE);
+        entries.add(SPINEL_BATTLE_MACE);
+        entries.add(SPINEL_DAGGER);
+
+        entries.add(CITRINE_SWORD);
+        entries.add(CITRINE_BATTLE_AXE);
+        entries.add(CITRINE_BATTLE_MACE);
+        entries.add(CITRINE_DAGGER);
 
         entries.add(MOISSANITE_SWORD);
-        entries.add(MOISSANITE_BATTLEAXE);
-        entries.add(MOISSANITE_MACE);
+        entries.add(MOISSANITE_BATTLE_AXE);
+        entries.add(MOISSANITE_BATTLE_MACE);
         entries.add(MOISSANITE_DAGGER);
 
-        entries.add(TURQUOISE_SWORD);
-        entries.add(TURQUOISE_BATTLEAXE);
-        entries.add(TURQUOISE_MACE);
-        entries.add(TURQUOISE_DAGGER);
-
-        entries.add(OBSIDIAN_SWORD);
-        entries.add(OBSIDIAN_BATTLEAXE);
-        entries.add(OBSIDIAN_MACE);
-        entries.add(OBSIDIAN_DAGGER);
-
         entries.add(ONYX_SWORD);
-        entries.add(ONYX_BATTLEAXE);
-        entries.add(ONYX_MACE);
+        entries.add(ONYX_BATTLE_AXE);
+        entries.add(ONYX_BATTLE_MACE);
         entries.add(ONYX_DAGGER);
 
-        entries.add(NETHERITE_BATTLEAXE);
-        entries.add(NETHERITE_MACE);
+        entries.add(OBSIDIAN_SWORD);
+        entries.add(OBSIDIAN_BATTLE_AXE);
+        entries.add(OBSIDIAN_BATTLE_MACE);
+        entries.add(OBSIDIAN_DAGGER);
+
+        entries.add(NETHERITE_BATTLE_AXE);
+        entries.add(NETHERITE_BATTLE_MACE);
         entries.add(NETHERITE_DAGGER);
 
         entries.add(GRAPHENE_SWORD);
-        entries.add(GRAPHENE_BATTLEAXE);
-        entries.add(GRAPHENE_MACE);
+        entries.add(GRAPHENE_BATTLE_AXE);
+        entries.add(GRAPHENE_BATTLE_MACE);
         entries.add(GRAPHENE_DAGGER);
+
+        entries.add(ADAMANTIUM_SWORD);
+        entries.add(ADAMANTIUM_BATTLE_AXE);
+        entries.add(ADAMANTIUM_BATTLE_MACE);
+        entries.add(ADAMANTIUM_DAGGER);
+
+//        entries.add(ENDERITE_SWORD);
+//        entries.add(ENDERITE_BATTLE_AXE);
+//        entries.add(ENDERITE_BATTLE_MACE);
+//        entries.add(ENDERITE_DAGGER);
 
         entries.add(ModItems.TIN_HELMET);
         entries.add(ModItems.TIN_CHESTPLATE);
         entries.add(ModItems.TIN_LEGGINGS);
         entries.add(ModItems.TIN_BOOTS);
-        entries.add(ModItems.COPPER_HELMET);
-        entries.add(ModItems.COPPER_CHESTPLATE);
-        entries.add(ModItems.COPPER_LEGGINGS);
-        entries.add(ModItems.COPPER_BOOTS);
-        entries.add(ModItems.BRONZE_HELMET);
-        entries.add(ModItems.BRONZE_CHESTPLATE);
-        entries.add(ModItems.BRONZE_LEGGINGS);
-        entries.add(ModItems.BRONZE_BOOTS);
         entries.add(ModItems.SILVER_HELMET);
         entries.add(ModItems.SILVER_CHESTPLATE);
         entries.add(ModItems.SILVER_LEGGINGS);
         entries.add(ModItems.SILVER_BOOTS);
+        entries.add(ModItems.COPPER_HELMET);
+        entries.add(ModItems.COPPER_CHESTPLATE);
+        entries.add(ModItems.COPPER_LEGGINGS);
+        entries.add(ModItems.COPPER_BOOTS);
+        entries.add(ModItems.STERLING_SILVER_HELMET);
+        entries.add(ModItems.STERLING_SILVER_CHESTPLATE);
+        entries.add(ModItems.STERLING_SILVER_LEGGINGS);
+        entries.add(ModItems.STERLING_SILVER_BOOTS);
+        entries.add(ModItems.ROSE_GOLD_HELMET);
+        entries.add(ModItems.ROSE_GOLD_CHESTPLATE);
+        entries.add(ModItems.ROSE_GOLD_LEGGINGS);
+        entries.add(ModItems.ROSE_GOLD_BOOTS);
+        entries.add(ModItems.BRONZE_HELMET);
+        entries.add(ModItems.BRONZE_CHESTPLATE);
+        entries.add(ModItems.BRONZE_LEGGINGS);
+        entries.add(ModItems.BRONZE_BOOTS);
         entries.add(ModItems.COBALT_HELMET);
         entries.add(ModItems.COBALT_CHESTPLATE);
         entries.add(ModItems.COBALT_LEGGINGS);
         entries.add(ModItems.COBALT_BOOTS);
-        entries.add(ModItems.STERLING_HELMET);
-        entries.add(ModItems.STERLING_CHESTPLATE);
-        entries.add(ModItems.STERLING_LEGGINGS);
-        entries.add(ModItems.STERLING_BOOTS);
-        entries.add(ModItems.STEEL_HELMET);
-        entries.add(ModItems.STEEL_CHESTPLATE);
-        entries.add(ModItems.STEEL_LEGGINGS);
-        entries.add(ModItems.STEEL_BOOTS);
+        entries.add(ModItems.CARBON_STEEL_HELMET);
+        entries.add(ModItems.CARBON_STEEL_CHESTPLATE);
+        entries.add(ModItems.CARBON_STEEL_LEGGINGS);
+        entries.add(ModItems.CARBON_STEEL_BOOTS);
+        entries.add(ModItems.HARDENED_STEEL_HELMET);
+        entries.add(ModItems.HARDENED_STEEL_CHESTPLATE);
+        entries.add(ModItems.HARDENED_STEEL_LEGGINGS);
+        entries.add(ModItems.HARDENED_STEEL_BOOTS);
+        entries.add(ModItems.TURQUOISE_HELMET);
+        entries.add(ModItems.TURQUOISE_CHESTPLATE);
+        entries.add(ModItems.TURQUOISE_LEGGINGS);
+        entries.add(ModItems.TURQUOISE_BOOTS);
+        entries.add(ModItems.LAPIS_LAZULI_HELMET);
+        entries.add(ModItems.LAPIS_LAZULI_CHESTPLATE);
+        entries.add(ModItems.LAPIS_LAZULI_LEGGINGS);
+        entries.add(ModItems.LAPIS_LAZULI_BOOTS);
         entries.add(ModItems.AMETHYST_HELMET);
         entries.add(ModItems.AMETHYST_CHESTPLATE);
         entries.add(ModItems.AMETHYST_LEGGINGS);
         entries.add(ModItems.AMETHYST_BOOTS);
-        entries.add(ModItems.EMERALD_HELMET);
-        entries.add(ModItems.EMERALD_CHESTPLATE);
-        entries.add(ModItems.EMERALD_LEGGINGS);
-        entries.add(ModItems.EMERALD_BOOTS);
-        entries.add(ModItems.TOPAZ_HELMET);
-        entries.add(ModItems.TOPAZ_CHESTPLATE);
-        entries.add(ModItems.TOPAZ_LEGGINGS);
-        entries.add(ModItems.TOPAZ_BOOTS);
+        entries.add(ModItems.TANZANITE_HELMET);
+        entries.add(ModItems.TANZANITE_CHESTPLATE);
+        entries.add(ModItems.TANZANITE_LEGGINGS);
+        entries.add(ModItems.TANZANITE_BOOTS);
         entries.add(ModItems.TOURMALINE_HELMET);
         entries.add(ModItems.TOURMALINE_CHESTPLATE);
         entries.add(ModItems.TOURMALINE_LEGGINGS);
         entries.add(ModItems.TOURMALINE_BOOTS);
+        entries.add(ModItems.TOPAZ_HELMET);
+        entries.add(ModItems.TOPAZ_CHESTPLATE);
+        entries.add(ModItems.TOPAZ_LEGGINGS);
+        entries.add(ModItems.TOPAZ_BOOTS);
+        entries.add(ModItems.EMERALD_HELMET);
+        entries.add(ModItems.EMERALD_CHESTPLATE);
+        entries.add(ModItems.EMERALD_LEGGINGS);
+        entries.add(ModItems.EMERALD_BOOTS);
         entries.add(ModItems.RUBY_HELMET);
         entries.add(ModItems.RUBY_CHESTPLATE);
         entries.add(ModItems.RUBY_LEGGINGS);
@@ -693,50 +881,65 @@ public class ModItems {
         entries.add(ModItems.SAPPHIRE_CHESTPLATE);
         entries.add(ModItems.SAPPHIRE_LEGGINGS);
         entries.add(ModItems.SAPPHIRE_BOOTS);
-        entries.add(ModItems.TANZANITE_HELMET);
-        entries.add(ModItems.TANZANITE_CHESTPLATE);
-        entries.add(ModItems.TANZANITE_LEGGINGS);
-        entries.add(ModItems.TANZANITE_BOOTS);
+        entries.add(ModItems.SPINEL_HELMET);
+        entries.add(ModItems.SPINEL_CHESTPLATE);
+        entries.add(ModItems.SPINEL_LEGGINGS);
+        entries.add(ModItems.SPINEL_BOOTS);
+        entries.add(ModItems.CITRINE_HELMET);
+        entries.add(ModItems.CITRINE_CHESTPLATE);
+        entries.add(ModItems.CITRINE_LEGGINGS);
+        entries.add(ModItems.CITRINE_BOOTS);
         entries.add(ModItems.MOISSANITE_HELMET);
         entries.add(ModItems.MOISSANITE_CHESTPLATE);
         entries.add(ModItems.MOISSANITE_LEGGINGS);
         entries.add(ModItems.MOISSANITE_BOOTS);
-        entries.add(ModItems.TURQUOISE_HELMET);
-        entries.add(ModItems.TURQUOISE_CHESTPLATE);
-        entries.add(ModItems.TURQUOISE_LEGGINGS);
-        entries.add(ModItems.TURQUOISE_BOOTS);
-        entries.add(ModItems.OBSIDIAN_HELMET);
-        entries.add(ModItems.OBSIDIAN_CHESTPLATE);
-        entries.add(ModItems.OBSIDIAN_LEGGINGS);
-        entries.add(ModItems.OBSIDIAN_BOOTS);
         entries.add(ModItems.ONYX_HELMET);
         entries.add(ModItems.ONYX_CHESTPLATE);
         entries.add(ModItems.ONYX_LEGGINGS);
         entries.add(ModItems.ONYX_BOOTS);
+        entries.add(ModItems.OBSIDIAN_HELMET);
+        entries.add(ModItems.OBSIDIAN_CHESTPLATE);
+        entries.add(ModItems.OBSIDIAN_LEGGINGS);
+        entries.add(ModItems.OBSIDIAN_BOOTS);
         entries.add(ModItems.GRAPHENE_HELMET);
         entries.add(ModItems.GRAPHENE_CHESTPLATE);
         entries.add(ModItems.GRAPHENE_LEGGINGS);
         entries.add(ModItems.GRAPHENE_BOOTS);
+        entries.add(ModItems.ADAMANTIUM_HELMET);
+        entries.add(ModItems.ADAMANTIUM_CHESTPLATE);
+        entries.add(ModItems.ADAMANTIUM_LEGGINGS);
+        entries.add(ModItems.ADAMANTIUM_BOOTS);
+//        entries.add(ModItems.ENDERITE_HELMET);
+//        entries.add(ModItems.ENDERITE_CHESTPLATE);
+//        entries.add(ModItems.ENDERITE_LEGGINGS);
+//        entries.add(ModItems.ENDERITE_BOOTS);
 
-//        entries.add(TIN_SHIELD);
-//        entries.add(SILVER_SHIELD);
-//        entries.add(COPPER_SHIELD);
-//        entries.add(BRONZE_SHIELD);
-//        entries.add(COBALT_SHIELD);
-//        entries.add(STERLING_SHIELD);
-//        entries.add(STEEL_SHIELD);
-//        entries.add(AMETHYST_SHIELD);
-//        entries.add(EMERALD_SHIELD);
-//        entries.add(TOPAZ_SHIELD);
-//        entries.add(TOURMALINE_SHIELD);
-//        entries.add(TANZANITE_SHIELD);
-//        entries.add(RUBY_SHIELD);
-//        entries.add(SAPPHIRE_SHIELD);
-//        entries.add(MOISSANITE_SHIELD);
-//        entries.add(TURQUOISE_SHIELD);
-//        entries.add(OBSIDIAN_SHIELD);
-//        entries.add(ONYX_SHIELD);
-//        entries.add(GRAPHENE_SHIELD);
+        entries.add(TIN_SHIELD);
+        entries.add(SILVER_SHIELD);
+        entries.add(COPPER_SHIELD);
+        entries.add(STERLING_SILVER_SHIELD);
+        entries.add(ROSE_GOLD_SHIELD);
+        entries.add(BRONZE_SHIELD);
+        entries.add(COBALT_SHIELD);
+        entries.add(CARBON_STEEL_SHIELD);
+        entries.add(HARDENED_STEEL_SHIELD);
+        entries.add(TURQUOISE_SHIELD);
+        entries.add(AMETHYST_SHIELD);
+        entries.add(LAPIS_LAZULI_SHIELD);
+        entries.add(TANZANITE_SHIELD);
+        entries.add(TOURMALINE_SHIELD);
+        entries.add(TOPAZ_SHIELD);
+        entries.add(EMERALD_SHIELD);
+        entries.add(RUBY_SHIELD);
+        entries.add(SAPPHIRE_SHIELD);
+        entries.add(SPINEL_SHIELD);
+        entries.add(CITRINE_SHIELD);
+        entries.add(MOISSANITE_SHIELD);
+        entries.add(ONYX_SHIELD);
+        entries.add(OBSIDIAN_SHIELD);
+        entries.add(GRAPHENE_SHIELD);
+        entries.add(ADAMANTIUM_SHIELD);
+//        entries.add(ENDERITE_SHIELD);
     }
     private static void addItemsToFoodItemGroup(FabricItemGroupEntries entries) {
         entries.add(CHOCOLATE);
@@ -749,60 +952,80 @@ public class ModItems {
         entries.add(TIN_SHOVEL);
         entries.add(TIN_HOE);
 
+        entries.add(SILVER_PICKAXE);
+        entries.add(SILVER_AXE);
+        entries.add(SILVER_SHOVEL);
+        entries.add(SILVER_HOE);
+
         entries.add(COPPER_PICKAXE);
         entries.add(COPPER_AXE);
         entries.add(COPPER_SHOVEL);
         entries.add(COPPER_HOE);
+
+        entries.add(STERLING_SILVER_PICKAXE);
+        entries.add(STERLING_SILVER_AXE);
+        entries.add(STERLING_SILVER_SHOVEL);
+        entries.add(STERLING_SILVER_HOE);
+
+        entries.add(ROSE_GOLD_PICKAXE);
+        entries.add(ROSE_GOLD_AXE);
+        entries.add(ROSE_GOLD_SHOVEL);
+        entries.add(ROSE_GOLD_HOE);
 
         entries.add(BRONZE_PICKAXE);
         entries.add(BRONZE_AXE);
         entries.add(BRONZE_SHOVEL);
         entries.add(BRONZE_HOE);
 
-        entries.add(SILVER_PICKAXE);
-        entries.add(SILVER_AXE);
-        entries.add(SILVER_SHOVEL);
-        entries.add(SILVER_HOE);
-
-        entries.add(STERLING_PICKAXE);
-        entries.add(STERLING_AXE);
-        entries.add(STERLING_SHOVEL);
-        entries.add(STERLING_HOE);
-
-        entries.add(STEEL_PICKAXE);
-        entries.add(STEEL_AXE);
-        entries.add(STEEL_SHOVEL);
-        entries.add(STEEL_HOE);
-
         entries.add(COBALT_PICKAXE);
         entries.add(COBALT_AXE);
         entries.add(COBALT_SHOVEL);
         entries.add(COBALT_HOE);
+
+        entries.add(CARBON_STEEL_PICKAXE);
+        entries.add(CARBON_STEEL_AXE);
+        entries.add(CARBON_STEEL_SHOVEL);
+        entries.add(CARBON_STEEL_HOE);
+
+        entries.add(HARDENED_STEEL_PICKAXE);
+        entries.add(HARDENED_STEEL_AXE);
+        entries.add(HARDENED_STEEL_SHOVEL);
+        entries.add(HARDENED_STEEL_HOE);
+
+        entries.add(TURQUOISE_PICKAXE);
+        entries.add(TURQUOISE_AXE);
+        entries.add(TURQUOISE_SHOVEL);
+        entries.add(TURQUOISE_HOE);
 
         entries.add(AMETHYST_PICKAXE);
         entries.add(AMETHYST_AXE);
         entries.add(AMETHYST_SHOVEL);
         entries.add(AMETHYST_HOE);
 
-        entries.add(EMERALD_PICKAXE);
-        entries.add(EMERALD_AXE);
-        entries.add(EMERALD_SHOVEL);
-        entries.add(EMERALD_HOE);
+        entries.add(LAPIS_LAZULI_PICKAXE);
+        entries.add(LAPIS_LAZULI_AXE);
+        entries.add(LAPIS_LAZULI_SHOVEL);
+        entries.add(LAPIS_LAZULI_HOE);
 
-        entries.add(TOPAZ_PICKAXE);
-        entries.add(TOPAZ_AXE);
-        entries.add(TOPAZ_SHOVEL);
-        entries.add(TOPAZ_HOE);
+        entries.add(TANZANITE_PICKAXE);
+        entries.add(TANZANITE_AXE);
+        entries.add(TANZANITE_SHOVEL);
+        entries.add(TANZANITE_HOE);
 
         entries.add(TOURMALINE_PICKAXE);
         entries.add(TOURMALINE_AXE);
         entries.add(TOURMALINE_SHOVEL);
         entries.add(TOURMALINE_HOE);
 
-        entries.add(TANZANITE_PICKAXE);
-        entries.add(TANZANITE_AXE);
-        entries.add(TANZANITE_SHOVEL);
-        entries.add(TANZANITE_HOE);
+        entries.add(TOPAZ_PICKAXE);
+        entries.add(TOPAZ_AXE);
+        entries.add(TOPAZ_SHOVEL);
+        entries.add(TOPAZ_HOE);
+
+        entries.add(EMERALD_PICKAXE);
+        entries.add(EMERALD_AXE);
+        entries.add(EMERALD_SHOVEL);
+        entries.add(EMERALD_HOE);
 
         entries.add(RUBY_PICKAXE);
         entries.add(RUBY_AXE);
@@ -814,30 +1037,45 @@ public class ModItems {
         entries.add(SAPPHIRE_SHOVEL);
         entries.add(SAPPHIRE_HOE);
 
+        entries.add(SPINEL_PICKAXE);
+        entries.add(SPINEL_AXE);
+        entries.add(SPINEL_SHOVEL);
+        entries.add(SPINEL_HOE);
+
+        entries.add(CITRINE_PICKAXE);
+        entries.add(CITRINE_AXE);
+        entries.add(CITRINE_SHOVEL);
+        entries.add(CITRINE_HOE);
+
         entries.add(MOISSANITE_PICKAXE);
         entries.add(MOISSANITE_AXE);
         entries.add(MOISSANITE_SHOVEL);
         entries.add(MOISSANITE_HOE);
-
-        entries.add(TURQUOISE_PICKAXE);
-        entries.add(TURQUOISE_AXE);
-        entries.add(TURQUOISE_SHOVEL);
-        entries.add(TURQUOISE_HOE);
-
-        entries.add(OBSIDIAN_PICKAXE);
-        entries.add(OBSIDIAN_AXE);
-        entries.add(OBSIDIAN_SHOVEL);
-        entries.add(OBSIDIAN_HOE);
 
         entries.add(ONYX_PICKAXE);
         entries.add(ONYX_AXE);
         entries.add(ONYX_SHOVEL);
         entries.add(ONYX_HOE);
 
+        entries.add(OBSIDIAN_PICKAXE);
+        entries.add(OBSIDIAN_AXE);
+        entries.add(OBSIDIAN_SHOVEL);
+        entries.add(OBSIDIAN_HOE);
+
         entries.add(GRAPHENE_PICKAXE);
         entries.add(GRAPHENE_AXE);
         entries.add(GRAPHENE_SHOVEL);
         entries.add(GRAPHENE_HOE);
+
+        entries.add(ADAMANTIUM_PICKAXE);
+        entries.add(ADAMANTIUM_AXE);
+        entries.add(ADAMANTIUM_SHOVEL);
+        entries.add(ADAMANTIUM_HOE);
+
+//        entries.add(ENDERITE_PICKAXE);
+//        entries.add(ENDERITE_AXE);
+//        entries.add(ENDERITE_SHOVEL);
+//        entries.add(ENDERITE_HOE);
 
         entries.add(SWEET_CAROLINE_MUSIC_DISC);
         entries.add(CIPHER_DISC);

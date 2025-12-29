@@ -1,9 +1,6 @@
 package mod.leronus.mores;
 
-import mod.leronus.mores.datagen.ModBlockTagProvider;
-import mod.leronus.mores.datagen.ModItemTagProvider;
-import mod.leronus.mores.datagen.ModModelProvider;
-import mod.leronus.mores.datagen.ModWorldGenerator;
+import mod.leronus.mores.datagen.*;
 import mod.leronus.mores.trim.ModTrimMaterials;
 import mod.leronus.mores.world.ModConfiguredFeatures;
 import mod.leronus.mores.world.ModPlacedFeatures;
@@ -19,12 +16,13 @@ public class MoresDataGenerator implements DataGeneratorEntrypoint {
 
 		pack.addProvider(ModBlockTagProvider::new);
 		pack.addProvider(ModItemTagProvider::new);
-//		pack.addProvider(ModBlockLootTableGenerator::new);
-//		pack.addProvider(ModModelProvider::new);
-//		pack.addProvider(ModRecipeGenerator::new);
+		pack.addProvider(ModLootTableProvider::new);
+		pack.addProvider(ModModelProvider::new);
+		pack.addProvider(ModRecipeProvider::new);
 //		pack.addProvider(ModPaintingVariantTagProvider::new);
 //		pack.addProvider(ModAdvancementProvider::new);
 		pack.addProvider(ModWorldGenerator::new);
+        pack.addProvider(ModRegistryDataGenerator::new);
 	}
 
 	@Override

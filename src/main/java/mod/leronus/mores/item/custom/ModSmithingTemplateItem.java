@@ -25,29 +25,11 @@ public class ModSmithingTemplateItem extends SmithingTemplateItem {
     private static final Text OBSIDIAN_UPGRADE_BASE_SLOT_DESCRIPTION = Text.translatable(Util.createTranslationKey("item", Identifier.of(Mores.MOD_ID,"smithing_template.obsidian_upgrade.base_slot_description")));
     private static final Text OBSIDIAN_UPGRADE_ADDITIONS_SLOT_DESCRIPTION = Text.translatable(Util.createTranslationKey("item", Identifier.of(Mores.MOD_ID,"smithing_template.obsidian_upgrade.additions_slot_description")));
 
-    private static final Text BRONZE_ALLOY = Text.translatable(Util.createTranslationKey("alloy", Identifier.of(Mores.MOD_ID,"bronze_alloy"))).formatted(TITLE_FORMAT);
-    private static final Text BRONZE_ALLOY_APPLIES_TO = Text.translatable(Util.createTranslationKey("item", Identifier.of(Mores.MOD_ID,"smithing_template.bronze_alloy.applies_to"))).formatted(DESCRIPTION_FORMAT);
-    private static final Text BRONZE_ALLOY_INGREDIENTS = Text.translatable(Util.createTranslationKey("item", Identifier.of(Mores.MOD_ID,"smithing_template.bronze_alloy.ingredients"))).formatted(DESCRIPTION_FORMAT);
-    private static final Text BRONZE_ALLOY_BASE_SLOT_DESCRIPTION = Text.translatable(Util.createTranslationKey("item", Identifier.of(Mores.MOD_ID,"smithing_template.bronze_alloy.base_slot_description")));
-    private static final Text BRONZE_ALLOY_ADDITIONS_SLOT_DESCRIPTION = Text.translatable(Util.createTranslationKey("item", Identifier.of(Mores.MOD_ID,"smithing_template.bronze_alloy.additions_slot_description")));
-
-    private static final Text STERLING_ALLOY = Text.translatable(Util.createTranslationKey("alloy", Identifier.of(Mores.MOD_ID,"sterling_alloy"))).formatted(TITLE_FORMAT);
-    private static final Text STERLING_ALLOY_APPLIES_TO = Text.translatable(Util.createTranslationKey("item", Identifier.of(Mores.MOD_ID,"smithing_template.sterling_alloy.applies_to"))).formatted(DESCRIPTION_FORMAT);
-    private static final Text STERLING_ALLOY_INGREDIENTS = Text.translatable(Util.createTranslationKey("item", Identifier.of(Mores.MOD_ID,"smithing_template.sterling_alloy.ingredients"))).formatted(DESCRIPTION_FORMAT);
-    private static final Text STERLING_ALLOY_BASE_SLOT_DESCRIPTION = Text.translatable(Util.createTranslationKey("item", Identifier.of(Mores.MOD_ID,"smithing_template.sterling_alloy.base_slot_description")));
-    private static final Text STERLING_ALLOY_ADDITIONS_SLOT_DESCRIPTION = Text.translatable(Util.createTranslationKey("item", Identifier.of(Mores.MOD_ID,"smithing_template.sterling_alloy.additions_slot_description")));
-
-    private static final Text STEEL_ALLOY = Text.translatable(Util.createTranslationKey("alloy", Identifier.of(Mores.MOD_ID,"steel_alloy"))).formatted(TITLE_FORMAT);
-    private static final Text STEEL_ALLOY_APPLIES_TO = Text.translatable(Util.createTranslationKey("item", Identifier.of(Mores.MOD_ID,"smithing_template.steel_alloy.applies_to"))).formatted(DESCRIPTION_FORMAT);
-    private static final Text STEEL_ALLOY_INGREDIENTS = Text.translatable(Util.createTranslationKey("item", Identifier.of(Mores.MOD_ID,"smithing_template.steel_alloy.ingredients"))).formatted(DESCRIPTION_FORMAT);
-    private static final Text STEEL_ALLOY_BASE_SLOT_DESCRIPTION = Text.translatable(Util.createTranslationKey("item", Identifier.of(Mores.MOD_ID,"smithing_template.steel_alloy.base_slot_description")));
-    private static final Text STEEL_ALLOY_ADDITIONS_SLOT_DESCRIPTION = Text.translatable(Util.createTranslationKey("item", Identifier.of(Mores.MOD_ID,"smithing_template.steel_alloy.additions_slot_description")));
-
-    private static final Text GRAPHENE_ALLOY = Text.translatable(Util.createTranslationKey("alloy", Identifier.of(Mores.MOD_ID,"graphene_alloy"))).formatted(TITLE_FORMAT);
-    private static final Text GRAPHENE_ALLOY_APPLIES_TO = Text.translatable(Util.createTranslationKey("item", Identifier.of(Mores.MOD_ID,"smithing_template.graphene_alloy.applies_to"))).formatted(DESCRIPTION_FORMAT);
-    private static final Text GRAPHENE_ALLOY_INGREDIENTS = Text.translatable(Util.createTranslationKey("item", Identifier.of(Mores.MOD_ID,"smithing_template.graphene_alloy.ingredients"))).formatted(DESCRIPTION_FORMAT);
-    private static final Text GRAPHENE_ALLOY_BASE_SLOT_DESCRIPTION = Text.translatable(Util.createTranslationKey("item", Identifier.of(Mores.MOD_ID,"smithing_template.graphene_alloy.base_slot_description")));
-    private static final Text GRAPHENE_ALLOY_ADDITIONS_SLOT_DESCRIPTION = Text.translatable(Util.createTranslationKey("item", Identifier.of(Mores.MOD_ID,"smithing_template.graphene_alloy.additions_slot_description")));
+    private static final Text HARDENED_STEEL_UPGRADE = Text.translatable(Util.createTranslationKey("upgrade", Identifier.of(Mores.MOD_ID,"hardened_steel_upgrade"))).formatted(TITLE_FORMAT);
+    private static final Text HARDENED_STEEL_UPGRADE_APPLIES_TO = Text.translatable(Util.createTranslationKey("item", Identifier.of(Mores.MOD_ID,"smithing_template.hardened_steel_upgrade.applies_to"))).formatted(DESCRIPTION_FORMAT);
+    private static final Text HARDENED_STEEL_UPGRADE_INGREDIENTS = Text.translatable(Util.createTranslationKey("item", Identifier.of(Mores.MOD_ID,"smithing_template.hardened_steel_upgrade.ingredients"))).formatted(DESCRIPTION_FORMAT);
+    private static final Text HARDENED_STEEL_UPGRADE_BASE_SLOT_DESCRIPTION = Text.translatable(Util.createTranslationKey("item", Identifier.of(Mores.MOD_ID,"smithing_template.hardened_steel_upgrade.base_slot_description")));
+    private static final Text HARDENED_STEEL_UPGRADE_ADDITIONS_SLOT_DESCRIPTION = Text.translatable(Util.createTranslationKey("item", Identifier.of(Mores.MOD_ID,"smithing_template.hardened_steel_upgrade.additions_slot_description")));
 
     private static final Identifier EMPTY_SLOT_HELMET = Identifier.of("item/empty_armor_slot_helmet");
     private static final Identifier EMPTY_SLOT_CHESTPLATE = Identifier.of("item/empty_armor_slot_chestplate");
@@ -82,35 +64,25 @@ public class ModSmithingTemplateItem extends SmithingTemplateItem {
         return List.of(EMPTY_SLOT_INGOT, EMPTY_SLOT_REDSTONE_DUST, EMPTY_SLOT_LAPIS_LAZULI, EMPTY_SLOT_QUARTZ, EMPTY_SLOT_DIAMOND, EMPTY_SLOT_EMERALD, EMPTY_SLOT_AMETHYST_SHARD);
     }
 
-    private static List<Identifier> getObsidianUpgradeEmptyBaseSlotTextures() {
+    private static List<Identifier> getUpgradeEmptyBaseSlotTextures() {
         return List.of(EMPTY_SLOT_MACE, EMPTY_SLOT_HELMET, EMPTY_SLOT_SWORD, EMPTY_SLOT_CHESTPLATE, EMPTY_SLOT_PICKAXE, EMPTY_SLOT_LEGGINGS, EMPTY_SLOT_AXE, EMPTY_SLOT_BOOTS, EMPTY_SLOT_HOE, EMPTY_SLOT_BATTLEAXE, EMPTY_SLOT_SHOVEL, EMPTY_SLOT_DAGGER);
     }
 
-    private static List<Identifier> createIngotAlloyIconList() {
+    private static List<Identifier> createIngotIconList() {
         return List.of(EMPTY_SLOT_INGOT);
     }
     private static List<Identifier> createCoalIconList() {
         return List.of(EMPTY_SLOT_COAL);
     }
-    private static List<Identifier> createGemAlloyIconList() {
+    private static List<Identifier> createGemIconList() {
         return List.of(EMPTY_SLOT_DIAMOND);
     }
+
     public static SmithingTemplateItem createObsidianUpgradeTemplate() {
-        return new SmithingTemplateItem(OBSIDIAN_UPGRADE_APPLIES_TO, OBSIDIAN_UPGRADE_INGREDIENTS, OBSIDIAN_UPGRADE, OBSIDIAN_UPGRADE_BASE_SLOT_DESCRIPTION, OBSIDIAN_UPGRADE_ADDITIONS_SLOT_DESCRIPTION, ModSmithingTemplateItem.getObsidianUpgradeEmptyBaseSlotTextures(), ModSmithingTemplateItem.createIngotAlloyIconList());
+        return new SmithingTemplateItem(OBSIDIAN_UPGRADE_APPLIES_TO, OBSIDIAN_UPGRADE_INGREDIENTS, OBSIDIAN_UPGRADE, OBSIDIAN_UPGRADE_BASE_SLOT_DESCRIPTION, OBSIDIAN_UPGRADE_ADDITIONS_SLOT_DESCRIPTION, getUpgradeEmptyBaseSlotTextures(), createIngotIconList());
+    }
+    public static SmithingTemplateItem createHardenedSteelUpgradeTemplate() {
+        return new SmithingTemplateItem(HARDENED_STEEL_UPGRADE_APPLIES_TO, HARDENED_STEEL_UPGRADE_INGREDIENTS, HARDENED_STEEL_UPGRADE, HARDENED_STEEL_UPGRADE_BASE_SLOT_DESCRIPTION, HARDENED_STEEL_UPGRADE_ADDITIONS_SLOT_DESCRIPTION, getUpgradeEmptyBaseSlotTextures(), createIngotIconList());
     }
 
-    public static SmithingTemplateItem createBronzeAlloyTemplate() {
-        return new SmithingTemplateItem(BRONZE_ALLOY_APPLIES_TO, BRONZE_ALLOY_INGREDIENTS, BRONZE_ALLOY, BRONZE_ALLOY_BASE_SLOT_DESCRIPTION, BRONZE_ALLOY_ADDITIONS_SLOT_DESCRIPTION, createIngotAlloyIconList(), createIngotAlloyIconList());
-    }
-    public static SmithingTemplateItem createSterlingAlloyTemplate() {
-        return new SmithingTemplateItem(STERLING_ALLOY_APPLIES_TO, STERLING_ALLOY_INGREDIENTS, STERLING_ALLOY, STERLING_ALLOY_BASE_SLOT_DESCRIPTION, STERLING_ALLOY_ADDITIONS_SLOT_DESCRIPTION, createIngotAlloyIconList(), createIngotAlloyIconList());
-    }
-
-    public static SmithingTemplateItem createSteelAlloyTemplate() {
-        return new SmithingTemplateItem(STEEL_ALLOY_APPLIES_TO, STEEL_ALLOY_INGREDIENTS, STEEL_ALLOY, STEEL_ALLOY_BASE_SLOT_DESCRIPTION, STEEL_ALLOY_ADDITIONS_SLOT_DESCRIPTION, getObsidianUpgradeEmptyBaseSlotTextures(), createCoalIconList());
-    }
-
-    public static SmithingTemplateItem createGrapheneAlloyTemplate() {
-        return new SmithingTemplateItem(GRAPHENE_ALLOY_APPLIES_TO, GRAPHENE_ALLOY_INGREDIENTS, GRAPHENE_ALLOY, GRAPHENE_ALLOY_BASE_SLOT_DESCRIPTION, GRAPHENE_ALLOY_ADDITIONS_SLOT_DESCRIPTION, createGemAlloyIconList(), createGemAlloyIconList());
-    }
 }

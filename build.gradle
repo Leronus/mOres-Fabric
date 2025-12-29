@@ -1,5 +1,5 @@
 plugins {
-	id 'fabric-loom' version '1.7-SNAPSHOT'
+	id 'fabric-loom' version '1.8.9'
 	id 'maven-publish'
 }
 
@@ -60,38 +60,34 @@ dependencies {
 	mappings "net.fabricmc:yarn:${project.yarn_mappings}:v2"
 	modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
 
-
-
 	// Fabric API. This is technically optional, but you probably want it anyway.
 	modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
 
 	modImplementation "maven.modrinth:sodium:${project.sodium_version}"
-//	modImplementation "maven.modrinth:lithium:${project.lithium_version}"
+	modImplementation "maven.modrinth:lithium:${project.lithium_version}"
+	modImplementation "maven.modrinth:iris:${project.iris_version}"
+	modImplementation "maven.modrinth:indium:${project.indium_version}"
+	modImplementation "maven.modrinth:nvidium:${project.nvidium_version}"
 
-	//Iris
-	modImplementation "maven.modrinth:YL57xq9U:${project.iris_version}"
-//	//Indium
-//	modImplementation "maven.modrinth:Orvt0mRa:${project.indium_version}"
 	//EntityCulling
-	modImplementation "maven.modrinth:NNAgCjsB:${project.entity_culling_version}"
+//	modImplementation "maven.modrinth:entityculling:${project.entity_culling_version}"
 	//Continuity
 //	modImplementation "maven.modrinth:1IjD5062:${project.continuity_version}"
 //	//Bobby
 //	modImplementation "maven.modrinth:M08ruV16:2cuVyTav"
-	//Nvidium
-//	modImplementation "maven.modrinth:SfMw2IZN:${project.nvidium_version}"
+
 
 	//Custom Shields
-//	modImplementation "maven.modrinth:7SDalH12:xY16zX6k"
+	modImplementation "maven.modrinth:shieldlib:${project.fabric_shield_lib_version}"
 	modImplementation "maven.modrinth:modmenu:${project.mod_menu_version}"
 	modImplementation "maven.modrinth:midnightlib:${project.midnightlib_version}"
 	modImplementation "com.github.Chocohead:Fabric-ASM:v${project.fabricasm_version}"
 
-	//CustomPortalAPI
+	modImplementation "net.fabricmc.fabric-api:fabric-api-deprecated:${project.fabric_version}"
+
+    //CustomPortalAPI
 //	modImplementation 'net.kyrptonaught:customportalapi:0.0.1-beta64-1.20'
 //	include 'net.kyrptonaught:customportalapi:0.0.1-beta64-1.20'
-
-	modImplementation "net.fabricmc.fabric-api:fabric-api-deprecated:${project.fabric_version}"
 
 //	//XRay
 //	modImplementation "curse.maven:advanced-xray-fabric-edition-444663:4595168"

@@ -1,0 +1,8 @@
+// 1.21.1	2025-12-27T18:30:28.5240652	mOres/Tags for minecraft:block
+29f3040b9b12798c627ba448981b3148df995698 data\minecraft\tags\block\needs_diamond_tool.json
+e5bd5b0b40e32f657972b64e74fa66835008d495 data\minecraft\tags\block\needs_iron_tool.json
+61849f1c2c7647534a24e24cd9b8be9db0c03976 data\c\tags\block\ores.json
+c740ef1a13364035995a5befd350a6d986b74a18 data\mores\tags\block\needs_graphene_tool.json
+17fa3f8b99ed7f90990589a72316dfc745635053 data\minecraft\tags\block\beacon_base_blocks.json
+a43bca4aa6676a87b552f180cb48585978699b76 data\minecraft\tags\block\needs_stone_tool.json
+a601a1430dd9a4a2f171b57402ef235b9a51ec84 data\minecraft\tags\block\mineable\pickaxe.json

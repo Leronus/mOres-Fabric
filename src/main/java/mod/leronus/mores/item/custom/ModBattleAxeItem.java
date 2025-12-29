@@ -27,11 +27,11 @@ public class ModBattleAxeItem extends SwordItem {
     @Override
     public boolean postHit(ItemStack stack, LivingEntity target, LivingEntity attacker) {
         //If the item is an onyx battleaxe, apply wither effect on targetEntity
-        if(stack.getItem() == ModItems.ONYX_BATTLEAXE) {
+        if(stack.getItem() == ModItems.ONYX_BATTLE_AXE) {
             target.addStatusEffect(new StatusEffectInstance(StatusEffects.WITHER, 250, 1, false, false));
         }
         //If the item is a ruby sword, apply fire effect on targetEntity
-        if(stack.getItem() == ModItems.RUBY_BATTLEAXE) {
+        if(stack.getItem() == ModItems.RUBY_BATTLE_AXE) {
             target.setOnFireFor(5);
         }
         return super.postHit(stack, target, attacker);

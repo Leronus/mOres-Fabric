@@ -1,3 +1,18 @@
-v2.1.0
-Updated to Minecraft 1.21.1
-- Music discs temporarily missing
+v3.0.0
+Updated to Minecraft 1.21.1!
+Changelog:
+- Using DataGenerators for Tags, Recipes, Models, Advancements, Loot tables - Massive rewrite
+- Updated Carbon Steel ingot texture & added (Hot) Carbon Steel Scrap (needs to be cooled in water)
+- Updated Sterling Silver ingot texture
+- Updated Copper textures with vanilla from 1.21.9
+- Updated Silver ingot, raw, nugget, ore, block and apple
+- Added Silver carrot
+- Added Shields back, fully decorable!
+- Added missing tags for better mod compatibility
+- Added back revamped Alloy Furnace (new GUI)
+- Added Rose Gold (Copper + Gold alloy, Pacify piglins)
+- Added Citrine
+- Added Hardened Steel (Alloying + Smithing)
+- Temporarily removed Tanzanite
+- Nerfed Turquoise efficiency & base armor but buffed spawnrate
+
