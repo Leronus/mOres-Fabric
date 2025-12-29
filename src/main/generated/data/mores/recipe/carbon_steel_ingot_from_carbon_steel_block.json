@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "group": "carbon_steel_ingot",
+  "ingredients": [
+    {
+      "item": "mores:carbon_steel_block"
+    }
+  ],
+  "result": {
+    "count": 9,
+    "id": "mores:carbon_steel_ingot"
+  }
+}

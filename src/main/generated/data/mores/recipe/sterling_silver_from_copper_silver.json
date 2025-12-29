@@ -1,0 +1,15 @@
+{
+  "type": "mores:alloying",
+  "experience": 0.2,
+  "ingredient_a": {
+    "item": "minecraft:copper_ingot"
+  },
+  "ingredient_b": {
+    "item": "mores:silver_ingot"
+  },
+  "result": {
+    "count": 1,
+    "id": "mores:sterling_silver_ingot"
+  },
+  "theme": "soul"
+}

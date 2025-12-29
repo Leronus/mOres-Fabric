@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "group": "ruby_gem",
+  "ingredients": [
+    {
+      "item": "mores:ruby_block"
+    }
+  ],
+  "result": {
+    "count": 9,
+    "id": "mores:ruby_gem"
+  }
+}

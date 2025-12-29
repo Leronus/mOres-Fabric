@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "mores:item/sweet_caroline_music_disc"
+  }
+}

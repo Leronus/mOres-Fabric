@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "group": "tourmaline_gem",
+  "ingredients": [
+    {
+      "item": "mores:tourmaline_block"
+    }
+  ],
+  "result": {
+    "count": 9,
+    "id": "mores:tourmaline_gem"
+  }
+}

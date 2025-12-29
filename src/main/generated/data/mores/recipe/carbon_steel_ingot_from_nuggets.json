@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "group": "carbon_steel_ingot",
+  "key": {
+    "#": {
+      "item": "mores:carbon_steel_nugget"
+    }
+  },
+  "pattern": [
+    "###",
+    "###",
+    "###"
+  ],
+  "result": {
+    "count": 1,
+    "id": "mores:carbon_steel_ingot"
+  }
+}

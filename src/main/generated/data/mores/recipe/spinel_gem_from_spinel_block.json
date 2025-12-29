@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "group": "spinel_gem",
+  "ingredients": [
+    {
+      "item": "mores:spinel_block"
+    }
+  ],
+  "result": {
+    "count": 9,
+    "id": "mores:spinel_gem"
+  }
+}

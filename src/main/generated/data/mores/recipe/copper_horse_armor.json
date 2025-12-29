@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "G": {
+      "item": "minecraft:copper_ingot"
+    },
+    "H": {
+      "item": "mores:copper_helmet"
+    },
+    "L": {
+      "item": "mores:copper_leggings"
+    },
+    "W": {
+      "tag": "minecraft:wool"
+    }
+  },
+  "pattern": [
+    "  H",
+    "GWG",
+    "L L"
+  ],
+  "result": {
+    "count": 1,
+    "id": "mores:copper_horse_armor"
+  }
+}

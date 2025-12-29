@@ -1,0 +1,34 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "mores:carbon_steel_scrap"
+    },
+    {
+      "item": "mores:carbon_steel_ingot"
+    },
+    {
+      "item": "mores:carbon_steel_ingot"
+    },
+    {
+      "item": "mores:carbon_steel_scrap"
+    },
+    {
+      "item": "mores:carbon_steel_scrap"
+    },
+    {
+      "item": "mores:carbon_steel_ingot"
+    },
+    {
+      "item": "mores:carbon_steel_scrap"
+    },
+    {
+      "item": "mores:carbon_steel_ingot"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "mores:hardened_steel_ingot"
+  }
+}

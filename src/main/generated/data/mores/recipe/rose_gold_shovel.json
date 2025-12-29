@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "item": "minecraft:stick"
+    },
+    "$": {
+      "tag": "mores:ingot/rose_gold"
+    }
+  },
+  "pattern": [
+    "$",
+    "#",
+    "#"
+  ],
+  "result": {
+    "count": 1,
+    "id": "mores:rose_gold_shovel"
+  }
+}

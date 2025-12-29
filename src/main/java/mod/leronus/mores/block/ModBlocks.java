@@ -1,10 +1,14 @@
 package mod.leronus.mores.block;
 
 import mod.leronus.mores.Mores;
+import mod.leronus.mores.block.custom.AlloyFurnaceBlock;
+import mod.leronus.mores.item.ModItems;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroupEntries;
+import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.minecraft.block.*;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemGroups;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.sound.BlockSoundGroup;
@@ -94,9 +98,11 @@ public class ModBlocks {
 
     public static final Block GRAPHENE_BLOCK = registerBlock("graphene_block", new Block(AbstractBlock.Settings.copy(Blocks.NETHERITE_BLOCK).mapColor(MapColor.GREEN).strength(5.0F, 6.0F).sounds(BlockSoundGroup.METAL).requiresTool()));
 
-//    public static final AlloyFurnaceBlock ALLOY_FURNACE = registerBlock("alloy_furnace", new AlloyFurnaceBlock(AbstractBlock.Settings.copy(Blocks.FURNACE).mapColor(MapColor.LIGHT_GRAY).strength(4.0F, 6.0F).sounds(BlockSoundGroup.METAL).requiresTool().lightLevel(LightUtils.setSwitchedLight(BlockStateProperties.LIT, 13))));
+    public static final AlloyFurnaceBlock ALLOY_FURNACE = registerBlock("alloy_furnace", new AlloyFurnaceBlock(AbstractBlock.Settings.copy(Blocks.FURNACE).mapColor(MapColor.LIGHT_GRAY).strength(4.0F, 6.0F).sounds(BlockSoundGroup.METAL).requiresTool()));
 
     private static void addItemsToBuildingBlockItemGroup(FabricItemGroupEntries entries) {
+        entries.add(ALLOY_FURNACE);
+
         entries.add(TIN_BLOCK);
         entries.add(TIN_ORE);
         entries.add(DEEPSLATE_TIN_ORE);
@@ -161,18 +167,23 @@ public class ModBlocks {
         entries.add(GRAPHENE_BLOCK);
     }
 
-    private static Block registerBlock(String name, Block block) {
+    private static <T extends Block> T registerBlock(String name, T block) {
         registerBlockItem(name, block);
         return Registry.register(Registries.BLOCK, Identifier.of(Mores.MOD_ID, name), block);
     }
 
     private static Item registerBlockItem(String name, Block block) {
-        return Registry.register(Registries.ITEM, Identifier.of(Mores.MOD_ID, name),
-                new BlockItem(block, new Item.Settings()));
+        return Registry.register(
+                Registries.ITEM,
+                Identifier.of(Mores.MOD_ID, name),
+                new BlockItem(block, new Item.Settings())
+        );
     }
 
     public static void registerModBlocks() {
         Mores.LOGGER.info("Registering ModBlocks for " + Mores.MOD_ID);
+
+        ItemGroupEvents.modifyEntriesEvent(ItemGroups.BUILDING_BLOCKS).register(ModBlocks::addItemsToBuildingBlockItemGroup);
     }
 }
 

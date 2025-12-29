@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": {
+    "item": "mores:obsidian_ingot"
+  },
+  "base": {
+    "item": "minecraft:diamond_pickaxe"
+  },
+  "result": {
+    "count": 1,
+    "id": "mores:obsidian_pickaxe"
+  },
+  "template": {
+    "item": "mores:obsidian_upgrade_smithing_template"
+  }
+}

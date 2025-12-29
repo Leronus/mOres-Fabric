@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "G": {
+      "tag": "mores:gem/moissanite"
+    },
+    "H": {
+      "item": "mores:moissanite_helmet"
+    },
+    "L": {
+      "item": "mores:moissanite_leggings"
+    },
+    "W": {
+      "tag": "minecraft:wool"
+    }
+  },
+  "pattern": [
+    "  H",
+    "GWG",
+    "L L"
+  ],
+  "result": {
+    "count": 1,
+    "id": "mores:moissanite_horse_armor"
+  }
+}

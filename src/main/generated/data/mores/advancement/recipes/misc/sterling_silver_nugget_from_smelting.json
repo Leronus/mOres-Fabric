@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_sterling_silver_pickaxe": {
+      "conditions": {
+        "items": [
+          {
+            "items": "mores:sterling_silver_pickaxe"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "mores:sterling_silver_nugget_from_smelting"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_sterling_silver_pickaxe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "mores:sterling_silver_nugget_from_smelting"
+    ]
+  }
+}

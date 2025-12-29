@@ -1,13 +1,14 @@
 package mod.leronus.mores.datagen;
 
+import mod.leronus.mores.Mores;
 import mod.leronus.mores.block.ModBlocks;
+import mod.leronus.mores.block.custom.AlloyFurnaceBlock;
 import mod.leronus.mores.item.ModItems;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricModelProvider;
-import net.minecraft.data.client.BlockStateModelGenerator;
-import net.minecraft.data.client.ItemModelGenerator;
-import net.minecraft.data.client.Models;
+import net.minecraft.data.client.*;
 import net.minecraft.item.ArmorItem;
+import net.minecraft.util.Identifier;
 
 public class ModModelProvider extends FabricModelProvider {
     public ModModelProvider(FabricDataOutput output) {
@@ -75,8 +76,52 @@ public class ModModelProvider extends FabricModelProvider {
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.ONYX_BLOCK);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.GRAPHENE_BLOCK);
 
-//        blockStateModelGenerator.registerNorthDefaultHorizontalRotation(ModBlocks.ALLOY_FURNACE);
+        registerAlloyFurnace(blockStateModelGenerator);
         }
+
+
+    private static void registerAlloyFurnace(BlockStateModelGenerator gen) {
+        // Texture ids under assets/mores/textures/block/
+        Identifier top = Identifier.of(Mores.MOD_ID, "block/alloy_furnace_top");
+        Identifier side = Identifier.of(Mores.MOD_ID, "block/alloy_furnace_side");
+        Identifier frontOff = Identifier.of(Mores.MOD_ID, "block/alloy_furnace_front");
+        Identifier frontOn = Identifier.of(Mores.MOD_ID, "block/alloy_furnace_front_lit");
+
+        // Model ids that will be written
+        Identifier modelOff = ModelIds.getBlockModelId(ModBlocks.ALLOY_FURNACE);
+        Identifier modelOn = modelOff.withSuffixedPath("_on");
+
+        // Write the two block models (orientable furnace-style model)
+        Models.ORIENTABLE_WITH_BOTTOM.upload(
+                modelOff,
+                new TextureMap()
+                        .put(TextureKey.TOP, top)
+                        .put(TextureKey.BOTTOM, top)
+                        .put(TextureKey.SIDE, side)
+                        .put(TextureKey.FRONT, frontOff),
+                gen.modelCollector
+        );
+
+        Models.ORIENTABLE_WITH_BOTTOM.upload(
+                modelOn,
+                new TextureMap()
+                        .put(TextureKey.TOP, top)
+                        .put(TextureKey.BOTTOM, top)
+                        .put(TextureKey.SIDE, side)
+                        .put(TextureKey.FRONT, frontOn),
+                gen.modelCollector
+        );
+
+        // Blockstate: facing rotation + lit swaps model
+        gen.blockStateCollector.accept(
+                VariantsBlockStateSupplier.create(ModBlocks.ALLOY_FURNACE)
+                        .coordinate(BlockStateModelGenerator.createNorthDefaultHorizontalRotationStates())
+                        .coordinate(BlockStateModelGenerator.createBooleanModelMap(AlloyFurnaceBlock.LIT, modelOn, modelOff))
+        );
+
+        // Item model: parent to the OFF block model
+        gen.registerParentedItemModel(ModBlocks.ALLOY_FURNACE, modelOff);
+    }
 
 //    private void registerCustomLamp(BlockStateModelGenerator blockStateModelGenerator) {
 //        Identifier identifier = TexturedModel.CUBE_ALL.upload(ModBlocks.SAPPHIRE_LAMP_BLOCK, blockStateModelGenerator.modelCollector);

@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:blasting",
+  "category": "misc",
+  "cookingtime": 100,
+  "experience": 0.1,
+  "ingredient": {
+    "item": "mores:carbon_steel_ingot"
+  },
+  "result": {
+    "id": "mores:hot_carbon_steel_scrap"
+  }
+}

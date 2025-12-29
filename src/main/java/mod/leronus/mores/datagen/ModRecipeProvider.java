@@ -3,6 +3,7 @@ package mod.leronus.mores.datagen;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider;
 import net.minecraft.data.server.recipe.*;
+import net.minecraft.item.ItemStack;
 import net.minecraft.recipe.Ingredient;
 import net.minecraft.recipe.ShieldDecorationRecipe;
 import net.minecraft.recipe.book.RecipeCategory;
@@ -24,6 +25,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
     public void generate(RecipeExporter exporter) {
         //TODO Add tags for minecraft:egg (so mores:duck_egg and other eggs can be used for the carrot_pie & velvet)
 
+        generateBlocks(exporter);
         generateShieldDecoration(exporter);
         generateFood(exporter);
         generateMiscellaneous(exporter);
@@ -61,6 +63,18 @@ public class ModRecipeProvider extends FabricRecipeProvider {
         generateSmokingCooking(exporter);
         generateSmelting(exporter);
         generateBlasting(exporter);
+        generateAlloying(exporter);
+    }
+
+    private void generateBlocks(RecipeExporter exporter) {
+        //Alloy Furnace
+        ShapedRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, Registries.ITEM.get(Identifier.of("mores", "tin_block")), 1)
+                .pattern("###")
+                .pattern("###")
+                .pattern("###")
+                .input('#', Registries.ITEM.get(Identifier.of("mores", "tin_ingot")))
+                .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "tin_ingot"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "tin_ingot"))))
+                .offerTo(exporter, Identifier.of("mores", "tin_block_from_ingots"));
     }
 
     private void generateShieldDecoration(RecipeExporter exporter) {
@@ -71,13 +85,13 @@ public class ModRecipeProvider extends FabricRecipeProvider {
 
     private void generateFood(RecipeExporter exporter) {
         /* Food */
-        ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "carrot_pie")), 1)
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.FOOD, Registries.ITEM.get(Identifier.of("mores", "carrot_pie")), 1)
                 .input(Registries.ITEM.get(Identifier.of("minecraft", "carrot")))
                 .input(Registries.ITEM.get(Identifier.of("minecraft", "wheat")))
                 .input(Registries.ITEM.get(Identifier.of("minecraft", "egg")))
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("minecraft", "carrot"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("minecraft", "carrot"))))
                 .offerTo(exporter, Identifier.of("mores", "carrot_pie"));
-        ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "chocolate")), 1)
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.FOOD, Registries.ITEM.get(Identifier.of("mores", "chocolate")), 1)
                 .input(Registries.ITEM.get(Identifier.of("minecraft", "cocoa_beans")))
                 .input(Registries.ITEM.get(Identifier.of("minecraft", "cocoa_beans")))
                 .input(Registries.ITEM.get(Identifier.of("minecraft", "milk_bucket")))
@@ -85,7 +99,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .input(Registries.ITEM.get(Identifier.of("minecraft", "sugar")))
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("minecraft", "cocoa_beans"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("minecraft", "cocoa_beans"))))
                 .offerTo(exporter, Identifier.of("mores", "chocolate"));
-        ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "velvet")), 1)
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.FOOD, Registries.ITEM.get(Identifier.of("mores", "velvet")), 1)
                 .input(Registries.ITEM.get(Identifier.of("minecraft", "egg")))
                 .input(Registries.ITEM.get(Identifier.of("minecraft", "beetroot")))
                 .input(Registries.ITEM.get(Identifier.of("minecraft", "wheat")))
@@ -93,7 +107,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("minecraft", "egg"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("minecraft", "egg"))))
                 .offerTo(exporter, Identifier.of("mores", "velvet"));
         //Apples
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "silver_apple")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.FOOD, Registries.ITEM.get(Identifier.of("mores", "silver_apple")), 1)
                 .pattern("###")
                 .pattern("#X#")
                 .pattern("###")
@@ -101,7 +115,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .input('X', Registries.ITEM.get(Identifier.of("minecraft", "apple")))
                 .criterion("has_ingot_silver", conditionsFromTag(TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "ingot/silver"))))
                 .offerTo(exporter, Identifier.of("mores", "silver_apple"));
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "bronze_apple")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.FOOD, Registries.ITEM.get(Identifier.of("mores", "bronze_apple")), 1)
                 .pattern("###")
                 .pattern("#X#")
                 .pattern("###")
@@ -109,7 +123,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .input('X', Registries.ITEM.get(Identifier.of("minecraft", "apple")))
                 .criterion("has_ingot_bronze", conditionsFromTag(TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "ingot/bronze"))))
                 .offerTo(exporter, Identifier.of("mores", "bronze_apple"));
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "cobalt_apple")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.FOOD, Registries.ITEM.get(Identifier.of("mores", "cobalt_apple")), 1)
                 .pattern("###")
                 .pattern("#X#")
                 .pattern("###")
@@ -124,7 +138,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
     private void generateMiscellaneous(RecipeExporter exporter) {
         /* -- Miscellaneous -- */
         //Torch
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("minecraft", "torch")), 8)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, Registries.ITEM.get(Identifier.of("minecraft", "torch")), 8)
                 .pattern("#")
                 .pattern("X")
                 .input('#', Registries.ITEM.get(Identifier.of("mores", "anthracite")))
@@ -132,18 +146,18 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "anthracite"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "anthracite"))))
                 .offerTo(exporter, Identifier.of("mores", "torch_from_anthracite"));
         //Flint and Steel
-        ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("minecraft", "flint_and_steel")), 1)
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.TOOLS, Registries.ITEM.get(Identifier.of("minecraft", "flint_and_steel")), 1)
                 .input(TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "ingot/carbon_steel")))
                 .input(Registries.ITEM.get(Identifier.of("minecraft", "flint")))
                 .criterion("has_ingot_carbon_steel", conditionsFromTag(TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "ingot/carbon_steel"))))
                 .offerTo(exporter, Identifier.of("mores", "flint_and_carbon_steel"));
-        ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("minecraft", "flint_and_steel")), 1)
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.TOOLS, Registries.ITEM.get(Identifier.of("minecraft", "flint_and_steel")), 1)
                 .input(TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "ingot/hardened_steel")))
                 .input(Registries.ITEM.get(Identifier.of("minecraft", "flint")))
                 .criterion("has_ingot_hardened_steel", conditionsFromTag(TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "ingot/hardened__steel"))))
                 .offerTo(exporter, Identifier.of("mores", "flint_and_hardened_steel"));
         //Saddle
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("minecraft", "saddle")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, Registries.ITEM.get(Identifier.of("minecraft", "saddle")), 1)
                 .pattern(" L ")
                 .pattern("LIL")
                 .input('L', Registries.ITEM.get(Identifier.of("minecraft", "leather")))
@@ -157,7 +171,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
     private void generateWood(RecipeExporter exporter) {
         /* -- Wood -- */
         //Weapons
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "wood_battle_axe")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, Registries.ITEM.get(Identifier.of("mores", "wood_battle_axe")), 1)
                 .pattern("$ $")
                 .pattern("$#$")
                 .pattern(" # ")
@@ -165,7 +179,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .input('$', TagKey.of(RegistryKeys.ITEM, Identifier.of("minecraft", "planks")))
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))))
                 .offerTo(exporter, Identifier.of("mores", "wood_battle_axe"));
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "wood_battle_mace")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, Registries.ITEM.get(Identifier.of("mores", "wood_battle_mace")), 1)
                 .pattern(" $$")
                 .pattern(" $$")
                 .pattern("#  ")
@@ -173,7 +187,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .input('$', TagKey.of(RegistryKeys.ITEM, Identifier.of("minecraft", "planks")))
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))))
                 .offerTo(exporter, Identifier.of("mores", "wood_battle_mace"));
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "wood_dagger")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, Registries.ITEM.get(Identifier.of("mores", "wood_dagger")), 1)
                 .pattern(" $ ")
                 .pattern(" # ")
                 .input('#', Registries.ITEM.get(Identifier.of("minecraft", "stick")))
@@ -186,7 +200,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
     private void generateStone(RecipeExporter exporter) {
         /* -- Stone -- */
         //Weapons
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "stone_battle_axe")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, Registries.ITEM.get(Identifier.of("mores", "stone_battle_axe")), 1)
                 .pattern("$ $")
                 .pattern("$#$")
                 .pattern(" # ")
@@ -194,7 +208,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .input('$', Registries.ITEM.get(Identifier.of("minecraft", "cobblestone")))
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))))
                 .offerTo(exporter, Identifier.of("mores", "stone_battle_axe"));
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "stone_battle_mace")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, Registries.ITEM.get(Identifier.of("mores", "stone_battle_mace")), 1)
                 .pattern(" $$")
                 .pattern(" $$")
                 .pattern("#  ")
@@ -202,7 +216,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .input('$', Registries.ITEM.get(Identifier.of("minecraft", "cobblestone")))
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))))
                 .offerTo(exporter, Identifier.of("mores", "stone_battle_mace"));
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "stone_dagger")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, Registries.ITEM.get(Identifier.of("mores", "stone_dagger")), 1)
                 .pattern(" $ ")
                 .pattern(" # ")
                 .input('#', Registries.ITEM.get(Identifier.of("minecraft", "stick")))
@@ -227,27 +241,27 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "chainmail"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "chainmail"))))
                 .offerTo(exporter, Identifier.of("mores", "iron_ingot_from_chainmail"));
         //Armor
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("minecraft", "chainmail_helmet")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, Registries.ITEM.get(Identifier.of("minecraft", "chainmail_helmet")), 1)
                 .pattern("###")
                 .pattern("# #")
                 .input('#', Registries.ITEM.get(Identifier.of("mores", "chainmail")))
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "chainmail"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "chainmail"))))
                 .offerTo(exporter, Identifier.of("mores", "chainmail_helmet"));
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("minecraft", "chainmail_chestplate")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, Registries.ITEM.get(Identifier.of("minecraft", "chainmail_chestplate")), 1)
                 .pattern("# #")
                 .pattern("###")
                 .pattern("###")
                 .input('#', Registries.ITEM.get(Identifier.of("mores", "chainmail")))
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "chainmail"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "chainmail"))))
                 .offerTo(exporter, Identifier.of("mores", "chainmail_chestplate"));
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("minecraft", "chainmail_leggings")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, Registries.ITEM.get(Identifier.of("minecraft", "chainmail_leggings")), 1)
                 .pattern("###")
                 .pattern("# #")
                 .pattern("# #")
                 .input('#', Registries.ITEM.get(Identifier.of("mores", "chainmail")))
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "chainmail"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "chainmail"))))
                 .offerTo(exporter, Identifier.of("mores", "chainmail_leggings"));
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("minecraft", "chainmail_boots")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, Registries.ITEM.get(Identifier.of("minecraft", "chainmail_boots")), 1)
                 .pattern("# #")
                 .pattern("# #")
                 .input('#', Registries.ITEM.get(Identifier.of("mores", "chainmail")))
@@ -259,7 +273,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
     private void generateTin(RecipeExporter exporter) {
         /* -- Tin -- */
         //Items & Blocks
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "tin_block")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, Registries.ITEM.get(Identifier.of("mores", "tin_block")), 1)
                 .pattern("###")
                 .pattern("###")
                 .pattern("###")
@@ -279,7 +293,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .input(Registries.ITEM.get(Identifier.of("mores", "tin_block")))
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "tin_block"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "tin_block"))))
                 .offerTo(exporter, Identifier.of("mores", "tin_ingot_from_tin_block"));
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "raw_tin_block")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, Registries.ITEM.get(Identifier.of("mores", "raw_tin_block")), 1)
                 .pattern("###")
                 .pattern("###")
                 .pattern("###")
@@ -296,7 +310,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "tin_ingot"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "tin_ingot"))))
                 .offerTo(exporter, Identifier.of("mores", "tin_nuggets_from_ingot"));
         //Tools
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "tin_sword")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, Registries.ITEM.get(Identifier.of("mores", "tin_sword")), 1)
                 .pattern("$")
                 .pattern("$")
                 .pattern("#")
@@ -304,7 +318,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .input('$', TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "ingot/tin")))
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))))
                 .offerTo(exporter, Identifier.of("mores", "tin_sword"));
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "tin_pickaxe")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, Registries.ITEM.get(Identifier.of("mores", "tin_pickaxe")), 1)
                 .pattern("$$$")
                 .pattern(" # ")
                 .pattern(" # ")
@@ -312,7 +326,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .input('$', TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "ingot/tin")))
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))))
                 .offerTo(exporter, Identifier.of("mores", "tin_pickaxe"));
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "tin_axe")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, Registries.ITEM.get(Identifier.of("mores", "tin_axe")), 1)
                 .pattern("$$")
                 .pattern("$#")
                 .pattern(" #")
@@ -320,7 +334,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .input('$', TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "ingot/tin")))
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))))
                 .offerTo(exporter, Identifier.of("mores", "tin_axe"));
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "tin_shovel")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, Registries.ITEM.get(Identifier.of("mores", "tin_shovel")), 1)
                 .pattern("$")
                 .pattern("#")
                 .pattern("#")
@@ -328,7 +342,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .input('$', TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "ingot/tin")))
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))))
                 .offerTo(exporter, Identifier.of("mores", "tin_shovel"));
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "tin_hoe")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, Registries.ITEM.get(Identifier.of("mores", "tin_hoe")), 1)
                 .pattern("$$")
                 .pattern(" #")
                 .pattern(" #")
@@ -337,7 +351,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))))
                 .offerTo(exporter, Identifier.of("mores", "tin_hoe"));
         //Weapons
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "tin_battle_axe")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, Registries.ITEM.get(Identifier.of("mores", "tin_battle_axe")), 1)
                 .pattern("$ $")
                 .pattern("$#$")
                 .pattern(" # ")
@@ -345,7 +359,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .input('$', TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "ingot/tin")))
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))))
                 .offerTo(exporter, Identifier.of("mores", "tin_battle_axe"));
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "tin_battle_mace")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, Registries.ITEM.get(Identifier.of("mores", "tin_battle_mace")), 1)
                 .pattern(" $$")
                 .pattern(" $$")
                 .pattern("#  ")
@@ -353,7 +367,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .input('$', TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "ingot/tin")))
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))))
                 .offerTo(exporter, Identifier.of("mores", "tin_battle_mace"));
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "tin_dagger")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, Registries.ITEM.get(Identifier.of("mores", "tin_dagger")), 1)
                 .pattern(" $ ")
                 .pattern(" # ")
                 .input('#', Registries.ITEM.get(Identifier.of("minecraft", "stick")))
@@ -361,7 +375,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))))
                 .offerTo(exporter, Identifier.of("mores", "tin_dagger"));
         //Shield
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "tin_shield")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, Registries.ITEM.get(Identifier.of("mores", "tin_shield")), 1)
                 .pattern("WoW")
                 .pattern("WWW")
                 .pattern(" W ")
@@ -370,34 +384,34 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .criterion("has_planks", conditionsFromTag(TagKey.of(RegistryKeys.ITEM, Identifier.of("minecraft", "planks"))))
                 .offerTo(exporter, Identifier.of("mores", "tin_shield"));
         //Armor
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "tin_helmet")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, Registries.ITEM.get(Identifier.of("mores", "tin_helmet")), 1)
                 .pattern("###")
                 .pattern("# #")
                 .input('#', TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "ingot/tin")))
                 .criterion("has_ingot_tin", conditionsFromTag(TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "ingot/tin"))))
                 .offerTo(exporter, Identifier.of("mores", "tin_helmet"));
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "tin_chestplate")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, Registries.ITEM.get(Identifier.of("mores", "tin_chestplate")), 1)
                 .pattern("# #")
                 .pattern("###")
                 .pattern("###")
                 .input('#', TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "ingot/tin")))
                 .criterion("has_ingot_tin", conditionsFromTag(TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "ingot/tin"))))
                 .offerTo(exporter, Identifier.of("mores", "tin_chestplate"));
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "tin_leggings")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, Registries.ITEM.get(Identifier.of("mores", "tin_leggings")), 1)
                 .pattern("###")
                 .pattern("# #")
                 .pattern("# #")
                 .input('#', TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "ingot/tin")))
                 .criterion("has_ingot_tin", conditionsFromTag(TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "ingot/tin"))))
                 .offerTo(exporter, Identifier.of("mores", "tin_leggings"));
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "tin_boots")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, Registries.ITEM.get(Identifier.of("mores", "tin_boots")), 1)
                 .pattern("# #")
                 .pattern("# #")
                 .input('#', TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "ingot/tin")))
                 .criterion("has_ingot_tin", conditionsFromTag(TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "ingot/tin"))))
                 .offerTo(exporter, Identifier.of("mores", "tin_boots"));
         //Horse Armor
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "tin_horse_armor")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, Registries.ITEM.get(Identifier.of("mores", "tin_horse_armor")), 1)
                 .pattern("  H")
                 .pattern("GWG")
                 .pattern("L L")
@@ -414,7 +428,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
     private void generateGold(RecipeExporter exporter) {
         /* -- Gold -- */
         //Weapons
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "gold_battle_axe")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, Registries.ITEM.get(Identifier.of("mores", "gold_battle_axe")), 1)
                 .pattern("$ $")
                 .pattern("$#$")
                 .pattern(" # ")
@@ -422,7 +436,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .input('$', Registries.ITEM.get(Identifier.of("minecraft", "gold_ingot")))
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))))
                 .offerTo(exporter, Identifier.of("mores", "gold_battle_axe"));
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "gold_battle_mace")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, Registries.ITEM.get(Identifier.of("mores", "gold_battle_mace")), 1)
                 .pattern(" $$")
                 .pattern(" $$")
                 .pattern("#  ")
@@ -430,7 +444,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .input('$', Registries.ITEM.get(Identifier.of("minecraft", "gold_ingot")))
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))))
                 .offerTo(exporter, Identifier.of("mores", "gold_battle_mace"));
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "gold_dagger")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, Registries.ITEM.get(Identifier.of("mores", "gold_dagger")), 1)
                 .pattern(" $ ")
                 .pattern(" # ")
                 .input('#', Registries.ITEM.get(Identifier.of("minecraft", "stick")))
@@ -438,7 +452,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))))
                 .offerTo(exporter, Identifier.of("mores", "gold_dagger"));
         //Horse Armor
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("minecraft", "golden_horse_armor")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, Registries.ITEM.get(Identifier.of("minecraft", "golden_horse_armor")), 1)
                 .pattern("  H")
                 .pattern("GWG")
                 .pattern("L L")
@@ -467,7 +481,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .input(Registries.ITEM.get(Identifier.of("mores", "silver_block")))
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "silver_block"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "silver_block"))))
                 .offerTo(exporter, Identifier.of("mores", "silver_ingot_from_silver_block"));
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "silver_block")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, Registries.ITEM.get(Identifier.of("mores", "silver_block")), 1)
                 .pattern("###")
                 .pattern("###")
                 .pattern("###")
@@ -478,7 +492,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .input(Registries.ITEM.get(Identifier.of("mores", "silver_ingot")))
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "silver_ingot"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "silver_ingot"))))
                 .offerTo(exporter, Identifier.of("mores", "silver_nuggets_from_ingots"));
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "raw_silver_block")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, Registries.ITEM.get(Identifier.of("mores", "raw_silver_block")), 1)
                 .pattern("###")
                 .pattern("###")
                 .pattern("###")
@@ -491,7 +505,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "raw_silver_block"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "raw_silver_block"))))
                 .offerTo(exporter, Identifier.of("mores", "raw_silver_from_raw_silver_block"));
         //Tools
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "silver_sword")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, Registries.ITEM.get(Identifier.of("mores", "silver_sword")), 1)
                 .pattern("$")
                 .pattern("$")
                 .pattern("#")
@@ -499,7 +513,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .input('$', TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "ingot/silver")))
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))))
                 .offerTo(exporter, Identifier.of("mores", "silver_sword"));
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "silver_axe")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, Registries.ITEM.get(Identifier.of("mores", "silver_axe")), 1)
                 .pattern("$$")
                 .pattern("$#")
                 .pattern(" #")
@@ -507,7 +521,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .input('$', TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "ingot/silver")))
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))))
                 .offerTo(exporter, Identifier.of("mores", "silver_axe"));
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "silver_pickaxe")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, Registries.ITEM.get(Identifier.of("mores", "silver_pickaxe")), 1)
                 .pattern("$$$")
                 .pattern(" # ")
                 .pattern(" # ")
@@ -515,7 +529,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .input('$', TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "ingot/silver")))
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))))
                 .offerTo(exporter, Identifier.of("mores", "silver_pickaxe"));
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "silver_shovel")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, Registries.ITEM.get(Identifier.of("mores", "silver_shovel")), 1)
                 .pattern("$")
                 .pattern("#")
                 .pattern("#")
@@ -523,7 +537,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .input('$', TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "ingot/silver")))
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))))
                 .offerTo(exporter, Identifier.of("mores", "silver_shovel"));
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "silver_hoe")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, Registries.ITEM.get(Identifier.of("mores", "silver_hoe")), 1)
                 .pattern("$$")
                 .pattern(" #")
                 .pattern(" #")
@@ -532,7 +546,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))))
                 .offerTo(exporter, Identifier.of("mores", "silver_hoe"));
         //Weapons
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "silver_battle_axe")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, Registries.ITEM.get(Identifier.of("mores", "silver_battle_axe")), 1)
                 .pattern("$ $")
                 .pattern("$#$")
                 .pattern(" # ")
@@ -540,7 +554,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .input('$', TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "ingot/silver")))
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))))
                 .offerTo(exporter, Identifier.of("mores", "silver_battle_axe"));
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "silver_battle_mace")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, Registries.ITEM.get(Identifier.of("mores", "silver_battle_mace")), 1)
                 .pattern(" $$")
                 .pattern(" $$")
                 .pattern("#  ")
@@ -548,7 +562,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .input('$', TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "ingot/silver")))
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))))
                 .offerTo(exporter, Identifier.of("mores", "silver_battle_mace"));
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "silver_dagger")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, Registries.ITEM.get(Identifier.of("mores", "silver_dagger")), 1)
                 .pattern(" $ ")
                 .pattern(" # ")
                 .input('#', Registries.ITEM.get(Identifier.of("minecraft", "stick")))
@@ -556,7 +570,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))))
                 .offerTo(exporter, Identifier.of("mores", "silver_dagger"));
         //Shield
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "silver_shield")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, Registries.ITEM.get(Identifier.of("mores", "silver_shield")), 1)
                 .pattern("WoW")
                 .pattern("WWW")
                 .pattern(" W ")
@@ -565,34 +579,34 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .criterion("has_planks", conditionsFromTag(TagKey.of(RegistryKeys.ITEM, Identifier.of("minecraft", "planks"))))
                 .offerTo(exporter, Identifier.of("mores", "silver_shield"));
         //Armor
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "silver_helmet")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, Registries.ITEM.get(Identifier.of("mores", "silver_helmet")), 1)
                 .pattern("###")
                 .pattern("# #")
                 .input('#', TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "ingot/silver")))
                 .criterion("has_ingot_silver", conditionsFromTag(TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "ingot/silver"))))
                 .offerTo(exporter, Identifier.of("mores", "silver_helmet"));
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "silver_chestplate")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, Registries.ITEM.get(Identifier.of("mores", "silver_chestplate")), 1)
                 .pattern("# #")
                 .pattern("###")
                 .pattern("###")
                 .input('#', TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "ingot/silver")))
                 .criterion("has_ingot_silver", conditionsFromTag(TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "ingot/silver"))))
                 .offerTo(exporter, Identifier.of("mores", "silver_chestplate"));
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "silver_leggings")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, Registries.ITEM.get(Identifier.of("mores", "silver_leggings")), 1)
                 .pattern("###")
                 .pattern("# #")
                 .pattern("# #")
                 .input('#', TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "ingot/silver")))
                 .criterion("has_ingot_silver", conditionsFromTag(TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "ingot/silver"))))
                 .offerTo(exporter, Identifier.of("mores", "silver_leggings"));
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "silver_boots")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, Registries.ITEM.get(Identifier.of("mores", "silver_boots")), 1)
                 .pattern("# #")
                 .pattern("# #")
                 .input('#', TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "ingot/silver")))
                 .criterion("has_ingot_silver", conditionsFromTag(TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "ingot/silver"))))
                 .offerTo(exporter, Identifier.of("mores", "silver_boots"));
         //Horse Armor
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "silver_horse_armor")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, Registries.ITEM.get(Identifier.of("mores", "silver_horse_armor")), 1)
                 .pattern("  H")
                 .pattern("GWG")
                 .pattern("L L")
@@ -620,9 +634,9 @@ public class ModRecipeProvider extends FabricRecipeProvider {
         ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "copper_nugget")), 9)
                 .input(Registries.ITEM.get(Identifier.of("minecraft", "copper_ingot")))
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("minecraft", "copper_ingot"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("minecraft", "copper_ingot"))))
-                .offerTo(exporter, Identifier.of("mores", "copper_nuggets_from_ingots"));
+                .offerTo(exporter, Identifier.of("mores", "copper_nuggets_from_ingot"));
         //Tools
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "copper_sword")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, Registries.ITEM.get(Identifier.of("mores", "copper_sword")), 1)
                 .pattern("$")
                 .pattern("$")
                 .pattern("#")
@@ -630,7 +644,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .input('$', Registries.ITEM.get(Identifier.of("minecraft", "copper_ingot")))
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))))
                 .offerTo(exporter, Identifier.of("mores", "copper_sword"));
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "copper_pickaxe")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, Registries.ITEM.get(Identifier.of("mores", "copper_pickaxe")), 1)
                 .pattern("$$$")
                 .pattern(" # ")
                 .pattern(" # ")
@@ -638,7 +652,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .input('$', Registries.ITEM.get(Identifier.of("minecraft", "copper_ingot")))
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))))
                 .offerTo(exporter, Identifier.of("mores", "copper_pickaxe"));
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "copper_axe")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, Registries.ITEM.get(Identifier.of("mores", "copper_axe")), 1)
                 .pattern("$$")
                 .pattern("$#")
                 .pattern(" #")
@@ -646,7 +660,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .input('$', Registries.ITEM.get(Identifier.of("minecraft", "copper_ingot")))
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))))
                 .offerTo(exporter, Identifier.of("mores", "copper_axe"));
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "copper_shovel")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, Registries.ITEM.get(Identifier.of("mores", "copper_shovel")), 1)
                 .pattern("$")
                 .pattern("#")
                 .pattern("#")
@@ -654,7 +668,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .input('$', Registries.ITEM.get(Identifier.of("minecraft", "copper_ingot")))
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))))
                 .offerTo(exporter, Identifier.of("mores", "copper_shovel"));
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "copper_hoe")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, Registries.ITEM.get(Identifier.of("mores", "copper_hoe")), 1)
                 .pattern("$$")
                 .pattern(" #")
                 .pattern(" #")
@@ -663,7 +677,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))))
                 .offerTo(exporter, Identifier.of("mores", "copper_hoe"));
         //Weapons
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "copper_battle_axe")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, Registries.ITEM.get(Identifier.of("mores", "copper_battle_axe")), 1)
                 .pattern("$ $")
                 .pattern("$#$")
                 .pattern(" # ")
@@ -671,7 +685,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .input('$', Registries.ITEM.get(Identifier.of("minecraft", "copper_ingot")))
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))))
                 .offerTo(exporter, Identifier.of("mores", "copper_battle_axe"));
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "copper_battle_mace")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, Registries.ITEM.get(Identifier.of("mores", "copper_battle_mace")), 1)
                 .pattern(" $$")
                 .pattern(" $$")
                 .pattern("#  ")
@@ -679,7 +693,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .input('$', Registries.ITEM.get(Identifier.of("minecraft", "copper_ingot")))
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))))
                 .offerTo(exporter, Identifier.of("mores", "copper_battle_mace"));
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "copper_dagger")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, Registries.ITEM.get(Identifier.of("mores", "copper_dagger")), 1)
                 .pattern(" $ ")
                 .pattern(" # ")
                 .input('#', Registries.ITEM.get(Identifier.of("minecraft", "stick")))
@@ -687,7 +701,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))))
                 .offerTo(exporter, Identifier.of("mores", "copper_dagger"));
         //Shield
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "copper_shield")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, Registries.ITEM.get(Identifier.of("mores", "copper_shield")), 1)
                 .pattern("WoW")
                 .pattern("WWW")
                 .pattern(" W ")
@@ -696,34 +710,34 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .criterion("has_planks", conditionsFromTag(TagKey.of(RegistryKeys.ITEM, Identifier.of("minecraft", "planks"))))
                 .offerTo(exporter, Identifier.of("mores", "copper_shield"));
         //Armor
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "copper_helmet")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, Registries.ITEM.get(Identifier.of("mores", "copper_helmet")), 1)
                 .pattern("###")
                 .pattern("# #")
                 .input('#', Registries.ITEM.get(Identifier.of("minecraft", "copper_ingot")))
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("minecraft", "copper_ingot"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("minecraft", "copper_ingot"))))
                 .offerTo(exporter, Identifier.of("mores", "copper_helmet"));
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "copper_chestplate")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, Registries.ITEM.get(Identifier.of("mores", "copper_chestplate")), 1)
                 .pattern("# #")
                 .pattern("###")
                 .pattern("###")
                 .input('#', Registries.ITEM.get(Identifier.of("minecraft", "copper_ingot")))
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("minecraft", "copper_ingot"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("minecraft", "copper_ingot"))))
                 .offerTo(exporter, Identifier.of("mores", "copper_chestplate"));
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "copper_leggings")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, Registries.ITEM.get(Identifier.of("mores", "copper_leggings")), 1)
                 .pattern("###")
                 .pattern("# #")
                 .pattern("# #")
                 .input('#', Registries.ITEM.get(Identifier.of("minecraft", "copper_ingot")))
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("minecraft", "copper_ingot"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("minecraft", "copper_ingot"))))
                 .offerTo(exporter, Identifier.of("mores", "copper_leggings"));
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "copper_boots")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, Registries.ITEM.get(Identifier.of("mores", "copper_boots")), 1)
                 .pattern("# #")
                 .pattern("# #")
                 .input('#', Registries.ITEM.get(Identifier.of("minecraft", "copper_ingot")))
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("minecraft", "copper_ingot"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("minecraft", "copper_ingot"))))
                 .offerTo(exporter, Identifier.of("mores", "copper_boots"));
         //Horse Armor
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "copper_horse_armor")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, Registries.ITEM.get(Identifier.of("mores", "copper_horse_armor")), 1)
                 .pattern("  H")
                 .pattern("GWG")
                 .pattern("L L")
@@ -739,7 +753,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
     private void generateSterlingSilver(RecipeExporter exporter) {
         /* -- Sterling Silver -- */
         //Blocks & Items
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "sterling_silver_block")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, Registries.ITEM.get(Identifier.of("mores", "sterling_silver_block")), 1)
                 .pattern("###")
                 .pattern("###")
                 .pattern("###")
@@ -764,7 +778,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "sterling_silver_ingot"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "sterling_silver_ingot"))))
                 .offerTo(exporter, Identifier.of("mores", "sterling_silver_nuggets_from_ingot"));
         //Tools
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "sterling_silver_sword")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, Registries.ITEM.get(Identifier.of("mores", "sterling_silver_sword")), 1)
                 .pattern("$")
                 .pattern("$")
                 .pattern("#")
@@ -772,7 +786,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .input('$', TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "ingot/sterling_silver")))
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))))
                 .offerTo(exporter, Identifier.of("mores", "sterling_silver_sword"));
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "sterling_silver_pickaxe")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, Registries.ITEM.get(Identifier.of("mores", "sterling_silver_pickaxe")), 1)
                 .pattern("$$$")
                 .pattern(" # ")
                 .pattern(" # ")
@@ -780,7 +794,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .input('$', TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "ingot/sterling_silver")))
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))))
                 .offerTo(exporter, Identifier.of("mores", "sterling_silver_pickaxe"));
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "sterling_silver_axe")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, Registries.ITEM.get(Identifier.of("mores", "sterling_silver_axe")), 1)
                 .pattern("$$")
                 .pattern("$#")
                 .pattern(" #")
@@ -788,7 +802,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .input('$', TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "ingot/sterling_silver")))
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))))
                 .offerTo(exporter, Identifier.of("mores", "sterling_silver_axe"));
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "sterling_silver_shovel")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, Registries.ITEM.get(Identifier.of("mores", "sterling_silver_shovel")), 1)
                 .pattern("$")
                 .pattern("#")
                 .pattern("#")
@@ -796,7 +810,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .input('$', TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "ingot/sterling_silver")))
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))))
                 .offerTo(exporter, Identifier.of("mores", "sterling_silver_shovel"));
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "sterling_silver_hoe")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, Registries.ITEM.get(Identifier.of("mores", "sterling_silver_hoe")), 1)
                 .pattern("$$")
                 .pattern(" #")
                 .pattern(" #")
@@ -805,7 +819,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))))
                 .offerTo(exporter, Identifier.of("mores", "sterling_silver_hoe"));
         //Weapons
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "sterling_silver_battle_axe")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, Registries.ITEM.get(Identifier.of("mores", "sterling_silver_battle_axe")), 1)
                 .pattern("$ $")
                 .pattern("$#$")
                 .pattern(" # ")
@@ -813,7 +827,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .input('$', TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "ingot/sterling_silver")))
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))))
                 .offerTo(exporter, Identifier.of("mores", "sterling_silver_battle_axe"));
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "sterling_silver_battle_mace")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, Registries.ITEM.get(Identifier.of("mores", "sterling_silver_battle_mace")), 1)
                 .pattern(" $$")
                 .pattern(" $$")
                 .pattern("#  ")
@@ -821,7 +835,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .input('$', TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "ingot/sterling_silver")))
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))))
                 .offerTo(exporter, Identifier.of("mores", "sterling_silver_battle_mace"));
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "sterling_silver_dagger")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, Registries.ITEM.get(Identifier.of("mores", "sterling_silver_dagger")), 1)
                 .pattern(" $ ")
                 .pattern(" # ")
                 .input('#', Registries.ITEM.get(Identifier.of("minecraft", "stick")))
@@ -829,7 +843,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))))
                 .offerTo(exporter, Identifier.of("mores", "sterling_silver_dagger"));
         //Shield
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "sterling_silver_shield")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, Registries.ITEM.get(Identifier.of("mores", "sterling_silver_shield")), 1)
                 .pattern("WoW")
                 .pattern("WWW")
                 .pattern(" W ")
@@ -838,34 +852,34 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .criterion("has_planks", conditionsFromTag(TagKey.of(RegistryKeys.ITEM, Identifier.of("minecraft", "planks"))))
                 .offerTo(exporter, Identifier.of("mores", "sterling_silver_shield"));
         //Armor
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "sterling_silver_helmet")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, Registries.ITEM.get(Identifier.of("mores", "sterling_silver_helmet")), 1)
                 .pattern("###")
                 .pattern("# #")
                 .input('#', TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "ingot/sterling_silver")))
                 .criterion("has_ingot_sterling_silver", conditionsFromTag(TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "ingot/sterling_silver"))))
                 .offerTo(exporter, Identifier.of("mores", "sterling_silver_helmet"));
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "sterling_silver_chestplate")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, Registries.ITEM.get(Identifier.of("mores", "sterling_silver_chestplate")), 1)
                 .pattern("# #")
                 .pattern("###")
                 .pattern("###")
                 .input('#', TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "ingot/sterling_silver")))
                 .criterion("has_ingot_sterling_silver", conditionsFromTag(TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "ingot/sterling_silver"))))
                 .offerTo(exporter, Identifier.of("mores", "sterling_silver_chestplate"));
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "sterling_silver_leggings")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, Registries.ITEM.get(Identifier.of("mores", "sterling_silver_leggings")), 1)
                 .pattern("###")
                 .pattern("# #")
                 .pattern("# #")
                 .input('#', TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "ingot/sterling_silver")))
                 .criterion("has_ingot_sterling_silver", conditionsFromTag(TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "ingot/sterling_silver"))))
                 .offerTo(exporter, Identifier.of("mores", "sterling_silver_leggings"));
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "sterling_silver_boots")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, Registries.ITEM.get(Identifier.of("mores", "sterling_silver_boots")), 1)
                 .pattern("# #")
                 .pattern("# #")
                 .input('#', TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "ingot/sterling_silver")))
                 .criterion("has_ingot_sterling_silver", conditionsFromTag(TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "ingot/sterling_silver"))))
                 .offerTo(exporter, Identifier.of("mores", "sterling_silver_boots"));
         //Horse Armor
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "sterling_silver_horse_armor")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, Registries.ITEM.get(Identifier.of("mores", "sterling_silver_horse_armor")), 1)
                 .pattern("  H")
                 .pattern("GWG")
                 .pattern("L L")
@@ -882,7 +896,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
     private void generateRoseGold(RecipeExporter exporter) {
         /* -- Rose Gold -- */
         //Blocks & Items
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "rose_gold_block")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, Registries.ITEM.get(Identifier.of("mores", "rose_gold_block")), 1)
                 .pattern("###")
                 .pattern("###")
                 .pattern("###")
@@ -907,7 +921,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "rose_gold_ingot"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "rose_gold_ingot"))))
                 .offerTo(exporter, Identifier.of("mores", "rose_gold_nuggets_from_ingot"));
         //Tools
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "rose_gold_sword")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, Registries.ITEM.get(Identifier.of("mores", "rose_gold_sword")), 1)
                 .pattern("$")
                 .pattern("$")
                 .pattern("#")
@@ -915,7 +929,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .input('$', TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "ingot/rose_gold")))
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))))
                 .offerTo(exporter, Identifier.of("mores", "rose_gold_sword"));
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "rose_gold_pickaxe")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, Registries.ITEM.get(Identifier.of("mores", "rose_gold_pickaxe")), 1)
                 .pattern("$$$")
                 .pattern(" # ")
                 .pattern(" # ")
@@ -923,7 +937,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .input('$', TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "ingot/rose_gold")))
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))))
                 .offerTo(exporter, Identifier.of("mores", "rose_gold_pickaxe"));
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "rose_gold_axe")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, Registries.ITEM.get(Identifier.of("mores", "rose_gold_axe")), 1)
                 .pattern("$$")
                 .pattern("$#")
                 .pattern(" #")
@@ -931,7 +945,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .input('$', TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "ingot/rose_gold")))
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))))
                 .offerTo(exporter, Identifier.of("mores", "rose_gold_axe"));
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "rose_gold_shovel")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, Registries.ITEM.get(Identifier.of("mores", "rose_gold_shovel")), 1)
                 .pattern("$")
                 .pattern("#")
                 .pattern("#")
@@ -939,7 +953,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .input('$', TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "ingot/rose_gold")))
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))))
                 .offerTo(exporter, Identifier.of("mores", "rose_gold_shovel"));
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "rose_gold_hoe")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, Registries.ITEM.get(Identifier.of("mores", "rose_gold_hoe")), 1)
                 .pattern("$$")
                 .pattern(" #")
                 .pattern(" #")
@@ -948,7 +962,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))))
                 .offerTo(exporter, Identifier.of("mores", "rose_gold_hoe"));
         //Weapons
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "rose_gold_battle_axe")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, Registries.ITEM.get(Identifier.of("mores", "rose_gold_battle_axe")), 1)
                 .pattern("$ $")
                 .pattern("$#$")
                 .pattern(" # ")
@@ -956,7 +970,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .input('$', TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "ingot/rose_gold")))
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))))
                 .offerTo(exporter, Identifier.of("mores", "rose_gold_battle_axe"));
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "rose_gold_battle_mace")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, Registries.ITEM.get(Identifier.of("mores", "rose_gold_battle_mace")), 1)
                 .pattern(" $$")
                 .pattern(" $$")
                 .pattern("#  ")
@@ -964,7 +978,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .input('$', TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "ingot/rose_gold")))
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))))
                 .offerTo(exporter, Identifier.of("mores", "rose_gold_battle_mace"));
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "rose_gold_dagger")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, Registries.ITEM.get(Identifier.of("mores", "rose_gold_dagger")), 1)
                 .pattern(" $ ")
                 .pattern(" # ")
                 .input('#', Registries.ITEM.get(Identifier.of("minecraft", "stick")))
@@ -972,7 +986,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))))
                 .offerTo(exporter, Identifier.of("mores", "rose_gold_dagger"));
         //Shield
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "rose_gold_shield")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, Registries.ITEM.get(Identifier.of("mores", "rose_gold_shield")), 1)
                 .pattern("WoW")
                 .pattern("WWW")
                 .pattern(" W ")
@@ -981,34 +995,34 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .criterion("has_planks", conditionsFromTag(TagKey.of(RegistryKeys.ITEM, Identifier.of("minecraft", "planks"))))
                 .offerTo(exporter, Identifier.of("mores", "rose_gold_shield"));
         //Armor
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "rose_gold_helmet")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, Registries.ITEM.get(Identifier.of("mores", "rose_gold_helmet")), 1)
                 .pattern("###")
                 .pattern("# #")
                 .input('#', TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "ingot/rose_gold")))
                 .criterion("has_ingot_rose_gold", conditionsFromTag(TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "ingot/rose_gold"))))
                 .offerTo(exporter, Identifier.of("mores", "rose_gold_helmet"));
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "rose_gold_chestplate")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, Registries.ITEM.get(Identifier.of("mores", "rose_gold_chestplate")), 1)
                 .pattern("# #")
                 .pattern("###")
                 .pattern("###")
                 .input('#', TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "ingot/rose_gold")))
                 .criterion("has_ingot_rose_gold", conditionsFromTag(TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "ingot/rose_gold"))))
                 .offerTo(exporter, Identifier.of("mores", "rose_gold_chestplate"));
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "rose_gold_leggings")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, Registries.ITEM.get(Identifier.of("mores", "rose_gold_leggings")), 1)
                 .pattern("###")
                 .pattern("# #")
                 .pattern("# #")
                 .input('#', TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "ingot/rose_gold")))
                 .criterion("has_ingot_rose_gold", conditionsFromTag(TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "ingot/rose_gold"))))
                 .offerTo(exporter, Identifier.of("mores", "rose_gold_leggings"));
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "rose_gold_boots")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, Registries.ITEM.get(Identifier.of("mores", "rose_gold_boots")), 1)
                 .pattern("# #")
                 .pattern("# #")
                 .input('#', TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "ingot/rose_gold")))
                 .criterion("has_ingot_rose_gold", conditionsFromTag(TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "ingot/rose_gold"))))
                 .offerTo(exporter, Identifier.of("mores", "rose_gold_boots"));
         //Horse Armor
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "rose_gold_horse_armor")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, Registries.ITEM.get(Identifier.of("mores", "rose_gold_horse_armor")), 1)
                 .pattern("  H")
                 .pattern("GWG")
                 .pattern("L L")
@@ -1030,7 +1044,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .input(Registries.ITEM.get(Identifier.of("mores", "bronze_block")))
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "bronze_block"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "bronze_block"))))
                 .offerTo(exporter, Identifier.of("mores", "bronze_ingot_from_bronze_block"));
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "bronze_block")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, Registries.ITEM.get(Identifier.of("mores", "bronze_block")), 1)
                 .pattern("###")
                 .pattern("###")
                 .pattern("###")
@@ -1050,7 +1064,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "bronze_ingot"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "bronze_ingot"))))
                 .offerTo(exporter, Identifier.of("mores", "bronze_nuggets_from_ingot"));
         //Tools
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "bronze_sword")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, Registries.ITEM.get(Identifier.of("mores", "bronze_sword")), 1)
                 .pattern("$")
                 .pattern("$")
                 .pattern("#")
@@ -1058,7 +1072,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .input('$', TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "ingot/bronze")))
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))))
                 .offerTo(exporter, Identifier.of("mores", "bronze_sword"));
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "bronze_pickaxe")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, Registries.ITEM.get(Identifier.of("mores", "bronze_pickaxe")), 1)
                 .pattern("$$$")
                 .pattern(" # ")
                 .pattern(" # ")
@@ -1066,7 +1080,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .input('$', TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "ingot/bronze")))
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))))
                 .offerTo(exporter, Identifier.of("mores", "bronze_pickaxe"));
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "bronze_axe")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, Registries.ITEM.get(Identifier.of("mores", "bronze_axe")), 1)
                 .pattern("$$")
                 .pattern("$#")
                 .pattern(" #")
@@ -1074,7 +1088,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .input('$', TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "ingot/bronze")))
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))))
                 .offerTo(exporter, Identifier.of("mores", "bronze_axe"));
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "bronze_shovel")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, Registries.ITEM.get(Identifier.of("mores", "bronze_shovel")), 1)
                 .pattern("$")
                 .pattern("#")
                 .pattern("#")
@@ -1082,7 +1096,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .input('$', TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "ingot/bronze")))
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))))
                 .offerTo(exporter, Identifier.of("mores", "bronze_shovel"));
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "bronze_hoe")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, Registries.ITEM.get(Identifier.of("mores", "bronze_hoe")), 1)
                 .pattern("$$")
                 .pattern(" #")
                 .pattern(" #")
@@ -1091,7 +1105,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))))
                 .offerTo(exporter, Identifier.of("mores", "bronze_hoe"));
         //Weapons
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "bronze_battle_axe")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, Registries.ITEM.get(Identifier.of("mores", "bronze_battle_axe")), 1)
                 .pattern("$ $")
                 .pattern("$#$")
                 .pattern(" # ")
@@ -1099,7 +1113,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .input('$', TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "ingot/bronze")))
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))))
                 .offerTo(exporter, Identifier.of("mores", "bronze_battle_axe"));
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "bronze_battle_mace")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, Registries.ITEM.get(Identifier.of("mores", "bronze_battle_mace")), 1)
                 .pattern(" $$")
                 .pattern(" $$")
                 .pattern("#  ")
@@ -1107,14 +1121,14 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .input('$', TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "ingot/bronze")))
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))))
                 .offerTo(exporter, Identifier.of("mores", "bronze_battle_mace"));
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "bronze_dagger")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, Registries.ITEM.get(Identifier.of("mores", "bronze_dagger")), 1)
                 .pattern(" $ ")
                 .pattern(" # ")
                 .input('#', Registries.ITEM.get(Identifier.of("minecraft", "stick")))
                 .input('$', TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "ingot/bronze")))
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))))
                 .offerTo(exporter, Identifier.of("mores", "bronze_dagger"));
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "bronze_shield")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, Registries.ITEM.get(Identifier.of("mores", "bronze_shield")), 1)
                 .pattern("WoW")
                 .pattern("WWW")
                 .pattern(" W ")
@@ -1123,34 +1137,34 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .criterion("has_planks", conditionsFromTag(TagKey.of(RegistryKeys.ITEM, Identifier.of("minecraft", "planks"))))
                 .offerTo(exporter, Identifier.of("mores", "bronze_shield"));
         //Armor
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "bronze_helmet")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, Registries.ITEM.get(Identifier.of("mores", "bronze_helmet")), 1)
                 .pattern("###")
                 .pattern("# #")
                 .input('#', TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "ingot/bronze")))
                 .criterion("has_ingot_bronze", conditionsFromTag(TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "ingot/bronze"))))
                 .offerTo(exporter, Identifier.of("mores", "bronze_helmet"));
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "bronze_chestplate")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, Registries.ITEM.get(Identifier.of("mores", "bronze_chestplate")), 1)
                 .pattern("# #")
                 .pattern("###")
                 .pattern("###")
                 .input('#', TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "ingot/bronze")))
                 .criterion("has_ingot_bronze", conditionsFromTag(TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "ingot/bronze"))))
                 .offerTo(exporter, Identifier.of("mores", "bronze_chestplate"));
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "bronze_leggings")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, Registries.ITEM.get(Identifier.of("mores", "bronze_leggings")), 1)
                 .pattern("###")
                 .pattern("# #")
                 .pattern("# #")
                 .input('#', TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "ingot/bronze")))
                 .criterion("has_ingot_bronze", conditionsFromTag(TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "ingot/bronze"))))
                 .offerTo(exporter, Identifier.of("mores", "bronze_leggings"));
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "bronze_boots")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, Registries.ITEM.get(Identifier.of("mores", "bronze_boots")), 1)
                 .pattern("# #")
                 .pattern("# #")
                 .input('#', TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "ingot/bronze")))
                 .criterion("has_ingot_bronze", conditionsFromTag(TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "ingot/bronze"))))
                 .offerTo(exporter, Identifier.of("mores", "bronze_boots"));
         //Horse Armor
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "bronze_horse_armor")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, Registries.ITEM.get(Identifier.of("mores", "bronze_horse_armor")), 1)
                 .pattern("  H")
                 .pattern("GWG")
                 .pattern("L L")
@@ -1167,7 +1181,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
     private void generateIron(RecipeExporter exporter) {
         /* -- Iron -- */
         //Weapons
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "iron_battle_axe")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, Registries.ITEM.get(Identifier.of("mores", "iron_battle_axe")), 1)
                 .pattern("$ $")
                 .pattern("$#$")
                 .pattern(" # ")
@@ -1175,7 +1189,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .input('$', Registries.ITEM.get(Identifier.of("minecraft", "iron_ingot")))
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))))
                 .offerTo(exporter, Identifier.of("mores", "iron_battle_axe"));
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "iron_battle_mace")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, Registries.ITEM.get(Identifier.of("mores", "iron_battle_mace")), 1)
                 .pattern(" $$")
                 .pattern(" $$")
                 .pattern("#  ")
@@ -1183,7 +1197,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .input('$', Registries.ITEM.get(Identifier.of("minecraft", "iron_ingot")))
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))))
                 .offerTo(exporter, Identifier.of("mores", "iron_battle_mace"));
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "iron_dagger")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, Registries.ITEM.get(Identifier.of("mores", "iron_dagger")), 1)
                 .pattern(" $ ")
                 .pattern(" # ")
                 .input('#', Registries.ITEM.get(Identifier.of("minecraft", "stick")))
@@ -1191,7 +1205,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))))
                 .offerTo(exporter, Identifier.of("mores", "iron_dagger"));
         //Horse Armor
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("minecraft", "iron_horse_armor")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, Registries.ITEM.get(Identifier.of("minecraft", "iron_horse_armor")), 1)
                 .pattern("  H")
                 .pattern("GWG")
                 .pattern("L L")
@@ -1212,8 +1226,8 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .group("cobalt_ingot")
                 .input(Registries.ITEM.get(Identifier.of("mores", "cobalt_block")))
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "cobalt_block"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "cobalt_block"))))
-                .offerTo(exporter, Identifier.of("mores", "cobalt_ingot_from_cobalt_block"));
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "cobalt_block")), 1)
+                .offerTo(exporter, Identifier.of("mores", "cobalt_ingots_from_cobalt_block"));
+        ShapedRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, Registries.ITEM.get(Identifier.of("mores", "cobalt_block")), 1)
                 .pattern("###")
                 .pattern("###")
                 .pattern("###")
@@ -1232,20 +1246,20 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .input(TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "ingot/cobalt")))
                 .criterion("has_ingot_cobalt", conditionsFromTag(TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "ingot/cobalt"))))
                 .offerTo(exporter, Identifier.of("mores", "cobalt_nuggets_from_ingot"));
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "raw_cobalt_block")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, Registries.ITEM.get(Identifier.of("mores", "raw_cobalt_block")), 1)
                 .pattern("###")
                 .pattern("###")
                 .pattern("###")
                 .input('#', Registries.ITEM.get(Identifier.of("mores", "raw_cobalt")))
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "raw_cobalt"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "raw_cobalt"))))
-                .offerTo(exporter, Identifier.of("mores", "raw_cobalt"));
+                .offerTo(exporter, Identifier.of("mores", "raw_cobalt_block_from_raw_cobalt"));
         ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "raw_cobalt")), 9)
                 .group("raw_cobalt")
                 .input(Registries.ITEM.get(Identifier.of("mores", "raw_cobalt_block")))
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "raw_cobalt_block"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "raw_cobalt_block"))))
                 .offerTo(exporter, Identifier.of("mores", "raw_cobalt_from_raw_cobalt_block"));
         //Tools
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "cobalt_sword")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, Registries.ITEM.get(Identifier.of("mores", "cobalt_sword")), 1)
                 .pattern("$")
                 .pattern("$")
                 .pattern("#")
@@ -1253,7 +1267,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .input('$', TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "ingot/cobalt")))
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))))
                 .offerTo(exporter, Identifier.of("mores", "cobalt_sword"));
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "cobalt_pickaxe")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, Registries.ITEM.get(Identifier.of("mores", "cobalt_pickaxe")), 1)
                 .pattern("$$$")
                 .pattern(" # ")
                 .pattern(" # ")
@@ -1261,7 +1275,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .input('$', TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "ingot/cobalt")))
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))))
                 .offerTo(exporter, Identifier.of("mores", "cobalt_pickaxe"));
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "cobalt_axe")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, Registries.ITEM.get(Identifier.of("mores", "cobalt_axe")), 1)
                 .pattern("$$")
                 .pattern("$#")
                 .pattern(" #")
@@ -1269,7 +1283,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .input('$', TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "ingot/cobalt")))
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))))
                 .offerTo(exporter, Identifier.of("mores", "cobalt_axe"));
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "cobalt_hoe")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, Registries.ITEM.get(Identifier.of("mores", "cobalt_hoe")), 1)
                 .pattern("$$")
                 .pattern(" #")
                 .pattern(" #")
@@ -1278,7 +1292,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))))
                 .offerTo(exporter, Identifier.of("mores", "cobalt_hoe"));
         //Weapons
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "cobalt_battle_axe")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, Registries.ITEM.get(Identifier.of("mores", "cobalt_battle_axe")), 1)
                 .pattern("$ $")
                 .pattern("$#$")
                 .pattern(" # ")
@@ -1286,7 +1300,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .input('$', TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "ingot/cobalt")))
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))))
                 .offerTo(exporter, Identifier.of("mores", "cobalt_battle_axe"));
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "cobalt_battle_mace")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, Registries.ITEM.get(Identifier.of("mores", "cobalt_battle_mace")), 1)
                 .pattern(" $$")
                 .pattern(" $$")
                 .pattern("#  ")
@@ -1294,7 +1308,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .input('$', TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "ingot/cobalt")))
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))))
                 .offerTo(exporter, Identifier.of("mores", "cobalt_battle_mace"));
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "cobalt_dagger")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, Registries.ITEM.get(Identifier.of("mores", "cobalt_dagger")), 1)
                 .pattern(" $ ")
                 .pattern(" # ")
                 .input('#', Registries.ITEM.get(Identifier.of("minecraft", "stick")))
@@ -1302,7 +1316,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))))
                 .offerTo(exporter, Identifier.of("mores", "cobalt_dagger"));
         //Shield
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "cobalt_shield")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, Registries.ITEM.get(Identifier.of("mores", "cobalt_shield")), 1)
                 .pattern("WoW")
                 .pattern("WWW")
                 .pattern(" W ")
@@ -1311,34 +1325,34 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .criterion("has_planks", conditionsFromTag(TagKey.of(RegistryKeys.ITEM, Identifier.of("minecraft", "planks"))))
                 .offerTo(exporter, Identifier.of("mores", "cobalt_shield"));
         //Armor
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "cobalt_helmet")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, Registries.ITEM.get(Identifier.of("mores", "cobalt_helmet")), 1)
                 .pattern("###")
                 .pattern("# #")
                 .input('#', TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "ingot/cobalt")))
                 .criterion("has_ingot_cobalt", conditionsFromTag(TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "ingot/cobalt"))))
                 .offerTo(exporter, Identifier.of("mores", "cobalt_helmet"));
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "cobalt_chestplate")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, Registries.ITEM.get(Identifier.of("mores", "cobalt_chestplate")), 1)
                 .pattern("# #")
                 .pattern("###")
                 .pattern("###")
                 .input('#', TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "ingot/cobalt")))
                 .criterion("has_ingot_cobalt", conditionsFromTag(TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "ingot/cobalt"))))
                 .offerTo(exporter, Identifier.of("mores", "cobalt_chestplate"));
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "cobalt_leggings")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, Registries.ITEM.get(Identifier.of("mores", "cobalt_leggings")), 1)
                 .pattern("###")
                 .pattern("# #")
                 .pattern("# #")
                 .input('#', TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "ingot/cobalt")))
                 .criterion("has_ingot_cobalt", conditionsFromTag(TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "ingot/cobalt"))))
                 .offerTo(exporter, Identifier.of("mores", "cobalt_leggings"));
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "cobalt_boots")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, Registries.ITEM.get(Identifier.of("mores", "cobalt_boots")), 1)
                 .pattern("# #")
                 .pattern("# #")
                 .input('#', TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "ingot/cobalt")))
                 .criterion("has_ingot_cobalt", conditionsFromTag(TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "ingot/cobalt"))))
                 .offerTo(exporter, Identifier.of("mores", "cobalt_boots"));
 
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "cobalt_shovel")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, Registries.ITEM.get(Identifier.of("mores", "cobalt_shovel")), 1)
                 .pattern("$")
                 .pattern("#")
                 .pattern("#")
@@ -1347,7 +1361,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))))
                 .offerTo(exporter, Identifier.of("mores", "cobalt_shovel"));
         //Horse Armor
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "cobalt_horse_armor")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, Registries.ITEM.get(Identifier.of("mores", "cobalt_horse_armor")), 1)
                 .pattern("  H")
                 .pattern("GWG")
                 .pattern("L L")
@@ -1377,7 +1391,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .input(Registries.ITEM.get(Identifier.of("mores", "carbon_steel_block")))
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "carbon_steel_block"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "carbon_steel_block"))))
                 .offerTo(exporter, Identifier.of("mores", "carbon_steel_ingot_from_carbon_steel_block"));
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "carbon_steel_block")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, Registries.ITEM.get(Identifier.of("mores", "carbon_steel_block")), 1)
                 .pattern("###")
                 .pattern("###")
                 .pattern("###")
@@ -1389,7 +1403,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "carbon_steel_ingot"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "carbon_steel_ingot"))))
                 .offerTo(exporter, Identifier.of("mores", "carbon_steel_nuggets_from_ingot"));
         //Tools
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "carbon_steel_sword")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, Registries.ITEM.get(Identifier.of("mores", "carbon_steel_sword")), 1)
                 .pattern("$")
                 .pattern("$")
                 .pattern("#")
@@ -1397,7 +1411,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .input('$', TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "ingot/carbon_steel")))
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))))
                 .offerTo(exporter, Identifier.of("mores", "carbon_steel_sword"));
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "carbon_steel_pickaxe")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, Registries.ITEM.get(Identifier.of("mores", "carbon_steel_pickaxe")), 1)
                 .pattern("$$$")
                 .pattern(" # ")
                 .pattern(" # ")
@@ -1405,7 +1419,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .input('$', TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "ingot/carbon_steel")))
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))))
                 .offerTo(exporter, Identifier.of("mores", "carbon_steel_pickaxe"));
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "carbon_steel_axe")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, Registries.ITEM.get(Identifier.of("mores", "carbon_steel_axe")), 1)
                 .pattern("$$")
                 .pattern("$#")
                 .pattern(" #")
@@ -1413,7 +1427,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .input('$', TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "ingot/carbon_steel")))
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))))
                 .offerTo(exporter, Identifier.of("mores", "carbon_steel_axe"));
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "carbon_steel_shovel")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, Registries.ITEM.get(Identifier.of("mores", "carbon_steel_shovel")), 1)
                 .pattern("$")
                 .pattern("#")
                 .pattern("#")
@@ -1421,7 +1435,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .input('$', TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "ingot/carbon_steel")))
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))))
                 .offerTo(exporter, Identifier.of("mores", "carbon_steel_shovel"));
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "carbon_steel_hoe")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, Registries.ITEM.get(Identifier.of("mores", "carbon_steel_hoe")), 1)
                 .pattern("$$")
                 .pattern(" #")
                 .pattern(" #")
@@ -1430,7 +1444,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))))
                 .offerTo(exporter, Identifier.of("mores", "carbon_steel_hoe"));
         //Weapons
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "carbon_steel_battle_axe")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, Registries.ITEM.get(Identifier.of("mores", "carbon_steel_battle_axe")), 1)
                 .pattern("$ $")
                 .pattern("$#$")
                 .pattern(" # ")
@@ -1438,7 +1452,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .input('$', TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "ingot/carbon_steel")))
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))))
                 .offerTo(exporter, Identifier.of("mores", "carbon_steel_battle_axe"));
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "carbon_steel_battle_mace")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, Registries.ITEM.get(Identifier.of("mores", "carbon_steel_battle_mace")), 1)
                 .pattern(" $$")
                 .pattern(" $$")
                 .pattern("#  ")
@@ -1446,7 +1460,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .input('$', TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "ingot/carbon_steel")))
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))))
                 .offerTo(exporter, Identifier.of("mores", "carbon_steel_battle_mace"));
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "carbon_steel_dagger")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, Registries.ITEM.get(Identifier.of("mores", "carbon_steel_dagger")), 1)
                 .pattern(" $ ")
                 .pattern(" # ")
                 .input('#', Registries.ITEM.get(Identifier.of("minecraft", "stick")))
@@ -1454,7 +1468,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))))
                 .offerTo(exporter, Identifier.of("mores", "carbon_steel_dagger"));
         //Shield
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "carbon_steel_shield")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, Registries.ITEM.get(Identifier.of("mores", "carbon_steel_shield")), 1)
                 .pattern("WoW")
                 .pattern("WWW")
                 .pattern(" W ")
@@ -1463,34 +1477,34 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .criterion("has_planks", conditionsFromTag(TagKey.of(RegistryKeys.ITEM, Identifier.of("minecraft", "planks"))))
                 .offerTo(exporter, Identifier.of("mores", "carbon_steel_shield"));
         //Armor
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "carbon_steel_helmet")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, Registries.ITEM.get(Identifier.of("mores", "carbon_steel_helmet")), 1)
                 .pattern("###")
                 .pattern("# #")
                 .input('#', TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "ingot/carbon_steel")))
                 .criterion("has_ingot_carbon_steel", conditionsFromTag(TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "ingot/carbon_steel"))))
                 .offerTo(exporter, Identifier.of("mores", "carbon_steel_helmet"));
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "carbon_steel_chestplate")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, Registries.ITEM.get(Identifier.of("mores", "carbon_steel_chestplate")), 1)
                 .pattern("# #")
                 .pattern("###")
                 .pattern("###")
                 .input('#', TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "ingot/carbon_steel")))
                 .criterion("has_ingot_carbon_steel", conditionsFromTag(TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "ingot/carbon_steel"))))
                 .offerTo(exporter, Identifier.of("mores", "carbon_steel_chestplate"));
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "carbon_steel_leggings")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, Registries.ITEM.get(Identifier.of("mores", "carbon_steel_leggings")), 1)
                 .pattern("###")
                 .pattern("# #")
                 .pattern("# #")
                 .input('#', TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "ingot/carbon_steel")))
                 .criterion("has_ingot_carbon_steel", conditionsFromTag(TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "ingot/carbon_steel"))))
                 .offerTo(exporter, Identifier.of("mores", "carbon_steel_leggings"));
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "carbon_steel_boots")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, Registries.ITEM.get(Identifier.of("mores", "carbon_steel_boots")), 1)
                 .pattern("# #")
                 .pattern("# #")
                 .input('#', TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "ingot/carbon_steel")))
                 .criterion("has_ingot_carbon_steel", conditionsFromTag(TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "ingot/carbon_steel"))))
                 .offerTo(exporter, Identifier.of("mores", "carbon_steel_boots"));
         //Horse Armor
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "carbon_steel_horse_armor")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, Registries.ITEM.get(Identifier.of("mores", "carbon_steel_horse_armor")), 1)
                 .pattern("  H")
                 .pattern("GWG")
                 .pattern("L L")
@@ -1532,7 +1546,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .input(Registries.ITEM.get(Identifier.of("mores", "hardened_steel_block")))
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "hardened_steel_block"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "hardened_steel_block"))))
                 .offerTo(exporter, Identifier.of("mores", "hardened_steel_ingot_from_hardened_steel_block"));
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "hardened_steel_block")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, Registries.ITEM.get(Identifier.of("mores", "hardened_steel_block")), 1)
                 .pattern("###")
                 .pattern("###")
                 .pattern("###")
@@ -1544,7 +1558,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "hardened_steel_ingot"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "hardened_steel_ingot"))))
                 .offerTo(exporter, Identifier.of("mores", "hardened_steel_nuggets_from_ingot"));
         //Tools
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "hardened_steel_sword")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, Registries.ITEM.get(Identifier.of("mores", "hardened_steel_sword")), 1)
                 .pattern("$")
                 .pattern("$")
                 .pattern("#")
@@ -1552,7 +1566,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .input('$', TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "ingot/hardened_steel")))
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))))
                 .offerTo(exporter, Identifier.of("mores", "hardened_steel_sword"));
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "hardened_steel_pickaxe")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, Registries.ITEM.get(Identifier.of("mores", "hardened_steel_pickaxe")), 1)
                 .pattern("$$$")
                 .pattern(" # ")
                 .pattern(" # ")
@@ -1560,7 +1574,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .input('$', TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "ingot/hardened_steel")))
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))))
                 .offerTo(exporter, Identifier.of("mores", "hardened_steel_pickaxe"));
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "hardened_steel_axe")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, Registries.ITEM.get(Identifier.of("mores", "hardened_steel_axe")), 1)
                 .pattern("$$")
                 .pattern("$#")
                 .pattern(" #")
@@ -1568,7 +1582,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .input('$', TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "ingot/hardened_steel")))
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))))
                 .offerTo(exporter, Identifier.of("mores", "hardened_steel_axe"));
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "hardened_steel_shovel")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, Registries.ITEM.get(Identifier.of("mores", "hardened_steel_shovel")), 1)
                 .pattern("$")
                 .pattern("#")
                 .pattern("#")
@@ -1576,7 +1590,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .input('$', TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "ingot/hardened_steel")))
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))))
                 .offerTo(exporter, Identifier.of("mores", "hardened_steel_shovel"));
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "hardened_steel_hoe")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, Registries.ITEM.get(Identifier.of("mores", "hardened_steel_hoe")), 1)
                 .pattern("$$")
                 .pattern(" #")
                 .pattern(" #")
@@ -1585,7 +1599,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))))
                 .offerTo(exporter, Identifier.of("mores", "hardened_steel_hoe"));
         //Weapons
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "hardened_steel_battle_axe")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, Registries.ITEM.get(Identifier.of("mores", "hardened_steel_battle_axe")), 1)
                 .pattern("$ $")
                 .pattern("$#$")
                 .pattern(" # ")
@@ -1593,7 +1607,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .input('$', TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "ingot/hardened_steel")))
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))))
                 .offerTo(exporter, Identifier.of("mores", "hardened_steel_battle_axe"));
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "hardened_steel_battle_mace")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, Registries.ITEM.get(Identifier.of("mores", "hardened_steel_battle_mace")), 1)
                 .pattern(" $$")
                 .pattern(" $$")
                 .pattern("#  ")
@@ -1601,7 +1615,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .input('$', TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "ingot/hardened_steel")))
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))))
                 .offerTo(exporter, Identifier.of("mores", "hardened_steel_battle_mace"));
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "hardened_steel_dagger")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, Registries.ITEM.get(Identifier.of("mores", "hardened_steel_dagger")), 1)
                 .pattern(" $ ")
                 .pattern(" # ")
                 .input('#', Registries.ITEM.get(Identifier.of("minecraft", "stick")))
@@ -1609,7 +1623,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))))
                 .offerTo(exporter, Identifier.of("mores", "hardened_steel_dagger"));
         //Shield
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "hardened_steel_shield")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, Registries.ITEM.get(Identifier.of("mores", "hardened_steel_shield")), 1)
                 .pattern("WoW")
                 .pattern("WWW")
                 .pattern(" W ")
@@ -1618,34 +1632,34 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .criterion("has_planks", conditionsFromTag(TagKey.of(RegistryKeys.ITEM, Identifier.of("minecraft", "planks"))))
                 .offerTo(exporter, Identifier.of("mores", "hardened_steel_shield"));
         //Armor
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "hardened_steel_helmet")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, Registries.ITEM.get(Identifier.of("mores", "hardened_steel_helmet")), 1)
                 .pattern("###")
                 .pattern("# #")
                 .input('#', TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "ingot/hardened_steel")))
                 .criterion("has_ingot_hardened_steel", conditionsFromTag(TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "ingot/hardened_steel"))))
                 .offerTo(exporter, Identifier.of("mores", "hardened_steel_helmet"));
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "hardened_steel_chestplate")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, Registries.ITEM.get(Identifier.of("mores", "hardened_steel_chestplate")), 1)
                 .pattern("# #")
                 .pattern("###")
                 .pattern("###")
                 .input('#', TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "ingot/hardened_steel")))
                 .criterion("has_ingot_hardened_steel", conditionsFromTag(TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "ingot/hardened_steel"))))
                 .offerTo(exporter, Identifier.of("mores", "hardened_steel_chestplate"));
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "hardened_steel_leggings")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, Registries.ITEM.get(Identifier.of("mores", "hardened_steel_leggings")), 1)
                 .pattern("###")
                 .pattern("# #")
                 .pattern("# #")
                 .input('#', TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "ingot/hardened_steel")))
                 .criterion("has_ingot_hardened_steel", conditionsFromTag(TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "ingot/hardened_steel"))))
                 .offerTo(exporter, Identifier.of("mores", "hardened_steel_leggings"));
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "hardened_steel_boots")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, Registries.ITEM.get(Identifier.of("mores", "hardened_steel_boots")), 1)
                 .pattern("# #")
                 .pattern("# #")
                 .input('#', TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "ingot/hardened_steel")))
                 .criterion("has_ingot_hardened_steel", conditionsFromTag(TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "ingot/hardened_steel"))))
                 .offerTo(exporter, Identifier.of("mores", "hardened_steel_boots"));
         //Horse Armor
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "hardened_steel_horse_armor")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, Registries.ITEM.get(Identifier.of("mores", "hardened_steel_horse_armor")), 1)
                 .pattern("  H")
                 .pattern("GWG")
                 .pattern("L L")
@@ -1667,7 +1681,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .input(Registries.ITEM.get(Identifier.of("mores", "turquoise_block")))
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "turquoise_block"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "turquoise_block"))))
                 .offerTo(exporter, Identifier.of("mores", "turquoise_gem_from_turquoise_block"));
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "turquoise_block")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, Registries.ITEM.get(Identifier.of("mores", "turquoise_block")), 1)
                 .pattern("###")
                 .pattern("###")
                 .pattern("###")
@@ -1675,7 +1689,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "turquoise_gem"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "turquoise_gem"))))
                 .offerTo(exporter, Identifier.of("mores", "turquoise_block"));
         //Tools
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "turquoise_sword")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, Registries.ITEM.get(Identifier.of("mores", "turquoise_sword")), 1)
                 .pattern("$")
                 .pattern("$")
                 .pattern("#")
@@ -1683,7 +1697,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .input('$', TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "gem/turquoise")))
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))))
                 .offerTo(exporter, Identifier.of("mores", "turquoise_sword"));
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "turquoise_pickaxe")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, Registries.ITEM.get(Identifier.of("mores", "turquoise_pickaxe")), 1)
                 .pattern("$$$")
                 .pattern(" # ")
                 .pattern(" # ")
@@ -1691,7 +1705,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .input('$', TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "gem/turquoise")))
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))))
                 .offerTo(exporter, Identifier.of("mores", "turquoise_pickaxe"));
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "turquoise_axe")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, Registries.ITEM.get(Identifier.of("mores", "turquoise_axe")), 1)
                 .pattern("$$")
                 .pattern("$#")
                 .pattern(" #")
@@ -1699,7 +1713,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .input('$', TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "gem/turquoise")))
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))))
                 .offerTo(exporter, Identifier.of("mores", "turquoise_axe"));
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "turquoise_shovel")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, Registries.ITEM.get(Identifier.of("mores", "turquoise_shovel")), 1)
                 .pattern("$")
                 .pattern("#")
                 .pattern("#")
@@ -1707,7 +1721,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .input('$', TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "gem/turquoise")))
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))))
                 .offerTo(exporter, Identifier.of("mores", "turquoise_shovel"));
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "turquoise_hoe")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, Registries.ITEM.get(Identifier.of("mores", "turquoise_hoe")), 1)
                 .pattern("$$")
                 .pattern(" #")
                 .pattern(" #")
@@ -1716,7 +1730,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))))
                 .offerTo(exporter, Identifier.of("mores", "turquoise_hoe"));
         //Weapons
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "turquoise_battle_axe")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, Registries.ITEM.get(Identifier.of("mores", "turquoise_battle_axe")), 1)
                 .pattern("$ $")
                 .pattern("$#$")
                 .pattern(" # ")
@@ -1724,7 +1738,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .input('$', TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "gem/turquoise")))
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))))
                 .offerTo(exporter, Identifier.of("mores", "turquoise_battle_axe"));
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "turquoise_battle_mace")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, Registries.ITEM.get(Identifier.of("mores", "turquoise_battle_mace")), 1)
                 .pattern(" $$")
                 .pattern(" $$")
                 .pattern("#  ")
@@ -1732,7 +1746,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .input('$', TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "gem/turquoise")))
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))))
                 .offerTo(exporter, Identifier.of("mores", "turquoise_battle_mace"));
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "turquoise_dagger")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, Registries.ITEM.get(Identifier.of("mores", "turquoise_dagger")), 1)
                 .pattern(" $ ")
                 .pattern(" # ")
                 .input('#', Registries.ITEM.get(Identifier.of("minecraft", "stick")))
@@ -1740,7 +1754,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))))
                 .offerTo(exporter, Identifier.of("mores", "turquoise_dagger"));
         //Shield
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "turquoise_shield")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, Registries.ITEM.get(Identifier.of("mores", "turquoise_shield")), 1)
                 .pattern("WoW")
                 .pattern("WWW")
                 .pattern(" W ")
@@ -1749,34 +1763,34 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .criterion("has_planks", conditionsFromTag(TagKey.of(RegistryKeys.ITEM, Identifier.of("minecraft", "planks"))))
                 .offerTo(exporter, Identifier.of("mores", "turquoise_shield"));
         //Armor
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "turquoise_helmet")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, Registries.ITEM.get(Identifier.of("mores", "turquoise_helmet")), 1)
                 .pattern("###")
                 .pattern("# #")
                 .input('#', TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "gem/turquoise")))
                 .criterion("has_gem_turquoise", conditionsFromTag(TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "gem/turquoise"))))
                 .offerTo(exporter, Identifier.of("mores", "turquoise_helmet"));
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "turquoise_chestplate")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, Registries.ITEM.get(Identifier.of("mores", "turquoise_chestplate")), 1)
                 .pattern("# #")
                 .pattern("###")
                 .pattern("###")
                 .input('#', TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "gem/turquoise")))
                 .criterion("has_gem_turquoise", conditionsFromTag(TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "gem/turquoise"))))
                 .offerTo(exporter, Identifier.of("mores", "turquoise_chestplate"));
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "turquoise_leggings")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, Registries.ITEM.get(Identifier.of("mores", "turquoise_leggings")), 1)
                 .pattern("###")
                 .pattern("# #")
                 .pattern("# #")
                 .input('#', TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "gem/turquoise")))
                 .criterion("has_gem_turquoise", conditionsFromTag(TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "gem/turquoise"))))
                 .offerTo(exporter, Identifier.of("mores", "turquoise_leggings"));
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "turquoise_boots")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, Registries.ITEM.get(Identifier.of("mores", "turquoise_boots")), 1)
                 .pattern("# #")
                 .pattern("# #")
                 .input('#', TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "gem/turquoise")))
                 .criterion("has_gem_turquoise", conditionsFromTag(TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "gem/turquoise"))))
                 .offerTo(exporter, Identifier.of("mores", "turquoise_boots"));
         //Horse Armor
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "turquoise_horse_armor")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, Registries.ITEM.get(Identifier.of("mores", "turquoise_horse_armor")), 1)
                 .pattern("  H")
                 .pattern("GWG")
                 .pattern("L L")
@@ -1792,7 +1806,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
     private void generateAmethyst(RecipeExporter exporter) {
         /* Amethyst */
         //Blocks & Items
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "amethyst_block")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, Registries.ITEM.get(Identifier.of("mores", "amethyst_block")), 1)
                 .pattern("###")
                 .pattern("###")
                 .pattern("###")
@@ -1800,7 +1814,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("minecraft", "amethyst_shard"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("minecraft", "amethyst_shard"))))
                 .offerTo(exporter, Identifier.of("mores", "amethyst_block"));
         //Tools
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "amethyst_sword")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, Registries.ITEM.get(Identifier.of("mores", "amethyst_sword")), 1)
                 .pattern("$")
                 .pattern("$")
                 .pattern("#")
@@ -1808,7 +1822,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .input('$', Registries.ITEM.get(Identifier.of("minecraft", "amethyst_shard")))
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))))
                 .offerTo(exporter, Identifier.of("mores", "amethyst_sword"));
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "amethyst_pickaxe")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, Registries.ITEM.get(Identifier.of("mores", "amethyst_pickaxe")), 1)
                 .pattern("$$$")
                 .pattern(" # ")
                 .pattern(" # ")
@@ -1816,7 +1830,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .input('$', Registries.ITEM.get(Identifier.of("minecraft", "amethyst_shard")))
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))))
                 .offerTo(exporter, Identifier.of("mores", "amethyst_pickaxe"));
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "amethyst_axe")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, Registries.ITEM.get(Identifier.of("mores", "amethyst_axe")), 1)
                 .pattern("$$")
                 .pattern("$#")
                 .pattern(" #")
@@ -1824,7 +1838,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .input('$', Registries.ITEM.get(Identifier.of("minecraft", "amethyst_shard")))
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))))
                 .offerTo(exporter, Identifier.of("mores", "amethyst_axe"));
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "amethyst_shovel")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, Registries.ITEM.get(Identifier.of("mores", "amethyst_shovel")), 1)
                 .pattern("$")
                 .pattern("#")
                 .pattern("#")
@@ -1833,7 +1847,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))))
                 .offerTo(exporter, Identifier.of("mores", "amethyst_shovel"));
         //Weapons
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "amethyst_hoe")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, Registries.ITEM.get(Identifier.of("mores", "amethyst_hoe")), 1)
                 .pattern("$$")
                 .pattern(" #")
                 .pattern(" #")
@@ -1841,7 +1855,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .input('$', Registries.ITEM.get(Identifier.of("minecraft", "amethyst_shard")))
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))))
                 .offerTo(exporter, Identifier.of("mores", "amethyst_hoe"));
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "amethyst_battle_axe")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, Registries.ITEM.get(Identifier.of("mores", "amethyst_battle_axe")), 1)
                 .pattern("$ $")
                 .pattern("$#$")
                 .pattern(" # ")
@@ -1849,7 +1863,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .input('$', Registries.ITEM.get(Identifier.of("minecraft", "amethyst_shard")))
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))))
                 .offerTo(exporter, Identifier.of("mores", "amethyst_battle_axe"));
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "amethyst_battle_mace")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, Registries.ITEM.get(Identifier.of("mores", "amethyst_battle_mace")), 1)
                 .pattern(" $$")
                 .pattern(" $$")
                 .pattern("#  ")
@@ -1857,7 +1871,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .input('$', Registries.ITEM.get(Identifier.of("minecraft", "amethyst_shard")))
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))))
                 .offerTo(exporter, Identifier.of("mores", "amethyst_battle_mace"));
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "amethyst_dagger")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, Registries.ITEM.get(Identifier.of("mores", "amethyst_dagger")), 1)
                 .pattern("$")
                 .pattern("#")
                 .input('#', Registries.ITEM.get(Identifier.of("minecraft", "stick")))
@@ -1865,7 +1879,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))))
                 .offerTo(exporter, Identifier.of("mores", "amethyst_dagger"));
         //Shield
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "amethyst_shield")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, Registries.ITEM.get(Identifier.of("mores", "amethyst_shield")), 1)
                 .pattern("WoW")
                 .pattern("WWW")
                 .pattern(" W ")
@@ -1874,34 +1888,34 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .criterion("has_planks", conditionsFromTag(TagKey.of(RegistryKeys.ITEM, Identifier.of("minecraft", "planks"))))
                 .offerTo(exporter, Identifier.of("mores", "amethyst_shield"));
         //Armor
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "amethyst_helmet")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, Registries.ITEM.get(Identifier.of("mores", "amethyst_helmet")), 1)
                 .pattern("###")
                 .pattern("# #")
                 .input('#', Registries.ITEM.get(Identifier.of("minecraft", "amethyst_shard")))
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("minecraft", "amethyst_shard"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("minecraft", "amethyst_shard"))))
                 .offerTo(exporter, Identifier.of("mores", "amethyst_helmet"));
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "amethyst_chestplate")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, Registries.ITEM.get(Identifier.of("mores", "amethyst_chestplate")), 1)
                 .pattern("# #")
                 .pattern("###")
                 .pattern("###")
                 .input('#', Registries.ITEM.get(Identifier.of("minecraft", "amethyst_shard")))
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("minecraft", "amethyst_shard"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("minecraft", "amethyst_shard"))))
                 .offerTo(exporter, Identifier.of("mores", "amethyst_chestplate"));
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "amethyst_leggings")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, Registries.ITEM.get(Identifier.of("mores", "amethyst_leggings")), 1)
                 .pattern("###")
                 .pattern("# #")
                 .pattern("# #")
                 .input('#', Registries.ITEM.get(Identifier.of("minecraft", "amethyst_shard")))
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("minecraft", "amethyst_shard"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("minecraft", "amethyst_shard"))))
                 .offerTo(exporter, Identifier.of("mores", "amethyst_leggings"));
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "amethyst_boots")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, Registries.ITEM.get(Identifier.of("mores", "amethyst_boots")), 1)
                 .pattern("# #")
                 .pattern("# #")
                 .input('#', Registries.ITEM.get(Identifier.of("minecraft", "amethyst_shard")))
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("minecraft", "amethyst_shard"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("minecraft", "amethyst_shard"))))
                 .offerTo(exporter, Identifier.of("mores", "amethyst_boots"));
         //Horse Armor
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "amethyst_horse_armor")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, Registries.ITEM.get(Identifier.of("mores", "amethyst_horse_armor")), 1)
                 .pattern("  H")
                 .pattern("GWG")
                 .pattern("L L")
@@ -1923,7 +1937,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .input(Registries.ITEM.get(Identifier.of("mores", "tourmaline_block")))
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "tourmaline_block"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "tourmaline_block"))))
                 .offerTo(exporter, Identifier.of("mores", "tourmaline_gem_from_tourmaline_block"));
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "tourmaline_block")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, Registries.ITEM.get(Identifier.of("mores", "tourmaline_block")), 1)
                 .pattern("###")
                 .pattern("###")
                 .pattern("###")
@@ -1955,7 +1969,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))))
                 .offerTo(exporter, Identifier.of("mores", "tourmaline_dagger"));
         //Tools
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "tourmaline_sword")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, Registries.ITEM.get(Identifier.of("mores", "tourmaline_sword")), 1)
                 .pattern("$")
                 .pattern("$")
                 .pattern("#")
@@ -1963,7 +1977,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .input('$', TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "gem/tourmaline")))
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))))
                 .offerTo(exporter, Identifier.of("mores", "tourmaline_sword"));
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "tourmaline_pickaxe")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, Registries.ITEM.get(Identifier.of("mores", "tourmaline_pickaxe")), 1)
                 .pattern("$$$")
                 .pattern(" # ")
                 .pattern(" # ")
@@ -1971,7 +1985,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .input('$', TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "gem/tourmaline")))
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))))
                 .offerTo(exporter, Identifier.of("mores", "tourmaline_pickaxe"));
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "tourmaline_axe")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, Registries.ITEM.get(Identifier.of("mores", "tourmaline_axe")), 1)
                 .pattern("$$")
                 .pattern("$#")
                 .pattern(" #")
@@ -1979,7 +1993,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .input('$', TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "gem/tourmaline")))
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))))
                 .offerTo(exporter, Identifier.of("mores", "tourmaline_axe"));
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "tourmaline_shovel")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, Registries.ITEM.get(Identifier.of("mores", "tourmaline_shovel")), 1)
                 .pattern("$")
                 .pattern("#")
                 .pattern("#")
@@ -1987,7 +2001,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .input('$', TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "gem/tourmaline")))
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))))
                 .offerTo(exporter, Identifier.of("mores", "tourmaline_shovel"));
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "tourmaline_hoe")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, Registries.ITEM.get(Identifier.of("mores", "tourmaline_hoe")), 1)
                 .pattern("$$")
                 .pattern(" #")
                 .pattern(" #")
@@ -1996,7 +2010,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))))
                 .offerTo(exporter, Identifier.of("mores", "tourmaline_hoe"));
         //Shield
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "tourmaline_shield")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, Registries.ITEM.get(Identifier.of("mores", "tourmaline_shield")), 1)
                 .pattern("WoW")
                 .pattern("WWW")
                 .pattern(" W ")
@@ -2005,34 +2019,34 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .criterion("has_planks", conditionsFromTag(TagKey.of(RegistryKeys.ITEM, Identifier.of("minecraft", "planks"))))
                 .offerTo(exporter, Identifier.of("mores", "tourmaline_shield"));
         //Armor
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "tourmaline_helmet")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, Registries.ITEM.get(Identifier.of("mores", "tourmaline_helmet")), 1)
                 .pattern("###")
                 .pattern("# #")
                 .input('#', TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "gem/tourmaline")))
                 .criterion("has_gem_tourmaline", conditionsFromTag(TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "gem/tourmaline"))))
                 .offerTo(exporter, Identifier.of("mores", "tourmaline_helmet"));
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "tourmaline_chestplate")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, Registries.ITEM.get(Identifier.of("mores", "tourmaline_chestplate")), 1)
                 .pattern("# #")
                 .pattern("###")
                 .pattern("###")
                 .input('#', TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "gem/tourmaline")))
                 .criterion("has_gem_tourmaline", conditionsFromTag(TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "gem/tourmaline"))))
                 .offerTo(exporter, Identifier.of("mores", "tourmaline_chestplate"));
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "tourmaline_leggings")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, Registries.ITEM.get(Identifier.of("mores", "tourmaline_leggings")), 1)
                 .pattern("###")
                 .pattern("# #")
                 .pattern("# #")
                 .input('#', TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "gem/tourmaline")))
                 .criterion("has_gem_tourmaline", conditionsFromTag(TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "gem/tourmaline"))))
                 .offerTo(exporter, Identifier.of("mores", "tourmaline_leggings"));
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "tourmaline_boots")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, Registries.ITEM.get(Identifier.of("mores", "tourmaline_boots")), 1)
                 .pattern("# #")
                 .pattern("# #")
                 .input('#', TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "gem/tourmaline")))
                 .criterion("has_gem_tourmaline", conditionsFromTag(TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "gem/tourmaline"))))
                 .offerTo(exporter, Identifier.of("mores", "tourmaline_boots"));
         //Horse Armor
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "tourmaline_horse_armor")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, Registries.ITEM.get(Identifier.of("mores", "tourmaline_horse_armor")), 1)
                 .pattern("  H")
                 .pattern("GWG")
                 .pattern("L L")
@@ -2054,7 +2068,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .input(Registries.ITEM.get(Identifier.of("mores", "topaz_block")))
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "topaz_block"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "topaz_block"))))
                 .offerTo(exporter, Identifier.of("mores", "topaz_gem_from_topaz_block"));
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "topaz_block")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, Registries.ITEM.get(Identifier.of("mores", "topaz_block")), 1)
                 .pattern("###")
                 .pattern("###")
                 .pattern("###")
@@ -2062,7 +2076,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "topaz_gem"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "topaz_gem"))))
                 .offerTo(exporter, Identifier.of("mores", "topaz_block"));
         //Tools
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "topaz_sword")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, Registries.ITEM.get(Identifier.of("mores", "topaz_sword")), 1)
                 .pattern("$")
                 .pattern("$")
                 .pattern("#")
@@ -2070,7 +2084,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .input('$', TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "gem/topaz")))
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))))
                 .offerTo(exporter, Identifier.of("mores", "topaz_sword"));
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "topaz_pickaxe")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, Registries.ITEM.get(Identifier.of("mores", "topaz_pickaxe")), 1)
                 .pattern("$$$")
                 .pattern(" # ")
                 .pattern(" # ")
@@ -2078,7 +2092,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .input('$', TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "gem/topaz")))
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))))
                 .offerTo(exporter, Identifier.of("mores", "topaz_pickaxe"));
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "topaz_axe")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, Registries.ITEM.get(Identifier.of("mores", "topaz_axe")), 1)
                 .pattern("$$")
                 .pattern("$#")
                 .pattern(" #")
@@ -2086,7 +2100,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .input('$', TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "gem/topaz")))
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))))
                 .offerTo(exporter, Identifier.of("mores", "topaz_axe"));
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "topaz_shovel")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, Registries.ITEM.get(Identifier.of("mores", "topaz_shovel")), 1)
                 .pattern("$")
                 .pattern("#")
                 .pattern("#")
@@ -2094,7 +2108,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .input('$', TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "gem/topaz")))
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))))
                 .offerTo(exporter, Identifier.of("mores", "topaz_shovel"));
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "topaz_hoe")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, Registries.ITEM.get(Identifier.of("mores", "topaz_hoe")), 1)
                 .pattern("$$")
                 .pattern(" #")
                 .pattern(" #")
@@ -2103,7 +2117,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))))
                 .offerTo(exporter, Identifier.of("mores", "topaz_hoe"));
         //Weapons
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "topaz_battle_axe")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, Registries.ITEM.get(Identifier.of("mores", "topaz_battle_axe")), 1)
                 .pattern("$ $")
                 .pattern("$#$")
                 .pattern(" # ")
@@ -2111,7 +2125,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .input('$', TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "gem/topaz")))
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))))
                 .offerTo(exporter, Identifier.of("mores", "topaz_battle_axe"));
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "topaz_battle_mace")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, Registries.ITEM.get(Identifier.of("mores", "topaz_battle_mace")), 1)
                 .pattern(" $$")
                 .pattern(" $$")
                 .pattern("#  ")
@@ -2119,7 +2133,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .input('$', TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "gem/topaz")))
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))))
                 .offerTo(exporter, Identifier.of("mores", "topaz_battle_mace"));
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "topaz_dagger")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, Registries.ITEM.get(Identifier.of("mores", "topaz_dagger")), 1)
                 .pattern(" $ ")
                 .pattern(" # ")
                 .input('#', Registries.ITEM.get(Identifier.of("minecraft", "stick")))
@@ -2127,7 +2141,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))))
                 .offerTo(exporter, Identifier.of("mores", "topaz_dagger"));
         //Shield
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "topaz_shield")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, Registries.ITEM.get(Identifier.of("mores", "topaz_shield")), 1)
                 .pattern("WoW")
                 .pattern("WWW")
                 .pattern(" W ")
@@ -2136,26 +2150,26 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .criterion("has_planks", conditionsFromTag(TagKey.of(RegistryKeys.ITEM, Identifier.of("minecraft", "planks"))))
                 .offerTo(exporter, Identifier.of("mores", "topaz_shield"));
         //Armor
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "topaz_helmet")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, Registries.ITEM.get(Identifier.of("mores", "topaz_helmet")), 1)
                 .pattern("###")
                 .pattern("# #")
                 .input('#', TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "gem/topaz")))
                 .criterion("has_gem_topaz", conditionsFromTag(TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "gem/topaz"))))
                 .offerTo(exporter, Identifier.of("mores", "topaz_helmet"));
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "topaz_chestplate")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, Registries.ITEM.get(Identifier.of("mores", "topaz_chestplate")), 1)
                 .pattern("# #")
                 .pattern("###")
                 .pattern("###")
                 .input('#', TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "gem/topaz")))
                 .criterion("has_gem_topaz", conditionsFromTag(TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "gem/topaz"))))
                 .offerTo(exporter, Identifier.of("mores", "topaz_chestplate"));
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "topaz_boots")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, Registries.ITEM.get(Identifier.of("mores", "topaz_boots")), 1)
                 .pattern("# #")
                 .pattern("# #")
                 .input('#', TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "gem/topaz")))
                 .criterion("has_gem_topaz", conditionsFromTag(TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "gem/topaz"))))
                 .offerTo(exporter, Identifier.of("mores", "topaz_boots"));
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "topaz_leggings")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, Registries.ITEM.get(Identifier.of("mores", "topaz_leggings")), 1)
                 .pattern("###")
                 .pattern("# #")
                 .pattern("# #")
@@ -2163,7 +2177,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .criterion("has_gem_topaz", conditionsFromTag(TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "gem/topaz"))))
                 .offerTo(exporter, Identifier.of("mores", "topaz_leggings"));
         //Horse Armor
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "topaz_horse_armor")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, Registries.ITEM.get(Identifier.of("mores", "topaz_horse_armor")), 1)
                 .pattern("  H")
                 .pattern("GWG")
                 .pattern("L L")
@@ -2181,7 +2195,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
         /* -- Emerald -- */
         //Items & Blocks
         //Tools
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "emerald_sword")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, Registries.ITEM.get(Identifier.of("mores", "emerald_sword")), 1)
                 .pattern("$")
                 .pattern("$")
                 .pattern("#")
@@ -2189,7 +2203,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .input('$', Registries.ITEM.get(Identifier.of("minecraft", "emerald")))
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))))
                 .offerTo(exporter, Identifier.of("mores", "emerald_sword"));
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "emerald_pickaxe")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, Registries.ITEM.get(Identifier.of("mores", "emerald_pickaxe")), 1)
                 .pattern("$$$")
                 .pattern(" # ")
                 .pattern(" # ")
@@ -2197,7 +2211,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .input('$', Registries.ITEM.get(Identifier.of("minecraft", "emerald")))
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))))
                 .offerTo(exporter, Identifier.of("mores", "emerald_pickaxe"));
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "emerald_axe")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, Registries.ITEM.get(Identifier.of("mores", "emerald_axe")), 1)
                 .pattern("$$")
                 .pattern("$#")
                 .pattern(" #")
@@ -2205,7 +2219,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .input('$', Registries.ITEM.get(Identifier.of("minecraft", "emerald")))
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))))
                 .offerTo(exporter, Identifier.of("mores", "emerald_axe"));
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "emerald_shovel")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, Registries.ITEM.get(Identifier.of("mores", "emerald_shovel")), 1)
                 .pattern("$")
                 .pattern("#")
                 .pattern("#")
@@ -2213,7 +2227,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .input('$', Registries.ITEM.get(Identifier.of("minecraft", "emerald")))
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))))
                 .offerTo(exporter, Identifier.of("mores", "emerald_shovel"));
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "emerald_hoe")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, Registries.ITEM.get(Identifier.of("mores", "emerald_hoe")), 1)
                 .pattern("$$")
                 .pattern(" #")
                 .pattern(" #")
@@ -2222,7 +2236,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))))
                 .offerTo(exporter, Identifier.of("mores", "emerald_hoe"));
         //Weapons
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "emerald_battle_axe")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, Registries.ITEM.get(Identifier.of("mores", "emerald_battle_axe")), 1)
                 .pattern("$ $")
                 .pattern("$#$")
                 .pattern(" # ")
@@ -2230,7 +2244,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .input('$', Registries.ITEM.get(Identifier.of("minecraft", "emerald")))
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))))
                 .offerTo(exporter, Identifier.of("mores", "emerald_battle_axe"));
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "emerald_battle_mace")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, Registries.ITEM.get(Identifier.of("mores", "emerald_battle_mace")), 1)
                 .pattern(" $$")
                 .pattern(" $$")
                 .pattern("#  ")
@@ -2238,7 +2252,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .input('$', Registries.ITEM.get(Identifier.of("minecraft", "emerald")))
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))))
                 .offerTo(exporter, Identifier.of("mores", "emerald_battle_mace"));
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "emerald_dagger")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, Registries.ITEM.get(Identifier.of("mores", "emerald_dagger")), 1)
                 .pattern(" $ ")
                 .pattern(" # ")
                 .input('#', Registries.ITEM.get(Identifier.of("minecraft", "stick")))
@@ -2246,7 +2260,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))))
                 .offerTo(exporter, Identifier.of("mores", "emerald_dagger"));
         //Shield
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "emerald_shield")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, Registries.ITEM.get(Identifier.of("mores", "emerald_shield")), 1)
                 .pattern("WoW")
                 .pattern("WWW")
                 .pattern(" W ")
@@ -2255,34 +2269,34 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .criterion("has_planks", conditionsFromTag(TagKey.of(RegistryKeys.ITEM, Identifier.of("minecraft", "planks"))))
                 .offerTo(exporter, Identifier.of("mores", "emerald_shield"));
         //Armor
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "emerald_helmet")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, Registries.ITEM.get(Identifier.of("mores", "emerald_helmet")), 1)
                 .pattern("###")
                 .pattern("# #")
                 .input('#', Registries.ITEM.get(Identifier.of("minecraft", "emerald")))
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("minecraft", "emerald"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("minecraft", "emerald"))))
                 .offerTo(exporter, Identifier.of("mores", "emerald_helmet"));
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "emerald_chestplate")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, Registries.ITEM.get(Identifier.of("mores", "emerald_chestplate")), 1)
                 .pattern("# #")
                 .pattern("###")
                 .pattern("###")
                 .input('#', Registries.ITEM.get(Identifier.of("minecraft", "emerald")))
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("minecraft", "emerald"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("minecraft", "emerald"))))
                 .offerTo(exporter, Identifier.of("mores", "emerald_chestplate"));
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "emerald_leggings")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, Registries.ITEM.get(Identifier.of("mores", "emerald_leggings")), 1)
                 .pattern("###")
                 .pattern("# #")
                 .pattern("# #")
                 .input('#', Registries.ITEM.get(Identifier.of("minecraft", "emerald")))
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("minecraft", "emerald"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("minecraft", "emerald"))))
                 .offerTo(exporter, Identifier.of("mores", "emerald_leggings"));
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "emerald_boots")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, Registries.ITEM.get(Identifier.of("mores", "emerald_boots")), 1)
                 .pattern("# #")
                 .pattern("# #")
                 .input('#', Registries.ITEM.get(Identifier.of("minecraft", "emerald")))
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("minecraft", "emerald"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("minecraft", "emerald"))))
                 .offerTo(exporter, Identifier.of("mores", "emerald_boots"));
         //Horse Armor
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "emerald_horse_armor")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, Registries.ITEM.get(Identifier.of("mores", "emerald_horse_armor")), 1)
                 .pattern("  H")
                 .pattern("GWG")
                 .pattern("L L")
@@ -2299,7 +2313,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
     private void generateDiamond(RecipeExporter exporter) {
         /* -- Diamond -- */
         //Weapons
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "diamond_battle_axe")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, Registries.ITEM.get(Identifier.of("mores", "diamond_battle_axe")), 1)
                 .pattern("$ $")
                 .pattern("$#$")
                 .pattern(" # ")
@@ -2307,7 +2321,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .input('$', Registries.ITEM.get(Identifier.of("minecraft", "diamond")))
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))))
                 .offerTo(exporter, Identifier.of("mores", "diamond_battle_axe"));
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "diamond_battle_mace")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, Registries.ITEM.get(Identifier.of("mores", "diamond_battle_mace")), 1)
                 .pattern(" $$")
                 .pattern(" $$")
                 .pattern("#  ")
@@ -2315,7 +2329,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .input('$', Registries.ITEM.get(Identifier.of("minecraft", "diamond")))
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))))
                 .offerTo(exporter, Identifier.of("mores", "diamond_battle_mace"));
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "diamond_dagger")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, Registries.ITEM.get(Identifier.of("mores", "diamond_dagger")), 1)
                 .pattern(" $ ")
                 .pattern(" # ")
                 .input('#', Registries.ITEM.get(Identifier.of("minecraft", "stick")))
@@ -2323,7 +2337,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))))
                 .offerTo(exporter, Identifier.of("mores", "diamond_dagger"));
         //Horse Armor
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("minecraft", "diamond_horse_armor")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, Registries.ITEM.get(Identifier.of("minecraft", "diamond_horse_armor")), 1)
                 .pattern("  H")
                 .pattern("GWG")
                 .pattern("L L")
@@ -2345,7 +2359,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .input(Registries.ITEM.get(Identifier.of("mores", "ruby_block")))
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "ruby_block"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "ruby_block"))))
                 .offerTo(exporter, Identifier.of("mores", "ruby_gem_from_ruby_block"));
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "ruby_block")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, Registries.ITEM.get(Identifier.of("mores", "ruby_block")), 1)
                 .pattern("###")
                 .pattern("###")
                 .pattern("###")
@@ -2353,7 +2367,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "ruby_gem"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "ruby_gem"))))
                 .offerTo(exporter, Identifier.of("mores", "ruby_block"));
         //Tools
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "ruby_sword")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, Registries.ITEM.get(Identifier.of("mores", "ruby_sword")), 1)
                 .pattern("$")
                 .pattern("$")
                 .pattern("#")
@@ -2361,7 +2375,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .input('$', TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "gem/ruby")))
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))))
                 .offerTo(exporter, Identifier.of("mores", "ruby_sword"));
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "ruby_pickaxe")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, Registries.ITEM.get(Identifier.of("mores", "ruby_pickaxe")), 1)
                 .pattern("$$$")
                 .pattern(" # ")
                 .pattern(" # ")
@@ -2369,7 +2383,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .input('$', TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "gem/ruby")))
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))))
                 .offerTo(exporter, Identifier.of("mores", "ruby_pickaxe"));
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "ruby_axe")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, Registries.ITEM.get(Identifier.of("mores", "ruby_axe")), 1)
                 .pattern("$$")
                 .pattern("$#")
                 .pattern(" #")
@@ -2377,7 +2391,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .input('$', TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "gem/ruby")))
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))))
                 .offerTo(exporter, Identifier.of("mores", "ruby_axe"));
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "ruby_shovel")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, Registries.ITEM.get(Identifier.of("mores", "ruby_shovel")), 1)
                 .pattern("$")
                 .pattern("#")
                 .pattern("#")
@@ -2385,7 +2399,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .input('$', TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "gem/ruby")))
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))))
                 .offerTo(exporter, Identifier.of("mores", "ruby_shovel"));
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "ruby_hoe")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, Registries.ITEM.get(Identifier.of("mores", "ruby_hoe")), 1)
                 .pattern("$$")
                 .pattern(" #")
                 .pattern(" #")
@@ -2394,7 +2408,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))))
                 .offerTo(exporter, Identifier.of("mores", "ruby_hoe"));
         //Weapons
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "ruby_battle_axe")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, Registries.ITEM.get(Identifier.of("mores", "ruby_battle_axe")), 1)
                 .pattern("$ $")
                 .pattern("$#$")
                 .pattern(" # ")
@@ -2402,7 +2416,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .input('$', TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "gem/ruby")))
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))))
                 .offerTo(exporter, Identifier.of("mores", "ruby_battle_axe"));
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "ruby_battle_mace")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, Registries.ITEM.get(Identifier.of("mores", "ruby_battle_mace")), 1)
                 .pattern(" $$")
                 .pattern(" $$")
                 .pattern("#  ")
@@ -2410,7 +2424,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .input('$', TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "gem/ruby")))
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))))
                 .offerTo(exporter, Identifier.of("mores", "ruby_battle_mace"));
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "ruby_dagger")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, Registries.ITEM.get(Identifier.of("mores", "ruby_dagger")), 1)
                 .pattern(" $ ")
                 .pattern(" # ")
                 .input('#', Registries.ITEM.get(Identifier.of("minecraft", "stick")))
@@ -2418,7 +2432,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))))
                 .offerTo(exporter, Identifier.of("mores", "ruby_dagger"));
         //Shield
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "ruby_shield")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, Registries.ITEM.get(Identifier.of("mores", "ruby_shield")), 1)
                 .pattern("WoW")
                 .pattern("WWW")
                 .pattern(" W ")
@@ -2427,34 +2441,34 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .criterion("has_planks", conditionsFromTag(TagKey.of(RegistryKeys.ITEM, Identifier.of("minecraft", "planks"))))
                 .offerTo(exporter, Identifier.of("mores", "ruby_shield"));
         //Armor
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "ruby_helmet")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, Registries.ITEM.get(Identifier.of("mores", "ruby_helmet")), 1)
                 .pattern("###")
                 .pattern("# #")
                 .input('#', TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "gem/ruby")))
                 .criterion("has_gem_ruby", conditionsFromTag(TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "gem/ruby"))))
                 .offerTo(exporter, Identifier.of("mores", "ruby_helmet"));
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "ruby_chestplate")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, Registries.ITEM.get(Identifier.of("mores", "ruby_chestplate")), 1)
                 .pattern("# #")
                 .pattern("###")
                 .pattern("###")
                 .input('#', TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "gem/ruby")))
                 .criterion("has_gem_ruby", conditionsFromTag(TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "gem/ruby"))))
                 .offerTo(exporter, Identifier.of("mores", "ruby_chestplate"));
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "ruby_leggings")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, Registries.ITEM.get(Identifier.of("mores", "ruby_leggings")), 1)
                 .pattern("###")
                 .pattern("# #")
                 .pattern("# #")
                 .input('#', TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "gem/ruby")))
                 .criterion("has_gem_ruby", conditionsFromTag(TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "gem/ruby"))))
                 .offerTo(exporter, Identifier.of("mores", "ruby_leggings"));
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "ruby_boots")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, Registries.ITEM.get(Identifier.of("mores", "ruby_boots")), 1)
                 .pattern("# #")
                 .pattern("# #")
                 .input('#', TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "gem/ruby")))
                 .criterion("has_gem_ruby", conditionsFromTag(TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "gem/ruby"))))
                 .offerTo(exporter, Identifier.of("mores", "ruby_boots"));
         //Horse Armor
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "ruby_horse_armor")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, Registries.ITEM.get(Identifier.of("mores", "ruby_horse_armor")), 1)
                 .pattern("  H")
                 .pattern("GWG")
                 .pattern("L L")
@@ -2476,7 +2490,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .input(Registries.ITEM.get(Identifier.of("mores", "sapphire_block")))
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "sapphire_block"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "sapphire_block"))))
                 .offerTo(exporter, Identifier.of("mores", "sapphire_gem_from_sapphire_block"));
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "sapphire_block")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, Registries.ITEM.get(Identifier.of("mores", "sapphire_block")), 1)
                 .pattern("###")
                 .pattern("###")
                 .pattern("###")
@@ -2484,7 +2498,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "sapphire_gem"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "sapphire_gem"))))
                 .offerTo(exporter, Identifier.of("mores", "sapphire_block"));
         //Tools
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "sapphire_sword")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, Registries.ITEM.get(Identifier.of("mores", "sapphire_sword")), 1)
                 .pattern("$")
                 .pattern("$")
                 .pattern("#")
@@ -2492,7 +2506,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .input('$', TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "gem/sapphire")))
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))))
                 .offerTo(exporter, Identifier.of("mores", "sapphire_sword"));
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "sapphire_pickaxe")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, Registries.ITEM.get(Identifier.of("mores", "sapphire_pickaxe")), 1)
                 .pattern("$$$")
                 .pattern(" # ")
                 .pattern(" # ")
@@ -2500,7 +2514,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .input('$', TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "gem/sapphire")))
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))))
                 .offerTo(exporter, Identifier.of("mores", "sapphire_pickaxe"));
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "sapphire_axe")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, Registries.ITEM.get(Identifier.of("mores", "sapphire_axe")), 1)
                 .pattern("$$")
                 .pattern("$#")
                 .pattern(" #")
@@ -2508,7 +2522,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .input('$', TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "gem/sapphire")))
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))))
                 .offerTo(exporter, Identifier.of("mores", "sapphire_axe"));
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "sapphire_shovel")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, Registries.ITEM.get(Identifier.of("mores", "sapphire_shovel")), 1)
                 .pattern("$")
                 .pattern("#")
                 .pattern("#")
@@ -2516,7 +2530,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .input('$', TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "gem/sapphire")))
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))))
                 .offerTo(exporter, Identifier.of("mores", "sapphire_shovel"));
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "sapphire_hoe")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, Registries.ITEM.get(Identifier.of("mores", "sapphire_hoe")), 1)
                 .pattern("$$")
                 .pattern(" #")
                 .pattern(" #")
@@ -2525,7 +2539,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))))
                 .offerTo(exporter, Identifier.of("mores", "sapphire_hoe"));
         //Weapons
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "sapphire_battle_axe")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, Registries.ITEM.get(Identifier.of("mores", "sapphire_battle_axe")), 1)
                 .pattern("$ $")
                 .pattern("$#$")
                 .pattern(" # ")
@@ -2533,7 +2547,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .input('$', TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "gem/sapphire")))
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))))
                 .offerTo(exporter, Identifier.of("mores", "sapphire_battle_axe"));
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "sapphire_battle_mace")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, Registries.ITEM.get(Identifier.of("mores", "sapphire_battle_mace")), 1)
                 .pattern(" $$")
                 .pattern(" $$")
                 .pattern("#  ")
@@ -2541,7 +2555,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .input('$', TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "gem/sapphire")))
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))))
                 .offerTo(exporter, Identifier.of("mores", "sapphire_battle_mace"));
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "sapphire_dagger")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, Registries.ITEM.get(Identifier.of("mores", "sapphire_dagger")), 1)
                 .pattern(" $ ")
                 .pattern(" # ")
                 .input('#', Registries.ITEM.get(Identifier.of("minecraft", "stick")))
@@ -2549,7 +2563,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))))
                 .offerTo(exporter, Identifier.of("mores", "sapphire_dagger"));
         //Shield
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "sapphire_shield")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, Registries.ITEM.get(Identifier.of("mores", "sapphire_shield")), 1)
                 .pattern("WoW")
                 .pattern("WWW")
                 .pattern(" W ")
@@ -2558,34 +2572,34 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .criterion("has_planks", conditionsFromTag(TagKey.of(RegistryKeys.ITEM, Identifier.of("minecraft", "planks"))))
                 .offerTo(exporter, Identifier.of("mores", "sapphire_shield"));
         //Armor
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "sapphire_helmet")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, Registries.ITEM.get(Identifier.of("mores", "sapphire_helmet")), 1)
                 .pattern("###")
                 .pattern("# #")
                 .input('#', TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "gem/sapphire")))
                 .criterion("has_gem_sapphire", conditionsFromTag(TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "gem/sapphire"))))
                 .offerTo(exporter, Identifier.of("mores", "sapphire_helmet"));
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "sapphire_chestplate")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, Registries.ITEM.get(Identifier.of("mores", "sapphire_chestplate")), 1)
                 .pattern("# #")
                 .pattern("###")
                 .pattern("###")
                 .input('#', TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "gem/sapphire")))
                 .criterion("has_gem_sapphire", conditionsFromTag(TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "gem/sapphire"))))
                 .offerTo(exporter, Identifier.of("mores", "sapphire_chestplate"));
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "sapphire_leggings")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, Registries.ITEM.get(Identifier.of("mores", "sapphire_leggings")), 1)
                 .pattern("###")
                 .pattern("# #")
                 .pattern("# #")
                 .input('#', TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "gem/sapphire")))
                 .criterion("has_gem_sapphire", conditionsFromTag(TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "gem/sapphire"))))
                 .offerTo(exporter, Identifier.of("mores", "sapphire_leggings"));
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "sapphire_boots")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, Registries.ITEM.get(Identifier.of("mores", "sapphire_boots")), 1)
                 .pattern("# #")
                 .pattern("# #")
                 .input('#', TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "gem/sapphire")))
                 .criterion("has_gem_sapphire", conditionsFromTag(TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "gem/sapphire"))))
                 .offerTo(exporter, Identifier.of("mores", "sapphire_boots"));
         //Horse Armor
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "sapphire_horse_armor")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, Registries.ITEM.get(Identifier.of("mores", "sapphire_horse_armor")), 1)
                 .pattern("  H")
                 .pattern("GWG")
                 .pattern("L L")
@@ -2607,7 +2621,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .input(Registries.ITEM.get(Identifier.of("mores", "spinel_block")))
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "spinel_block"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "spinel_block"))))
                 .offerTo(exporter, Identifier.of("mores", "spinel_gem_from_spinel_block"));
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "spinel_block")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, Registries.ITEM.get(Identifier.of("mores", "spinel_block")), 1)
                 .pattern("###")
                 .pattern("###")
                 .pattern("###")
@@ -2615,7 +2629,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "spinel_gem"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "spinel_gem"))))
                 .offerTo(exporter, Identifier.of("mores", "spinel_block"));
         //Tools
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "spinel_sword")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, Registries.ITEM.get(Identifier.of("mores", "spinel_sword")), 1)
                 .pattern("$")
                 .pattern("$")
                 .pattern("#")
@@ -2623,7 +2637,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .input('$', TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "gem/spinel")))
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))))
                 .offerTo(exporter, Identifier.of("mores", "spinel_sword"));
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "spinel_pickaxe")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, Registries.ITEM.get(Identifier.of("mores", "spinel_pickaxe")), 1)
                 .pattern("$$$")
                 .pattern(" # ")
                 .pattern(" # ")
@@ -2631,7 +2645,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .input('$', TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "gem/spinel")))
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))))
                 .offerTo(exporter, Identifier.of("mores", "spinel_pickaxe"));
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "spinel_axe")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, Registries.ITEM.get(Identifier.of("mores", "spinel_axe")), 1)
                 .pattern("$$")
                 .pattern("$#")
                 .pattern(" #")
@@ -2639,7 +2653,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .input('$', TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "gem/spinel")))
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))))
                 .offerTo(exporter, Identifier.of("mores", "spinel_axe"));
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "spinel_shovel")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, Registries.ITEM.get(Identifier.of("mores", "spinel_shovel")), 1)
                 .pattern("$")
                 .pattern("#")
                 .pattern("#")
@@ -2647,7 +2661,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .input('$', TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "gem/spinel")))
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))))
                 .offerTo(exporter, Identifier.of("mores", "spinel_shovel"));
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "spinel_hoe")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, Registries.ITEM.get(Identifier.of("mores", "spinel_hoe")), 1)
                 .pattern("$$")
                 .pattern(" #")
                 .pattern(" #")
@@ -2656,7 +2670,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))))
                 .offerTo(exporter, Identifier.of("mores", "spinel_hoe"));
         //Weapons
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "spinel_battle_axe")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, Registries.ITEM.get(Identifier.of("mores", "spinel_battle_axe")), 1)
                 .pattern("$ $")
                 .pattern("$#$")
                 .pattern(" # ")
@@ -2664,7 +2678,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .input('$', TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "gem/spinel")))
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))))
                 .offerTo(exporter, Identifier.of("mores", "spinel_battle_axe"));
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "spinel_battle_mace")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, Registries.ITEM.get(Identifier.of("mores", "spinel_battle_mace")), 1)
                 .pattern(" $$")
                 .pattern(" $$")
                 .pattern("#  ")
@@ -2672,7 +2686,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .input('$', TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "gem/spinel")))
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))))
                 .offerTo(exporter, Identifier.of("mores", "spinel_battle_mace"));
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "spinel_dagger")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, Registries.ITEM.get(Identifier.of("mores", "spinel_dagger")), 1)
                 .pattern(" $ ")
                 .pattern(" # ")
                 .input('#', Registries.ITEM.get(Identifier.of("minecraft", "stick")))
@@ -2680,7 +2694,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))))
                 .offerTo(exporter, Identifier.of("mores", "spinel_dagger"));
         //Shield
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "spinel_shield")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, Registries.ITEM.get(Identifier.of("mores", "spinel_shield")), 1)
                 .pattern("WoW")
                 .pattern("WWW")
                 .pattern(" W ")
@@ -2689,34 +2703,34 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .criterion("has_planks", conditionsFromTag(TagKey.of(RegistryKeys.ITEM, Identifier.of("minecraft", "planks"))))
                 .offerTo(exporter, Identifier.of("mores", "spinel_shield"));
         //Armor
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "spinel_helmet")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, Registries.ITEM.get(Identifier.of("mores", "spinel_helmet")), 1)
                 .pattern("###")
                 .pattern("# #")
                 .input('#', TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "gem/spinel")))
                 .criterion("has_gem_spinel", conditionsFromTag(TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "gem/spinel"))))
                 .offerTo(exporter, Identifier.of("mores", "spinel_helmet"));
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "spinel_chestplate")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, Registries.ITEM.get(Identifier.of("mores", "spinel_chestplate")), 1)
                 .pattern("# #")
                 .pattern("###")
                 .pattern("###")
                 .input('#', TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "gem/spinel")))
                 .criterion("has_gem_spinel", conditionsFromTag(TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "gem/spinel"))))
                 .offerTo(exporter, Identifier.of("mores", "spinel_chestplate"));
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "spinel_leggings")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, Registries.ITEM.get(Identifier.of("mores", "spinel_leggings")), 1)
                 .pattern("###")
                 .pattern("# #")
                 .pattern("# #")
                 .input('#', TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "gem/spinel")))
                 .criterion("has_gem_spinel", conditionsFromTag(TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "gem/spinel"))))
                 .offerTo(exporter, Identifier.of("mores", "spinel_leggings"));
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "spinel_boots")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, Registries.ITEM.get(Identifier.of("mores", "spinel_boots")), 1)
                 .pattern("# #")
                 .pattern("# #")
                 .input('#', TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "gem/spinel")))
                 .criterion("has_gem_spinel", conditionsFromTag(TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "gem/spinel"))))
                 .offerTo(exporter, Identifier.of("mores", "spinel_boots"));
         //Horse Armor
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "spinel_horse_armor")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, Registries.ITEM.get(Identifier.of("mores", "spinel_horse_armor")), 1)
                 .pattern("  H")
                 .pattern("GWG")
                 .pattern("L L")
@@ -2738,7 +2752,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .input(Registries.ITEM.get(Identifier.of("mores", "citrine_block")))
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "citrine_block"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "citrine_block"))))
                 .offerTo(exporter, Identifier.of("mores", "citrine_gem_from_citrine_block"));
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "citrine_block")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, Registries.ITEM.get(Identifier.of("mores", "citrine_block")), 1)
                 .pattern("###")
                 .pattern("###")
                 .pattern("###")
@@ -2746,7 +2760,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "citrine_gem"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "citrine_gem"))))
                 .offerTo(exporter, Identifier.of("mores", "citrine_block"));
         //Tools
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "citrine_sword")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, Registries.ITEM.get(Identifier.of("mores", "citrine_sword")), 1)
                 .pattern("$")
                 .pattern("$")
                 .pattern("#")
@@ -2754,7 +2768,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .input('$', TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "gem/citrine")))
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))))
                 .offerTo(exporter, Identifier.of("mores", "citrine_sword"));
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "citrine_pickaxe")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, Registries.ITEM.get(Identifier.of("mores", "citrine_pickaxe")), 1)
                 .pattern("$$$")
                 .pattern(" # ")
                 .pattern(" # ")
@@ -2762,7 +2776,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .input('$', TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "gem/citrine")))
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))))
                 .offerTo(exporter, Identifier.of("mores", "citrine_pickaxe"));
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "citrine_axe")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, Registries.ITEM.get(Identifier.of("mores", "citrine_axe")), 1)
                 .pattern("$$")
                 .pattern("$#")
                 .pattern(" #")
@@ -2770,7 +2784,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .input('$', TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "gem/citrine")))
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))))
                 .offerTo(exporter, Identifier.of("mores", "citrine_axe"));
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "citrine_shovel")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, Registries.ITEM.get(Identifier.of("mores", "citrine_shovel")), 1)
                 .pattern("$")
                 .pattern("#")
                 .pattern("#")
@@ -2778,7 +2792,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .input('$', TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "gem/citrine")))
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))))
                 .offerTo(exporter, Identifier.of("mores", "citrine_shovel"));
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "citrine_hoe")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, Registries.ITEM.get(Identifier.of("mores", "citrine_hoe")), 1)
                 .pattern("$$")
                 .pattern(" #")
                 .pattern(" #")
@@ -2787,7 +2801,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))))
                 .offerTo(exporter, Identifier.of("mores", "citrine_hoe"));
         //Weapons
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "citrine_battle_axe")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, Registries.ITEM.get(Identifier.of("mores", "citrine_battle_axe")), 1)
                 .pattern("$ $")
                 .pattern("$#$")
                 .pattern(" # ")
@@ -2795,7 +2809,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .input('$', TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "gem/citrine")))
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))))
                 .offerTo(exporter, Identifier.of("mores", "citrine_battle_axe"));
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "citrine_battle_mace")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, Registries.ITEM.get(Identifier.of("mores", "citrine_battle_mace")), 1)
                 .pattern(" $$")
                 .pattern(" $$")
                 .pattern("#  ")
@@ -2803,7 +2817,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .input('$', TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "gem/citrine")))
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))))
                 .offerTo(exporter, Identifier.of("mores", "citrine_battle_mace"));
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "citrine_dagger")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, Registries.ITEM.get(Identifier.of("mores", "citrine_dagger")), 1)
                 .pattern(" $ ")
                 .pattern(" # ")
                 .input('#', Registries.ITEM.get(Identifier.of("minecraft", "stick")))
@@ -2811,7 +2825,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))))
                 .offerTo(exporter, Identifier.of("mores", "citrine_dagger"));
         //Shield
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "citrine_shield")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, Registries.ITEM.get(Identifier.of("mores", "citrine_shield")), 1)
                 .pattern("WoW")
                 .pattern("WWW")
                 .pattern(" W ")
@@ -2820,34 +2834,34 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .criterion("has_planks", conditionsFromTag(TagKey.of(RegistryKeys.ITEM, Identifier.of("minecraft", "planks"))))
                 .offerTo(exporter, Identifier.of("mores", "citrine_shield"));
         //Armor
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "citrine_helmet")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, Registries.ITEM.get(Identifier.of("mores", "citrine_helmet")), 1)
                 .pattern("###")
                 .pattern("# #")
                 .input('#', TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "gem/citrine")))
                 .criterion("has_gem_citrine", conditionsFromTag(TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "gem/citrine"))))
                 .offerTo(exporter, Identifier.of("mores", "citrine_helmet"));
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "citrine_chestplate")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, Registries.ITEM.get(Identifier.of("mores", "citrine_chestplate")), 1)
                 .pattern("# #")
                 .pattern("###")
                 .pattern("###")
                 .input('#', TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "gem/citrine")))
                 .criterion("has_gem_citrine", conditionsFromTag(TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "gem/citrine"))))
                 .offerTo(exporter, Identifier.of("mores", "citrine_chestplate"));
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "citrine_leggings")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, Registries.ITEM.get(Identifier.of("mores", "citrine_leggings")), 1)
                 .pattern("###")
                 .pattern("# #")
                 .pattern("# #")
                 .input('#', TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "gem/citrine")))
                 .criterion("has_gem_citrine", conditionsFromTag(TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "gem/citrine"))))
                 .offerTo(exporter, Identifier.of("mores", "citrine_leggings"));
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "citrine_boots")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, Registries.ITEM.get(Identifier.of("mores", "citrine_boots")), 1)
                 .pattern("# #")
                 .pattern("# #")
                 .input('#', TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "gem/citrine")))
                 .criterion("has_gem_citrine", conditionsFromTag(TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "gem/citrine"))))
                 .offerTo(exporter, Identifier.of("mores", "citrine_boots"));
         //Horse Armor
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "citrine_horse_armor")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, Registries.ITEM.get(Identifier.of("mores", "citrine_horse_armor")), 1)
                 .pattern("  H")
                 .pattern("GWG")
                 .pattern("L L")
@@ -2869,7 +2883,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .input(Registries.ITEM.get(Identifier.of("mores", "moissanite_block")))
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "moissanite_block"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "moissanite_block"))))
                 .offerTo(exporter, Identifier.of("mores", "moissanite_gem_from_moissanite_block"));
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "moissanite_block")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, Registries.ITEM.get(Identifier.of("mores", "moissanite_block")), 1)
                 .pattern("###")
                 .pattern("###")
                 .pattern("###")
@@ -2877,7 +2891,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "moissanite_gem"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "moissanite_gem"))))
                 .offerTo(exporter, Identifier.of("mores", "moissanite_block"));
         //Tools
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "moissanite_sword")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, Registries.ITEM.get(Identifier.of("mores", "moissanite_sword")), 1)
                 .pattern("$")
                 .pattern("$")
                 .pattern("#")
@@ -2885,7 +2899,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .input('$', TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "gem/moissanite")))
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))))
                 .offerTo(exporter, Identifier.of("mores", "moissanite_sword"));
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "moissanite_pickaxe")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, Registries.ITEM.get(Identifier.of("mores", "moissanite_pickaxe")), 1)
                 .pattern("$$$")
                 .pattern(" # ")
                 .pattern(" # ")
@@ -2893,7 +2907,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .input('$', TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "gem/moissanite")))
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))))
                 .offerTo(exporter, Identifier.of("mores", "moissanite_pickaxe"));
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "moissanite_axe")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, Registries.ITEM.get(Identifier.of("mores", "moissanite_axe")), 1)
                 .pattern("$$")
                 .pattern("$#")
                 .pattern(" #")
@@ -2901,7 +2915,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .input('$', TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "gem/moissanite")))
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))))
                 .offerTo(exporter, Identifier.of("mores", "moissanite_axe"));
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "moissanite_shovel")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, Registries.ITEM.get(Identifier.of("mores", "moissanite_shovel")), 1)
                 .pattern("$")
                 .pattern("#")
                 .pattern("#")
@@ -2909,7 +2923,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .input('$', TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "gem/moissanite")))
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))))
                 .offerTo(exporter, Identifier.of("mores", "moissanite_shovel"));
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "moissanite_hoe")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, Registries.ITEM.get(Identifier.of("mores", "moissanite_hoe")), 1)
                 .pattern("$$")
                 .pattern(" #")
                 .pattern(" #")
@@ -2918,7 +2932,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))))
                 .offerTo(exporter, Identifier.of("mores", "moissanite_hoe"));
         //Weapons
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "moissanite_battle_axe")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, Registries.ITEM.get(Identifier.of("mores", "moissanite_battle_axe")), 1)
                 .pattern("$ $")
                 .pattern("$#$")
                 .pattern(" # ")
@@ -2926,7 +2940,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .input('$', TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "gem/moissanite")))
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))))
                 .offerTo(exporter, Identifier.of("mores", "moissanite_battle_axe"));
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "moissanite_battle_mace")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, Registries.ITEM.get(Identifier.of("mores", "moissanite_battle_mace")), 1)
                 .pattern(" $$")
                 .pattern(" $$")
                 .pattern("#  ")
@@ -2934,7 +2948,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .input('$', TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "gem/moissanite")))
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))))
                 .offerTo(exporter, Identifier.of("mores", "moissanite_battle_mace"));
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "moissanite_dagger")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, Registries.ITEM.get(Identifier.of("mores", "moissanite_dagger")), 1)
                 .pattern(" $ ")
                 .pattern(" # ")
                 .input('#', Registries.ITEM.get(Identifier.of("minecraft", "stick")))
@@ -2942,7 +2956,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))))
                 .offerTo(exporter, Identifier.of("mores", "moissanite_dagger"));
         //Shield
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "moissanite_shield")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, Registries.ITEM.get(Identifier.of("mores", "moissanite_shield")), 1)
                 .pattern("WoW")
                 .pattern("WWW")
                 .pattern(" W ")
@@ -2951,34 +2965,34 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .criterion("has_planks", conditionsFromTag(TagKey.of(RegistryKeys.ITEM, Identifier.of("minecraft", "planks"))))
                 .offerTo(exporter, Identifier.of("mores", "moissanite_shield"));
         //Armor
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "moissanite_helmet")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, Registries.ITEM.get(Identifier.of("mores", "moissanite_helmet")), 1)
                 .pattern("###")
                 .pattern("# #")
                 .input('#', TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "gem/moissanite")))
                 .criterion("has_gem_moissanite", conditionsFromTag(TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "gem/moissanite"))))
                 .offerTo(exporter, Identifier.of("mores", "moissanite_helmet"));
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "moissanite_chestplate")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, Registries.ITEM.get(Identifier.of("mores", "moissanite_chestplate")), 1)
                 .pattern("# #")
                 .pattern("###")
                 .pattern("###")
                 .input('#', TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "gem/moissanite")))
                 .criterion("has_gem_moissanite", conditionsFromTag(TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "gem/moissanite"))))
                 .offerTo(exporter, Identifier.of("mores", "moissanite_chestplate"));
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "moissanite_leggings")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, Registries.ITEM.get(Identifier.of("mores", "moissanite_leggings")), 1)
                 .pattern("###")
                 .pattern("# #")
                 .pattern("# #")
                 .input('#', TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "gem/moissanite")))
                 .criterion("has_gem_moissanite", conditionsFromTag(TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "gem/moissanite"))))
                 .offerTo(exporter, Identifier.of("mores", "moissanite_leggings"));
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "moissanite_boots")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, Registries.ITEM.get(Identifier.of("mores", "moissanite_boots")), 1)
                 .pattern("# #")
                 .pattern("# #")
                 .input('#', TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "gem/moissanite")))
                 .criterion("has_gem_moissanite", conditionsFromTag(TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "gem/moissanite"))))
                 .offerTo(exporter, Identifier.of("mores", "moissanite_boots"));
         //Horse Armor
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "moissanite_horse_armor")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, Registries.ITEM.get(Identifier.of("mores", "moissanite_horse_armor")), 1)
                 .pattern("  H")
                 .pattern("GWG")
                 .pattern("L L")
@@ -2999,7 +3013,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .input(Registries.ITEM.get(Identifier.of("mores", "onyx_block")))
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "onyx_block"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "onyx_block"))))
                 .offerTo(exporter, Identifier.of("mores", "onyx_gem_from_onyx_block"));
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "onyx_block")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, Registries.ITEM.get(Identifier.of("mores", "onyx_block")), 1)
                 .pattern("###")
                 .pattern("###")
                 .pattern("###")
@@ -3007,7 +3021,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "onyx_gem"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "onyx_gem"))))
                 .offerTo(exporter, Identifier.of("mores", "onyx_block"));
         //Tools
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "onyx_sword")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, Registries.ITEM.get(Identifier.of("mores", "onyx_sword")), 1)
                 .pattern("$")
                 .pattern("$")
                 .pattern("#")
@@ -3015,7 +3029,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .input('$', TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "gem/onyx")))
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))))
                 .offerTo(exporter, Identifier.of("mores", "onyx_sword"));
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "onyx_pickaxe")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, Registries.ITEM.get(Identifier.of("mores", "onyx_pickaxe")), 1)
                 .pattern("$$$")
                 .pattern(" # ")
                 .pattern(" # ")
@@ -3023,7 +3037,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .input('$', TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "gem/onyx")))
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))))
                 .offerTo(exporter, Identifier.of("mores", "onyx_pickaxe"));
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "onyx_axe")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, Registries.ITEM.get(Identifier.of("mores", "onyx_axe")), 1)
                 .pattern("$$")
                 .pattern("$#")
                 .pattern(" #")
@@ -3031,7 +3045,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .input('$', TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "gem/onyx")))
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))))
                 .offerTo(exporter, Identifier.of("mores", "onyx_axe"));
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "onyx_shovel")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, Registries.ITEM.get(Identifier.of("mores", "onyx_shovel")), 1)
                 .pattern("$")
                 .pattern("#")
                 .pattern("#")
@@ -3039,7 +3053,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .input('$', TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "gem/onyx")))
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))))
                 .offerTo(exporter, Identifier.of("mores", "onyx_shovel"));
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "onyx_hoe")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, Registries.ITEM.get(Identifier.of("mores", "onyx_hoe")), 1)
                 .pattern("$$")
                 .pattern(" #")
                 .pattern(" #")
@@ -3048,7 +3062,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))))
                 .offerTo(exporter, Identifier.of("mores", "onyx_hoe"));
         //Weapons
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "onyx_battle_axe")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, Registries.ITEM.get(Identifier.of("mores", "onyx_battle_axe")), 1)
                 .pattern("$ $")
                 .pattern("$#$")
                 .pattern(" # ")
@@ -3056,7 +3070,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .input('$', TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "gem/onyx")))
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))))
                 .offerTo(exporter, Identifier.of("mores", "onyx_battle_axe"));
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "onyx_battle_mace")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, Registries.ITEM.get(Identifier.of("mores", "onyx_battle_mace")), 1)
                 .pattern(" $$")
                 .pattern(" $$")
                 .pattern("#  ")
@@ -3064,7 +3078,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .input('$', TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "gem/onyx")))
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))))
                 .offerTo(exporter, Identifier.of("mores", "onyx_battle_mace"));
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "onyx_dagger")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, Registries.ITEM.get(Identifier.of("mores", "onyx_dagger")), 1)
                 .pattern(" $ ")
                 .pattern(" # ")
                 .input('#', Registries.ITEM.get(Identifier.of("minecraft", "stick")))
@@ -3072,7 +3086,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))))
                 .offerTo(exporter, Identifier.of("mores", "onyx_dagger"));
         //Shield
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "onyx_shield")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, Registries.ITEM.get(Identifier.of("mores", "onyx_shield")), 1)
                 .pattern("WoW")
                 .pattern("WWW")
                 .pattern(" W ")
@@ -3081,34 +3095,34 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .criterion("has_planks", conditionsFromTag(TagKey.of(RegistryKeys.ITEM, Identifier.of("minecraft", "planks"))))
                 .offerTo(exporter, Identifier.of("mores", "onyx_shield"));
         //Armor
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "onyx_helmet")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, Registries.ITEM.get(Identifier.of("mores", "onyx_helmet")), 1)
                 .pattern("###")
                 .pattern("# #")
                 .input('#', TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "gem/onyx")))
                 .criterion("has_gem_onyx", conditionsFromTag(TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "gem/onyx"))))
                 .offerTo(exporter, Identifier.of("mores", "onyx_helmet"));
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "onyx_chestplate")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, Registries.ITEM.get(Identifier.of("mores", "onyx_chestplate")), 1)
                 .pattern("# #")
                 .pattern("###")
                 .pattern("###")
                 .input('#', TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "gem/onyx")))
                 .criterion("has_gem_onyx", conditionsFromTag(TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "gem/onyx"))))
                 .offerTo(exporter, Identifier.of("mores", "onyx_chestplate"));
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "onyx_leggings")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, Registries.ITEM.get(Identifier.of("mores", "onyx_leggings")), 1)
                 .pattern("###")
                 .pattern("# #")
                 .pattern("# #")
                 .input('#', TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "gem/onyx")))
                 .criterion("has_gem_onyx", conditionsFromTag(TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "gem/onyx"))))
                 .offerTo(exporter, Identifier.of("mores", "onyx_leggings"));
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "onyx_boots")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, Registries.ITEM.get(Identifier.of("mores", "onyx_boots")), 1)
                 .pattern("# #")
                 .pattern("# #")
                 .input('#', TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "gem/onyx")))
                 .criterion("has_gem_onyx", conditionsFromTag(TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "gem/onyx"))))
                 .offerTo(exporter, Identifier.of("mores", "onyx_boots"));
         //Horse Armor
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "onyx_horse_armor")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, Registries.ITEM.get(Identifier.of("mores", "onyx_horse_armor")), 1)
                 .pattern("  H")
                 .pattern("GWG")
                 .pattern("L L")
@@ -3135,29 +3149,29 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("minecraft", "diamond"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("minecraft", "diamond"))))
                 .offerTo(exporter, Identifier.of("mores", "obsidian_upgrade_smithing_template"));
         //Tools
-        SmithingTransformRecipeJsonBuilder.create(Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "obsidian_upgrade_smithing_template"))), Ingredient.ofItems(Registries.ITEM.get(Identifier.of("minecraft", "diamond_sword"))), Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "obsidian_ingot"))), RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "obsidian_sword")))
+        SmithingTransformRecipeJsonBuilder.create(Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "obsidian_upgrade_smithing_template"))), Ingredient.ofItems(Registries.ITEM.get(Identifier.of("minecraft", "diamond_sword"))), Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "obsidian_ingot"))), RecipeCategory.COMBAT, Registries.ITEM.get(Identifier.of("mores", "obsidian_sword")))
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("minecraft", "diamond_sword"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("minecraft", "diamond_sword"))))
                 .offerTo(exporter, Identifier.of("mores", "obsidian_sword_smithing"));
-        SmithingTransformRecipeJsonBuilder.create(Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "obsidian_upgrade_smithing_template"))), Ingredient.ofItems(Registries.ITEM.get(Identifier.of("minecraft", "diamond_pickaxe"))), Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "obsidian_ingot"))), RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "obsidian_pickaxe")))
+        SmithingTransformRecipeJsonBuilder.create(Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "obsidian_upgrade_smithing_template"))), Ingredient.ofItems(Registries.ITEM.get(Identifier.of("minecraft", "diamond_pickaxe"))), Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "obsidian_ingot"))), RecipeCategory.TOOLS, Registries.ITEM.get(Identifier.of("mores", "obsidian_pickaxe")))
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("minecraft", "diamond_pickaxe"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("minecraft", "diamond_pickaxe"))))
                 .offerTo(exporter, Identifier.of("mores", "obsidian_pickaxe_smithing"));
-        SmithingTransformRecipeJsonBuilder.create(Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "obsidian_upgrade_smithing_template"))), Ingredient.ofItems(Registries.ITEM.get(Identifier.of("minecraft", "diamond_shovel"))), Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "obsidian_ingot"))), RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "obsidian_shovel")))
+        SmithingTransformRecipeJsonBuilder.create(Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "obsidian_upgrade_smithing_template"))), Ingredient.ofItems(Registries.ITEM.get(Identifier.of("minecraft", "diamond_shovel"))), Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "obsidian_ingot"))), RecipeCategory.TOOLS, Registries.ITEM.get(Identifier.of("mores", "obsidian_shovel")))
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("minecraft", "diamond_shovel"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("minecraft", "diamond_shovel"))))
                 .offerTo(exporter, Identifier.of("mores", "obsidian_shovel_smithing"));
-        SmithingTransformRecipeJsonBuilder.create(Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "obsidian_upgrade_smithing_template"))), Ingredient.ofItems(Registries.ITEM.get(Identifier.of("minecraft", "diamond_hoe"))), Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "obsidian_ingot"))), RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "obsidian_hoe")))
+        SmithingTransformRecipeJsonBuilder.create(Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "obsidian_upgrade_smithing_template"))), Ingredient.ofItems(Registries.ITEM.get(Identifier.of("minecraft", "diamond_hoe"))), Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "obsidian_ingot"))), RecipeCategory.TOOLS, Registries.ITEM.get(Identifier.of("mores", "obsidian_hoe")))
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("minecraft", "diamond_hoe"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("minecraft", "diamond_hoe"))))
                 .offerTo(exporter, Identifier.of("mores", "obsidian_hoe_smithing"));
-        SmithingTransformRecipeJsonBuilder.create(Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "obsidian_upgrade_smithing_template"))), Ingredient.ofItems(Registries.ITEM.get(Identifier.of("minecraft", "diamond_axe"))), Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "obsidian_ingot"))), RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "obsidian_axe")))
+        SmithingTransformRecipeJsonBuilder.create(Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "obsidian_upgrade_smithing_template"))), Ingredient.ofItems(Registries.ITEM.get(Identifier.of("minecraft", "diamond_axe"))), Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "obsidian_ingot"))), RecipeCategory.TOOLS, Registries.ITEM.get(Identifier.of("mores", "obsidian_axe")))
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("minecraft", "diamond_axe"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("minecraft", "diamond_axe"))))
                 .offerTo(exporter, Identifier.of("mores", "obsidian_axe_smithing"));
         //Weapons
-        SmithingTransformRecipeJsonBuilder.create(Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "obsidian_upgrade_smithing_template"))), Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "diamond_battle_axe"))), Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "obsidian_ingot"))), RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "obsidian_battle_axe")))
+        SmithingTransformRecipeJsonBuilder.create(Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "obsidian_upgrade_smithing_template"))), Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "diamond_battle_axe"))), Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "obsidian_ingot"))), RecipeCategory.COMBAT, Registries.ITEM.get(Identifier.of("mores", "obsidian_battle_axe")))
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "diamond_battle_axe"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "diamond_battle_axe"))))
                 .offerTo(exporter, Identifier.of("mores", "obsidian_battle_axe_smithing"));
-        SmithingTransformRecipeJsonBuilder.create(Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "obsidian_upgrade_smithing_template"))), Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "diamond_battle_mace"))), Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "obsidian_ingot"))), RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "obsidian_battle_mace")))
+        SmithingTransformRecipeJsonBuilder.create(Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "obsidian_upgrade_smithing_template"))), Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "diamond_battle_mace"))), Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "obsidian_ingot"))), RecipeCategory.COMBAT, Registries.ITEM.get(Identifier.of("mores", "obsidian_battle_mace")))
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "diamond_battle_mace"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "diamond_battle_mace"))))
                 .offerTo(exporter, Identifier.of("mores", "obsidian_battle_mace_smithing"));
-        SmithingTransformRecipeJsonBuilder.create(Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "obsidian_upgrade_smithing_template"))), Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "diamond_dagger"))), Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "obsidian_ingot"))), RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "obsidian_dagger")))
+        SmithingTransformRecipeJsonBuilder.create(Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "obsidian_upgrade_smithing_template"))), Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "diamond_dagger"))), Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "obsidian_ingot"))), RecipeCategory.COMBAT, Registries.ITEM.get(Identifier.of("mores", "obsidian_dagger")))
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "diamond_dagger"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "diamond_dagger"))))
                 .offerTo(exporter, Identifier.of("mores", "obsidian_dagger_smithing"));
         //Shield
@@ -3170,20 +3184,20 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .criterion("has_planks", conditionsFromTag(TagKey.of(RegistryKeys.ITEM, Identifier.of("minecraft", "planks"))))
                 .offerTo(exporter, Identifier.of("mores", "obsidian_shield"));
         //Armor
-        SmithingTransformRecipeJsonBuilder.create(Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "obsidian_upgrade_smithing_template"))), Ingredient.ofItems(Registries.ITEM.get(Identifier.of("minecraft", "diamond_helmet"))), Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "obsidian_ingot"))), RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "obsidian_helmet")))
+        SmithingTransformRecipeJsonBuilder.create(Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "obsidian_upgrade_smithing_template"))), Ingredient.ofItems(Registries.ITEM.get(Identifier.of("minecraft", "diamond_helmet"))), Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "obsidian_ingot"))), RecipeCategory.COMBAT, Registries.ITEM.get(Identifier.of("mores", "obsidian_helmet")))
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("minecraft", "diamond_helmet"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("minecraft", "diamond_helmet"))))
                 .offerTo(exporter, Identifier.of("mores", "obsidian_helmet_smithing"));
-        SmithingTransformRecipeJsonBuilder.create(Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "obsidian_upgrade_smithing_template"))), Ingredient.ofItems(Registries.ITEM.get(Identifier.of("minecraft", "diamond_chestplate"))), Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "obsidian_ingot"))), RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "obsidian_chestplate")))
+        SmithingTransformRecipeJsonBuilder.create(Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "obsidian_upgrade_smithing_template"))), Ingredient.ofItems(Registries.ITEM.get(Identifier.of("minecraft", "diamond_chestplate"))), Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "obsidian_ingot"))), RecipeCategory.COMBAT, Registries.ITEM.get(Identifier.of("mores", "obsidian_chestplate")))
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("minecraft", "diamond_chestplate"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("minecraft", "diamond_chestplate"))))
                 .offerTo(exporter, Identifier.of("mores", "obsidian_chestplate_smithing"));
-        SmithingTransformRecipeJsonBuilder.create(Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "obsidian_upgrade_smithing_template"))), Ingredient.ofItems(Registries.ITEM.get(Identifier.of("minecraft", "diamond_leggings"))), Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "obsidian_ingot"))), RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "obsidian_leggings")))
+        SmithingTransformRecipeJsonBuilder.create(Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "obsidian_upgrade_smithing_template"))), Ingredient.ofItems(Registries.ITEM.get(Identifier.of("minecraft", "diamond_leggings"))), Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "obsidian_ingot"))), RecipeCategory.COMBAT, Registries.ITEM.get(Identifier.of("mores", "obsidian_leggings")))
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("minecraft", "diamond_leggings"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("minecraft", "diamond_leggings"))))
                 .offerTo(exporter, Identifier.of("mores", "obsidian_leggings_smithing"));
-        SmithingTransformRecipeJsonBuilder.create(Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "obsidian_upgrade_smithing_template"))), Ingredient.ofItems(Registries.ITEM.get(Identifier.of("minecraft", "diamond_boots"))), Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "obsidian_ingot"))), RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "obsidian_boots")))
+        SmithingTransformRecipeJsonBuilder.create(Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "obsidian_upgrade_smithing_template"))), Ingredient.ofItems(Registries.ITEM.get(Identifier.of("minecraft", "diamond_boots"))), Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "obsidian_ingot"))), RecipeCategory.COMBAT, Registries.ITEM.get(Identifier.of("mores", "obsidian_boots")))
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("minecraft", "diamond_boots"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("minecraft", "diamond_boots"))))
                 .offerTo(exporter, Identifier.of("mores", "obsidian_boots_smithing"));
         //Horse Armor
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "obsidian_horse_armor")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, Registries.ITEM.get(Identifier.of("mores", "obsidian_horse_armor")), 1)
                 .pattern("  H")
                 .pattern("GWG")
                 .pattern("L L")
@@ -3200,17 +3214,17 @@ public class ModRecipeProvider extends FabricRecipeProvider {
     private void generateNetherite(RecipeExporter exporter) {
         /* -- Netherite -- */
         //Weapons
-        SmithingTransformRecipeJsonBuilder.create(Ingredient.ofItems(Registries.ITEM.get(Identifier.of("minecraft", "netherite_upgrade_smithing_template"))), Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "diamond_battle_axe"))), Ingredient.ofItems(Registries.ITEM.get(Identifier.of("minecraft", "netherite_ingot"))), RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "netherite_battle_axe")))
+        SmithingTransformRecipeJsonBuilder.create(Ingredient.ofItems(Registries.ITEM.get(Identifier.of("minecraft", "netherite_upgrade_smithing_template"))), Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "diamond_battle_axe"))), Ingredient.ofItems(Registries.ITEM.get(Identifier.of("minecraft", "netherite_ingot"))), RecipeCategory.COMBAT, Registries.ITEM.get(Identifier.of("mores", "netherite_battle_axe")))
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "diamond_battle_axe"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "diamond_battle_axe"))))
                 .offerTo(exporter, Identifier.of("mores", "netherite_battle_axe_smithing"));
-        SmithingTransformRecipeJsonBuilder.create(Ingredient.ofItems(Registries.ITEM.get(Identifier.of("minecraft", "netherite_upgrade_smithing_template"))), Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "diamond_battle_mace"))), Ingredient.ofItems(Registries.ITEM.get(Identifier.of("minecraft", "netherite_ingot"))), RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "netherite_battle_mace")))
+        SmithingTransformRecipeJsonBuilder.create(Ingredient.ofItems(Registries.ITEM.get(Identifier.of("minecraft", "netherite_upgrade_smithing_template"))), Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "diamond_battle_mace"))), Ingredient.ofItems(Registries.ITEM.get(Identifier.of("minecraft", "netherite_ingot"))), RecipeCategory.COMBAT, Registries.ITEM.get(Identifier.of("mores", "netherite_battle_mace")))
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "diamond_battle_mace"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "diamond_battle_mace"))))
                 .offerTo(exporter, Identifier.of("mores", "netherite_battle_mace_smithing"));
-        SmithingTransformRecipeJsonBuilder.create(Ingredient.ofItems(Registries.ITEM.get(Identifier.of("minecraft", "netherite_upgrade_smithing_template"))), Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "diamond_dagger"))), Ingredient.ofItems(Registries.ITEM.get(Identifier.of("minecraft", "netherite_ingot"))), RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "netherite_dagger")))
+        SmithingTransformRecipeJsonBuilder.create(Ingredient.ofItems(Registries.ITEM.get(Identifier.of("minecraft", "netherite_upgrade_smithing_template"))), Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "diamond_dagger"))), Ingredient.ofItems(Registries.ITEM.get(Identifier.of("minecraft", "netherite_ingot"))), RecipeCategory.COMBAT, Registries.ITEM.get(Identifier.of("mores", "netherite_dagger")))
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "diamond_dagger"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "diamond_dagger"))))
                 .offerTo(exporter, Identifier.of("mores", "netherite_dagger_smithing"));
         //Horse Armor
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "netherite_horse_armor")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, Registries.ITEM.get(Identifier.of("mores", "netherite_horse_armor")), 1)
                 .pattern("  H")
                 .pattern("GWG")
                 .pattern("L L")
@@ -3231,7 +3245,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .input(Registries.ITEM.get(Identifier.of("mores", "graphene_block")))
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "graphene_block"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "graphene_block"))))
                 .offerTo(exporter, Identifier.of("mores", "graphene_gem_from_graphene_block"));
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "graphene_block")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, Registries.ITEM.get(Identifier.of("mores", "graphene_block")), 1)
                 .pattern("###")
                 .pattern("###")
                 .pattern("###")
@@ -3239,7 +3253,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "graphene_gem"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "graphene_gem"))))
                 .offerTo(exporter, Identifier.of("mores", "graphene_block"));
         //Tools
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "graphene_sword")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, Registries.ITEM.get(Identifier.of("mores", "graphene_sword")), 1)
                 .pattern("$")
                 .pattern("$")
                 .pattern("#")
@@ -3247,7 +3261,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .input('$', TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "gem/graphene")))
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))))
                 .offerTo(exporter, Identifier.of("mores", "graphene_sword"));
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "graphene_axe")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, Registries.ITEM.get(Identifier.of("mores", "graphene_axe")), 1)
                 .pattern("$$")
                 .pattern("$#")
                 .pattern(" #")
@@ -3255,7 +3269,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .input('$', TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "gem/graphene")))
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))))
                 .offerTo(exporter, Identifier.of("mores", "graphene_axe"));
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "graphene_pickaxe")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, Registries.ITEM.get(Identifier.of("mores", "graphene_pickaxe")), 1)
                 .pattern("$$$")
                 .pattern(" # ")
                 .pattern(" # ")
@@ -3263,7 +3277,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .input('$', TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "gem/graphene")))
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))))
                 .offerTo(exporter, Identifier.of("mores", "graphene_pickaxe"));
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "graphene_shovel")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, Registries.ITEM.get(Identifier.of("mores", "graphene_shovel")), 1)
                 .pattern("$")
                 .pattern("#")
                 .pattern("#")
@@ -3271,7 +3285,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .input('$', TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "gem/graphene")))
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))))
                 .offerTo(exporter, Identifier.of("mores", "graphene_shovel"));
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "graphene_hoe")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, Registries.ITEM.get(Identifier.of("mores", "graphene_hoe")), 1)
                 .pattern("$$")
                 .pattern(" #")
                 .pattern(" #")
@@ -3280,7 +3294,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))))
                 .offerTo(exporter, Identifier.of("mores", "graphene_hoe"));
         //Weapons
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "graphene_battle_axe")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, Registries.ITEM.get(Identifier.of("mores", "graphene_battle_axe")), 1)
                 .pattern("$ $")
                 .pattern("$#$")
                 .pattern(" # ")
@@ -3288,7 +3302,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .input('$', TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "gem/graphene")))
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))))
                 .offerTo(exporter, Identifier.of("mores", "graphene_battle_axe"));
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "graphene_battle_mace")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, Registries.ITEM.get(Identifier.of("mores", "graphene_battle_mace")), 1)
                 .pattern(" $$")
                 .pattern(" $$")
                 .pattern("#  ")
@@ -3296,7 +3310,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .input('$', TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "gem/graphene")))
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))))
                 .offerTo(exporter, Identifier.of("mores", "graphene_battle_mace"));
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "graphene_dagger")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, Registries.ITEM.get(Identifier.of("mores", "graphene_dagger")), 1)
                 .pattern(" $ ")
                 .pattern(" # ")
                 .input('#', Registries.ITEM.get(Identifier.of("minecraft", "stick")))
@@ -3304,7 +3318,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))))
                 .offerTo(exporter, Identifier.of("mores", "graphene_dagger"));
         //Shield
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "graphene_shield")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, Registries.ITEM.get(Identifier.of("mores", "graphene_shield")), 1)
                 .pattern("WoW")
                 .pattern("WWW")
                 .pattern(" W ")
@@ -3313,34 +3327,34 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .criterion("has_planks", conditionsFromTag(TagKey.of(RegistryKeys.ITEM, Identifier.of("minecraft", "planks"))))
                 .offerTo(exporter, Identifier.of("mores", "graphene_shield"));
         //Armor
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "graphene_helmet")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, Registries.ITEM.get(Identifier.of("mores", "graphene_helmet")), 1)
                 .pattern("###")
                 .pattern("# #")
                 .input('#', TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "gem/graphene")))
                 .criterion("has_gem_graphene", conditionsFromTag(TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "gem/graphene"))))
                 .offerTo(exporter, Identifier.of("mores", "graphene_helmet"));
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "graphene_chestplate")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, Registries.ITEM.get(Identifier.of("mores", "graphene_chestplate")), 1)
                 .pattern("# #")
                 .pattern("###")
                 .pattern("###")
                 .input('#', TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "gem/graphene")))
                 .criterion("has_gem_graphene", conditionsFromTag(TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "gem/graphene"))))
                 .offerTo(exporter, Identifier.of("mores", "graphene_chestplate"));
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "graphene_leggings")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, Registries.ITEM.get(Identifier.of("mores", "graphene_leggings")), 1)
                 .pattern("###")
                 .pattern("# #")
                 .pattern("# #")
                 .input('#', TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "gem/graphene")))
                 .criterion("has_gem_graphene", conditionsFromTag(TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "gem/graphene"))))
                 .offerTo(exporter, Identifier.of("mores", "graphene_leggings"));
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "graphene_boots")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, Registries.ITEM.get(Identifier.of("mores", "graphene_boots")), 1)
                 .pattern("# #")
                 .pattern("# #")
                 .input('#', TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "gem/graphene")))
                 .criterion("has_gem_graphene", conditionsFromTag(TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "gem/graphene"))))
                 .offerTo(exporter, Identifier.of("mores", "graphene_boots"));
         //Horse Armor
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "graphene_horse_armor")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, Registries.ITEM.get(Identifier.of("mores", "graphene_horse_armor")), 1)
                 .pattern("  H")
                 .pattern("GWG")
                 .pattern("L L")
@@ -3357,10 +3371,10 @@ public class ModRecipeProvider extends FabricRecipeProvider {
     private void generateSmokingCooking(RecipeExporter exporter) {
         /* -- Smoking / Cooking -- */
         //Duck
-        CookingRecipeJsonBuilder.createSmoking(Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "raw_duck"))), RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "cooked_duck")), 0.35f, 100)
+        CookingRecipeJsonBuilder.createSmoking(Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "raw_duck"))), RecipeCategory.FOOD, Registries.ITEM.get(Identifier.of("mores", "cooked_duck")), 0.35f, 100)
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "raw_duck"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "raw_duck"))))
                 .offerTo(exporter, Identifier.of("mores", "cooked_duck_from_smoking"));
-        CookingRecipeJsonBuilder.createCampfireCooking(Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "raw_duck"))), RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "cooked_duck")), 0.35f, 600)
+        CookingRecipeJsonBuilder.createCampfireCooking(Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "raw_duck"))), RecipeCategory.FOOD, Registries.ITEM.get(Identifier.of("mores", "cooked_duck")), 0.35f, 600)
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "raw_duck"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "raw_duck"))))
                 .offerTo(exporter, Identifier.of("mores", "cooked_duck_from_campfire_cooking"));
 
@@ -3370,7 +3384,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
     private void generateSmelting(RecipeExporter exporter) {
         /* -- Smelting -- */
         //Duck
-        CookingRecipeJsonBuilder.createSmelting(Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "raw_duck"))), RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "cooked_duck")), 0.35f, 200)
+        CookingRecipeJsonBuilder.createSmelting(Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "raw_duck"))), RecipeCategory.FOOD, Registries.ITEM.get(Identifier.of("mores", "cooked_duck")), 0.35f, 200)
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "raw_duck"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "raw_duck"))))
                 .offerTo(exporter, Identifier.of("mores", "cooked_duck"));
         //Anthracite
@@ -3721,4 +3735,111 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("minecraft", "obsidian"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("minecraft", "obsidian"))))
                 .offerTo(exporter, Identifier.of("mores", "obsidian_ingot_from_blasting_obsidian"));
     }
+
+    private void generateAlloying(RecipeExporter exporter) {
+        // bronze: tin + copper (both orders)
+        offerAlloying(exporter,
+                "bronze_from_tin_copper",
+                Ingredient.ofItems(mod.leronus.mores.item.ModItems.TIN_INGOT),
+                Ingredient.ofItems(net.minecraft.item.Items.COPPER_INGOT),
+                new ItemStack(mod.leronus.mores.item.ModItems.BRONZE_INGOT, 1),
+                0.2f, 200,
+                "soul"
+        );
+
+        offerAlloying(exporter,
+                "bronze_from_copper_tin",
+                Ingredient.ofItems(net.minecraft.item.Items.COPPER_INGOT),
+                Ingredient.ofItems(mod.leronus.mores.item.ModItems.TIN_INGOT),
+                new ItemStack(mod.leronus.mores.item.ModItems.BRONZE_INGOT, 1),
+                0.2f, 200,
+                "soul"
+        );
+
+        // sterling silver: silver + copper (both orders)
+        offerAlloying(exporter,
+                "sterling_silver_from_silver_copper",
+                Ingredient.ofItems(mod.leronus.mores.item.ModItems.SILVER_INGOT),
+                Ingredient.ofItems(net.minecraft.item.Items.COPPER_INGOT),
+                new ItemStack(mod.leronus.mores.item.ModItems.STERLING_SILVER_INGOT, 1),
+                0.2f, 200,
+                "soul"
+        );
+
+        offerAlloying(exporter,
+                "sterling_silver_from_copper_silver",
+                Ingredient.ofItems(net.minecraft.item.Items.COPPER_INGOT),
+                Ingredient.ofItems(mod.leronus.mores.item.ModItems.SILVER_INGOT),
+                new ItemStack(mod.leronus.mores.item.ModItems.STERLING_SILVER_INGOT, 1),
+                0.2f, 200,
+                "soul"
+        );
+
+        // rose gold: gold + copper (both orders)
+        offerAlloying(exporter,
+                "rose_gold_from_gold_copper",
+                Ingredient.ofItems(net.minecraft.item.Items.GOLD_INGOT),
+                Ingredient.ofItems(net.minecraft.item.Items.COPPER_INGOT),
+                new ItemStack(mod.leronus.mores.item.ModItems.ROSE_GOLD_INGOT, 1),
+                0.2f, 200,
+                "red"
+        );
+
+        offerAlloying(exporter,
+                "rose_gold_from_copper_gold",
+                Ingredient.ofItems(net.minecraft.item.Items.COPPER_INGOT),
+                Ingredient.ofItems(net.minecraft.item.Items.GOLD_INGOT),
+                new ItemStack(mod.leronus.mores.item.ModItems.ROSE_GOLD_INGOT, 1),
+                0.2f, 200,
+                "red"
+        );
+
+        // carbon steel: (coal OR anthracite) + iron (both orders)
+        Ingredient coalOrAnthracite = Ingredient.ofItems(
+                net.minecraft.item.Items.COAL,
+                mod.leronus.mores.item.ModItems.ANTHRACITE
+        );
+
+        offerAlloying(exporter,
+                "carbon_steel_from_coal_iron",
+                coalOrAnthracite,
+                Ingredient.ofItems(net.minecraft.item.Items.IRON_INGOT),
+                new ItemStack(mod.leronus.mores.item.ModItems.CARBON_STEEL_INGOT, 1),
+                0.3f, 200,
+                "soul"
+        );
+
+        offerAlloying(exporter,
+                "carbon_steel_from_iron_coal",
+                Ingredient.ofItems(net.minecraft.item.Items.IRON_INGOT),
+                coalOrAnthracite,
+                new ItemStack(mod.leronus.mores.item.ModItems.CARBON_STEEL_INGOT, 1),
+                0.3f, 200,
+                "soul"
+        );
+    }
+
+
+    private static void offerAlloying(
+            RecipeExporter exporter,
+            String recipeName,
+            Ingredient a,
+            Ingredient b,
+            ItemStack result,
+            float experience,
+            int cookingTime,
+            String theme
+    ) {
+        Identifier id = Identifier.of(mod.leronus.mores.Mores.MOD_ID, recipeName);
+
+        // Exporter wants a real Recipe<?> in 1.21.1
+        exporter.accept(
+                id,
+                new mod.leronus.mores.recipe.AlloyingRecipe(a, b, result, experience, cookingTime, theme),
+                null
+        );
+    }
+
+
+
 }

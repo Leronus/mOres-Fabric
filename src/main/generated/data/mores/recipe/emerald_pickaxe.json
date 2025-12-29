@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "item": "minecraft:stick"
+    },
+    "$": {
+      "item": "minecraft:emerald"
+    }
+  },
+  "pattern": [
+    "$$$",
+    " # ",
+    " # "
+  ],
+  "result": {
+    "count": 1,
+    "id": "mores:emerald_pickaxe"
+  }
+}

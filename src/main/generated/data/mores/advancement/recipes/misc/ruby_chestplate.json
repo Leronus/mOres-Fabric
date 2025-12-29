@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_gem_ruby": {
+      "conditions": {
+        "items": [
+          {
+            "items": "#mores:gem/ruby"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "mores:ruby_chestplate"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_gem_ruby"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "mores:ruby_chestplate"
+    ]
+  }
+}

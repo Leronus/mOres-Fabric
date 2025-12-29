@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "item": "minecraft:stick"
+    },
+    "$": {
+      "tag": "mores:gem/spinel"
+    }
+  },
+  "pattern": [
+    "$ $",
+    "$#$",
+    " # "
+  ],
+  "result": {
+    "count": 1,
+    "id": "mores:spinel_battle_axe"
+  }
+}

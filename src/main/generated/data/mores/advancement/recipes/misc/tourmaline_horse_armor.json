@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "mores:tourmaline_horse_armor"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "has_tourmaline_helmet": {
+      "conditions": {
+        "items": [
+          {
+            "items": "mores:tourmaline_helmet"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_tourmaline_helmet"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "mores:tourmaline_horse_armor"
+    ]
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "mores:item/hot_carbon_steel_scrap"
+  }
+}

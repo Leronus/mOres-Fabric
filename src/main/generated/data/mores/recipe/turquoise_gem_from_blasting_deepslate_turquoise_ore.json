@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:blasting",
+  "category": "misc",
+  "cookingtime": 100,
+  "experience": 0.9,
+  "ingredient": {
+    "item": "mores:deepslate_turquoise_ore"
+  },
+  "result": {
+    "id": "mores:turquoise_gem"
+  }
+}

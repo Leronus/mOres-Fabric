@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "G": {
+      "tag": "mores:ingot/sterling_silver"
+    },
+    "H": {
+      "item": "mores:sterling_silver_helmet"
+    },
+    "L": {
+      "item": "mores:sterling_silver_leggings"
+    },
+    "W": {
+      "tag": "minecraft:wool"
+    }
+  },
+  "pattern": [
+    "  H",
+    "GWG",
+    "L L"
+  ],
+  "result": {
+    "count": 1,
+    "id": "mores:sterling_silver_horse_armor"
+  }
+}

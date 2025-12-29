@@ -3,6 +3,9 @@ package mod.leronus.mores;
 import mod.leronus.mores.block.ModBlocks;
 import mod.leronus.mores.item.ModItemGroups;
 import mod.leronus.mores.item.ModItems;
+import mod.leronus.mores.recipe.ModRecipeTypes;
+import mod.leronus.mores.registry.ModBlockEntities;
+import mod.leronus.mores.registry.ModScreenHandlers;
 import mod.leronus.mores.sound.ModSounds;
 import mod.leronus.mores.world.gen.ModWorldGeneration;
 import net.fabricmc.api.ModInitializer;
@@ -17,23 +20,17 @@ public class Mores implements ModInitializer {
 	@Override
 	public void onInitialize() {
 		ModItemGroups.registerItemGroups();
-
 		ModItems.registerModItems();
 		ModBlocks.registerModBlocks();
-
 //		ModLootTableModifiers.modifyLootTables();
 //		ModCustomTrades.registerCustomTrades();
-
 		ModSounds.registerSounds();
+        ModRecipeTypes.registerRecipes();
+		ModBlockEntities.registerBlockEntities();
+		ModScreenHandlers.registerScreenHandlers();
 
-//		ModBlockEntities.registerBlockEntities();
-//		ModScreenHandlers.registerScreenHandlers();
-
-//		ModRecipes.registerRecipes();
-//		ModTrunkPlacerTypes.register();
-
+        //TODO Check anthracite
 		FuelRegistry.INSTANCE.add(ModItems.ANTHRACITE, 4000);
-//		FabricDefaultAttributeRegistry.register(ModEntities.ALLOY_BLOCK, AlloyBlockEntity.createAlloyAttributes());
 
 		ModWorldGeneration.generateModWorldGen();
 	}

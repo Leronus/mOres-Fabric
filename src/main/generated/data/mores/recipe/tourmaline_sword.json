@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "item": "minecraft:stick"
+    },
+    "$": {
+      "tag": "mores:gem/tourmaline"
+    }
+  },
+  "pattern": [
+    "$",
+    "$",
+    "#"
+  ],
+  "result": {
+    "count": 1,
+    "id": "mores:tourmaline_sword"
+  }
+}

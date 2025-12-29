@@ -1,0 +1,20 @@
+{
+  "type": "mores:alloying",
+  "experience": 0.3,
+  "ingredient_a": {
+    "item": "minecraft:iron_ingot"
+  },
+  "ingredient_b": [
+    {
+      "item": "minecraft:coal"
+    },
+    {
+      "item": "mores:anthracite"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "mores:carbon_steel_ingot"
+  },
+  "theme": "soul"
+}

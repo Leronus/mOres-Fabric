@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "G": {
+      "tag": "mores:ingot/tin"
+    },
+    "H": {
+      "item": "mores:tin_helmet"
+    },
+    "L": {
+      "item": "mores:tin_leggings"
+    },
+    "W": {
+      "tag": "minecraft:wool"
+    }
+  },
+  "pattern": [
+    "  H",
+    "GWG",
+    "L L"
+  ],
+  "result": {
+    "count": 1,
+    "id": "mores:tin_horse_armor"
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "group": "citrine_gem",
+  "ingredients": [
+    {
+      "item": "mores:citrine_block"
+    }
+  ],
+  "result": {
+    "count": 9,
+    "id": "mores:citrine_gem"
+  }
+}

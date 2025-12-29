@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_ingot_carbon_steel": {
+      "conditions": {
+        "items": [
+          {
+            "items": "#mores:ingot/carbon_steel"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "mores:carbon_steel_block_from_ingots"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_ingot_carbon_steel"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "mores:carbon_steel_block_from_ingots"
+    ]
+  }
+}

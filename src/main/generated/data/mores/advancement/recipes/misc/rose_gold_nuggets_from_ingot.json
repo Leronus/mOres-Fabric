@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_rose_gold_ingot": {
+      "conditions": {
+        "items": [
+          {
+            "items": "mores:rose_gold_ingot"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "mores:rose_gold_nuggets_from_ingot"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_rose_gold_ingot"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "mores:rose_gold_nuggets_from_ingot"
+    ]
+  }
+}

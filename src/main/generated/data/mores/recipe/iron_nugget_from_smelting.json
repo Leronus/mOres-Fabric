@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:smelting",
+  "category": "misc",
+  "cookingtime": 200,
+  "experience": 0.1,
+  "ingredient": [
+    {
+      "item": "mores:iron_battle_mace"
+    },
+    {
+      "item": "mores:iron_dagger"
+    },
+    {
+      "item": "mores:iron_battle_axe"
+    }
+  ],
+  "result": {
+    "id": "minecraft:iron_nugget"
+  }
+}

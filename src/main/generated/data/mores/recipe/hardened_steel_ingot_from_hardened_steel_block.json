@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "group": "hardened_steel_ingot",
+  "ingredients": [
+    {
+      "item": "mores:hardened_steel_block"
+    }
+  ],
+  "result": {
+    "count": 9,
+    "id": "mores:hardened_steel_ingot"
+  }
+}

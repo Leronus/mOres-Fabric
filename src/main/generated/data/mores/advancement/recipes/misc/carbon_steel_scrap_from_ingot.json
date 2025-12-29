@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_carbon_steel_ingot": {
+      "conditions": {
+        "items": [
+          {
+            "items": "mores:carbon_steel_ingot"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "mores:carbon_steel_scrap_from_ingot"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_carbon_steel_ingot"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "mores:carbon_steel_scrap_from_ingot"
+    ]
+  }
+}

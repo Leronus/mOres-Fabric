@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "group": "graphene_gem",
+  "ingredients": [
+    {
+      "item": "mores:graphene_block"
+    }
+  ],
+  "result": {
+    "count": 9,
+    "id": "mores:graphene_gem"
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/handheld",
+  "textures": {
+    "layer0": "mores:item/rose_gold_battle_axe"
+  }
+}

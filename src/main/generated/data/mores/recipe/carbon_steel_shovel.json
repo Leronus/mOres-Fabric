@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "item": "minecraft:stick"
+    },
+    "$": {
+      "tag": "mores:ingot/carbon_steel"
+    }
+  },
+  "pattern": [
+    "$",
+    "#",
+    "#"
+  ],
+  "result": {
+    "count": 1,
+    "id": "mores:carbon_steel_shovel"
+  }
+}

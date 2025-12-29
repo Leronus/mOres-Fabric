@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_moissanite_gem": {
+      "conditions": {
+        "items": [
+          {
+            "items": "mores:moissanite_gem"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "mores:moissanite_block"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_moissanite_gem"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "mores:moissanite_block"
+    ]
+  }
+}

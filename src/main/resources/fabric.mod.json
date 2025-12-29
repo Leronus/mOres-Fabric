@@ -36,6 +36,6 @@
         "fabricshieldlib": "*"
 	},
 	"suggests": {
-		"another-mod": "*"
+		"universal_ores": "*"
 	}
 }

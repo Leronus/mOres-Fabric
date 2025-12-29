@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "item": "minecraft:stick"
+    },
+    "$": {
+      "tag": "mores:gem/moissanite"
+    }
+  },
+  "pattern": [
+    " $$",
+    " $$",
+    "#  "
+  ],
+  "result": {
+    "count": 1,
+    "id": "mores:moissanite_battle_mace"
+  }
+}

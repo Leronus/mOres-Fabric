@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "item": "minecraft:stick"
+    },
+    "$": {
+      "item": "minecraft:amethyst_shard"
+    }
+  },
+  "pattern": [
+    "$ $",
+    "$#$",
+    " # "
+  ],
+  "result": {
+    "count": 1,
+    "id": "mores:amethyst_battle_axe"
+  }
+}

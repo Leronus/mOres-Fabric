@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "mores:block/hardened_steel_block"
+    }
+  }
+}

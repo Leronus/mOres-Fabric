@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "G": {
+      "tag": "mores:gem/topaz"
+    },
+    "H": {
+      "item": "mores:topaz_helmet"
+    },
+    "L": {
+      "item": "mores:topaz_leggings"
+    },
+    "W": {
+      "tag": "minecraft:wool"
+    }
+  },
+  "pattern": [
+    "  H",
+    "GWG",
+    "L L"
+  ],
+  "result": {
+    "count": 1,
+    "id": "mores:topaz_horse_armor"
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_moissanite_ore": {
+      "conditions": {
+        "items": [
+          {
+            "items": "mores:moissanite_ore"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "mores:moissanite_gem_from_smelting_moissanite_ore"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_moissanite_ore"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "mores:moissanite_gem_from_smelting_moissanite_ore"
+    ]
+  }
+}

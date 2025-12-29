@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "mores:tourmaline_gem_from_tourmaline_block"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "has_tourmaline_block": {
+      "conditions": {
+        "items": [
+          {
+            "items": "mores:tourmaline_block"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_tourmaline_block"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "mores:tourmaline_gem_from_tourmaline_block"
+    ]
+  }
+}

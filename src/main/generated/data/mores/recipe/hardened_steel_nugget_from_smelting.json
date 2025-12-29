@@ -1,0 +1,50 @@
+{
+  "type": "minecraft:smelting",
+  "category": "misc",
+  "cookingtime": 200,
+  "experience": 0.1,
+  "ingredient": [
+    {
+      "item": "mores:hardened_steel_pickaxe"
+    },
+    {
+      "item": "mores:hardened_steel_shovel"
+    },
+    {
+      "item": "mores:hardened_steel_axe"
+    },
+    {
+      "item": "mores:hardened_steel_hoe"
+    },
+    {
+      "item": "mores:hardened_steel_sword"
+    },
+    {
+      "item": "mores:hardened_steel_helmet"
+    },
+    {
+      "item": "mores:hardened_steel_chestplate"
+    },
+    {
+      "item": "mores:hardened_steel_leggings"
+    },
+    {
+      "item": "mores:hardened_steel_boots"
+    },
+    {
+      "item": "mores:hardened_steel_horse_armor"
+    },
+    {
+      "item": "mores:hardened_steel_battle_mace"
+    },
+    {
+      "item": "mores:hardened_steel_dagger"
+    },
+    {
+      "item": "mores:hardened_steel_battle_axe"
+    }
+  ],
+  "result": {
+    "id": "mores:hardened_steel_nugget"
+  }
+}

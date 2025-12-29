@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "group": "sterling_silver_ingot",
+  "ingredients": [
+    {
+      "item": "mores:sterling_silver_block"
+    }
+  ],
+  "result": {
+    "count": 9,
+    "id": "mores:sterling_silver_ingot"
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:smelting",
+  "category": "misc",
+  "cookingtime": 200,
+  "experience": 1.1,
+  "ingredient": {
+    "item": "mores:ender_onyx_ore"
+  },
+  "result": {
+    "id": "mores:onyx_gem"
+  }
+}
