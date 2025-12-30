@@ -1,12 +1,9 @@
 package mod.leronus.mores.client.screen;
 
 import mod.leronus.mores.block.screen.AlloyFurnaceScreenHandler;
-import mod.leronus.mores.recipe.AlloyRecipeInput;
-import mod.leronus.mores.recipe.ModRecipeTypes;
 import net.minecraft.client.gui.DrawContext;
 import net.minecraft.client.gui.screen.ingame.HandledScreen;
 import net.minecraft.entity.player.PlayerInventory;
-import net.minecraft.item.ItemStack;
 import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 
@@ -41,22 +38,11 @@ public class AlloyFurnaceScreen extends HandledScreen<AlloyFurnaceScreenHandler>
         this.backgroundHeight = 166;
     }
 
-    // ---------------- THEME ----------------
+    // ---------------- THEME (SERVER-SYNCED) ----------------
 
     private Theme currentTheme() {
-        if (client == null || client.world == null) return Theme.SOUL;
-
-        ItemStack a = handler.getSlot(0).getStack();
-        ItemStack b = handler.getSlot(1).getStack();
-        if (a.isEmpty() || b.isEmpty()) return Theme.SOUL;
-
-        var input = new AlloyRecipeInput(a, b);
-        var match = client.world.getRecipeManager()
-                .getFirstMatch(ModRecipeTypes.ALLOYING, input, client.world);
-
-        return match
-                .map(e -> Theme.fromId(e.value().getTheme()))
-                .orElse(Theme.SOUL);
+        // themeId is synced from server via PropertyDelegate (index 4)
+        return Theme.fromId(handler.getThemeId());
     }
 
     // ---------------- DRAW ----------------
@@ -71,15 +57,19 @@ public class AlloyFurnaceScreen extends HandledScreen<AlloyFurnaceScreenHandler>
 
         Theme theme = currentTheme();
 
-        // Flame (static overlay)
+        // Flame (animated height, like vanilla: 0..13)
         if (handler.isBurning()) {
-            ctx.drawTexture(
-                    theme.burnTexture,
-                    x + 56, y + 36,
-                    0, 0,
-                    14, 14,
-                    14, 14
-            );
+            int flame = handler.getFuelProgress(); // 0..13
+            if (flame > 0) {
+                // draw only bottom "flame" pixels so it shrinks as fuel runs out
+                ctx.drawTexture(
+                        theme.burnTexture,
+                        x + 56, y + 36 + (13 - flame),
+                        0, 13 - flame,
+                        14, flame + 1,
+                        14, 14
+                );
+            }
         }
 
         // Arrow (progress-scaled width)
@@ -118,11 +108,11 @@ public class AlloyFurnaceScreen extends HandledScreen<AlloyFurnaceScreenHandler>
             this.arrowTexture = arrowTexture;
         }
 
-        static Theme fromId(String id) {
+        static Theme fromId(int id) {
             return switch (id) {
-                case "red" -> RED;
-                case "purple" -> PURPLE;
-                case "blue" -> BLUE;
+                case 1 -> RED;
+                case 2 -> PURPLE;
+                case 3 -> BLUE;
                 default -> SOUL;
             };
         }

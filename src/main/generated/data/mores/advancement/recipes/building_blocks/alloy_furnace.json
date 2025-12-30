@@ -1,32 +1,32 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_copper_ingot": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "mores:alloy_furnace"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "has_tin_ingot": {
       "conditions": {
         "items": [
           {
-            "items": "minecraft:copper_ingot"
+            "items": "mores:tin_ingot"
           }
         ]
       },
       "trigger": "minecraft:inventory_changed"
-    },
-    "has_the_recipe": {
-      "conditions": {
-        "recipe": "mores:copper_nuggets_from_ingots"
-      },
-      "trigger": "minecraft:recipe_unlocked"
     }
   },
   "requirements": [
     [
       "has_the_recipe",
-      "has_copper_ingot"
+      "has_tin_ingot"
     ]
   ],
   "rewards": {
     "recipes": [
-      "mores:copper_nuggets_from_ingots"
+      "mores:alloy_furnace"
     ]
   }
 }

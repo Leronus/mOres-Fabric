@@ -68,13 +68,14 @@ public class ModRecipeProvider extends FabricRecipeProvider {
 
     private void generateBlocks(RecipeExporter exporter) {
         //Alloy Furnace
-        ShapedRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, Registries.ITEM.get(Identifier.of("mores", "tin_block")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, Registries.ITEM.get(Identifier.of("mores", "alloy_furnace")), 1)
                 .pattern("###")
-                .pattern("###")
+                .pattern("#F#")
                 .pattern("###")
                 .input('#', Registries.ITEM.get(Identifier.of("mores", "tin_ingot")))
+                .input('F', Registries.ITEM.get(Identifier.of("minecraft", "furnace")))
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "tin_ingot"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "tin_ingot"))))
-                .offerTo(exporter, Identifier.of("mores", "tin_block_from_ingots"));
+                .offerTo(exporter, Identifier.of("mores", "alloy_furnace"));
     }
 
     private void generateShieldDecoration(RecipeExporter exporter) {
@@ -3737,31 +3738,11 @@ public class ModRecipeProvider extends FabricRecipeProvider {
     }
 
     private void generateAlloying(RecipeExporter exporter) {
-        // bronze: tin + copper (both orders)
-        offerAlloying(exporter,
-                "bronze_from_tin_copper",
-                Ingredient.ofItems(mod.leronus.mores.item.ModItems.TIN_INGOT),
-                Ingredient.ofItems(net.minecraft.item.Items.COPPER_INGOT),
-                new ItemStack(mod.leronus.mores.item.ModItems.BRONZE_INGOT, 1),
-                0.2f, 200,
-                "soul"
-        );
-
         offerAlloying(exporter,
                 "bronze_from_copper_tin",
                 Ingredient.ofItems(net.minecraft.item.Items.COPPER_INGOT),
                 Ingredient.ofItems(mod.leronus.mores.item.ModItems.TIN_INGOT),
                 new ItemStack(mod.leronus.mores.item.ModItems.BRONZE_INGOT, 1),
-                0.2f, 200,
-                "soul"
-        );
-
-        // sterling silver: silver + copper (both orders)
-        offerAlloying(exporter,
-                "sterling_silver_from_silver_copper",
-                Ingredient.ofItems(mod.leronus.mores.item.ModItems.SILVER_INGOT),
-                Ingredient.ofItems(net.minecraft.item.Items.COPPER_INGOT),
-                new ItemStack(mod.leronus.mores.item.ModItems.STERLING_SILVER_INGOT, 1),
                 0.2f, 200,
                 "soul"
         );
@@ -3773,16 +3754,6 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 new ItemStack(mod.leronus.mores.item.ModItems.STERLING_SILVER_INGOT, 1),
                 0.2f, 200,
                 "soul"
-        );
-
-        // rose gold: gold + copper (both orders)
-        offerAlloying(exporter,
-                "rose_gold_from_gold_copper",
-                Ingredient.ofItems(net.minecraft.item.Items.GOLD_INGOT),
-                Ingredient.ofItems(net.minecraft.item.Items.COPPER_INGOT),
-                new ItemStack(mod.leronus.mores.item.ModItems.ROSE_GOLD_INGOT, 1),
-                0.2f, 200,
-                "red"
         );
 
         offerAlloying(exporter,
@@ -3798,15 +3769,6 @@ public class ModRecipeProvider extends FabricRecipeProvider {
         Ingredient coalOrAnthracite = Ingredient.ofItems(
                 net.minecraft.item.Items.COAL,
                 mod.leronus.mores.item.ModItems.ANTHRACITE
-        );
-
-        offerAlloying(exporter,
-                "carbon_steel_from_coal_iron",
-                coalOrAnthracite,
-                Ingredient.ofItems(net.minecraft.item.Items.IRON_INGOT),
-                new ItemStack(mod.leronus.mores.item.ModItems.CARBON_STEEL_INGOT, 1),
-                0.3f, 200,
-                "soul"
         );
 
         offerAlloying(exporter,
@@ -3839,7 +3801,4 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 null
         );
     }
-
-
-
 }

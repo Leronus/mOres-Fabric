@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "mores:raw_cobalt"
+        "recipe": "mores:raw_cobalt_block_from_raw_cobalt"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -26,7 +26,7 @@
   ],
   "rewards": {
     "recipes": [
-      "mores:raw_cobalt"
+      "mores:raw_cobalt_block_from_raw_cobalt"
     ]
   }
 }

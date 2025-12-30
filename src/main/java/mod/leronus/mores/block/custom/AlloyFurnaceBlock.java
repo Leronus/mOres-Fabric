@@ -34,7 +34,6 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.util.math.random.Random;
 import net.minecraft.world.World;
-import org.jetbrains.annotations.Nullable;
 
 public class AlloyFurnaceBlock extends BlockWithEntity implements BlockEntityProvider {
 
@@ -54,14 +53,14 @@ public class AlloyFurnaceBlock extends BlockWithEntity implements BlockEntityPro
     }
 
     @Override
-    public void randomDisplayTick(BlockState state, World world, BlockPos pos, Random random) {
+    public void randomDisplayTick(BlockState state, World world, BlockPos pos, net.minecraft.util.math.random.Random random) {
         if (!state.get(LIT)) return;
 
         double x = pos.getX() + 0.5;
         double y = pos.getY();
         double z = pos.getZ() + 0.5;
 
-        // Optional: quiet crackle like furnace
+        // Optional furnace crackle
         if (random.nextDouble() < 0.1) {
             world.playSound(
                     x, y, z,
@@ -75,7 +74,6 @@ public class AlloyFurnaceBlock extends BlockWithEntity implements BlockEntityPro
 
         Direction facing = state.get(FACING);
 
-        // Little offset out of the front face (like vanilla furnace)
         double frontOffset = 0.52;
         double sideJitter = random.nextDouble() * 0.6 - 0.3;
 
@@ -83,7 +81,7 @@ public class AlloyFurnaceBlock extends BlockWithEntity implements BlockEntityPro
         double py = y + 0.6 + random.nextDouble() * 0.2;
         double pz = z + facing.getOffsetZ() * frontOffset + (facing.getAxis() == Direction.Axis.X ? sideJitter : 0.0);
 
-        // Smoke + soul flame
+        // ALWAYS soul visuals outside the GUI
         world.addParticle(ParticleTypes.SMOKE, px, py, pz, 0.0, 0.0, 0.0);
         world.addParticle(ParticleTypes.SOUL_FIRE_FLAME, px, py, pz, 0.0, 0.0, 0.0);
     }
@@ -127,15 +125,14 @@ public class AlloyFurnaceBlock extends BlockWithEntity implements BlockEntityPro
         return state.rotate(mirror.getRotation(state.get(FACING)));
     }
 
-
     @Override
-    public void onPlaced(World world, BlockPos pos, BlockState state, LivingEntity placer, ItemStack itemStack) {
+    public void onPlaced(World world, BlockPos pos, BlockState state, LivingEntity placer, ItemStack stack) {
         if (world.isClient) return;
 
-        if (itemStack.contains(DataComponentTypes.CUSTOM_NAME)) {
+        if (stack.contains(DataComponentTypes.CUSTOM_NAME)) {
             BlockEntity be = world.getBlockEntity(pos);
             if (be instanceof AlloyFurnaceBlockEntity alloy) {
-                alloy.setCustomName(itemStack.getName());
+                alloy.setCustomName(stack.getName());
             }
         }
     }
@@ -165,7 +162,6 @@ public class AlloyFurnaceBlock extends BlockWithEntity implements BlockEntityPro
     @Override
     public <T extends BlockEntity> BlockEntityTicker<T> getTicker(World world, BlockState state, BlockEntityType<T> type) {
         if (world.isClient) return null;
-
         return (w, p, s, be) -> {
             if (be instanceof AlloyFurnaceBlockEntity alloy) {
                 AlloyFurnaceBlockEntity.tick(w, p, s, alloy);
@@ -180,5 +176,4 @@ public class AlloyFurnaceBlock extends BlockWithEntity implements BlockEntityPro
     public MapCodec<? extends BlockWithEntity> getCodec() {
         return CODEC;
     }
-
 }
