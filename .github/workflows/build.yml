@@ -1,14 +1,27 @@
 name: build
-on: [pull_request, push]
+
+on:
+  push:
+    branches:
+      - main
+      - 1.21.1
+  pull_request:
+
+
+concurrency:
+  group: build-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
 
 jobs:
   build:
     strategy:
-      # Minecraft 1.21.1 requires Java 21 (minimum & current LTS)
+      fail-fast: false
       matrix:
         java: [21]
         os: [ubuntu-22.04, windows-2022]
+
     runs-on: ${{ matrix.os }}
+
     steps:
       - name: checkout repository
         uses: actions/checkout@v4
@@ -20,17 +33,23 @@ jobs:
         uses: actions/setup-java@v4
         with:
           java-version: ${{ matrix.java }}
-          distribution: 'microsoft'
+          distribution: microsoft
+          cache: gradle
 
       - name: make gradle wrapper executable
-        if: ${{ runner.os != 'Windows' }}
+        if: runner.os != 'Windows'
         run: chmod +x ./gradlew
 
-      - name: build
-        run: ./gradlew build
+      - name: build (Linux/macOS)
+        if: runner.os != 'Windows'
+        run: ./gradlew build --no-daemon
+
+      - name: build (Windows)
+        if: runner.os == 'Windows'
+        run: .\gradlew.bat build --no-daemon
 
       - name: capture build artifacts
-        if: ${{ runner.os == 'Linux' && matrix.java == '21' }}
+        if: runner.os == 'Linux' && matrix.java == '21'
         uses: actions/upload-artifact@v4
         with:
           name: Artifacts
