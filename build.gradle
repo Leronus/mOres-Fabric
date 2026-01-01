@@ -75,13 +75,16 @@ dependencies {
     /* ---- REQUIRED AT COMPILE TIME ---- */
 
     // Fabric Shield Lib (you USE this in code)
-    modImplementation "maven.modrinth:shieldlib:${project.fabric_shield_lib_version}"
+    modImplementation include("maven.modrinth:shieldlib:${project.fabric_shield_lib_version}")
 
     // MidnightLib (used by shieldlib & config systems)
-    modImplementation "maven.modrinth:midnightlib:${project.midnightlib_version}"
+    modImplementation include("maven.modrinth:midnightlib:${project.midnightlib_version}")
 
     // ASM helper (used at compile time)
     modImplementation "com.github.Chocohead:Fabric-ASM:v${project.fabricasm_version}"
+
+    // Mod Menu (used to view config in-game)
+    modImplementation("com.terraformersmc:modmenu:${project.mod_menu_version}")
 
     /* ---- RUNTIME / DEV ONLY MODS ---- */
 
@@ -90,7 +93,6 @@ dependencies {
     modRuntimeOnly "maven.modrinth:iris:${project.iris_version}"
     modRuntimeOnly "maven.modrinth:indium:${project.indium_version}"
     modRuntimeOnly "maven.modrinth:nvidium:${project.nvidium_version}"
-    modRuntimeOnly "maven.modrinth:modmenu:${project.mod_menu_version}"
 
     // Universal Ores (not needed at compile-time)
     modRuntimeOnly "maven.modrinth:universal_ores:${project.universal_ores_version}"
@@ -108,6 +110,10 @@ tasks.named("processResources") {
     filesMatching("fabric.mod.json") {
         expand "version": project.version
     }
+}
+
+tasks.withType(Jar).configureEach {
+    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
 }
 
 tasks.withType(JavaCompile).configureEach {

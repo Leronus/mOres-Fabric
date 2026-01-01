@@ -1,6 +1,8 @@
 package mod.leronus.mores;
 
+import eu.midnightdust.lib.config.MidnightConfig;
 import mod.leronus.mores.block.ModBlocks;
+import mod.leronus.mores.config.CommonConfig;
 import mod.leronus.mores.item.ModItemGroups;
 import mod.leronus.mores.item.ModItems;
 import mod.leronus.mores.registry.ModRecipes;
@@ -19,6 +21,7 @@ public class Mores implements ModInitializer {
 
 	@Override
 	public void onInitialize() {
+        MidnightConfig.init(MOD_ID, CommonConfig.class);
 		ModItemGroups.registerItemGroups();
 		ModItems.registerModItems();
 		ModBlocks.registerModBlocks();

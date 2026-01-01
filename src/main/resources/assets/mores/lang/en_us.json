@@ -1076,5 +1076,12 @@
   "tag.mores.gems/graphene": "Graphene",
   "tag.mores.ingots/adamantium": "Adamantium",
   "tag.mores.ingots/obsidian": "Obsidian",
-  "tag.mores.ingots/enderite": "Enderite"
+  "tag.mores.ingots/enderite": "Enderite",
+
+  "mores.midnightconfig.category.visual": "Visual",
+  "mores.midnightconfig.category.tooltip": "Tooltip",
+  "mores.midnightconfig.category.gameplay": "Gameplay",
+  "mores.midnightconfig.category.alloying": "Alloying",
+  "mores.midnightconfig.category.server": "Server",
+  "mores.midnightconfig.category.worldgen": "Worldgen"
 }

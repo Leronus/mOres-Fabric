@@ -1,0 +1,60 @@
+package mod.leronus.mores.config;
+
+import eu.midnightdust.lib.config.MidnightConfig;
+
+public class CommonConfig extends MidnightConfig {
+
+    public static final String GAMEPLAY = "gameplay";
+    public static final String ALLOYING = "alloying";
+    public static final String MATERIALS = "materials";
+    public static final String WORLDGEN = "worldgen";
+    public static final String SERVER = "server";
+
+    // Gameplay
+    @Entry(category = GAMEPLAY, name = "Enable armor set bonuses")
+    public static boolean enableArmorSetBonuses = true;
+
+    @Entry(category = GAMEPLAY, name = "Enable potion / heart effects")
+    public static boolean enablePotionHeartEffects = true;
+
+    // Alloy Furnace (logic)
+    @Entry(category = ALLOYING, min = 1, max = 200000, isSlider = true, name = "Base cook time (ticks)")
+    public static int alloyFurnaceCookTimeTicks = 200;
+
+    @Entry(category = ALLOYING, min = 0, max = 64, isSlider = false, name = "Extra time per ingredient (ticks)")
+    public static int alloyFurnaceExtraTimePerIngredientTicks = 20;
+
+    @Entry(category = ALLOYING, min = 0.05D, max = 10.0D, isSlider = true, precision = 100, name = "Fuel multiplier")
+    public static double alloyFurnaceFuelMultiplier = 1.0D;
+
+    // Worldgen (note: affects new chunks)
+    @Entry(category = WORLDGEN, name = "Enable ore generation")
+    public static boolean enableOreGeneration = true;
+
+    @Entry(category = WORLDGEN, min = -64, max = 320, isSlider = true, name = "Tin Ore min Y")
+    public static int tinOreMinY = 0;
+    @Entry(category = WORLDGEN, min = -64, max = 320, isSlider = true, name = "Tin Ore max Y")
+    public static int tinOreMaxY = 64;
+    @Entry(category = WORLDGEN, min = 1, max = 64, isSlider = true, name = "Tin Ore vein size")
+    public static int tinOreVeinSize = 8;
+    @Entry(category = WORLDGEN, min = 0, max = 50, isSlider = true, name = "Tin Ore veins per chunk")
+    public static int tinOreVeinsPerChunk = 10;
+
+    //Copper etc
+
+
+    // Server (optional, if you want server options later)
+    @Entry(category = SERVER, name = "Allow client tooltips")
+    public static boolean allowClientTooltips = true;
+
+    @Entry(category = SERVER, name = "Allow themed alloy visuals")
+    public static boolean allowClientThemedAlloyFurnaceVisuals = true;
+
+    // Materials (restart required in practice)
+    @Entry(category = MATERIALS, name = "Material presets (restart required)")
+    public static MaterialPreset materialPreset = MaterialPreset.DEFAULT;
+
+    public enum MaterialPreset {
+        DEFAULT, SOFTER, HARDER
+    }
+}

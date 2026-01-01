@@ -11,7 +11,7 @@
 		"homepage": "https://fabricmc.net/",
 		"sources": "https://github.com/Leronus/mOres"
 	},
-	"license": "CC0-1.0",
+	"license": "All Rights Reserved",
 	"icon": "assets/mores/icon.png",
 	"environment": "*",
 	"entrypoints": {
@@ -23,7 +23,10 @@
 		],
 		"fabric-datagen": [
 			"mod.leronus.mores.MoresDataGenerator"
-		]
+		],
+        "modmenu": [
+            "mod.leronus.mores.client.config.ModMenu"
+        ]
 	},
 	"mixins": [
 		"mores.mixins.json"
@@ -32,8 +35,7 @@
 		"fabricloader": ">=0.15.11",
 		"minecraft": "~1.21.1",
 		"java": ">=21",
-		"fabric-api": "*",
-        "fabricshieldlib": "*"
+		"fabric-api": "*"
 	},
 	"suggests": {
 		"universal_ores": "*"
