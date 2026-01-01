@@ -1,6 +1,7 @@
 package mod.leronus.mores;
 
 import eu.midnightdust.lib.config.MidnightConfig;
+import mod.leronus.mores.client.VanillaTooltipHook;
 import mod.leronus.mores.client.render.ShieldLikeRenderer;
 import mod.leronus.mores.client.screen.AlloyFurnaceScreen;
 import mod.leronus.mores.config.ClientConfig;
@@ -16,6 +17,7 @@ public class MoresClient implements ClientModInitializer {
     @Override
     public void onInitializeClient() {
         MidnightConfig.init(Mores.MOD_ID, ClientConfig.class);
+        VanillaTooltipHook.init();
         HandledScreens.register(ModScreenHandlers.ALLOY_FURNACE, AlloyFurnaceScreen::new);
 
         ShieldLikeRenderer shieldRenderer = new ShieldLikeRenderer();

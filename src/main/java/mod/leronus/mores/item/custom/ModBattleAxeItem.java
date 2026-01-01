@@ -1,5 +1,6 @@
 package mod.leronus.mores.item.custom;
 
+import mod.leronus.mores.handlers.TooltipHandler;
 import mod.leronus.mores.item.ModItems;
 import mod.leronus.mores.item.ModToolMaterials;
 import net.minecraft.item.tooltip.TooltipType;
@@ -39,17 +40,6 @@ public class ModBattleAxeItem extends SwordItem {
 
     @Override
     public void appendTooltip(ItemStack stack, TooltipContext context, List<Text> tooltip, TooltipType type) {
-        if (stack.getItem() instanceof ModBattleAxeItem){
-            if (((ToolItem) stack.getItem()).getMaterial() == ModToolMaterials.ONYX) {
-                tooltip.add(Text.literal(""));
-                tooltip.add(Text.translatable("mores.bonus").formatted(Formatting.GRAY).append(Text.translatable("mores.wither_effect").formatted(Formatting.DARK_GRAY)));
-            }
-            if (((ToolItem) stack.getItem()).getMaterial() == ModToolMaterials.RUBY) {
-                tooltip.add(Text.literal(""));
-                tooltip.add(Text.translatable("mores.bonus").formatted(Formatting.GRAY).append(Text.translatable("mores.burn_effect").formatted(Formatting.DARK_RED)));
-            }
-            tooltip.add(Text.literal(""));
-            tooltip.add(Text.translatable("mores.durability").formatted(Formatting.GRAY).append(Text.translatable(String.valueOf(((ModBattleAxeItem) stack.getItem()).getMaterial().getDurability())).formatted(Formatting.LIGHT_PURPLE)));
-        }
+        TooltipHandler.appendCombatTooltips(stack, tooltip, type);
     }
 }

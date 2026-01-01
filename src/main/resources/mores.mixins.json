@@ -3,10 +3,8 @@
   "package": "mod.leronus.mores.mixin",
   "compatibilityLevel": "JAVA_21",
   "mixins": [
-    "MoresMixin",
     "BlockMixin",
-    "ItemEntityMixin",
-    "SwordItemMixin"
+    "ItemEntityMixin"
   ],
   "injectors": {
     "defaultRequire": 1

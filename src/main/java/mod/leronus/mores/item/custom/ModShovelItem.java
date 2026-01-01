@@ -1,5 +1,6 @@
 package mod.leronus.mores.item.custom;
 
+import mod.leronus.mores.handlers.TooltipHandler;
 import mod.leronus.mores.item.ModItems;
 import mod.leronus.mores.item.ModToolMaterials;
 import net.minecraft.item.tooltip.TooltipType;
@@ -32,20 +33,6 @@ public class ModShovelItem extends ShovelItem {
 
     @Override
     public void appendTooltip(ItemStack stack, TooltipContext context, List<Text> tooltip, TooltipType type) {
-        if (stack.getItem() instanceof MiningToolItem item) {
-            tooltip.add(Text.literal(""));
-            if (((ToolItem) stack.getItem()).getMaterial() == ModToolMaterials.ONYX) {
-                tooltip.add(Text.literal(""));
-                tooltip.add(Text.translatable("mores.bonus").formatted(Formatting.GRAY).append(Text.translatable("mores.wither_effect").formatted(Formatting.DARK_GRAY)));
-            }
-            if (((ToolItem) stack.getItem()).getMaterial() == ModToolMaterials.RUBY) {
-                tooltip.add(Text.literal(""));
-                tooltip.add(Text.translatable("mores.bonus").formatted(Formatting.GRAY).append(Text.translatable("mores.burn_effect").formatted(Formatting.DARK_RED)));
-            }
-            tooltip.add(Text.literal(""));
-//            tooltip.add(Text.translatable("mores.harvest_level").formatted(Formatting.GRAY).append(Text.translatable(String.valueOf(item.getMaterial().getMiningLevel())).formatted(Formatting.GOLD)));
-            tooltip.add(Text.translatable("mores.durability").formatted(Formatting.GRAY).append(Text.translatable(String.valueOf(item.getMaterial().getDurability())).formatted(Formatting.LIGHT_PURPLE)));
-            tooltip.add(Text.translatable("mores.efficiency").formatted(Formatting.GRAY).append(Text.translatable(String.valueOf(item.getMaterial().getMiningSpeedMultiplier())).formatted(Formatting.RED)));
-        }
+        TooltipHandler.appendCombatTooltips(stack, tooltip, type);
     }
 }

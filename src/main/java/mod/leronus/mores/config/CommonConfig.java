@@ -6,16 +6,26 @@ public class CommonConfig extends MidnightConfig {
 
     public static final String GAMEPLAY = "gameplay";
     public static final String ALLOYING = "alloying";
-    public static final String MATERIALS = "materials";
     public static final String WORLDGEN = "worldgen";
     public static final String SERVER = "server";
 
     // Gameplay
+    @Entry(category = GAMEPLAY, name = "Enable tool and weapon bonuses (onyx wither/ruby autosmelt)")
+    public static boolean enableToolAndWeaponBonuses = true;
+
     @Entry(category = GAMEPLAY, name = "Enable armor set bonuses")
     public static boolean enableArmorSetBonuses = true;
 
     @Entry(category = GAMEPLAY, name = "Enable potion / heart effects")
     public static boolean enablePotionHeartEffects = true;
+
+    // Materials (restart required in practice)
+    @Entry(category = GAMEPLAY, name = "Material presets (restart required)")
+    public static MaterialPreset materialPreset = MaterialPreset.DEFAULT;
+
+    public enum MaterialPreset {
+        DEFAULT, SOFTER, HARDER
+    }
 
     // Alloy Furnace (logic)
     @Entry(category = ALLOYING, min = 1, max = 200000, isSlider = true, name = "Base cook time (ticks)")
@@ -49,12 +59,4 @@ public class CommonConfig extends MidnightConfig {
 
     @Entry(category = SERVER, name = "Allow themed alloy visuals")
     public static boolean allowClientThemedAlloyFurnaceVisuals = true;
-
-    // Materials (restart required in practice)
-    @Entry(category = MATERIALS, name = "Material presets (restart required)")
-    public static MaterialPreset materialPreset = MaterialPreset.DEFAULT;
-
-    public enum MaterialPreset {
-        DEFAULT, SOFTER, HARDER
-    }
 }

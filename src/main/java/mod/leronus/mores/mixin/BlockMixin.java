@@ -1,11 +1,11 @@
 package mod.leronus.mores.mixin;
 
+import mod.leronus.mores.config.CommonConfig;
 import mod.leronus.mores.item.ModItems;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.entity.Entity;
-import net.minecraft.inventory.SimpleInventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.recipe.RecipeEntry;
 import net.minecraft.recipe.RecipeType;
@@ -25,28 +25,51 @@ import java.util.Optional;
 @Mixin(Block.class)
 public class BlockMixin {
 
-	@Inject(
-			method = "getDroppedStacks(Lnet/minecraft/block/BlockState;Lnet/minecraft/server/world/ServerWorld;Lnet/minecraft/util/math/BlockPos;Lnet/minecraft/block/entity/BlockEntity;Lnet/minecraft/entity/Entity;Lnet/minecraft/item/ItemStack;)Ljava/util/List;",
-			at = @At("RETURN"),
-			cancellable = true)
-	private static void getDroppedStacks(BlockState state, ServerWorld world, BlockPos pos, BlockEntity blockEntity, Entity entity, ItemStack stack, CallbackInfoReturnable<List<ItemStack>> cir) {
-		List<ItemStack> items = new ArrayList<>();
-		List<ItemStack> returnValue = cir.getReturnValue();
-		if (stack.getItem() != ModItems.RUBY_AXE && stack.getItem() != ModItems.RUBY_PICKAXE && stack.getItem() != ModItems.RUBY_SHOVEL && stack.getItem() != ModItems.RUBY_HOE) {
-			cir.setReturnValue(returnValue);
-			return;
-		}
-		for (ItemStack itemStack : returnValue) {
-			Optional<RecipeEntry<SmeltingRecipe>> recipe = world.getRecipeManager().getFirstMatch(RecipeType.SMELTING, new SingleStackRecipeInput(itemStack), world);
+    @Inject(
+            method = "getDroppedStacks(Lnet/minecraft/block/BlockState;Lnet/minecraft/server/world/ServerWorld;Lnet/minecraft/util/math/BlockPos;Lnet/minecraft/block/entity/BlockEntity;Lnet/minecraft/entity/Entity;Lnet/minecraft/item/ItemStack;)Ljava/util/List;",
+            at = @At("RETURN"),
+            cancellable = true
+    )
+    private static void getDroppedStacks(BlockState state, ServerWorld world, BlockPos pos, BlockEntity blockEntity, Entity entity, ItemStack stack, CallbackInfoReturnable<List<ItemStack>> cir) {
 
-			if (recipe.isPresent()) {
-				ItemStack smelted = recipe.get().value().getResult(world.getRegistryManager()).copy();
-				smelted.setCount(itemStack.getCount());
-				items.add(smelted);
-			} else {
-				items.add(itemStack);
-			}
-		}
-		cir.setReturnValue(items);
-	}
+        // Config gate: if disabled, do nothing (keep vanilla/other mod results)
+        if (!CommonConfig.enableToolAndWeaponBonuses) {
+            return; // since we're at RETURN, not setting keeps the returned value
+        }
+
+        List<ItemStack> returnValue = cir.getReturnValue();
+
+        // Only apply to your ruby tools
+        if (stack.getItem() != ModItems.RUBY_AXE
+                && stack.getItem() != ModItems.RUBY_PICKAXE
+                && stack.getItem() != ModItems.RUBY_SHOVEL
+                && stack.getItem() != ModItems.RUBY_HOE
+                && stack.getItem() != ModItems.RUBY_BATTLE_AXE
+                && stack.getItem() != ModItems.RUBY_BATTLE_MACE
+                && stack.getItem() != ModItems.RUBY_DAGGER
+        ) {
+            return;
+        }
+
+        List<ItemStack> items = new ArrayList<>();
+
+        for (ItemStack itemStack : returnValue) {
+            Optional<RecipeEntry<SmeltingRecipe>> recipe =
+                    world.getRecipeManager().getFirstMatch(
+                            RecipeType.SMELTING,
+                            new SingleStackRecipeInput(itemStack),
+                            world
+                    );
+
+            if (recipe.isPresent()) {
+                ItemStack smelted = recipe.get().value().getResult(world.getRegistryManager()).copy();
+                smelted.setCount(itemStack.getCount());
+                items.add(smelted);
+            } else {
+                items.add(itemStack);
+            }
+        }
+
+        cir.setReturnValue(items);
+    }
 }

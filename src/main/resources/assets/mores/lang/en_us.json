@@ -17,7 +17,10 @@
   "mores.fire_resistance": "Fire Resistance",
   "mores.night_vision": "Night Vision",
   "mores.water_effects": "Water Breathing & Dolphins",
+  "mores.water_breathing": "Water Breathing",
+  "mores.dolphins_grace": "Dolphin's Grace",
   "mores.wither_effect": "Wither Effect",
+  "mores.wither_resistance": "Wither Resistance",
   "mores.burn_effect": "Burn Effect",
   "mores.auto_smelt": "Automatic Smelting",
 
@@ -1079,9 +1082,12 @@
   "tag.mores.ingots/enderite": "Enderite",
 
   "mores.midnightconfig.category.visual": "Visual",
-  "mores.midnightconfig.category.tooltip": "Tooltip",
   "mores.midnightconfig.category.gameplay": "Gameplay",
   "mores.midnightconfig.category.alloying": "Alloying",
   "mores.midnightconfig.category.server": "Server",
-  "mores.midnightconfig.category.worldgen": "Worldgen"
+  "mores.midnightconfig.category.worldgen": "Worldgen",
+  "mores.midnightconfig.enum.MaterialPreset.DEFAULT": "Default",
+  "mores.midnightconfig.enum.MaterialPreset.SOFTER": "Softer",
+  "mores.midnightconfig.enum.MaterialPreset.HARDER": "Harder"
+
 }
