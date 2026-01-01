@@ -1,6 +1,15 @@
 {
-  "parent": "minecraft:item/generated",
+  "parent": "minecraft:item/shield",
+  "overrides": [
+    {
+      "model": "mores:item/sterling_silver_shield_blocking",
+      "predicate": {
+        "blocking": 1.0
+      }
+    }
+  ],
   "textures": {
-    "layer0": "mores:item/sterling_silver_shield"
+    "shield": "mores:entity/shield/sterling_silver_shield",
+    "shield_nopattern": "mores:entity/shield/sterling_silver_shield_nopattern"
   }
 }

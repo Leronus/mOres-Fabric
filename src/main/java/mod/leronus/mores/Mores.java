@@ -3,7 +3,7 @@ package mod.leronus.mores;
 import mod.leronus.mores.block.ModBlocks;
 import mod.leronus.mores.item.ModItemGroups;
 import mod.leronus.mores.item.ModItems;
-import mod.leronus.mores.recipe.ModRecipeTypes;
+import mod.leronus.mores.registry.ModRecipes;
 import mod.leronus.mores.registry.ModBlockEntities;
 import mod.leronus.mores.registry.ModScreenHandlers;
 import mod.leronus.mores.sound.ModSounds;
@@ -25,7 +25,7 @@ public class Mores implements ModInitializer {
 //		ModLootTableModifiers.modifyLootTables();
 //		ModCustomTrades.registerCustomTrades();
 		ModSounds.registerSounds();
-        ModRecipeTypes.registerRecipes();
+        ModRecipes.registerRecipes();
 		ModBlockEntities.registerBlockEntities();
 		ModScreenHandlers.registerScreenHandlers();
 

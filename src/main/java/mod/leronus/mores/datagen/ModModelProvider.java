@@ -628,30 +628,85 @@ public class ModModelProvider extends FabricModelProvider {
 //                new Model(Optional.of(new Identifier("item/template_spawn_egg")), Optional.empty()));
 
         /* Shields? */
-        itemModelGenerator.register(ModItems.TIN_SHIELD, Models.GENERATED);
-//        itemModelGenerator.register(ModItems.GOLD_SHIELD, Models.GENERATED);
-        itemModelGenerator.register(ModItems.SILVER_SHIELD, Models.GENERATED);
-        itemModelGenerator.register(ModItems.COPPER_SHIELD, Models.GENERATED);
-        itemModelGenerator.register(ModItems.STERLING_SILVER_SHIELD, Models.GENERATED);
-//        itemModelGenerator.register(ModItems.ROSE_GOLD_SHIELD, Models.GENERATED);
-        itemModelGenerator.register(ModItems.BRONZE_SHIELD, Models.GENERATED);
-        itemModelGenerator.register(ModItems.COBALT_SHIELD, Models.GENERATED);
-        itemModelGenerator.register(ModItems.CARBON_STEEL_SHIELD, Models.GENERATED);
-//        itemModelGenerator.register(ModItems.HARDENED_STEEL_SHIELD, Models.GENERATED);
-        itemModelGenerator.register(ModItems.AMETHYST_SHIELD, Models.GENERATED);
-        itemModelGenerator.register(ModItems.TURQUOISE_SHIELD, Models.GENERATED);
-        itemModelGenerator.register(ModItems.TOPAZ_SHIELD, Models.GENERATED);
-        itemModelGenerator.register(ModItems.TOURMALINE_SHIELD, Models.GENERATED);
-        itemModelGenerator.register(ModItems.EMERALD_SHIELD, Models.GENERATED);
-//        itemModelGenerator.register(ModItems.DIAMOND_SHIELD, Models.GENERATED);
-        itemModelGenerator.register(ModItems.RUBY_SHIELD, Models.GENERATED);
-        itemModelGenerator.register(ModItems.SAPPHIRE_SHIELD, Models.GENERATED);
-//        itemModelGenerator.register(ModItems.SPINEL_SHIELD, Models.GENERATED);
-        itemModelGenerator.register(ModItems.CITRINE_SHIELD, Models.GENERATED);
-        itemModelGenerator.register(ModItems.MOISSANITE_SHIELD, Models.GENERATED);
-        itemModelGenerator.register(ModItems.ONYX_SHIELD, Models.GENERATED);
-        itemModelGenerator.register(ModItems.OBSIDIAN_SHIELD, Models.GENERATED);
-        itemModelGenerator.register(ModItems.GRAPHENE_SHIELD, Models.GENERATED);
+
+        registerShield(itemModelGenerator, "tin_shield");
+        registerShield(itemModelGenerator, "silver_shield");
+//        registerShield(itemModelGenerator, "gold_shield");
+        registerShield(itemModelGenerator, "copper_shield");
+        registerShield(itemModelGenerator, "sterling_silver_shield");
+        registerShield(itemModelGenerator, "rose_gold_shield");
+        registerShield(itemModelGenerator, "bronze_shield");
+        registerShield(itemModelGenerator, "cobalt_shield");
+        registerShield(itemModelGenerator, "carbon_steel_shield");
+        registerShield(itemModelGenerator, "hardened_steel_shield");
+        registerShield(itemModelGenerator, "amethyst_shield");
+        registerShield(itemModelGenerator, "turquoise_shield");
+        registerShield(itemModelGenerator, "lapis_lazuli_shield");
+        registerShield(itemModelGenerator, "topaz_shield");
+        registerShield(itemModelGenerator, "tourmaline_shield");
+        registerShield(itemModelGenerator, "emerald_shield");
+        registerShield(itemModelGenerator, "spinel_shield");
+        registerShield(itemModelGenerator, "ruby_shield");
+        registerShield(itemModelGenerator, "sapphire_shield");
+        registerShield(itemModelGenerator, "citrine_shield");
+        registerShield(itemModelGenerator, "moissanite_shield");
+        registerShield(itemModelGenerator, "onyx_shield");
+        registerShield(itemModelGenerator, "obsidian_shield");
+        registerShield(itemModelGenerator, "adamantium_shield");
+        registerShield(itemModelGenerator, "graphene_shield");
 //        itemModelGenerator.register(ModItems.NETHERITE_SHIELD, Models.GENERATED);
     }
+
+    private static void registerShield(ItemModelGenerator gen, String name) {
+        Identifier baseId = Identifier.of(Mores.MOD_ID, "item/" + name);
+        Identifier blockingId = Identifier.of(Mores.MOD_ID, "item/" + name + "_blocking");
+
+        // points to:
+        // assets/mores/textures/entity/shield/<name>.png
+        // assets/mores/textures/entity/shield/<name>_nopattern.png
+        Identifier texPattern = Identifier.of(Mores.MOD_ID, "entity/shield/" + name);
+        Identifier texNoPattern = Identifier.of(Mores.MOD_ID, "entity/shield/" + name + "_nopattern");
+
+        // ---- base model ----
+        gen.writer.accept(baseId, () -> {
+            var json = new com.google.gson.JsonObject();
+            json.addProperty("parent", "minecraft:item/shield");
+
+            var textures = new com.google.gson.JsonObject();
+            textures.addProperty("shield", texPattern.toString());
+            textures.addProperty("shield_nopattern", texNoPattern.toString());
+            json.add("textures", textures);
+
+            // override to OUR blocking model (not vanilla)
+            var overrides = new com.google.gson.JsonArray();
+            var entry = new com.google.gson.JsonObject();
+
+            var predicate = new com.google.gson.JsonObject();
+            predicate.addProperty("blocking", 1.0f);
+
+            entry.add("predicate", predicate);
+            entry.addProperty("model", blockingId.toString());
+
+            overrides.add(entry);
+            json.add("overrides", overrides);
+
+            return json;
+        });
+
+        // ---- blocking model ----
+        gen.writer.accept(blockingId, () -> {
+            var json = new com.google.gson.JsonObject();
+            json.addProperty("parent", "minecraft:item/shield_blocking");
+
+            var textures = new com.google.gson.JsonObject();
+            textures.addProperty("shield", texPattern.toString());
+            textures.addProperty("shield_nopattern", texNoPattern.toString());
+            json.add("textures", textures);
+
+            return json;
+        });
+    }
+
+
+
 }

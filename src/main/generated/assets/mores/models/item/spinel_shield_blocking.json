@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:item/shield_blocking",
+  "textures": {
+    "shield": "mores:entity/shield/spinel_shield",
+    "shield_nopattern": "mores:entity/shield/spinel_shield_nopattern"
+  }
+}

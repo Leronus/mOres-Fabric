@@ -1,6 +1,15 @@
 {
-  "parent": "minecraft:item/generated",
+  "parent": "minecraft:item/shield",
+  "overrides": [
+    {
+      "model": "mores:item/tin_shield_blocking",
+      "predicate": {
+        "blocking": 1.0
+      }
+    }
+  ],
   "textures": {
-    "layer0": "mores:item/tin_shield"
+    "shield": "mores:entity/shield/tin_shield",
+    "shield_nopattern": "mores:entity/shield/tin_shield_nopattern"
   }
 }

@@ -2,31 +2,42 @@ Fabric 1.21.1
 
 Doing:
 - Datagenerators
-- Recipes
-- Tags
+- Recipes (dusts and all ingots)
+- Tags (check if missing anything)
+
+- Check armor models (on skin)
+- Tool & Armor materials
+- Horse Armor -> Enderite texture and add, Adamantium lang
+- Shields -> Moissanite, Rose Gold, Adamantium, Enderite
+- Blocks -> Sterling Silver, Rose Gold, Adamantium (add as well), add Enderite block
+- Weapons -> Rose Gold dagger, battle mace/axe - onyx battleaxe/mace? - spinel mace and adamantium weapons textures - add enderite
+- Tools -> Spinel hoe light touch - add enderite
+- Shields -> Adamantium (lang too), Tanzanite (modelprovider & client), Rose Gold, Lapis Lazuli, Enderite
+
+* - Add tropical fish to cat breeding
 
 Todo:
-- Update lang
-- Add citrine, rose gold, rename carbon steel, add hardened steel
+- Add smithing templates (adamantium, enderite, hardened steel, graphene)
+- Check if all textures are added to item groups (ModItemGroups looked complete)
+- Add recipes for the dust and gems (citrine, onyx, turquoise, lapis)
+- Check recipes for new materials, hardened steel/rose gold/sterling/citrine/adamantium
+- Change graphene textures and add new recipes / change existing
 - Add electrum ore (block + oregen)
-- Silver carrot
-- Alloy Furnace
-- Config
+- Add Silver carrot
+- Add Config
+- Ore generation as well as datagen for it
+- Loot tables (blocks, chests, misc?)
+- Make sure hostile mobs have a chance to spawn with my gear
 - Test Armor Trims & add missing
-- Check armor models
-- Check armor durability
 - Update Tooltips -> No shuffling, add armor
-- Horse Armor
-- Shields
 - Check Block Experience
-- Check creative tabs
 - Universal ores (diorite/granite/andesite) - look for textures?
 - Advancements (need fixing)
 - Duck entity
 - Villager trades
 - Spears
-- Make sure hostile mobs have a chance to spawn with my gear
+- Wolf Armor
 
-
-raw tin seems to be missing from needs_tool in other versions?
-
+DONE:
+- Add citrine, rose gold, rename carbon steel, add hardened steel
+- Alloy Furnace

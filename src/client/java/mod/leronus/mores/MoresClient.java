@@ -1,13 +1,55 @@
 package mod.leronus.mores;
 
+import mod.leronus.mores.client.render.ShieldLikeRenderer;
 import mod.leronus.mores.client.screen.AlloyFurnaceScreen;
+import mod.leronus.mores.item.ModItems;
 import mod.leronus.mores.registry.ModScreenHandlers;
 import net.fabricmc.api.ClientModInitializer;
+import net.fabricmc.fabric.api.client.rendering.v1.BuiltinItemRendererRegistry;
 import net.minecraft.client.gui.screen.ingame.HandledScreens;
+import net.minecraft.item.Item;
 
 public class MoresClient implements ClientModInitializer {
+
     @Override
     public void onInitializeClient() {
         HandledScreens.register(ModScreenHandlers.ALLOY_FURNACE, AlloyFurnaceScreen::new);
+
+        ShieldLikeRenderer shieldRenderer = new ShieldLikeRenderer();
+
+        // Register all your shields in one place
+        registerShield(shieldRenderer,
+                ModItems.TIN_SHIELD,
+                ModItems.SILVER_SHIELD,
+                ModItems.COPPER_SHIELD,
+                ModItems.STERLING_SILVER_SHIELD,
+                ModItems.ROSE_GOLD_SHIELD,
+                ModItems.BRONZE_SHIELD,
+                ModItems.COBALT_SHIELD,
+                ModItems.CARBON_STEEL_SHIELD,
+                ModItems.HARDENED_STEEL_SHIELD,
+                ModItems.TURQUOISE_SHIELD,
+                ModItems.LAPIS_LAZULI_SHIELD,
+                ModItems.AMETHYST_SHIELD,
+                ModItems.TANZANITE_SHIELD,
+                ModItems.TOURMALINE_SHIELD,
+                ModItems.TOPAZ_SHIELD,
+                ModItems.EMERALD_SHIELD,
+                ModItems.RUBY_SHIELD,
+                ModItems.SAPPHIRE_SHIELD,
+                ModItems.CITRINE_SHIELD,
+                ModItems.SPINEL_SHIELD,
+                ModItems.MOISSANITE_SHIELD,
+                ModItems.ONYX_SHIELD,
+                ModItems.OBSIDIAN_SHIELD,
+                ModItems.GRAPHENE_SHIELD,
+                ModItems.ADAMANTIUM_SHIELD
+        );
+    }
+
+    private static void registerShield(ShieldLikeRenderer renderer, Item... items) {
+        for (Item item : items) {
+            BuiltinItemRendererRegistry.INSTANCE.register(item, renderer);
+        }
     }
 }

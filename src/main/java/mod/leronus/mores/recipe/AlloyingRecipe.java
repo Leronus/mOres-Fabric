@@ -3,6 +3,7 @@ package mod.leronus.mores.recipe;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
+import mod.leronus.mores.registry.ModRecipes;
 import net.minecraft.item.ItemStack;
 import net.minecraft.network.RegistryByteBuf;
 import net.minecraft.network.codec.PacketCodec;
@@ -69,12 +70,12 @@ public class AlloyingRecipe implements Recipe<AlloyRecipeInput> {
 
     @Override
     public RecipeSerializer<?> getSerializer() {
-        return ModRecipeTypes.ALLOYING_SERIALIZER;
+        return ModRecipes.ALLOYING_SERIALIZER;
     }
 
     @Override
     public RecipeType<?> getType() {
-        return ModRecipeTypes.ALLOYING;
+        return ModRecipes.ALLOYING;
     }
 
     public static final class Serializer implements RecipeSerializer<AlloyingRecipe> {

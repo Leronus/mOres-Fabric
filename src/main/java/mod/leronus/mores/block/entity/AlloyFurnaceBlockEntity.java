@@ -4,7 +4,7 @@ import mod.leronus.mores.block.custom.AlloyFurnaceBlock;
 import mod.leronus.mores.block.screen.AlloyFurnaceScreenHandler;
 import mod.leronus.mores.recipe.AlloyRecipeInput;
 import mod.leronus.mores.recipe.AlloyingRecipe;
-import mod.leronus.mores.recipe.ModRecipeTypes;
+import mod.leronus.mores.registry.ModRecipes;
 import mod.leronus.mores.registry.ModBlockEntities;
 import net.fabricmc.fabric.api.registry.FuelRegistry;
 import net.minecraft.block.BlockState;
@@ -227,7 +227,7 @@ public class AlloyFurnaceBlockEntity extends LockableContainerBlockEntity implem
         // allow only if there exists a recipe that matches (candidate + other) in any order
         // AND output can be accepted
         Optional<RecipeEntry<AlloyingRecipe>> match = world.getRecipeManager()
-                .getFirstMatch(ModRecipeTypes.ALLOYING, new AlloyRecipeInput(candidate, other), world);
+                .getFirstMatch(ModRecipes.ALLOYING, new AlloyRecipeInput(candidate, other), world);
 
         if (match.isEmpty()) return false;
 
@@ -237,7 +237,7 @@ public class AlloyFurnaceBlockEntity extends LockableContainerBlockEntity implem
     private boolean isUsedInAnyAlloyRecipe(ItemStack candidate) {
         if (world == null) return false;
 
-        List<RecipeEntry<AlloyingRecipe>> all = world.getRecipeManager().listAllOfType(ModRecipeTypes.ALLOYING);
+        List<RecipeEntry<AlloyingRecipe>> all = world.getRecipeManager().listAllOfType(ModRecipes.ALLOYING);
         for (RecipeEntry<AlloyingRecipe> entry : all) {
             AlloyingRecipe r = entry.value();
             if (r.ingredientA().test(candidate) || r.ingredientB().test(candidate)) {
@@ -258,7 +258,7 @@ public class AlloyFurnaceBlockEntity extends LockableContainerBlockEntity implem
         if (a.isEmpty() || b.isEmpty()) return Optional.empty();
 
         AlloyRecipeInput input = new AlloyRecipeInput(a, b);
-        return world.getRecipeManager().getFirstMatch(ModRecipeTypes.ALLOYING, input, world);
+        return world.getRecipeManager().getFirstMatch(ModRecipes.ALLOYING, input, world);
     }
 
     private boolean canAcceptRecipeOutput(RegistryWrapper.WrapperLookup lookup, AlloyingRecipe recipe) {

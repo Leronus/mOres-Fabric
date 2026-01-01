@@ -1,6 +1,15 @@
 {
-  "parent": "minecraft:item/generated",
+  "parent": "minecraft:item/shield",
+  "overrides": [
+    {
+      "model": "mores:item/cobalt_shield_blocking",
+      "predicate": {
+        "blocking": 1.0
+      }
+    }
+  ],
   "textures": {
-    "layer0": "mores:item/cobalt_shield"
+    "shield": "mores:entity/shield/cobalt_shield",
+    "shield_nopattern": "mores:entity/shield/cobalt_shield_nopattern"
   }
 }
