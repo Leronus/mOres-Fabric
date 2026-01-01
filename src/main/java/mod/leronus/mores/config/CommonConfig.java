@@ -7,7 +7,6 @@ public class CommonConfig extends MidnightConfig {
     public static final String GAMEPLAY = "gameplay";
     public static final String ALLOYING = "alloying";
     public static final String WORLDGEN = "worldgen";
-    public static final String SERVER = "server";
 
     // Gameplay
     @Entry(category = GAMEPLAY, name = "Enable tool and weapon bonuses (onyx wither/ruby autosmelt)")
@@ -51,12 +50,4 @@ public class CommonConfig extends MidnightConfig {
     public static int tinOreVeinsPerChunk = 10;
 
     //Copper etc
-
-
-    // Server (optional, if you want server options later)
-    @Entry(category = SERVER, name = "Allow client tooltips")
-    public static boolean allowClientTooltips = true;
-
-    @Entry(category = SERVER, name = "Allow themed alloy visuals")
-    public static boolean allowClientThemedAlloyFurnaceVisuals = true;
 }

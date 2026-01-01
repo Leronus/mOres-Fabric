@@ -51,6 +51,7 @@ public class ModItemGroups {
                        entries.add(ModItems.HARDENED_STEEL_INGOT);
                        entries.add(ModItems.OBSIDIAN_INGOT);
                        entries.add(ModItems.ADAMANTIUM_INGOT);
+                       entries.add(ModItems.ENDERITE_INGOT);
 
                        entries.add(ModItems.AMETHYST_GEM);
                        entries.add(ModItems.LAPIS_LAZULI_GEM);
@@ -82,16 +83,18 @@ public class ModItemGroups {
                         entries.add(ModBlocks.CARBON_STEEL_BLOCK);
                         entries.add(ModBlocks.HARDENED_STEEL_BLOCK);
                         entries.add(ModBlocks.TURQUOISE_BLOCK);
+                        entries.add(ModBlocks.CITRINE_BLOCK);
+                        entries.add(ModBlocks.ONYX_BLOCK);
+                        entries.add(ModBlocks.TANZANITE_BLOCK);
                         entries.add(ModBlocks.TOURMALINE_BLOCK);
                         entries.add(ModBlocks.TOPAZ_BLOCK);
                         entries.add(ModBlocks.RUBY_BLOCK);
                         entries.add(ModBlocks.SAPPHIRE_BLOCK);
                         entries.add(ModBlocks.SPINEL_BLOCK);
-                        entries.add(ModBlocks.CITRINE_BLOCK);
                         entries.add(ModBlocks.MOISSANITE_BLOCK);
-                        entries.add(ModBlocks.ONYX_BLOCK);
                         entries.add(ModBlocks.GRAPHENE_BLOCK);
-//                        entries.add(ModBlocks.ADAMANTIUM_BLOCK);
+                        entries.add(ModBlocks.ADAMANTIUM_BLOCK);
+                        entries.add(ModBlocks.ENDERITE_BLOCK);
                     }).build());
 
     public static final ItemGroup ORE_GROUP = Registry.register(Registries.ITEM_GROUP,
@@ -106,13 +109,22 @@ public class ModItemGroups {
                         entries.add(ModBlocks.SILVER_ORE);
                         entries.add(ModBlocks.DEEPSLATE_SILVER_ORE);
                         entries.add(ModBlocks.NETHER_SILVER_ORE);
+                        entries.add(ModBlocks.ELECTRUM_ORE);
                         entries.add(ModBlocks.COBALT_ORE);
                         entries.add(ModBlocks.DEEPSLATE_COBALT_ORE);
-                        entries.add(ModBlocks.TOPAZ_ORE);
-                        entries.add(ModBlocks.DEEPSLATE_TOPAZ_ORE);
+                        entries.add(ModBlocks.TURQUOISE_ORE);
+                        entries.add(ModBlocks.DEEPSLATE_TURQUOISE_ORE);
+                        entries.add(ModBlocks.QUARTZ_ORE);
+                        entries.add(ModBlocks.CITRINE_ORE);
+                        entries.add(ModBlocks.NETHER_CITRINE_ORE);
+                        entries.add(ModBlocks.ENDER_ONYX_ORE);
+                        entries.add(ModBlocks.TANZANITE_ORE);
+                        entries.add(ModBlocks.DEEPSLATE_TANZANITE_ORE);
+                        entries.add(ModBlocks.NETHER_TANZANITE_ORE);
                         entries.add(ModBlocks.TOURMALINE_ORE);
                         entries.add(ModBlocks.DEEPSLATE_TOURMALINE_ORE);
-                        entries.add(ModBlocks.NETHER_CITRINE_ORE);
+                        entries.add(ModBlocks.TOPAZ_ORE);
+                        entries.add(ModBlocks.DEEPSLATE_TOPAZ_ORE);
                         entries.add(ModBlocks.RUBY_ORE);
                         entries.add(ModBlocks.DEEPSLATE_RUBY_ORE);
                         entries.add(ModBlocks.NETHER_RUBY_ORE);
@@ -121,9 +133,7 @@ public class ModItemGroups {
                         entries.add(ModBlocks.NETHER_SAPPHIRE_ORE);
                         entries.add(ModBlocks.MOISSANITE_ORE);
                         entries.add(ModBlocks.DEEPSLATE_MOISSANITE_ORE);
-                        entries.add(ModBlocks.TURQUOISE_ORE);
-                        entries.add(ModBlocks.DEEPSLATE_TURQUOISE_ORE);
-                        entries.add(ModBlocks.ENDER_ONYX_ORE);
+                        entries.add(ModBlocks.PRIMORDIAL_DEBRIS);
                     }).build());
 
     public static final ItemGroup TOOLS_GROUP = Registry.register(Registries.ITEM_GROUP,
@@ -230,6 +240,10 @@ public class ModItemGroups {
                         entries.add(ModItems.ADAMANTIUM_AXE);
                         entries.add(ModItems.ADAMANTIUM_SHOVEL);
                         entries.add(ModItems.ADAMANTIUM_HOE);
+                        entries.add(ModItems.ENDERITE_PICKAXE);
+                        entries.add(ModItems.ENDERITE_AXE);
+                        entries.add(ModItems.ENDERITE_SHOVEL);
+                        entries.add(ModItems.ENDERITE_HOE);
                         entries.add(ModItems.SWEET_CAROLINE_MUSIC_DISC);
                         entries.add(ModItems.CIPHER_DISC);
                     }).build());
@@ -356,10 +370,10 @@ public class ModItemGroups {
                         entries.add(ModItems.NETHERITE_BATTLE_AXE);
                         entries.add(ModItems.NETHERITE_BATTLE_MACE);
                         entries.add(ModItems.NETHERITE_DAGGER);
-//                        entries.add(ModItems.ENDERITE_SWORD);
-//                        entries.add(ModItems.ENDERITE_BATTLE_AXE);
-//                        entries.add(ModItems.ENDERITE_BATTLE_MACE);
-//                        entries.add(ModItems.ENDERITE_DAGGER);
+                        entries.add(ModItems.ENDERITE_SWORD);
+                        entries.add(ModItems.ENDERITE_BATTLE_AXE);
+                        entries.add(ModItems.ENDERITE_BATTLE_MACE);
+                        entries.add(ModItems.ENDERITE_DAGGER);
                     }).build());
 
     public static final ItemGroup ARMOR_GROUP = Registry.register(Registries.ITEM_GROUP,
@@ -462,10 +476,10 @@ public class ModItemGroups {
                         entries.add(ModItems.ADAMANTIUM_CHESTPLATE);
                         entries.add(ModItems.ADAMANTIUM_LEGGINGS);
                         entries.add(ModItems.ADAMANTIUM_BOOTS);
-//                        entries.add(ModItems.ENDERITE_HELMET);
-//                        entries.add(ModItems.ENDERITE_CHESTPLATE);
-//                        entries.add(ModItems.ENDERITE_LEGGINGS);
-//                        entries.add(ModItems.ENDERITE_BOOTS);
+                        entries.add(ModItems.ENDERITE_HELMET);
+                        entries.add(ModItems.ENDERITE_CHESTPLATE);
+                        entries.add(ModItems.ENDERITE_LEGGINGS);
+                        entries.add(ModItems.ENDERITE_BOOTS);
                     }).build());
 
     public static final ItemGroup SHIELDS_GROUP = Registry.register(Registries.ITEM_GROUP,
@@ -496,7 +510,7 @@ public class ModItemGroups {
                         entries.add(ModItems.GRAPHENE_SHIELD);
                         entries.add(ModItems.OBSIDIAN_SHIELD);
                         entries.add(ModItems.ADAMANTIUM_SHIELD);
-//                        entries.add(ModItems.ENDERITE_SHIELD);
+                        entries.add(ModItems.ENDERITE_SHIELD);
                     }).build());
 
         public static final ItemGroup HORSE_ARMOR_GROUP = Registry.register(Registries.ITEM_GROUP,
@@ -517,7 +531,7 @@ public class ModItemGroups {
                         entries.add(ModItems.AMETHYST_HORSE_ARMOR);
                         entries.add(ModItems.ONYX_HORSE_ARMOR);
                         entries.add(ModItems.CITRINE_HORSE_ARMOR);
-//                        entries.add(ModItems.TANZANITE_HORSE_ARMOR);
+                        entries.add(ModItems.TANZANITE_HORSE_ARMOR);
                         entries.add(ModItems.TOURMALINE_HORSE_ARMOR);
                         entries.add(ModItems.TOPAZ_HORSE_ARMOR);
                         entries.add(ModItems.EMERALD_HORSE_ARMOR);
@@ -528,7 +542,7 @@ public class ModItemGroups {
                         entries.add(ModItems.OBSIDIAN_HORSE_ARMOR);
                         entries.add(ModItems.NETHERITE_HORSE_ARMOR);
                         entries.add(ModItems.ADAMANTIUM_HORSE_ARMOR);
-//                        entries.add(ModItems.ENDERITE_HORSE_ARMOR);
+                        entries.add(ModItems.ENDERITE_HORSE_ARMOR);
                     }).build());
 //
     public static final ItemGroup FOOD_GROUP = Registry.register(Registries.ITEM_GROUP,

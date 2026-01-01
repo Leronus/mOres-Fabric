@@ -69,7 +69,6 @@ public class ModItems {
     public static final Item MOISSANITE_GEM = registerItem("moissanite_gem", new Item(new Item.Settings()));
     public static final Item ONYX_GEM = registerItem("onyx_gem", new Item(new Item.Settings()));
     public static final Item GRAPHENE_GEM = registerItem("graphene_gem", new Item(new Item.Settings()));
-    public static final Item ADAMANTIUM_GEM = registerItem("adamantium_gem", new Item(new Item.Settings()));
 
     public static final Item CHAINMAIL = registerItem("chainmail", new Item(new Item.Settings()));
     public static final Item CITRINE = registerItem("citrine", new Item(new Item.Settings()));
@@ -114,6 +113,7 @@ public class ModItems {
     public static final Item AMETHYST_HORSE_ARMOR = registerItem("amethyst_horse_armor", new Item(new Item.Settings()));
     public static final Item LAPIS_LAZULI_HORSE_ARMOR = registerItem("lapis_lazuli_horse_armor", new Item(new Item.Settings()));
     public static final Item TOURMALINE_HORSE_ARMOR = registerItem("tourmaline_horse_armor", new Item(new Item.Settings()));
+    public static final Item TANZANITE_HORSE_ARMOR = registerItem("tanzanite_horse_armor", new Item(new Item.Settings()));
     public static final Item TOPAZ_HORSE_ARMOR = registerItem("topaz_horse_armor", new Item(new Item.Settings()));
     public static final Item EMERALD_HORSE_ARMOR = registerItem("emerald_horse_armor", new Item(new Item.Settings()));
     public static final Item RUBY_HORSE_ARMOR = registerItem("ruby_horse_armor", new Item(new Item.Settings()));
@@ -126,7 +126,7 @@ public class ModItems {
     public static final Item GRAPHENE_HORSE_ARMOR = registerItem("graphene_horse_armor", new Item(new Item.Settings()));
     public static final Item NETHERITE_HORSE_ARMOR = registerItem("netherite_horse_armor", new Item(new Item.Settings()));
     public static final Item ADAMANTIUM_HORSE_ARMOR = registerItem("adamantium_horse_armor", new Item(new Item.Settings()));
-//    public static final Item ENDERITE_HORSE_ARMOR = registerItem("enderite_horse_armor", new Item(new Item.Settings()));
+    public static final Item ENDERITE_HORSE_ARMOR = registerItem("enderite_horse_armor", new Item(new Item.Settings()));
 
     //TODO Check stats as well
 //    public static final Item COPPER_HORSE_ARMOR = registerItem("copper_horse_armor", new Item(3, "copper", (new Item.Settings()).maxCount(1)));
@@ -140,6 +140,7 @@ public class ModItems {
 //    public static final Item OBSIDIAN_HORSE_ARMOR = registerItem("obsidian_horse_armor", new HorseArmorItem(9, "obsidian", (new Item.Settings()).maxCount(1)));
 //    public static final Item EMERALD_HORSE_ARMOR = registerItem("emerald_horse_armor", new HorseArmorItem(8, "emerald", (new Item.Settings()).maxCount(1)));
 //    public static final Item TOPAZ_HORSE_ARMOR = registerItem("topaz_horse_armor", new HorseArmorItem(9, "topaz", (new Item.Settings()).maxCount(1)));
+//    public static final Item TANZANITE_HORSE_ARMOR = registerItem("tanzanite_horse_armor", new HorseArmorItem(10, "tanzanite", (new Item.Settings()).maxCount(1)));
 //    public static final Item TOURMALINE_HORSE_ARMOR = registerItem("tourmaline_horse_armor", new HorseArmorItem(10, "tourmaline", (new Item.Settings()).maxCount(1)));
 //    public static final Item CITRINE_HORSE_ARMOR = registerItem("citrine_horse_armor", new HorseArmorItem(10, "citrine", (new Item.Settings()).maxCount(1)));
 //    public static final Item RUBY_HORSE_ARMOR = registerItem("ruby_horse_armor", new HorseArmorItem(12, "ruby", (new Item.Settings()).maxCount(1)));
@@ -149,6 +150,7 @@ public class ModItems {
 //    public static final Item ONYX_HORSE_ARMOR = registerItem("onyx_horse_armor", new HorseArmorItem(14, "onyx", (new Item.Settings()).maxCount(1)));
 //    public static final Item GRAPHENE_HORSE_ARMOR = registerItem("graphene_horse_armor", new HorseArmorItem(16, "graphene", (new Item.Settings()).maxCount(1)));
 //    public static final Item NETHERITE_HORSE_ARMOR = registerItem("netherite_horse_armor", new HorseArmorItem(15, "netherite", (new Item.Settings()).maxCount(1)));
+//    public static final Item ENDERITE_HORSE_ARMOR = registerItem("enderite_horse_armor", new HorseArmorItem(15, "enderite", (new Item.Settings()).maxCount(1)));
 
     //TODO CHECK DURABILITY
     //All armor
@@ -279,10 +281,10 @@ public class ModItems {
     public static final Item ADAMANTIUM_LEGGINGS = registerItem("adamantium_leggings", new ModArmorItem(ModArmorMaterials.ADAMANTIUM, ArmorItem.Type.LEGGINGS, new Item.Settings().maxDamage(ArmorItem.Type.LEGGINGS.getMaxDamage(990))));
     public static final Item ADAMANTIUM_BOOTS = registerItem("adamantium_boots", new ModArmorItem(ModArmorMaterials.ADAMANTIUM, ArmorItem.Type.BOOTS, new Item.Settings().maxDamage(ArmorItem.Type.BOOTS.getMaxDamage(858))));
 
-//    public static final Item ENDERITE_HELMET = registerItem("enderite_helmet", new ModArmorItem(ModArmorMaterials.ENDERITE, ArmorItem.Type.HELMET, new Item.Settings().maxDamage(ArmorItem.Type.HELMET.getMaxDamage(726))));
-//    public static final Item ENDERITE_CHESTPLATE = registerItem("enderite_chestplate", new ModArmorItem(ModArmorMaterials.ENDERITE, ArmorItem.Type.CHESTPLATE, new Item.Settings().maxDamage(ArmorItem.Type.CHESTPLATE.getMaxDamage(1056))));
-//    public static final Item ENDERITE_LEGGINGS = registerItem("enderite_leggings", new ModArmorItem(ModArmorMaterials.ENDERITE, ArmorItem.Type.LEGGINGS, new Item.Settings().maxDamage(ArmorItem.Type.LEGGINGS.getMaxDamage(990))));
-//    public static final Item ENDERITE_BOOTS = registerItem("enderite_boots", new ModArmorItem(ModArmorMaterials.ENDERITE, ArmorItem.Type.BOOTS, new Item.Settings().maxDamage(ArmorItem.Type.BOOTS.getMaxDamage(858))));
+    public static final Item ENDERITE_HELMET = registerItem("enderite_helmet", new ModArmorItem(ModArmorMaterials.ENDERITE, ArmorItem.Type.HELMET, new Item.Settings().maxDamage(ArmorItem.Type.HELMET.getMaxDamage(726))));
+    public static final Item ENDERITE_CHESTPLATE = registerItem("enderite_chestplate", new ModArmorItem(ModArmorMaterials.ENDERITE, ArmorItem.Type.CHESTPLATE, new Item.Settings().maxDamage(ArmorItem.Type.CHESTPLATE.getMaxDamage(1056))));
+    public static final Item ENDERITE_LEGGINGS = registerItem("enderite_leggings", new ModArmorItem(ModArmorMaterials.ENDERITE, ArmorItem.Type.LEGGINGS, new Item.Settings().maxDamage(ArmorItem.Type.LEGGINGS.getMaxDamage(990))));
+    public static final Item ENDERITE_BOOTS = registerItem("enderite_boots", new ModArmorItem(ModArmorMaterials.ENDERITE, ArmorItem.Type.BOOTS, new Item.Settings().maxDamage(ArmorItem.Type.BOOTS.getMaxDamage(858))));
 
     //All swords
     //p_i48460_2_: Attack Damage (1 = 1 Attack Point)
@@ -317,7 +319,7 @@ public class ModItems {
 
     public static final Item GRAPHENE_SWORD = registerItem("graphene_sword", new ModSwordItem(ModToolMaterials.GRAPHENE, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ModToolMaterials.GRAPHENE, 3, -2.4f))));
     public static final Item ADAMANTIUM_SWORD = registerItem("adamantium_sword", new ModSwordItem(ModToolMaterials.ADAMANTIUM, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ModToolMaterials.ADAMANTIUM, 3, -2.4f))));
-//    public static final Item ENDERITE_SWORD = registerItem("enderite_sword", new ModSwordItem(ModToolMaterials.ENDERITE, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ModToolMaterials.ENDERITE, 3, -2.4f))));
+    public static final Item ENDERITE_SWORD = registerItem("enderite_sword", new ModSwordItem(ModToolMaterials.ENDERITE, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ModToolMaterials.ENDERITE, 3, -2.4f))));
 
     //All battle_axes
     //p_i48460_2_: Attack Damage (1 = 1 Attack Point)
@@ -357,7 +359,7 @@ public class ModItems {
     public static final Item NETHERITE_BATTLE_AXE = registerItem("netherite_battle_axe", new ModBattleAxeItem(ToolMaterials.NETHERITE, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ToolMaterials.NETHERITE, 5, -2.8f))));
     public static final Item GRAPHENE_BATTLE_AXE = registerItem("graphene_battle_axe", new ModBattleAxeItem(ModToolMaterials.GRAPHENE, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ModToolMaterials.GRAPHENE, 5, -2.6f))));
     public static final Item ADAMANTIUM_BATTLE_AXE = registerItem("adamantium_battle_axe", new ModBattleAxeItem(ModToolMaterials.ADAMANTIUM, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ModToolMaterials.ADAMANTIUM, 5, -2.6f))));
-//    public static final Item ENDERITE_BATTLE_AXE = registerItem("enderite_battle_axe", new ModBattleAxeItem(ModToolMaterials.ENDERITE, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ModToolMaterials.ENDERITE, 5, -2.6f))));
+    public static final Item ENDERITE_BATTLE_AXE = registerItem("enderite_battle_axe", new ModBattleAxeItem(ModToolMaterials.ENDERITE, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ModToolMaterials.ENDERITE, 5, -2.6f))));
 
 
     //All battle_maces
@@ -400,7 +402,7 @@ public class ModItems {
     public static final Item NETHERITE_BATTLE_MACE = registerItem("netherite_battle_mace", new ModSwordItem(ToolMaterials.NETHERITE, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ToolMaterials.NETHERITE, 3, -2.0f))));
     public static final Item GRAPHENE_BATTLE_MACE = registerItem("graphene_battle_mace", new ModBattleAxeItem(ModToolMaterials.GRAPHENE, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ModToolMaterials.GRAPHENE, 3, -2.0f))));
     public static final Item ADAMANTIUM_BATTLE_MACE = registerItem("adamantium_battle_mace", new ModBattleAxeItem(ModToolMaterials.ADAMANTIUM, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ModToolMaterials.ADAMANTIUM, 3, -2.0f))));
-//    public static final Item ENDERITE_BATTLE_MACE = registerItem("enderite_battle_mace", new ModBattleAxeItem(ModToolMaterials.ENDERITE, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ModToolMaterials.ENDERITE, 3, -2.0f))));
+    public static final Item ENDERITE_BATTLE_MACE = registerItem("enderite_battle_mace", new ModBattleAxeItem(ModToolMaterials.ENDERITE, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ModToolMaterials.ENDERITE, 3, -2.0f))));
 
 
     //All daggers
@@ -441,7 +443,7 @@ public class ModItems {
     public static final Item NETHERITE_DAGGER = registerItem("netherite_dagger", new ModSwordItem(ToolMaterials.NETHERITE, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ToolMaterials.NETHERITE, 1, -1.6f))));
     public static final Item GRAPHENE_DAGGER = registerItem("graphene_dagger", new ModBattleAxeItem(ModToolMaterials.GRAPHENE, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ModToolMaterials.GRAPHENE, 1, -1.5f))));
     public static final Item ADAMANTIUM_DAGGER = registerItem("adamantium_dagger", new ModBattleAxeItem(ModToolMaterials.ADAMANTIUM, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ModToolMaterials.ADAMANTIUM, 1, -1.5f))));
-//    public static final Item ENDERITE_DAGGER = registerItem("enderite_dagger", new ModBattleAxeItem(ModToolMaterials.ENDERITE, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ModToolMaterials.ENDERITE, 1, -1.5f))));
+    public static final Item ENDERITE_DAGGER = registerItem("enderite_dagger", new ModBattleAxeItem(ModToolMaterials.ENDERITE, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ModToolMaterials.ENDERITE, 1, -1.5f))));
 
 
     // All pickaxes
@@ -474,7 +476,7 @@ public class ModItems {
     public static final Item OBSIDIAN_PICKAXE = registerItem("obsidian_pickaxe", new ModPickaxeItem(ModToolMaterials.OBSIDIAN, 1, -2.8F, new Item.Settings()));
     public static final Item GRAPHENE_PICKAXE = registerItem("graphene_pickaxe", new ModPickaxeItem(ModToolMaterials.GRAPHENE, 1, -2.8F, new Item.Settings()));
     public static final Item ADAMANTIUM_PICKAXE = registerItem("adamantium_pickaxe", new ModPickaxeItem(ModToolMaterials.ADAMANTIUM, 1, -2.8F, new Item.Settings()));
-//    public static final Item ENDERITE_PICKAXE = registerItem("enderite_pickaxe", new ModPickaxeItem(ModToolMaterials.ENDERITE, 1, -2.8F, new Item.Settings()));
+    public static final Item ENDERITE_PICKAXE = registerItem("enderite_pickaxe", new ModPickaxeItem(ModToolMaterials.ENDERITE, 1, -2.8F, new Item.Settings()));
 
 
     //All axes
@@ -508,7 +510,7 @@ public class ModItems {
     public static final Item OBSIDIAN_AXE = registerItem("obsidian_axe", new ModAxeItem(ModToolMaterials.OBSIDIAN, 6.0F, -3.2F, new Item.Settings()));
     public static final Item GRAPHENE_AXE = registerItem("graphene_axe", new ModAxeItem(ModToolMaterials.GRAPHENE, 6.0F, -3.2F, new Item.Settings()));
     public static final Item ADAMANTIUM_AXE = registerItem("adamantium_axe", new ModAxeItem(ModToolMaterials.ADAMANTIUM, 6.0F, -3.2F, new Item.Settings()));
-//    public static final Item ENDERITE_AXE = registerItem("enderite_axe", new ModAxeItem(ModToolMaterials.ENDERITE, 6.0F, -3.2F, new Item.Settings()));
+    public static final Item ENDERITE_AXE = registerItem("enderite_axe", new ModAxeItem(ModToolMaterials.ENDERITE, 6.0F, -3.2F, new Item.Settings()));
 
 
     //All shovels
@@ -541,7 +543,7 @@ public class ModItems {
     public static final Item OBSIDIAN_SHOVEL = registerItem("obsidian_shovel", new ModShovelItem(ModToolMaterials.OBSIDIAN, 1.5F, -3.0F, new Item.Settings()));
     public static final Item GRAPHENE_SHOVEL = registerItem("graphene_shovel", new ModShovelItem(ModToolMaterials.GRAPHENE, 1.5F, -3.0F, new Item.Settings()));
     public static final Item ADAMANTIUM_SHOVEL = registerItem("adamantium_shovel", new ModShovelItem(ModToolMaterials.ADAMANTIUM, 1.5F, -3.0F, new Item.Settings()));
-//    public static final Item ENDERITE_SHOVEL = registerItem("enderite_shovel", new ModShovelItem(ModToolMaterials.ENDERITE, 1.5F, -3.0F, new Item.Settings()));
+    public static final Item ENDERITE_SHOVEL = registerItem("enderite_shovel", new ModShovelItem(ModToolMaterials.ENDERITE, 1.5F, -3.0F, new Item.Settings()));
 
 
     //All hoes
@@ -574,7 +576,7 @@ public class ModItems {
     public static final Item OBSIDIAN_HOE = registerItem("obsidian_hoe", new ModHoeItem(ModToolMaterials.OBSIDIAN, 0, -3.0F, new Item.Settings()));
     public static final Item GRAPHENE_HOE = registerItem("graphene_hoe", new ModHoeItem(ModToolMaterials.GRAPHENE, 0, -3.0F, new Item.Settings()));
     public static final Item ADAMANTIUM_HOE = registerItem("adamantium_hoe", new ModHoeItem(ModToolMaterials.ADAMANTIUM, 0, -3.0F, new Item.Settings()));
-//    public static final Item ENDERITE_HOE = registerItem("enderite_hoe", new ModHoeItem(ModToolMaterials.ENDERITE, 0, -3.0F, new Item.Settings()));
+    public static final Item ENDERITE_HOE = registerItem("enderite_hoe", new ModHoeItem(ModToolMaterials.ENDERITE, 0, -3.0F, new Item.Settings()));
 
 
     //Vanilla tools
@@ -609,7 +611,7 @@ public class ModItems {
     public static final Item OBSIDIAN_SHIELD = registerItem("obsidian_shield", new ModShieldItem(new Item.Settings().maxDamage(821), 10, 21, ModItems.OBSIDIAN_INGOT));
     public static final Item GRAPHENE_SHIELD = registerItem("graphene_shield", new ModShieldItem(new Item.Settings().maxDamage(1333), 10, 19, ModItems.GRAPHENE_GEM));
     public static final Item ADAMANTIUM_SHIELD = registerItem("adamantium_shield", new ModShieldItem(new Item.Settings().maxDamage(1333), 10, 19, ModItems.GRAPHENE_GEM));
-//    public static final Item ENDERITE_SHIELD = registerItem("enderite_shield", new ModShieldItem(new Item.Settings().maxDamage(1333), 10, 19, ModItems.GRAPHENE_GEM));
+    public static final Item ENDERITE_SHIELD = registerItem("enderite_shield", new ModShieldItem(new Item.Settings().maxDamage(1333), 10, 19, ModItems.GRAPHENE_GEM));
 //    public static final Item NETHERITE_SHIELD = registerItem("netherite_shield", new ModShieldItem(new Item.Settings().maxDamage(1333), 10, 19, Items.NETHERITE_INGOT));
 
     private static void addItemsToIngredientItemGroup(FabricItemGroupEntries entries) {
@@ -639,6 +641,7 @@ public class ModItems {
         entries.add(HARDENED_STEEL_INGOT);
         entries.add(OBSIDIAN_INGOT);
         entries.add(ADAMANTIUM_INGOT);
+        entries.add(ENDERITE_INGOT);
         entries.add(AMETHYST_GEM);
         entries.add(LAPIS_LAZULI_GEM);
         entries.add(TURQUOISE_GEM);
@@ -806,10 +809,10 @@ public class ModItems {
         entries.add(ADAMANTIUM_BATTLE_MACE);
         entries.add(ADAMANTIUM_DAGGER);
 
-//        entries.add(ENDERITE_SWORD);
-//        entries.add(ENDERITE_BATTLE_AXE);
-//        entries.add(ENDERITE_BATTLE_MACE);
-//        entries.add(ENDERITE_DAGGER);
+        entries.add(ENDERITE_SWORD);
+        entries.add(ENDERITE_BATTLE_AXE);
+        entries.add(ENDERITE_BATTLE_MACE);
+        entries.add(ENDERITE_DAGGER);
 
         entries.add(ModItems.TIN_HELMET);
         entries.add(ModItems.TIN_CHESTPLATE);
@@ -911,10 +914,10 @@ public class ModItems {
         entries.add(ModItems.ADAMANTIUM_CHESTPLATE);
         entries.add(ModItems.ADAMANTIUM_LEGGINGS);
         entries.add(ModItems.ADAMANTIUM_BOOTS);
-//        entries.add(ModItems.ENDERITE_HELMET);
-//        entries.add(ModItems.ENDERITE_CHESTPLATE);
-//        entries.add(ModItems.ENDERITE_LEGGINGS);
-//        entries.add(ModItems.ENDERITE_BOOTS);
+        entries.add(ModItems.ENDERITE_HELMET);
+        entries.add(ModItems.ENDERITE_CHESTPLATE);
+        entries.add(ModItems.ENDERITE_LEGGINGS);
+        entries.add(ModItems.ENDERITE_BOOTS);
 
         entries.add(TIN_SHIELD);
         entries.add(SILVER_SHIELD);
@@ -941,7 +944,7 @@ public class ModItems {
         entries.add(OBSIDIAN_SHIELD);
         entries.add(GRAPHENE_SHIELD);
         entries.add(ADAMANTIUM_SHIELD);
-//        entries.add(ENDERITE_SHIELD);
+        entries.add(ENDERITE_SHIELD);
     }
     private static void addItemsToFoodItemGroup(FabricItemGroupEntries entries) {
         entries.add(CHOCOLATE);
@@ -1074,10 +1077,10 @@ public class ModItems {
         entries.add(ADAMANTIUM_SHOVEL);
         entries.add(ADAMANTIUM_HOE);
 
-//        entries.add(ENDERITE_PICKAXE);
-//        entries.add(ENDERITE_AXE);
-//        entries.add(ENDERITE_SHOVEL);
-//        entries.add(ENDERITE_HOE);
+        entries.add(ENDERITE_PICKAXE);
+        entries.add(ENDERITE_AXE);
+        entries.add(ENDERITE_SHOVEL);
+        entries.add(ENDERITE_HOE);
 
         entries.add(SWEET_CAROLINE_MUSIC_DISC);
         entries.add(CIPHER_DISC);

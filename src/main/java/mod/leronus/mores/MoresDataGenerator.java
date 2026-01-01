@@ -22,7 +22,6 @@ public class MoresDataGenerator implements DataGeneratorEntrypoint {
 //		pack.addProvider(ModPaintingVariantTagProvider::new);
 //		pack.addProvider(ModAdvancementProvider::new);
 		pack.addProvider(ModWorldGenerator::new);
-        pack.addProvider(ModRegistryDataGenerator::new);
 	}
 
 	@Override

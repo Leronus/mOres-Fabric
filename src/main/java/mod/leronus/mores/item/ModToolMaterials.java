@@ -50,7 +50,7 @@ public enum ModToolMaterials implements ToolMaterial {
     OBSIDIAN(BlockTags.INCORRECT_FOR_DIAMOND_TOOL, 2169, 8.5F, 3.5F, 13, () -> Ingredient.ofItems(Items.OBSIDIAN)),
     NETHERITE(BlockTags.INCORRECT_FOR_NETHERITE_TOOL, 2031, 9.0F, 4.0F, 15, () -> Ingredient.ofItems(Items.NETHERITE_INGOT)),
     GRAPHENE(BlockTags.INCORRECT_FOR_NETHERITE_TOOL, 3569, 12.0F, 6.0F, 18, () -> Ingredient.ofItems(ModItems.GRAPHENE_GEM)),
-    ADAMANTIUM(BlockTags.INCORRECT_FOR_NETHERITE_TOOL, 3569, 12.0F, 6.0F, 18, () -> Ingredient.ofItems(ModItems.ADAMANTIUM_GEM)),
+    ADAMANTIUM(BlockTags.INCORRECT_FOR_NETHERITE_TOOL, 3569, 12.0F, 6.0F, 18, () -> Ingredient.ofItems(ModItems.ADAMANTIUM_INGOT)),
     ENDERITE(BlockTags.INCORRECT_FOR_NETHERITE_TOOL, 3569, 12.0F, 6.0F, 18, () -> Ingredient.ofItems(ModItems.GRAPHENE_GEM));
 
     private final TagKey<Block> inverseTag;

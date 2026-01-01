@@ -15,6 +15,6 @@ public class ClientConfig extends MidnightConfig {
     @Entry(category = VISUAL, name = "Use themed alloy furnace UI")
     public static boolean themedAlloyFurnaceUI = true;
 
-    @Entry(category = VISUAL, name = "Enable extra mOres tooltips for all combat items (durability, efficiency, set bonus)")
+    @Entry(category = VISUAL, name = "Tooltips: Durability, Efficiency, Armor Set Bonus")
     public static boolean extraTooltips = true;
 }

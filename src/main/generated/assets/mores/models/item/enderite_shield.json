@@ -1,0 +1,15 @@
+{
+  "parent": "minecraft:item/shield",
+  "overrides": [
+    {
+      "model": "mores:item/enderite_shield_blocking",
+      "predicate": {
+        "blocking": 1.0
+      }
+    }
+  ],
+  "textures": {
+    "shield": "mores:entity/shield/enderite_shield",
+    "shield_nopattern": "mores:entity/shield/enderite_shield_nopattern"
+  }
+}

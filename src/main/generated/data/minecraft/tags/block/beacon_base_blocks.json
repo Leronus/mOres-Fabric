@@ -11,12 +11,15 @@
     "mores:amethyst_block",
     "mores:topaz_block",
     "mores:tourmaline_block",
+    "mores:tanzanite_block",
     "mores:ruby_block",
     "mores:sapphire_block",
     "mores:spinel_block",
     "mores:citrine_block",
     "mores:moissanite_block",
     "mores:turquoise_block",
-    "mores:onyx_block"
+    "mores:onyx_block",
+    "mores:adamantium_block",
+    "mores:enderite_block"
   ]
 }

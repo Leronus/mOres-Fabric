@@ -286,7 +286,7 @@ public class ModArmorMaterials
                 map.put(ArmorItem.Type.CHESTPLATE, 8);
                 map.put(ArmorItem.Type.HELMET, 4);
                 map.put(ArmorItem.Type.BODY, 5);
-            }), 20, SoundEvents.ITEM_ARMOR_EQUIP_NETHERITE, () -> Ingredient.ofItems(ModItems.ADAMANTIUM_GEM),
+            }), 20, SoundEvents.ITEM_ARMOR_EQUIP_NETHERITE, () -> Ingredient.ofItems(ModItems.ADAMANTIUM_INGOT),
                     List.of(new ArmorMaterial.Layer(Identifier.of(Mores.MOD_ID, "adamantium"))), 4.0F,0.1F));
 
     public static final RegistryEntry<ArmorMaterial> ENDERITE = registerArmorMaterial("enderite",

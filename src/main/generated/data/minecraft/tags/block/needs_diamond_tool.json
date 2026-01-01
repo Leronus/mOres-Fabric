@@ -3,13 +3,10 @@
     "mores:spinel_ore",
     "mores:deepslate_spinel_ore",
     "mores:nether_spinel_ore",
-    "mores:nether_citrine_ore",
     "mores:moissanite_ore",
     "mores:deepslate_moissanite_ore",
     "mores:nether_moissanite_ore",
     "mores:ruby_block",
-    "mores:sapphire_block",
-    "mores:spinel_block",
-    "mores:citrine_block"
+    "mores:sapphire_block"
   ]
 }

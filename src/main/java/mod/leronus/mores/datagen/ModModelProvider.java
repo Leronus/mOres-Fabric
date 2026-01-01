@@ -30,31 +30,35 @@ public class ModModelProvider extends FabricModelProvider {
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.SILVER_ORE);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.DEEPSLATE_SILVER_ORE);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.NETHER_SILVER_ORE);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.ELECTRUM_ORE);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.COBALT_ORE);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.DEEPSLATE_COBALT_ORE);
-
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.TURQUOISE_ORE);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.DEEPSLATE_TURQUOISE_ORE);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.QUARTZ_ORE);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.CITRINE_ORE);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.NETHER_CITRINE_ORE);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.TANZANITE_ORE);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.DEEPSLATE_TANZANITE_ORE);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.NETHER_TANZANITE_ORE);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.TOURMALINE_ORE);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.DEEPSLATE_TOURMALINE_ORE);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.TOPAZ_ORE);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.DEEPSLATE_TOPAZ_ORE);
-
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.SPINEL_ORE);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.DEEPSLATE_SPINEL_ORE);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.NETHER_SPINEL_ORE);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.RUBY_ORE);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.DEEPSLATE_RUBY_ORE);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.NETHER_RUBY_ORE);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.SAPPHIRE_ORE);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.DEEPSLATE_SAPPHIRE_ORE);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.NETHER_SAPPHIRE_ORE);
-        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.SPINEL_ORE);
-        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.DEEPSLATE_SPINEL_ORE);
-        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.NETHER_SPINEL_ORE);
-        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.NETHER_CITRINE_ORE);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.MOISSANITE_ORE);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.DEEPSLATE_MOISSANITE_ORE);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.NETHER_MOISSANITE_ORE);
-
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.ENDER_ONYX_ORE);
+        blockStateModelGenerator.registerSingleton(ModBlocks.PRIMORDIAL_DEBRIS, TexturedModel.CUBE_COLUMN);
 
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.TIN_BLOCK);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.SILVER_BLOCK);
@@ -66,15 +70,18 @@ public class ModModelProvider extends FabricModelProvider {
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.HARDENED_STEEL_BLOCK);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.TURQUOISE_BLOCK);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.AMETHYST_BLOCK);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.CITRINE_BLOCK);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.TANZANITE_BLOCK);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.TOURMALINE_BLOCK);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.TOPAZ_BLOCK);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.SPINEL_BLOCK);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.RUBY_BLOCK);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.SAPPHIRE_BLOCK);
-        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.SPINEL_BLOCK);
-        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.CITRINE_BLOCK);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.MOISSANITE_BLOCK);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.ONYX_BLOCK);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.GRAPHENE_BLOCK);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.ADAMANTIUM_BLOCK);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.ENDERITE_BLOCK);
 
         registerAlloyFurnace(blockStateModelGenerator);
         }
@@ -129,15 +136,15 @@ public class ModModelProvider extends FabricModelProvider {
 //        blockStateModelGenerator.blockStateCollector.accept(VariantsBlockStateSupplier.create(ModBlocks.SAPPHIRE_LAMP_BLOCK)
 //                .coordinate(BlockStateModelGenerator.createBooleanModelMap(SapphireLampBlock.CLICKED, identifier2, identifier)));
 //
-//        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.SAPPHIRE_BLOCK);
-//        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.SAPPHIRE_BLOCK_1);
-//        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.SAPPHIRE_BLOCK_2);
-//        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.SAPPHIRE_BLOCK_3);
+//        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.SILVER_BLOCK);
+//        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.SILVER_BLOCK_1);
+//        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.SILVER_BLOCK_2);
+//        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.SILVER_BLOCK_3);
 //
-//        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.WAXED_SAPPHIRE_BLOCK);
-//        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.WAXED_SAPPHIRE_BLOCK_1);
-//        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.WAXED_SAPPHIRE_BLOCK_2);
-//        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.WAXED_SAPPHIRE_BLOCK_3);
+//        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.WAXED_SILVER_BLOCK);
+//        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.WAXED_SILVER_BLOCK_1);
+//        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.WAXED_SILVER_BLOCK_2);
+//        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.WAXED_SILVER_BLOCK_3);
 
 //        blockStateModelGenerator.registerCooker(ModBlocks.ALLOY_FURNACE, TexturedModel.ORIENTABLE);
 //    }
@@ -174,6 +181,8 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ModItems.CARBON_STEEL_INGOT, Models.GENERATED);
         itemModelGenerator.register(ModItems.HARDENED_STEEL_INGOT, Models.GENERATED);
         itemModelGenerator.register(ModItems.OBSIDIAN_INGOT, Models.GENERATED);
+        itemModelGenerator.register(ModItems.ADAMANTIUM_INGOT, Models.GENERATED);
+        itemModelGenerator.register(ModItems.ENDERITE_INGOT, Models.GENERATED);
 
         itemModelGenerator.register(ModItems.HOT_CARBON_STEEL_SCRAP, Models.GENERATED);
         itemModelGenerator.register(ModItems.CARBON_STEEL_SCRAP, Models.GENERATED);
@@ -429,14 +438,14 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ModItems.ADAMANTIUM_BATTLE_MACE, Models.HANDHELD);
         itemModelGenerator.register(ModItems.ADAMANTIUM_DAGGER, Models.HANDHELD);
 
-//        itemModelGenerator.register(ModItems.ENDERITE_SWORD, Models.HANDHELD);
-//        itemModelGenerator.register(ModItems.ENDERITE_PICKAXE, Models.HANDHELD);
-//        itemModelGenerator.register(ModItems.ENDERITE_SHOVEL, Models.HANDHELD);
-//        itemModelGenerator.register(ModItems.ENDERITE_AXE, Models.HANDHELD);
-//        itemModelGenerator.register(ModItems.ENDERITE_HOE, Models.HANDHELD);
-//        itemModelGenerator.register(ModItems.ENDERITE_BATTLE_AXE, Models.HANDHELD);
-//        itemModelGenerator.register(ModItems.ENDERITE_BATTLE_MACE, Models.HANDHELD);
-//        itemModelGenerator.register(ModItems.ENDERITE_DAGGER, Models.HANDHELD);
+        itemModelGenerator.register(ModItems.ENDERITE_SWORD, Models.HANDHELD);
+        itemModelGenerator.register(ModItems.ENDERITE_PICKAXE, Models.HANDHELD);
+        itemModelGenerator.register(ModItems.ENDERITE_SHOVEL, Models.HANDHELD);
+        itemModelGenerator.register(ModItems.ENDERITE_AXE, Models.HANDHELD);
+        itemModelGenerator.register(ModItems.ENDERITE_HOE, Models.HANDHELD);
+        itemModelGenerator.register(ModItems.ENDERITE_BATTLE_AXE, Models.HANDHELD);
+        itemModelGenerator.register(ModItems.ENDERITE_BATTLE_MACE, Models.HANDHELD);
+        itemModelGenerator.register(ModItems.ENDERITE_DAGGER, Models.HANDHELD);
 
         itemModelGenerator.register(ModItems.WOOD_BATTLE_AXE, Models.HANDHELD);
         itemModelGenerator.register(ModItems.WOOD_BATTLE_MACE, Models.HANDHELD);
@@ -583,10 +592,10 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.registerArmor(((ArmorItem) ModItems.ADAMANTIUM_LEGGINGS));
         itemModelGenerator.registerArmor(((ArmorItem) ModItems.ADAMANTIUM_BOOTS));
 
-//        itemModelGenerator.registerArmor(((ArmorItem) ModItems.ENDERITE_HELMET));
-//        itemModelGenerator.registerArmor(((ArmorItem) ModItems.ENDERITE_CHESTPLATE));
-//        itemModelGenerator.registerArmor(((ArmorItem) ModItems.ENDERITE_LEGGINGS));
-//        itemModelGenerator.registerArmor(((ArmorItem) ModItems.ENDERITE_BOOTS));
+        itemModelGenerator.registerArmor(((ArmorItem) ModItems.ENDERITE_HELMET));
+        itemModelGenerator.registerArmor(((ArmorItem) ModItems.ENDERITE_CHESTPLATE));
+        itemModelGenerator.registerArmor(((ArmorItem) ModItems.ENDERITE_LEGGINGS));
+        itemModelGenerator.registerArmor(((ArmorItem) ModItems.ENDERITE_BOOTS));
 
 
         itemModelGenerator.register(ModItems.TIN_HORSE_ARMOR, Models.GENERATED);
@@ -601,7 +610,7 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ModItems.AMETHYST_HORSE_ARMOR, Models.GENERATED);
         itemModelGenerator.register(ModItems.LAPIS_LAZULI_HORSE_ARMOR, Models.GENERATED);
         itemModelGenerator.register(ModItems.TURQUOISE_HORSE_ARMOR, Models.GENERATED);
-//        itemModelGenerator.register(ModItems.TANZANITE_HORSE_ARMOR, Models.GENERATED);
+        itemModelGenerator.register(ModItems.TANZANITE_HORSE_ARMOR, Models.GENERATED);
         itemModelGenerator.register(ModItems.TOPAZ_HORSE_ARMOR, Models.GENERATED);
         itemModelGenerator.register(ModItems.TOURMALINE_HORSE_ARMOR, Models.GENERATED);
         itemModelGenerator.register(ModItems.EMERALD_HORSE_ARMOR, Models.GENERATED);
@@ -615,7 +624,7 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ModItems.GRAPHENE_HORSE_ARMOR, Models.GENERATED);
         itemModelGenerator.register(ModItems.ADAMANTIUM_HORSE_ARMOR, Models.GENERATED);
         itemModelGenerator.register(ModItems.NETHERITE_HORSE_ARMOR, Models.GENERATED);
-//        itemModelGenerator.register(ModItems.ENDERITE_HORSE_ARMOR, Models.GENERATED);
+        itemModelGenerator.register(ModItems.ENDERITE_HORSE_ARMOR, Models.GENERATED);
 
         itemModelGenerator.register(ModItems.RAW_DUCK, Models.GENERATED);
         itemModelGenerator.register(ModItems.COOKED_DUCK, Models.GENERATED);
@@ -641,20 +650,22 @@ public class ModModelProvider extends FabricModelProvider {
         registerShield(itemModelGenerator, "hardened_steel_shield");
         registerShield(itemModelGenerator, "amethyst_shield");
         registerShield(itemModelGenerator, "turquoise_shield");
+        registerShield(itemModelGenerator, "citrine_shield");
         registerShield(itemModelGenerator, "lapis_lazuli_shield");
+        registerShield(itemModelGenerator, "tanzanite_shield");
         registerShield(itemModelGenerator, "topaz_shield");
         registerShield(itemModelGenerator, "tourmaline_shield");
         registerShield(itemModelGenerator, "emerald_shield");
         registerShield(itemModelGenerator, "spinel_shield");
         registerShield(itemModelGenerator, "ruby_shield");
         registerShield(itemModelGenerator, "sapphire_shield");
-        registerShield(itemModelGenerator, "citrine_shield");
         registerShield(itemModelGenerator, "moissanite_shield");
         registerShield(itemModelGenerator, "onyx_shield");
         registerShield(itemModelGenerator, "obsidian_shield");
         registerShield(itemModelGenerator, "adamantium_shield");
         registerShield(itemModelGenerator, "graphene_shield");
-//        itemModelGenerator.register(ModItems.NETHERITE_SHIELD, Models.GENERATED);
+        registerShield(itemModelGenerator, "enderite_shield");
+
     }
 
     private static void registerShield(ItemModelGenerator gen, String name) {
