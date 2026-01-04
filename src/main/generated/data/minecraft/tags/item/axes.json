@@ -12,6 +12,7 @@
     "mores:amethyst_axe",
     "mores:emerald_axe",
     "mores:obsidian_axe",
+    "mores:tanzanite_axe",
     "mores:topaz_axe",
     "mores:tourmaline_axe",
     "mores:citrine_axe",
@@ -21,6 +22,8 @@
     "mores:moissanite_axe",
     "mores:turquoise_axe",
     "mores:onyx_axe",
-    "mores:graphene_axe"
+    "mores:graphene_axe",
+    "mores:adamantium_axe",
+    "mores:enderite_axe"
   ]
 }

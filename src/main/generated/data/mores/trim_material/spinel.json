@@ -1,0 +1,9 @@
+{
+  "asset_name": "spinel",
+  "description": {
+    "color": "#D7263D",
+    "translate": "trim_material.mores.spinel"
+  },
+  "ingredient": "mores:spinel_gem",
+  "item_model_index": 0.25
+}

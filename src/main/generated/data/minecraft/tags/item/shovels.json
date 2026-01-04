@@ -12,6 +12,7 @@
     "mores:amethyst_shovel",
     "mores:emerald_shovel",
     "mores:obsidian_shovel",
+    "mores:tanzanite_shovel",
     "mores:topaz_shovel",
     "mores:tourmaline_shovel",
     "mores:citrine_shovel",
@@ -21,6 +22,8 @@
     "mores:moissanite_shovel",
     "mores:turquoise_shovel",
     "mores:onyx_shovel",
-    "mores:graphene_shovel"
+    "mores:graphene_shovel",
+    "mores:adamantium_shovel",
+    "mores:enderite_shovel"
   ]
 }

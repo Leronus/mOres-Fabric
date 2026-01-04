@@ -1,0 +1,9 @@
+{
+  "asset_name": "rose_gold",
+  "description": {
+    "color": "#F2A0A0",
+    "translate": "trim_material.mores.rose_gold"
+  },
+  "ingredient": "mores:rose_gold_ingot",
+  "item_model_index": 0.14
+}

@@ -12,6 +12,7 @@
     "mores:amethyst_pickaxe",
     "mores:emerald_pickaxe",
     "mores:obsidian_pickaxe",
+    "mores:tanzanite_pickaxe",
     "mores:topaz_pickaxe",
     "mores:tourmaline_pickaxe",
     "mores:citrine_pickaxe",
@@ -21,6 +22,8 @@
     "mores:moissanite_pickaxe",
     "mores:turquoise_pickaxe",
     "mores:onyx_pickaxe",
-    "mores:graphene_pickaxe"
+    "mores:graphene_pickaxe",
+    "mores:adamantium_pickaxe",
+    "mores:enderite_pickaxe"
   ]
 }

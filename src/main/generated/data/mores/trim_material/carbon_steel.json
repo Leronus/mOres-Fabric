@@ -1,0 +1,9 @@
+{
+  "asset_name": "carbon_steel",
+  "description": {
+    "color": "#6B6B6B",
+    "translate": "trim_material.mores.carbon_steel"
+  },
+  "ingredient": "mores:carbon_steel_ingot",
+  "item_model_index": 0.17
+}

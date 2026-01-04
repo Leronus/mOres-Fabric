@@ -12,6 +12,7 @@
     "mores:amethyst_hoe",
     "mores:emerald_hoe",
     "mores:obsidian_hoe",
+    "mores:tanzanite_hoe",
     "mores:topaz_hoe",
     "mores:tourmaline_hoe",
     "mores:citrine_hoe",
@@ -21,6 +22,8 @@
     "mores:moissanite_hoe",
     "mores:turquoise_hoe",
     "mores:onyx_hoe",
-    "mores:graphene_hoe"
+    "mores:graphene_hoe",
+    "mores:adamantium_hoe",
+    "mores:enderite_hoe"
   ]
 }

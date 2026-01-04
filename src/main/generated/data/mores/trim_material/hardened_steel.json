@@ -1,0 +1,9 @@
+{
+  "asset_name": "hardened_steel",
+  "description": {
+    "color": "#4C4C4C",
+    "translate": "trim_material.mores.hardened_steel"
+  },
+  "ingredient": "mores:hardened_steel_ingot",
+  "item_model_index": 0.18
+}

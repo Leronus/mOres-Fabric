@@ -1,0 +1,9 @@
+{
+  "asset_name": "sterling_silver",
+  "description": {
+    "color": "#DDE7EA",
+    "translate": "trim_material.mores.sterling_silver"
+  },
+  "ingredient": "mores:sterling_silver_ingot",
+  "item_model_index": 0.13
+}

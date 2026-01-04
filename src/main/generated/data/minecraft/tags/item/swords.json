@@ -12,6 +12,7 @@
     "mores:turquoise_sword",
     "mores:amethyst_sword",
     "mores:topaz_sword",
+    "mores:tanzanite_sword",
     "mores:tourmaline_sword",
     "mores:emerald_sword",
     "mores:ruby_sword",
@@ -21,6 +22,8 @@
     "mores:moissanite_sword",
     "mores:onyx_sword",
     "mores:obsidian_sword",
-    "mores:graphene_sword"
+    "mores:graphene_sword",
+    "mores:adamantium_sword",
+    "mores:enderite_sword"
   ]
 }
