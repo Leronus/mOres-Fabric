@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "group": "tanzanite_gem",
+  "ingredients": [
+    {
+      "item": "mores:tanzanite_block"
+    }
+  ],
+  "result": {
+    "count": 9,
+    "id": "mores:tanzanite_gem"
+  }
+}

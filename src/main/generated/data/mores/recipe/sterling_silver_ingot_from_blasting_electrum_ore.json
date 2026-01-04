@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:blasting",
+  "category": "misc",
+  "cookingtime": 100,
+  "experience": 0.6,
+  "ingredient": {
+    "item": "mores:electrum_ore"
+  },
+  "result": {
+    "id": "mores:sterling_silver_ingot"
+  }
+}

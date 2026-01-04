@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_tanzanite_gem": {
+      "conditions": {
+        "items": [
+          {
+            "items": "mores:tanzanite_gem"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "mores:tanzanite_block"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_tanzanite_gem"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "mores:tanzanite_block"
+    ]
+  }
+}

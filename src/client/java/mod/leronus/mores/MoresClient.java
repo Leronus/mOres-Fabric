@@ -1,9 +1,8 @@
 package mod.leronus.mores;
 
 import eu.midnightdust.lib.config.MidnightConfig;
-import mod.leronus.mores.client.VanillaTooltipHook;
-import mod.leronus.mores.client.render.ShieldLikeRenderer;
-import mod.leronus.mores.client.screen.AlloyFurnaceScreen;
+import mod.leronus.mores.render.ShieldLikeRenderer;
+import mod.leronus.mores.screen.AlloyFurnaceScreen;
 import mod.leronus.mores.config.ClientConfig;
 import mod.leronus.mores.item.ModItems;
 import mod.leronus.mores.registry.ModScreenHandlers;

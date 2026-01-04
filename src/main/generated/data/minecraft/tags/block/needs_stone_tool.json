@@ -1,12 +1,17 @@
 {
   "values": [
-    "mores:silver_ore",
-    "mores:raw_tin_block",
-    "mores:cobalt_ore",
+    "mores:tin_block",
+    "mores:alloy_furnace",
     "mores:anthracite_ore",
     "mores:deepslate_anthracite_ore",
+    "mores:nether_anthracite_ore",
+    "mores:raw_tin_block",
+    "mores:deepslate_tin_ore",
+    "mores:silver_ore",
     "mores:deepslate_silver_ore",
-    "mores:deepslate_cobalt_ore",
-    "mores:deepslate_tin_ore"
+    "mores:nether_silver_ore",
+    "mores:electrum_ore",
+    "mores:cobalt_ore",
+    "mores:deepslate_cobalt_ore"
   ]
 }

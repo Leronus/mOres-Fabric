@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_gem_lapis_lazuli": {
+      "conditions": {
+        "items": [
+          {
+            "items": "#mores:gem/lapis_lazuli"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "mores:lapis_lazuli_boots"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_gem_lapis_lazuli"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "mores:lapis_lazuli_boots"
+    ]
+  }
+}

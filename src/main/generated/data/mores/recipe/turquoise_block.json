@@ -3,7 +3,7 @@
   "category": "building",
   "key": {
     "#": {
-      "item": "mores:turquoise_gem"
+      "tag": "mores:gem/turquoise"
     }
   },
   "pattern": [

@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": {
+    "item": "mores:enderite_ingot"
+  },
+  "base": {
+    "item": "minecraft:diamond_sword"
+  },
+  "result": {
+    "count": 1,
+    "id": "mores:enderite_sword"
+  },
+  "template": {
+    "item": "mores:enderite_upgrade_smithing_template"
+  }
+}

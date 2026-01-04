@@ -20,12 +20,19 @@ public class ModItemGroups {
                        entries.add(ModItems.CITRINE);
                        entries.add(ModItems.ONYX);
 
+                       entries.add(ModItems.OBSIDIAN_UPGRADE_SMITHING_TEMPLATE);
+                       entries.add(ModItems.HARDENED_STEEL_UPGRADE_SMITHING_TEMPLATE);
+                       entries.add(ModItems.ADAMANTIUM_UPGRADE_SMITHING_TEMPLATE);
+                       entries.add(ModItems.ENDERITE_UPGRADE_SMITHING_TEMPLATE);
+
                        entries.add(ModItems.RAW_TIN);
                        entries.add(ModItems.RAW_SILVER);
                        entries.add(ModItems.RAW_COBALT);
 
                        entries.add(ModItems.HOT_CARBON_STEEL_SCRAP);
                        entries.add(ModItems.CARBON_STEEL_SCRAP);
+                       entries.add(ModItems.OBSIDIAN_SCRAP);
+                       entries.add(ModItems.ENDERITE_SCRAP);
 
                        entries.add(ModItems.TIN_NUGGET);
                        entries.add(ModItems.SILVER_NUGGET);
@@ -37,9 +44,10 @@ public class ModItemGroups {
                        entries.add(ModItems.CARBON_STEEL_NUGGET);
                        entries.add(ModItems.HARDENED_STEEL_NUGGET);
 
+                       entries.add(ModItems.AMETHYST_DUST);
+                       entries.add(ModItems.QUARTZ_DUST);
                        entries.add(ModItems.LAPIS_LAZULI_DUST);
                        entries.add(ModItems.TURQUOISE_DUST);
-                       entries.add(ModItems.AMETHYST_DUST);
 
                        entries.add(ModItems.TIN_INGOT);
                        entries.add(ModItems.BRONZE_INGOT);
@@ -125,6 +133,9 @@ public class ModItemGroups {
                         entries.add(ModBlocks.DEEPSLATE_TOURMALINE_ORE);
                         entries.add(ModBlocks.TOPAZ_ORE);
                         entries.add(ModBlocks.DEEPSLATE_TOPAZ_ORE);
+                        entries.add(ModBlocks.SPINEL_ORE);
+                        entries.add(ModBlocks.DEEPSLATE_SPINEL_ORE);
+                        entries.add(ModBlocks.NETHER_SPINEL_ORE);
                         entries.add(ModBlocks.RUBY_ORE);
                         entries.add(ModBlocks.DEEPSLATE_RUBY_ORE);
                         entries.add(ModBlocks.NETHER_RUBY_ORE);
@@ -534,6 +545,7 @@ public class ModItemGroups {
                         entries.add(ModItems.TANZANITE_HORSE_ARMOR);
                         entries.add(ModItems.TOURMALINE_HORSE_ARMOR);
                         entries.add(ModItems.TOPAZ_HORSE_ARMOR);
+                        entries.add(ModItems.SPINEL_HORSE_ARMOR);
                         entries.add(ModItems.EMERALD_HORSE_ARMOR);
                         entries.add(ModItems.RUBY_HORSE_ARMOR);
                         entries.add(ModItems.SAPPHIRE_HORSE_ARMOR);

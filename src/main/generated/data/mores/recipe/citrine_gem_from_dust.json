@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "tag": "mores:dust/quartz"
+    },
+    "Q": {
+      "item": "mores:citrine"
+    }
+  },
+  "pattern": [
+    "#Q",
+    "Q#"
+  ],
+  "result": {
+    "count": 1,
+    "id": "mores:citrine_gem"
+  }
+}

@@ -12,8 +12,10 @@
     "mores:amethyst_leggings",
     "mores:emerald_leggings",
     "mores:turquoise_leggings",
+    "mores:lapis_lazuli_leggings",
     "mores:tourmaline_leggings",
     "mores:topaz_leggings",
+    "mores:tanzanite_leggings",
     "mores:ruby_leggings",
     "mores:sapphire_leggings",
     "mores:spinel_leggings",
@@ -21,6 +23,8 @@
     "mores:moissanite_leggings",
     "mores:onyx_leggings",
     "mores:obsidian_leggings",
-    "mores:graphene_leggings"
+    "mores:graphene_leggings",
+    "mores:adamantium_leggings",
+    "mores:enderite_leggings"
   ]
 }

@@ -1,0 +1,15 @@
+{
+  "type": "mores:alloying",
+  "experience": 0.3,
+  "ingredient_a": {
+    "item": "minecraft:iron_ingot"
+  },
+  "ingredient_b": {
+    "item": "minecraft:diamond"
+  },
+  "result": {
+    "count": 1,
+    "id": "mores:adamantium_ingot"
+  },
+  "theme": "blue"
+}

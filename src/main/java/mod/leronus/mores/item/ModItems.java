@@ -28,6 +28,8 @@ public class ModItems {
 
     public static final Item HARDENED_STEEL_UPGRADE_SMITHING_TEMPLATE = registerItem("hardened_steel_upgrade_smithing_template", ModSmithingTemplateItem.createHardenedSteelUpgradeTemplate());
     public static final Item OBSIDIAN_UPGRADE_SMITHING_TEMPLATE = registerItem("obsidian_upgrade_smithing_template", ModSmithingTemplateItem.createObsidianUpgradeTemplate());
+    public static final Item ADAMANTIUM_UPGRADE_SMITHING_TEMPLATE = registerItem("adamantium_upgrade_smithing_template", ModSmithingTemplateItem.createAdamantiumUpgradeTemplate());
+    public static final Item ENDERITE_UPGRADE_SMITHING_TEMPLATE = registerItem("enderite_upgrade_smithing_template", ModSmithingTemplateItem.createEnderiteUpgradeTemplate());
 
     public static final Item CHOCOLATE = registerItem("chocolate", new Item(new Item.Settings().food(ModFoodComponents.CHOCOLATE)));
     public static final Item CARROT_PIE = registerItem("carrot_pie", new Item(new Item.Settings().food(ModFoodComponents.CARROT_PIE)));
@@ -51,10 +53,13 @@ public class ModItems {
 
     public static final Item HOT_CARBON_STEEL_SCRAP = registerItem("hot_carbon_steel_scrap", new Item(new Item.Settings()));
     public static final Item CARBON_STEEL_SCRAP = registerItem("carbon_steel_scrap", new Item(new Item.Settings()));
+    public static final Item OBSIDIAN_SCRAP = registerItem("obsidian_scrap", new Item(new Item.Settings()));
+    public static final Item ENDERITE_SCRAP = registerItem("enderite_scrap", new Item(new Item.Settings()));
 
     public static final Item LAPIS_LAZULI_DUST = registerItem("lapis_lazuli_dust", new Item(new Item.Settings()));
     public static final Item TURQUOISE_DUST = registerItem("turquoise_dust", new Item(new Item.Settings()));
     public static final Item AMETHYST_DUST = registerItem("amethyst_dust", new Item(new Item.Settings()));
+    public static final Item QUARTZ_DUST = registerItem("quartz_dust", new Item(new Item.Settings()));
 
     public static final Item LAPIS_LAZULI_GEM = registerItem("lapis_lazuli_gem", new Item(new Item.Settings()));
     public static final Item TURQUOISE_GEM = registerItem("turquoise_gem", new Item(new Item.Settings()));
@@ -98,59 +103,35 @@ public class ModItems {
     public static final Item DUCK_SPAWN_EGG  = registerItem("duck_spawn_egg", new SpawnEggItem(EntityType.CHICKEN, 0x006808, 0xFFD400, new Item.Settings()));
     public static final Item DUCK_EGG  = registerItem("duck_egg", new EggItem(new Item.Settings()));
 
-    //All horse armor
-    //TODO TEMP
-    public static final Item TIN_HORSE_ARMOR = registerItem("tin_horse_armor", new Item(new Item.Settings()));
-    public static final Item SILVER_HORSE_ARMOR = registerItem("silver_horse_armor", new Item(new Item.Settings()));
-    public static final Item COPPER_HORSE_ARMOR = registerItem("copper_horse_armor", new Item(new Item.Settings()));
-    public static final Item STERLING_SILVER_HORSE_ARMOR = registerItem("sterling_silver_horse_armor", new Item(new Item.Settings()));
-    public static final Item ROSE_GOLD_HORSE_ARMOR = registerItem("rose_gold_horse_armor", new Item(new Item.Settings()));
-    public static final Item BRONZE_HORSE_ARMOR = registerItem("bronze_horse_armor", new Item(new Item.Settings()));
-    public static final Item COBALT_HORSE_ARMOR = registerItem("cobalt_horse_armor", new Item(new Item.Settings()));
-    public static final Item CARBON_STEEL_HORSE_ARMOR = registerItem("carbon_steel_horse_armor", new Item(new Item.Settings()));
-    public static final Item HARDENED_STEEL_HORSE_ARMOR = registerItem("hardened_steel_horse_armor", new Item(new Item.Settings()));
-    public static final Item TURQUOISE_HORSE_ARMOR = registerItem("turquoise_horse_armor", new Item(new Item.Settings()));
-    public static final Item AMETHYST_HORSE_ARMOR = registerItem("amethyst_horse_armor", new Item(new Item.Settings()));
-    public static final Item LAPIS_LAZULI_HORSE_ARMOR = registerItem("lapis_lazuli_horse_armor", new Item(new Item.Settings()));
-    public static final Item TOURMALINE_HORSE_ARMOR = registerItem("tourmaline_horse_armor", new Item(new Item.Settings()));
-    public static final Item TANZANITE_HORSE_ARMOR = registerItem("tanzanite_horse_armor", new Item(new Item.Settings()));
-    public static final Item TOPAZ_HORSE_ARMOR = registerItem("topaz_horse_armor", new Item(new Item.Settings()));
-    public static final Item EMERALD_HORSE_ARMOR = registerItem("emerald_horse_armor", new Item(new Item.Settings()));
-    public static final Item RUBY_HORSE_ARMOR = registerItem("ruby_horse_armor", new Item(new Item.Settings()));
-    public static final Item SAPPHIRE_HORSE_ARMOR = registerItem("sapphire_horse_armor", new Item(new Item.Settings()));
-    public static final Item SPINEL_HORSE_ARMOR = registerItem("spinel_horse_armor", new Item(new Item.Settings()));
-    public static final Item CITRINE_HORSE_ARMOR = registerItem("citrine_horse_armor", new Item(new Item.Settings()));
-    public static final Item MOISSANITE_HORSE_ARMOR = registerItem("moissanite_horse_armor", new Item(new Item.Settings()));
-    public static final Item ONYX_HORSE_ARMOR = registerItem("onyx_horse_armor", new Item(new Item.Settings()));
-    public static final Item OBSIDIAN_HORSE_ARMOR = registerItem("obsidian_horse_armor", new Item(new Item.Settings()));
-    public static final Item GRAPHENE_HORSE_ARMOR = registerItem("graphene_horse_armor", new Item(new Item.Settings()));
-    public static final Item NETHERITE_HORSE_ARMOR = registerItem("netherite_horse_armor", new Item(new Item.Settings()));
-    public static final Item ADAMANTIUM_HORSE_ARMOR = registerItem("adamantium_horse_armor", new Item(new Item.Settings()));
-    public static final Item ENDERITE_HORSE_ARMOR = registerItem("enderite_horse_armor", new Item(new Item.Settings()));
+    // Horse Armor (1.21.1 uses AnimalArmorItem)
+    public static final Item TIN_HORSE_ARMOR = registerItem("tin_horse_armor", new AnimalArmorItem(ModArmorMaterials.TIN, AnimalArmorItem.Type.EQUESTRIAN, false, new Item.Settings().maxCount(1)));
+    public static final Item SILVER_HORSE_ARMOR = registerItem("silver_horse_armor", new AnimalArmorItem(ModArmorMaterials.SILVER, AnimalArmorItem.Type.EQUESTRIAN, false, new Item.Settings().maxCount(1)));
+    public static final Item COPPER_HORSE_ARMOR = registerItem("copper_horse_armor", new AnimalArmorItem(ModArmorMaterials.COPPER, AnimalArmorItem.Type.EQUESTRIAN, false, new Item.Settings().maxCount(1)));
+    public static final Item STERLING_SILVER_HORSE_ARMOR = registerItem("sterling_silver_horse_armor", new AnimalArmorItem(ModArmorMaterials.STERLING_SILVER, AnimalArmorItem.Type.EQUESTRIAN, false, new Item.Settings().maxCount(1)));
+    public static final Item ROSE_GOLD_HORSE_ARMOR = registerItem("rose_gold_horse_armor", new AnimalArmorItem(ModArmorMaterials.ROSE_GOLD, AnimalArmorItem.Type.EQUESTRIAN, false, new Item.Settings().maxCount(1)));
+    public static final Item BRONZE_HORSE_ARMOR = registerItem("bronze_horse_armor", new AnimalArmorItem(ModArmorMaterials.BRONZE, AnimalArmorItem.Type.EQUESTRIAN, false, new Item.Settings().maxCount(1)));
+    public static final Item COBALT_HORSE_ARMOR = registerItem("cobalt_horse_armor", new AnimalArmorItem(ModArmorMaterials.COBALT, AnimalArmorItem.Type.EQUESTRIAN, false, new Item.Settings().maxCount(1)));
+    public static final Item CARBON_STEEL_HORSE_ARMOR = registerItem("carbon_steel_horse_armor", new AnimalArmorItem(ModArmorMaterials.CARBON_STEEL, AnimalArmorItem.Type.EQUESTRIAN, false, new Item.Settings().maxCount(1)));
+    public static final Item HARDENED_STEEL_HORSE_ARMOR = registerItem("hardened_steel_horse_armor", new AnimalArmorItem(ModArmorMaterials.HARDENED_STEEL, AnimalArmorItem.Type.EQUESTRIAN, false, new Item.Settings().maxCount(1)));
+    public static final Item TURQUOISE_HORSE_ARMOR = registerItem("turquoise_horse_armor", new AnimalArmorItem(ModArmorMaterials.TURQUOISE, AnimalArmorItem.Type.EQUESTRIAN, false, new Item.Settings().maxCount(1)));
+    public static final Item AMETHYST_HORSE_ARMOR = registerItem("amethyst_horse_armor", new AnimalArmorItem(ModArmorMaterials.AMETHYST, AnimalArmorItem.Type.EQUESTRIAN, false, new Item.Settings().maxCount(1)));
+    public static final Item LAPIS_LAZULI_HORSE_ARMOR = registerItem("lapis_lazuli_horse_armor", new AnimalArmorItem(ModArmorMaterials.LAPIS_LAZULI, AnimalArmorItem.Type.EQUESTRIAN, false, new Item.Settings().maxCount(1)));
+    public static final Item TOURMALINE_HORSE_ARMOR = registerItem("tourmaline_horse_armor", new AnimalArmorItem(ModArmorMaterials.TOURMALINE, AnimalArmorItem.Type.EQUESTRIAN, false, new Item.Settings().maxCount(1)));
+    public static final Item TANZANITE_HORSE_ARMOR = registerItem("tanzanite_horse_armor", new AnimalArmorItem(ModArmorMaterials.TANZANITE, AnimalArmorItem.Type.EQUESTRIAN, false, new Item.Settings().maxCount(1)));
+    public static final Item TOPAZ_HORSE_ARMOR = registerItem("topaz_horse_armor", new AnimalArmorItem(ModArmorMaterials.TOPAZ, AnimalArmorItem.Type.EQUESTRIAN, false, new Item.Settings().maxCount(1)));
+    public static final Item EMERALD_HORSE_ARMOR = registerItem("emerald_horse_armor", new AnimalArmorItem(ModArmorMaterials.EMERALD, AnimalArmorItem.Type.EQUESTRIAN, false, new Item.Settings().maxCount(1)));
+    public static final Item RUBY_HORSE_ARMOR = registerItem("ruby_horse_armor", new AnimalArmorItem(ModArmorMaterials.RUBY, AnimalArmorItem.Type.EQUESTRIAN, false, new Item.Settings().maxCount(1)));
+    public static final Item SAPPHIRE_HORSE_ARMOR = registerItem("sapphire_horse_armor", new AnimalArmorItem(ModArmorMaterials.SAPPHIRE, AnimalArmorItem.Type.EQUESTRIAN, false, new Item.Settings().maxCount(1)));
+    public static final Item SPINEL_HORSE_ARMOR = registerItem("spinel_horse_armor", new AnimalArmorItem(ModArmorMaterials.SPINEL, AnimalArmorItem.Type.EQUESTRIAN, false, new Item.Settings().maxCount(1)));
+    public static final Item CITRINE_HORSE_ARMOR = registerItem("citrine_horse_armor", new AnimalArmorItem(ModArmorMaterials.CITRINE, AnimalArmorItem.Type.EQUESTRIAN, false, new Item.Settings().maxCount(1)));
+    public static final Item MOISSANITE_HORSE_ARMOR = registerItem("moissanite_horse_armor", new AnimalArmorItem(ModArmorMaterials.MOISSANITE, AnimalArmorItem.Type.EQUESTRIAN, false, new Item.Settings().maxCount(1)));
+    public static final Item ONYX_HORSE_ARMOR = registerItem("onyx_horse_armor", new AnimalArmorItem(ModArmorMaterials.ONYX, AnimalArmorItem.Type.EQUESTRIAN, false, new Item.Settings().maxCount(1)));
+    public static final Item OBSIDIAN_HORSE_ARMOR = registerItem("obsidian_horse_armor", new AnimalArmorItem(ModArmorMaterials.OBSIDIAN, AnimalArmorItem.Type.EQUESTRIAN, false, new Item.Settings().maxCount(1)));
+    public static final Item GRAPHENE_HORSE_ARMOR = registerItem("graphene_horse_armor", new AnimalArmorItem(ModArmorMaterials.GRAPHENE, AnimalArmorItem.Type.EQUESTRIAN, false, new Item.Settings().maxCount(1)));
+    public static final Item NETHERITE_HORSE_ARMOR = registerItem("netherite_horse_armor", new AnimalArmorItem(ModArmorMaterials.NETHERITE, AnimalArmorItem.Type.EQUESTRIAN, false, new Item.Settings().maxCount(1)));
+    public static final Item ADAMANTIUM_HORSE_ARMOR = registerItem("adamantium_horse_armor", new AnimalArmorItem(ModArmorMaterials.ADAMANTIUM, AnimalArmorItem.Type.EQUESTRIAN, false, new Item.Settings().maxCount(1)));
+    public static final Item ENDERITE_HORSE_ARMOR = registerItem("enderite_horse_armor", new AnimalArmorItem(ModArmorMaterials.ENDERITE, AnimalArmorItem.Type.EQUESTRIAN, false, new Item.Settings().maxCount(1)));
 
-    //TODO Check stats as well
-//    public static final Item COPPER_HORSE_ARMOR = registerItem("copper_horse_armor", new Item(3, "copper", (new Item.Settings()).maxCount(1)));
-//    public static final Item TIN_HORSE_ARMOR = registerItem("tin_horse_armor", new HorseArmorItem(2, "tin", (new Item.Settings()).maxCount(1)));
-//    public static final Item SILVER_HORSE_ARMOR = registerItem("silver_horse_armor", new HorseArmorItem(5, "silver", (new Item.Settings()).maxCount(1)));
-//    public static final Item COBALT_HORSE_ARMOR = registerItem("cobalt_horse_armor", new HorseArmorItem(6, "cobalt", (new Item.Settings()).maxCount(1)));
-//    public static final Item BRONZE_HORSE_ARMOR = registerItem("bronze_horse_armor", new HorseArmorItem(4, "bronze", (new Item.Settings()).maxCount(1)));
-//    public static final Item STEEL_HORSE_ARMOR = registerItem("steel_horse_armor", new HorseArmorItem(8, "steel", (new Item.Settings()).maxCount(1)));
-//    public static final Item STERLING_HORSE_ARMOR = registerItem("sterling_horse_armor", new HorseArmorItem(7, "sterling", (new Item.Settings()).maxCount(1)));
-//    public static final Item AMETHYST_HORSE_ARMOR = registerItem("amethyst_horse_armor", new HorseArmorItem(7, "amethyst", (new Item.Settings()).maxCount(1)));
-//    public static final Item OBSIDIAN_HORSE_ARMOR = registerItem("obsidian_horse_armor", new HorseArmorItem(9, "obsidian", (new Item.Settings()).maxCount(1)));
-//    public static final Item EMERALD_HORSE_ARMOR = registerItem("emerald_horse_armor", new HorseArmorItem(8, "emerald", (new Item.Settings()).maxCount(1)));
-//    public static final Item TOPAZ_HORSE_ARMOR = registerItem("topaz_horse_armor", new HorseArmorItem(9, "topaz", (new Item.Settings()).maxCount(1)));
-//    public static final Item TANZANITE_HORSE_ARMOR = registerItem("tanzanite_horse_armor", new HorseArmorItem(10, "tanzanite", (new Item.Settings()).maxCount(1)));
-//    public static final Item TOURMALINE_HORSE_ARMOR = registerItem("tourmaline_horse_armor", new HorseArmorItem(10, "tourmaline", (new Item.Settings()).maxCount(1)));
-//    public static final Item CITRINE_HORSE_ARMOR = registerItem("citrine_horse_armor", new HorseArmorItem(10, "citrine", (new Item.Settings()).maxCount(1)));
-//    public static final Item RUBY_HORSE_ARMOR = registerItem("ruby_horse_armor", new HorseArmorItem(12, "ruby", (new Item.Settings()).maxCount(1)));
-//    public static final Item SAPPHIRE_HORSE_ARMOR = registerItem("sapphire_horse_armor", new HorseArmorItem(11, "sapphire", (new Item.Settings()).maxCount(1)));
-//    public static final Item TURQUOISE_HORSE_ARMOR = registerItem("turquoise_horse_armor", new HorseArmorItem(12, "turquoise", (new Item.Settings()).maxCount(1)));
-//    public static final Item MOISSANITE_HORSE_ARMOR = registerItem("moissanite_horse_armor", new HorseArmorItem(13, "moissanite", (new Item.Settings()).maxCount(1)));
-//    public static final Item ONYX_HORSE_ARMOR = registerItem("onyx_horse_armor", new HorseArmorItem(14, "onyx", (new Item.Settings()).maxCount(1)));
-//    public static final Item GRAPHENE_HORSE_ARMOR = registerItem("graphene_horse_armor", new HorseArmorItem(16, "graphene", (new Item.Settings()).maxCount(1)));
-//    public static final Item NETHERITE_HORSE_ARMOR = registerItem("netherite_horse_armor", new HorseArmorItem(15, "netherite", (new Item.Settings()).maxCount(1)));
-//    public static final Item ENDERITE_HORSE_ARMOR = registerItem("enderite_horse_armor", new HorseArmorItem(15, "enderite", (new Item.Settings()).maxCount(1)));
 
     //TODO CHECK DURABILITY
     //All armor
@@ -626,8 +607,11 @@ public class ModItems {
 
         entries.add(HOT_CARBON_STEEL_SCRAP);
         entries.add(CARBON_STEEL_SCRAP);
+        entries.add(OBSIDIAN_SCRAP);
+        entries.add(ENDERITE_SCRAP);
 
         entries.add(AMETHYST_DUST);
+        entries.add(QUARTZ_DUST);
         entries.add(LAPIS_LAZULI_DUST);
         entries.add(TURQUOISE_DUST);
 
@@ -658,6 +642,8 @@ public class ModItems {
 
         entries.add(HARDENED_STEEL_UPGRADE_SMITHING_TEMPLATE);
         entries.add(OBSIDIAN_UPGRADE_SMITHING_TEMPLATE);
+        entries.add(ADAMANTIUM_UPGRADE_SMITHING_TEMPLATE);
+        entries.add(ENDERITE_UPGRADE_SMITHING_TEMPLATE);
     }
     private static void addItemsToCombatItemGroup(FabricItemGroupEntries entries) {
         entries.add(WOOD_BATTLE_AXE);

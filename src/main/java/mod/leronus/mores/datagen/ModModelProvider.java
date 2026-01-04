@@ -82,7 +82,6 @@ public class ModModelProvider extends FabricModelProvider {
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.GRAPHENE_BLOCK);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.ADAMANTIUM_BLOCK);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.ENDERITE_BLOCK);
-
         registerAlloyFurnace(blockStateModelGenerator);
         }
 
@@ -166,6 +165,7 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ModItems.CHAINMAIL, Models.GENERATED);
 
         itemModelGenerator.register(ModItems.AMETHYST_DUST, Models.GENERATED);
+        itemModelGenerator.register(ModItems.QUARTZ_DUST, Models.GENERATED);
         itemModelGenerator.register(ModItems.TURQUOISE_DUST, Models.GENERATED);
         itemModelGenerator.register(ModItems.LAPIS_LAZULI_DUST, Models.GENERATED);
 
@@ -186,8 +186,12 @@ public class ModModelProvider extends FabricModelProvider {
 
         itemModelGenerator.register(ModItems.HOT_CARBON_STEEL_SCRAP, Models.GENERATED);
         itemModelGenerator.register(ModItems.CARBON_STEEL_SCRAP, Models.GENERATED);
+        itemModelGenerator.register(ModItems.OBSIDIAN_SCRAP, Models.GENERATED);
+        itemModelGenerator.register(ModItems.ENDERITE_SCRAP, Models.GENERATED);
         itemModelGenerator.register(ModItems.OBSIDIAN_UPGRADE_SMITHING_TEMPLATE, Models.GENERATED);
         itemModelGenerator.register(ModItems.HARDENED_STEEL_UPGRADE_SMITHING_TEMPLATE, Models.GENERATED);
+        itemModelGenerator.register(ModItems.ADAMANTIUM_UPGRADE_SMITHING_TEMPLATE, Models.GENERATED);
+        itemModelGenerator.register(ModItems.ENDERITE_UPGRADE_SMITHING_TEMPLATE, Models.GENERATED);
 
         itemModelGenerator.register(ModItems.TIN_NUGGET, Models.GENERATED);
         itemModelGenerator.register(ModItems.COPPER_NUGGET, Models.GENERATED);
@@ -202,6 +206,7 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ModItems.AMETHYST_GEM, Models.GENERATED);
         itemModelGenerator.register(ModItems.LAPIS_LAZULI_GEM, Models.GENERATED);
         itemModelGenerator.register(ModItems.TURQUOISE_GEM, Models.GENERATED);
+        itemModelGenerator.register(ModItems.TANZANITE_GEM, Models.GENERATED);
         itemModelGenerator.register(ModItems.TOPAZ_GEM, Models.GENERATED);
         itemModelGenerator.register(ModItems.TOURMALINE_GEM, Models.GENERATED);
         itemModelGenerator.register(ModItems.RUBY_GEM, Models.GENERATED);
@@ -211,7 +216,6 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ModItems.MOISSANITE_GEM, Models.GENERATED);
         itemModelGenerator.register(ModItems.ONYX_GEM, Models.GENERATED);
         itemModelGenerator.register(ModItems.GRAPHENE_GEM, Models.GENERATED);
-
 
         itemModelGenerator.register(ModItems.TIN_SWORD, Models.HANDHELD);
         itemModelGenerator.register(ModItems.TIN_PICKAXE, Models.HANDHELD);

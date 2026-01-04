@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": {
+    "item": "mores:adamantium_ingot"
+  },
+  "base": {
+    "item": "minecraft:diamond_boots"
+  },
+  "result": {
+    "count": 1,
+    "id": "mores:adamantium_boots"
+  },
+  "template": {
+    "item": "mores:adamantium_upgrade_smithing_template"
+  }
+}

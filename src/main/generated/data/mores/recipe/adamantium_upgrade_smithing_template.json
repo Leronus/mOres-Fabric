@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "tag": "mores:ingot/adamantium"
+    },
+    "C": {
+      "tag": "minecraft:stone_crafting_materials"
+    },
+    "S": {
+      "item": "mores:adamantium_upgrade_smithing_template"
+    }
+  },
+  "pattern": [
+    "#S#",
+    "#C#",
+    "###"
+  ],
+  "result": {
+    "count": 2,
+    "id": "mores:adamantium_upgrade_smithing_template"
+  }
+}

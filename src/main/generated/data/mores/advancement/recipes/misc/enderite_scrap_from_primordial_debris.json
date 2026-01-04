@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_primordial_debris": {
+      "conditions": {
+        "items": [
+          {
+            "items": "mores:primordial_debris"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "mores:enderite_scrap_from_primordial_debris"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_primordial_debris"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "mores:enderite_scrap_from_primordial_debris"
+    ]
+  }
+}

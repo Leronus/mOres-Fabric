@@ -5,7 +5,7 @@
       "conditions": {
         "items": [
           {
-            "items": "#mores:ingot/hardened__steel"
+            "items": "#mores:ingot/hardened_steel"
           }
         ]
       },

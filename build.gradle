@@ -32,6 +32,14 @@ loom {
             sourceSet sourceSets.client
         }
     }
+    runs {
+        client {
+            vmArg "-Dfabric-tag-conventions-v2.missingTagTranslationWarning=VERBOSE"
+        }
+        server {
+            vmArg "-Dfabric-tag-conventions-v2.missingTagTranslationWarning=VERBOSE"
+        }
+    }
 }
 
 fabricApi {

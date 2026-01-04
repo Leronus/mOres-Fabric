@@ -3,7 +3,7 @@
   "category": "misc",
   "key": {
     "#": {
-      "item": "minecraft:iron_ingot"
+      "tag": "mores:ingot/hardened_steel"
     },
     "C": {
       "tag": "minecraft:stone_crafting_materials"

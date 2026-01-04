@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "tag": "mores:dust/amethyst"
+    },
+    "Q": {
+      "item": "minecraft:quartz"
+    }
+  },
+  "pattern": [
+    "#Q",
+    "Q#"
+  ],
+  "result": {
+    "count": 1,
+    "id": "mores:amethyst_gem"
+  }
+}

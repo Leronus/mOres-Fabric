@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "#": {
+      "item": "minecraft:stick"
+    },
+    "$": {
+      "tag": "mores:gem/lapis_lazuli"
+    }
+  },
+  "pattern": [
+    "$$",
+    "$#",
+    " #"
+  ],
+  "result": {
+    "count": 1,
+    "id": "mores:lapis_lazuli_axe"
+  }
+}

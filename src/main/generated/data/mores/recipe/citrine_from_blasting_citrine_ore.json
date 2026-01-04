@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:blasting",
+  "category": "misc",
+  "cookingtime": 100,
+  "experience": 1.0,
+  "ingredient": {
+    "item": "mores:citrine_ore"
+  },
+  "result": {
+    "id": "mores:citrine"
+  }
+}

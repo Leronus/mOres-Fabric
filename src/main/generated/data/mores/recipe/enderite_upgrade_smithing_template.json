@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "item": "minecraft:end_stone"
+    },
+    "C": {
+      "tag": "mores:ingot/enderite"
+    },
+    "S": {
+      "item": "mores:enderite_upgrade_smithing_template"
+    }
+  },
+  "pattern": [
+    "#S#",
+    "#C#",
+    "###"
+  ],
+  "result": {
+    "count": 2,
+    "id": "mores:enderite_upgrade_smithing_template"
+  }
+}

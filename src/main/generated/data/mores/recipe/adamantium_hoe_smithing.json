@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": {
+    "item": "mores:adamantium_ingot"
+  },
+  "base": {
+    "item": "minecraft:diamond_hoe"
+  },
+  "result": {
+    "count": 1,
+    "id": "mores:adamantium_hoe"
+  },
+  "template": {
+    "item": "mores:adamantium_upgrade_smithing_template"
+  }
+}

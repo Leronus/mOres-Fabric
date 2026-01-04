@@ -1,5 +1,7 @@
 Fabric 1.21.1 
 
+Quartz into dust with citrine / onyx ?
+
 Doing:
 - Datagenerators
 - Recipes (dusts and all ingots)
@@ -8,27 +10,24 @@ Doing:
 - Check armor models (on skin)
 - Tool & Armor materials
 - Horse Armor -> Tooltips for horse armor not working (shows 0 durability on horse armor)
-&& Hardened Steel horse armor texture needs an update also check all the models! -> Tanzanite/Enderite
+&& Hardened Steel horse armor texture needs an update also check all the models! -> Tanzanite/Enderite/Hardened Steel/Carbon Steel/Silver/Onyx? & Lapis Lazuli
 - Shields -> Moissanite, Rose Gold, Adamantium, Enderite
 - Blocks ->  Check xp drops and add the loot tables to finish - check blocktags too
 - Ores -> Update (nether, but mostly overworld) citrine ore textures
-- Weapons -> Rose Gold dagger, battle mace/axe - onyx battleaxe/mace? - spinel mace and adamantium weapons textures - add enderite
+- Weapons -> onyx battleaxe/mace/weapons? - spinel mace and adamantium weapons textures - add enderite
 - Tools -> Spinel hoe light touch - add enderite
 - Shields -> Adamantium, Tanzanite (modelprovider & client), Rose Gold, Lapis Lazuli, Enderite
 
 * - Add tropical fish to cat breeding
 
 Todo:
-- Add smithing templates (adamantium, enderite, hardened steel, graphene)
-- Check if all textures are added to item groups (ModItemGroups looked complete)
-- Add recipes for the dust and gems (citrine, onyx, turquoise, lapis)
-- Check recipes for new materials, hardened steel/rose gold/sterling/citrine/adamantium
 - Change graphene textures and add new recipes / change existing
-- Add electrum ore (block + oregen)
+- Check if all textures are added to item groups (ModItemGroups looked complete)
+- Add recipes for the dust and gems (citrine, onyx, turquoise, lapis, amethyst)
 - Add Silver carrot
 - Add Config
 - Ore generation as well as datagen for it
-- Loot tables (blocks, chests, misc?)
+- Loot tables (chests, misc?)
 - Make sure hostile mobs have a chance to spawn with my gear
 - Test Armor Trims & add missing
 - Update Tooltips -> No shuffling, add armor

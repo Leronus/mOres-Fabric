@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "#": {
+      "item": "minecraft:stick"
+    },
+    "$": {
+      "tag": "mores:gem/tanzanite"
+    }
+  },
+  "pattern": [
+    "$",
+    "$",
+    "#"
+  ],
+  "result": {
+    "count": 1,
+    "id": "mores:tanzanite_sword"
+  }
+}
