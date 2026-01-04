@@ -10,6 +10,7 @@ import net.minecraft.enchantment.Enchantments;
 import net.minecraft.item.Item;
 import net.minecraft.item.Items;
 import net.minecraft.loot.LootTable;
+import net.minecraft.loot.condition.RandomChanceLootCondition;
 import net.minecraft.loot.entry.AlternativeEntry;
 import net.minecraft.loot.entry.ItemEntry;
 import net.minecraft.loot.entry.LeafEntry;
@@ -65,10 +66,10 @@ public class ModLootTableProvider extends FabricBlockLootTableProvider {
         // SILVER_INGOT (ores -> RAW_SILVER)
         // =========================
         addDrop(ModBlocks.ELECTRUM_ORE,
-                randomOreDrops(ModBlocks.ELECTRUM_ORE,
-                        ModItems.RAW_SILVER, 1f, 3f,
-                        Items.RAW_GOLD, 1f, 3f,
-                        Items.RAW_COPPER, 1f, 4f));
+                randomOneOfThreeDrops(ModBlocks.ELECTRUM_ORE,
+                        ModItems.RAW_SILVER, 1f, 3f, 1,
+                        Items.RAW_GOLD, 1f, 3f, 1,
+                        Items.RAW_COPPER, 1f, 4f, 1));
         //TODO Add deepslate variant
 //        addDrop(ModBlocks.DEEPSLATE_ELECTRUM_ORE,
 //                randomOreDrops(ModBlocks.DEEPSLATE_ELECTRUM_ORE,
@@ -251,29 +252,39 @@ public class ModLootTableProvider extends FabricBlockLootTableProvider {
     }
 
 
-    private LootTable.Builder randomOreDrops(
+    private LootTable.Builder randomOneOfThreeDrops(
             Block ore,
-            Item itemA, float minA, float maxA,
-            Item itemB, float minB, float maxB,
-            Item itemC, float minC, float maxC
+            Item itemA, float minA, float maxA, int weightA,
+            Item itemB, float minB, float maxB, int weightB,
+            Item itemC, float minC, float maxC, int weightC
     ) {
         RegistryWrapper.Impl<Enchantment> ench =
                 this.registryLookup.getWrapperOrThrow(RegistryKeys.ENCHANTMENT);
         var fortune = ench.getOrThrow(Enchantments.FORTUNE);
+
+        int sum = weightA + weightB + weightC;
+        if (sum <= 0) throw new IllegalArgumentException("Weights must be > 0");
+
+        // Chained probabilities for AlternativeEntry (first match wins):
+        // A triggers with pA
+        // B triggers with pB / (1 - pA) which simplifies to weightB/(weightB+weightC)
+        // C is fallback
+        float chanceA = (float) weightA / (float) sum;
+        float chanceB = (float) weightB / (float) (weightB + weightC);
 
         LeafEntry.Builder<?> a = this.applyExplosionDecay(
                 ore,
                 ((LeafEntry.Builder<?>) ItemEntry.builder(itemA)
                         .apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(minA, maxA))))
                         .apply(ApplyBonusLootFunction.oreDrops(fortune))
-        );
+        ).conditionally(RandomChanceLootCondition.builder(chanceA));
 
         LeafEntry.Builder<?> b = this.applyExplosionDecay(
                 ore,
                 ((LeafEntry.Builder<?>) ItemEntry.builder(itemB)
                         .apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(minB, maxB))))
                         .apply(ApplyBonusLootFunction.oreDrops(fortune))
-        );
+        ).conditionally(RandomChanceLootCondition.builder(chanceB));
 
         LeafEntry.Builder<?> c = this.applyExplosionDecay(
                 ore,
@@ -282,9 +293,7 @@ public class ModLootTableProvider extends FabricBlockLootTableProvider {
                         .apply(ApplyBonusLootFunction.oreDrops(fortune))
         );
 
-        return this.dropsWithSilkTouch(
-                ore,
-                AlternativeEntry.builder(a, b, c)
-        );
+        // dropsWithSilkTouch wants a LootPoolEntry.Builder<?> (AlternativeEntry is perfect)
+        return this.dropsWithSilkTouch(ore, AlternativeEntry.builder(a, b, c));
     }
 }

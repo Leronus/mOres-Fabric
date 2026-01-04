@@ -33,6 +33,12 @@
               "children": [
                 {
                   "type": "minecraft:item",
+                  "conditions": [
+                    {
+                      "chance": 0.33333334,
+                      "condition": "minecraft:random_chance"
+                    }
+                  ],
                   "functions": [
                     {
                       "add": false,
@@ -56,6 +62,12 @@
                 },
                 {
                   "type": "minecraft:item",
+                  "conditions": [
+                    {
+                      "chance": 0.5,
+                      "condition": "minecraft:random_chance"
+                    }
+                  ],
                   "functions": [
                     {
                       "add": false,
