@@ -4,9 +4,11 @@
   "compatibilityLevel": "JAVA_21",
   "mixins": [
     "BlockMixin",
-    "ItemEntityMixin"
+    "ItemEntityMixin",
+    "MobEntityEquipmentMixin",
+    "ZombifiedPiglinEntityMixin"
   ],
   "injectors": {
     "defaultRequire": 1
-	}
+  }
 }

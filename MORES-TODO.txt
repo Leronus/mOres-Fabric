@@ -3,32 +3,29 @@ Fabric 1.21.1
 Quartz into dust with citrine / onyx ?
 
 Doing:
-- Datagenerators
-- Recipes (dusts and all ingots)
-- Tags (check if missing anything)
+- Tags (check if missing anything / reorder)
+- Make sure hostile mobs have a chance to spawn with my gear - needs testing
+- Check armor models (on skin) - Ask boys for help
 
-- Check armor models (on skin)
-- Tool & Armor materials
-- Horse Armor -> Tooltips for horse armor not working (shows 0 durability on horse armor)
-&& Hardened Steel horse armor texture needs an update also check all the models! -> Tanzanite/Enderite/Hardened Steel/Carbon Steel/Silver/Onyx? & Lapis Lazuli
+- Tool materials
+- Recipes (quartz/lapis/amethyst/turquoise dust from their material)
+- Horse Armor -> Tooltips for horse armor not working (shows 0 durability on horse armor - maybe separate tooltip for durability)
+&& Hardened Steel horse armor texture needs an update also check all the models! -> Tanzanite/Hardened Steel/Carbon Steel/Onyx? & Lapis Lazuli
 - Shields -> Moissanite, Rose Gold, Adamantium, Enderite
-- Blocks ->  Check xp drops and add the loot tables to finish - check blocktags too
+- Blocks ->  Check xp drops - check blocktags too
 - Ores -> Update (nether, but mostly overworld) citrine ore textures
-- Weapons -> onyx battleaxe/mace/weapons? - spinel mace and adamantium weapons textures - add enderite
-- Tools -> Spinel hoe light touch - add enderite
+- Weapons -> onyx battleaxe/mace/weapons? - spinel mace
+- Tools -> Spinel hoe light touch
 - Shields -> Adamantium, Tanzanite (modelprovider & client), Rose Gold, Lapis Lazuli, Enderite
 
-* - Add tropical fish to cat breeding
 
 Todo:
 - Change graphene textures and add new recipes / change existing
 - Check if all textures are added to item groups (ModItemGroups looked complete)
-- Add recipes for the dust and gems (citrine, onyx, turquoise, lapis, amethyst)
 - Add Silver carrot
 - Add Config
 - Ore generation as well as datagen for it
 - Loot tables (chests, misc?)
-- Make sure hostile mobs have a chance to spawn with my gear
 - Test Armor Trims & add missing
 - Update Tooltips -> No shuffling, add armor
 - Check Block Experience
@@ -38,7 +35,10 @@ Todo:
 - Villager trades
 - Spears
 - Wolf Armor
+* - Add tropical fish to cat breeding
+
 
 DONE:
+- Datagenerators
 - Add citrine, rose gold, rename carbon steel, add hardened steel
 - Alloy Furnace
