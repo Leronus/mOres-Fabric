@@ -238,7 +238,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
     private void generateChainmail(RecipeExporter exporter) {
         /* -- Chainmail -- */
         //Items
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "chainmail")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "chainmail")), 2)
                 .pattern("#")
                 .pattern("#")
                 .input('#', Registries.ITEM.get(Identifier.of("minecraft", "iron_ingot")))

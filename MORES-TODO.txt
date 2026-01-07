@@ -9,17 +9,14 @@ Doing:
 
 - Tool materials
 - Recipes (quartz/lapis/amethyst/turquoise dust from their material)
-- Horse Armor -> Tooltips for horse armor not working (shows 0 durability on horse armor - maybe separate tooltip for durability)
-&& Hardened Steel horse armor texture needs an update also check all the models! -> Tanzanite/Hardened Steel/Carbon Steel/Onyx? & Lapis Lazuli
-- Shields -> Moissanite, Rose Gold, Adamantium, Enderite
+- Horse Armor -> Tooltips for horse armor not working (shows 0 durability on horse armor - maybe separate tooltip for durability) / Graphene
 - Blocks ->  Check xp drops - check blocktags too
 - Ores -> Update (nether, but mostly overworld) citrine ore textures
-- Weapons -> onyx battleaxe/mace/weapons? - spinel mace
-- Tools -> Spinel hoe light touch
-- Shields -> Adamantium, Tanzanite (modelprovider & client), Rose Gold, Lapis Lazuli, Enderite
+- Weapons -> onyx battleaxe/mace/weapons?
 
 
 Todo:
+- REI integration (specifically Alloy Furnace)
 - Change graphene textures and add new recipes / change existing
 - Check if all textures are added to item groups (ModItemGroups looked complete)
 - Add Silver carrot
