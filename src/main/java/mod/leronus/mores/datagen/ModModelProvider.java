@@ -4,15 +4,31 @@ import mod.leronus.mores.Mores;
 import mod.leronus.mores.block.ModBlocks;
 import mod.leronus.mores.block.custom.AlloyFurnaceBlock;
 import mod.leronus.mores.item.ModItems;
+import mod.leronus.mores.trim.ModTrimMaterials;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricModelProvider;
 import net.minecraft.data.client.*;
 import net.minecraft.item.ArmorItem;
 import net.minecraft.util.Identifier;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonObject;
+import net.minecraft.data.DataOutput;
+import net.minecraft.item.Item;
+import net.minecraft.registry.Registries;
+
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.util.List;
 
 public class ModModelProvider extends FabricModelProvider {
+    private final FabricDataOutput output;
+
     public ModModelProvider(FabricDataOutput output) {
         super(output);
+        this.output = output;
     }
 
     @Override
@@ -150,6 +166,8 @@ public class ModModelProvider extends FabricModelProvider {
 
     @Override
     public void generateItemModels(ItemModelGenerator itemModelGenerator) {
+        ModTrimMaterials.class.getName();
+
         itemModelGenerator.register(ModItems.ANTHRACITE, Models.GENERATED);
         itemModelGenerator.register(ModItems.CITRINE, Models.GENERATED);
         itemModelGenerator.register(ModItems.TURQUOISE, Models.GENERATED);
@@ -470,138 +488,6 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ModItems.NETHERITE_BATTLE_MACE, Models.HANDHELD);
         itemModelGenerator.register(ModItems.NETHERITE_DAGGER, Models.HANDHELD);
 
-
-        itemModelGenerator.registerArmor(((ArmorItem) ModItems.TIN_HELMET));
-        itemModelGenerator.registerArmor(((ArmorItem) ModItems.TIN_CHESTPLATE));
-        itemModelGenerator.registerArmor(((ArmorItem) ModItems.TIN_LEGGINGS));
-        itemModelGenerator.registerArmor(((ArmorItem) ModItems.TIN_BOOTS));
-
-        itemModelGenerator.registerArmor(((ArmorItem) ModItems.SILVER_HELMET));
-        itemModelGenerator.registerArmor(((ArmorItem) ModItems.SILVER_CHESTPLATE));
-        itemModelGenerator.registerArmor(((ArmorItem) ModItems.SILVER_LEGGINGS));
-        itemModelGenerator.registerArmor(((ArmorItem) ModItems.SILVER_BOOTS));
-
-        itemModelGenerator.registerArmor(((ArmorItem) ModItems.COPPER_HELMET));
-        itemModelGenerator.registerArmor(((ArmorItem) ModItems.COPPER_CHESTPLATE));
-        itemModelGenerator.registerArmor(((ArmorItem) ModItems.COPPER_LEGGINGS));
-        itemModelGenerator.registerArmor(((ArmorItem) ModItems.COPPER_BOOTS));
-
-        itemModelGenerator.registerArmor(((ArmorItem) ModItems.STERLING_SILVER_HELMET));
-        itemModelGenerator.registerArmor(((ArmorItem) ModItems.STERLING_SILVER_CHESTPLATE));
-        itemModelGenerator.registerArmor(((ArmorItem) ModItems.STERLING_SILVER_LEGGINGS));
-        itemModelGenerator.registerArmor(((ArmorItem) ModItems.STERLING_SILVER_BOOTS));
-
-        itemModelGenerator.registerArmor(((ArmorItem) ModItems.ROSE_GOLD_HELMET));
-        itemModelGenerator.registerArmor(((ArmorItem) ModItems.ROSE_GOLD_CHESTPLATE));
-        itemModelGenerator.registerArmor(((ArmorItem) ModItems.ROSE_GOLD_LEGGINGS));
-        itemModelGenerator.registerArmor(((ArmorItem) ModItems.ROSE_GOLD_BOOTS));
-
-        itemModelGenerator.registerArmor(((ArmorItem) ModItems.BRONZE_HELMET));
-        itemModelGenerator.registerArmor(((ArmorItem) ModItems.BRONZE_CHESTPLATE));
-        itemModelGenerator.registerArmor(((ArmorItem) ModItems.BRONZE_LEGGINGS));
-        itemModelGenerator.registerArmor(((ArmorItem) ModItems.BRONZE_BOOTS));
-
-        itemModelGenerator.registerArmor(((ArmorItem) ModItems.COBALT_HELMET));
-        itemModelGenerator.registerArmor(((ArmorItem) ModItems.COBALT_CHESTPLATE));
-        itemModelGenerator.registerArmor(((ArmorItem) ModItems.COBALT_LEGGINGS));
-        itemModelGenerator.registerArmor(((ArmorItem) ModItems.COBALT_BOOTS));
-
-        itemModelGenerator.registerArmor(((ArmorItem) ModItems.CARBON_STEEL_HELMET));
-        itemModelGenerator.registerArmor(((ArmorItem) ModItems.CARBON_STEEL_CHESTPLATE));
-        itemModelGenerator.registerArmor(((ArmorItem) ModItems.CARBON_STEEL_LEGGINGS));
-        itemModelGenerator.registerArmor(((ArmorItem) ModItems.CARBON_STEEL_BOOTS));
-
-        itemModelGenerator.registerArmor(((ArmorItem) ModItems.HARDENED_STEEL_HELMET));
-        itemModelGenerator.registerArmor(((ArmorItem) ModItems.HARDENED_STEEL_CHESTPLATE));
-        itemModelGenerator.registerArmor(((ArmorItem) ModItems.HARDENED_STEEL_LEGGINGS));
-        itemModelGenerator.registerArmor(((ArmorItem) ModItems.HARDENED_STEEL_BOOTS));
-
-        itemModelGenerator.registerArmor(((ArmorItem) ModItems.AMETHYST_HELMET));
-        itemModelGenerator.registerArmor(((ArmorItem) ModItems.AMETHYST_CHESTPLATE));
-        itemModelGenerator.registerArmor(((ArmorItem) ModItems.AMETHYST_LEGGINGS));
-        itemModelGenerator.registerArmor(((ArmorItem) ModItems.AMETHYST_BOOTS));
-
-        itemModelGenerator.registerArmor(((ArmorItem) ModItems.LAPIS_LAZULI_HELMET));
-        itemModelGenerator.registerArmor(((ArmorItem) ModItems.LAPIS_LAZULI_CHESTPLATE));
-        itemModelGenerator.registerArmor(((ArmorItem) ModItems.LAPIS_LAZULI_LEGGINGS));
-        itemModelGenerator.registerArmor(((ArmorItem) ModItems.LAPIS_LAZULI_BOOTS));
-
-        itemModelGenerator.registerArmor(((ArmorItem) ModItems.TURQUOISE_HELMET));
-        itemModelGenerator.registerArmor(((ArmorItem) ModItems.TURQUOISE_CHESTPLATE));
-        itemModelGenerator.registerArmor(((ArmorItem) ModItems.TURQUOISE_LEGGINGS));
-        itemModelGenerator.registerArmor(((ArmorItem) ModItems.TURQUOISE_BOOTS));
-
-        itemModelGenerator.registerArmor(((ArmorItem) ModItems.TANZANITE_HELMET));
-        itemModelGenerator.registerArmor(((ArmorItem) ModItems.TANZANITE_CHESTPLATE));
-        itemModelGenerator.registerArmor(((ArmorItem) ModItems.TANZANITE_LEGGINGS));
-        itemModelGenerator.registerArmor(((ArmorItem) ModItems.TANZANITE_BOOTS));
-
-        itemModelGenerator.registerArmor(((ArmorItem) ModItems.TOPAZ_HELMET));
-        itemModelGenerator.registerArmor(((ArmorItem) ModItems.TOPAZ_CHESTPLATE));
-        itemModelGenerator.registerArmor(((ArmorItem) ModItems.TOPAZ_LEGGINGS));
-        itemModelGenerator.registerArmor(((ArmorItem) ModItems.TOPAZ_BOOTS));
-
-        itemModelGenerator.registerArmor(((ArmorItem) ModItems.TOURMALINE_HELMET));
-        itemModelGenerator.registerArmor(((ArmorItem) ModItems.TOURMALINE_CHESTPLATE));
-        itemModelGenerator.registerArmor(((ArmorItem) ModItems.TOURMALINE_LEGGINGS));
-        itemModelGenerator.registerArmor(((ArmorItem) ModItems.TOURMALINE_BOOTS));
-
-        itemModelGenerator.registerArmor(((ArmorItem) ModItems.EMERALD_HELMET));
-        itemModelGenerator.registerArmor(((ArmorItem) ModItems.EMERALD_CHESTPLATE));
-        itemModelGenerator.registerArmor(((ArmorItem) ModItems.EMERALD_LEGGINGS));
-        itemModelGenerator.registerArmor(((ArmorItem) ModItems.EMERALD_BOOTS));
-
-        itemModelGenerator.registerArmor(((ArmorItem) ModItems.RUBY_HELMET));
-        itemModelGenerator.registerArmor(((ArmorItem) ModItems.RUBY_CHESTPLATE));
-        itemModelGenerator.registerArmor(((ArmorItem) ModItems.RUBY_LEGGINGS));
-        itemModelGenerator.registerArmor(((ArmorItem) ModItems.RUBY_BOOTS));
-
-        itemModelGenerator.registerArmor(((ArmorItem) ModItems.SAPPHIRE_HELMET));
-        itemModelGenerator.registerArmor(((ArmorItem) ModItems.SAPPHIRE_CHESTPLATE));
-        itemModelGenerator.registerArmor(((ArmorItem) ModItems.SAPPHIRE_LEGGINGS));
-        itemModelGenerator.registerArmor(((ArmorItem) ModItems.SAPPHIRE_BOOTS));
-
-        itemModelGenerator.registerArmor(((ArmorItem) ModItems.SPINEL_HELMET));
-        itemModelGenerator.registerArmor(((ArmorItem) ModItems.SPINEL_CHESTPLATE));
-        itemModelGenerator.registerArmor(((ArmorItem) ModItems.SPINEL_LEGGINGS));
-        itemModelGenerator.registerArmor(((ArmorItem) ModItems.SPINEL_BOOTS));
-
-        itemModelGenerator.registerArmor(((ArmorItem) ModItems.CITRINE_HELMET));
-        itemModelGenerator.registerArmor(((ArmorItem) ModItems.CITRINE_CHESTPLATE));
-        itemModelGenerator.registerArmor(((ArmorItem) ModItems.CITRINE_LEGGINGS));
-        itemModelGenerator.registerArmor(((ArmorItem) ModItems.CITRINE_BOOTS));
-
-        itemModelGenerator.registerArmor(((ArmorItem) ModItems.MOISSANITE_HELMET));
-        itemModelGenerator.registerArmor(((ArmorItem) ModItems.MOISSANITE_CHESTPLATE));
-        itemModelGenerator.registerArmor(((ArmorItem) ModItems.MOISSANITE_LEGGINGS));
-        itemModelGenerator.registerArmor(((ArmorItem) ModItems.MOISSANITE_BOOTS));
-
-        itemModelGenerator.registerArmor(((ArmorItem) ModItems.OBSIDIAN_HELMET));
-        itemModelGenerator.registerArmor(((ArmorItem) ModItems.OBSIDIAN_CHESTPLATE));
-        itemModelGenerator.registerArmor(((ArmorItem) ModItems.OBSIDIAN_LEGGINGS));
-        itemModelGenerator.registerArmor(((ArmorItem) ModItems.OBSIDIAN_BOOTS));
-
-        itemModelGenerator.registerArmor(((ArmorItem) ModItems.ONYX_HELMET));
-        itemModelGenerator.registerArmor(((ArmorItem) ModItems.ONYX_CHESTPLATE));
-        itemModelGenerator.registerArmor(((ArmorItem) ModItems.ONYX_LEGGINGS));
-        itemModelGenerator.registerArmor(((ArmorItem) ModItems.ONYX_BOOTS));
-
-        itemModelGenerator.registerArmor(((ArmorItem) ModItems.GRAPHENE_HELMET));
-        itemModelGenerator.registerArmor(((ArmorItem) ModItems.GRAPHENE_CHESTPLATE));
-        itemModelGenerator.registerArmor(((ArmorItem) ModItems.GRAPHENE_LEGGINGS));
-        itemModelGenerator.registerArmor(((ArmorItem) ModItems.GRAPHENE_BOOTS));
-
-        itemModelGenerator.registerArmor(((ArmorItem) ModItems.ADAMANTIUM_HELMET));
-        itemModelGenerator.registerArmor(((ArmorItem) ModItems.ADAMANTIUM_CHESTPLATE));
-        itemModelGenerator.registerArmor(((ArmorItem) ModItems.ADAMANTIUM_LEGGINGS));
-        itemModelGenerator.registerArmor(((ArmorItem) ModItems.ADAMANTIUM_BOOTS));
-
-        itemModelGenerator.registerArmor(((ArmorItem) ModItems.ENDERITE_HELMET));
-        itemModelGenerator.registerArmor(((ArmorItem) ModItems.ENDERITE_CHESTPLATE));
-        itemModelGenerator.registerArmor(((ArmorItem) ModItems.ENDERITE_LEGGINGS));
-        itemModelGenerator.registerArmor(((ArmorItem) ModItems.ENDERITE_BOOTS));
-
-
         itemModelGenerator.register(ModItems.TIN_HORSE_ARMOR, Models.GENERATED);
         itemModelGenerator.register(ModItems.SILVER_HORSE_ARMOR, Models.GENERATED);
         itemModelGenerator.register(ModItems.COPPER_HORSE_ARMOR, Models.GENERATED);
@@ -721,7 +607,4 @@ public class ModModelProvider extends FabricModelProvider {
             return json;
         });
     }
-
-
-
 }

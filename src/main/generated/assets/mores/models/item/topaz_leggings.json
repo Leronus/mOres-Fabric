@@ -14,37 +14,37 @@
       }
     },
     {
-      "model": "mores:item/topaz_leggings_netherite_trim",
+      "model": "mores:item/topaz_leggings_gold_trim",
       "predicate": {
         "trim_type": 0.3
       }
     },
     {
-      "model": "mores:item/topaz_leggings_redstone_trim",
+      "model": "mores:item/topaz_leggings_diamond_trim",
       "predicate": {
         "trim_type": 0.4
       }
     },
     {
-      "model": "mores:item/topaz_leggings_copper_trim",
+      "model": "mores:item/topaz_leggings_netherite_trim",
       "predicate": {
         "trim_type": 0.5
       }
     },
     {
-      "model": "mores:item/topaz_leggings_gold_trim",
+      "model": "mores:item/topaz_leggings_redstone_trim",
       "predicate": {
         "trim_type": 0.6
       }
     },
     {
-      "model": "mores:item/topaz_leggings_emerald_trim",
+      "model": "mores:item/topaz_leggings_copper_trim",
       "predicate": {
         "trim_type": 0.7
       }
     },
     {
-      "model": "mores:item/topaz_leggings_diamond_trim",
+      "model": "mores:item/topaz_leggings_emerald_trim",
       "predicate": {
         "trim_type": 0.8
       }
@@ -59,6 +59,132 @@
       "model": "mores:item/topaz_leggings_amethyst_trim",
       "predicate": {
         "trim_type": 1.0
+      }
+    },
+    {
+      "model": "mores:item/topaz_leggings_tin_trim",
+      "predicate": {
+        "trim_type": 0.11
+      }
+    },
+    {
+      "model": "mores:item/topaz_leggings_silver_trim",
+      "predicate": {
+        "trim_type": 0.12
+      }
+    },
+    {
+      "model": "mores:item/topaz_leggings_sterling_silver_trim",
+      "predicate": {
+        "trim_type": 0.13
+      }
+    },
+    {
+      "model": "mores:item/topaz_leggings_rose_gold_trim",
+      "predicate": {
+        "trim_type": 0.14
+      }
+    },
+    {
+      "model": "mores:item/topaz_leggings_bronze_trim",
+      "predicate": {
+        "trim_type": 0.15
+      }
+    },
+    {
+      "model": "mores:item/topaz_leggings_cobalt_trim",
+      "predicate": {
+        "trim_type": 0.16
+      }
+    },
+    {
+      "model": "mores:item/topaz_leggings_carbon_steel_trim",
+      "predicate": {
+        "trim_type": 0.17
+      }
+    },
+    {
+      "model": "mores:item/topaz_leggings_hardened_steel_trim",
+      "predicate": {
+        "trim_type": 0.18
+      }
+    },
+    {
+      "model": "mores:item/topaz_leggings_citrine_trim",
+      "predicate": {
+        "trim_type": 0.19
+      }
+    },
+    {
+      "model": "mores:item/topaz_leggings_onyx_trim",
+      "predicate": {
+        "trim_type": 0.21
+      }
+    },
+    {
+      "model": "mores:item/topaz_leggings_turquoise_trim",
+      "predicate": {
+        "trim_type": 0.22
+      }
+    },
+    {
+      "model": "mores:item/topaz_leggings_topaz_trim",
+      "predicate": {
+        "trim_type": 0.23
+      }
+    },
+    {
+      "model": "mores:item/topaz_leggings_tourmaline_trim",
+      "predicate": {
+        "trim_type": 0.24
+      }
+    },
+    {
+      "model": "mores:item/topaz_leggings_spinel_trim",
+      "predicate": {
+        "trim_type": 0.25
+      }
+    },
+    {
+      "model": "mores:item/topaz_leggings_ruby_trim",
+      "predicate": {
+        "trim_type": 0.26
+      }
+    },
+    {
+      "model": "mores:item/topaz_leggings_sapphire_trim",
+      "predicate": {
+        "trim_type": 0.27
+      }
+    },
+    {
+      "model": "mores:item/topaz_leggings_moissanite_trim",
+      "predicate": {
+        "trim_type": 0.28
+      }
+    },
+    {
+      "model": "mores:item/topaz_leggings_obsidian_trim",
+      "predicate": {
+        "trim_type": 0.31
+      }
+    },
+    {
+      "model": "mores:item/topaz_leggings_graphene_trim",
+      "predicate": {
+        "trim_type": 0.32
+      }
+    },
+    {
+      "model": "mores:item/topaz_leggings_adamantium_trim",
+      "predicate": {
+        "trim_type": 0.33
+      }
+    },
+    {
+      "model": "mores:item/topaz_leggings_enderite_trim",
+      "predicate": {
+        "trim_type": 0.34
       }
     }
   ],

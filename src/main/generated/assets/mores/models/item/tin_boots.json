@@ -14,37 +14,37 @@
       }
     },
     {
-      "model": "mores:item/tin_boots_netherite_trim",
+      "model": "mores:item/tin_boots_gold_trim",
       "predicate": {
         "trim_type": 0.3
       }
     },
     {
-      "model": "mores:item/tin_boots_redstone_trim",
+      "model": "mores:item/tin_boots_diamond_trim",
       "predicate": {
         "trim_type": 0.4
       }
     },
     {
-      "model": "mores:item/tin_boots_copper_trim",
+      "model": "mores:item/tin_boots_netherite_trim",
       "predicate": {
         "trim_type": 0.5
       }
     },
     {
-      "model": "mores:item/tin_boots_gold_trim",
+      "model": "mores:item/tin_boots_redstone_trim",
       "predicate": {
         "trim_type": 0.6
       }
     },
     {
-      "model": "mores:item/tin_boots_emerald_trim",
+      "model": "mores:item/tin_boots_copper_trim",
       "predicate": {
         "trim_type": 0.7
       }
     },
     {
-      "model": "mores:item/tin_boots_diamond_trim",
+      "model": "mores:item/tin_boots_emerald_trim",
       "predicate": {
         "trim_type": 0.8
       }
@@ -59,6 +59,132 @@
       "model": "mores:item/tin_boots_amethyst_trim",
       "predicate": {
         "trim_type": 1.0
+      }
+    },
+    {
+      "model": "mores:item/tin_boots_tin_trim",
+      "predicate": {
+        "trim_type": 0.11
+      }
+    },
+    {
+      "model": "mores:item/tin_boots_silver_trim",
+      "predicate": {
+        "trim_type": 0.12
+      }
+    },
+    {
+      "model": "mores:item/tin_boots_sterling_silver_trim",
+      "predicate": {
+        "trim_type": 0.13
+      }
+    },
+    {
+      "model": "mores:item/tin_boots_rose_gold_trim",
+      "predicate": {
+        "trim_type": 0.14
+      }
+    },
+    {
+      "model": "mores:item/tin_boots_bronze_trim",
+      "predicate": {
+        "trim_type": 0.15
+      }
+    },
+    {
+      "model": "mores:item/tin_boots_cobalt_trim",
+      "predicate": {
+        "trim_type": 0.16
+      }
+    },
+    {
+      "model": "mores:item/tin_boots_carbon_steel_trim",
+      "predicate": {
+        "trim_type": 0.17
+      }
+    },
+    {
+      "model": "mores:item/tin_boots_hardened_steel_trim",
+      "predicate": {
+        "trim_type": 0.18
+      }
+    },
+    {
+      "model": "mores:item/tin_boots_citrine_trim",
+      "predicate": {
+        "trim_type": 0.19
+      }
+    },
+    {
+      "model": "mores:item/tin_boots_onyx_trim",
+      "predicate": {
+        "trim_type": 0.21
+      }
+    },
+    {
+      "model": "mores:item/tin_boots_turquoise_trim",
+      "predicate": {
+        "trim_type": 0.22
+      }
+    },
+    {
+      "model": "mores:item/tin_boots_topaz_trim",
+      "predicate": {
+        "trim_type": 0.23
+      }
+    },
+    {
+      "model": "mores:item/tin_boots_tourmaline_trim",
+      "predicate": {
+        "trim_type": 0.24
+      }
+    },
+    {
+      "model": "mores:item/tin_boots_spinel_trim",
+      "predicate": {
+        "trim_type": 0.25
+      }
+    },
+    {
+      "model": "mores:item/tin_boots_ruby_trim",
+      "predicate": {
+        "trim_type": 0.26
+      }
+    },
+    {
+      "model": "mores:item/tin_boots_sapphire_trim",
+      "predicate": {
+        "trim_type": 0.27
+      }
+    },
+    {
+      "model": "mores:item/tin_boots_moissanite_trim",
+      "predicate": {
+        "trim_type": 0.28
+      }
+    },
+    {
+      "model": "mores:item/tin_boots_obsidian_trim",
+      "predicate": {
+        "trim_type": 0.31
+      }
+    },
+    {
+      "model": "mores:item/tin_boots_graphene_trim",
+      "predicate": {
+        "trim_type": 0.32
+      }
+    },
+    {
+      "model": "mores:item/tin_boots_adamantium_trim",
+      "predicate": {
+        "trim_type": 0.33
+      }
+    },
+    {
+      "model": "mores:item/tin_boots_enderite_trim",
+      "predicate": {
+        "trim_type": 0.34
       }
     }
   ],

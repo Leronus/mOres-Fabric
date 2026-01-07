@@ -3,7 +3,7 @@
   "category": "equipment",
   "key": {
     "G": {
-      "item": "minecraft:amethyst_shard"
+      "item": "mores:amethyst_gem"
     },
     "H": {
       "item": "mores:amethyst_helmet"

@@ -6,7 +6,7 @@
       "tag": "minecraft:planks"
     },
     "o": {
-      "item": "minecraft:amethyst_shard"
+      "item": "mores:amethyst_gem"
     }
   },
   "pattern": [

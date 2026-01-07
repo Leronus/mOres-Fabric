@@ -1,6 +1,6 @@
 plugins {
-    id 'fabric-loom' version '1.8.9'
-    id 'maven-publish'
+    id "fabric-loom" version "${loom_version}"
+    id "maven-publish"
 }
 
 version = project.mod_version
@@ -11,12 +11,20 @@ base {
 }
 
 repositories {
+    mavenCentral()
+
+    // Fabric / Loom / Yarn
+    maven { url = "https://maven.fabricmc.net/" }
+
+    // ModMenu, MidnightLib, FabricShieldLib, Terrablender, CurseForge, Modrinth
+    maven { url = "https://maven.terraformersmc.com/releases/" }
+    maven { url = "https://maven.ladysnake.org/releases" }
     maven { url = 'https://maven.minecraftforge.net/' }
-    maven { url = 'https://api.modrinth.com/maven' }
     maven { url = 'https://maven.kyrptonaught.dev' }
-    maven { url = 'https://jitpack.io' }
-    maven { url = 'https://maven.terraformersmc.com/releases/' }
+    maven { url = "https://maven.shedaniel.me/" }
+    maven { url = 'https://api.modrinth.com/maven' }
     maven { url = 'https://cursemaven.com' }
+    maven { url = 'https://jitpack.io' }
     maven {
         name = 'ParchmentMC'
         url = 'https://maven.parchmentmc.org'
@@ -32,18 +40,23 @@ loom {
             sourceSet sourceSets.client
         }
     }
+    // This is the key: datagen output goes somewhere stable (not build/), and we use it as a resources source dir.
     runs {
-        client {
-            vmArg "-Dfabric-tag-conventions-v2.missingTagTranslationWarning=VERBOSE"
-        }
-        server {
-            vmArg "-Dfabric-tag-conventions-v2.missingTagTranslationWarning=VERBOSE"
+        datagen {
+            inherit server
+            name "Data Generation"
+            runDir "build/datagen"
+
+            // Fabric datagen flags:
+            vmArg "-Dfabric-api.datagen"
+            vmArg "-Dfabric-api.datagen.output-dir=${file("src/main/generated")}"
+            vmArg "-Dfabric-api.datagen.modid=${project.archives_base_name}"  // or hardcode "mores" if you prefer
+            vmArg "-Dfabric-api.datagen.strict-validation=true"
+
+            // Helpful when debugging what is / isn't being generated:
+            // vmArg "-Dfabric-api.datagen.verbose=true"
         }
     }
-}
-
-fabricApi {
-    configureDataGeneration()
 }
 
 /* ============================
@@ -64,10 +77,6 @@ sourceSets {
     }
 }
 
-tasks.named("runDatagen") {
-    outputs.dir file("src/main/generated")
-}
-
 /* ============================
    DEPENDENCIES
    ============================ */
@@ -81,8 +90,7 @@ dependencies {
     modImplementation "net.fabricmc.fabric-api:fabric-api-deprecated:${project.fabric_version}"
 
     /* ---- REQUIRED AT COMPILE TIME ---- */
-
-    // Fabric Shield Lib (you USE this in code)
+    // Fabric Shield Lib
     modImplementation include("maven.modrinth:shieldlib:${project.fabric_shield_lib_version}")
 
     // MidnightLib (used by shieldlib & config systems)
@@ -95,7 +103,6 @@ dependencies {
     modImplementation("com.terraformersmc:modmenu:${project.mod_menu_version}")
 
     /* ---- RUNTIME / DEV ONLY MODS ---- */
-
     modRuntimeOnly "maven.modrinth:sodium:${project.sodium_version}"
     modRuntimeOnly "maven.modrinth:lithium:${project.lithium_version}"
     modRuntimeOnly "maven.modrinth:iris:${project.iris_version}"
@@ -105,27 +112,32 @@ dependencies {
     // Universal Ores (not needed at compile-time)
     modRuntimeOnly "maven.modrinth:universal_ores:${project.universal_ores_version}"
 
-    // Optional examples (kept commented)
+    // Optional
     // modRuntimeOnly "maven.modrinth:entityculling:${project.entity_culling_version}"
     // modRuntimeOnly "maven.modrinth:advanced-xray-fabric-edition-444663:4595168"
 }
 
-tasks.named("processResources") {
-    // Fix Gradle 8+ failing on duplicate resources
-    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
 
-    inputs.property "version", project.version
-    filesMatching("fabric.mod.json") {
-        expand "version": project.version
-    }
-}
-
-tasks.withType(Jar).configureEach {
-    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
-}
 
 tasks.withType(JavaCompile).configureEach {
     it.options.release = 21
+}
+
+tasks.register("cleanGenerated") {
+    group = "build"
+    description = "Deletes src/main/generated"
+    doLast {
+        delete file("src/main/generated")
+    }
+}
+
+processResources {
+    // Keeps expansion correct for fabric.mod.json etc
+    inputs.property "version", project.version
+
+    filesMatching("fabric.mod.json") {
+        expand "version": project.version
+    }
 }
 
 java {
@@ -152,6 +164,5 @@ publishing {
     }
 
     repositories {
-        //
     }
 }

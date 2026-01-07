@@ -33,6 +33,10 @@ public class ModLootTableProvider extends FabricBlockLootTableProvider {
     // using only the loot tables present in blocks.zip.
     @Override
     public void generate() {
+        // =========================
+        // ALLOY FURNACE
+        // =========================
+        addDrop(ModBlocks.ALLOY_FURNACE);
 
         // =========================
         // ANTHRACITE
@@ -134,6 +138,10 @@ public class ModLootTableProvider extends FabricBlockLootTableProvider {
         addDrop(ModBlocks.ENDER_ONYX_ORE, oreDrop(ModBlocks.ENDER_ONYX_ORE, ModItems.ONYX));
         addDrop(ModBlocks.ONYX_BLOCK);
 
+        // =========================
+        // QUARTZ
+        // =========================
+        addDrop(ModBlocks.QUARTZ_ORE, oreDrop(ModBlocks.QUARTZ_ORE, Items.QUARTZ));
 
         // =========================
         // TANZANITE
