@@ -1,9 +1,8 @@
 package mod.leronus.mores.item;
 
-import com.github.crimsondawn45.fabricshieldlib.lib.object.FabricShieldItem;
 import mod.leronus.mores.Mores;
 import mod.leronus.mores.item.custom.*;
-import mod.leronus.mores.sound.ModSounds;
+import mod.leronus.mores.sound.ModJukeboxSongs;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroupEntries;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.minecraft.component.type.FoodComponent;
@@ -23,8 +22,13 @@ public class ModItems {
     /**
      * Fills the registry with items
      */
-    public static final Item SWEET_CAROLINE_MUSIC_DISC = registerItem("sweet_caroline_music_disc", new Item(new Item.Settings().jukeboxPlayable(ModSounds.SWEET_CAROLINE_KEY).rarity(Rarity.RARE).maxCount(1)));
-    public static final Item CIPHER_DISC = registerItem("cipher_music_disc", new Item(new Item.Settings().jukeboxPlayable(ModSounds.CIPHER_KEY).rarity(Rarity.RARE).maxCount(1)));
+    public static final Item SWEET_CAROLINE_MUSIC_DISC =
+            registerItem("sweet_caroline_music_disc",
+                    new Item(new Item.Settings().jukeboxPlayable(ModJukeboxSongs.SWEET_CAROLINE).rarity(Rarity.RARE).maxCount(1)));
+    public static final Item CIPHER_MUSIC_DISC =
+            registerItem("cipher_music_disc",
+                    new Item(new Item.Settings().jukeboxPlayable(ModJukeboxSongs.CIPHER).rarity(Rarity.RARE).maxCount(1)));
+
 
     public static final Item HARDENED_STEEL_UPGRADE_SMITHING_TEMPLATE = registerItem("hardened_steel_upgrade_smithing_template", ModSmithingTemplateItem.createHardenedSteelUpgradeTemplate());
     public static final Item OBSIDIAN_UPGRADE_SMITHING_TEMPLATE = registerItem("obsidian_upgrade_smithing_template", ModSmithingTemplateItem.createObsidianUpgradeTemplate());
@@ -1275,7 +1279,7 @@ public class ModItems {
         entries.add(ENDERITE_HOE);
 
         entries.add(SWEET_CAROLINE_MUSIC_DISC);
-        entries.add(CIPHER_DISC);
+        entries.add(CIPHER_MUSIC_DISC);
     }
 
 

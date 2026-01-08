@@ -6,6 +6,7 @@ import mod.leronus.mores.handlers.ArmorBonusHandler;
 import mod.leronus.mores.config.CommonConfig;
 import mod.leronus.mores.item.ModItemGroups;
 import mod.leronus.mores.item.ModItems;
+import mod.leronus.mores.loot.ModChestLootInjector;
 import mod.leronus.mores.registry.ModRecipes;
 import mod.leronus.mores.registry.ModBlockEntities;
 import mod.leronus.mores.registry.ModScreenHandlers;
@@ -42,6 +43,8 @@ public class Mores implements ModInitializer {
         ModClericTradesWeighted.register();
         ModToolsmithTradesWeighted.register();
         ModWeaponsmithTradesWeighted.register();
+
+        ModChestLootInjector.register();
 
         //TODO Check anthracite
 		FuelRegistry.INSTANCE.add(ModItems.ANTHRACITE, 4000);

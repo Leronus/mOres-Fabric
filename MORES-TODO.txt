@@ -1,11 +1,12 @@
 Fabric 1.21.1 
 
-Quartz into dust with citrine / onyx ?
+Testing:
+- Villager trades
+- Armor models & trims (on skin) - Ask boys for help
 
 Doing:
 - Tags (check if missing anything / reorder)
 - Make sure hostile mobs have a chance to spawn with my gear - needs testing
-- Check armor models & trims (on skin) - Ask boys for help
 
 - Tool materials
 - Recipes (quartz/lapis/amethyst/turquoise dust from their material)
@@ -16,22 +17,22 @@ Doing:
 
 
 Todo:
+- Ore generation as well as datagen for it
 - REI integration (specifically Alloy Furnace)
 - Change graphene textures and add new recipes / change existing
 - Check if all textures are added to item groups (ModItemGroups looked complete, check vanillabackport code could be interesting)
 - Add Silver carrot
 - Add Config
-- Ore generation as well as datagen for it
-- Loot tables (chests, misc?)
+- Loot tables (chests, entity, misc?)
 - Test Armor Trims & add missing
 - Update Tooltips -> No shuffling, add armor
 - Check Block Experience
 - Universal ores (diorite/granite/andesite) - look for textures?
 - Advancements (need fixing)
 - Duck entity
-- Villager trades
 - Spears
 - Wolf Armor
+- Music Discs
 * - Add tropical fish to cat breeding
 
 

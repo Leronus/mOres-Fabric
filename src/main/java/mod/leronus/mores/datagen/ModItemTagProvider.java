@@ -301,10 +301,10 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
 
         //Music Discs
         getOrCreateTagBuilder(ItemTags.CREEPER_DROP_MUSIC_DISCS).add(
-                ModItems.SWEET_CAROLINE_MUSIC_DISC, ModItems.CIPHER_DISC
+                ModItems.SWEET_CAROLINE_MUSIC_DISC, ModItems.CIPHER_MUSIC_DISC
         );
         getOrCreateTagBuilder(ConventionalItemTags.MUSIC_DISCS).add(
-                ModItems.SWEET_CAROLINE_MUSIC_DISC, ModItems.CIPHER_DISC);
+                ModItems.SWEET_CAROLINE_MUSIC_DISC, ModItems.CIPHER_MUSIC_DISC);
 
         /*
          * Modded tags for recipes (universal)

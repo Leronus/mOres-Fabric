@@ -8,20 +8,7 @@ import mod.leronus.mores.trim.ModTrimMaterials;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricModelProvider;
 import net.minecraft.data.client.*;
-import net.minecraft.item.ArmorItem;
 import net.minecraft.util.Identifier;
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonObject;
-import net.minecraft.data.DataOutput;
-import net.minecraft.item.Item;
-import net.minecraft.registry.Registries;
-
-import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.util.List;
 
 public class ModModelProvider extends FabricModelProvider {
     private final FabricDataOutput output;
@@ -520,7 +507,7 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ModItems.COOKED_DUCK, Models.GENERATED);
         itemModelGenerator.register(ModItems.DUCK_EGG, Models.GENERATED);
         itemModelGenerator.register(ModItems.SWEET_CAROLINE_MUSIC_DISC, Models.GENERATED);
-        itemModelGenerator.register(ModItems.CIPHER_DISC, Models.GENERATED);
+        itemModelGenerator.register(ModItems.CIPHER_MUSIC_DISC, Models.GENERATED);
 
         //TODO Fix duck egg
 //        itemModelGenerator.register(ModItems.DUCK_SPAWN_EGG,

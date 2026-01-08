@@ -256,7 +256,7 @@ public class ModItemGroups {
                         entries.add(ModItems.ENDERITE_SHOVEL);
                         entries.add(ModItems.ENDERITE_HOE);
                         entries.add(ModItems.SWEET_CAROLINE_MUSIC_DISC);
-                        entries.add(ModItems.CIPHER_DISC);
+                        entries.add(ModItems.CIPHER_MUSIC_DISC);
                     }).build());
 
     public static final ItemGroup WEAPONS_GROUP = Registry.register(Registries.ITEM_GROUP,

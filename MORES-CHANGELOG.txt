@@ -1,18 +1,24 @@
 v3.0.0
-Updated to Minecraft 1.21.1!
+MASSIVE UPDATE to Minecraft 1.21.1!
 Changelog:
 - Using DataGenerators for Tags, Recipes, Models, Advancements, Loot tables - Massive rewrite
-- Updated Carbon Steel ingot texture & added (Hot) Carbon Steel Scrap (needs to be cooled in water)
+- Added Carbon Steel (tools, (horse)armor, weapons) with (Hot) Carbon Steel Scrap (needs to be cooled in water)
 - Updated Sterling Silver ingot texture
 - Updated Copper textures with vanilla from 1.21.9
 - Updated Silver ingot, raw, nugget, ore, block and apple
+- Updated Anthracite, Onyx & Turquoise textures
+- Added villager trades for mOres items
+- Added mob spawns with mOres gear (zombies, piglins, skeletons & more!)
+- Added even more trimmable armor and trim materials
 - Added Silver carrot
 - Added Shields back, fully decorable!
 - Added missing tags for better mod compatibility
-- Added back revamped Alloy Furnace (new GUI)
-- Added Rose Gold (Copper + Gold alloy, Pacify piglins)
-- Added Citrine
-- Added Hardened Steel (Alloying + Smithing)
-- Temporarily removed Tanzanite
+- Added back revamped Alloy Furnace (new GUI with colourful themes!)
+- Added Amethyst, Turquoise, Lapis Lazuli & Quartz dusts used to craft newly updated gems
+- Added Lapis Lazuli (tools, (horse)armor, weapons)
+- Added Rose Gold (Copper + Gold alloy, Pacify piglins full bonus effect!)
+- Added Citrine (tools, (horse)armor, weapons)
+- Added Hardened Steel (Smithing using Upgrade Template)
+- Added Enderite (Smithing using Upgrade Template and crafting using Primordial Debris - spawns in the End)
 - Nerfed Turquoise efficiency & base armor but buffed spawnrate
 

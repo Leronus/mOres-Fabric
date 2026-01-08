@@ -22,10 +22,10 @@ import net.minecraft.registry.RegistryWrapper;
 
 import java.util.concurrent.CompletableFuture;
 
-public class ModLootTableProvider extends FabricBlockLootTableProvider {
+public class ModBlockLootTableProvider extends FabricBlockLootTableProvider {
 
-    public ModLootTableProvider(FabricDataOutput dataOutput,
-                                CompletableFuture<RegistryWrapper.WrapperLookup> registryLookup) {
+    public ModBlockLootTableProvider(FabricDataOutput dataOutput,
+                                     CompletableFuture<RegistryWrapper.WrapperLookup> registryLookup) {
         super(dataOutput, registryLookup);
     }
 
