@@ -6,6 +6,7 @@
     "BlockMixin",
     "ItemEntityMixin",
     "MobEntityEquipmentMixin",
+    "VillagerMoreTradesMixin",
     "ZombifiedPiglinEntityMixin"
   ],
   "injectors": {

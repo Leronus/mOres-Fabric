@@ -10,6 +10,10 @@ import mod.leronus.mores.registry.ModRecipes;
 import mod.leronus.mores.registry.ModBlockEntities;
 import mod.leronus.mores.registry.ModScreenHandlers;
 import mod.leronus.mores.sound.ModSounds;
+import mod.leronus.mores.trade.ModArmorerTradesWeighted;
+import mod.leronus.mores.trade.ModClericTradesWeighted;
+import mod.leronus.mores.trade.ModToolsmithTradesWeighted;
+import mod.leronus.mores.trade.ModWeaponsmithTradesWeighted;
 import mod.leronus.mores.world.gen.ModWorldGeneration;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.registry.FuelRegistry;
@@ -33,6 +37,11 @@ public class Mores implements ModInitializer {
         ModRecipes.registerRecipes();
 		ModBlockEntities.registerBlockEntities();
 		ModScreenHandlers.registerScreenHandlers();
+
+        ModArmorerTradesWeighted.register();
+        ModClericTradesWeighted.register();
+        ModToolsmithTradesWeighted.register();
+        ModWeaponsmithTradesWeighted.register();
 
         //TODO Check anthracite
 		FuelRegistry.INSTANCE.add(ModItems.ANTHRACITE, 4000);
