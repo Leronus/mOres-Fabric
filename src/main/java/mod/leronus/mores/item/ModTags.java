@@ -12,12 +12,17 @@ public class ModTags {
         public static final TagKey<Block> NEEDS_GRAPHENE_TOOL = createTag("needs_graphene_tool");
         public static final TagKey<Block> INCORRECT_FOR_GRAPHENE_TOOL = createTag("incorrect_for_graphene_tool");
 
+
         private static TagKey<Block> createTag(String name) {
             return TagKey.of(RegistryKeys.BLOCK, Identifier.of(Mores.MOD_ID, name));
         }
     }
 
     public static class Items {
+        /** Vanilla does not expose ItemTags.WOLF_ARMOR in your mappings, but tags can still exist. */
+        public static final TagKey<Item> WOLF_ARMOR =
+                TagKey.of(RegistryKeys.ITEM, Identifier.of("minecraft", "wolf_armor"));
+
 //        public static final TagKey<Item> TRANSFORMABLE_ITEMS = createTag("transformable_items");
         public static final TagKey<Item> ANTHRACITE = createTag("coal/anthracite");
 

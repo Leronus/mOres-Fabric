@@ -1,5 +1,8 @@
 package mod.leronus.mores.datagen;
 
+import com.google.gson.JsonArray;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
 import mod.leronus.mores.Mores;
 import mod.leronus.mores.block.ModBlocks;
 import mod.leronus.mores.block.custom.AlloyFurnaceBlock;
@@ -10,12 +13,11 @@ import net.fabricmc.fabric.api.datagen.v1.provider.FabricModelProvider;
 import net.minecraft.data.client.*;
 import net.minecraft.util.Identifier;
 
-public class ModModelProvider extends FabricModelProvider {
-    private final FabricDataOutput output;
+import java.util.function.Supplier;
 
+public class ModModelProvider extends FabricModelProvider {
     public ModModelProvider(FabricDataOutput output) {
         super(output);
-        this.output = output;
     }
 
     @Override
@@ -132,28 +134,10 @@ public class ModModelProvider extends FabricModelProvider {
         gen.registerParentedItemModel(ModBlocks.ALLOY_FURNACE, modelOff);
     }
 
-//    private void registerCustomLamp(BlockStateModelGenerator blockStateModelGenerator) {
-//        Identifier identifier = TexturedModel.CUBE_ALL.upload(ModBlocks.SAPPHIRE_LAMP_BLOCK, blockStateModelGenerator.modelCollector);
-//        Identifier identifier2 = blockStateModelGenerator.createSubModel(ModBlocks.SAPPHIRE_LAMP_BLOCK, "_on", Models.CUBE_ALL, TextureMap::all);
-//        blockStateModelGenerator.blockStateCollector.accept(VariantsBlockStateSupplier.create(ModBlocks.SAPPHIRE_LAMP_BLOCK)
-//                .coordinate(BlockStateModelGenerator.createBooleanModelMap(SapphireLampBlock.CLICKED, identifier2, identifier)));
-//
-//        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.SILVER_BLOCK);
-//        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.SILVER_BLOCK_1);
-//        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.SILVER_BLOCK_2);
-//        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.SILVER_BLOCK_3);
-//
-//        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.WAXED_SILVER_BLOCK);
-//        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.WAXED_SILVER_BLOCK_1);
-//        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.WAXED_SILVER_BLOCK_2);
-//        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.WAXED_SILVER_BLOCK_3);
-
-//        blockStateModelGenerator.registerCooker(ModBlocks.ALLOY_FURNACE, TexturedModel.ORIENTABLE);
-//    }
 
     @Override
     public void generateItemModels(ItemModelGenerator itemModelGenerator) {
-        ModTrimMaterials.class.getName();
+//        ModTrimMaterials.class.getName();
 
         itemModelGenerator.register(ModItems.ANTHRACITE, Models.GENERATED);
         itemModelGenerator.register(ModItems.CITRINE, Models.GENERATED);
@@ -266,6 +250,13 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ModItems.ROSE_GOLD_BATTLE_AXE, Models.HANDHELD);
         itemModelGenerator.register(ModItems.ROSE_GOLD_BATTLE_MACE, Models.HANDHELD);
         itemModelGenerator.register(ModItems.ROSE_GOLD_DAGGER, Models.HANDHELD);
+        Identifier baseId = ModelIds.getItemModelId(ModItems.ROSE_GOLD_SPEAR); // mores:item/rose_gold_spear
+        Identifier inHandId = Identifier.of(baseId.getNamespace(), baseId.getPath() + "_in_hand");
+        // Base model: generated + override to _in_hand while using
+        itemModelGenerator.writer.accept(baseId, spearBaseJson(baseId.getNamespace(), "rose_gold_spear"));
+        // In-hand model: uses minecraft:item/spear_in_hand parent
+        itemModelGenerator.writer.accept(inHandId, spearInHandJson(baseId.getNamespace(), "rose_gold_spear"));
+
 
         itemModelGenerator.register(ModItems.BRONZE_SWORD, Models.HANDHELD);
         itemModelGenerator.register(ModItems.BRONZE_PICKAXE, Models.HANDHELD);
@@ -503,6 +494,8 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ModItems.NETHERITE_HORSE_ARMOR, Models.GENERATED);
         itemModelGenerator.register(ModItems.ENDERITE_HORSE_ARMOR, Models.GENERATED);
 
+        itemModelGenerator.register(ModItems.ROSE_GOLD_WOLF_ARMOR, Models.GENERATED);
+
         itemModelGenerator.register(ModItems.RAW_DUCK, Models.GENERATED);
         itemModelGenerator.register(ModItems.COOKED_DUCK, Models.GENERATED);
         itemModelGenerator.register(ModItems.DUCK_EGG, Models.GENERATED);
@@ -513,8 +506,7 @@ public class ModModelProvider extends FabricModelProvider {
 //        itemModelGenerator.register(ModItems.DUCK_SPAWN_EGG,
 //                new Model(Optional.of(new Identifier("item/template_spawn_egg")), Optional.empty()));
 
-        /* Shields? */
-
+        /* Shields */
         registerShield(itemModelGenerator, "tin_shield");
         registerShield(itemModelGenerator, "silver_shield");
 //        registerShield(itemModelGenerator, "gold_shield");
@@ -543,6 +535,44 @@ public class ModModelProvider extends FabricModelProvider {
         registerShield(itemModelGenerator, "graphene_shield");
         registerShield(itemModelGenerator, "enderite_shield");
 
+    }
+
+    /* ---------------- helpers ---------------- */
+    private static Supplier<JsonElement> spearBaseJson(String modid, String name) {
+        return () -> {
+            JsonObject root = new JsonObject();
+            root.addProperty("parent", "minecraft:item/generated");
+
+            JsonObject textures = new JsonObject();
+            textures.addProperty("layer0", modid + ":item/" + name);
+            root.add("textures", textures);
+
+            JsonArray overrides = new JsonArray();
+            JsonObject ov = new JsonObject();
+
+            JsonObject predicate = new JsonObject();
+            predicate.addProperty("spears:in_gui", 0);
+            ov.add("predicate", predicate);
+
+            ov.addProperty("model", modid + ":item/" + name + "_in_hand");
+            overrides.add(ov);
+
+            root.add("overrides", overrides);
+            return root;
+        };
+    }
+
+    private static Supplier<JsonElement> spearInHandJson(String modid, String name) {
+        return () -> {
+            JsonObject root = new JsonObject();
+            root.addProperty("parent", "minecraft:item/spear_in_hand");
+
+            JsonObject textures = new JsonObject();
+            textures.addProperty("layer0", modid + ":item/" + name + "_in_hand"); // <-- important
+            root.add("textures", textures);
+
+            return root;
+        };
     }
 
     private static void registerShield(ItemModelGenerator gen, String name) {

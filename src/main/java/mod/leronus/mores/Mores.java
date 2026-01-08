@@ -1,5 +1,7 @@
 package mod.leronus.mores;
 
+import com.notunanancyowen.spears.Spears;
+import com.notunanancyowen.spears.components.*;
 import eu.midnightdust.lib.config.MidnightConfig;
 import mod.leronus.mores.block.ModBlocks;
 import mod.leronus.mores.handlers.ArmorBonusHandler;
@@ -17,9 +19,16 @@ import mod.leronus.mores.trade.ModToolsmithTradesWeighted;
 import mod.leronus.mores.trade.ModWeaponsmithTradesWeighted;
 import mod.leronus.mores.world.gen.ModWorldGeneration;
 import net.fabricmc.api.ModInitializer;
+import net.fabricmc.fabric.api.item.v1.DefaultItemComponentEvents;
 import net.fabricmc.fabric.api.registry.FuelRegistry;
+import net.minecraft.registry.Registries;
+import net.minecraft.util.Identifier;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import java.util.Optional;
+
+import static mod.leronus.mores.util.SpearSounds.vanillaSound;
 
 public class Mores implements ModInitializer {
 	public static final String MOD_ID = "mores";
@@ -50,5 +59,48 @@ public class Mores implements ModInitializer {
 		FuelRegistry.INSTANCE.add(ModItems.ANTHRACITE, 4000);
 
 		ModWorldGeneration.generateModWorldGen();
+
+
+        DefaultItemComponentEvents.MODIFY.register(ctx -> {
+            ctx.modify(
+                    item -> item == ModItems.ROSE_GOLD_SPEAR,
+                    (builder, item) -> {
+
+                        // Movement + sprint behavior (fixes shield slowdown)
+                        builder.add(Spears.USE_EFFECTS,
+                                new UseEffects(1.0F, true, false)
+                        );
+
+                        // Stab animation
+                        builder.add(Spears.SWING_ANIMATION,
+                                new SwingAnimation(19, "stab")
+                        );
+
+                        builder.add(Spears.PIERCING_WEAPON, new PiercingWeapon(
+                                0.25F, true, false,
+                                vanillaSound("item.spear.attack"),
+                                vanillaSound("item.spear.hit")
+                        ));
+
+                        builder.add(Spears.KINETIC_WEAPON, new KineticWeapon(
+                                0.125F, 10, 12,
+                                KineticWeapon.Condition.ofMinSpeed(50, 8.0F),
+                                KineticWeapon.Condition.ofMinSpeed(90, 5.1F),
+                                KineticWeapon.Condition.ofMinRelativeSpeed(225, 4.6F),
+                                0.38F, 0.95F,
+                                vanillaSound("item.spear.use"),
+                                vanillaSound("item.spear.hit")
+                        ));
+
+                        // Reach
+                        builder.add(Spears.ATTACK_RANGE,
+                                new AttackRange(2.0F, 4.5F)
+                        );
+
+                        builder.add(Spears.MINIMUM_ATTACK_CHARGE, 1.0F);
+                    }
+            );
+        });
+
 	}
 }

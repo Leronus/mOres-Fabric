@@ -555,6 +555,8 @@ public class ModItemGroups {
                         entries.add(ModItems.NETHERITE_HORSE_ARMOR);
                         entries.add(ModItems.ADAMANTIUM_HORSE_ARMOR);
                         entries.add(ModItems.ENDERITE_HORSE_ARMOR);
+
+                        entries.add(ModItems.ROSE_GOLD_WOLF_ARMOR);
                     }).build());
 //
     public static final ItemGroup FOOD_GROUP = Registry.register(Registries.ITEM_GROUP,

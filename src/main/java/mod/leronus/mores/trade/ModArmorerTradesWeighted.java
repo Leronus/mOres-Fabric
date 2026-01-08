@@ -26,6 +26,7 @@ public class ModArmorerTradesWeighted {
 
         /* ==================== NOVICE (3 slots) ==================== */
         TradeOfferHelper.registerVillagerOffers(VillagerProfession.ARMORER, 1, factories -> {
+            factories.clear();
             Random random = Random.create();
             List<WeightedTrade> pool = new ArrayList<>();
 
@@ -73,6 +74,7 @@ public class ModArmorerTradesWeighted {
 
         /* ==================== APPRENTICE (3 slots) ==================== */
         TradeOfferHelper.registerVillagerOffers(VillagerProfession.ARMORER, 2, factories -> {
+            factories.clear();
             Random random = Random.create();
             List<WeightedTrade> pool = new ArrayList<>();
 
@@ -101,6 +103,7 @@ public class ModArmorerTradesWeighted {
 
         /* ==================== JOURNEYMAN (3 slots) ==================== */
         TradeOfferHelper.registerVillagerOffers(VillagerProfession.ARMORER, 3, factories -> {
+            factories.clear();
             Random random = Random.create();
             List<WeightedTrade> pool = new ArrayList<>();
 
@@ -143,6 +146,7 @@ public class ModArmorerTradesWeighted {
 
         /* ==================== EXPERT (3 slots) ==================== */
         TradeOfferHelper.registerVillagerOffers(VillagerProfession.ARMORER, 4, factories -> {
+            factories.clear();
             Random random = Random.create();
             List<WeightedTrade> pool = new ArrayList<>();
 
@@ -199,6 +203,7 @@ public class ModArmorerTradesWeighted {
 
         /* ==================== MASTER (3 slots) ==================== */
         TradeOfferHelper.registerVillagerOffers(VillagerProfession.ARMORER, 5, factories -> {
+            factories.clear();
             Random random = Random.create();
             List<WeightedTrade> pool = new ArrayList<>();
 

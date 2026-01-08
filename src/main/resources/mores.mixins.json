@@ -7,7 +7,12 @@
     "ItemEntityMixin",
     "MobEntityEquipmentMixin",
     "VillagerMoreTradesMixin",
-    "ZombifiedPiglinEntityMixin"
+    "ZombifiedPiglinEntityMixin",
+    "WolfEntityMixin",
+    "WolfArmorSyncMixin"
+  ],
+  "client": [
+    "client.WolfArmorFeatureRendererMixin"
   ],
   "injectors": {
     "defaultRequire": 1

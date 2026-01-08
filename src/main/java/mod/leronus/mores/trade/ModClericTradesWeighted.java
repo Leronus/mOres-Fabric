@@ -23,6 +23,7 @@ public class ModClericTradesWeighted {
 
         /* ==================== NOVICE (fixed 100%) ==================== */
         TradeOfferHelper.registerVillagerOffers(VillagerProfession.CLERIC, 1, factories -> {
+            factories.clear();
             // 32 Rotten Flesh -> Emerald
             factories.add(new TradeOffers.BuyItemFactory(
                     Items.ROTTEN_FLESH, 32, 1, 16, 2));
@@ -34,6 +35,7 @@ public class ModClericTradesWeighted {
 
         /* ==================== APPRENTICE (fixed 100%) ==================== */
         TradeOfferHelper.registerVillagerOffers(VillagerProfession.CLERIC, 2, factories -> {
+            factories.clear();
             // 3 Gold Ingot -> Emerald
             factories.add(new TradeOffers.BuyItemFactory(
                     Items.GOLD_INGOT, 3, 1, 12, 10));
@@ -45,6 +47,7 @@ public class ModClericTradesWeighted {
 
         /* ==================== JOURNEYMAN (3 slots) ==================== */
         TradeOfferHelper.registerVillagerOffers(VillagerProfession.CLERIC, 3, factories -> {
+            factories.clear();
             Random random = Random.create();
 
             // Guaranteed (100%) trades
@@ -68,6 +71,7 @@ public class ModClericTradesWeighted {
 
         /* ==================== EXPERT (3 slots) ==================== */
         TradeOfferHelper.registerVillagerOffers(VillagerProfession.CLERIC, 4, factories -> {
+            factories.clear();
             Random random = Random.create();
 
             // No 100% rows here, so just weight-select 3 from full pool.
@@ -90,6 +94,7 @@ public class ModClericTradesWeighted {
 
         /* ==================== MASTER (3 slots) ==================== */
         TradeOfferHelper.registerVillagerOffers(VillagerProfession.CLERIC, 5, factories -> {
+            factories.clear();
             Random random = Random.create();
             List<WeightedTrade> pool = new ArrayList<>();
 

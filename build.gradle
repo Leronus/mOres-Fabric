@@ -56,6 +56,12 @@ loom {
             // Helpful when debugging what is / isn't being generated:
             // vmArg "-Dfabric-api.datagen.verbose=true"
         }
+        client {
+            vmArg "-Dfabric-tag-conventions-v2.missingTagTranslationWarning=VERBOSE"
+        }
+        server {
+            vmArg "-Dfabric-tag-conventions-v2.missingTagTranslationWarning=VERBOSE"
+        }
     }
 }
 
@@ -91,16 +97,20 @@ dependencies {
 
     /* ---- REQUIRED AT COMPILE TIME ---- */
     // Fabric Shield Lib
-    modImplementation include("maven.modrinth:shieldlib:${project.fabric_shield_lib_version}")
+    include(modImplementation("maven.modrinth:shieldlib:${project.fabric_shield_lib_version}"))
+
+    // Backported Spears (compile against it; ships as dependency in dev)
+    include(modImplementation("maven.modrinth:backported-spears:${project.backported_spears_version}"))
 
     // MidnightLib (used by shieldlib & config systems)
     modImplementation include("maven.modrinth:midnightlib:${project.midnightlib_version}")
 
     // ASM helper (used at compile time)
-    modImplementation "com.github.Chocohead:Fabric-ASM:v${project.fabricasm_version}"
+    modImplementation include("com.github.Chocohead:Fabric-ASM:v${project.fabricasm_version}")
 
     // Mod Menu (used to view config in-game)
-    modImplementation("com.terraformersmc:modmenu:${project.mod_menu_version}")
+    modImplementation include("com.terraformersmc:modmenu:${project.mod_menu_version}")
+
 
     /* ---- RUNTIME / DEV ONLY MODS ---- */
     modRuntimeOnly "maven.modrinth:sodium:${project.sodium_version}"
@@ -111,6 +121,7 @@ dependencies {
 
     // Universal Ores (not needed at compile-time)
     modRuntimeOnly "maven.modrinth:universal_ores:${project.universal_ores_version}"
+
 
     // Optional
     // modRuntimeOnly "maven.modrinth:entityculling:${project.entity_culling_version}"
@@ -144,6 +155,10 @@ java {
     withSourcesJar()
     sourceCompatibility = JavaVersion.VERSION_21
     targetCompatibility = JavaVersion.VERSION_21
+
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(21)
+    }
 }
 
 jar {

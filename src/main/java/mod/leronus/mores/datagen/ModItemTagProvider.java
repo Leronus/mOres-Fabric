@@ -1,12 +1,16 @@
 package mod.leronus.mores.datagen;
 
+import com.terraformersmc.modmenu.util.mod.Mod;
 import mod.leronus.mores.item.ModTags;
 import mod.leronus.mores.item.ModItems;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider;
 import net.fabricmc.fabric.api.tag.convention.v2.ConventionalItemTags;
+import net.minecraft.registry.RegistryKeys;
 import net.minecraft.registry.RegistryWrapper;
 import net.minecraft.registry.tag.ItemTags;
+import net.minecraft.registry.tag.TagKey;
+import net.minecraft.util.Identifier;
 
 import java.util.concurrent.CompletableFuture;
 
@@ -240,7 +244,9 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
                 ModItems.OBSIDIAN_CHESTPLATE,
                 ModItems.GRAPHENE_CHESTPLATE,
                 ModItems.ADAMANTIUM_CHESTPLATE,
-                ModItems.ENDERITE_CHESTPLATE
+                ModItems.ENDERITE_CHESTPLATE,
+
+                ModItems.ROSE_GOLD_WOLF_ARMOR
         );
         getOrCreateTagBuilder(ItemTags.LEG_ARMOR_ENCHANTABLE).add(
                 ModItems.TIN_LEGGINGS, ModItems.COPPER_LEGGINGS, ModItems.SILVER_LEGGINGS, ModItems.BRONZE_LEGGINGS, ModItems.COBALT_LEGGINGS, ModItems.STERLING_SILVER_LEGGINGS, ModItems.ROSE_GOLD_LEGGINGS,
@@ -305,6 +311,21 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
         );
         getOrCreateTagBuilder(ConventionalItemTags.MUSIC_DISCS).add(
                 ModItems.SWEET_CAROLINE_MUSIC_DISC, ModItems.CIPHER_MUSIC_DISC);
+
+        //Backported Spears
+        getOrCreateTagBuilder(TagKey.of(RegistryKeys.ITEM, Identifier.ofVanilla("spears"))).add(
+                ModItems.ROSE_GOLD_SPEAR);
+
+        //Wolf Armors
+        // Allow wolves to equip these (our mixin will check this tag)
+        getOrCreateTagBuilder(ModTags.Items.WOLF_ARMOR).add(
+                ModItems.ROSE_GOLD_WOLF_ARMOR
+                );
+        // .add(ModItems.TIN_WOLF_ARMOR) ...
+        getOrCreateTagBuilder(TagKey.of(RegistryKeys.ITEM, Identifier.of("minecraft", "durability_enchantable")))
+                .add(ModItems.ROSE_GOLD_WOLF_ARMOR);
+        getOrCreateTagBuilder(TagKey.of(RegistryKeys.ITEM, Identifier.of("minecraft", "dyeable")))
+                .add(ModItems.ROSE_GOLD_WOLF_ARMOR);
 
         /*
          * Modded tags for recipes (universal)

@@ -1,5 +1,7 @@
 package mod.leronus.mores.item;
 
+import com.notunanancyowen.spears.Spears;
+import com.notunanancyowen.spears.fabric.SpearsFabric;
 import mod.leronus.mores.Mores;
 import mod.leronus.mores.item.custom.*;
 import mod.leronus.mores.sound.ModJukeboxSongs;
@@ -136,6 +138,16 @@ public class ModItems {
     public static final Item ADAMANTIUM_HORSE_ARMOR = registerItem("adamantium_horse_armor", new AnimalArmorItem(ModArmorMaterials.ADAMANTIUM, AnimalArmorItem.Type.EQUESTRIAN, false, new Item.Settings().maxCount(1)));
     public static final Item ENDERITE_HORSE_ARMOR = registerItem("enderite_horse_armor", new AnimalArmorItem(ModArmorMaterials.ENDERITE, AnimalArmorItem.Type.EQUESTRIAN, false, new Item.Settings().maxCount(1)));
 
+    public static final Item ROSE_GOLD_WOLF_ARMOR = registerItem(
+            "rose_gold_wolf_armor",
+            new ModWolfArmorItem(
+                    ModArmorMaterials.ROSE_GOLD,
+                    false,
+                    new Item.Settings(),
+                    Identifier.of("mores", "textures/entity/wolf/wolf_armor_rose_gold.png"),
+                    Identifier.of("mores", "textures/entity/wolf/wolf_armor_rose_gold_overlay.png")
+            )
+    );
 
 // All armor (durability via ModArmorDurability.scale(base, piece))
 
@@ -635,6 +647,9 @@ public class ModItems {
     public static final Item GRAPHENE_DAGGER = registerItem("graphene_dagger", new ModBattleAxeItem(ModToolMaterials.GRAPHENE, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ModToolMaterials.GRAPHENE, 1, -1.5f))));
     public static final Item ADAMANTIUM_DAGGER = registerItem("adamantium_dagger", new ModBattleAxeItem(ModToolMaterials.ADAMANTIUM, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ModToolMaterials.ADAMANTIUM, 1, -1.5f))));
     public static final Item ENDERITE_DAGGER = registerItem("enderite_dagger", new ModBattleAxeItem(ModToolMaterials.ENDERITE, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ModToolMaterials.ENDERITE, 1, -1.5f))));
+
+    public static final Item ROSE_GOLD_SPEAR = registerItem("rose_gold_spear", new ModSpearItem(ModToolMaterials.ROSE_GOLD, new Item.Settings().maxCount(1)));
+
 
 
     // All pickaxes
@@ -1141,6 +1156,36 @@ public class ModItems {
         entries.add(GRAPHENE_SHIELD);
         entries.add(ADAMANTIUM_SHIELD);
         entries.add(ENDERITE_SHIELD);
+
+        entries.add(ModItems.TIN_HORSE_ARMOR);
+        entries.add(ModItems.SILVER_HORSE_ARMOR);
+        entries.add(ModItems.COPPER_HORSE_ARMOR);
+        entries.add(ModItems.STERLING_SILVER_HORSE_ARMOR);
+        entries.add(ModItems.ROSE_GOLD_HORSE_ARMOR);
+        entries.add(ModItems.BRONZE_HORSE_ARMOR);
+        entries.add(ModItems.COBALT_HORSE_ARMOR);
+        entries.add(ModItems.CARBON_STEEL_HORSE_ARMOR);
+        entries.add(ModItems.HARDENED_STEEL_HORSE_ARMOR);
+        entries.add(ModItems.TURQUOISE_HORSE_ARMOR);
+        entries.add(ModItems.LAPIS_LAZULI_HORSE_ARMOR);
+        entries.add(ModItems.AMETHYST_HORSE_ARMOR);
+        entries.add(ModItems.ONYX_HORSE_ARMOR);
+        entries.add(ModItems.CITRINE_HORSE_ARMOR);
+        entries.add(ModItems.TANZANITE_HORSE_ARMOR);
+        entries.add(ModItems.TOURMALINE_HORSE_ARMOR);
+        entries.add(ModItems.TOPAZ_HORSE_ARMOR);
+        entries.add(ModItems.SPINEL_HORSE_ARMOR);
+        entries.add(ModItems.EMERALD_HORSE_ARMOR);
+        entries.add(ModItems.RUBY_HORSE_ARMOR);
+        entries.add(ModItems.SAPPHIRE_HORSE_ARMOR);
+        entries.add(ModItems.MOISSANITE_HORSE_ARMOR);
+        entries.add(ModItems.GRAPHENE_HORSE_ARMOR);
+        entries.add(ModItems.OBSIDIAN_HORSE_ARMOR);
+        entries.add(ModItems.NETHERITE_HORSE_ARMOR);
+        entries.add(ModItems.ADAMANTIUM_HORSE_ARMOR);
+        entries.add(ModItems.ENDERITE_HORSE_ARMOR);
+
+        entries.add(ModItems.ROSE_GOLD_WOLF_ARMOR);
     }
     private static void addItemsToFoodItemGroup(FabricItemGroupEntries entries) {
         entries.add(CHOCOLATE);

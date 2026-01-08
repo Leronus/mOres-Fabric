@@ -25,17 +25,19 @@
 			"mod.leronus.mores.MoresDataGenerator"
 		],
         "modmenu": [
-          "mod.leronus.mores.config.ModMenu"
+            "mod.leronus.mores.config.ModMenu"
         ]
 	},
 	"mixins": [
-		"mores.mixins.json"
+      "mores.mixins.json"
 	],
 	"depends": {
 		"fabricloader": ">=0.15.11",
 		"minecraft": "~1.21.1",
 		"java": ">=21",
-		"fabric-api": "*"
+		"fabric-api": "*",
+		"fabricshieldlib": "*",
+		"spears": "*"
 	},
 	"suggests": {
 		"universal_ores": "*"

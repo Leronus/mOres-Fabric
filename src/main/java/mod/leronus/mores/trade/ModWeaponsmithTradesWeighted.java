@@ -17,6 +17,7 @@ public class ModWeaponsmithTradesWeighted {
         /* ==================== NOVICE (3 trades) ==================== */
         TradeOfferHelper.registerVillagerOffers(
                 VillagerProfession.WEAPONSMITH, 1, factories -> {
+                    factories.clear();
 
                     Random random = Random.create();
                     List<WeightedTrade> pool = new ArrayList<>();
@@ -55,6 +56,7 @@ public class ModWeaponsmithTradesWeighted {
         /* ==================== APPRENTICE (3 trades) ==================== */
         TradeOfferHelper.registerVillagerOffers(
                 VillagerProfession.WEAPONSMITH, 2, factories -> {
+                    factories.clear();
 
                     Random random = Random.create();
                     List<WeightedTrade> pool = List.of(
@@ -84,6 +86,7 @@ public class ModWeaponsmithTradesWeighted {
         /* ==================== JOURNEYMAN (3 trades) ==================== */
         TradeOfferHelper.registerVillagerOffers(
                 VillagerProfession.WEAPONSMITH, 3, factories -> {
+                    factories.clear();
 
                     Random random = Random.create();
                     List<WeightedTrade> pool = new ArrayList<>();
@@ -113,6 +116,7 @@ public class ModWeaponsmithTradesWeighted {
         /* ==================== MASTER (3 trades) ==================== */
         TradeOfferHelper.registerVillagerOffers(
                 VillagerProfession.WEAPONSMITH, 5, factories -> {
+                    factories.clear();
 
                     Random random = Random.create();
                     List<WeightedTrade> pool = new ArrayList<>();
