@@ -3538,18 +3538,6 @@ public class ModRecipeProvider extends FabricRecipeProvider {
     private void generateGraphene(RecipeExporter exporter) {
         /* -- Graphene -- */
         //Items & Blocks
-        ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "graphene_gem")), 9)
-                .group("graphene_gem")
-                .input(Registries.ITEM.get(Identifier.of("mores", "graphene_block")))
-                .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "graphene_block"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "graphene_block"))))
-                .offerTo(exporter, Identifier.of("mores", "graphene_gem_from_graphene_block"));
-        ShapedRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, Registries.ITEM.get(Identifier.of("mores", "graphene_block")), 1)
-                .pattern("###")
-                .pattern("###")
-                .pattern("###")
-                .input('#', Registries.ITEM.get(Identifier.of("mores", "graphene_gem")))
-                .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "graphene_gem"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "graphene_gem"))))
-                .offerTo(exporter, Identifier.of("mores", "graphene_block"));
         //Tools
         ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, Registries.ITEM.get(Identifier.of("mores", "graphene_sword")), 1)
                 .pattern("$")

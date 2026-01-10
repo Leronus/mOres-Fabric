@@ -264,6 +264,6 @@ public final class ModTrimmedArmorItemModelProvider implements DataProvider {
 
     @Override
     public String getName() {
-        return "mOres/Trimmed Armor Item Models";
+        return "Trimmed Armor Item Models";
     }
 }

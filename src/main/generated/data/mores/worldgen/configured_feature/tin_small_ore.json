@@ -6,6 +6,42 @@
     "targets": [
       {
         "state": {
+          "Name": "mores:andesite_tin_ore"
+        },
+        "target": {
+          "block": "minecraft:andesite",
+          "predicate_type": "minecraft:block_match"
+        }
+      },
+      {
+        "state": {
+          "Name": "mores:granite_tin_ore"
+        },
+        "target": {
+          "block": "minecraft:granite",
+          "predicate_type": "minecraft:block_match"
+        }
+      },
+      {
+        "state": {
+          "Name": "mores:tuff_tin_ore"
+        },
+        "target": {
+          "block": "minecraft:tuff",
+          "predicate_type": "minecraft:block_match"
+        }
+      },
+      {
+        "state": {
+          "Name": "mores:gravel_tin_ore"
+        },
+        "target": {
+          "block": "minecraft:gravel",
+          "predicate_type": "minecraft:block_match"
+        }
+      },
+      {
+        "state": {
           "Name": "mores:tin_ore"
         },
         "target": {

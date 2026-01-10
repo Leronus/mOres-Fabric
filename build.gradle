@@ -125,7 +125,7 @@ dependencies {
 
     // Optional
     // modRuntimeOnly "maven.modrinth:entityculling:${project.entity_culling_version}"
-    // modRuntimeOnly "maven.modrinth:advanced-xray-fabric-edition-444663:4595168"
+     modRuntimeOnly "curse.maven:advanced-xray-fabric-edition-444663:5424324"
 }
 
 

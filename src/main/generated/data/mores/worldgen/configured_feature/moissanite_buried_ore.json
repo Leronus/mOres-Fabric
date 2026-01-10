@@ -6,6 +6,60 @@
     "targets": [
       {
         "state": {
+          "Name": "mores:andesite_moissanite_ore"
+        },
+        "target": {
+          "block": "minecraft:andesite",
+          "predicate_type": "minecraft:block_match"
+        }
+      },
+      {
+        "state": {
+          "Name": "mores:diorite_moissanite_ore"
+        },
+        "target": {
+          "block": "minecraft:diorite",
+          "predicate_type": "minecraft:block_match"
+        }
+      },
+      {
+        "state": {
+          "Name": "mores:granite_moissanite_ore"
+        },
+        "target": {
+          "block": "minecraft:granite",
+          "predicate_type": "minecraft:block_match"
+        }
+      },
+      {
+        "state": {
+          "Name": "mores:tuff_moissanite_ore"
+        },
+        "target": {
+          "block": "minecraft:tuff",
+          "predicate_type": "minecraft:block_match"
+        }
+      },
+      {
+        "state": {
+          "Name": "mores:calcite_moissanite_ore"
+        },
+        "target": {
+          "block": "minecraft:calcite",
+          "predicate_type": "minecraft:block_match"
+        }
+      },
+      {
+        "state": {
+          "Name": "mores:gravel_moissanite_ore"
+        },
+        "target": {
+          "block": "minecraft:gravel",
+          "predicate_type": "minecraft:block_match"
+        }
+      },
+      {
+        "state": {
           "Name": "mores:moissanite_ore"
         },
         "target": {

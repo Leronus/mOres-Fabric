@@ -25,6 +25,6 @@ public class ModDynamicRegistryProvider extends FabricDynamicRegistryProvider {
 
     @Override
     public String getName() {
-        return Mores.MOD_ID + " Dynamic Registries";
+        return "Dynamic Registries";
     }
 }

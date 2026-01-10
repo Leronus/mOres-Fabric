@@ -6,6 +6,15 @@
     "mores:sapphire_block",
     "mores:moissanite_ore",
     "mores:deepslate_moissanite_ore",
-    "mores:nether_moissanite_ore"
+    "mores:nether_moissanite_ore",
+    "mores:ender_moissanite_ore",
+    "mores:andesite_moissanite_ore",
+    "mores:basalt_moissanite_ore",
+    "mores:blackstone_moissanite_ore",
+    "mores:calcite_moissanite_ore",
+    "mores:diorite_moissanite_ore",
+    "mores:granite_moissanite_ore",
+    "mores:gravel_moissanite_ore",
+    "mores:tuff_moissanite_ore"
   ]
 }

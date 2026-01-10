@@ -75,6 +75,6 @@ public class ModJukeboxSongProvider implements DataProvider {
 
     @Override
     public String getName() {
-        return "mOres Jukebox Song JSONs";
+        return "Jukebox Songs";
     }
 }

@@ -9,8 +9,8 @@ import net.minecraft.util.Identifier;
 
 public class ModTags {
     public static class Blocks {
-        public static final TagKey<Block> NEEDS_GRAPHENE_TOOL = createTag("needs_graphene_tool");
-        public static final TagKey<Block> INCORRECT_FOR_GRAPHENE_TOOL = createTag("incorrect_for_graphene_tool");
+        public static final TagKey<Block> NEEDS_ADAMANTIUM_TOOL = createTag("needs_adamantium_tool");
+        public static final TagKey<Block> INCORRECT_FOR_ADAMANTIUM_TOOL = createTag("incorrect_for_adamantium_tool");
 
 
         private static TagKey<Block> createTag(String name) {

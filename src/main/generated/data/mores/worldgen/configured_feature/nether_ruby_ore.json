@@ -12,6 +12,24 @@
           "block": "minecraft:netherrack",
           "predicate_type": "minecraft:block_match"
         }
+      },
+      {
+        "state": {
+          "Name": "mores:basalt_ruby_ore"
+        },
+        "target": {
+          "block": "minecraft:basalt",
+          "predicate_type": "minecraft:block_match"
+        }
+      },
+      {
+        "state": {
+          "Name": "mores:blackstone_ruby_ore"
+        },
+        "target": {
+          "block": "minecraft:blackstone",
+          "predicate_type": "minecraft:block_match"
+        }
       }
     ]
   }

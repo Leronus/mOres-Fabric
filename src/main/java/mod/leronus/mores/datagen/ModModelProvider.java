@@ -32,36 +32,136 @@ public class ModModelProvider extends FabricModelProvider {
 
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.TIN_ORE);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.DEEPSLATE_TIN_ORE);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.ANDESITE_TIN_ORE);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.GRANITE_TIN_ORE);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.GRAVEL_TIN_ORE);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.TUFF_TIN_ORE);
+
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.SILVER_ORE);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.DEEPSLATE_SILVER_ORE);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.NETHER_SILVER_ORE);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.ENDER_SILVER_ORE);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.ANDESITE_SILVER_ORE);
+        blockStateModelGenerator.registerSingleton(ModBlocks.BASALT_SILVER_ORE, TexturedModel.CUBE_COLUMN);
+        blockStateModelGenerator.registerSingleton(ModBlocks.BLACKSTONE_SILVER_ORE, TexturedModel.CUBE_COLUMN);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.CALCITE_SILVER_ORE);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.DIORITE_SILVER_ORE);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.GRANITE_SILVER_ORE);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.GRAVEL_SILVER_ORE);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.TUFF_SILVER_ORE);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.ELECTRUM_ORE);
+
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.COBALT_ORE);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.DEEPSLATE_COBALT_ORE);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.ENDER_COBALT_ORE);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.ANDESITE_COBALT_ORE);
+        blockStateModelGenerator.registerSingleton(ModBlocks.BASALT_COBALT_ORE, TexturedModel.CUBE_COLUMN);
+        blockStateModelGenerator.registerSingleton(ModBlocks.BLACKSTONE_COBALT_ORE, TexturedModel.CUBE_COLUMN);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.CALCITE_COBALT_ORE);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.DIORITE_COBALT_ORE);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.GRANITE_COBALT_ORE);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.GRAVEL_COBALT_ORE);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.TUFF_COBALT_ORE);
+
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.TURQUOISE_ORE);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.DEEPSLATE_TURQUOISE_ORE);
+
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.QUARTZ_ORE);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.CITRINE_ORE);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.NETHER_CITRINE_ORE);
+
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.TANZANITE_ORE);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.DEEPSLATE_TANZANITE_ORE);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.NETHER_TANZANITE_ORE);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.ENDER_TANZANITE_ORE);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.ANDESITE_TANZANITE_ORE);
+        blockStateModelGenerator.registerSingleton(ModBlocks.BASALT_TANZANITE_ORE, TexturedModel.CUBE_COLUMN);
+        blockStateModelGenerator.registerSingleton(ModBlocks.BLACKSTONE_TANZANITE_ORE, TexturedModel.CUBE_COLUMN);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.CALCITE_TANZANITE_ORE);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.DIORITE_TANZANITE_ORE);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.GRANITE_TANZANITE_ORE);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.GRAVEL_TANZANITE_ORE);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.TUFF_TANZANITE_ORE);
+
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.TOURMALINE_ORE);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.DEEPSLATE_TOURMALINE_ORE);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.NETHER_TOURMALINE_ORE);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.ENDER_TOURMALINE_ORE);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.ANDESITE_TOURMALINE_ORE);
+        blockStateModelGenerator.registerSingleton(ModBlocks.BASALT_TOURMALINE_ORE, TexturedModel.CUBE_COLUMN);
+        blockStateModelGenerator.registerSingleton(ModBlocks.BLACKSTONE_TOURMALINE_ORE, TexturedModel.CUBE_COLUMN);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.CALCITE_TOURMALINE_ORE);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.DIORITE_TOURMALINE_ORE);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.GRANITE_TOURMALINE_ORE);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.GRAVEL_TOURMALINE_ORE);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.TUFF_TOURMALINE_ORE);
+
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.TOPAZ_ORE);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.DEEPSLATE_TOPAZ_ORE);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.NETHER_TOPAZ_ORE);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.ENDER_TOPAZ_ORE);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.ANDESITE_TOPAZ_ORE);
+        blockStateModelGenerator.registerSingleton(ModBlocks.BASALT_TOPAZ_ORE, TexturedModel.CUBE_COLUMN);
+        blockStateModelGenerator.registerSingleton(ModBlocks.BLACKSTONE_TOPAZ_ORE, TexturedModel.CUBE_COLUMN);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.CALCITE_TOPAZ_ORE);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.DIORITE_TOPAZ_ORE);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.GRANITE_TOPAZ_ORE);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.GRAVEL_TOPAZ_ORE);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.TUFF_TOPAZ_ORE);
+
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.SPINEL_ORE);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.DEEPSLATE_SPINEL_ORE);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.NETHER_SPINEL_ORE);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.ENDER_SPINEL_ORE);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.ANDESITE_SPINEL_ORE);
+        blockStateModelGenerator.registerSingleton(ModBlocks.BASALT_SPINEL_ORE, TexturedModel.CUBE_COLUMN);
+        blockStateModelGenerator.registerSingleton(ModBlocks.BLACKSTONE_SPINEL_ORE, TexturedModel.CUBE_COLUMN);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.CALCITE_SPINEL_ORE);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.DIORITE_SPINEL_ORE);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.GRANITE_SPINEL_ORE);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.GRAVEL_SPINEL_ORE);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.TUFF_SPINEL_ORE);
+
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.RUBY_ORE);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.DEEPSLATE_RUBY_ORE);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.NETHER_RUBY_ORE);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.ENDER_RUBY_ORE);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.ANDESITE_RUBY_ORE);
+        blockStateModelGenerator.registerSingleton(ModBlocks.BASALT_RUBY_ORE, TexturedModel.CUBE_COLUMN);
+        blockStateModelGenerator.registerSingleton(ModBlocks.BLACKSTONE_RUBY_ORE, TexturedModel.CUBE_COLUMN);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.CALCITE_RUBY_ORE);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.DIORITE_RUBY_ORE);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.GRANITE_RUBY_ORE);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.GRAVEL_RUBY_ORE);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.TUFF_RUBY_ORE);
+
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.SAPPHIRE_ORE);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.DEEPSLATE_SAPPHIRE_ORE);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.NETHER_SAPPHIRE_ORE);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.ENDER_SAPPHIRE_ORE);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.ANDESITE_SAPPHIRE_ORE);
+        blockStateModelGenerator.registerSingleton(ModBlocks.BASALT_SAPPHIRE_ORE, TexturedModel.CUBE_COLUMN);
+        blockStateModelGenerator.registerSingleton(ModBlocks.BLACKSTONE_SAPPHIRE_ORE, TexturedModel.CUBE_COLUMN);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.CALCITE_SAPPHIRE_ORE);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.DIORITE_SAPPHIRE_ORE);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.GRANITE_SAPPHIRE_ORE);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.GRAVEL_SAPPHIRE_ORE);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.TUFF_SAPPHIRE_ORE);
+
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.MOISSANITE_ORE);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.DEEPSLATE_MOISSANITE_ORE);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.NETHER_MOISSANITE_ORE);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.ENDER_MOISSANITE_ORE);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.ANDESITE_MOISSANITE_ORE);
+        blockStateModelGenerator.registerSingleton(ModBlocks.BASALT_MOISSANITE_ORE, TexturedModel.CUBE_COLUMN);
+        blockStateModelGenerator.registerSingleton(ModBlocks.BLACKSTONE_MOISSANITE_ORE, TexturedModel.CUBE_COLUMN);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.CALCITE_MOISSANITE_ORE);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.DIORITE_MOISSANITE_ORE);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.GRANITE_MOISSANITE_ORE);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.GRAVEL_MOISSANITE_ORE);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.TUFF_MOISSANITE_ORE);
+
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.NETHER_ONYX_ORE);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.ENDER_ONYX_ORE);
         blockStateModelGenerator.registerSingleton(ModBlocks.PRIMORDIAL_DEBRIS, TexturedModel.CUBE_COLUMN);
 
@@ -84,7 +184,6 @@ public class ModModelProvider extends FabricModelProvider {
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.SAPPHIRE_BLOCK);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.MOISSANITE_BLOCK);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.ONYX_BLOCK);
-        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.GRAPHENE_BLOCK);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.ADAMANTIUM_BLOCK);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.ENDERITE_BLOCK);
         registerAlloyFurnace(blockStateModelGenerator);
