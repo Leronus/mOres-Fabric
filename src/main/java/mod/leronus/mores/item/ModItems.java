@@ -1,7 +1,5 @@
 package mod.leronus.mores.item;
 
-import com.notunanancyowen.spears.Spears;
-import com.notunanancyowen.spears.fabric.SpearsFabric;
 import mod.leronus.mores.Mores;
 import mod.leronus.mores.item.custom.*;
 import mod.leronus.mores.sound.ModJukeboxSongs;

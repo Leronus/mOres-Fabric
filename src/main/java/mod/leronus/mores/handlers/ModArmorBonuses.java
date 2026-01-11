@@ -18,9 +18,9 @@ import net.minecraft.util.Identifier;
 
 import java.util.*;
 
-public final class ArmorBonusHandler {
+public final class ModArmorBonuses {
 
-    private ArmorBonusHandler() {}
+    private ModArmorBonuses() {}
 
     private static final Identifier SPINEL_MAX_HEALTH_ID =
             Identifier.of("mores", "spinel_max_health_bonus");
@@ -32,8 +32,9 @@ public final class ArmorBonusHandler {
     // “Signature” templates: infinite duration (-1), ambient=false, particles=false, icon=true
     private static final Map<ArmorMaterial, List<StatusEffectInstance>> EFFECTS_BY_MATERIAL = new HashMap<>();
 
-    public static void init() {
-        // Build the mapping once
+    public static void registerArmorBonuses() {
+        //Rose gold piglin immunity
+
         put(ModArmorMaterials.HARDENED_STEEL.value(), moresEffect(net.minecraft.entity.effect.StatusEffects.STRENGTH, 0));
 
         put(ModArmorMaterials.AMETHYST.value(), moresEffect(net.minecraft.entity.effect.StatusEffects.SLOW_FALLING, 0));
@@ -47,9 +48,13 @@ public final class ArmorBonusHandler {
         put(ModArmorMaterials.RUBY.value(), moresEffect(net.minecraft.entity.effect.StatusEffects.FIRE_RESISTANCE, 0));
 
         put(ModArmorMaterials.SAPPHIRE.value(), moresEffect(net.minecraft.entity.effect.StatusEffects.NIGHT_VISION, 0));
-        put(ModArmorMaterials.MOISSANITE.value(), moresEffect(net.minecraft.entity.effect.StatusEffects.JUMP_BOOST, 0));
+//        put(ModArmorMaterials.MOISSANITE.value(), moresEffect(net.minecraft.entity.effect.StatusEffects.JUMP_BOOST, 0));
 
-        ServerTickEvents.END_SERVER_TICK.register(ArmorBonusHandler::onServerTick);
+        //Onyx wither resistance
+
+        //Enderite endermen immunity
+
+        ServerTickEvents.END_SERVER_TICK.register(ModArmorBonuses::onServerTick);
     }
 
     private static void put(ArmorMaterial mat, StatusEffectInstance effect) {

@@ -1,6 +1,8 @@
 package mod.leronus.mores;
 
 import eu.midnightdust.lib.config.MidnightConfig;
+import mod.leronus.mores.entity.ModEntities;
+import mod.leronus.mores.render.HardenedSteelGolemRenderer;
 import mod.leronus.mores.render.ShieldLikeRenderer;
 import mod.leronus.mores.screen.AlloyFurnaceScreen;
 import mod.leronus.mores.config.ClientConfig;
@@ -8,6 +10,7 @@ import mod.leronus.mores.item.ModItems;
 import mod.leronus.mores.registry.ModScreenHandlers;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.client.rendering.v1.BuiltinItemRendererRegistry;
+import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
 import net.minecraft.client.gui.screen.ingame.HandledScreens;
 import net.minecraft.item.Item;
 
@@ -18,10 +21,11 @@ public class MoresClient implements ClientModInitializer {
         MidnightConfig.init(Mores.MOD_ID, ClientConfig.class);
         VanillaTooltipHook.init();
         HandledScreens.register(ModScreenHandlers.ALLOY_FURNACE, AlloyFurnaceScreen::new);
-
         ShieldLikeRenderer shieldRenderer = new ShieldLikeRenderer();
-
-        // Register all your shields in one place
+        EntityRendererRegistry.register(
+                ModEntities.HARDENED_STEEL_GOLEM,
+                HardenedSteelGolemRenderer::new
+        );
         registerShield(shieldRenderer,
                 ModItems.TIN_SHIELD,
                 ModItems.SILVER_SHIELD,

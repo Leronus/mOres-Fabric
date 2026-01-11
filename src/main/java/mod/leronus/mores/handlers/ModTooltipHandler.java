@@ -10,8 +10,8 @@ import net.minecraft.util.Formatting;
 
 import java.util.List;
 
-public final class TooltipHandler {
-    private TooltipHandler() {}
+public final class ModTooltipHandler {
+    private ModTooltipHandler() {}
 
     /**
      * Called from appendTooltip methods.

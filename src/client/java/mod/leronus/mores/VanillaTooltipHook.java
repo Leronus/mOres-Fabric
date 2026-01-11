@@ -1,6 +1,6 @@
 package mod.leronus.mores;
 
-import mod.leronus.mores.handlers.TooltipHandler;
+import mod.leronus.mores.handlers.ModTooltipHandler;
 import net.fabricmc.fabric.api.client.item.v1.ItemTooltipCallback;
 import net.minecraft.item.Item;
 import net.minecraft.registry.Registries;
@@ -16,7 +16,7 @@ public final class VanillaTooltipHook {
             String namespace = Registries.ITEM.getId(item).getNamespace();
             if ("mores".equals(namespace)) return;
 
-            TooltipHandler.appendCombatTooltips(stack, lines, type);
+            ModTooltipHandler.appendCombatTooltips(stack, lines, type);
         });
     }
 }

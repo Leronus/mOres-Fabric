@@ -1,6 +1,6 @@
 package mod.leronus.mores.item.custom;
 
-import mod.leronus.mores.handlers.TooltipHandler;
+import mod.leronus.mores.handlers.ModTooltipHandler;
 import net.minecraft.item.ArmorItem;
 import net.minecraft.item.ArmorMaterial;
 import net.minecraft.item.ItemStack;
@@ -18,6 +18,6 @@ public class ModArmorItem extends ArmorItem {
 
     @Override
     public void appendTooltip(ItemStack stack, TooltipContext context, List<Text> tooltip, TooltipType type) {
-        TooltipHandler.appendCombatTooltips(stack, tooltip, type);
+        ModTooltipHandler.appendCombatTooltips(stack, tooltip, type);
     }
 }
