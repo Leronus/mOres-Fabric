@@ -1,0 +1,34 @@
+{
+  "parent": "mores:i_am_iron_man",
+  "criteria": {
+    "summon_hardened_steel_golem": {
+      "conditions": {
+        "entity": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "type": "mores:hardened_steel_golem"
+            }
+          }
+        ]
+      },
+      "trigger": "minecraft:summoned_entity"
+    }
+  },
+  "display": {
+    "description": "Build a Hardened Steel Golem.",
+    "frame": "goal",
+    "icon": {
+      "count": 1,
+      "id": "mores:hardened_steel_block"
+    },
+    "title": "Hired Brother"
+  },
+  "requirements": [
+    [
+      "summon_hardened_steel_golem"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

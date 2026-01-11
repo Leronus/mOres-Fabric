@@ -2,6 +2,7 @@ package mod.leronus.mores.datagen;
 
 import mod.leronus.mores.Mores;
 import mod.leronus.mores.block.ModBlocks;
+import mod.leronus.mores.entity.ModEntities;
 import mod.leronus.mores.item.ModItems;
 
 import mod.leronus.mores.item.ModTags;
@@ -288,6 +289,19 @@ public class ModAdvancementProvider extends FabricAdvancementProvider {
                 .criterion("hardened_steel_boots", hasItem(ModItems.HARDENED_STEEL_BOOTS))
                 .build(exporter, id("full_hardened_steel_armor"));
 
+        AdvancementEntry hardenedSteelGolem = Advancement.Builder.create()
+                .parent(iAmIronMan)
+                .display(display(
+                        ModBlocks.HARDENED_STEEL_BLOCK.asItem(),
+                        "Hired Brother",
+                        "Build a Hardened Steel Golem.",
+                        AdvancementFrame.GOAL, // GOAL or CHALLENGE both fit
+                        2, 10 // pick a lane so it doesn't clutter root
+                ))
+                .criterion("summon_hardened_steel_golem", summonEntity(ModEntities.HARDENED_STEEL_GOLEM))
+                .build(exporter, id("summon_hardened_steel_golem"));
+
+
 //
 //        AdvancementEntry gravelLucky = Advancement.Builder.create()
 //                .parent(root) // or parent to your “gravel ores” hub
@@ -365,33 +379,26 @@ public class ModAdvancementProvider extends FabricAdvancementProvider {
     }
 
     // -------- helpers --------
-
-    /** Your mappings want build(..., String), so we return "modid:path" */
     private static String id(String path) {
         return Mores.MOD_ID + ":" + path;
     }
 
-    /** criterion(...) wants an AdvancementCriterion<?> */
     private static AdvancementCriterion<?> hasItem(ItemConvertible item) {
-        return Criteria.INVENTORY_CHANGED.create(
-                InventoryChangedCriterion.Conditions.items(item).conditions()
-        );
-    }
-    private static AdvancementCriterion<?> eatItem(ItemConvertible item) {
-        return Criteria.CONSUME_ITEM.create(
-                ConsumeItemCriterion.Conditions.item(item).conditions()
-        );
-    }
-    private static AdvancementCriterion<?> killEntity(EntityType<?> type) {
-        return OnKilledCriterion.Conditions.createPlayerKilledEntity(
-                EntityPredicate.Builder.create().type(type)
-        );
+        return Criteria.INVENTORY_CHANGED.create(InventoryChangedCriterion.Conditions.items(item).conditions());
     }
     private static AdvancementCriterion<?> hasAnyItem(ItemConvertible... items) {
         return InventoryChangedCriterion.Conditions.items(items);
     }
-
-
+    private static AdvancementCriterion<?> eatItem(ItemConvertible item) {
+        return Criteria.CONSUME_ITEM.create(ConsumeItemCriterion.Conditions.item(item).conditions());
+    }
+    private static AdvancementCriterion<?> killEntity(EntityType<?> type) {
+        return OnKilledCriterion.Conditions.createPlayerKilledEntity(EntityPredicate.Builder.create().type(type));
+    }
+    private static AdvancementCriterion<?> summonEntity(EntityType<?> type) {
+        return SummonedEntityCriterion.Conditions.create(EntityPredicate.Builder.create().type(type)
+        );
+    }
 
     private static AdvancementDisplay display(
             ItemConvertible icon,
@@ -410,7 +417,7 @@ public class ModAdvancementProvider extends FabricAdvancementProvider {
                 true,
                 false
         );
-        d.setPos(x, y); // <-- THIS is the correct method in your mappings
+        d.setPos(x, y); // <-- THIS is the correct method in mappings
         return d;
     }
 
