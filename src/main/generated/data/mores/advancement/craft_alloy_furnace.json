@@ -1,0 +1,29 @@
+{
+  "parent": "mores:obtain_tin_ingot",
+  "criteria": {
+    "has_alloy_furnace": {
+      "conditions": {
+        "items": [
+          {
+            "items": "mores:alloy_furnace"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": "Craft an alloy furnace.",
+    "icon": {
+      "count": 1,
+      "id": "mores:alloy_furnace"
+    },
+    "title": "Alloying Time"
+  },
+  "requirements": [
+    [
+      "has_alloy_furnace"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

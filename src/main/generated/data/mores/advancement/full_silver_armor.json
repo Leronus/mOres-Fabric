@@ -1,0 +1,68 @@
+{
+  "parent": "mores:obtain_silver_ingot",
+  "criteria": {
+    "silver_boots": {
+      "conditions": {
+        "items": [
+          {
+            "items": "mores:silver_boots"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "silver_chestplate": {
+      "conditions": {
+        "items": [
+          {
+            "items": "mores:silver_chestplate"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "silver_helmet": {
+      "conditions": {
+        "items": [
+          {
+            "items": "mores:silver_helmet"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "silver_leggings": {
+      "conditions": {
+        "items": [
+          {
+            "items": "mores:silver_leggings"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": "Craft a full set of silver armor.",
+    "icon": {
+      "count": 1,
+      "id": "mores:silver_chestplate"
+    },
+    "title": "Quicksilver"
+  },
+  "requirements": [
+    [
+      "silver_helmet"
+    ],
+    [
+      "silver_chestplate"
+    ],
+    [
+      "silver_leggings"
+    ],
+    [
+      "silver_boots"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

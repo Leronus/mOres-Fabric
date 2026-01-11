@@ -1,0 +1,29 @@
+{
+  "parent": "mores:craft_alloy_furnace",
+  "criteria": {
+    "has_rose_gold": {
+      "conditions": {
+        "items": [
+          {
+            "items": "mores:rose_gold_ingot"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": "Obtain a rose gold ingot by alloying copper and gold.",
+    "icon": {
+      "count": 1,
+      "id": "mores:rose_gold_ingot"
+    },
+    "title": "Ohh Prettyyyy"
+  },
+  "requirements": [
+    [
+      "has_rose_gold"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

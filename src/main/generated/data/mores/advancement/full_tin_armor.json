@@ -1,0 +1,68 @@
+{
+  "parent": "mores:obtain_tin_ingot",
+  "criteria": {
+    "tin_boots": {
+      "conditions": {
+        "items": [
+          {
+            "items": "mores:tin_boots"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "tin_chestplate": {
+      "conditions": {
+        "items": [
+          {
+            "items": "mores:tin_chestplate"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "tin_helmet": {
+      "conditions": {
+        "items": [
+          {
+            "items": "mores:tin_helmet"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "tin_leggings": {
+      "conditions": {
+        "items": [
+          {
+            "items": "mores:tin_leggings"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": "Craft a full set of tin armor.",
+    "icon": {
+      "count": 1,
+      "id": "mores:tin_chestplate"
+    },
+    "title": "Tin Suit-Up"
+  },
+  "requirements": [
+    [
+      "tin_helmet"
+    ],
+    [
+      "tin_chestplate"
+    ],
+    [
+      "tin_leggings"
+    ],
+    [
+      "tin_boots"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

@@ -1,0 +1,29 @@
+{
+  "parent": "mores:obtain_tin_ingot",
+  "criteria": {
+    "has_silver": {
+      "conditions": {
+        "items": [
+          {
+            "items": "mores:silver_ingot"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": "Acquire a silver ingot.",
+    "icon": {
+      "count": 1,
+      "id": "mores:silver_ingot"
+    },
+    "title": "Obtain Silver Ingot"
+  },
+  "requirements": [
+    [
+      "has_silver"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

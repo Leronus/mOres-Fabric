@@ -1,0 +1,68 @@
+{
+  "parent": "mores:hephaestus",
+  "criteria": {
+    "cobalt_boots": {
+      "conditions": {
+        "items": [
+          {
+            "items": "mores:cobalt_boots"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "cobalt_chestplate": {
+      "conditions": {
+        "items": [
+          {
+            "items": "mores:cobalt_chestplate"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "cobalt_helmet": {
+      "conditions": {
+        "items": [
+          {
+            "items": "mores:cobalt_helmet"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "cobalt_leggings": {
+      "conditions": {
+        "items": [
+          {
+            "items": "mores:cobalt_leggings"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": "Craft a full set of cobalt armor.",
+    "icon": {
+      "count": 1,
+      "id": "mores:cobalt_chestplate"
+    },
+    "title": "Built Different"
+  },
+  "requirements": [
+    [
+      "cobalt_helmet"
+    ],
+    [
+      "cobalt_chestplate"
+    ],
+    [
+      "cobalt_leggings"
+    ],
+    [
+      "cobalt_boots"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

@@ -1,0 +1,29 @@
+{
+  "criteria": {
+    "has_crafting_table": {
+      "conditions": {
+        "items": [
+          {
+            "items": "minecraft:crafting_table"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "background": "mores:textures/gui/advancements/background.png",
+    "description": "Progress through new ores, alloys, and gems.",
+    "icon": {
+      "count": 1,
+      "id": "mores:ender_ruby_ore"
+    },
+    "title": "mOres Reloaded"
+  },
+  "requirements": [
+    [
+      "has_crafting_table"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

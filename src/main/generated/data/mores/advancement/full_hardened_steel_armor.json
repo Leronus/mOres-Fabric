@@ -1,0 +1,68 @@
+{
+  "parent": "mores:i_am_iron_man",
+  "criteria": {
+    "hardened_steel_boots": {
+      "conditions": {
+        "items": [
+          {
+            "items": "mores:hardened_steel_boots"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "hardened_steel_chestplate": {
+      "conditions": {
+        "items": [
+          {
+            "items": "mores:hardened_steel_chestplate"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "hardened_steel_helmet": {
+      "conditions": {
+        "items": [
+          {
+            "items": "mores:hardened_steel_helmet"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "hardened_steel_leggings": {
+      "conditions": {
+        "items": [
+          {
+            "items": "mores:hardened_steel_leggings"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": "Craft a full set of hardened steel armor.",
+    "icon": {
+      "count": 1,
+      "id": "mores:hardened_steel_chestplate"
+    },
+    "title": "Man of Steel"
+  },
+  "requirements": [
+    [
+      "hardened_steel_helmet"
+    ],
+    [
+      "hardened_steel_chestplate"
+    ],
+    [
+      "hardened_steel_leggings"
+    ],
+    [
+      "hardened_steel_boots"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

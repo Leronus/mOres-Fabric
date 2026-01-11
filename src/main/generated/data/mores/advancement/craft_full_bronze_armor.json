@@ -1,0 +1,68 @@
+{
+  "parent": "mores:obtain_bronze_ingot",
+  "criteria": {
+    "bronze_boots": {
+      "conditions": {
+        "items": [
+          {
+            "items": "mores:bronze_boots"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "bronze_chestplate": {
+      "conditions": {
+        "items": [
+          {
+            "items": "mores:bronze_chestplate"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "bronze_helmet": {
+      "conditions": {
+        "items": [
+          {
+            "items": "mores:bronze_helmet"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "bronze_leggings": {
+      "conditions": {
+        "items": [
+          {
+            "items": "mores:bronze_leggings"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": "Craft a full set of bronze armor.",
+    "icon": {
+      "count": 1,
+      "id": "mores:bronze_chestplate"
+    },
+    "title": "Hoplite"
+  },
+  "requirements": [
+    [
+      "bronze_helmet"
+    ],
+    [
+      "bronze_chestplate"
+    ],
+    [
+      "bronze_leggings"
+    ],
+    [
+      "bronze_boots"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

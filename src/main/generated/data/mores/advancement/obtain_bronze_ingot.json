@@ -1,0 +1,29 @@
+{
+  "parent": "mores:craft_alloy_furnace",
+  "criteria": {
+    "has_bronze": {
+      "conditions": {
+        "items": [
+          {
+            "items": "mores:bronze_ingot"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": "Obtain a bronze ingot by alloying copper and tin.",
+    "icon": {
+      "count": 1,
+      "id": "mores:bronze_ingot"
+    },
+    "title": "The Bronze Age"
+  },
+  "requirements": [
+    [
+      "has_bronze"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

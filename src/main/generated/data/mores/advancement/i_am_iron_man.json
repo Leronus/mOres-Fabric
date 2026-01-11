@@ -1,0 +1,29 @@
+{
+  "parent": "mores:hot_hot_hot",
+  "criteria": {
+    "has_hardened_steel": {
+      "conditions": {
+        "items": [
+          {
+            "items": "mores:hardened_steel_ingot"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": "Create hardened steel.",
+    "icon": {
+      "count": 1,
+      "id": "mores:hardened_steel_ingot"
+    },
+    "title": "I Am Iron Man"
+  },
+  "requirements": [
+    [
+      "has_hardened_steel"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

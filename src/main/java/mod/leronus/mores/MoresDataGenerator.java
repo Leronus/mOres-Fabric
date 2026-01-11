@@ -21,7 +21,7 @@ public class MoresDataGenerator implements DataGeneratorEntrypoint {
         pack.addProvider(ModTrimmedArmorItemModelProvider::new);
         pack.addProvider(ModRecipeProvider::new);
 //		pack.addProvider(ModPaintingVariantTagProvider::new);
-//		pack.addProvider(ModAdvancementProvider::new);
+		pack.addProvider(ModAdvancementProvider::new);
 		pack.addProvider(ModDynamicRegistryProvider::new);
         pack.addProvider(ModJukeboxSongProvider::new);
         pack.addProvider(ModWorldGenerator::new);

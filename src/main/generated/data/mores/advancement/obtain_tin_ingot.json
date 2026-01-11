@@ -1,0 +1,29 @@
+{
+  "parent": "mores:root",
+  "criteria": {
+    "has_tin": {
+      "conditions": {
+        "items": [
+          {
+            "items": "mores:tin_ingot"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": "Acquire a tin ingot.",
+    "icon": {
+      "count": 1,
+      "id": "mores:tin_ingot"
+    },
+    "title": "Obtain Tin Ingot"
+  },
+  "requirements": [
+    [
+      "has_tin"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

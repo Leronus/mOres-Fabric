@@ -1,0 +1,38 @@
+{
+  "parent": "mores:root",
+  "criteria": {
+    "at_bottom_y": {
+      "conditions": {
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "location": {
+                "position": {
+                  "y": -63.0
+                }
+              }
+            }
+          }
+        ]
+      },
+      "trigger": "minecraft:location"
+    }
+  },
+  "display": {
+    "description": "Find the absolute bottom of the world.",
+    "frame": "challenge",
+    "icon": {
+      "count": 1,
+      "id": "minecraft:bedrock"
+    },
+    "title": "Where?!"
+  },
+  "requirements": [
+    [
+      "at_bottom_y"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

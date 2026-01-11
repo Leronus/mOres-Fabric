@@ -1,0 +1,27 @@
+{
+  "parent": "mores:eat_raw_duck",
+  "criteria": {
+    "eat_cooked_duck": {
+      "conditions": {
+        "item": {
+          "items": "mores:cooked_duck"
+        }
+      },
+      "trigger": "minecraft:consume_item"
+    }
+  },
+  "display": {
+    "description": "Eat a cooked duck.",
+    "icon": {
+      "count": 1,
+      "id": "mores:cooked_duck"
+    },
+    "title": "Mmm tasty (but still wrong)"
+  },
+  "requirements": [
+    [
+      "eat_cooked_duck"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

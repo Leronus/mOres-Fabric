@@ -1,0 +1,29 @@
+{
+  "parent": "mores:obtain_silver_ingot",
+  "criteria": {
+    "has_carbon_steel": {
+      "conditions": {
+        "items": [
+          {
+            "items": "mores:carbon_steel_ingot"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": "Obtain a cobalt ingot.",
+    "icon": {
+      "count": 1,
+      "id": "mores:cobalt_ingot"
+    },
+    "title": "Very Cobalt"
+  },
+  "requirements": [
+    [
+      "has_carbon_steel"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

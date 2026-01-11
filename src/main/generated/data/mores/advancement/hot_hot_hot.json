@@ -1,0 +1,29 @@
+{
+  "parent": "mores:hephaestus",
+  "criteria": {
+    "has_hot_carbon_steel": {
+      "conditions": {
+        "items": [
+          {
+            "items": "mores:hot_carbon_steel_scrap"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": "Smelt a carbon steel ingot.",
+    "icon": {
+      "count": 1,
+      "id": "mores:hot_carbon_steel_scrap"
+    },
+    "title": "Hot, Hot, Hot!"
+  },
+  "requirements": [
+    [
+      "has_hot_carbon_steel"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

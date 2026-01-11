@@ -1,0 +1,27 @@
+{
+  "parent": "mores:root",
+  "criteria": {
+    "eat_raw_duck": {
+      "conditions": {
+        "item": {
+          "items": "mores:raw_duck"
+        }
+      },
+      "trigger": "minecraft:consume_item"
+    }
+  },
+  "display": {
+    "description": "Eat a raw duck.",
+    "icon": {
+      "count": 1,
+      "id": "mores:raw_duck"
+    },
+    "title": "You Savage"
+  },
+  "requirements": [
+    [
+      "eat_raw_duck"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

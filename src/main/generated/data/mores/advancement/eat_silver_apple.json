@@ -1,0 +1,29 @@
+{
+  "parent": "mores:obtain_silver_ingot",
+  "criteria": {
+    "has_silver_apple": {
+      "conditions": {
+        "items": [
+          {
+            "items": "mores:silver_apple"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": "Craft a silver apple.",
+    "icon": {
+      "count": 1,
+      "id": "mores:silver_apple"
+    },
+    "title": "Crunchy"
+  },
+  "requirements": [
+    [
+      "has_silver_apple"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

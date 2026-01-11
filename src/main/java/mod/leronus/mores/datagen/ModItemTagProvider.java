@@ -116,7 +116,7 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
                 ModItems.ADAMANTIUM_HOE,
                 ModItems.ENDERITE_HOE
         );
-
+        //TODO Change to sharp for battleaxe?
         getOrCreateTagBuilder(ItemTags.SWORD_ENCHANTABLE).add(
                 ModItems.WOOD_BATTLE_AXE, ModItems.WOOD_BATTLE_MACE, ModItems.WOOD_DAGGER,
                 ModItems.TIN_SWORD, ModItems.TIN_BATTLE_AXE, ModItems.TIN_BATTLE_MACE,
@@ -246,6 +246,15 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
                 ModItems.ADAMANTIUM_CHESTPLATE,
                 ModItems.ENDERITE_CHESTPLATE,
 
+                ModItems.TIN_HORSE_ARMOR, ModItems.COPPER_HORSE_ARMOR, ModItems.SILVER_HORSE_ARMOR, ModItems.BRONZE_HORSE_ARMOR, ModItems.COBALT_HORSE_ARMOR, ModItems.STERLING_SILVER_HORSE_ARMOR, ModItems.ROSE_GOLD_HORSE_ARMOR,
+                ModItems.CARBON_STEEL_HORSE_ARMOR, ModItems.HARDENED_STEEL_HORSE_ARMOR, ModItems.AMETHYST_HORSE_ARMOR, ModItems.EMERALD_HORSE_ARMOR, ModItems.TURQUOISE_HORSE_ARMOR, ModItems.LAPIS_LAZULI_HORSE_ARMOR,
+                ModItems.TOURMALINE_HORSE_ARMOR, ModItems.TOPAZ_HORSE_ARMOR,  ModItems.TANZANITE_HORSE_ARMOR,
+                ModItems.RUBY_HORSE_ARMOR, ModItems.SAPPHIRE_HORSE_ARMOR, ModItems.SPINEL_HORSE_ARMOR, ModItems.CITRINE_HORSE_ARMOR, ModItems.MOISSANITE_HORSE_ARMOR, ModItems.ONYX_HORSE_ARMOR,
+                ModItems.OBSIDIAN_HORSE_ARMOR,
+                ModItems.GRAPHENE_HORSE_ARMOR,
+                ModItems.ADAMANTIUM_HORSE_ARMOR,
+                ModItems.ENDERITE_HORSE_ARMOR,
+
                 ModItems.ROSE_GOLD_WOLF_ARMOR
         );
         getOrCreateTagBuilder(ItemTags.LEG_ARMOR_ENCHANTABLE).add(
@@ -311,6 +320,13 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
         );
         getOrCreateTagBuilder(ConventionalItemTags.MUSIC_DISCS).add(
                 ModItems.SWEET_CAROLINE_MUSIC_DISC, ModItems.CIPHER_MUSIC_DISC);
+
+        //Wolf food (raw duck)
+        getOrCreateTagBuilder(ItemTags.WOLF_FOOD).add(
+                ModItems.RAW_DUCK
+        );
+
+
 
         //Backported Spears
         getOrCreateTagBuilder(TagKey.of(RegistryKeys.ITEM, Identifier.ofVanilla("spears"))).add(

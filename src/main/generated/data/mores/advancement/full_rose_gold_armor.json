@@ -1,0 +1,68 @@
+{
+  "parent": "mores:obtain_rose_gold_ingot",
+  "criteria": {
+    "rose_gold_boots": {
+      "conditions": {
+        "items": [
+          {
+            "items": "mores:rose_gold_boots"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "rose_gold_chestplate": {
+      "conditions": {
+        "items": [
+          {
+            "items": "mores:rose_gold_chestplate"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "rose_gold_helmet": {
+      "conditions": {
+        "items": [
+          {
+            "items": "mores:rose_gold_helmet"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "rose_gold_leggings": {
+      "conditions": {
+        "items": [
+          {
+            "items": "mores:rose_gold_leggings"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": "Craft a full set of rose gold armor.",
+    "icon": {
+      "count": 1,
+      "id": "mores:rose_gold_chestplate"
+    },
+    "title": "Piggies love me"
+  },
+  "requirements": [
+    [
+      "rose_gold_helmet"
+    ],
+    [
+      "rose_gold_chestplate"
+    ],
+    [
+      "rose_gold_leggings"
+    ],
+    [
+      "rose_gold_boots"
+    ]
+  ],
+  "sends_telemetry_event": true
+}
