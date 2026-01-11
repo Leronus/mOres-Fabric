@@ -6,7 +6,7 @@
     "targets": [
       {
         "state": {
-          "Name": "mores:ender_onyx_ore"
+          "Name": "mores:ender_silver_ore"
         },
         "target": {
           "block": "minecraft:end_stone",

@@ -25,42 +25,69 @@ public class ModPlacedFeatures {
     public static final RegistryKey<PlacedFeature> COBALT_UPPER_PLACED_KEY = registerKey("cobalt_upper_placed");
     public static final RegistryKey<PlacedFeature> COBALT_MIDDLE_PLACED_KEY = registerKey("cobalt_middle_placed");
     public static final RegistryKey<PlacedFeature> COBALT_SMALL_PLACED_KEY = registerKey("cobalt_small_placed");
+    public static final RegistryKey<PlacedFeature> ENDER_COBALT_PLACED_KEY = registerKey("ender_cobalt_placed");
 
     public static final RegistryKey<PlacedFeature> SILVER_UPPER_PLACED_KEY = registerKey("silver_upper_placed");
     public static final RegistryKey<PlacedFeature> SILVER_MIDDLE_PLACED_KEY = registerKey("silver_middle_placed");
     public static final RegistryKey<PlacedFeature> SILVER_SMALL_PLACED_KEY = registerKey("silver_small_placed");
     public static final RegistryKey<PlacedFeature> NETHER_SILVER_PLACED_KEY = registerKey("nether_silver_placed");
-
-    public static final RegistryKey<PlacedFeature> TOPAZ_SMALL_PLACED_KEY = registerKey("topaz_small_placed");
-    public static final RegistryKey<PlacedFeature> TOPAZ_LARGE_PLACED_KEY = registerKey("topaz_large_placed");
-    public static final RegistryKey<PlacedFeature> TOPAZ_BURIED_PLACED_KEY = registerKey("topaz_buried_placed");
-
-    public static final RegistryKey<PlacedFeature> TOURMALINE_SMALL_PLACED_KEY = registerKey("tourmaline_small_placed");
-    public static final RegistryKey<PlacedFeature> TOURMALINE_LARGE_PLACED_KEY = registerKey("tourmaline_large_placed");
-    public static final RegistryKey<PlacedFeature> TOURMALINE_BURIED_PLACED_KEY = registerKey("tourmaline_buried_placed");
-
-    public static final RegistryKey<PlacedFeature> RUBY_SMALL_PLACED_KEY = registerKey("ruby_small_placed");
-    public static final RegistryKey<PlacedFeature> RUBY_LARGE_PLACED_KEY = registerKey("ruby_large_placed");
-    public static final RegistryKey<PlacedFeature> RUBY_BURIED_PLACED_KEY = registerKey("ruby_buried_placed");
-    public static final RegistryKey<PlacedFeature> NETHER_RUBY_PLACED_KEY = registerKey("nether_ruby_placed");
-
-    public static final RegistryKey<PlacedFeature> SAPPHIRE_SMALL_PLACED_KEY = registerKey("sapphire_small_placed");
-    public static final RegistryKey<PlacedFeature> SAPPHIRE_LARGE_PLACED_KEY = registerKey("sapphire_large_placed");
-    public static final RegistryKey<PlacedFeature> SAPPHIRE_BURIED_PLACED_KEY = registerKey("sapphire_buried_placed");
-    public static final RegistryKey<PlacedFeature> NETHER_SAPPHIRE_PLACED_KEY = registerKey("nether_sapphire_placed");
-
-    public static final RegistryKey<PlacedFeature> NETHER_CITRINE_PLACED_KEY = registerKey("nether_citrine_placed");
-
-    public static final RegistryKey<PlacedFeature> MOISSANITE_SMALL_PLACED_KEY = registerKey("moissanite_small_placed");
-    public static final RegistryKey<PlacedFeature> MOISSANITE_LARGE_PLACED_KEY = registerKey("moissanite_large_placed");
-    public static final RegistryKey<PlacedFeature> MOISSANITE_BURIED_PLACED_KEY = registerKey("moissanite_buried_placed");
-    public static final RegistryKey<PlacedFeature> NETHER_MOISSANITE_PLACED_KEY = registerKey("nether_moissanite_placed");
+    public static final RegistryKey<PlacedFeature> ENDER_SILVER_PLACED_KEY = registerKey("ender_silver_placed");
 
     public static final RegistryKey<PlacedFeature> TURQUOISE_SMALL_PLACED_KEY = registerKey("turquoise_small_placed");
     public static final RegistryKey<PlacedFeature> TURQUOISE_LARGE_PLACED_KEY = registerKey("turquoise_large_placed");
     public static final RegistryKey<PlacedFeature> TURQUOISE_BURIED_PLACED_KEY = registerKey("turquoise_buried_placed");
 
+    public static final RegistryKey<PlacedFeature> QUARTZ_PLACED_KEY = registerKey("quartz_placed");
+
+    public static final RegistryKey<PlacedFeature> CITRINE_PLACED_KEY = registerKey("citrine_placed");
+    public static final RegistryKey<PlacedFeature> NETHER_CITRINE_PLACED_KEY = registerKey("nether_citrine_placed");
+
+    public static final RegistryKey<PlacedFeature> NETHER_ONYX_PLACED_KEY = registerKey("nether_onyx_placed");
     public static final RegistryKey<PlacedFeature> ENDER_ONYX_PLACED_KEY = registerKey("ender_onyx_placed");
+
+    public static final RegistryKey<PlacedFeature> TANZANITE_SMALL_PLACED_KEY = registerKey("tanzanite_small_placed");
+    public static final RegistryKey<PlacedFeature> TANZANITE_LARGE_PLACED_KEY = registerKey("tanzanite_large_placed");
+    public static final RegistryKey<PlacedFeature> TANZANITE_BURIED_PLACED_KEY = registerKey("tanzanite_buried_placed");
+    public static final RegistryKey<PlacedFeature> NETHER_TANZANITE_PLACED_KEY = registerKey("nether_tanzanite_placed");
+    public static final RegistryKey<PlacedFeature> ENDER_TANZANITE_PLACED_KEY = registerKey("ender_tanzanite_placed");
+
+    public static final RegistryKey<PlacedFeature> TOPAZ_SMALL_PLACED_KEY = registerKey("topaz_small_placed");
+    public static final RegistryKey<PlacedFeature> TOPAZ_LARGE_PLACED_KEY = registerKey("topaz_large_placed");
+    public static final RegistryKey<PlacedFeature> TOPAZ_BURIED_PLACED_KEY = registerKey("topaz_buried_placed");
+    public static final RegistryKey<PlacedFeature> NETHER_TOPAZ_PLACED_KEY = registerKey("nether_topaz_placed");
+    public static final RegistryKey<PlacedFeature> ENDER_TOPAZ_PLACED_KEY = registerKey("ender_topaz_placed");
+
+    public static final RegistryKey<PlacedFeature> TOURMALINE_SMALL_PLACED_KEY = registerKey("tourmaline_small_placed");
+    public static final RegistryKey<PlacedFeature> TOURMALINE_LARGE_PLACED_KEY = registerKey("tourmaline_large_placed");
+    public static final RegistryKey<PlacedFeature> TOURMALINE_BURIED_PLACED_KEY = registerKey("tourmaline_buried_placed");
+    public static final RegistryKey<PlacedFeature> NETHER_TOURMALINE_PLACED_KEY = registerKey("nether_tourmaline_placed");
+    public static final RegistryKey<PlacedFeature> ENDER_TOURMALINE_PLACED_KEY = registerKey("ender_tourmaline_placed");
+
+    public static final RegistryKey<PlacedFeature> SPINEL_SMALL_PLACED_KEY = registerKey("spinel_small_placed");
+    public static final RegistryKey<PlacedFeature> SPINEL_LARGE_PLACED_KEY = registerKey("spinel_large_placed");
+    public static final RegistryKey<PlacedFeature> SPINEL_BURIED_PLACED_KEY = registerKey("spinel_buried_placed");
+    public static final RegistryKey<PlacedFeature> NETHER_SPINEL_PLACED_KEY = registerKey("nether_spinel_placed");
+    public static final RegistryKey<PlacedFeature> ENDER_SPINEL_PLACED_KEY = registerKey("ender_spinel_placed");
+
+    public static final RegistryKey<PlacedFeature> RUBY_SMALL_PLACED_KEY = registerKey("ruby_small_placed");
+    public static final RegistryKey<PlacedFeature> RUBY_LARGE_PLACED_KEY = registerKey("ruby_large_placed");
+    public static final RegistryKey<PlacedFeature> RUBY_BURIED_PLACED_KEY = registerKey("ruby_buried_placed");
+    public static final RegistryKey<PlacedFeature> NETHER_RUBY_PLACED_KEY = registerKey("nether_ruby_placed");
+    public static final RegistryKey<PlacedFeature> ENDER_RUBY_PLACED_KEY = registerKey("ender_ruby_placed");
+
+    public static final RegistryKey<PlacedFeature> SAPPHIRE_SMALL_PLACED_KEY = registerKey("sapphire_small_placed");
+    public static final RegistryKey<PlacedFeature> SAPPHIRE_LARGE_PLACED_KEY = registerKey("sapphire_large_placed");
+    public static final RegistryKey<PlacedFeature> SAPPHIRE_BURIED_PLACED_KEY = registerKey("sapphire_buried_placed");
+    public static final RegistryKey<PlacedFeature> NETHER_SAPPHIRE_PLACED_KEY = registerKey("nether_sapphire_placed");
+    public static final RegistryKey<PlacedFeature> ENDER_SAPPHIRE_PLACED_KEY = registerKey("ender_sapphire_placed");
+
+    public static final RegistryKey<PlacedFeature> MOISSANITE_SMALL_PLACED_KEY = registerKey("moissanite_small_placed");
+    public static final RegistryKey<PlacedFeature> MOISSANITE_LARGE_PLACED_KEY = registerKey("moissanite_large_placed");
+    public static final RegistryKey<PlacedFeature> MOISSANITE_BURIED_PLACED_KEY = registerKey("moissanite_buried_placed");
+    public static final RegistryKey<PlacedFeature> NETHER_MOISSANITE_PLACED_KEY = registerKey("nether_moissanite_placed");
+    public static final RegistryKey<PlacedFeature> ENDER_MOISSANITE_PLACED_KEY = registerKey("ender_moissanite_placed");
+
+    public static final RegistryKey<PlacedFeature> ENDERITE_PLACED_KEY = registerKey("enderite_placed");
 
     public static void bootstrap(Registerable<PlacedFeature> context) {
         var configuredFeatureRegistryEntryLookup = context.getRegistryLookup(RegistryKeys.CONFIGURED_FEATURE);
@@ -96,6 +123,9 @@ public class ModPlacedFeatures {
         register(context, NETHER_SILVER_PLACED_KEY, configuredFeatureRegistryEntryLookup.getOrThrow(ModConfiguredFeatures.NETHER_SILVER_ORE_KEY),
                 ModOrePlacement.modifiersWithCount(14, // VeinsPerChunk
                         HeightRangePlacementModifier.uniform(YOffset.aboveBottom(0), YOffset.aboveBottom(312))));
+        register(context, ENDER_SILVER_PLACED_KEY, configuredFeatureRegistryEntryLookup.getOrThrow(ModConfiguredFeatures.ENDER_SILVER_ORE_KEY),
+                ModOrePlacement.modifiersWithCount(7, // VeinsPerChunk
+                        HeightRangePlacementModifier.trapezoid(YOffset.aboveBottom(0), YOffset.aboveBottom(312))));
 
         register(context, COBALT_UPPER_PLACED_KEY, configuredFeatureRegistryEntryLookup.getOrThrow(ModConfiguredFeatures.COBALT_UPPER_ORE_KEY),
                 ModOrePlacement.modifiersWithCount(6, // VeinsPerChunk
@@ -106,6 +136,53 @@ public class ModPlacedFeatures {
         register(context, COBALT_SMALL_PLACED_KEY, configuredFeatureRegistryEntryLookup.getOrThrow(ModConfiguredFeatures.COBALT_SMALL_ORE_KEY),
                 ModOrePlacement.modifiersWithCount(5, // VeinsPerChunk
                         HeightRangePlacementModifier.uniform(YOffset.aboveBottom(0), YOffset.aboveBottom(312))));
+        register(context, ENDER_COBALT_PLACED_KEY, configuredFeatureRegistryEntryLookup.getOrThrow(ModConfiguredFeatures.ENDER_COBALT_ORE_KEY),
+                ModOrePlacement.modifiersWithCount(7, // VeinsPerChunk
+                        HeightRangePlacementModifier.trapezoid(YOffset.aboveBottom(0), YOffset.aboveBottom(312))));
+
+        register(context, TURQUOISE_SMALL_PLACED_KEY, configuredFeatureRegistryEntryLookup.getOrThrow(ModConfiguredFeatures.TURQUOISE_SMALL_ORE_KEY),
+                ModOrePlacement.modifiersWithRarity(5, // VeinsPerChunk
+                        HeightRangePlacementModifier.uniform(YOffset.aboveBottom(0), YOffset.aboveBottom(12))));
+        register(context, TURQUOISE_LARGE_PLACED_KEY, configuredFeatureRegistryEntryLookup.getOrThrow(ModConfiguredFeatures.TURQUOISE_LARGE_ORE_KEY),
+                ModOrePlacement.modifiersWithRarity(1, // VeinsPerChunk
+                        HeightRangePlacementModifier.uniform(YOffset.aboveBottom(0), YOffset.aboveBottom(12))));
+        register(context, TURQUOISE_BURIED_PLACED_KEY, configuredFeatureRegistryEntryLookup.getOrThrow(ModConfiguredFeatures.TURQUOISE_BURIED_ORE_KEY),
+                ModOrePlacement.modifiersWithRarity(2, // VeinsPerChunk
+                        HeightRangePlacementModifier.uniform(YOffset.aboveBottom(0), YOffset.aboveBottom(16))));
+
+        register(context, QUARTZ_PLACED_KEY, configuredFeatureRegistryEntryLookup.getOrThrow(ModConfiguredFeatures.QUARTZ_ORE_KEY),
+                ModOrePlacement.modifiersWithCount(9, // VeinsPerChunk
+                        HeightRangePlacementModifier.trapezoid(YOffset.aboveBottom(0), YOffset.aboveBottom(312))));
+
+        register(context, CITRINE_PLACED_KEY, configuredFeatureRegistryEntryLookup.getOrThrow(ModConfiguredFeatures.CITRINE_ORE_KEY),
+                ModOrePlacement.modifiersWithCount(9, // VeinsPerChunk
+                        HeightRangePlacementModifier.trapezoid(YOffset.aboveBottom(0), YOffset.aboveBottom(312))));
+        register(context, NETHER_CITRINE_PLACED_KEY, configuredFeatureRegistryEntryLookup.getOrThrow(ModConfiguredFeatures.NETHER_CITRINE_ORE_KEY),
+                ModOrePlacement.modifiersWithCount(9, // VeinsPerChunk
+                        HeightRangePlacementModifier.trapezoid(YOffset.aboveBottom(0), YOffset.aboveBottom(312))));
+
+        register(context, NETHER_ONYX_PLACED_KEY, configuredFeatureRegistryEntryLookup.getOrThrow(ModConfiguredFeatures.NETHER_ONYX_ORE_KEY),
+                ModOrePlacement.modifiersWithCount(7, // VeinsPerChunk
+                        HeightRangePlacementModifier.trapezoid(YOffset.aboveBottom(0), YOffset.aboveBottom(312))));
+        register(context, ENDER_ONYX_PLACED_KEY, configuredFeatureRegistryEntryLookup.getOrThrow(ModConfiguredFeatures.ENDER_ONYX_ORE_KEY),
+                ModOrePlacement.modifiersWithCount(7, // VeinsPerChunk
+                        HeightRangePlacementModifier.trapezoid(YOffset.aboveBottom(0), YOffset.aboveBottom(312))));
+
+        register(context, TANZANITE_SMALL_PLACED_KEY, configuredFeatureRegistryEntryLookup.getOrThrow(ModConfiguredFeatures.TANZANITE_SMALL_ORE_KEY),
+                ModOrePlacement.modifiersWithCount(2, // VeinsPerChunk
+                        HeightRangePlacementModifier.trapezoid(YOffset.aboveBottom(0), YOffset.aboveBottom(78))));
+        register(context, TANZANITE_LARGE_PLACED_KEY, configuredFeatureRegistryEntryLookup.getOrThrow(ModConfiguredFeatures.TANZANITE_LARGE_ORE_KEY),
+                ModOrePlacement.modifiersWithCount(2, // VeinsPerChunk
+                        HeightRangePlacementModifier.uniform(YOffset.aboveBottom(0), YOffset.aboveBottom(64))));
+        register(context, TANZANITE_BURIED_PLACED_KEY, configuredFeatureRegistryEntryLookup.getOrThrow(ModConfiguredFeatures.TANZANITE_BURIED_ORE_KEY),
+                ModOrePlacement.modifiersWithCount(3, // VeinsPerChunk
+                        HeightRangePlacementModifier.uniform(YOffset.aboveBottom(0), YOffset.aboveBottom(64))));
+        register(context, NETHER_TANZANITE_PLACED_KEY, configuredFeatureRegistryEntryLookup.getOrThrow(ModConfiguredFeatures.NETHER_TANZANITE_ORE_KEY),
+                ModOrePlacement.modifiersWithCount(4, // VeinsPerChunk
+                        HeightRangePlacementModifier.trapezoid(YOffset.aboveBottom(0), YOffset.aboveBottom(312))));
+        register(context, ENDER_TANZANITE_PLACED_KEY, configuredFeatureRegistryEntryLookup.getOrThrow(ModConfiguredFeatures.ENDER_TANZANITE_ORE_KEY),
+                ModOrePlacement.modifiersWithCount(4, // VeinsPerChunk
+                        HeightRangePlacementModifier.trapezoid(YOffset.aboveBottom(0), YOffset.aboveBottom(312))));
 
         register(context, TOPAZ_SMALL_PLACED_KEY, configuredFeatureRegistryEntryLookup.getOrThrow(ModConfiguredFeatures.TOPAZ_SMALL_ORE_KEY),
                 ModOrePlacement.modifiersWithCount(2, // VeinsPerChunk
@@ -116,6 +193,12 @@ public class ModPlacedFeatures {
         register(context, TOPAZ_BURIED_PLACED_KEY, configuredFeatureRegistryEntryLookup.getOrThrow(ModConfiguredFeatures.TOPAZ_BURIED_ORE_KEY),
                 ModOrePlacement.modifiersWithCount(3, // VeinsPerChunk
                         HeightRangePlacementModifier.uniform(YOffset.aboveBottom(0), YOffset.aboveBottom(64))));
+        register(context, NETHER_TOPAZ_PLACED_KEY, configuredFeatureRegistryEntryLookup.getOrThrow(ModConfiguredFeatures.NETHER_TOPAZ_ORE_KEY),
+                ModOrePlacement.modifiersWithCount(4, // VeinsPerChunk
+                        HeightRangePlacementModifier.trapezoid(YOffset.aboveBottom(0), YOffset.aboveBottom(312))));
+        register(context, ENDER_TOPAZ_PLACED_KEY, configuredFeatureRegistryEntryLookup.getOrThrow(ModConfiguredFeatures.ENDER_TOPAZ_ORE_KEY),
+                ModOrePlacement.modifiersWithCount(4, // VeinsPerChunk
+                        HeightRangePlacementModifier.trapezoid(YOffset.aboveBottom(0), YOffset.aboveBottom(312))));
 
         register(context, TOURMALINE_SMALL_PLACED_KEY, configuredFeatureRegistryEntryLookup.getOrThrow(ModConfiguredFeatures.TOURMALINE_SMALL_ORE_KEY),
                 ModOrePlacement.modifiersWithCount(3, // VeinsPerChunk
@@ -126,6 +209,28 @@ public class ModPlacedFeatures {
         register(context, TOURMALINE_BURIED_PLACED_KEY, configuredFeatureRegistryEntryLookup.getOrThrow(ModConfiguredFeatures.TOURMALINE_BURIED_ORE_KEY),
                 ModOrePlacement.modifiersWithCount(2, // VeinsPerChunk
                         HeightRangePlacementModifier.uniform(YOffset.aboveBottom(0), YOffset.aboveBottom(70))));
+        register(context, NETHER_TOURMALINE_PLACED_KEY, configuredFeatureRegistryEntryLookup.getOrThrow(ModConfiguredFeatures.NETHER_TOURMALINE_ORE_KEY),
+                ModOrePlacement.modifiersWithCount(4, // VeinsPerChunk
+                        HeightRangePlacementModifier.trapezoid(YOffset.aboveBottom(0), YOffset.aboveBottom(312))));
+        register(context, ENDER_TOURMALINE_PLACED_KEY, configuredFeatureRegistryEntryLookup.getOrThrow(ModConfiguredFeatures.ENDER_TOURMALINE_ORE_KEY),
+                ModOrePlacement.modifiersWithCount(4, // VeinsPerChunk
+                        HeightRangePlacementModifier.trapezoid(YOffset.aboveBottom(0), YOffset.aboveBottom(312))));
+
+        register(context, SPINEL_SMALL_PLACED_KEY, configuredFeatureRegistryEntryLookup.getOrThrow(ModConfiguredFeatures.SPINEL_SMALL_ORE_KEY),
+                ModOrePlacement.modifiersWithCount(3, // VeinsPerChunk
+                        HeightRangePlacementModifier.trapezoid(YOffset.aboveBottom(0), YOffset.aboveBottom(74))));
+        register(context, SPINEL_LARGE_PLACED_KEY, configuredFeatureRegistryEntryLookup.getOrThrow(ModConfiguredFeatures.SPINEL_LARGE_ORE_KEY),
+                ModOrePlacement.modifiersWithCount(1, // VeinsPerChunk
+                        HeightRangePlacementModifier.uniform(YOffset.aboveBottom(0), YOffset.aboveBottom(70))));
+        register(context, SPINEL_BURIED_PLACED_KEY, configuredFeatureRegistryEntryLookup.getOrThrow(ModConfiguredFeatures.SPINEL_BURIED_ORE_KEY),
+                ModOrePlacement.modifiersWithCount(2, // VeinsPerChunk
+                        HeightRangePlacementModifier.uniform(YOffset.aboveBottom(0), YOffset.aboveBottom(70))));
+        register(context, NETHER_SPINEL_PLACED_KEY, configuredFeatureRegistryEntryLookup.getOrThrow(ModConfiguredFeatures.NETHER_SPINEL_ORE_KEY),
+                ModOrePlacement.modifiersWithCount(4, // VeinsPerChunk
+                        HeightRangePlacementModifier.trapezoid(YOffset.aboveBottom(0), YOffset.aboveBottom(312))));
+        register(context, ENDER_SPINEL_PLACED_KEY, configuredFeatureRegistryEntryLookup.getOrThrow(ModConfiguredFeatures.ENDER_SPINEL_ORE_KEY),
+                ModOrePlacement.modifiersWithCount(4, // VeinsPerChunk
+                        HeightRangePlacementModifier.trapezoid(YOffset.aboveBottom(0), YOffset.aboveBottom(312))));
 
         register(context, RUBY_SMALL_PLACED_KEY, configuredFeatureRegistryEntryLookup.getOrThrow(ModConfiguredFeatures.RUBY_SMALL_ORE_KEY),
                 ModOrePlacement.modifiersWithRarity(2, // VeinsPerChunk
@@ -137,7 +242,10 @@ public class ModPlacedFeatures {
                 ModOrePlacement.modifiersWithRarity(3, // VeinsPerChunk
                         HeightRangePlacementModifier.uniform(YOffset.aboveBottom(0), YOffset.aboveBottom(52))));
         register(context, NETHER_RUBY_PLACED_KEY, configuredFeatureRegistryEntryLookup.getOrThrow(ModConfiguredFeatures.NETHER_RUBY_ORE_KEY),
-                ModOrePlacement.modifiersWithCount(4, // VeinsPerChunk
+                ModOrePlacement.modifiersWithCount(6, // VeinsPerChunk
+                        HeightRangePlacementModifier.trapezoid(YOffset.aboveBottom(0), YOffset.aboveBottom(312))));
+        register(context, ENDER_RUBY_PLACED_KEY, configuredFeatureRegistryEntryLookup.getOrThrow(ModConfiguredFeatures.ENDER_RUBY_ORE_KEY),
+                ModOrePlacement.modifiersWithCount(6, // VeinsPerChunk
                         HeightRangePlacementModifier.trapezoid(YOffset.aboveBottom(0), YOffset.aboveBottom(312))));
 
 
@@ -151,12 +259,10 @@ public class ModPlacedFeatures {
                 ModOrePlacement.modifiersWithRarity(2, // VeinsPerChunk
                         HeightRangePlacementModifier.uniform(YOffset.aboveBottom(0), YOffset.aboveBottom(46))));
         register(context, NETHER_SAPPHIRE_PLACED_KEY, configuredFeatureRegistryEntryLookup.getOrThrow(ModConfiguredFeatures.NETHER_SAPPHIRE_ORE_KEY),
-                ModOrePlacement.modifiersWithCount(4, // VeinsPerChunk
+                ModOrePlacement.modifiersWithCount(6, // VeinsPerChunk
                         HeightRangePlacementModifier.trapezoid(YOffset.aboveBottom(0), YOffset.aboveBottom(312))));
-
-
-        register(context, NETHER_CITRINE_PLACED_KEY, configuredFeatureRegistryEntryLookup.getOrThrow(ModConfiguredFeatures.NETHER_CITRINE_ORE_KEY),
-                ModOrePlacement.modifiersWithCount(9, // VeinsPerChunk
+        register(context, ENDER_SAPPHIRE_PLACED_KEY, configuredFeatureRegistryEntryLookup.getOrThrow(ModConfiguredFeatures.ENDER_SAPPHIRE_ORE_KEY),
+                ModOrePlacement.modifiersWithCount(6, // VeinsPerChunk
                         HeightRangePlacementModifier.trapezoid(YOffset.aboveBottom(0), YOffset.aboveBottom(312))));
 
 
@@ -172,18 +278,11 @@ public class ModPlacedFeatures {
         register(context, NETHER_MOISSANITE_PLACED_KEY, configuredFeatureRegistryEntryLookup.getOrThrow(ModConfiguredFeatures.NETHER_MOISSANITE_ORE_KEY),
                 ModOrePlacement.modifiersWithCount(7, // VeinsPerChunk
                         HeightRangePlacementModifier.trapezoid(YOffset.aboveBottom(0), YOffset.aboveBottom(312))));
+        register(context, ENDER_MOISSANITE_PLACED_KEY, configuredFeatureRegistryEntryLookup.getOrThrow(ModConfiguredFeatures.ENDER_MOISSANITE_ORE_KEY),
+                ModOrePlacement.modifiersWithCount(7, // VeinsPerChunk
+                        HeightRangePlacementModifier.trapezoid(YOffset.aboveBottom(0), YOffset.aboveBottom(312))));
 
-        register(context, TURQUOISE_SMALL_PLACED_KEY, configuredFeatureRegistryEntryLookup.getOrThrow(ModConfiguredFeatures.TURQUOISE_SMALL_ORE_KEY),
-                ModOrePlacement.modifiersWithRarity(5, // VeinsPerChunk
-                        HeightRangePlacementModifier.uniform(YOffset.aboveBottom(0), YOffset.aboveBottom(12))));
-        register(context, TURQUOISE_LARGE_PLACED_KEY, configuredFeatureRegistryEntryLookup.getOrThrow(ModConfiguredFeatures.TURQUOISE_LARGE_ORE_KEY),
-                ModOrePlacement.modifiersWithRarity(1, // VeinsPerChunk
-                        HeightRangePlacementModifier.uniform(YOffset.aboveBottom(0), YOffset.aboveBottom(12))));
-        register(context, TURQUOISE_BURIED_PLACED_KEY, configuredFeatureRegistryEntryLookup.getOrThrow(ModConfiguredFeatures.TURQUOISE_BURIED_ORE_KEY),
-                ModOrePlacement.modifiersWithRarity(2, // VeinsPerChunk
-                        HeightRangePlacementModifier.uniform(YOffset.aboveBottom(0), YOffset.aboveBottom(16))));
-
-        register(context, ENDER_ONYX_PLACED_KEY, configuredFeatureRegistryEntryLookup.getOrThrow(ModConfiguredFeatures.ENDER_ONYX_ORE_KEY),
+        register(context, ENDERITE_PLACED_KEY, configuredFeatureRegistryEntryLookup.getOrThrow(ModConfiguredFeatures.ENDERITE_ORE_KEY),
                 ModOrePlacement.modifiersWithCount(7, // VeinsPerChunk
                         HeightRangePlacementModifier.trapezoid(YOffset.aboveBottom(0), YOffset.aboveBottom(312))));
     }

@@ -1,9 +1,9 @@
 {
-  "feature": "mores:nether_ruby_ore",
+  "feature": "mores:spinel_large_ore",
   "placement": [
     {
       "type": "minecraft:count",
-      "count": 6
+      "count": 1
     },
     {
       "type": "minecraft:in_square"
@@ -11,9 +11,9 @@
     {
       "type": "minecraft:height_range",
       "height": {
-        "type": "minecraft:trapezoid",
+        "type": "minecraft:uniform",
         "max_inclusive": {
-          "above_bottom": 312
+          "above_bottom": 70
         },
         "min_inclusive": {
           "above_bottom": 0

@@ -1,9 +1,9 @@
 {
-  "feature": "mores:nether_ruby_ore",
+  "feature": "mores:nether_spinel_ore",
   "placement": [
     {
       "type": "minecraft:count",
-      "count": 6
+      "count": 4
     },
     {
       "type": "minecraft:in_square"

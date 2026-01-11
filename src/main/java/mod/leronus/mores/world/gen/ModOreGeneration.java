@@ -26,17 +26,37 @@ public class ModOreGeneration {
         BiomeModifications.addFeature(BiomeSelectors.foundInOverworld(),
                 GenerationStep.Feature.UNDERGROUND_ORES, ModPlacedFeatures.SILVER_SMALL_PLACED_KEY);
         BiomeModifications.addFeature(BiomeSelectors.foundInOverworld(),
+                GenerationStep.Feature.UNDERGROUND_ORES, ModPlacedFeatures.QUARTZ_PLACED_KEY);
+        BiomeModifications.addFeature(BiomeSelectors.foundInOverworld(),
+                GenerationStep.Feature.UNDERGROUND_ORES, ModPlacedFeatures.TURQUOISE_SMALL_PLACED_KEY);
+        BiomeModifications.addFeature(BiomeSelectors.foundInOverworld(),
+                GenerationStep.Feature.UNDERGROUND_ORES, ModPlacedFeatures.TURQUOISE_LARGE_PLACED_KEY);
+        BiomeModifications.addFeature(BiomeSelectors.foundInOverworld(),
+                GenerationStep.Feature.UNDERGROUND_ORES, ModPlacedFeatures.TURQUOISE_BURIED_PLACED_KEY);
+        BiomeModifications.addFeature(BiomeSelectors.foundInOverworld(),
                 GenerationStep.Feature.UNDERGROUND_ORES, ModPlacedFeatures.TOPAZ_SMALL_PLACED_KEY);
         BiomeModifications.addFeature(BiomeSelectors.foundInOverworld(),
                 GenerationStep.Feature.UNDERGROUND_ORES, ModPlacedFeatures.TOPAZ_LARGE_PLACED_KEY);
         BiomeModifications.addFeature(BiomeSelectors.foundInOverworld(),
                 GenerationStep.Feature.UNDERGROUND_ORES, ModPlacedFeatures.TOPAZ_BURIED_PLACED_KEY);
         BiomeModifications.addFeature(BiomeSelectors.foundInOverworld(),
+                GenerationStep.Feature.UNDERGROUND_ORES, ModPlacedFeatures.TANZANITE_SMALL_PLACED_KEY);
+        BiomeModifications.addFeature(BiomeSelectors.foundInOverworld(),
+                GenerationStep.Feature.UNDERGROUND_ORES, ModPlacedFeatures.TANZANITE_LARGE_PLACED_KEY);
+        BiomeModifications.addFeature(BiomeSelectors.foundInOverworld(),
+                GenerationStep.Feature.UNDERGROUND_ORES, ModPlacedFeatures.TANZANITE_BURIED_PLACED_KEY);
+        BiomeModifications.addFeature(BiomeSelectors.foundInOverworld(),
                 GenerationStep.Feature.UNDERGROUND_ORES, ModPlacedFeatures.TOURMALINE_SMALL_PLACED_KEY);
         BiomeModifications.addFeature(BiomeSelectors.foundInOverworld(),
                 GenerationStep.Feature.UNDERGROUND_ORES, ModPlacedFeatures.TOURMALINE_LARGE_PLACED_KEY);
         BiomeModifications.addFeature(BiomeSelectors.foundInOverworld(),
                 GenerationStep.Feature.UNDERGROUND_ORES, ModPlacedFeatures.TOURMALINE_BURIED_PLACED_KEY);
+        BiomeModifications.addFeature(BiomeSelectors.foundInOverworld(),
+                GenerationStep.Feature.UNDERGROUND_ORES, ModPlacedFeatures.SPINEL_SMALL_PLACED_KEY);
+        BiomeModifications.addFeature(BiomeSelectors.foundInOverworld(),
+                GenerationStep.Feature.UNDERGROUND_ORES, ModPlacedFeatures.SPINEL_LARGE_PLACED_KEY);
+        BiomeModifications.addFeature(BiomeSelectors.foundInOverworld(),
+                GenerationStep.Feature.UNDERGROUND_ORES, ModPlacedFeatures.SPINEL_BURIED_PLACED_KEY);
         BiomeModifications.addFeature(BiomeSelectors.foundInOverworld(),
                 GenerationStep.Feature.UNDERGROUND_ORES, ModPlacedFeatures.RUBY_SMALL_PLACED_KEY);
         BiomeModifications.addFeature(BiomeSelectors.foundInOverworld(),
@@ -55,27 +75,50 @@ public class ModOreGeneration {
                 GenerationStep.Feature.UNDERGROUND_ORES, ModPlacedFeatures.MOISSANITE_LARGE_PLACED_KEY);
         BiomeModifications.addFeature(BiomeSelectors.foundInOverworld(),
                 GenerationStep.Feature.UNDERGROUND_ORES, ModPlacedFeatures.MOISSANITE_BURIED_PLACED_KEY);
-        BiomeModifications.addFeature(BiomeSelectors.foundInOverworld(),
-                GenerationStep.Feature.UNDERGROUND_ORES, ModPlacedFeatures.TURQUOISE_SMALL_PLACED_KEY);
-        BiomeModifications.addFeature(BiomeSelectors.foundInOverworld(),
-                GenerationStep.Feature.UNDERGROUND_ORES, ModPlacedFeatures.TURQUOISE_LARGE_PLACED_KEY);
-        BiomeModifications.addFeature(BiomeSelectors.foundInOverworld(),
-                GenerationStep.Feature.UNDERGROUND_ORES, ModPlacedFeatures.TURQUOISE_BURIED_PLACED_KEY);
 
 
         BiomeModifications.addFeature(BiomeSelectors.foundInTheNether(),
                         GenerationStep.Feature.UNDERGROUND_ORES, ModPlacedFeatures.NETHER_SILVER_PLACED_KEY);
         BiomeModifications.addFeature(BiomeSelectors.foundInTheNether(),
+                        GenerationStep.Feature.UNDERGROUND_ORES, ModPlacedFeatures.NETHER_CITRINE_PLACED_KEY);
+        BiomeModifications.addFeature(BiomeSelectors.foundInTheNether(),
+                        GenerationStep.Feature.UNDERGROUND_ORES, ModPlacedFeatures.NETHER_ONYX_PLACED_KEY);
+        BiomeModifications.addFeature(BiomeSelectors.foundInTheNether(),
+                        GenerationStep.Feature.UNDERGROUND_ORES, ModPlacedFeatures.NETHER_TOPAZ_PLACED_KEY);
+        BiomeModifications.addFeature(BiomeSelectors.foundInTheNether(),
+                        GenerationStep.Feature.UNDERGROUND_ORES, ModPlacedFeatures.NETHER_TOURMALINE_PLACED_KEY);
+        BiomeModifications.addFeature(BiomeSelectors.foundInTheNether(),
+                        GenerationStep.Feature.UNDERGROUND_ORES, ModPlacedFeatures.NETHER_TANZANITE_PLACED_KEY);
+        BiomeModifications.addFeature(BiomeSelectors.foundInTheNether(),
+                        GenerationStep.Feature.UNDERGROUND_ORES, ModPlacedFeatures.NETHER_SPINEL_PLACED_KEY);
+        BiomeModifications.addFeature(BiomeSelectors.foundInTheNether(),
                         GenerationStep.Feature.UNDERGROUND_ORES, ModPlacedFeatures.NETHER_RUBY_PLACED_KEY);
         BiomeModifications.addFeature(BiomeSelectors.foundInTheNether(),
                         GenerationStep.Feature.UNDERGROUND_ORES, ModPlacedFeatures.NETHER_SAPPHIRE_PLACED_KEY);
         BiomeModifications.addFeature(BiomeSelectors.foundInTheNether(),
-                        GenerationStep.Feature.UNDERGROUND_ORES, ModPlacedFeatures.NETHER_CITRINE_PLACED_KEY);
-        BiomeModifications.addFeature(BiomeSelectors.foundInTheNether(),
                         GenerationStep.Feature.UNDERGROUND_ORES, ModPlacedFeatures.NETHER_MOISSANITE_PLACED_KEY);
 
-
+        BiomeModifications.addFeature(BiomeSelectors.foundInTheEnd(),
+                GenerationStep.Feature.UNDERGROUND_ORES, ModPlacedFeatures.ENDER_SILVER_PLACED_KEY);
+        BiomeModifications.addFeature(BiomeSelectors.foundInTheEnd(),
+                GenerationStep.Feature.UNDERGROUND_ORES, ModPlacedFeatures.ENDER_COBALT_PLACED_KEY);
         BiomeModifications.addFeature(BiomeSelectors.foundInTheEnd(),
                 GenerationStep.Feature.UNDERGROUND_ORES, ModPlacedFeatures.ENDER_ONYX_PLACED_KEY);
+        BiomeModifications.addFeature(BiomeSelectors.foundInTheEnd(),
+                GenerationStep.Feature.UNDERGROUND_ORES, ModPlacedFeatures.ENDER_TOPAZ_PLACED_KEY);
+        BiomeModifications.addFeature(BiomeSelectors.foundInTheEnd(),
+                GenerationStep.Feature.UNDERGROUND_ORES, ModPlacedFeatures.ENDER_TOURMALINE_PLACED_KEY);
+        BiomeModifications.addFeature(BiomeSelectors.foundInTheEnd(),
+                GenerationStep.Feature.UNDERGROUND_ORES, ModPlacedFeatures.ENDER_TANZANITE_PLACED_KEY);
+        BiomeModifications.addFeature(BiomeSelectors.foundInTheEnd(),
+                GenerationStep.Feature.UNDERGROUND_ORES, ModPlacedFeatures.ENDER_RUBY_PLACED_KEY);
+        BiomeModifications.addFeature(BiomeSelectors.foundInTheEnd(),
+                GenerationStep.Feature.UNDERGROUND_ORES, ModPlacedFeatures.ENDER_SAPPHIRE_PLACED_KEY);
+        BiomeModifications.addFeature(BiomeSelectors.foundInTheEnd(),
+                GenerationStep.Feature.UNDERGROUND_ORES, ModPlacedFeatures.ENDER_SPINEL_PLACED_KEY);
+        BiomeModifications.addFeature(BiomeSelectors.foundInTheEnd(),
+                GenerationStep.Feature.UNDERGROUND_ORES, ModPlacedFeatures.ENDER_MOISSANITE_PLACED_KEY);
+        BiomeModifications.addFeature(BiomeSelectors.foundInTheEnd(),
+                GenerationStep.Feature.UNDERGROUND_ORES, ModPlacedFeatures.ENDERITE_PLACED_KEY);
     }
 }
