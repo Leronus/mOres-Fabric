@@ -1,28 +1,33 @@
 Fabric 1.21.1 
 
-Testing:
-- Villager trades
-- Armor models & trims (on skin) - Ask boys for help
+Doing:
+- Smelting recipes for new ores (andesite, granite, diorite etc)
+- Fix villager trades (3 axes, not correct, bunch of duplicates) - 7 silver for 10 emerald should 7 silver for 1 emerald, copper the same 10 for 1 instead of 10 for 10
+- Armor trim models not correct
 - Make sure hostile mobs have a chance to spawn with my gear - needs testing
 - Tags (check if missing anything (shears for wolf armor - wax off/on with axes?)
+- Mores tooltips end up above enchantments on mores tools, on armor above the armor stat too, make it bottom (not vanilla, maybe because of the attack dmg/speed bug)
+- Quartz deepslate
+- Armor effects; Citrine (jump boost), Moissanite (poison - tools too), Obsidian (explosion), Rose Gold (Piglin), Enderite (Endermen)
+- Apples (bronze, silver, cobalt)
 
 Todo:
 - Tool materials
 - Recipes (quartz/lapis/amethyst/turquoise dust from their material)
 - Horse Armor -> Tooltips for horse armor not working (shows 0 durability on horse armor - maybe separate tooltip for durability) / Graphene
 - Weapons -> onyx battleaxe/mace/weapons?
-- Spawn the hardened golem in villages
-- Ore generation as well as datagen for it
+- Spawn the hardened golem in villages (and add spawn egg and advancement)
+- Ore generation as well as datagen for it (buff nether onyx)
 - REI integration (specifically Alloy Furnace)
 - Change graphene textures and add new recipes / change existing
 - Check if all textures are added to item groups (ModItemGroups looked complete, check vanillabackport code could be interesting)
 - Add Silver carrot
+- Add lemon tree?
 - Add Config
 - Loot tables (chests, entity, misc?)
-- Test Armor Trims & add missing
-- Update Tooltips -> No shuffling, add armor
 - Check Block Experience (smelting/blasting)
 - Advancements (need fixing)
+- Shields (stats, cooldown etc - fabricshield.reflect? enchant)
 - Duck entity
 - Spears
 - Wolf Armor

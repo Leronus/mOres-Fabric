@@ -149,8 +149,8 @@ public class ModBlockLootTableProvider extends FabricBlockLootTableProvider {
         // =========================
         // TURQUOISE
         // =========================
-        addDrop(ModBlocks.TURQUOISE_ORE, multipleOreDrops(ModBlocks.TURQUOISE_ORE, ModItems.TURQUOISE, 4f, 9f));
-        addDrop(ModBlocks.DEEPSLATE_TURQUOISE_ORE, multipleOreDrops(ModBlocks.DEEPSLATE_TURQUOISE_ORE, ModItems.TURQUOISE_GEM, 4f, 9f));
+        addDrop(ModBlocks.TURQUOISE_ORE, multipleOreDrops(ModBlocks.TURQUOISE_ORE, ModItems.TURQUOISE, 3f, 7f));
+        addDrop(ModBlocks.DEEPSLATE_TURQUOISE_ORE, multipleOreDrops(ModBlocks.DEEPSLATE_TURQUOISE_ORE, ModItems.TURQUOISE, 3f, 7f));
         addDrop(ModBlocks.TURQUOISE_BLOCK);
 
         // =========================

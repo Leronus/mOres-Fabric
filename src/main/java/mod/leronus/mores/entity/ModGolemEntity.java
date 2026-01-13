@@ -15,12 +15,13 @@ public class ModGolemEntity extends IronGolemEntity {
     public static DefaultAttributeContainer.Builder createHardenedSteelGolemAttributes() {
         double baseHealth = 100.0;
         double baseAttack = 15.0;
+        double baseKnockback = 1.0;
 
         return MobEntity.createMobAttributes()
                 .add(EntityAttributes.GENERIC_MAX_HEALTH, baseHealth * 2.0)
                 .add(EntityAttributes.GENERIC_MOVEMENT_SPEED, 0.25D)
-                .add(EntityAttributes.GENERIC_KNOCKBACK_RESISTANCE, 1.0D)
-                .add(EntityAttributes.GENERIC_ATTACK_DAMAGE, baseAttack * 2.0)
+                .add(EntityAttributes.GENERIC_KNOCKBACK_RESISTANCE, baseKnockback * 1.5)
+                .add(EntityAttributes.GENERIC_ATTACK_DAMAGE, baseAttack * 1.5)
                 .add(EntityAttributes.GENERIC_STEP_HEIGHT, 1.0D);
     }
 }

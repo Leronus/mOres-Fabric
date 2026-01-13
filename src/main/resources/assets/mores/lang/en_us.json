@@ -645,6 +645,7 @@
 
   "item.mores.obsidian_horse_armor" : "Obsidian Horse Armor",
   "item.mores.obsidian_ingot" : "Obsidian Ingot",
+  "item.mores.obsidian_scrap" : "Obsidian Scrap",
   "item.mores.obsidian_sword" : "Obsidian Sword",
   "item.mores.obsidian_shovel" : "Obsidian Shovel",
   "item.mores.obsidian_pickaxe" : "Obsidian Pickaxe",
@@ -690,8 +691,10 @@
   "item.mores.adamantium_leggings" : "Adamantium Leggings",
   "item.mores.adamantium_boots" : "Adamantium Boots",
 
+
   "item.mores.enderite_horse_armor" : "Enderite Horse Armor",
   "item.mores.enderite_ingot" : "Enderite Ingot",
+  "item.mores.enderite_scrap" : "Enderite Scrap",
   "block.mores.enderite_block" : "Enderite Block",
   "block.mores.primordial_debris" : "Primordial Debris",
   "item.mores.enderite_sword" : "Enderite Sword",
@@ -734,6 +737,7 @@
   "item.mores.duck_spawn_egg": "Duck Spawn Egg",
   "item.mores.duck_egg": "Duck Egg",
   "entity.mores.duck": "Duck",
+  "entity.mores.hardened_steel_golem": "Hardened Steel Golem",
 
   "item.mores.velvet": "Velvet",
   "item.mores.carrot_pie": "Carrot Pie",
@@ -1244,6 +1248,9 @@
   "tag.item.mores.ingot.obsidian": "Obsidian",
   "tag.item.mores.ingot.enderite": "Enderite",
 
+  "tag.item.spears.can_lunge_while_gliding": "Can lunge while gliding",
+  "tag.item.dragonloot.explosion_resistant": "Explosion Resistant",
+
   "mores.midnightconfig.category.visual": "Visual",
   "mores.midnightconfig.category.gameplay": "Gameplay",
   "mores.midnightconfig.category.alloying": "Alloying",
@@ -1252,5 +1259,4 @@
   "mores.midnightconfig.enum.MaterialPreset.DEFAULT": "Default",
   "mores.midnightconfig.enum.MaterialPreset.SOFTER": "Softer",
   "mores.midnightconfig.enum.MaterialPreset.HARDER": "Harder"
-
 }
