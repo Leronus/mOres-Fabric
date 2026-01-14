@@ -12,6 +12,7 @@
     "AbstractHorseEntityRideInWaterMixin",
     "ItemEntityMixin",
     "MobEntityEquipmentMixin",
+    "ServerWorldSpawnMixin",
     "VillagerMoreTradesMixin",
     "WolfEntityMixin",
     "WolfArmorSyncMixin",

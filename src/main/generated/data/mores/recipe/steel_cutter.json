@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "key": {
+    "#": {
+      "item": "mores:tin_block"
+    },
+    "S": {
+      "item": "mores:carbon_steel_ingot"
+    }
+  },
+  "pattern": [
+    " S ",
+    "###"
+  ],
+  "result": {
+    "count": 1,
+    "id": "mores:steel_cutter"
+  }
+}
