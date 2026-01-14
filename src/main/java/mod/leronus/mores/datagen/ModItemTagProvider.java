@@ -330,7 +330,11 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
 
         //Backported Spears
         getOrCreateTagBuilder(TagKey.of(RegistryKeys.ITEM, Identifier.ofVanilla("spears"))).add(
-                ModItems.ROSE_GOLD_SPEAR);
+                ModItems.ROSE_GOLD_SPEAR,
+                ModItems.CARBON_STEEL_SPEAR,
+                ModItems.HARDENED_STEEL_SPEAR,
+                ModItems.ENDERITE_SPEAR
+        );
 
         //Wolf Armors
         // Allow wolves to equip these (our mixin will check this tag)

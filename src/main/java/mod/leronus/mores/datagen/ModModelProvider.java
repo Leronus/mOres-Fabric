@@ -387,12 +387,12 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ModItems.ROSE_GOLD_BATTLE_AXE, Models.HANDHELD);
         itemModelGenerator.register(ModItems.ROSE_GOLD_BATTLE_MACE, Models.HANDHELD);
         itemModelGenerator.register(ModItems.ROSE_GOLD_DAGGER, Models.HANDHELD);
-        Identifier baseId = ModelIds.getItemModelId(ModItems.ROSE_GOLD_SPEAR); // mores:item/rose_gold_spear
-        Identifier inHandId = Identifier.of(baseId.getNamespace(), baseId.getPath() + "_in_hand");
+        Identifier roseGoldBase = ModelIds.getItemModelId(ModItems.ROSE_GOLD_SPEAR); // mores:item/rose_gold_spear
+        Identifier roseGoldInHand = Identifier.of(roseGoldBase.getNamespace(), roseGoldBase.getPath() + "_in_hand");
         // Base model: generated + override to _in_hand while using
-        itemModelGenerator.writer.accept(baseId, spearBaseJson(baseId.getNamespace(), "rose_gold_spear"));
+        itemModelGenerator.writer.accept(roseGoldBase, spearBaseJson(roseGoldBase.getNamespace(), "rose_gold_spear"));
         // In-hand model: uses minecraft:item/spear_in_hand parent
-        itemModelGenerator.writer.accept(inHandId, spearInHandJson(baseId.getNamespace(), "rose_gold_spear"));
+        itemModelGenerator.writer.accept(roseGoldInHand, spearInHandJson(roseGoldBase.getNamespace(), "rose_gold_spear"));
 
 
         itemModelGenerator.register(ModItems.BRONZE_SWORD, Models.HANDHELD);
@@ -421,6 +421,12 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ModItems.CARBON_STEEL_BATTLE_AXE, Models.HANDHELD);
         itemModelGenerator.register(ModItems.CARBON_STEEL_BATTLE_MACE, Models.HANDHELD);
         itemModelGenerator.register(ModItems.CARBON_STEEL_DAGGER, Models.HANDHELD);
+        Identifier carbonSteelBase = ModelIds.getItemModelId(ModItems.CARBON_STEEL_SPEAR); // mores:item/carbon_steel_spear
+        Identifier carbonSteelInHand = Identifier.of(carbonSteelBase.getNamespace(), carbonSteelBase.getPath() + "_in_hand");
+        // Base model: generated + override to _in_hand while using
+        itemModelGenerator.writer.accept(carbonSteelBase, spearBaseJson(carbonSteelBase.getNamespace(), "carbon_steel_spear"));
+        // In-hand model: uses minecraft:item/spear_in_hand parent
+        itemModelGenerator.writer.accept(carbonSteelInHand, spearInHandJson(carbonSteelBase.getNamespace(), "carbon_steel_spear"));
 
         itemModelGenerator.register(ModItems.HARDENED_STEEL_SWORD, Models.HANDHELD);
         itemModelGenerator.register(ModItems.HARDENED_STEEL_PICKAXE, Models.HANDHELD);
@@ -430,6 +436,12 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ModItems.HARDENED_STEEL_BATTLE_AXE, Models.HANDHELD);
         itemModelGenerator.register(ModItems.HARDENED_STEEL_BATTLE_MACE, Models.HANDHELD);
         itemModelGenerator.register(ModItems.HARDENED_STEEL_DAGGER, Models.HANDHELD);
+        Identifier hardenedSteelBase = ModelIds.getItemModelId(ModItems.HARDENED_STEEL_SPEAR); // mores:item/hardened_steel_spear
+        Identifier hardenedSteelInHand = Identifier.of(hardenedSteelBase.getNamespace(), hardenedSteelBase.getPath() + "_in_hand");
+        // Base model: generated + override to _in_hand while using
+        itemModelGenerator.writer.accept(hardenedSteelBase, spearBaseJson(hardenedSteelBase.getNamespace(), "hardened_steel_spear"));
+        // In-hand model: uses minecraft:item/spear_in_hand parent
+        itemModelGenerator.writer.accept(hardenedSteelInHand, spearInHandJson(hardenedSteelBase.getNamespace(), "hardened_steel_spear"));
 
         itemModelGenerator.register(ModItems.AMETHYST_SWORD, Models.HANDHELD);
         itemModelGenerator.register(ModItems.AMETHYST_PICKAXE, Models.HANDHELD);
@@ -583,6 +595,12 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ModItems.ENDERITE_BATTLE_AXE, Models.HANDHELD);
         itemModelGenerator.register(ModItems.ENDERITE_BATTLE_MACE, Models.HANDHELD);
         itemModelGenerator.register(ModItems.ENDERITE_DAGGER, Models.HANDHELD);
+        Identifier enderiteBase = ModelIds.getItemModelId(ModItems.ENDERITE_SPEAR); // mores:item/enderite_spear
+        Identifier enderiteInHand = Identifier.of(enderiteBase.getNamespace(), enderiteBase.getPath() + "_in_hand");
+        // Base model: generated + override to _in_hand while using
+        itemModelGenerator.writer.accept(enderiteBase, spearBaseJson(enderiteBase.getNamespace(), "enderite_spear"));
+        // In-hand model: uses minecraft:item/spear_in_hand parent
+        itemModelGenerator.writer.accept(enderiteInHand, spearInHandJson(enderiteBase.getNamespace(), "enderite_spear"));
 
         itemModelGenerator.register(ModItems.WOOD_BATTLE_AXE, Models.HANDHELD);
         itemModelGenerator.register(ModItems.WOOD_BATTLE_MACE, Models.HANDHELD);

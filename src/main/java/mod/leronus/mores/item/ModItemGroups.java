@@ -380,6 +380,7 @@ public class ModItemGroups {
                         entries.add(ModItems.ROSE_GOLD_BATTLE_AXE);
                         entries.add(ModItems.ROSE_GOLD_BATTLE_MACE);
                         entries.add(ModItems.ROSE_GOLD_DAGGER);
+                        entries.add(ModItems.ROSE_GOLD_SPEAR);
                         entries.add(ModItems.BRONZE_SWORD);
                         entries.add(ModItems.BRONZE_BATTLE_AXE);
                         entries.add(ModItems.BRONZE_BATTLE_MACE);
@@ -395,10 +396,12 @@ public class ModItemGroups {
                         entries.add(ModItems.CARBON_STEEL_BATTLE_AXE);
                         entries.add(ModItems.CARBON_STEEL_BATTLE_MACE);
                         entries.add(ModItems.CARBON_STEEL_DAGGER);
+                        entries.add(ModItems.CARBON_STEEL_SPEAR);
                         entries.add(ModItems.HARDENED_STEEL_SWORD);
                         entries.add(ModItems.HARDENED_STEEL_BATTLE_AXE);
                         entries.add(ModItems.HARDENED_STEEL_BATTLE_MACE);
                         entries.add(ModItems.HARDENED_STEEL_DAGGER);
+                        entries.add(ModItems.HARDENED_STEEL_SPEAR);
                         entries.add(ModItems.TURQUOISE_SWORD);
                         entries.add(ModItems.TURQUOISE_BATTLE_AXE);
                         entries.add(ModItems.TURQUOISE_BATTLE_MACE);
@@ -473,6 +476,7 @@ public class ModItemGroups {
                         entries.add(ModItems.ENDERITE_BATTLE_AXE);
                         entries.add(ModItems.ENDERITE_BATTLE_MACE);
                         entries.add(ModItems.ENDERITE_DAGGER);
+                        entries.add(ModItems.ENDERITE_SPEAR);
                     }).build());
 
     public static final ItemGroup ARMOR_GROUP = Registry.register(Registries.ITEM_GROUP,

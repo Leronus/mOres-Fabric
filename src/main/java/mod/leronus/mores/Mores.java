@@ -22,8 +22,11 @@ import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.item.v1.DefaultItemComponentEvents;
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricDefaultAttributeRegistry;
 import net.fabricmc.fabric.api.registry.FuelRegistry;
+import net.minecraft.item.Item;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import java.util.Set;
 
 import static mod.leronus.mores.util.SpearSounds.vanillaSound;
 
@@ -61,20 +64,19 @@ public class Mores implements ModInitializer {
         );
 
         //Register Spear Attributes
+         final Set<Item> SPEARS_WITH_SHARED_ATTRS = Set.of(
+                ModItems.ROSE_GOLD_SPEAR,
+                ModItems.CARBON_STEEL_SPEAR,
+                ModItems.HARDENED_STEEL_SPEAR,
+                ModItems.ENDERITE_SPEAR
+        );
+
         DefaultItemComponentEvents.MODIFY.register(ctx -> {
             ctx.modify(
-                    item -> item == ModItems.ROSE_GOLD_SPEAR,
+                    SPEARS_WITH_SHARED_ATTRS::contains,
                     (builder, item) -> {
-
-                        // Movement + sprint behavior (fixes shield slowdown)
-                        builder.add(Spears.USE_EFFECTS,
-                                new UseEffects(1.0F, true, false)
-                        );
-
-                        // Stab animation
-                        builder.add(Spears.SWING_ANIMATION,
-                                new SwingAnimation(19, "stab")
-                        );
+                        builder.add(Spears.USE_EFFECTS, new UseEffects(1.0F, true, false));
+                        builder.add(Spears.SWING_ANIMATION, new SwingAnimation(19, "stab"));
 
                         builder.add(Spears.PIERCING_WEAPON, new PiercingWeapon(
                                 0.25F, true, false,
@@ -92,15 +94,12 @@ public class Mores implements ModInitializer {
                                 vanillaSound("item.spear.hit")
                         ));
 
-                        // Reach
-                        builder.add(Spears.ATTACK_RANGE,
-                                new AttackRange(2.0F, 4.5F)
-                        );
-
+                        builder.add(Spears.ATTACK_RANGE, new AttackRange(2.0F, 4.5F));
                         builder.add(Spears.MINIMUM_ATTACK_CHARGE, 1.0F);
                     }
             );
         });
+
 
 	}
 }

@@ -646,7 +646,10 @@ public class ModItems {
     public static final Item ADAMANTIUM_DAGGER = registerItem("adamantium_dagger", new ModBattleAxeItem(ModToolMaterials.ADAMANTIUM, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ModToolMaterials.ADAMANTIUM, 1, -1.5f))));
     public static final Item ENDERITE_DAGGER = registerItem("enderite_dagger", new ModBattleAxeItem(ModToolMaterials.ENDERITE, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ModToolMaterials.ENDERITE, 1, -1.5f))));
 
-    public static final Item ROSE_GOLD_SPEAR = registerItem("rose_gold_spear", new ModSpearItem(ModToolMaterials.ROSE_GOLD, new Item.Settings().maxCount(1)));
+    public static final Item ROSE_GOLD_SPEAR = registerItem("rose_gold_spear", new ModSpearItem(ModToolMaterials.ROSE_GOLD, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ModToolMaterials.ROSE_GOLD, 0, -2.95f)).maxCount(1)));
+    public static final Item CARBON_STEEL_SPEAR = registerItem("carbon_steel_spear", new ModSpearItem(ModToolMaterials.CARBON_STEEL, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ModToolMaterials.CARBON_STEEL, 0, -2.95f)).maxCount(1)));
+    public static final Item HARDENED_STEEL_SPEAR = registerItem("hardened_steel_spear", new ModSpearItem(ModToolMaterials.HARDENED_STEEL, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ModToolMaterials.HARDENED_STEEL, 0, -3.00f)).maxCount(1)));
+    public static final Item ENDERITE_SPEAR = registerItem("enderite_spear", new ModSpearItem(ModToolMaterials.ENDERITE, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ModToolMaterials.ENDERITE, 0, -3.20f)).maxCount(1)));
 
 
 
@@ -755,9 +758,6 @@ public class ModItems {
             new ModPickaxeItem(ModToolMaterials.ENDERITE, 1, -2.8F,
                     new Item.Settings().attributeModifiers(PickaxeItem.createAttributeModifiers(ModToolMaterials.ENDERITE, 1, -2.8F))));
 
-
-
-    //TODO Checkout items for proper atk dmg and speed values
 
     // All axes
     public static final Item TIN_AXE = registerItem("tin_axe",
@@ -1199,6 +1199,7 @@ public class ModItems {
         entries.add(ROSE_GOLD_BATTLE_AXE);
         entries.add(ROSE_GOLD_BATTLE_MACE);
         entries.add(ROSE_GOLD_DAGGER);
+        entries.add(ROSE_GOLD_SPEAR);
 
         entries.add(BRONZE_SWORD);
         entries.add(BRONZE_BATTLE_AXE);
@@ -1218,11 +1219,13 @@ public class ModItems {
         entries.add(CARBON_STEEL_BATTLE_AXE);
         entries.add(CARBON_STEEL_BATTLE_MACE);
         entries.add(CARBON_STEEL_DAGGER);
+        entries.add(CARBON_STEEL_SPEAR);
 
         entries.add(HARDENED_STEEL_SWORD);
         entries.add(HARDENED_STEEL_BATTLE_AXE);
         entries.add(HARDENED_STEEL_BATTLE_MACE);
         entries.add(HARDENED_STEEL_DAGGER);
+        entries.add(HARDENED_STEEL_SPEAR);
 
         entries.add(TURQUOISE_SWORD);
         entries.add(TURQUOISE_BATTLE_AXE);
@@ -1316,6 +1319,7 @@ public class ModItems {
         entries.add(ENDERITE_BATTLE_AXE);
         entries.add(ENDERITE_BATTLE_MACE);
         entries.add(ENDERITE_DAGGER);
+        entries.add(ENDERITE_SPEAR);
 
         entries.add(ModItems.TIN_HELMET);
         entries.add(ModItems.TIN_CHESTPLATE);
@@ -1483,6 +1487,8 @@ public class ModItems {
         entries.add(CHOCOLATE);
         entries.add(CARROT_PIE);
         entries.add(VELVET);
+        entries.add(RAW_DUCK);
+        entries.add(COOKED_DUCK);
     }
     private static void addItemsToToolsItemGroup(FabricItemGroupEntries entries) {
         entries.add(TIN_PICKAXE);
