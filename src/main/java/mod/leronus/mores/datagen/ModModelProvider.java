@@ -187,6 +187,7 @@ public class ModModelProvider extends FabricModelProvider {
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.ADAMANTIUM_BLOCK);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.ENDERITE_BLOCK);
         registerAlloyFurnace(blockStateModelGenerator);
+        registerSteelCutter(blockStateModelGenerator);
         }
 
 
@@ -233,10 +234,47 @@ public class ModModelProvider extends FabricModelProvider {
         gen.registerParentedItemModel(ModBlocks.ALLOY_FURNACE, modelOff);
     }
 
+    private static void registerSteelCutter(BlockStateModelGenerator gen) {
+        // Textures under assets/mores/textures/block/
+        Identifier top = Identifier.of(Mores.MOD_ID, "block/steel_cutter_top");
+        Identifier side = Identifier.of(Mores.MOD_ID, "block/steel_cutter_side");
+        Identifier bottom = Identifier.of(Mores.MOD_ID, "block/steel_cutter_bottom");
+        Identifier saw = Identifier.of(Mores.MOD_ID, "block/steel_cutter_saw"); // you should add this texture
+
+        // Model id that will be written: mores:block/steel_cutter
+        Identifier modelId = ModelIds.getBlockModelId(ModBlocks.STEEL_CUTTER);
+
+        // Write the block model JSON using vanilla stonecutter as the parent
+        gen.modelCollector.accept(modelId, () -> {
+            JsonObject json = new JsonObject();
+            json.addProperty("parent", "minecraft:block/stonecutter");
+
+            JsonObject textures = new JsonObject();
+            textures.addProperty("top", top.toString());
+            textures.addProperty("side", side.toString());
+            textures.addProperty("bottom", bottom.toString());
+            textures.addProperty("saw", saw.toString());
+
+            json.add("textures", textures);
+            return json;
+        });
+
+        // Blockstate: use the single model + rotate based on horizontal facing
+        gen.blockStateCollector.accept(
+                VariantsBlockStateSupplier
+                        .create(ModBlocks.STEEL_CUTTER, BlockStateVariant.create().put(VariantSettings.MODEL, modelId))
+                        .coordinate(BlockStateModelGenerator.createNorthDefaultHorizontalRotationStates())
+        );
+
+        // Item model: parent to the block model
+        gen.registerParentedItemModel(ModBlocks.STEEL_CUTTER, modelId);
+    }
+
+
 
     @Override
     public void generateItemModels(ItemModelGenerator itemModelGenerator) {
-//        ModTrimMaterials.class.getName();
+        ModTrimMaterials.class.getName();
 
         itemModelGenerator.register(ModItems.ANTHRACITE, Models.GENERATED);
         itemModelGenerator.register(ModItems.CITRINE, Models.GENERATED);

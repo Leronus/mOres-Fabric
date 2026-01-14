@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:blasting",
+  "category": "misc",
+  "cookingtime": 100,
+  "experience": 1.1,
+  "ingredient": {
+    "item": "mores:andesite_moissanite_ore"
+  },
+  "result": {
+    "id": "mores:moissanite_gem"
+  }
+}

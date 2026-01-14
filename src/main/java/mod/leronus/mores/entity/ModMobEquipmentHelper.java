@@ -182,13 +182,13 @@ public final class ModMobEquipmentHelper {
 
         boolean equipped = equipMainhandFromAny(mob, PIGLIN_WEAPONS, random);
 
-        // Debug: if roll passed but item didn't equip, log it (helps catch registry/id issues)
-        if (!equipped) {
-            Mores.LOGGER.warn("Rolled rose_gold for Zombified Piglin but failed to equip. Check item id: {}", PIGLIN_WEAPONS[0]);
-        } else {
-            // Optional: uncomment to confirm it's happening
-             Mores.LOGGER.info("Equipped rose_gold_sword on Zombified Piglin {}", mob.getUuidAsString());
-        }
+//        // Debug: if roll passed but item didn't equip, log it (helps catch registry/id issues)
+//        if (!equipped) {
+//            Mores.LOGGER.warn("Rolled rose_gold for Zombified Piglin but failed to equip. Check item id: {}", PIGLIN_WEAPONS[0]);
+//        } else {
+//            // Optional: uncomment to confirm it's happening
+//             Mores.LOGGER.info("Equipped rose_gold_sword on Zombified Piglin {}", mob.getUuidAsString());
+//        }
     }
 
 

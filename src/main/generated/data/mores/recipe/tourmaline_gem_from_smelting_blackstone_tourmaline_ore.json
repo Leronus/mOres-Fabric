@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:smelting",
+  "category": "misc",
+  "cookingtime": 200,
+  "experience": 0.8,
+  "ingredient": {
+    "item": "mores:blackstone_tourmaline_ore"
+  },
+  "result": {
+    "id": "mores:tourmaline_gem"
+  }
+}

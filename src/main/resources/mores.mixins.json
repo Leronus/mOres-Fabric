@@ -6,6 +6,10 @@
   "mixins": [
     "BlockMixin",
     "CarvedPumpkinBlockMixin",
+    "EntityDismountUnderwaterMixin",
+    "HorseArmorEffectsMixin",
+    "HorseArmorWaterLogicMixin",
+    "AbstractHorseEntityRideInWaterMixin",
     "ItemEntityMixin",
     "MobEntityEquipmentMixin",
     "VillagerMoreTradesMixin",

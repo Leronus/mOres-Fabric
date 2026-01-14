@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:blasting",
+  "category": "misc",
+  "cookingtime": 100,
+  "experience": 0.8,
+  "ingredient": {
+    "item": "mores:gravel_cobalt_ore"
+  },
+  "result": {
+    "id": "mores:cobalt_ingot"
+  }
+}

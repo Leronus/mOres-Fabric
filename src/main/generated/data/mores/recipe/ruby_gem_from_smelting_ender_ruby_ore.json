@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:smelting",
+  "category": "misc",
+  "cookingtime": 200,
+  "experience": 1.2,
+  "ingredient": {
+    "item": "mores:ender_ruby_ore"
+  },
+  "result": {
+    "id": "mores:ruby_gem"
+  }
+}

@@ -72,6 +72,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
         generateSmelting(exporter);
         generateBlasting(exporter);
         generateAlloying(exporter);
+        generateCutting(exporter);
     }
 
     private void generateBlocks(RecipeExporter exporter) {
@@ -3884,6 +3885,18 @@ public class ModRecipeProvider extends FabricRecipeProvider {
         CookingRecipeJsonBuilder.createSmelting(Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "tin_ore"))), RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "tin_ingot")), 0.5f, 200)
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "tin_ore"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "tin_ore"))))
                 .offerTo(exporter, Identifier.of("mores", "tin_ingot_from_smelting_tin_ore"));
+        CookingRecipeJsonBuilder.createSmelting(Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "andesite_tin_ore"))), RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "tin_ingot")), 0.5f, 200)
+                .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "andesite_tin_ore"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "andesite_tin_ore"))))
+                .offerTo(exporter, Identifier.of("mores", "tin_ingot_from_smelting_andesite_tin_ore"));
+        CookingRecipeJsonBuilder.createSmelting(Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "granite_tin_ore"))), RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "tin_ingot")), 0.5f, 200)
+                .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "granite_tin_ore"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "granite_tin_ore"))))
+                .offerTo(exporter, Identifier.of("mores", "tin_ingot_from_smelting_granite_tin_ore"));
+        CookingRecipeJsonBuilder.createSmelting(Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "gravel_tin_ore"))), RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "tin_ingot")), 0.5f, 200)
+                .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "gravel_tin_ore"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "gravel_tin_ore"))))
+                .offerTo(exporter, Identifier.of("mores", "tin_ingot_from_smelting_gravel_tin_ore"));
+        CookingRecipeJsonBuilder.createSmelting(Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "tuff_tin_ore"))), RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "tin_ingot")), 0.5f, 200)
+                .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "tuff_tin_ore"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "tuff_tin_ore"))))
+                .offerTo(exporter, Identifier.of("mores", "tin_ingot_from_smelting_tuff_tin_ore"));
         CookingRecipeJsonBuilder.createSmelting(Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "deepslate_tin_ore"))), RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "tin_ingot")), 0.5f, 200)
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "deepslate_tin_ore"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "deepslate_tin_ore"))))
                 .offerTo(exporter, Identifier.of("mores", "tin_ingot_from_smelting_deepslate_tin_ore"));
@@ -3908,12 +3921,37 @@ public class ModRecipeProvider extends FabricRecipeProvider {
         CookingRecipeJsonBuilder.createSmelting(Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "silver_ore"))), RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "silver_ingot")), 0.6f, 200)
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "silver_ore"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "silver_ore"))))
                 .offerTo(exporter, Identifier.of("mores", "silver_ingot_from_smelting_silver_ore"));
+        CookingRecipeJsonBuilder.createSmelting(Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "andesite_silver_ore"))), RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "silver_ingot")), 0.6f, 200)
+                .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "andesite_silver_ore"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "andesite_silver_ore"))))
+                .offerTo(exporter, Identifier.of("mores", "silver_ingot_from_smelting_andesite_silver_ore"));
+        CookingRecipeJsonBuilder.createSmelting(Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "basalt_silver_ore"))), RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "silver_ingot")), 0.6f, 200)
+                .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "basalt_silver_ore"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "basalt_silver_ore"))))
+                .offerTo(exporter, Identifier.of("mores", "silver_ingot_from_smelting_basalt_silver_ore"));
+        CookingRecipeJsonBuilder.createSmelting(Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "blackstone_silver_ore"))), RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "silver_ingot")), 0.6f, 200)
+                .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "blackstone_silver_ore"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "blackstone_silver_ore"))))
+                .offerTo(exporter, Identifier.of("mores", "silver_ingot_from_smelting_blackstone_silver_ore"));
+        CookingRecipeJsonBuilder.createSmelting(Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "diorite_silver_ore"))), RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "silver_ingot")), 0.6f, 200)
+                .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "diorite_silver_ore"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "diorite_silver_ore"))))
+                .offerTo(exporter, Identifier.of("mores", "silver_ingot_from_smelting_diorite_silver_ore"));
+        CookingRecipeJsonBuilder.createSmelting(Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "granite_silver_ore"))), RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "silver_ingot")), 0.6f, 200)
+                .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "granite_silver_ore"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "granite_silver_ore"))))
+                .offerTo(exporter, Identifier.of("mores", "silver_ingot_from_smelting_granite_silver_ore"));
+        CookingRecipeJsonBuilder.createSmelting(Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "gravel_silver_ore"))), RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "silver_ingot")), 0.6f, 200)
+                .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "gravel_silver_ore"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "gravel_silver_ore"))))
+                .offerTo(exporter, Identifier.of("mores", "silver_ingot_from_smelting_gravel_silver_ore"));
+        CookingRecipeJsonBuilder.createSmelting(Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "tuff_silver_ore"))), RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "silver_ingot")), 0.6f, 200)
+                .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "tuff_silver_ore"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "tuff_silver_ore"))))
+                .offerTo(exporter, Identifier.of("mores", "silver_ingot_from_smelting_tuff_silver_ore"));
         CookingRecipeJsonBuilder.createSmelting(Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "deepslate_silver_ore"))), RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "silver_ingot")), 0.6f, 200)
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "deepslate_silver_ore"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "deepslate_silver_ore"))))
                 .offerTo(exporter, Identifier.of("mores", "silver_ingot_from_smelting_deepslate_silver_ore"));
         CookingRecipeJsonBuilder.createSmelting(Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "nether_silver_ore"))), RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "silver_ingot")), 0.6f, 200)
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "nether_silver_ore"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "nether_silver_ore"))))
                 .offerTo(exporter, Identifier.of("mores", "silver_ingot_from_smelting_nether_silver_ore"));
+        CookingRecipeJsonBuilder.createSmelting(Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "ender_silver_ore"))), RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "silver_ingot")), 0.6f, 200)
+                .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "ender_silver_ore"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "ender_silver_ore"))))
+                .offerTo(exporter, Identifier.of("mores", "silver_ingot_from_smelting_ender_silver_ore"));
+
         //Electrum
         CookingRecipeJsonBuilder.createSmelting(Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "electrum_ore"))), RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "sterling_silver_ingot")), 0.6f, 200)
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "electrum_ore"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "electrum_ore"))))
@@ -3946,9 +3984,33 @@ public class ModRecipeProvider extends FabricRecipeProvider {
         CookingRecipeJsonBuilder.createSmelting(Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "cobalt_ore"))), RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "cobalt_ingot")), 0.8f, 200)
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "cobalt_ore"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "cobalt_ore"))))
                 .offerTo(exporter, Identifier.of("mores", "cobalt_ingot_from_smelting_cobalt_ore"));
+        CookingRecipeJsonBuilder.createSmelting(Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "andesite_cobalt_ore"))), RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "cobalt_ingot")), 0.8f, 200)
+                .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "andesite_cobalt_ore"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "andesite_cobalt_ore"))))
+                .offerTo(exporter, Identifier.of("mores", "cobalt_ingot_from_smelting_andesite_cobalt_ore"));
+        CookingRecipeJsonBuilder.createSmelting(Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "basalt_cobalt_ore"))), RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "cobalt_ingot")), 0.8f, 200)
+                .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "basalt_cobalt_ore"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "basalt_cobalt_ore"))))
+                .offerTo(exporter, Identifier.of("mores", "cobalt_ingot_from_smelting_basalt_cobalt_ore"));
+        CookingRecipeJsonBuilder.createSmelting(Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "blackstone_cobalt_ore"))), RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "cobalt_ingot")), 0.8f, 200)
+                .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "blackstone_cobalt_ore"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "blackstone_cobalt_ore"))))
+                .offerTo(exporter, Identifier.of("mores", "cobalt_ingot_from_smelting_blackstone_cobalt_ore"));
+        CookingRecipeJsonBuilder.createSmelting(Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "diorite_cobalt_ore"))), RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "cobalt_ingot")), 0.8f, 200)
+                .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "diorite_cobalt_ore"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "diorite_cobalt_ore"))))
+                .offerTo(exporter, Identifier.of("mores", "cobalt_ingot_from_smelting_diorite_cobalt_ore"));
+        CookingRecipeJsonBuilder.createSmelting(Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "granite_cobalt_ore"))), RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "cobalt_ingot")), 0.8f, 200)
+                .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "granite_cobalt_ore"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "granite_cobalt_ore"))))
+                .offerTo(exporter, Identifier.of("mores", "cobalt_ingot_from_smelting_granite_cobalt_ore"));
+        CookingRecipeJsonBuilder.createSmelting(Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "gravel_cobalt_ore"))), RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "cobalt_ingot")), 0.8f, 200)
+                .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "gravel_cobalt_ore"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "gravel_cobalt_ore"))))
+                .offerTo(exporter, Identifier.of("mores", "cobalt_ingot_from_smelting_gravel_cobalt_ore"));
+        CookingRecipeJsonBuilder.createSmelting(Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "tuff_cobalt_ore"))), RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "cobalt_ingot")), 0.8f, 200)
+                .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "tuff_cobalt_ore"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "tuff_cobalt_ore"))))
+                .offerTo(exporter, Identifier.of("mores", "cobalt_ingot_from_smelting_tuff_cobalt_ore"));
         CookingRecipeJsonBuilder.createSmelting(Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "deepslate_cobalt_ore"))), RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "cobalt_ingot")), 0.8f, 200)
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "deepslate_cobalt_ore"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "deepslate_cobalt_ore"))))
                 .offerTo(exporter, Identifier.of("mores", "cobalt_ingot_from_smelting_deepslate_cobalt_ore"));
+        CookingRecipeJsonBuilder.createSmelting(Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "ender_cobalt_ore"))), RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "cobalt_ingot")), 0.8f, 200)
+                .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "ender_cobalt_ore"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "ender_cobalt_ore"))))
+                .offerTo(exporter, Identifier.of("mores", "cobalt_ingot_from_smelting_ender_cobalt_ore"));
         //Carbon Steel
         CookingRecipeJsonBuilder.createSmelting(Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "carbon_steel_pickaxe")), Registries.ITEM.get(Identifier.of("mores", "carbon_steel_shovel")), Registries.ITEM.get(Identifier.of("mores", "carbon_steel_axe")), Registries.ITEM.get(Identifier.of("mores", "carbon_steel_hoe")), Registries.ITEM.get(Identifier.of("mores", "carbon_steel_sword")), Registries.ITEM.get(Identifier.of("mores", "carbon_steel_helmet")), Registries.ITEM.get(Identifier.of("mores", "carbon_steel_chestplate")), Registries.ITEM.get(Identifier.of("mores", "carbon_steel_leggings")), Registries.ITEM.get(Identifier.of("mores", "carbon_steel_boots")), Registries.ITEM.get(Identifier.of("mores", "carbon_steel_horse_armor")), Registries.ITEM.get(Identifier.of("mores", "carbon_steel_battle_mace")), Registries.ITEM.get(Identifier.of("mores", "carbon_steel_dagger")), Registries.ITEM.get(Identifier.of("mores", "carbon_steel_battle_axe"))), RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "carbon_steel_nugget")), 0.1f, 200)
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "carbon_steel_pickaxe"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "carbon_steel_pickaxe"))))
@@ -3958,89 +4020,266 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "hardened_steel_pickaxe"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "hardened_steel_pickaxe"))))
                 .offerTo(exporter, Identifier.of("mores", "hardened_steel_nugget_from_smelting"));
         //Turquoise
-        CookingRecipeJsonBuilder.createSmelting(Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "turquoise_ore"))), RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "turquoise")), 0.9f, 200)
+        CookingRecipeJsonBuilder.createSmelting(Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "turquoise_ore"))), RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "turquoise")), 0.3f, 200)
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "turquoise_ore"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "turquoise_ore"))))
                 .offerTo(exporter, Identifier.of("mores", "turquoise_from_smelting_turquoise_ore"));
-        CookingRecipeJsonBuilder.createSmelting(Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "deepslate_turquoise_ore"))), RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "turquoise")), 0.9f, 200)
+        CookingRecipeJsonBuilder.createSmelting(Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "deepslate_turquoise_ore"))), RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "turquoise")), 0.3f, 200)
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "deepslate_turquoise_ore"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "deepslate_turquoise_ore"))))
                 .offerTo(exporter, Identifier.of("mores", "turquoise_from_smelting_deepslate_turquoise_ore"));
         //Tanzanite
         CookingRecipeJsonBuilder.createSmelting(Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "tanzanite_ore"))), RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "tanzanite_gem")), 0.9f, 200)
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "tanzanite_ore"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "tanzanite_ore"))))
                 .offerTo(exporter, Identifier.of("mores", "tanzanite_gem_from_smelting_tanzanite_ore"));
+        CookingRecipeJsonBuilder.createSmelting(Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "andesite_tanzanite_ore"))), RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "tanzanite_gem")), 0.9f, 200)
+                .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "andesite_tanzanite_ore"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "andesite_tanzanite_ore"))))
+                .offerTo(exporter, Identifier.of("mores", "tanzanite_gem_from_smelting_andesite_tanzanite_ore"));
+        CookingRecipeJsonBuilder.createSmelting(Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "basalt_tanzanite_ore"))), RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "tanzanite_gem")), 0.9f, 200)
+                .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "basalt_tanzanite_ore"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "basalt_tanzanite_ore"))))
+                .offerTo(exporter, Identifier.of("mores", "tanzanite_gem_from_smelting_basalt_tanzanite_ore"));
+        CookingRecipeJsonBuilder.createSmelting(Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "blackstone_tanzanite_ore"))), RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "tanzanite_gem")), 0.9f, 200)
+                .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "blackstone_tanzanite_ore"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "blackstone_tanzanite_ore"))))
+                .offerTo(exporter, Identifier.of("mores", "tanzanite_gem_from_smelting_blackstone_tanzanite_ore"));
+        CookingRecipeJsonBuilder.createSmelting(Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "diorite_tanzanite_ore"))), RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "tanzanite_gem")), 0.9f, 200)
+                .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "diorite_tanzanite_ore"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "diorite_tanzanite_ore"))))
+                .offerTo(exporter, Identifier.of("mores", "tanzanite_gem_from_smelting_diorite_tanzanite_ore"));
+        CookingRecipeJsonBuilder.createSmelting(Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "granite_tanzanite_ore"))), RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "tanzanite_gem")), 0.9f, 200)
+                .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "granite_tanzanite_ore"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "granite_tanzanite_ore"))))
+                .offerTo(exporter, Identifier.of("mores", "tanzanite_gem_from_smelting_granite_tanzanite_ore"));
+        CookingRecipeJsonBuilder.createSmelting(Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "gravel_tanzanite_ore"))), RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "tanzanite_gem")), 0.9f, 200)
+                .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "gravel_tanzanite_ore"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "gravel_tanzanite_ore"))))
+                .offerTo(exporter, Identifier.of("mores", "tanzanite_gem_from_smelting_gravel_tanzanite_ore"));
+        CookingRecipeJsonBuilder.createSmelting(Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "tuff_tanzanite_ore"))), RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "tanzanite_gem")), 0.9f, 200)
+                .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "tuff_tanzanite_ore"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "tuff_tanzanite_ore"))))
+                .offerTo(exporter, Identifier.of("mores", "tanzanite_gem_from_smelting_tuff_tanzanite_ore"));
         CookingRecipeJsonBuilder.createSmelting(Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "deepslate_tanzanite_ore"))), RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "tanzanite_gem")), 0.9f, 200)
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "deepslate_tanzanite_ore"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "deepslate_tanzanite_ore"))))
                 .offerTo(exporter, Identifier.of("mores", "tanzanite_gem_from_smelting_deepslate_tanzanite_ore"));
         CookingRecipeJsonBuilder.createSmelting(Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "nether_tanzanite_ore"))), RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "tanzanite_gem")), 1.0f, 200)
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "nether_tanzanite_ore"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "nether_tanzanite_ore"))))
                 .offerTo(exporter, Identifier.of("mores", "tanzanite_gem_from_smelting_nether_tanzanite_ore"));
+        CookingRecipeJsonBuilder.createSmelting(Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "ender_tanzanite_ore"))), RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "tanzanite_gem")), 1.0f, 200)
+                .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "ender_tanzanite_ore"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "ender_tanzanite_ore"))))
+                .offerTo(exporter, Identifier.of("mores", "tanzanite_gem_from_smelting_ender_tanzanite_ore"));
         //Tourmaline
-        CookingRecipeJsonBuilder.createSmelting(Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "tourmaline_ore"))), RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "tourmaline_gem")), 0.9f, 200)
+        CookingRecipeJsonBuilder.createSmelting(Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "tourmaline_ore"))), RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "tourmaline_gem")), 0.8f, 200)
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "tourmaline_ore"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "tourmaline_ore"))))
                 .offerTo(exporter, Identifier.of("mores", "tourmaline_gem_from_smelting_tourmaline_ore"));
+        CookingRecipeJsonBuilder.createSmelting(Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "andesite_tourmaline_ore"))), RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "tourmaline_gem")), 0.8f, 200)
+                .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "andesite_tourmaline_ore"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "andesite_tourmaline_ore"))))
+                .offerTo(exporter, Identifier.of("mores", "tourmaline_gem_from_smelting_andesite_tourmaline_ore"));
+        CookingRecipeJsonBuilder.createSmelting(Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "basalt_tourmaline_ore"))), RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "tourmaline_gem")), 0.8f, 200)
+                .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "basalt_tourmaline_ore"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "basalt_tourmaline_ore"))))
+                .offerTo(exporter, Identifier.of("mores", "tourmaline_gem_from_smelting_basalt_tourmaline_ore"));
+        CookingRecipeJsonBuilder.createSmelting(Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "blackstone_tourmaline_ore"))), RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "tourmaline_gem")), 0.8f, 200)
+                .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "blackstone_tourmaline_ore"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "blackstone_tourmaline_ore"))))
+                .offerTo(exporter, Identifier.of("mores", "tourmaline_gem_from_smelting_blackstone_tourmaline_ore"));
+        CookingRecipeJsonBuilder.createSmelting(Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "diorite_tourmaline_ore"))), RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "tourmaline_gem")), 0.8f, 200)
+                .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "diorite_tourmaline_ore"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "diorite_tourmaline_ore"))))
+                .offerTo(exporter, Identifier.of("mores", "tourmaline_gem_from_smelting_diorite_tourmaline_ore"));
+        CookingRecipeJsonBuilder.createSmelting(Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "granite_tourmaline_ore"))), RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "tourmaline_gem")), 0.8f, 200)
+                .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "granite_tourmaline_ore"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "granite_tourmaline_ore"))))
+                .offerTo(exporter, Identifier.of("mores", "tourmaline_gem_from_smelting_granite_tourmaline_ore"));
+        CookingRecipeJsonBuilder.createSmelting(Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "gravel_tourmaline_ore"))), RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "tourmaline_gem")), 0.8f, 200)
+                .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "gravel_tourmaline_ore"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "gravel_tourmaline_ore"))))
+                .offerTo(exporter, Identifier.of("mores", "tourmaline_gem_from_smelting_gravel_tourmaline_ore"));
+        CookingRecipeJsonBuilder.createSmelting(Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "tuff_tourmaline_ore"))), RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "tourmaline_gem")), 0.8f, 200)
+                .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "tuff_tourmaline_ore"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "tuff_tourmaline_ore"))))
+                .offerTo(exporter, Identifier.of("mores", "tourmaline_gem_from_smelting_tuff_tourmaline_ore"));
         CookingRecipeJsonBuilder.createSmelting(Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "deepslate_tourmaline_ore"))), RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "tourmaline_gem")), 0.9f, 200)
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "deepslate_tourmaline_ore"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "deepslate_tourmaline_ore"))))
                 .offerTo(exporter, Identifier.of("mores", "tourmaline_gem_from_smelting_deepslate_tourmaline_ore"));
+        CookingRecipeJsonBuilder.createSmelting(Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "nether_tourmaline_ore"))), RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "tourmaline_gem")), 0.9f, 200)
+                .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "nether_tourmaline_ore"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "nether_tourmaline_ore"))))
+                .offerTo(exporter, Identifier.of("mores", "tourmaline_gem_from_smelting_nether_tourmaline_ore"));
+        CookingRecipeJsonBuilder.createSmelting(Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "ender_tourmaline_ore"))), RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "tourmaline_gem")), 1.0f, 200)
+                .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "ender_tourmaline_ore"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "ender_tourmaline_ore"))))
+                .offerTo(exporter, Identifier.of("mores", "tourmaline_gem_from_smelting_ender_tourmaline_ore"));
         //Topaz
-        CookingRecipeJsonBuilder.createSmelting(Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "topaz_ore"))), RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "topaz_gem")), 0.9f, 200)
+        CookingRecipeJsonBuilder.createSmelting(Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "topaz_ore"))), RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "topaz_gem")), 0.8f, 200)
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "topaz_ore"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "topaz_ore"))))
                 .offerTo(exporter, Identifier.of("mores", "topaz_gem_from_smelting_topaz_ore"));
+        CookingRecipeJsonBuilder.createSmelting(Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "andesite_topaz_ore"))), RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "topaz_gem")), 0.8f, 200)
+                .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "andesite_topaz_ore"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "andesite_topaz_ore"))))
+                .offerTo(exporter, Identifier.of("mores", "topaz_gem_from_smelting_andesite_topaz_ore"));
+        CookingRecipeJsonBuilder.createSmelting(Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "basalt_topaz_ore"))), RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "topaz_gem")), 0.8f, 200)
+                .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "basalt_topaz_ore"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "basalt_topaz_ore"))))
+                .offerTo(exporter, Identifier.of("mores", "topaz_gem_from_smelting_basalt_topaz_ore"));
+        CookingRecipeJsonBuilder.createSmelting(Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "blackstone_topaz_ore"))), RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "topaz_gem")), 0.8f, 200)
+                .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "blackstone_topaz_ore"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "blackstone_topaz_ore"))))
+                .offerTo(exporter, Identifier.of("mores", "topaz_gem_from_smelting_blackstone_topaz_ore"));
+        CookingRecipeJsonBuilder.createSmelting(Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "diorite_topaz_ore"))), RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "topaz_gem")), 0.8f, 200)
+                .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "diorite_topaz_ore"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "diorite_topaz_ore"))))
+                .offerTo(exporter, Identifier.of("mores", "topaz_gem_from_smelting_diorite_topaz_ore"));
+        CookingRecipeJsonBuilder.createSmelting(Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "granite_topaz_ore"))), RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "topaz_gem")), 0.8f, 200)
+                .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "granite_topaz_ore"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "granite_topaz_ore"))))
+                .offerTo(exporter, Identifier.of("mores", "topaz_gem_from_smelting_granite_topaz_ore"));
+        CookingRecipeJsonBuilder.createSmelting(Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "gravel_topaz_ore"))), RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "topaz_gem")), 0.8f, 200)
+                .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "gravel_topaz_ore"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "gravel_topaz_ore"))))
+                .offerTo(exporter, Identifier.of("mores", "topaz_gem_from_smelting_gravel_topaz_ore"));
+        CookingRecipeJsonBuilder.createSmelting(Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "tuff_topaz_ore"))), RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "topaz_gem")), 0.8f, 200)
+                .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "tuff_topaz_ore"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "tuff_topaz_ore"))))
+                .offerTo(exporter, Identifier.of("mores", "topaz_gem_from_smelting_tuff_topaz_ore"));
         CookingRecipeJsonBuilder.createSmelting(Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "deepslate_topaz_ore"))), RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "topaz_gem")), 0.9f, 200)
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "deepslate_topaz_ore"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "deepslate_topaz_ore"))))
                 .offerTo(exporter, Identifier.of("mores", "topaz_gem_from_smelting_deepslate_topaz_ore"));
+        CookingRecipeJsonBuilder.createSmelting(Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "nether_topaz_ore"))), RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "topaz_gem")), 0.9f, 200)
+                .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "nether_topaz_ore"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "nether_topaz_ore"))))
+                .offerTo(exporter, Identifier.of("mores", "topaz_gem_from_smelting_nether_topaz_ore"));
+        CookingRecipeJsonBuilder.createSmelting(Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "ender_topaz_ore"))), RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "topaz_gem")), 1.0f, 200)
+                .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "ender_topaz_ore"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "ender_topaz_ore"))))
+                .offerTo(exporter, Identifier.of("mores", "topaz_gem_from_smelting_ender_topaz_ore"));
         //Ruby
         CookingRecipeJsonBuilder.createSmelting(Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "ruby_ore"))), RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "ruby_gem")), 1.0f, 200)
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "ruby_ore"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "ruby_ore"))))
                 .offerTo(exporter, Identifier.of("mores", "ruby_gem_from_smelting_ruby_ore"));
-        CookingRecipeJsonBuilder.createSmelting(Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "deepslate_ruby_ore"))), RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "ruby_gem")), 1.0f, 200)
+        CookingRecipeJsonBuilder.createSmelting(Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "andesite_ruby_ore"))), RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "ruby_gem")), 1.0f, 200)
+                .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "andesite_ruby_ore"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "andesite_ruby_ore"))))
+                .offerTo(exporter, Identifier.of("mores", "ruby_gem_from_smelting_andesite_ruby_ore"));
+        CookingRecipeJsonBuilder.createSmelting(Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "basalt_ruby_ore"))), RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "ruby_gem")), 1.0f, 200)
+                .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "basalt_ruby_ore"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "basalt_ruby_ore"))))
+                .offerTo(exporter, Identifier.of("mores", "ruby_gem_from_smelting_basalt_ruby_ore"));
+        CookingRecipeJsonBuilder.createSmelting(Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "blackstone_ruby_ore"))), RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "ruby_gem")), 1.0f, 200)
+                .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "blackstone_ruby_ore"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "blackstone_ruby_ore"))))
+                .offerTo(exporter, Identifier.of("mores", "ruby_gem_from_smelting_blackstone_ruby_ore"));
+        CookingRecipeJsonBuilder.createSmelting(Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "diorite_ruby_ore"))), RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "ruby_gem")), 1.0f, 200)
+                .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "diorite_ruby_ore"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "diorite_ruby_ore"))))
+                .offerTo(exporter, Identifier.of("mores", "ruby_gem_from_smelting_diorite_ruby_ore"));
+        CookingRecipeJsonBuilder.createSmelting(Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "granite_ruby_ore"))), RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "ruby_gem")), 1.0f, 200)
+                .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "granite_ruby_ore"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "granite_ruby_ore"))))
+                .offerTo(exporter, Identifier.of("mores", "ruby_gem_from_smelting_granite_ruby_ore"));
+        CookingRecipeJsonBuilder.createSmelting(Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "gravel_ruby_ore"))), RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "ruby_gem")), 1.0f, 200)
+                .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "gravel_ruby_ore"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "gravel_ruby_ore"))))
+                .offerTo(exporter, Identifier.of("mores", "ruby_gem_from_smelting_gravel_ruby_ore"));
+        CookingRecipeJsonBuilder.createSmelting(Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "tuff_ruby_ore"))), RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "ruby_gem")), 1.0f, 200)
+                .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "tuff_ruby_ore"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "tuff_ruby_ore"))))
+                .offerTo(exporter, Identifier.of("mores", "ruby_gem_from_smelting_tuff_ruby_ore"));
+        CookingRecipeJsonBuilder.createSmelting(Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "deepslate_ruby_ore"))), RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "ruby_gem")), 1.1f, 200)
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "deepslate_ruby_ore"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "deepslate_ruby_ore"))))
                 .offerTo(exporter, Identifier.of("mores", "ruby_gem_from_smelting_deepslate_ruby_ore"));
-        CookingRecipeJsonBuilder.createSmelting(Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "nether_ruby_ore"))), RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "ruby_gem")), 1.0f, 200)
+        CookingRecipeJsonBuilder.createSmelting(Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "nether_ruby_ore"))), RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "ruby_gem")), 1.1f, 200)
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "nether_ruby_ore"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "nether_ruby_ore"))))
                 .offerTo(exporter, Identifier.of("mores", "ruby_gem_from_smelting_nether_ruby_ore"));
+        CookingRecipeJsonBuilder.createSmelting(Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "ender_ruby_ore"))), RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "ruby_gem")), 1.2f, 200)
+                .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "ender_ruby_ore"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "ender_ruby_ore"))))
+                .offerTo(exporter, Identifier.of("mores", "ruby_gem_from_smelting_ender_ruby_ore"));
         //Sapphire
         CookingRecipeJsonBuilder.createSmelting(Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "sapphire_ore"))), RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "sapphire_gem")), 1.0f, 200)
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "sapphire_ore"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "sapphire_ore"))))
                 .offerTo(exporter, Identifier.of("mores", "sapphire_gem_from_smelting_sapphire_ore"));
-        CookingRecipeJsonBuilder.createSmelting(Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "deepslate_sapphire_ore"))), RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "sapphire_gem")), 1.0f, 200)
+        CookingRecipeJsonBuilder.createSmelting(Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "andesite_sapphire_ore"))), RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "sapphire_gem")), 1.0f, 200)
+                .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "andesite_sapphire_ore"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "andesite_sapphire_ore"))))
+                .offerTo(exporter, Identifier.of("mores", "sapphire_gem_from_smelting_andesite_sapphire_ore"));
+        CookingRecipeJsonBuilder.createSmelting(Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "basalt_sapphire_ore"))), RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "sapphire_gem")), 1.0f, 200)
+                .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "basalt_sapphire_ore"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "basalt_sapphire_ore"))))
+                .offerTo(exporter, Identifier.of("mores", "sapphire_gem_from_smelting_basalt_sapphire_ore"));
+        CookingRecipeJsonBuilder.createSmelting(Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "blackstone_sapphire_ore"))), RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "sapphire_gem")), 1.0f, 200)
+                .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "blackstone_sapphire_ore"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "blackstone_sapphire_ore"))))
+                .offerTo(exporter, Identifier.of("mores", "sapphire_gem_from_smelting_blackstone_sapphire_ore"));
+        CookingRecipeJsonBuilder.createSmelting(Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "diorite_sapphire_ore"))), RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "sapphire_gem")), 1.0f, 200)
+                .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "diorite_sapphire_ore"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "diorite_sapphire_ore"))))
+                .offerTo(exporter, Identifier.of("mores", "sapphire_gem_from_smelting_diorite_sapphire_ore"));
+        CookingRecipeJsonBuilder.createSmelting(Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "granite_sapphire_ore"))), RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "sapphire_gem")), 1.0f, 200)
+                .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "granite_sapphire_ore"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "granite_sapphire_ore"))))
+                .offerTo(exporter, Identifier.of("mores", "sapphire_gem_from_smelting_granite_sapphire_ore"));
+        CookingRecipeJsonBuilder.createSmelting(Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "gravel_sapphire_ore"))), RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "sapphire_gem")), 1.0f, 200)
+                .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "gravel_sapphire_ore"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "gravel_sapphire_ore"))))
+                .offerTo(exporter, Identifier.of("mores", "sapphire_gem_from_smelting_gravel_sapphire_ore"));
+        CookingRecipeJsonBuilder.createSmelting(Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "tuff_sapphire_ore"))), RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "sapphire_gem")), 1.0f, 200)
+                .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "tuff_sapphire_ore"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "tuff_sapphire_ore"))))
+                .offerTo(exporter, Identifier.of("mores", "sapphire_gem_from_smelting_tuff_sapphire_ore"));
+        CookingRecipeJsonBuilder.createSmelting(Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "deepslate_sapphire_ore"))), RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "sapphire_gem")), 1.1f, 200)
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "deepslate_sapphire_ore"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "deepslate_sapphire_ore"))))
                 .offerTo(exporter, Identifier.of("mores", "sapphire_gem_from_smelting_deepslate_sapphire_ore"));
-        CookingRecipeJsonBuilder.createSmelting(Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "nether_sapphire_ore"))), RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "sapphire_gem")), 1.0f, 200)
+        CookingRecipeJsonBuilder.createSmelting(Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "nether_sapphire_ore"))), RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "sapphire_gem")), 1.1f, 200)
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "nether_sapphire_ore"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "nether_sapphire_ore"))))
                 .offerTo(exporter, Identifier.of("mores", "sapphire_gem_from_smelting_sapphire_nether_ore"));
+        CookingRecipeJsonBuilder.createSmelting(Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "ender_sapphire_ore"))), RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "sapphire_gem")), 1.2f, 200)
+                .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "ender_sapphire_ore"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "ender_sapphire_ore"))))
+                .offerTo(exporter, Identifier.of("mores", "sapphire_gem_from_smelting_ender_sapphire_ore"));
         //Spinel
         CookingRecipeJsonBuilder.createSmelting(Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "spinel_ore"))), RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "spinel_gem")), 1.0f, 200)
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "spinel_ore"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "spinel_ore"))))
                 .offerTo(exporter, Identifier.of("mores", "spinel_gem_from_smelting_spinel_ore"));
-        CookingRecipeJsonBuilder.createSmelting(Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "deepslate_spinel_ore"))), RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "spinel_gem")), 1.0f, 200)
+        CookingRecipeJsonBuilder.createSmelting(Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "andesite_spinel_ore"))), RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "spinel_gem")), 1.0f, 200)
+                .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "andesite_spinel_ore"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "andesite_spinel_ore"))))
+                .offerTo(exporter, Identifier.of("mores", "spinel_gem_from_smelting_andesite_spinel_ore"));
+        CookingRecipeJsonBuilder.createSmelting(Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "basalt_spinel_ore"))), RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "spinel_gem")), 1.0f, 200)
+                .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "basalt_spinel_ore"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "basalt_spinel_ore"))))
+                .offerTo(exporter, Identifier.of("mores", "spinel_gem_from_smelting_basalt_spinel_ore"));
+        CookingRecipeJsonBuilder.createSmelting(Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "blackstone_spinel_ore"))), RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "spinel_gem")), 1.0f, 200)
+                .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "blackstone_spinel_ore"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "blackstone_spinel_ore"))))
+                .offerTo(exporter, Identifier.of("mores", "spinel_gem_from_smelting_blackstone_spinel_ore"));
+        CookingRecipeJsonBuilder.createSmelting(Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "diorite_spinel_ore"))), RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "spinel_gem")), 1.0f, 200)
+                .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "diorite_spinel_ore"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "diorite_spinel_ore"))))
+                .offerTo(exporter, Identifier.of("mores", "spinel_gem_from_smelting_diorite_spinel_ore"));
+        CookingRecipeJsonBuilder.createSmelting(Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "granite_spinel_ore"))), RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "spinel_gem")), 1.0f, 200)
+                .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "granite_spinel_ore"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "granite_spinel_ore"))))
+                .offerTo(exporter, Identifier.of("mores", "spinel_gem_from_smelting_granite_spinel_ore"));
+        CookingRecipeJsonBuilder.createSmelting(Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "gravel_spinel_ore"))), RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "spinel_gem")), 1.0f, 200)
+                .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "gravel_spinel_ore"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "gravel_spinel_ore"))))
+                .offerTo(exporter, Identifier.of("mores", "spinel_gem_from_smelting_gravel_spinel_ore"));
+        CookingRecipeJsonBuilder.createSmelting(Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "tuff_spinel_ore"))), RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "spinel_gem")), 1.0f, 200)
+                .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "tuff_spinel_ore"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "tuff_spinel_ore"))))
+                .offerTo(exporter, Identifier.of("mores", "spinel_gem_from_smelting_tuff_spinel_ore"));
+        CookingRecipeJsonBuilder.createSmelting(Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "deepslate_spinel_ore"))), RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "spinel_gem")), 1.1f, 200)
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "deepslate_spinel_ore"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "deepslate_spinel_ore"))))
                 .offerTo(exporter, Identifier.of("mores", "spinel_gem_from_smelting_deepslate_spinel_ore"));
-        CookingRecipeJsonBuilder.createSmelting(Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "nether_spinel_ore"))), RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "spinel_gem")), 1.0f, 200)
+        CookingRecipeJsonBuilder.createSmelting(Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "nether_spinel_ore"))), RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "spinel_gem")), 1.1f, 200)
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "nether_spinel_ore"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "nether_spinel_ore"))))
                 .offerTo(exporter, Identifier.of("mores", "spinel_gem_from_smelting_spinel_nether_ore"));
+        CookingRecipeJsonBuilder.createSmelting(Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "ender_spinel_ore"))), RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "spinel_gem")), 1.2f, 200)
+                .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "ender_spinel_ore"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "ender_spinel_ore"))))
+                .offerTo(exporter, Identifier.of("mores", "spinel_gem_from_smelting_spinel_ender_ore"));
         //Citrine
-        CookingRecipeJsonBuilder.createSmelting(Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "citrine_ore"))), RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "citrine")), 1.0f, 200)
+        CookingRecipeJsonBuilder.createSmelting(Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "citrine_ore"))), RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "citrine")), 0.3f, 200)
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "citrine_ore"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "citrine_ore"))))
                 .offerTo(exporter, Identifier.of("mores", "citrine_from_smelting_citrine_ore"));
-        CookingRecipeJsonBuilder.createSmelting(Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "nether_citrine_ore"))), RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "citrine")), 1.0f, 200)
+        CookingRecipeJsonBuilder.createSmelting(Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "nether_citrine_ore"))), RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "citrine")), 0.4f, 200)
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "nether_citrine_ore"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "nether_citrine_ore"))))
                 .offerTo(exporter, Identifier.of("mores", "citrine_from_smelting_citrine_nether_ore"));
         //Moissanite
-        CookingRecipeJsonBuilder.createSmelting(Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "moissanite_ore"))), RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "moissanite_gem")), 1.0f, 200)
+        CookingRecipeJsonBuilder.createSmelting(Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "moissanite_ore"))), RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "moissanite_gem")), 1.1f, 200)
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "moissanite_ore"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "moissanite_ore"))))
                 .offerTo(exporter, Identifier.of("mores", "moissanite_gem_from_smelting_moissanite_ore"));
-        CookingRecipeJsonBuilder.createSmelting(Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "deepslate_moissanite_ore"))), RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "moissanite_gem")), 1.0f, 200)
+        CookingRecipeJsonBuilder.createSmelting(Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "andesite_moissanite_ore"))), RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "moissanite_gem")), 1.1f, 200)
+                .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "andesite_moissanite_ore"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "andesite_moissanite_ore"))))
+                .offerTo(exporter, Identifier.of("mores", "moissanite_gem_from_smelting_andesite_moissanite_ore"));
+        CookingRecipeJsonBuilder.createSmelting(Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "basalt_moissanite_ore"))), RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "moissanite_gem")), 1.1f, 200)
+                .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "basalt_moissanite_ore"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "basalt_moissanite_ore"))))
+                .offerTo(exporter, Identifier.of("mores", "moissanite_gem_from_smelting_basalt_moissanite_ore"));
+        CookingRecipeJsonBuilder.createSmelting(Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "blackstone_moissanite_ore"))), RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "moissanite_gem")), 1.1f, 200)
+                .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "blackstone_moissanite_ore"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "blackstone_moissanite_ore"))))
+                .offerTo(exporter, Identifier.of("mores", "moissanite_gem_from_smelting_blackstone_moissanite_ore"));
+        CookingRecipeJsonBuilder.createSmelting(Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "diorite_moissanite_ore"))), RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "moissanite_gem")), 1.1f, 200)
+                .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "diorite_moissanite_ore"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "diorite_moissanite_ore"))))
+                .offerTo(exporter, Identifier.of("mores", "moissanite_gem_from_smelting_diorite_moissanite_ore"));
+        CookingRecipeJsonBuilder.createSmelting(Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "granite_moissanite_ore"))), RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "moissanite_gem")), 1.1f, 200)
+                .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "granite_moissanite_ore"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "granite_moissanite_ore"))))
+                .offerTo(exporter, Identifier.of("mores", "moissanite_gem_from_smelting_granite_moissanite_ore"));
+        CookingRecipeJsonBuilder.createSmelting(Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "gravel_moissanite_ore"))), RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "moissanite_gem")), 1.1f, 200)
+                .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "gravel_moissanite_ore"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "gravel_moissanite_ore"))))
+                .offerTo(exporter, Identifier.of("mores", "moissanite_gem_from_smelting_gravel_moissanite_ore"));
+        CookingRecipeJsonBuilder.createSmelting(Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "tuff_moissanite_ore"))), RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "moissanite_gem")), 1.1f, 200)
+                .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "tuff_moissanite_ore"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "tuff_moissanite_ore"))))
+                .offerTo(exporter, Identifier.of("mores", "moissanite_gem_from_smelting_tuff_moissanite_ore"));
+        CookingRecipeJsonBuilder.createSmelting(Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "deepslate_moissanite_ore"))), RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "moissanite_gem")), 1.2f, 200)
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "deepslate_moissanite_ore"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "deepslate_moissanite_ore"))))
                 .offerTo(exporter, Identifier.of("mores", "moissanite_gem_from_smelting_deepslate_moissanite_ore"));
-        CookingRecipeJsonBuilder.createSmelting(Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "nether_moissanite_ore"))), RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "moissanite_gem")), 1.0f, 200)
+        CookingRecipeJsonBuilder.createSmelting(Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "nether_moissanite_ore"))), RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "moissanite_gem")), 1.2f, 200)
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "nether_moissanite_ore"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "nether_moissanite_ore"))))
                 .offerTo(exporter, Identifier.of("mores", "moissanite_gem_from_smelting_nether_moissanite_ore"));
+        CookingRecipeJsonBuilder.createSmelting(Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "ender_moissanite_ore"))), RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "moissanite_gem")), 1.2f, 200)
+                .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "ender_moissanite_ore"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "ender_moissanite_ore"))))
+                .offerTo(exporter, Identifier.of("mores", "moissanite_gem_from_smelting_ender_moissanite_ore"));
         //Onyx
-        CookingRecipeJsonBuilder.createSmelting(Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "ender_onyx_ore"))), RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "onyx")), 1.1f, 200)
+        CookingRecipeJsonBuilder.createSmelting(Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "nether_onyx_ore"))), RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "onyx")), 0.7f, 200)
+                .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "nether_onyx_ore"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "nether_onyx_ore"))))
+                .offerTo(exporter, Identifier.of("mores", "onyx_from_smelting_nether_onyx_ore"));
+        CookingRecipeJsonBuilder.createSmelting(Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "ender_onyx_ore"))), RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "onyx")), 0.8f, 200)
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "ender_onyx_ore"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "ender_onyx_ore"))))
                 .offerTo(exporter, Identifier.of("mores", "onyx_from_smelting_ender_onyx_ore"));
         //Enderite
-        CookingRecipeJsonBuilder.createSmelting(Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "primordial_debris"))), RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "enderite_scrap")), 1.1f, 200)
+        CookingRecipeJsonBuilder.createSmelting(Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "primordial_debris"))), RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "enderite_scrap")), 2.5f, 200)
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "primordial_debris"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "primordial_debris"))))
                 .offerTo(exporter, Identifier.of("mores", "enderite_scrap_from_primordial_debris"));
 
@@ -4080,6 +4319,18 @@ public class ModRecipeProvider extends FabricRecipeProvider {
         CookingRecipeJsonBuilder.createBlasting(Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "tin_ore"))), RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "tin_ingot")), 0.5f, 100)
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "tin_ore"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "tin_ore"))))
                 .offerTo(exporter, Identifier.of("mores", "tin_ingot_from_blasting_tin_ore"));
+        CookingRecipeJsonBuilder.createBlasting(Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "andesite_tin_ore"))), RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "tin_ingot")), 0.5f, 100)
+                .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "andesite_tin_ore"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "andesite_tin_ore"))))
+                .offerTo(exporter, Identifier.of("mores", "tin_ingot_from_blasting_andesite_tin_ore"));
+        CookingRecipeJsonBuilder.createBlasting(Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "granite_tin_ore"))), RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "tin_ingot")), 0.5f, 100)
+                .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "granite_tin_ore"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "granite_tin_ore"))))
+                .offerTo(exporter, Identifier.of("mores", "tin_ingot_from_blasting_granite_tin_ore"));
+        CookingRecipeJsonBuilder.createBlasting(Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "gravel_tin_ore"))), RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "tin_ingot")), 0.5f, 100)
+                .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "gravel_tin_ore"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "gravel_tin_ore"))))
+                .offerTo(exporter, Identifier.of("mores", "tin_ingot_from_blasting_gravel_tin_ore"));
+        CookingRecipeJsonBuilder.createBlasting(Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "tuff_tin_ore"))), RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "tin_ingot")), 0.5f, 100)
+                .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "tuff_tin_ore"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "tuff_tin_ore"))))
+                .offerTo(exporter, Identifier.of("mores", "tin_ingot_from_blasting_tuff_tin_ore"));
         CookingRecipeJsonBuilder.createBlasting(Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "deepslate_tin_ore"))), RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "tin_ingot")), 0.5f, 100)
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "deepslate_tin_ore"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "deepslate_tin_ore"))))
                 .offerTo(exporter, Identifier.of("mores", "tin_ingot_from_blasting_deepslate_tin_ore"));
@@ -4109,6 +4360,9 @@ public class ModRecipeProvider extends FabricRecipeProvider {
         CookingRecipeJsonBuilder.createBlasting(Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "nether_silver_ore"))), RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "silver_ingot")), 0.6f, 100)
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "nether_silver_ore"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "nether_silver_ore"))))
                 .offerTo(exporter, Identifier.of("mores", "silver_ingot_from_blasting_nether_silver_ore"));
+        CookingRecipeJsonBuilder.createBlasting(Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "ender_silver_ore"))), RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "silver_ingot")), 0.6f, 200)
+                .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "ender_silver_ore"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "ender_silver_ore"))))
+                .offerTo(exporter, Identifier.of("mores", "silver_ingot_from_blasting_ender_silver_ore"));
         //Electrum
         CookingRecipeJsonBuilder.createBlasting(Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "electrum_ore"))), RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "sterling_silver_ingot")), 0.6f, 100)
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "electrum_ore"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "electrum_ore"))))
@@ -4141,9 +4395,33 @@ public class ModRecipeProvider extends FabricRecipeProvider {
         CookingRecipeJsonBuilder.createBlasting(Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "cobalt_ore"))), RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "cobalt_ingot")), 0.8f, 100)
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "cobalt_ore"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "cobalt_ore"))))
                 .offerTo(exporter, Identifier.of("mores", "cobalt_ingot_from_blasting_cobalt_ore"));
+        CookingRecipeJsonBuilder.createBlasting(Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "andesite_cobalt_ore"))), RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "cobalt_ingot")), 0.8f, 100)
+                .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "andesite_cobalt_ore"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "andesite_cobalt_ore"))))
+                .offerTo(exporter, Identifier.of("mores", "cobalt_ingot_from_blasting_andesite_cobalt_ore"));
+        CookingRecipeJsonBuilder.createBlasting(Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "basalt_cobalt_ore"))), RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "cobalt_ingot")), 0.8f, 100)
+                .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "basalt_cobalt_ore"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "basalt_cobalt_ore"))))
+                .offerTo(exporter, Identifier.of("mores", "cobalt_ingot_from_blasting_basalt_cobalt_ore"));
+        CookingRecipeJsonBuilder.createBlasting(Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "blackstone_cobalt_ore"))), RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "cobalt_ingot")), 0.8f, 100)
+                .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "blackstone_cobalt_ore"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "blackstone_cobalt_ore"))))
+                .offerTo(exporter, Identifier.of("mores", "cobalt_ingot_from_blasting_blackstone_cobalt_ore"));
+        CookingRecipeJsonBuilder.createBlasting(Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "diorite_cobalt_ore"))), RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "cobalt_ingot")), 0.8f, 100)
+                .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "diorite_cobalt_ore"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "diorite_cobalt_ore"))))
+                .offerTo(exporter, Identifier.of("mores", "cobalt_ingot_from_blasting_diorite_cobalt_ore"));
+        CookingRecipeJsonBuilder.createBlasting(Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "granite_cobalt_ore"))), RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "cobalt_ingot")), 0.8f, 100)
+                .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "granite_cobalt_ore"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "granite_cobalt_ore"))))
+                .offerTo(exporter, Identifier.of("mores", "cobalt_ingot_from_blasting_granite_cobalt_ore"));
+        CookingRecipeJsonBuilder.createBlasting(Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "gravel_cobalt_ore"))), RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "cobalt_ingot")), 0.8f, 100)
+                .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "gravel_cobalt_ore"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "gravel_cobalt_ore"))))
+                .offerTo(exporter, Identifier.of("mores", "cobalt_ingot_from_blasting_gravel_cobalt_ore"));
+        CookingRecipeJsonBuilder.createBlasting(Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "tuff_cobalt_ore"))), RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "cobalt_ingot")), 0.8f, 100)
+                .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "tuff_cobalt_ore"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "tuff_cobalt_ore"))))
+                .offerTo(exporter, Identifier.of("mores", "cobalt_ingot_from_blasting_tuff_cobalt_ore"));
         CookingRecipeJsonBuilder.createBlasting(Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "deepslate_cobalt_ore"))), RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "cobalt_ingot")), 0.8f, 100)
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "deepslate_cobalt_ore"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "deepslate_cobalt_ore"))))
                 .offerTo(exporter, Identifier.of("mores", "cobalt_ingot_from_blasting_deepslate_cobalt_ore"));
+        CookingRecipeJsonBuilder.createBlasting(Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "ender_cobalt_ore"))), RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "cobalt_ingot")), 0.8f, 100)
+                .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "ender_cobalt_ore"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "ender_cobalt_ore"))))
+                .offerTo(exporter, Identifier.of("mores", "cobalt_ingot_from_blasting_ender_cobalt_ore"));
         //Carbon Steel
         CookingRecipeJsonBuilder.createBlasting(Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "carbon_steel_ingot"))), RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "hot_carbon_steel_scrap")), 0.1f, 100)
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "carbon_steel_ingot"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "carbon_steel_ingot"))))
@@ -4163,59 +4441,209 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "deepslate_turquoise_ore"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "deepslate_turquoise_ore"))))
                 .offerTo(exporter, Identifier.of("mores", "turquoise_from_blasting_deepslate_turquoise_ore"));
         //Tanzanite
-        CookingRecipeJsonBuilder.createBlasting(Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "tanzanite_ore"))), RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "tanzanite_gem")), 1.0f, 100)
+        CookingRecipeJsonBuilder.createBlasting(Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "tanzanite_ore"))), RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "tanzanite_gem")), 0.9f, 100)
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "tanzanite_ore"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "tanzanite_ore"))))
                 .offerTo(exporter, Identifier.of("mores", "tanzanite_gem_from_blasting_tanzanite_ore"));
-        CookingRecipeJsonBuilder.createBlasting(Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "deepslate_tanzanite_ore"))), RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "tanzanite_gem")), 1.0f, 100)
+        CookingRecipeJsonBuilder.createBlasting(Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "andesite_tanzanite_ore"))), RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "tanzanite_gem")), 0.9f, 100)
+                .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "andesite_tanzanite_ore"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "andesite_tanzanite_ore"))))
+                .offerTo(exporter, Identifier.of("mores", "tanzanite_gem_from_blasting_andesite_tanzanite_ore"));
+        CookingRecipeJsonBuilder.createBlasting(Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "basalt_tanzanite_ore"))), RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "tanzanite_gem")), 0.9f, 100)
+                .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "basalt_tanzanite_ore"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "basalt_tanzanite_ore"))))
+                .offerTo(exporter, Identifier.of("mores", "tanzanite_gem_from_blasting_basalt_tanzanite_ore"));
+        CookingRecipeJsonBuilder.createBlasting(Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "blackstone_tanzanite_ore"))), RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "tanzanite_gem")), 0.9f, 100)
+                .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "blackstone_tanzanite_ore"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "blackstone_tanzanite_ore"))))
+                .offerTo(exporter, Identifier.of("mores", "tanzanite_gem_from_blasting_blackstone_tanzanite_ore"));
+        CookingRecipeJsonBuilder.createBlasting(Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "diorite_tanzanite_ore"))), RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "tanzanite_gem")), 0.9f, 100)
+                .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "diorite_tanzanite_ore"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "diorite_tanzanite_ore"))))
+                .offerTo(exporter, Identifier.of("mores", "tanzanite_gem_from_blasting_diorite_tanzanite_ore"));
+        CookingRecipeJsonBuilder.createBlasting(Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "granite_tanzanite_ore"))), RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "tanzanite_gem")), 0.9f, 100)
+                .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "granite_tanzanite_ore"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "granite_tanzanite_ore"))))
+                .offerTo(exporter, Identifier.of("mores", "tanzanite_gem_from_blasting_granite_tanzanite_ore"));
+        CookingRecipeJsonBuilder.createBlasting(Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "gravel_tanzanite_ore"))), RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "tanzanite_gem")), 0.9f, 100)
+                .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "gravel_tanzanite_ore"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "gravel_tanzanite_ore"))))
+                .offerTo(exporter, Identifier.of("mores", "tanzanite_gem_from_blasting_gravel_tanzanite_ore"));
+        CookingRecipeJsonBuilder.createBlasting(Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "tuff_tanzanite_ore"))), RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "tanzanite_gem")), 0.9f, 100)
+                .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "tuff_tanzanite_ore"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "tuff_tanzanite_ore"))))
+                .offerTo(exporter, Identifier.of("mores", "tanzanite_gem_from_blasting_tuff_tanzanite_ore"));
+        CookingRecipeJsonBuilder.createBlasting(Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "deepslate_tanzanite_ore"))), RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "tanzanite_gem")), 0.9f, 100)
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "deepslate_tanzanite_ore"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "deepslate_tanzanite_ore"))))
                 .offerTo(exporter, Identifier.of("mores", "tanzanite_gem_from_blasting_deepslate_tanzanite_ore"));
         CookingRecipeJsonBuilder.createBlasting(Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "nether_tanzanite_ore"))), RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "tanzanite_gem")), 1.0f, 100)
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "nether_tanzanite_ore"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "nether_tanzanite_ore"))))
                 .offerTo(exporter, Identifier.of("mores", "tanzanite_gem_from_blasting_nether_tanzanite_ore"));
+        CookingRecipeJsonBuilder.createBlasting(Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "ender_tanzanite_ore"))), RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "tanzanite_gem")), 1.0f, 100)
+                .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "ender_tanzanite_ore"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "ender_tanzanite_ore"))))
+                .offerTo(exporter, Identifier.of("mores", "tanzanite_gem_from_blasting_ender_tanzanite_ore"));
         //Tourmaline
-        CookingRecipeJsonBuilder.createBlasting(Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "tourmaline_ore"))), RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "tourmaline_gem")), 0.9f, 100)
+        CookingRecipeJsonBuilder.createBlasting(Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "tourmaline_ore"))), RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "tourmaline_gem")), 0.8f, 100)
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "tourmaline_ore"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "tourmaline_ore"))))
                 .offerTo(exporter, Identifier.of("mores", "tourmaline_gem_from_blasting_tourmaline_ore"));
+        CookingRecipeJsonBuilder.createBlasting(Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "andesite_tourmaline_ore"))), RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "tourmaline_gem")), 0.8f, 100)
+                .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "andesite_tourmaline_ore"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "andesite_tourmaline_ore"))))
+                .offerTo(exporter, Identifier.of("mores", "tourmaline_gem_from_blasting_andesite_tourmaline_ore"));
+        CookingRecipeJsonBuilder.createBlasting(Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "basalt_tourmaline_ore"))), RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "tourmaline_gem")), 0.8f, 100)
+                .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "basalt_tourmaline_ore"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "basalt_tourmaline_ore"))))
+                .offerTo(exporter, Identifier.of("mores", "tourmaline_gem_from_blasting_basalt_tourmaline_ore"));
+        CookingRecipeJsonBuilder.createBlasting(Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "blackstone_tourmaline_ore"))), RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "tourmaline_gem")), 0.8f, 100)
+                .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "blackstone_tourmaline_ore"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "blackstone_tourmaline_ore"))))
+                .offerTo(exporter, Identifier.of("mores", "tourmaline_gem_from_blasting_blackstone_tourmaline_ore"));
+        CookingRecipeJsonBuilder.createBlasting(Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "diorite_tourmaline_ore"))), RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "tourmaline_gem")), 0.8f, 100)
+                .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "diorite_tourmaline_ore"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "diorite_tourmaline_ore"))))
+                .offerTo(exporter, Identifier.of("mores", "tourmaline_gem_from_blasting_diorite_tourmaline_ore"));
+        CookingRecipeJsonBuilder.createBlasting(Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "granite_tourmaline_ore"))), RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "tourmaline_gem")), 0.8f, 100)
+                .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "granite_tourmaline_ore"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "granite_tourmaline_ore"))))
+                .offerTo(exporter, Identifier.of("mores", "tourmaline_gem_from_blasting_granite_tourmaline_ore"));
+        CookingRecipeJsonBuilder.createBlasting(Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "gravel_tourmaline_ore"))), RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "tourmaline_gem")), 0.8f, 100)
+                .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "gravel_tourmaline_ore"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "gravel_tourmaline_ore"))))
+                .offerTo(exporter, Identifier.of("mores", "tourmaline_gem_from_blasting_gravel_tourmaline_ore"));
+        CookingRecipeJsonBuilder.createBlasting(Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "tuff_tourmaline_ore"))), RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "tourmaline_gem")), 0.8f, 100)
+                .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "tuff_tourmaline_ore"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "tuff_tourmaline_ore"))))
+                .offerTo(exporter, Identifier.of("mores", "tourmaline_gem_from_blasting_tuff_tourmaline_ore"));
         CookingRecipeJsonBuilder.createBlasting(Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "deepslate_tourmaline_ore"))), RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "tourmaline_gem")), 0.9f, 100)
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "deepslate_tourmaline_ore"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "deepslate_tourmaline_ore"))))
                 .offerTo(exporter, Identifier.of("mores", "tourmaline_gem_from_blasting_deepslate_tourmaline_ore"));
+        CookingRecipeJsonBuilder.createBlasting(Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "nether_tourmaline_ore"))), RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "tourmaline_gem")), 0.9f, 100)
+                .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "nether_tourmaline_ore"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "nether_tourmaline_ore"))))
+                .offerTo(exporter, Identifier.of("mores", "tourmaline_gem_from_blasting_nether_tourmaline_ore"));
+        CookingRecipeJsonBuilder.createBlasting(Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "ender_tourmaline_ore"))), RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "tourmaline_gem")), 1.0f, 100)
+                .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "ender_tourmaline_ore"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "ender_tourmaline_ore"))))
+                .offerTo(exporter, Identifier.of("mores", "tourmaline_gem_from_blasting_ender_tourmaline_ore"));
         //Topaz
-        CookingRecipeJsonBuilder.createBlasting(Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "topaz_ore"))), RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "topaz_gem")), 0.9f, 100)
+        CookingRecipeJsonBuilder.createBlasting(Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "topaz_ore"))), RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "topaz_gem")), 0.8f, 100)
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "topaz_ore"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "topaz_ore"))))
                 .offerTo(exporter, Identifier.of("mores", "topaz_gem_from_blasting_topaz_ore"));
+        CookingRecipeJsonBuilder.createBlasting(Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "andesite_topaz_ore"))), RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "topaz_gem")), 0.8f, 100)
+                .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "andesite_topaz_ore"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "andesite_topaz_ore"))))
+                .offerTo(exporter, Identifier.of("mores", "topaz_gem_from_blasting_andesite_topaz_ore"));
+        CookingRecipeJsonBuilder.createBlasting(Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "basalt_topaz_ore"))), RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "topaz_gem")), 0.8f, 100)
+                .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "basalt_topaz_ore"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "basalt_topaz_ore"))))
+                .offerTo(exporter, Identifier.of("mores", "topaz_gem_from_blasting_basalt_topaz_ore"));
+        CookingRecipeJsonBuilder.createBlasting(Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "blackstone_topaz_ore"))), RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "topaz_gem")), 0.8f, 100)
+                .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "blackstone_topaz_ore"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "blackstone_topaz_ore"))))
+                .offerTo(exporter, Identifier.of("mores", "topaz_gem_from_blasting_blackstone_topaz_ore"));
+        CookingRecipeJsonBuilder.createBlasting(Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "diorite_topaz_ore"))), RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "topaz_gem")), 0.8f, 100)
+                .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "diorite_topaz_ore"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "diorite_topaz_ore"))))
+                .offerTo(exporter, Identifier.of("mores", "topaz_gem_from_blasting_diorite_topaz_ore"));
+        CookingRecipeJsonBuilder.createBlasting(Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "granite_topaz_ore"))), RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "topaz_gem")), 0.8f, 100)
+                .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "granite_topaz_ore"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "granite_topaz_ore"))))
+                .offerTo(exporter, Identifier.of("mores", "topaz_gem_from_blasting_granite_topaz_ore"));
+        CookingRecipeJsonBuilder.createBlasting(Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "gravel_topaz_ore"))), RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "topaz_gem")), 0.8f, 100)
+                .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "gravel_topaz_ore"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "gravel_topaz_ore"))))
+                .offerTo(exporter, Identifier.of("mores", "topaz_gem_from_blasting_gravel_topaz_ore"));
+        CookingRecipeJsonBuilder.createBlasting(Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "tuff_topaz_ore"))), RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "topaz_gem")), 0.8f, 100)
+                .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "tuff_topaz_ore"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "tuff_topaz_ore"))))
+                .offerTo(exporter, Identifier.of("mores", "topaz_gem_from_blasting_tuff_topaz_ore"));
         CookingRecipeJsonBuilder.createBlasting(Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "deepslate_topaz_ore"))), RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "topaz_gem")), 0.9f, 100)
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "deepslate_topaz_ore"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "deepslate_topaz_ore"))))
                 .offerTo(exporter, Identifier.of("mores", "topaz_gem_from_blasting_deepslate_topaz_ore"));
+        CookingRecipeJsonBuilder.createBlasting(Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "nether_topaz_ore"))), RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "topaz_gem")), 0.9f, 100)
+                .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "nether_topaz_ore"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "nether_topaz_ore"))))
+                .offerTo(exporter, Identifier.of("mores", "topaz_gem_from_blasting_nether_topaz_ore"));
+        CookingRecipeJsonBuilder.createBlasting(Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "ender_topaz_ore"))), RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "topaz_gem")), 1.0f, 100)
+                .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "ender_topaz_ore"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "ender_topaz_ore"))))
+                .offerTo(exporter, Identifier.of("mores", "topaz_gem_from_blasting_ender_topaz_ore"));
         //Ruby
         CookingRecipeJsonBuilder.createBlasting(Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "ruby_ore"))), RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "ruby_gem")), 1.0f, 100)
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "ruby_ore"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "ruby_ore"))))
                 .offerTo(exporter, Identifier.of("mores", "ruby_gem_from_blasting_ruby_ore"));
-        CookingRecipeJsonBuilder.createBlasting(Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "deepslate_ruby_ore"))), RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "ruby_gem")), 1.0f, 100)
+        CookingRecipeJsonBuilder.createBlasting(Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "andesite_ruby_ore"))), RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "ruby_gem")), 1.0f, 100)
+                .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "andesite_ruby_ore"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "andesite_ruby_ore"))))
+                .offerTo(exporter, Identifier.of("mores", "ruby_gem_from_blasting_andesite_ruby_ore"));
+        CookingRecipeJsonBuilder.createBlasting(Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "basalt_ruby_ore"))), RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "ruby_gem")), 1.0f, 100)
+                .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "basalt_ruby_ore"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "basalt_ruby_ore"))))
+                .offerTo(exporter, Identifier.of("mores", "ruby_gem_from_blasting_basalt_ruby_ore"));
+        CookingRecipeJsonBuilder.createBlasting(Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "blackstone_ruby_ore"))), RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "ruby_gem")), 1.0f, 100)
+                .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "blackstone_ruby_ore"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "blackstone_ruby_ore"))))
+                .offerTo(exporter, Identifier.of("mores", "ruby_gem_from_blasting_blackstone_ruby_ore"));
+        CookingRecipeJsonBuilder.createBlasting(Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "diorite_ruby_ore"))), RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "ruby_gem")), 1.0f, 100)
+                .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "diorite_ruby_ore"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "diorite_ruby_ore"))))
+                .offerTo(exporter, Identifier.of("mores", "ruby_gem_from_blasting_diorite_ruby_ore"));
+        CookingRecipeJsonBuilder.createBlasting(Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "granite_ruby_ore"))), RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "ruby_gem")), 1.0f, 100)
+                .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "granite_ruby_ore"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "granite_ruby_ore"))))
+                .offerTo(exporter, Identifier.of("mores", "ruby_gem_from_blasting_granite_ruby_ore"));
+        CookingRecipeJsonBuilder.createBlasting(Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "gravel_ruby_ore"))), RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "ruby_gem")), 1.0f, 100)
+                .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "gravel_ruby_ore"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "gravel_ruby_ore"))))
+                .offerTo(exporter, Identifier.of("mores", "ruby_gem_from_blasting_gravel_ruby_ore"));
+        CookingRecipeJsonBuilder.createBlasting(Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "tuff_ruby_ore"))), RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "ruby_gem")), 1.0f, 100)
+                .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "tuff_ruby_ore"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "tuff_ruby_ore"))))
+                .offerTo(exporter, Identifier.of("mores", "ruby_gem_from_blasting_tuff_ruby_ore"));
+        CookingRecipeJsonBuilder.createBlasting(Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "deepslate_ruby_ore"))), RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "ruby_gem")), 1.1f, 100)
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "deepslate_ruby_ore"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "deepslate_ruby_ore"))))
                 .offerTo(exporter, Identifier.of("mores", "ruby_gem_from_blasting_deepslate_ruby_ore"));
-        CookingRecipeJsonBuilder.createBlasting(Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "nether_ruby_ore"))), RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "ruby_gem")), 1.0f, 100)
+        CookingRecipeJsonBuilder.createBlasting(Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "nether_ruby_ore"))), RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "ruby_gem")), 1.1f, 100)
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "nether_ruby_ore"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "nether_ruby_ore"))))
                 .offerTo(exporter, Identifier.of("mores", "ruby_gem_from_blasting_nether_ruby_ore"));
+        CookingRecipeJsonBuilder.createBlasting(Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "ender_ruby_ore"))), RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "ruby_gem")), 1.2f, 100)
+                .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "ender_ruby_ore"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "ender_ruby_ore"))))
+                .offerTo(exporter, Identifier.of("mores", "ruby_gem_from_blasting_ender_ruby_ore"));
         //Sapphire
         CookingRecipeJsonBuilder.createBlasting(Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "sapphire_ore"))), RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "sapphire_gem")), 1.0f, 100)
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "sapphire_ore"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "sapphire_ore"))))
                 .offerTo(exporter, Identifier.of("mores", "sapphire_gem_from_blasting_sapphire_ore"));
-        CookingRecipeJsonBuilder.createBlasting(Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "deepslate_sapphire_ore"))), RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "sapphire_gem")), 1.0f, 100)
+        CookingRecipeJsonBuilder.createBlasting(Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "andesite_sapphire_ore"))), RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "sapphire_gem")), 1.0f, 100)
+                .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "andesite_sapphire_ore"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "andesite_sapphire_ore"))))
+                .offerTo(exporter, Identifier.of("mores", "sapphire_gem_from_blasting_andesite_sapphire_ore"));
+        CookingRecipeJsonBuilder.createBlasting(Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "basalt_sapphire_ore"))), RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "sapphire_gem")), 1.0f, 100)
+                .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "basalt_sapphire_ore"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "basalt_sapphire_ore"))))
+                .offerTo(exporter, Identifier.of("mores", "sapphire_gem_from_blasting_basalt_sapphire_ore"));
+        CookingRecipeJsonBuilder.createBlasting(Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "blackstone_sapphire_ore"))), RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "sapphire_gem")), 1.0f, 100)
+                .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "blackstone_sapphire_ore"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "blackstone_sapphire_ore"))))
+                .offerTo(exporter, Identifier.of("mores", "sapphire_gem_from_blasting_blackstone_sapphire_ore"));
+        CookingRecipeJsonBuilder.createBlasting(Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "diorite_sapphire_ore"))), RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "sapphire_gem")), 1.0f, 100)
+                .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "diorite_sapphire_ore"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "diorite_sapphire_ore"))))
+                .offerTo(exporter, Identifier.of("mores", "sapphire_gem_from_blasting_diorite_sapphire_ore"));
+        CookingRecipeJsonBuilder.createBlasting(Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "granite_sapphire_ore"))), RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "sapphire_gem")), 1.0f, 100)
+                .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "granite_sapphire_ore"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "granite_sapphire_ore"))))
+                .offerTo(exporter, Identifier.of("mores", "sapphire_gem_from_blasting_granite_sapphire_ore"));
+        CookingRecipeJsonBuilder.createBlasting(Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "gravel_sapphire_ore"))), RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "sapphire_gem")), 1.0f, 100)
+                .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "gravel_sapphire_ore"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "gravel_sapphire_ore"))))
+                .offerTo(exporter, Identifier.of("mores", "sapphire_gem_from_blasting_gravel_sapphire_ore"));
+        CookingRecipeJsonBuilder.createBlasting(Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "tuff_sapphire_ore"))), RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "sapphire_gem")), 1.0f, 100)
+                .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "tuff_sapphire_ore"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "tuff_sapphire_ore"))))
+                .offerTo(exporter, Identifier.of("mores", "sapphire_gem_from_blasting_tuff_sapphire_ore"));
+        CookingRecipeJsonBuilder.createBlasting(Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "deepslate_sapphire_ore"))), RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "sapphire_gem")), 1.1f, 100)
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "deepslate_sapphire_ore"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "deepslate_sapphire_ore"))))
                 .offerTo(exporter, Identifier.of("mores", "sapphire_gem_from_blasting_deepslate_sapphire_ore"));
-        CookingRecipeJsonBuilder.createBlasting(Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "nether_sapphire_ore"))), RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "sapphire_gem")), 1.0f, 100)
+        CookingRecipeJsonBuilder.createBlasting(Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "nether_sapphire_ore"))), RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "sapphire_gem")), 1.1f, 100)
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "nether_sapphire_ore"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "nether_sapphire_ore"))))
                 .offerTo(exporter, Identifier.of("mores", "sapphire_gem_from_blasting_nether_sapphire_ore"));
+        CookingRecipeJsonBuilder.createBlasting(Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "ender_sapphire_ore"))), RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "sapphire_gem")), 1.2f, 100)
+                .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "ender_sapphire_ore"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "ender_sapphire_ore"))))
+                .offerTo(exporter, Identifier.of("mores", "sapphire_gem_from_blasting_ender_sapphire_ore"));
         //Spinel
         CookingRecipeJsonBuilder.createBlasting(Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "spinel_ore"))), RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "spinel_gem")), 1.0f, 100)
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "spinel_ore"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "spinel_ore"))))
                 .offerTo(exporter, Identifier.of("mores", "spinel_gem_from_blasting_spinel_ore"));
-        CookingRecipeJsonBuilder.createBlasting(Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "deepslate_spinel_ore"))), RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "spinel_gem")), 1.0f, 100)
+        CookingRecipeJsonBuilder.createBlasting(Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "andesite_spinel_ore"))), RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "spinel_gem")), 1.0f, 100)
+                .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "andesite_spinel_ore"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "andesite_spinel_ore"))))
+                .offerTo(exporter, Identifier.of("mores", "spinel_gem_from_blasting_andesite_spinel_ore"));
+        CookingRecipeJsonBuilder.createBlasting(Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "basalt_spinel_ore"))), RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "spinel_gem")), 1.0f, 100)
+                .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "basalt_spinel_ore"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "basalt_spinel_ore"))))
+                .offerTo(exporter, Identifier.of("mores", "spinel_gem_from_blasting_basalt_spinel_ore"));
+        CookingRecipeJsonBuilder.createBlasting(Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "blackstone_spinel_ore"))), RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "spinel_gem")), 1.0f, 100)
+                .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "blackstone_spinel_ore"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "blackstone_spinel_ore"))))
+                .offerTo(exporter, Identifier.of("mores", "spinel_gem_from_blasting_blackstone_spinel_ore"));
+        CookingRecipeJsonBuilder.createBlasting(Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "diorite_spinel_ore"))), RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "spinel_gem")), 1.0f, 100)
+                .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "diorite_spinel_ore"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "diorite_spinel_ore"))))
+                .offerTo(exporter, Identifier.of("mores", "spinel_gem_from_blasting_diorite_spinel_ore"));
+        CookingRecipeJsonBuilder.createBlasting(Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "granite_spinel_ore"))), RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "spinel_gem")), 1.0f, 100)
+                .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "granite_spinel_ore"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "granite_spinel_ore"))))
+                .offerTo(exporter, Identifier.of("mores", "spinel_gem_from_blasting_granite_spinel_ore"));
+        CookingRecipeJsonBuilder.createBlasting(Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "gravel_spinel_ore"))), RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "spinel_gem")), 1.0f, 100)
+                .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "gravel_spinel_ore"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "gravel_spinel_ore"))))
+                .offerTo(exporter, Identifier.of("mores", "spinel_gem_from_blasting_gravel_spinel_ore"));
+        CookingRecipeJsonBuilder.createBlasting(Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "tuff_spinel_ore"))), RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "spinel_gem")), 1.0f, 100)
+                .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "tuff_spinel_ore"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "tuff_spinel_ore"))))
+                .offerTo(exporter, Identifier.of("mores", "spinel_gem_from_blasting_tuff_spinel_ore"));
+        CookingRecipeJsonBuilder.createBlasting(Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "deepslate_spinel_ore"))), RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "spinel_gem")), 1.1f, 100)
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "deepslate_spinel_ore"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "deepslate_spinel_ore"))))
                 .offerTo(exporter, Identifier.of("mores", "spinel_gem_from_blasting_deepslate_spinel_ore"));
-        CookingRecipeJsonBuilder.createBlasting(Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "nether_spinel_ore"))), RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "spinel_gem")), 1.0f, 100)
+        CookingRecipeJsonBuilder.createBlasting(Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "nether_spinel_ore"))), RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "spinel_gem")), 1.1f, 100)
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "nether_spinel_ore"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "nether_spinel_ore"))))
                 .offerTo(exporter, Identifier.of("mores", "spinel_gem_from_blasting_nether_spinel_ore"));
+        CookingRecipeJsonBuilder.createBlasting(Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "ender_spinel_ore"))), RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "spinel_gem")), 1.2f, 100)
+                .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "ender_spinel_ore"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "ender_spinel_ore"))))
+                .offerTo(exporter, Identifier.of("mores", "spinel_gem_from_blasting_ender_spinel_ore"));
         //Citrine
         CookingRecipeJsonBuilder.createBlasting(Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "citrine_ore"))), RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "citrine")), 1.0f, 100)
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "citrine_ore"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "citrine_ore"))))
@@ -4227,14 +4655,41 @@ public class ModRecipeProvider extends FabricRecipeProvider {
         CookingRecipeJsonBuilder.createBlasting(Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "moissanite_ore"))), RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "moissanite_gem")), 1.0f, 100)
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "moissanite_ore"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "moissanite_ore"))))
                 .offerTo(exporter, Identifier.of("mores", "moissanite_gem_from_blasting_moissanite_ore"));
-        CookingRecipeJsonBuilder.createBlasting(Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "deepslate_moissanite_ore"))), RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "moissanite_gem")), 1.0f, 100)
+        CookingRecipeJsonBuilder.createBlasting(Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "andesite_moissanite_ore"))), RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "moissanite_gem")), 1.1f, 100)
+                .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "andesite_moissanite_ore"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "andesite_moissanite_ore"))))
+                .offerTo(exporter, Identifier.of("mores", "moissanite_gem_from_blasting_andesite_moissanite_ore"));
+        CookingRecipeJsonBuilder.createBlasting(Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "basalt_moissanite_ore"))), RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "moissanite_gem")), 1.1f, 100)
+                .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "basalt_moissanite_ore"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "basalt_moissanite_ore"))))
+                .offerTo(exporter, Identifier.of("mores", "moissanite_gem_from_blasting_basalt_moissanite_ore"));
+        CookingRecipeJsonBuilder.createBlasting(Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "blackstone_moissanite_ore"))), RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "moissanite_gem")), 1.1f, 100)
+                .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "blackstone_moissanite_ore"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "blackstone_moissanite_ore"))))
+                .offerTo(exporter, Identifier.of("mores", "moissanite_gem_from_blasting_blackstone_moissanite_ore"));
+        CookingRecipeJsonBuilder.createBlasting(Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "diorite_moissanite_ore"))), RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "moissanite_gem")), 1.1f, 100)
+                .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "diorite_moissanite_ore"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "diorite_moissanite_ore"))))
+                .offerTo(exporter, Identifier.of("mores", "moissanite_gem_from_blasting_diorite_moissanite_ore"));
+        CookingRecipeJsonBuilder.createBlasting(Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "granite_moissanite_ore"))), RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "moissanite_gem")), 1.1f, 100)
+                .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "granite_moissanite_ore"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "granite_moissanite_ore"))))
+                .offerTo(exporter, Identifier.of("mores", "moissanite_gem_from_blasting_granite_moissanite_ore"));
+        CookingRecipeJsonBuilder.createBlasting(Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "gravel_moissanite_ore"))), RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "moissanite_gem")), 1.1f, 100)
+                .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "gravel_moissanite_ore"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "gravel_moissanite_ore"))))
+                .offerTo(exporter, Identifier.of("mores", "moissanite_gem_from_blasting_gravel_moissanite_ore"));
+        CookingRecipeJsonBuilder.createBlasting(Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "tuff_moissanite_ore"))), RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "moissanite_gem")), 1.1f, 100)
+                .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "tuff_moissanite_ore"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "tuff_moissanite_ore"))))
+                .offerTo(exporter, Identifier.of("mores", "moissanite_gem_from_blasting_tuff_moissanite_ore"));
+        CookingRecipeJsonBuilder.createBlasting(Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "deepslate_moissanite_ore"))), RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "moissanite_gem")), 1.2f, 100)
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "deepslate_moissanite_ore"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "deepslate_moissanite_ore"))))
                 .offerTo(exporter, Identifier.of("mores", "moissanite_gem_from_blasting_deepslate_moissanite_ore"));
-        CookingRecipeJsonBuilder.createBlasting(Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "nether_moissanite_ore"))), RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "moissanite_gem")), 1.0f, 100)
+        CookingRecipeJsonBuilder.createBlasting(Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "nether_moissanite_ore"))), RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "moissanite_gem")), 1.2f, 100)
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "nether_moissanite_ore"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "nether_moissanite_ore"))))
                 .offerTo(exporter, Identifier.of("mores", "moissanite_gem_from_blasting_nether_moissanite_ore"));
+        CookingRecipeJsonBuilder.createBlasting(Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "ender_moissanite_ore"))), RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "moissanite_gem")), 1.2f, 100)
+                .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "ender_moissanite_ore"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "ender_moissanite_ore"))))
+                .offerTo(exporter, Identifier.of("mores", "moissanite_gem_from_blasting_ender_moissanite_ore"));
         //Onyx
-        CookingRecipeJsonBuilder.createBlasting(Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "ender_onyx_ore"))), RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "onyx")), 1.1f, 100)
+        CookingRecipeJsonBuilder.createBlasting(Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "nether_onyx_ore"))), RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "onyx")), 0.7f, 100)
+                .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "nether_onyx_ore"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "nether_onyx_ore"))))
+                .offerTo(exporter, Identifier.of("mores", "onyx_from_blasting_nether_onyx_ore"));
+        CookingRecipeJsonBuilder.createBlasting(Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "ender_onyx_ore"))), RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "onyx")), 0.8f, 100)
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "ender_onyx_ore"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "ender_onyx_ore"))))
                 .offerTo(exporter, Identifier.of("mores", "onyx_from_blasting_ender_onyx_ore"));
         //Obsidian
@@ -4242,10 +4697,33 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("minecraft", "obsidian"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("minecraft", "obsidian"))))
                 .offerTo(exporter, Identifier.of("mores", "obsidian_scrap_from_blasting_obsidian"));
         //Enderite
-        CookingRecipeJsonBuilder.createBlasting(Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "primordial_debris"))), RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "enderite_scrap")), 1.1f, 100)
+        CookingRecipeJsonBuilder.createBlasting(Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "primordial_debris"))), RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "enderite_scrap")), 2.5f, 100)
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "primordial_debris"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "primordial_debris"))))
                 .offerTo(exporter, Identifier.of("mores", "enderite_scrap_from_blasting_primordial_debris"));
     }
+
+    private void generateCutting(RecipeExporter exporter) {
+        StonecuttingRecipeJsonBuilder
+                .createStonecutting(Ingredient.ofItems(LAPIS_LAZULI), RecipeCategory.MISC, LAPIS_LAZULI_DUST, 2)
+                .criterion(hasItem(LAPIS_LAZULI), conditionsFromItem(LAPIS_LAZULI))
+                .offerTo(exporter, "steel_cutter/lapis_lazuli_dust_from_lapis_lazuli");
+
+        StonecuttingRecipeJsonBuilder
+                .createStonecutting(Ingredient.ofItems(TURQUOISE), RecipeCategory.MISC, TURQUOISE_DUST, 2)
+                .criterion(hasItem(TURQUOISE), conditionsFromItem(TURQUOISE))
+                .offerTo(exporter, "steel_cutter/turquoise_dust_from_turquoise");
+
+        StonecuttingRecipeJsonBuilder
+                .createStonecutting(Ingredient.ofItems(QUARTZ), RecipeCategory.MISC, QUARTZ_DUST, 2)
+                .criterion(hasItem(QUARTZ), conditionsFromItem(QUARTZ))
+                .offerTo(exporter, "steel_cutter/quartz_dust_from_quartz");
+
+        StonecuttingRecipeJsonBuilder
+                .createStonecutting(Ingredient.ofItems(AMETHYST_SHARD), RecipeCategory.MISC, AMETHYST_DUST, 2)
+                .criterion(hasItem(AMETHYST_SHARD), conditionsFromItem(AMETHYST_SHARD))
+                .offerTo(exporter, "steel_cutter/amethyst_dust_from_amethyst_shard");
+    }
+
 
     private void generateAlloying(RecipeExporter exporter) {
         offerAlloying(exporter,

@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "mores:turquoise"
+  },
+  "result": {
+    "count": 2,
+    "id": "mores:turquoise_dust"
+  }
+}

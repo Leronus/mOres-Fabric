@@ -2,6 +2,7 @@ package mod.leronus.mores.registry;
 
 import mod.leronus.mores.Mores;
 import mod.leronus.mores.block.screen.AlloyFurnaceScreenHandler;
+import mod.leronus.mores.block.screen.SteelCutterScreenHandler;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.resource.featuretoggle.FeatureFlags;
@@ -11,6 +12,7 @@ import net.minecraft.util.Identifier;
 public final class ModScreenHandlers {
 
     public static ScreenHandlerType<AlloyFurnaceScreenHandler> ALLOY_FURNACE;
+    public static ScreenHandlerType<SteelCutterScreenHandler> STEEL_CUTTER;
 
     private ModScreenHandlers() {}
 
@@ -20,6 +22,11 @@ public final class ModScreenHandlers {
                 Registries.SCREEN_HANDLER,
                 id("alloy_furnace"),
                 new ScreenHandlerType<>(AlloyFurnaceScreenHandler::new, FeatureFlags.VANILLA_FEATURES)
+        );
+        STEEL_CUTTER = Registry.register(
+                Registries.SCREEN_HANDLER,
+                Identifier.of(Mores.MOD_ID, "steel_cutter"),
+                new ScreenHandlerType<>(SteelCutterScreenHandler::new, FeatureFlags.VANILLA_FEATURES)
         );
     }
 

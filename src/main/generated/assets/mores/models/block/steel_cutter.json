@@ -1,0 +1,9 @@
+{
+  "parent": "minecraft:block/stonecutter",
+  "textures": {
+    "bottom": "mores:block/steel_cutter_bottom",
+    "saw": "mores:block/steel_cutter_saw",
+    "side": "mores:block/steel_cutter_side",
+    "top": "mores:block/steel_cutter_top"
+  }
+}

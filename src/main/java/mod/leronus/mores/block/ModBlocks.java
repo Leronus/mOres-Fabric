@@ -3,6 +3,7 @@ package mod.leronus.mores.block;
 import mod.leronus.mores.Mores;
 import mod.leronus.mores.block.custom.AlloyFurnaceBlock;
 import mod.leronus.mores.block.custom.FallingOreBlock;
+import mod.leronus.mores.block.custom.SteelCutterBlock;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroupEntries;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.minecraft.block.*;
@@ -32,7 +33,9 @@ public class ModBlocks {
      * Fills the registry with blocks
      */
     //.strength(destroyTime, blastResistance)
-            //TODO check stats
+    public static final AlloyFurnaceBlock ALLOY_FURNACE = registerBlock("alloy_furnace", new AlloyFurnaceBlock(AbstractBlock.Settings.copy(Blocks.FURNACE).mapColor(MapColor.LIGHT_GRAY).strength(4.0F, 6.0F).sounds(BlockSoundGroup.METAL).requiresTool().luminance(createLightLevelFromLitBlockState(13))));
+    public static final SteelCutterBlock STEEL_CUTTER = registerBlock("steel_cutter", new SteelCutterBlock(AbstractBlock.Settings.copy(Blocks.STONECUTTER).sounds(BlockSoundGroup.METAL).requiresTool()));
+
     public static final Block QUARTZ_ORE = registerBlock("quartz_ore", new ExperienceDroppingBlock(UniformIntProvider.create(0, 2), AbstractBlock.Settings.copy(Blocks.NETHER_QUARTZ_ORE).strength(3.0F, 3.0F).sounds(BlockSoundGroup.STONE).requiresTool()));
     public static final Block ELECTRUM_ORE = registerBlock("electrum_ore", new ExperienceDroppingBlock(UniformIntProvider.create(0, 2), AbstractBlock.Settings.copy(Blocks.GOLD_ORE).strength(3.0F, 3.0F).sounds(BlockSoundGroup.STONE).requiresTool()));
 
@@ -200,8 +203,6 @@ public class ModBlocks {
 
     public static final Block PRIMORDIAL_DEBRIS = registerBlock("primordial_debris", new Block(AbstractBlock.Settings.copy(Blocks.ANCIENT_DEBRIS).mapColor(MapColor.DARK_GREEN).strength(35.0F, 1500.0F).sounds(BlockSoundGroup.ANCIENT_DEBRIS)));
     public static final Block ENDERITE_BLOCK = registerBlock("enderite_block", new Block(AbstractBlock.Settings.copy(Blocks.NETHERITE_BLOCK).mapColor(MapColor.DARK_GREEN).strength(60.0F, 1500.0F).sounds(BlockSoundGroup.NETHERITE)));
-
-    public static final AlloyFurnaceBlock ALLOY_FURNACE = registerBlock("alloy_furnace", new AlloyFurnaceBlock(AbstractBlock.Settings.copy(Blocks.FURNACE).mapColor(MapColor.LIGHT_GRAY).strength(4.0F, 6.0F).sounds(BlockSoundGroup.METAL).requiresTool().luminance(createLightLevelFromLitBlockState(13))));
 
     private static void addItemsToBuildingBlockItemGroup(FabricItemGroupEntries entries) {
         entries.add(ALLOY_FURNACE);

@@ -2,7 +2,7 @@
   "type": "minecraft:smelting",
   "category": "misc",
   "cookingtime": 200,
-  "experience": 0.9,
+  "experience": 0.3,
   "ingredient": {
     "item": "mores:turquoise_ore"
   },

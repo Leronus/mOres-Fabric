@@ -11,6 +11,7 @@ import mod.leronus.mores.config.CommonConfig;
 import mod.leronus.mores.item.ModItemGroups;
 import mod.leronus.mores.item.ModItems;
 import mod.leronus.mores.loot.ModChestLootInjector;
+import mod.leronus.mores.network.ModNetworking;
 import mod.leronus.mores.registry.ModCustomTrades;
 import mod.leronus.mores.registry.ModRecipes;
 import mod.leronus.mores.registry.ModBlockEntities;
@@ -43,6 +44,7 @@ public class Mores implements ModInitializer {
         ModRecipes.registerRecipes();
 		ModBlockEntities.registerBlockEntities();
 		ModScreenHandlers.registerScreenHandlers();
+        ModNetworking.registerServerReceivers();
 
 
         ModChestLootInjector.register();

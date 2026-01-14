@@ -47,6 +47,8 @@
 
   "block.mores.alloy_furnace" : "Alloy Furnace",
   "container.mores.alloy_furnace" : "Alloy Furnace",
+  "block.mores.steel_cutter" : "Steel Cutter",
+  "container.mores.steel_cutter" : "Steel Cutter",
 
   "item.mores.raw_copper" : "Raw Copper",
   "item.mores.raw_tin" : "Raw Tin",

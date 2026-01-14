@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "mores:block/steel_cutter",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "mores:block/steel_cutter"
+    },
+    "facing=south": {
+      "model": "mores:block/steel_cutter",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "mores:block/steel_cutter",
+      "y": 270
+    }
+  }
+}

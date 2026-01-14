@@ -44,6 +44,7 @@ public class ModBlockLootTableProvider extends FabricBlockLootTableProvider {
         // ALLOY FURNACE
         // =========================
         addDrop(ModBlocks.ALLOY_FURNACE);
+        addDrop(ModBlocks.STEEL_CUTTER);
 
         // =========================
         // ANTHRACITE

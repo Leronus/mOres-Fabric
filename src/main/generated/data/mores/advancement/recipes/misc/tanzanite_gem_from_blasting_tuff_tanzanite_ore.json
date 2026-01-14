@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "mores:tanzanite_gem_from_blasting_tuff_tanzanite_ore"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "has_tuff_tanzanite_ore": {
+      "conditions": {
+        "items": [
+          {
+            "items": "mores:tuff_tanzanite_ore"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_tuff_tanzanite_ore"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "mores:tanzanite_gem_from_blasting_tuff_tanzanite_ore"
+    ]
+  }
+}

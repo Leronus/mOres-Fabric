@@ -2,7 +2,7 @@
   "type": "minecraft:blasting",
   "category": "misc",
   "cookingtime": 100,
-  "experience": 1.1,
+  "experience": 2.5,
   "ingredient": {
     "item": "mores:primordial_debris"
   },

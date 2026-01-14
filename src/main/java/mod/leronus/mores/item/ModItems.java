@@ -571,10 +571,10 @@ public class ModItems {
     public static final Item STONE_BATTLE_MACE = registerItem("stone_battle_mace", new ModSwordItem(ToolMaterials.STONE, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ToolMaterials.STONE, 3, -2.2f))));
     public static final Item TIN_BATTLE_MACE = registerItem("tin_battle_mace", new ModBattleAxeItem(ModToolMaterials.TIN, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ModToolMaterials.TIN, 3, -2.2f))));
     public static final Item GOLD_BATTLE_MACE = registerItem("gold_battle_mace", new ModSwordItem(ToolMaterials.GOLD, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ToolMaterials.GOLD, 3, -2.2f))));
-    public static final Item SILVER_BATTLE_MACE = registerItem("silver_battle_mace", new ModBattleAxeItem(ModToolMaterials.STERLING_SILVER, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ModToolMaterials.STERLING_SILVER, 3, -2.2f))));
+    public static final Item SILVER_BATTLE_MACE = registerItem("silver_battle_mace", new ModBattleAxeItem(ModToolMaterials.SILVER, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ModToolMaterials.SILVER, 3, -2.2f))));
     public static final Item COPPER_BATTLE_MACE = registerItem("copper_battle_mace", new ModBattleAxeItem(ModToolMaterials.COPPER, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ModToolMaterials.COPPER, 3, -2.2f))));
     public static final Item STERLING_SILVER_BATTLE_MACE = registerItem("sterling_silver_battle_mace", new ModBattleAxeItem(ModToolMaterials.STERLING_SILVER, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ModToolMaterials.STERLING_SILVER, 3, -2.1f))));
-    public static final Item ROSE_GOLD_BATTLE_MACE = registerItem("rose_gold_battle_mace", new ModBattleAxeItem(ModToolMaterials.ROSE_GOLD, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ModToolMaterials.STERLING_SILVER, 3, -2.1f))));
+    public static final Item ROSE_GOLD_BATTLE_MACE = registerItem("rose_gold_battle_mace", new ModBattleAxeItem(ModToolMaterials.ROSE_GOLD, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ModToolMaterials.ROSE_GOLD, 3, -2.1f))));
     public static final Item BRONZE_BATTLE_MACE = registerItem("bronze_battle_mace", new ModBattleAxeItem(ModToolMaterials.BRONZE, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ModToolMaterials.BRONZE, 3, -2.2f))));
     public static final Item IRON_BATTLE_MACE = registerItem("iron_battle_mace", new ModSwordItem(ToolMaterials.IRON, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ToolMaterials.IRON, 3, -2.2f))));
     public static final Item COBALT_BATTLE_MACE = registerItem("cobalt_battle_mace", new ModBattleAxeItem(ModToolMaterials.COBALT, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ModToolMaterials.COBALT, 3, -2.1f))));
@@ -593,7 +593,7 @@ public class ModItems {
     public static final Item DIAMOND_BATTLE_MACE = registerItem("diamond_battle_mace", new ModSwordItem(ToolMaterials.DIAMOND, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ToolMaterials.DIAMOND, 3, -2.1f))));
     public static final Item RUBY_BATTLE_MACE = registerItem("ruby_battle_mace", new ModBattleAxeItem(ModToolMaterials.RUBY, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ModToolMaterials.RUBY, 3, -2.0f))));
     public static final Item SAPPHIRE_BATTLE_MACE = registerItem("sapphire_battle_mace", new ModBattleAxeItem(ModToolMaterials.SAPPHIRE, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ModToolMaterials.SAPPHIRE, 3, -2.0f))));
-    public static final Item SPINEL_BATTLE_MACE = registerItem("spinel_battle_mace", new ModBattleAxeItem(ModToolMaterials.SPINEL, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ModToolMaterials.SAPPHIRE, 3, -2.0f))));
+    public static final Item SPINEL_BATTLE_MACE = registerItem("spinel_battle_mace", new ModBattleAxeItem(ModToolMaterials.SPINEL, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ModToolMaterials.SPINEL, 3, -2.0f))));
 
     public static final Item CITRINE_BATTLE_MACE = registerItem("citrine_battle_mace", new ModBattleAxeItem(ModToolMaterials.CITRINE, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ModToolMaterials.CITRINE, 3, -2.1f))));
     public static final Item MOISSANITE_BATTLE_MACE = registerItem("moissanite_battle_mace", new ModBattleAxeItem(ModToolMaterials.MOISSANITE, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ModToolMaterials.MOISSANITE, 3, -2.0f))));
@@ -1091,10 +1091,10 @@ public class ModItems {
     public static final Item BRONZE_SHIELD = registerItem("bronze_shield", new ModShieldItem(new Item.Settings().maxDamage(299), 10, 13, ModItems.BRONZE_INGOT));
     public static final Item COBALT_SHIELD = registerItem("cobalt_shield", new ModShieldItem(new Item.Settings().maxDamage(388), 10, 22, ModItems.COBALT_INGOT));
     public static final Item CARBON_STEEL_SHIELD = registerItem("carbon_steel_shield", new ModShieldItem(new Item.Settings().maxDamage(555), 10, 14, ModItems.CARBON_STEEL_INGOT));
-    public static final Item HARDENED_STEEL_SHIELD = registerItem("hardened_steel_shield", new ModShieldItem(new Item.Settings().maxDamage(555), 10, 14, ModItems.CARBON_STEEL_INGOT));
+    public static final Item HARDENED_STEEL_SHIELD = registerItem("hardened_steel_shield", new ModShieldItem(new Item.Settings().maxDamage(555), 10, 14, ModItems.HARDENED_STEEL_INGOT));
     public static final Item TURQUOISE_SHIELD = registerItem("turquoise_shield", new ModShieldItem(new Item.Settings().maxDamage(999), 10, 25, ModItems.TURQUOISE_GEM));
-    public static final Item LAPIS_LAZULI_SHIELD = registerItem("lapis_lazuli_shield", new ModShieldItem(new Item.Settings().maxDamage(999), 10, 25, ModItems.TURQUOISE_GEM));
-    public static final Item AMETHYST_SHIELD = registerItem("amethyst_shield", new ModShieldItem(new Item.Settings().maxDamage(420), 10, 15, Items.AMETHYST_SHARD));
+    public static final Item LAPIS_LAZULI_SHIELD = registerItem("lapis_lazuli_shield", new ModShieldItem(new Item.Settings().maxDamage(999), 10, 25, ModItems.LAPIS_LAZULI_GEM));
+    public static final Item AMETHYST_SHIELD = registerItem("amethyst_shield", new ModShieldItem(new Item.Settings().maxDamage(420), 10, 15, ModItems.AMETHYST_GEM));
     public static final Item TANZANITE_SHIELD = registerItem("tanzanite_shield", new ModShieldItem(new Item.Settings().maxDamage(621), 10, 16, ModItems.TOURMALINE_GEM));
     public static final Item TOURMALINE_SHIELD = registerItem("tourmaline_shield", new ModShieldItem(new Item.Settings().maxDamage(621), 10, 16, ModItems.TOURMALINE_GEM));
     public static final Item TOPAZ_SHIELD = registerItem("topaz_shield", new ModShieldItem(new Item.Settings().maxDamage(632), 10, 14, ModItems.TOPAZ_GEM));
