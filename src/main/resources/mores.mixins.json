@@ -13,6 +13,7 @@
     "ItemEntityMixin",
     "MobEntityEquipmentMixin",
     "ServerWorldSpawnMixin",
+    "TradeOffersAccessor",
     "VillagerMoreTradesMixin",
     "WolfEntityMixin",
     "WolfArmorSyncMixin",

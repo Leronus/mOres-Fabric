@@ -63,11 +63,6 @@ public abstract class MobEntityEquipmentMixin {
         // Zombies (+ variants)
         if (mob instanceof ZombieEntity zombie && !(mob instanceof DrownedEntity)) {
             ModMobEquipmentHelper.maybeUpgradeZombieLike(zombie, random, difficulty);
-            return;
-        }
-
-        if (mob instanceof DrownedEntity drowned) {
-            ModMobEquipmentHelper.maybeUpgradeZombieLike(drowned, random, difficulty);
         }
     }
 

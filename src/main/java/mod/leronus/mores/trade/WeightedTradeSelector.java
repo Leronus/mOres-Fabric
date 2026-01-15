@@ -2,77 +2,80 @@ package mod.leronus.mores.trade;
 
 import net.minecraft.util.math.random.Random;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
-/**
- * Utility for picking a fixed number of UNIQUE trades from a weighted pool.
- * This gives you "always N trades, chosen by weight".
- */
 public final class WeightedTradeSelector {
 
     private WeightedTradeSelector() {}
 
-    /**
-     * Select exactly {@code count} UNIQUE entries from {@code pool} using weights.
-     */
+    /** Select exactly count trades from pool, no duplicate keys. */
     public static List<WeightedTrade> select(List<WeightedTrade> pool, int count, Random random) {
         List<WeightedTrade> available = new ArrayList<>(pool);
-        List<WeightedTrade> selected = new ArrayList<>();
+        List<WeightedTrade> out = new ArrayList<>();
+        Set<String> used = new HashSet<>();
 
-        for (int i = 0; i < count && !available.isEmpty(); i++) {
-            int totalWeight = 0;
-            for (WeightedTrade t : available) totalWeight += Math.max(0, t.weight());
-
-            // If all weights are 0, fall back to uniform selection.
-            if (totalWeight <= 0) {
-                int idx = random.nextInt(available.size());
-                selected.add(available.remove(idx));
-                continue;
+        while (out.size() < count && !available.isEmpty()) {
+            List<WeightedTrade> filtered = new ArrayList<>();
+            for (WeightedTrade t : available) {
+                if (!used.contains(t.effectiveKey())) filtered.add(t);
             }
+            if (filtered.isEmpty()) break;
 
-            int roll = random.nextInt(totalWeight);
-            int acc = 0;
+            int total = 0;
+            for (WeightedTrade t : filtered) total += Math.max(0, t.weight());
 
-            for (int j = 0; j < available.size(); j++) {
-                WeightedTrade t = available.get(j);
-                acc += Math.max(0, t.weight());
-                if (roll < acc) {
-                    selected.add(t);
-                    available.remove(j);
-                    break;
+            WeightedTrade picked;
+            if (total <= 0) {
+                picked = filtered.get(random.nextInt(filtered.size()));
+            } else {
+                int roll = random.nextInt(total);
+                int acc = 0;
+                picked = filtered.get(0);
+                for (WeightedTrade t : filtered) {
+                    acc += Math.max(0, t.weight());
+                    if (roll < acc) {
+                        picked = t;
+                        break;
+                    }
                 }
             }
+
+            out.add(picked);
+            used.add(picked.effectiveKey());
+
+            String k = picked.effectiveKey();
+            available.removeIf(t -> t.effectiveKey().equals(k));
         }
 
-        return selected;
+        return out;
     }
 
-    /**
-     * Convenience helper:
-     * - First adds all "guaranteed" trades (e.g. 100% rows)
-     * - Then fills remaining slots from a weighted pool.
-     * This is useful for tables like Cleric:
-     * - some rows are 100% (must always appear)
-     * - then still "total 3 trades"
-     */
+    /** Guaranteed first, then weighted fill to totalCount, no duplicate keys across both groups. */
     public static List<WeightedTrade> selectWithGuaranteed(
             List<WeightedTrade> guaranteed,
-            List<WeightedTrade> weightedPool,
+            List<WeightedTrade> pool,
             int totalCount,
             Random random
     ) {
-        List<WeightedTrade> result = new ArrayList<>(guaranteed);
+        List<WeightedTrade> out = new ArrayList<>();
+        Set<String> used = new HashSet<>();
 
-        int remaining = totalCount - result.size();
-        if (remaining > 0) {
-            result.addAll(select(weightedPool, remaining, random));
+        for (WeightedTrade g : guaranteed) {
+            if (out.size() >= totalCount) break;
+            String k = g.effectiveKey();
+            if (used.add(k)) out.add(g);
         }
 
-        // If guaranteed > totalCount (shouldn't happen), trim.
-        if (result.size() > totalCount) {
-            return result.subList(0, totalCount);
+        int remaining = totalCount - out.size();
+        if (remaining <= 0) return out;
+
+        List<WeightedTrade> filteredPool = new ArrayList<>();
+        for (WeightedTrade t : pool) {
+            if (!used.contains(t.effectiveKey())) filteredPool.add(t);
         }
-        return result;
+
+        out.addAll(select(filteredPool, remaining, random));
+        if (out.size() > totalCount) return out.subList(0, totalCount);
+        return out;
     }
 }

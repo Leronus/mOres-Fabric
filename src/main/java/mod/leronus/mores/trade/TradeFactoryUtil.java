@@ -14,17 +14,13 @@ public final class TradeFactoryUtil {
 
     private TradeFactoryUtil() {}
 
-    /**
-     * Villager buys {@code buyCount} of {@code item} and pays {@code emeraldCount} emeralds.
-     *
-     * IMPORTANT (1.21+): TradeOffer expects TradedItem for buy inputs, not ItemStack.
-     */
+    /** Villager buys item(s) and pays emerald(s). Correct for 1.21+ (TradedItem input). */
     public static TradeOffers.Factory buyItemForEmeralds(
             Item item,
             int buyCount,
             int emeraldCount,
             int maxUses,
-            int experience,
+            int villagerXp,
             float priceMultiplier
     ) {
         return new TradeOffers.Factory() {
@@ -32,23 +28,13 @@ public final class TradeFactoryUtil {
             @Override
             public TradeOffer create(Entity entity, Random random) {
                 return new TradeOffer(
-                        new TradedItem(item, buyCount),                 // villager buys this
-                        new ItemStack(Items.EMERALD, emeraldCount),     // villager sells emeralds
+                        new TradedItem(item, buyCount),
+                        new ItemStack(Items.EMERALD, emeraldCount),
                         maxUses,
-                        experience,
+                        villagerXp,
                         priceMultiplier
                 );
             }
         };
-    }
-
-    public static TradeOffers.Factory buyItemForEmeralds(
-            Item item,
-            int buyCount,
-            int emeraldCount,
-            int maxUses,
-            int experience
-    ) {
-        return buyItemForEmeralds(item, buyCount, emeraldCount, maxUses, experience, 0.05f);
     }
 }

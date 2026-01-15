@@ -1,15 +1,24 @@
 Fabric 1.21.1 
 
 Doing:
-- Smelting recipes for new ores (andesite, granite, diorite etc)
-- Fix villager trades (3 axes, not correct, bunch of duplicates) - 7 silver for 10 emerald should 7 silver for 1 emerald, copper the same 10 for 1 instead of 10 for 10
+- Todo: MAKE SPEARS OPTIONAL SINCE THEY DEPEND ON BACKPORTED SPEARS
+- Fix villager trades - duplicates, cleric 2 slots instead of 3 for level 1 & 2 - villager discount and xp don't scale properly at all
 - Armor trim models not correct
-- Make sure hostile mobs have a chance to spawn with my gear - needs testing
 - Tags (check if missing anything (shears for wolf armor - wax off/on with axes?)
 - Mores tooltips end up above enchantments on mores tools, on armor above the armor stat too, make it bottom (not vanilla, maybe because of the attack dmg/speed bug)
 - Quartz deepslate
 - Armor effects; Citrine (jump boost), Moissanite (poison - tools too), Obsidian (explosion), Rose Gold (Piglin), Enderite (Endermen)
 - Apples (bronze, silver, cobalt)
+- Loot table hardened steel golem
+- Trail Chambers - gem armor
+-- ENTITY SPAWNING
+- Piglins -> rose gold armor & rose gold sword (5% rose gold spear?)
+- Piglin Brutes -> rose gold axe sometimes just like zombified
+- Wither Skeleton -> tin sword rarely?
+- Vindicator -> silver axe more commonly, cobalt very rarely? or carbon steel! or all
+- Strays -> small chance to spawn in metal armor (vanilla esque)
+- Vex -> silver sword / sterling-silver smaller chance
+- Drowned? small small chance? haven't seen it
 
 Todo:
 - Tool materials
@@ -29,7 +38,6 @@ Todo:
 - Advancements (need fixing)
 - Shields (stats, cooldown etc - fabricshield.reflect? enchant)
 - Duck entity
-- Spears
+- Spears?
 - Wolf Armor
-* - Add tropical fish to cat breeding
 

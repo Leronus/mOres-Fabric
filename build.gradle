@@ -99,17 +99,17 @@ dependencies {
     // Fabric Shield Lib
     include(modImplementation("maven.modrinth:shieldlib:${project.fabric_shield_lib_version}"))
 
-    // Backported Spears (compile against it; ships as dependency in dev)
-    include(modImplementation("maven.modrinth:backported-spears:${project.backported_spears_version}"))
-
     // MidnightLib (used by shieldlib & config systems)
-    modImplementation include("maven.modrinth:midnightlib:${project.midnightlib_version}")
+    include(modImplementation("maven.modrinth:midnightlib:${project.midnightlib_version}"))
 
     // ASM helper (used at compile time)
-    modImplementation include("com.github.Chocohead:Fabric-ASM:v${project.fabricasm_version}")
+    include(modImplementation("com.github.Chocohead:Fabric-ASM:v${project.fabricasm_version}"))
 
     // Mod Menu (used to view config in-game)
-    modImplementation include("com.terraformersmc:modmenu:${project.mod_menu_version}")
+    include(modImplementation("com.terraformersmc:modmenu:${project.mod_menu_version}"))
+
+    // Backported Spears (compile against it; optional dependency)
+    modImplementation "maven.modrinth:backported-spears:${project.backported_spears_version}"
 
 
     /* ---- RUNTIME / DEV ONLY MODS ---- */

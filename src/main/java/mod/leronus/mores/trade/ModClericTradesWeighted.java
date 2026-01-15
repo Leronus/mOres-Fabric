@@ -12,77 +12,95 @@ import java.util.List;
 
 public class ModClericTradesWeighted {
 
-    public static void register() {
+    private static boolean REGISTERED = false;
 
-        /* ==================== NOVICE (fixed 100%) ==================== */
+    public static void register() {
+        if (REGISTERED) return;
+        REGISTERED = true;
+
+        // NOVICE (2 slots vanilla)
         TradeOfferHelper.registerVillagerOffers(VillagerProfession.CLERIC, 1, factories -> {
             factories.clear();
-
-            factories.add(TradeFactoryUtil.buyItemForEmeralds(Items.ROTTEN_FLESH, 32, 1, 16, 2));
-
-            factories.add(new TradeOffers.SellItemFactory(
-                    Items.REDSTONE, 1, 2, 12, 1, 0.05f));
+            factories.add(TradeFactoryUtil.buyItemForEmeralds(Items.ROTTEN_FLESH, 32, 1, 16, 2, 0.05f));
+            factories.add(new TradeOffers.SellItemFactory(Items.REDSTONE, 1, 2, 12, 1, 0.05f));
         });
 
-        /* ==================== APPRENTICE (fixed 100%) ==================== */
+        // APPRENTICE (2 slots vanilla)
         TradeOfferHelper.registerVillagerOffers(VillagerProfession.CLERIC, 2, factories -> {
             factories.clear();
-
-            factories.add(TradeFactoryUtil.buyItemForEmeralds(Items.GOLD_INGOT, 3, 1, 12, 10));
-
-            factories.add(new TradeOffers.SellItemFactory(
-                    Items.LAPIS_LAZULI, 1, 1, 12, 5, 0.05f));
+            factories.add(TradeFactoryUtil.buyItemForEmeralds(Items.GOLD_INGOT, 3, 1, 12, 10, 0.05f));
+            factories.add(new TradeOffers.SellItemFactory(Items.LAPIS_LAZULI, 1, 1, 12, 5, 0.05f));
         });
 
-        /* ==================== JOURNEYMAN (3 slots) ==================== */
+        // JOURNEYMAN (3 slots)
         TradeOfferHelper.registerVillagerOffers(VillagerProfession.CLERIC, 3, factories -> {
             factories.clear();
             Random random = Random.create();
 
-            List<KeyedTrade> guaranteed = new ArrayList<>();
-            guaranteed.add(new KeyedTrade("BUY:RABBIT_FOOT", 100,
-                    TradeFactoryUtil.buyItemForEmeralds(Items.RABBIT_FOOT, 2, 1, 12, 20)));
-            guaranteed.add(new KeyedTrade("SELL:GLOWSTONE", 100,
+            List<WeightedTrade> guaranteed = new ArrayList<>();
+            List<WeightedTrade> pool = new ArrayList<>();
+
+            guaranteed.add(new WeightedTrade("BUY_RABBIT_FOOT", 1,
+                    TradeFactoryUtil.buyItemForEmeralds(Items.RABBIT_FOOT, 2, 1, 12, 20, 0.05f)));
+
+            guaranteed.add(new WeightedTrade("SELL_GLOWSTONE", 1,
                     new TradeOffers.SellItemFactory(Items.GLOWSTONE, 4, 1, 12, 10, 0.05f)));
 
-            List<KeyedTrade> weighted = new ArrayList<>();
-            weighted.add(new KeyedTrade("BUY:LAPIS_GEM", 50,
-                    TradeFactoryUtil.buyItemForEmeralds(ModItems.LAPIS_LAZULI_GEM, 1, 1, 12, 30)));
-            weighted.add(new KeyedTrade("BUY:TURQUOISE_GEM", 50,
-                    TradeFactoryUtil.buyItemForEmeralds(ModItems.TURQUOISE_GEM, 1, 1, 12, 20)));
+            // jouw fix: lapis gem XP 30 -> 20
+            pool.add(new WeightedTrade("BUY_LAPIS_GEM", 60,
+                    TradeFactoryUtil.buyItemForEmeralds(ModItems.LAPIS_LAZULI_GEM, 1, 1, 12, 20, 0.05f)));
 
-            KeyedTradeSelector.selectWithGuaranteed(guaranteed, weighted, 3, random)
+            pool.add(new WeightedTrade("BUY_TURQUOISE_GEM", 40,
+                    TradeFactoryUtil.buyItemForEmeralds(ModItems.TURQUOISE_GEM, 1, 1, 12, 20, 0.05f)));
+
+            WeightedTradeSelector.selectWithGuaranteed(guaranteed, pool, 3, random)
                     .forEach(t -> factories.add(t.factory()));
         });
 
-        /* ==================== EXPERT (3 slots) ==================== */
+        // EXPERT (3 slots)
         TradeOfferHelper.registerVillagerOffers(VillagerProfession.CLERIC, 4, factories -> {
             factories.clear();
             Random random = Random.create();
 
-            List<KeyedTrade> pool = new ArrayList<>();
-            pool.add(new KeyedTrade("BUY:TURTLE_SCUTE", 67, TradeFactoryUtil.buyItemForEmeralds(Items.TURTLE_SCUTE, 4, 1, 12, 30)));
-            pool.add(new KeyedTrade("BUY:GLASS_BOTTLE", 67, TradeFactoryUtil.buyItemForEmeralds(Items.GLASS_BOTTLE, 9, 1, 12, 30)));
-            pool.add(new KeyedTrade("SELL:ENDER_PEARL", 67, new TradeOffers.SellItemFactory(Items.ENDER_PEARL, 5, 1, 12, 15, 0.05f)));
+            List<WeightedTrade> pool = new ArrayList<>();
 
-            pool.add(new KeyedTrade("BUY:CITRINE_GEM", 50, TradeFactoryUtil.buyItemForEmeralds(ModItems.CITRINE_GEM, 1, 1, 12, 30)));
-            pool.add(new KeyedTrade("BUY:AMETHYST_GEM", 50, TradeFactoryUtil.buyItemForEmeralds(ModItems.AMETHYST_GEM, 1, 1, 12, 15)));
+            pool.add(new WeightedTrade("BUY_TURTLE_SCUTE", 34,
+                    TradeFactoryUtil.buyItemForEmeralds(Items.TURTLE_SCUTE, 4, 1, 12, 30, 0.05f)));
+            pool.add(new WeightedTrade("BUY_GLASS_BOTTLE", 33,
+                    TradeFactoryUtil.buyItemForEmeralds(Items.GLASS_BOTTLE, 9, 1, 12, 30, 0.05f)));
+            pool.add(new WeightedTrade("SELL_ENDER_PEARL", 33,
+                    new TradeOffers.SellItemFactory(Items.ENDER_PEARL, 5, 1, 12, 15, 0.05f)));
 
-            KeyedTradeSelector.select(pool, 3, random).forEach(t -> factories.add(t.factory()));
+            // jouw fix: amethyst XP 15 -> 30
+            pool.add(new WeightedTrade("BUY_CITRINE_GEM", 50,
+                    TradeFactoryUtil.buyItemForEmeralds(ModItems.CITRINE_GEM, 1, 1, 12, 30, 0.05f)));
+            pool.add(new WeightedTrade("BUY_AMETHYST_GEM", 50,
+                    TradeFactoryUtil.buyItemForEmeralds(ModItems.AMETHYST_GEM, 1, 1, 12, 30, 0.05f)));
+
+            WeightedTradeSelector.select(pool, 3, random).forEach(t -> factories.add(t.factory()));
         });
 
-        /* ==================== MASTER (3 slots) ==================== */
+        // MASTER (3 slots)
         TradeOfferHelper.registerVillagerOffers(VillagerProfession.CLERIC, 5, factories -> {
             factories.clear();
             Random random = Random.create();
 
-            List<KeyedTrade> pool = new ArrayList<>();
-            pool.add(new KeyedTrade("BUY:NETHER_WART", 50, TradeFactoryUtil.buyItemForEmeralds(Items.NETHER_WART, 22, 1, 12, 30)));
-            pool.add(new KeyedTrade("SELL:BOTTLE_O_ENCHANTING", 50, new TradeOffers.SellItemFactory(Items.EXPERIENCE_BOTTLE, 3, 1, 12, 30, 0.05f)));
+            List<WeightedTrade> pool = new ArrayList<>();
 
-            // keep your other master rows here if they exist in your file
+            pool.add(new WeightedTrade("BUY_NETHER_WART", 34,
+                    TradeFactoryUtil.buyItemForEmeralds(Items.NETHER_WART, 22, 1, 12, 30, 0.05f)));
 
-            KeyedTradeSelector.select(pool, 3, random).forEach(t -> factories.add(t.factory()));
+            pool.add(new WeightedTrade("SELL_XP_BOTTLE", 33,
+                    new TradeOffers.SellItemFactory(Items.EXPERIENCE_BOTTLE, 3, 1, 12, 30, 0.05f)));
+
+            // jouw fix: quartz dust multiplier 0.04 -> 0.05
+            pool.add(new WeightedTrade("BUY_QUARTZ_DUST", 33,
+                    TradeFactoryUtil.buyItemForEmeralds(ModItems.QUARTZ_DUST, 24, 1, 16, 20, 0.05f)));
+
+            pool.add(new WeightedTrade("BUY_ONYX_GEM", 25,
+                    TradeFactoryUtil.buyItemForEmeralds(ModItems.ONYX_GEM, 1, 1, 12, 30, 0.05f)));
+
+            WeightedTradeSelector.select(pool, 3, random).forEach(t -> factories.add(t.factory()));
         });
     }
 }
