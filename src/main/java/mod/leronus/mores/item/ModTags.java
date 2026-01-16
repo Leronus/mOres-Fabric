@@ -31,6 +31,15 @@ public class ModTags {
         public static final TagKey<Item> LAPIS_LAZULI_DUST = createTag("dust/lapis_lazuli");
         public static final TagKey<Item> AMETHYST_DUST = createTag("dust/amethyst");
 
+        public static final TagKey<Item> TIN_NUGGET = createTag("nugget/tin");
+        public static final TagKey<Item> SILVER_NUGGET = createTag("nugget/silver");
+        public static final TagKey<Item> STERLING_SILVER_NUGGET = createTag("nugget/sterling_silver");
+        public static final TagKey<Item> ROSE_GOLD_NUGGET = createTag("nugget/rose_gold");
+        public static final TagKey<Item> BRONZE_NUGGET = createTag("nugget/bronze");
+        public static final TagKey<Item> COBALT_NUGGET = createTag("nugget/cobalt");
+        public static final TagKey<Item> CARBON_STEEL_NUGGET = createTag("nugget/carbon_steel");
+        public static final TagKey<Item> HARDENED_STEEL_NUGGET = createTag("nugget/hardened_steel");
+
         public static final TagKey<Item> TIN_INGOT = createTag("ingot/tin");
         public static final TagKey<Item> SILVER_INGOT = createTag("ingot/silver");
         public static final TagKey<Item> STERLING_SILVER_INGOT = createTag("ingot/sterling_silver");

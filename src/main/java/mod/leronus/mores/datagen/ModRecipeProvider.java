@@ -87,9 +87,10 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .offerTo(exporter, Identifier.of("mores", "alloy_furnace"));
         ShapedRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, Registries.ITEM.get(Identifier.of("mores", "steel_cutter")), 1)
                 .pattern(" S ")
-                .pattern("###")
+                .pattern("W#W")
                 .input('S', Registries.ITEM.get(Identifier.of("mores", "carbon_steel_ingot")))
                 .input('#', Registries.ITEM.get(Identifier.of("mores", "tin_block")))
+                .input('W', TagKey.of(RegistryKeys.ITEM, Identifier.of("minecraft", "logs")))
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "tin_ingot"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "tin_ingot"))))
                 .offerTo(exporter, Identifier.of("mores", "steel_cutter"));
     }
@@ -158,6 +159,14 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .input(Registries.ITEM.get(Identifier.of("minecraft", "sugar")))
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("minecraft", "egg"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("minecraft", "egg"))))
                 .offerTo(exporter, Identifier.of("mores", "sweet_berry_pie"));
+        ShapedRecipeJsonBuilder.create(RecipeCategory.FOOD, Registries.ITEM.get(Identifier.of("mores", "silver_carrot")), 1)
+                .pattern("###")
+                .pattern("#X#")
+                .pattern("###")
+                .input('#', TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "nugget/silver")))
+                .input('X', Registries.ITEM.get(Identifier.of("minecraft", "carrot")))
+                .criterion("has_nugget_silver", conditionsFromTag(TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "nugget/silver"))))
+                .offerTo(exporter, Identifier.of("mores", "silver_carrot"));
         //Apples
         ShapedRecipeJsonBuilder.create(RecipeCategory.FOOD, Registries.ITEM.get(Identifier.of("mores", "silver_apple")), 1)
                 .pattern("###")

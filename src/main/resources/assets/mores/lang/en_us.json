@@ -259,6 +259,8 @@
   "item.mores.smithing_template.hardened_steel_upgrade.ingredients" : "Hardened Steel Ingot",
   "item.mores.smithing_template.hardened_steel_upgrade.base_slot_description" : "Add carbon steel armor, weapon or tool",
   "item.mores.smithing_template.hardened_steel_upgrade.additions_slot_description" : "Add Hardened Steel Ingot",
+  "upgrade.mores.hardened_steel_upgrade" : "Hardened Steel Upgrade",
+
 
   "item.mores.cobalt_ingot" : "Cobalt Ingot",
   "item.mores.cobalt_horse_armor" : "Cobalt Horse Armor",
@@ -730,16 +732,11 @@
   "item.mores.hardened_steel_nugget" : "Hardened Steel Nugget",
   "item.mores.sterling_silver_nugget" : "Sterling Silver Nugget",
   "item.mores.rose_gold_nugget" : "Rose Gold Nugget",
+
+  "item.mores.silver_carrot" : "Silver Carrot",
   "item.mores.silver_apple" : "Silver Apple",
   "item.mores.bronze_apple" : "Bronze Apple",
   "item.mores.cobalt_apple" : "Cobalt Apple",
-
-  "item.mores.raw_duck": "Raw Duck",
-  "item.mores.cooked_duck": "Cooked Duck",
-  "item.mores.duck_spawn_egg": "Duck Spawn Egg",
-  "item.mores.duck_egg": "Duck Egg",
-  "entity.mores.duck": "Duck",
-  "entity.mores.hardened_steel_golem": "Hardened Steel Golem",
 
   "item.mores.velvet": "Velvet",
   "item.mores.carrot_pie": "Carrot Pie",
@@ -750,6 +747,13 @@
   "item.mores.milk_chocolate": "Milk Chocolate",
   "item.mores.white_chocolate": "White Chocolate",
   "item.mores.lemon": "Lemon",
+
+  "item.mores.raw_duck": "Raw Duck",
+  "item.mores.cooked_duck": "Cooked Duck",
+  "item.mores.duck_spawn_egg": "Duck Spawn Egg",
+  "item.mores.duck_egg": "Duck Egg",
+  "entity.mores.duck": "Duck",
+  "entity.mores.hardened_steel_golem": "Hardened Steel Golem",
 
   "block.mores.lemon_oak_sapling": "Lemon Oak Sapling",
   "block.mores.lemon_oak_leaves": "Lemon Oak Leaves",

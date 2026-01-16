@@ -658,18 +658,19 @@ public class ModItemGroups {
             Identifier.of(Mores.MOD_ID, "food"),
             FabricItemGroup.builder().displayName(Text.translatable("creativemodetab.mores_foods"))
                     .icon(() -> new ItemStack(ModItems.COBALT_APPLE)).entries((displayContext, entries) -> {
-                        entries.add(ModItems.BRONZE_APPLE);
-                        entries.add(ModItems.SILVER_APPLE);
-                        entries.add(ModItems.COBALT_APPLE);
                         entries.add(ModItems.DARK_CHOCOLATE);
                         entries.add(ModItems.MILK_CHOCOLATE);
                         entries.add(ModItems.WHITE_CHOCOLATE);
+                        entries.add(ModItems.APPLE_PIE);
+                        entries.add(ModItems.BRONZE_APPLE);
+                        entries.add(ModItems.COBALT_APPLE);
+                        entries.add(ModItems.SILVER_APPLE);
+                        entries.add(ModItems.SILVER_CARROT);
                         entries.add(ModItems.LEMON);
                         entries.add(ModItems.LEMON_PIE);
-                        entries.add(ModItems.APPLE_PIE);
-                        entries.add(ModItems.SWEET_BERRY_PIE);
                         entries.add(ModItems.CARROT_PIE);
                         entries.add(ModItems.VELVET);
+                        entries.add(ModItems.SWEET_BERRY_PIE);
                         entries.add(ModItems.RAW_DUCK);
                         entries.add(ModItems.COOKED_DUCK);
                     }).build());

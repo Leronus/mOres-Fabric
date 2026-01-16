@@ -126,6 +126,12 @@ dependencies {
     // Serene Seasons (not needed at compile-time)
     modRuntimeOnly "maven.modrinth:serene-seasons:${project.serene_seasons_version}"
 
+    // REI (not needed at compile-time)
+    modRuntimeOnly "maven.modrinth:architectury-api:${project.architectury_version}"
+    modRuntimeOnly "maven.modrinth:cloth-config:${project.cloth_config_version}"
+    modRuntimeOnly "me.shedaniel.cloth:basic-math:0.6.1"
+    modRuntimeOnly "maven.modrinth:rei:${project.rei_version}"
+
 
     // Optional
     // modRuntimeOnly "maven.modrinth:entityculling:${project.entity_culling_version}"
