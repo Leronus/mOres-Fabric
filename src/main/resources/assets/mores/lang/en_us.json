@@ -743,7 +743,16 @@
 
   "item.mores.velvet": "Velvet",
   "item.mores.carrot_pie": "Carrot Pie",
-  "item.mores.chocolate": "Chocolate",
+  "item.mores.lemon_pie": "Lemon Pie",
+  "item.mores.apple_pie": "Apple Pie",
+  "item.mores.sweet_berry_pie": "Sweet Berry Pie",
+  "item.mores.dark_chocolate": "Dark Chocolate",
+  "item.mores.milk_chocolate": "Milk Chocolate",
+  "item.mores.white_chocolate": "White Chocolate",
+  "item.mores.lemon": "Lemon",
+
+  "block.mores.lemon_oak_sapling": "Lemon Oak Sapling",
+  "block.mores.lemon_oak_leaves": "Lemon Oak Leaves",
 
   "creativemodetab.mores_materials" : "mOres Materials",
   "creativemodetab.mores_tools" : "mOres Tools",

@@ -49,7 +49,6 @@ public class Mores implements ModInitializer {
 		ModScreenHandlers.registerScreenHandlers();
         ModNetworking.registerServerReceivers();
 
-
         ModChestLootInjector.register();
 
         //TODO Check anthracite

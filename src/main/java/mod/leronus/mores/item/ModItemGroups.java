@@ -79,6 +79,9 @@ public class ModItemGroups {
             FabricItemGroup.builder().displayName(Text.translatable("creativemodetab.mores_blocks"))
                     .icon(() -> new ItemStack(ModBlocks.TURQUOISE_BLOCK)).entries((displayContext, entries) -> {
                         entries.add(ModBlocks.ALLOY_FURNACE);
+                        entries.add(ModBlocks.STEEL_CUTTER);
+                        entries.add(ModBlocks.LEMON_OAK_LEAVES);
+                        entries.add(ModBlocks.LEMON_OAK_SAPLING);
                         entries.add(ModBlocks.RAW_TIN_BLOCK);
                         entries.add(ModBlocks.RAW_SILVER_BLOCK);
                         entries.add(ModBlocks.RAW_COBALT_BLOCK);
@@ -658,9 +661,15 @@ public class ModItemGroups {
                         entries.add(ModItems.BRONZE_APPLE);
                         entries.add(ModItems.SILVER_APPLE);
                         entries.add(ModItems.COBALT_APPLE);
-                        entries.add(ModItems.CHOCOLATE);
-                        entries.add(ModItems.VELVET);
+                        entries.add(ModItems.DARK_CHOCOLATE);
+                        entries.add(ModItems.MILK_CHOCOLATE);
+                        entries.add(ModItems.WHITE_CHOCOLATE);
+                        entries.add(ModItems.LEMON);
+                        entries.add(ModItems.LEMON_PIE);
+                        entries.add(ModItems.APPLE_PIE);
+                        entries.add(ModItems.SWEET_BERRY_PIE);
                         entries.add(ModItems.CARROT_PIE);
+                        entries.add(ModItems.VELVET);
                         entries.add(ModItems.RAW_DUCK);
                         entries.add(ModItems.COOKED_DUCK);
                     }).build());

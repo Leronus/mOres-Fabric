@@ -2,7 +2,6 @@
   "required": true,
   "package": "mod.leronus.mores.mixin",
   "compatibilityLevel": "JAVA_21",
-  "refmap": "mores.refmap.json",
   "mixins": [
     "BlockMixin",
     "CarvedPumpkinBlockMixin",
@@ -17,7 +16,8 @@
     "VillagerMoreTradesMixin",
     "WolfEntityMixin",
     "WolfArmorSyncMixin",
-    "ZombifiedPiglinEntityMixin"
+    "ZombifiedPiglinEntityMixin",
+    "OakToLemonTreeMixin"
   ],
   "client": [
     "client.WolfArmorFeatureRendererMixin"

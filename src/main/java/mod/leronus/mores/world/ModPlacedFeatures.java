@@ -9,8 +9,11 @@ import net.minecraft.util.Identifier;
 import net.minecraft.world.gen.YOffset;
 import net.minecraft.world.gen.feature.ConfiguredFeature;
 import net.minecraft.world.gen.feature.PlacedFeature;
+import net.minecraft.world.gen.feature.PlacedFeatures;
+import net.minecraft.world.gen.placementmodifier.BiomePlacementModifier;
 import net.minecraft.world.gen.placementmodifier.HeightRangePlacementModifier;
 import net.minecraft.world.gen.placementmodifier.PlacementModifier;
+import net.minecraft.world.gen.placementmodifier.SquarePlacementModifier;
 
 import java.util.List;
 
@@ -88,6 +91,9 @@ public class ModPlacedFeatures {
     public static final RegistryKey<PlacedFeature> ENDER_MOISSANITE_PLACED_KEY = registerKey("ender_moissanite_placed");
 
     public static final RegistryKey<PlacedFeature> ENDERITE_PLACED_KEY = registerKey("enderite_placed");
+
+    public static final RegistryKey<PlacedFeature> LEMON_OAK_PLACED_KEY = registerKey("lemon_oak_placed");
+
 
     public static void bootstrap(Registerable<PlacedFeature> context) {
         var configuredFeatureRegistryEntryLookup = context.getRegistryLookup(RegistryKeys.CONFIGURED_FEATURE);
@@ -285,6 +291,14 @@ public class ModPlacedFeatures {
         register(context, ENDERITE_PLACED_KEY, configuredFeatureRegistryEntryLookup.getOrThrow(ModConfiguredFeatures.ENDERITE_ORE_KEY),
                 ModOrePlacement.modifiersWithCount(7, // VeinsPerChunk
                         HeightRangePlacementModifier.trapezoid(YOffset.aboveBottom(0), YOffset.aboveBottom(312))));
+
+        register(context, LEMON_OAK_PLACED_KEY, configuredFeatureRegistryEntryLookup.getOrThrow(ModConfiguredFeatures.LEMON_OAK_TREE_WG),
+                        List.of(
+                                // placement rules match vanilla oak
+                                PlacedFeatures.WORLD_SURFACE_WG_HEIGHTMAP,
+                                SquarePlacementModifier.of(),
+                                BiomePlacementModifier.of()
+                        ));
     }
 
     public static RegistryKey<PlacedFeature> registerKey(String name) {

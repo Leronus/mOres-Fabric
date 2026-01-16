@@ -22,6 +22,7 @@ repositories {
     maven { url = 'https://maven.minecraftforge.net/' }
     maven { url = 'https://maven.kyrptonaught.dev' }
     maven { url = "https://maven.shedaniel.me/" }
+    maven { url = "https://repo.spongepowered.org/maven" }
     maven { url = 'https://api.modrinth.com/maven' }
     maven { url = 'https://cursemaven.com' }
     maven { url = 'https://jitpack.io' }
@@ -121,6 +122,9 @@ dependencies {
 
     // Universal Ores (not needed at compile-time)
     modRuntimeOnly "maven.modrinth:universal_ores:${project.universal_ores_version}"
+
+    // Serene Seasons (not needed at compile-time)
+    modRuntimeOnly "maven.modrinth:serene-seasons:${project.serene_seasons_version}"
 
 
     // Optional

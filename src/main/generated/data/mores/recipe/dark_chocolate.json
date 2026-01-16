@@ -3,20 +3,20 @@
   "category": "misc",
   "ingredients": [
     {
-      "item": "minecraft:carrot"
+      "item": "minecraft:cocoa_beans"
     },
     {
-      "item": "minecraft:egg"
+      "item": "minecraft:cocoa_beans"
     },
     {
-      "item": "minecraft:wheat"
+      "item": "minecraft:sugar"
     },
     {
       "item": "minecraft:sugar"
     }
   ],
   "result": {
-    "count": 1,
-    "id": "mores:carrot_pie"
+    "count": 4,
+    "id": "mores:dark_chocolate"
   }
 }

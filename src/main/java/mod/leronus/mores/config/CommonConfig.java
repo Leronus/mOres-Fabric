@@ -18,6 +18,34 @@ public class CommonConfig extends MidnightConfig {
     @Entry(category = GAMEPLAY, name = "Enable potion / heart effects")
     public static boolean enablePotionHeartEffects = true;
 
+    // =========================
+    // LEMON OAK WORLDGEN
+    // =========================
+
+    @Entry(category = WORLDGEN, name = "Enable lemon leaves generation")
+    public static boolean enableLemonOakWorldgen = true;
+
+    /**
+     * Chance that a vanilla OAK variant gets lemon leaves. (requires restart)
+     * 10 = 10% (1 in 10), 20 = 5%, 5 = 20%.
+     */
+    @Entry(category = WORLDGEN, min = 1, max = 200, isSlider = true, name = "Lemon leaves per oak tree chance")
+    public static int lemonLeavesReplaceVanillaLeavesChance = 10;
+
+    /**
+     * How many of the leaf placements become lemon leaves. (requires restart)
+     * Worldgen target: ~3–5 lemons -> ~4–6
+     */
+    @Entry(category = WORLDGEN, min = 0, max = 100, isSlider = true, name = "Lemon leaves per oak leaves weight")
+    public static int lemonLeafWeightWorldgen = 5;
+
+    /**
+     * Sapling-grown lemon oak tree should have more lemons.
+     * Sapling target: ~6–8 lemons -> ~10–14 weight (requires restart)
+     */
+    @Entry(category = WORLDGEN, min = 0, max = 100, isSlider = true, name = "Lemon leaves from sapling weight")
+    public static int lemonLeavesFromSaplingWeight = 12;
+
     // Materials (restart required in practice)
     @Entry(category = GAMEPLAY, name = "Material presets (restart required)")
     public static MaterialPreset materialPreset = MaterialPreset.DEFAULT;

@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cross",
+  "textures": {
+    "cross": "mores:block/lemon_oak_sapling",
+    "particle": "mores:block/lemon_oak_sapling"
+  }
+}

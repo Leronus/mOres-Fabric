@@ -186,6 +186,8 @@ public class ModModelProvider extends FabricModelProvider {
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.ONYX_BLOCK);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.ADAMANTIUM_BLOCK);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.ENDERITE_BLOCK);
+        registerLemonLeaves(blockStateModelGenerator);
+        registerLemonSaplingNoTint(blockStateModelGenerator);
         registerAlloyFurnace(blockStateModelGenerator);
         registerSteelCutter(blockStateModelGenerator);
         }
@@ -270,12 +272,181 @@ public class ModModelProvider extends FabricModelProvider {
         gen.registerParentedItemModel(ModBlocks.STEEL_CUTTER, modelId);
     }
 
+    private static void registerLemonLeaves(BlockStateModelGenerator gen) {
+        Identifier modelId = ModelIds.getBlockModelId(ModBlocks.LEMON_OAK_LEAVES);
+
+        Identifier baseTex = Identifier.of(Mores.MOD_ID, "block/lemon_oak_leaves_base");
+        Identifier lemonsTex = Identifier.of(Mores.MOD_ID, "block/lemon_oak_leaves_lemons");
+
+        gen.modelCollector.accept(modelId, () -> {
+            JsonObject root = new JsonObject();
+            root.addProperty("parent", "minecraft:block/block");
+
+            JsonObject textures = new JsonObject();
+            textures.addProperty("base", baseTex.toString());
+            textures.addProperty("lemons", lemonsTex.toString());
+            textures.addProperty("particle", baseTex.toString());
+
+            root.add("textures", textures);
+
+            JsonArray elements = new JsonArray();
+
+            // Element 1: tinted base leaves
+            JsonObject baseElem = new JsonObject();
+            baseElem.add("from", intArray(0, 0, 0));
+            baseElem.add("to", intArray(16, 16, 16));
+            baseElem.add("faces", cubeFaces("#base", true));  // tintindex = 0
+            elements.add(baseElem);
+
+            // Element 2: untinted lemons overlay
+            JsonObject lemonsElem = new JsonObject();
+            lemonsElem.add("from", intArray(0, 0, 0));
+            lemonsElem.add("to", intArray(16, 16, 16));
+            lemonsElem.add("faces", cubeFaces("#lemons", false)); // no tintindex
+            elements.add(lemonsElem);
+
+            root.add("elements", elements);
+            return root;
+        });
+
+        gen.blockStateCollector.accept(
+                VariantsBlockStateSupplier.create(
+                        ModBlocks.LEMON_OAK_LEAVES,
+                        BlockStateVariant.create().put(VariantSettings.MODEL, modelId)
+                )
+        );
+
+        gen.registerParentedItemModel(ModBlocks.LEMON_OAK_LEAVES, modelId);
+    }
+
+    private static void registerLemonSaplingNoTint(BlockStateModelGenerator gen) {
+        // Texture: assets/mores/textures/block/lemon_oak_sapling.png
+        Identifier tex = Identifier.of(Mores.MOD_ID, "block/lemon_oak_sapling");
+
+        // Block model: assets/mores/models/block/lemon_oak_sapling.json
+        Identifier blockModelId = ModelIds.getBlockModelId(ModBlocks.LEMON_OAK_SAPLING);
+
+        gen.modelCollector.accept(blockModelId, () -> {
+            JsonObject root = new JsonObject();
+            root.addProperty("parent", "minecraft:block/cross");
+
+            JsonObject textures = new JsonObject();
+            // "cross" is the texture key used by minecraft:block/cross
+            textures.addProperty("cross", tex.toString());
+            // particles should be the same texture
+            textures.addProperty("particle", tex.toString());
+            root.add("textures", textures);
+
+            return root;
+        });
+
+        // Blockstate: point to the cross model
+        gen.blockStateCollector.accept(
+                VariantsBlockStateSupplier.create(
+                        ModBlocks.LEMON_OAK_SAPLING,
+                        BlockStateVariant.create().put(VariantSettings.MODEL, blockModelId)
+                )
+        );
+
+        // Item model: assets/mores/models/item/lemon_oak_sapling.json
+        Identifier itemModelId = ModelIds.getItemModelId(ModBlocks.LEMON_OAK_SAPLING.asItem());
+        gen.modelCollector.accept(itemModelId, () -> {
+            JsonObject root = new JsonObject();
+            root.addProperty("parent", "minecraft:item/generated");
+
+            JsonObject textures = new JsonObject();
+            // Use the same block texture for the item
+            textures.addProperty("layer0", tex.toString());
+            root.add("textures", textures);
+
+            return root;
+        });
+    }
+
+    private static JsonArray crossElements(String textureRef, boolean tinted) {
+        JsonArray arr = new JsonArray();
+
+        // Plane 1: NW-SE diagonal
+        JsonObject e1 = new JsonObject();
+        e1.add("from", intArray(0, 0, 8));
+        e1.add("to", intArray(16, 16, 8));
+        e1.add("rotation", rotationY(45));
+        e1.add("faces", crossFaces(textureRef, tinted));
+        arr.add(e1);
+
+        // Plane 2: NE-SW diagonal
+        JsonObject e2 = new JsonObject();
+        e2.add("from", intArray(8, 0, 0));
+        e2.add("to", intArray(8, 16, 16));
+        e2.add("rotation", rotationY(45));
+        e2.add("faces", crossFaces(textureRef, tinted));
+        arr.add(e2);
+
+        return arr;
+    }
+
+    private static JsonObject rotationY(int angle) {
+        JsonObject rot = new JsonObject();
+        rot.add("origin", intArray(8, 8, 8));
+        rot.addProperty("axis", "y");
+        rot.addProperty("angle", angle);
+        rot.addProperty("rescale", true);
+        return rot;
+    }
+
+    private static JsonObject crossFaces(String textureRef, boolean tinted) {
+        JsonObject faces = new JsonObject();
+
+        // Cross models only need "north" and "east"; game mirrors the rest
+        JsonObject north = new JsonObject();
+        north.addProperty("texture", textureRef);
+        if (tinted) north.addProperty("tintindex", 0);
+        faces.add("north", north);
+
+        JsonObject east = new JsonObject();
+        east.addProperty("texture", textureRef);
+        if (tinted) east.addProperty("tintindex", 0);
+        faces.add("east", east);
+
+        return faces;
+    }
+
+    /**
+     * Builds the 6 faces of a full cube.
+     *
+     * @param textureRef "#base" or "#lemons"
+     * @param tinted     true => adds tintindex:0 so biome foliage tint applies
+     */
+    private static JsonObject cubeFaces(String textureRef, boolean tinted) {
+        JsonObject faces = new JsonObject();
+        faces.add("north", face(textureRef, tinted));
+        faces.add("east", face(textureRef, tinted));
+        faces.add("south", face(textureRef, tinted));
+        faces.add("west", face(textureRef, tinted));
+        faces.add("up", face(textureRef, tinted));
+        faces.add("down", face(textureRef, tinted));
+        return faces;
+    }
+
+    private static JsonObject face(String textureRef, boolean tinted) {
+        JsonObject face = new JsonObject();
+        face.add("uv", intArray(0, 0, 16, 16));
+        face.addProperty("texture", textureRef);
+        if (tinted) {
+            face.addProperty("tintindex", 0);
+        }
+        return face;
+    }
+
+    private static JsonArray intArray(int... values) {
+        JsonArray arr = new JsonArray();
+        for (int v : values) arr.add(v);
+        return arr;
+    }
 
 
     @Override
     public void generateItemModels(ItemModelGenerator itemModelGenerator) {
-        ModTrimMaterials.class.getName();
-
         itemModelGenerator.register(ModItems.ANTHRACITE, Models.GENERATED);
         itemModelGenerator.register(ModItems.CITRINE, Models.GENERATED);
         itemModelGenerator.register(ModItems.TURQUOISE, Models.GENERATED);
@@ -286,7 +457,13 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ModItems.COBALT_APPLE, Models.GENERATED);
 
         itemModelGenerator.register(ModItems.VELVET, Models.GENERATED);
-        itemModelGenerator.register(ModItems.CHOCOLATE, Models.GENERATED);
+        itemModelGenerator.register(ModItems.DARK_CHOCOLATE, Models.GENERATED);
+        itemModelGenerator.register(ModItems.MILK_CHOCOLATE, Models.GENERATED);
+        itemModelGenerator.register(ModItems.WHITE_CHOCOLATE, Models.GENERATED);
+        itemModelGenerator.register(ModItems.LEMON, Models.GENERATED);
+        itemModelGenerator.register(ModItems.LEMON_PIE, Models.GENERATED);
+        itemModelGenerator.register(ModItems.APPLE_PIE, Models.GENERATED);
+        itemModelGenerator.register(ModItems.SWEET_BERRY_PIE, Models.GENERATED);
         itemModelGenerator.register(ModItems.CARROT_PIE, Models.GENERATED);
         itemModelGenerator.register(ModItems.CHAINMAIL, Models.GENERATED);
 

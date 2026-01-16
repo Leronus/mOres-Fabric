@@ -102,27 +102,62 @@ public class ModRecipeProvider extends FabricRecipeProvider {
 
     private void generateFood(RecipeExporter exporter) {
         /* Food */
-        ShapelessRecipeJsonBuilder.create(RecipeCategory.FOOD, Registries.ITEM.get(Identifier.of("mores", "carrot_pie")), 1)
-                .input(Registries.ITEM.get(Identifier.of("minecraft", "carrot")))
-                .input(Registries.ITEM.get(Identifier.of("minecraft", "wheat")))
-                .input(Registries.ITEM.get(Identifier.of("minecraft", "egg")))
-                .criterion(hasItem(Registries.ITEM.get(Identifier.of("minecraft", "carrot"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("minecraft", "carrot"))))
-                .offerTo(exporter, Identifier.of("mores", "carrot_pie"));
-        ShapelessRecipeJsonBuilder.create(RecipeCategory.FOOD, Registries.ITEM.get(Identifier.of("mores", "chocolate")), 1)
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.FOOD, Registries.ITEM.get(Identifier.of("mores", "dark_chocolate")), 4)
+                .input(Registries.ITEM.get(Identifier.of("minecraft", "cocoa_beans")))
+                .input(Registries.ITEM.get(Identifier.of("minecraft", "cocoa_beans")))
+                .input(Registries.ITEM.get(Identifier.of("minecraft", "sugar")))
+                .input(Registries.ITEM.get(Identifier.of("minecraft", "sugar")))
+                .criterion(hasItem(Registries.ITEM.get(Identifier.of("minecraft", "cocoa_beans"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("minecraft", "cocoa_beans"))))
+                .offerTo(exporter, Identifier.of("mores", "dark_chocolate"));
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.FOOD, Registries.ITEM.get(Identifier.of("mores", "milk_chocolate")), 4)
                 .input(Registries.ITEM.get(Identifier.of("minecraft", "cocoa_beans")))
                 .input(Registries.ITEM.get(Identifier.of("minecraft", "cocoa_beans")))
                 .input(Registries.ITEM.get(Identifier.of("minecraft", "milk_bucket")))
                 .input(Registries.ITEM.get(Identifier.of("minecraft", "sugar")))
                 .input(Registries.ITEM.get(Identifier.of("minecraft", "sugar")))
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("minecraft", "cocoa_beans"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("minecraft", "cocoa_beans"))))
-                .offerTo(exporter, Identifier.of("mores", "chocolate"));
+                .offerTo(exporter, Identifier.of("mores", "milk_chocolate"));
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.FOOD, Registries.ITEM.get(Identifier.of("mores", "white_chocolate")), 4)
+                .input(Registries.ITEM.get(Identifier.of("minecraft", "cocoa_beans")))
+                .input(Registries.ITEM.get(Identifier.of("minecraft", "milk_bucket")))
+                .input(Registries.ITEM.get(Identifier.of("minecraft", "sugar")))
+                .input(Registries.ITEM.get(Identifier.of("minecraft", "sugar")))
+                .input(Registries.ITEM.get(Identifier.of("minecraft", "sugar")))
+                .criterion(hasItem(Registries.ITEM.get(Identifier.of("minecraft", "cocoa_beans"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("minecraft", "cocoa_beans"))))
+                .offerTo(exporter, Identifier.of("mores", "white_chocolate"));
         ShapelessRecipeJsonBuilder.create(RecipeCategory.FOOD, Registries.ITEM.get(Identifier.of("mores", "velvet")), 1)
-                .input(Registries.ITEM.get(Identifier.of("minecraft", "egg")))
                 .input(Registries.ITEM.get(Identifier.of("minecraft", "beetroot")))
+                .input(Registries.ITEM.get(Identifier.of("minecraft", "egg")))
                 .input(Registries.ITEM.get(Identifier.of("minecraft", "wheat")))
                 .input(Registries.ITEM.get(Identifier.of("minecraft", "sugar")))
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("minecraft", "egg"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("minecraft", "egg"))))
                 .offerTo(exporter, Identifier.of("mores", "velvet"));
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.FOOD, Registries.ITEM.get(Identifier.of("mores", "carrot_pie")), 1)
+                .input(Registries.ITEM.get(Identifier.of("minecraft", "carrot")))
+                .input(Registries.ITEM.get(Identifier.of("minecraft", "egg")))
+                .input(Registries.ITEM.get(Identifier.of("minecraft", "wheat")))
+                .input(Registries.ITEM.get(Identifier.of("minecraft", "sugar")))
+                .criterion(hasItem(Registries.ITEM.get(Identifier.of("minecraft", "carrot"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("minecraft", "carrot"))))
+                .offerTo(exporter, Identifier.of("mores", "carrot_pie"));
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.FOOD, Registries.ITEM.get(Identifier.of("mores", "lemon_pie")), 1)
+                .input(Registries.ITEM.get(Identifier.of("mores", "lemon")))
+                .input(Registries.ITEM.get(Identifier.of("minecraft", "egg")))
+                .input(Registries.ITEM.get(Identifier.of("minecraft", "wheat")))
+                .input(Registries.ITEM.get(Identifier.of("minecraft", "sugar")))
+                .criterion(hasItem(Registries.ITEM.get(Identifier.of("minecraft", "egg"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("minecraft", "egg"))))
+                .offerTo(exporter, Identifier.of("mores", "lemon_pie"));
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.FOOD, Registries.ITEM.get(Identifier.of("mores", "apple_pie")), 1)
+                .input(Registries.ITEM.get(Identifier.of("minecraft", "apple")))
+                .input(Registries.ITEM.get(Identifier.of("minecraft", "egg")))
+                .input(Registries.ITEM.get(Identifier.of("minecraft", "sugar")))
+                .criterion(hasItem(Registries.ITEM.get(Identifier.of("minecraft", "egg"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("minecraft", "egg"))))
+                .offerTo(exporter, Identifier.of("mores", "apple_pie"));
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.FOOD, Registries.ITEM.get(Identifier.of("mores", "sweet_berry_pie")), 1)
+                .input(Registries.ITEM.get(Identifier.of("minecraft", "sweet_berries")))
+                .input(Registries.ITEM.get(Identifier.of("minecraft", "egg")))
+                .input(Registries.ITEM.get(Identifier.of("minecraft", "sugar")))
+                .criterion(hasItem(Registries.ITEM.get(Identifier.of("minecraft", "egg"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("minecraft", "egg"))))
+                .offerTo(exporter, Identifier.of("mores", "sweet_berry_pie"));
         //Apples
         ShapedRecipeJsonBuilder.create(RecipeCategory.FOOD, Registries.ITEM.get(Identifier.of("mores", "silver_apple")), 1)
                 .pattern("###")

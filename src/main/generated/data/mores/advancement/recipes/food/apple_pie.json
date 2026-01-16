@@ -1,11 +1,11 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_cocoa_beans": {
+    "has_egg": {
       "conditions": {
         "items": [
           {
-            "items": "minecraft:cocoa_beans"
+            "items": "minecraft:egg"
           }
         ]
       },
@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "mores:chocolate"
+        "recipe": "mores:apple_pie"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -21,12 +21,12 @@
   "requirements": [
     [
       "has_the_recipe",
-      "has_cocoa_beans"
+      "has_egg"
     ]
   ],
   "rewards": {
     "recipes": [
-      "mores:chocolate"
+      "mores:apple_pie"
     ]
   }
 }

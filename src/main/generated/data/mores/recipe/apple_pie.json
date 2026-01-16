@@ -3,13 +3,10 @@
   "category": "misc",
   "ingredients": [
     {
-      "item": "minecraft:carrot"
+      "item": "minecraft:apple"
     },
     {
       "item": "minecraft:egg"
-    },
-    {
-      "item": "minecraft:wheat"
     },
     {
       "item": "minecraft:sugar"
@@ -17,6 +14,6 @@
   ],
   "result": {
     "count": 1,
-    "id": "mores:carrot_pie"
+    "id": "mores:apple_pie"
   }
 }

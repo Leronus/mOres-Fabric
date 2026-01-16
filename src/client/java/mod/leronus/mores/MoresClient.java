@@ -11,18 +11,14 @@ import mod.leronus.mores.item.ModItems;
 import mod.leronus.mores.registry.ModScreenHandlers;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
-import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
-import net.fabricmc.fabric.api.client.networking.v1.ClientPlayNetworking;
 import net.fabricmc.fabric.api.client.rendering.v1.BuiltinItemRendererRegistry;
+import net.fabricmc.fabric.api.client.rendering.v1.ColorProviderRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
-import net.minecraft.client.MinecraftClient;
+import net.minecraft.client.color.world.BiomeColors;
 import net.minecraft.client.gui.screen.ingame.HandledScreens;
 import net.minecraft.client.gui.screen.ingame.StonecutterScreen;
 import net.minecraft.client.render.RenderLayer;
-import net.minecraft.entity.EquipmentSlot;
-import net.minecraft.entity.passive.AbstractHorseEntity;
 import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
 
 public class MoresClient implements ClientModInitializer {
     private static boolean lastSent = false;
@@ -65,6 +61,23 @@ public class MoresClient implements ClientModInitializer {
                 ModItems.GRAPHENE_SHIELD,
                 ModItems.ADAMANTIUM_SHIELD,
                 ModItems.ENDERITE_SHIELD
+        );
+
+        // Leaves need cutoutMipped for correct transparency + mipmapping
+        BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.LEMON_OAK_LEAVES, RenderLayer.getCutoutMipped());
+        BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.LEMON_OAK_SAPLING, RenderLayer.getCutout());
+
+        // Biome foliage tint for the block in-world
+        ColorProviderRegistry.BLOCK.register(
+                (state, world, pos, tintIndex) ->
+                        (world != null && pos != null) ? BiomeColors.getFoliageColor(world, pos) : 0x48B518,
+                ModBlocks.LEMON_OAK_LEAVES
+        );
+
+        // Inventory tint (uses a default foliage color, like vanilla)
+        ColorProviderRegistry.ITEM.register(
+                (stack, tintIndex) -> 0x48B518,
+                ModBlocks.LEMON_OAK_LEAVES.asItem()
         );
     }
 

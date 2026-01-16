@@ -35,9 +35,24 @@ public class ModItems {
     public static final Item ADAMANTIUM_UPGRADE_SMITHING_TEMPLATE = registerItem("adamantium_upgrade_smithing_template", ModSmithingTemplateItem.createAdamantiumUpgradeTemplate());
     public static final Item ENDERITE_UPGRADE_SMITHING_TEMPLATE = registerItem("enderite_upgrade_smithing_template", ModSmithingTemplateItem.createEnderiteUpgradeTemplate());
 
-    public static final Item CHOCOLATE = registerItem("chocolate", new Item(new Item.Settings().food(ModFoodComponents.CHOCOLATE)));
+    public static final Item DARK_CHOCOLATE = registerItem("dark_chocolate", new Item(new Item.Settings().food(ModFoodComponents.DARK_CHOCOLATE)));
+    public static final Item MILK_CHOCOLATE = registerItem("milk_chocolate", new ModMilkItem(new Item.Settings().food(ModFoodComponents.MILK_CHOCOLATE)));
+    public static final Item WHITE_CHOCOLATE = registerItem("white_chocolate", new ModMilkItem(new Item.Settings().food(ModFoodComponents.WHITE_CHOCOLATE)));
     public static final Item CARROT_PIE = registerItem("carrot_pie", new Item(new Item.Settings().food(ModFoodComponents.CARROT_PIE)));
+    public static final Item LEMON_PIE = registerItem("lemon_pie", new Item(new Item.Settings().food(ModFoodComponents.LEMON_PIE)));
+    public static final Item APPLE_PIE = registerItem("apple_pie", new Item(new Item.Settings().food(ModFoodComponents.APPLE_PIE)));
+    public static final Item SWEET_BERRY_PIE = registerItem("sweet_berry_pie", new Item(new Item.Settings().food(ModFoodComponents.SWEET_BERRY_PIE)));
     public static final Item VELVET = registerItem("velvet", new Item(new Item.Settings().food(ModFoodComponents.VELVET)));
+    public static final Item LEMON = registerItem("lemon", new Item(new Item.Settings().food(ModFoodComponents.LEMON_FRUIT)));
+
+    public static final Item SILVER_APPLE = registerItem("silver_apple", new Item(new Item.Settings().food(ModFoodComponents.SILVER_APPLE)));
+    public static final Item BRONZE_APPLE = registerItem("bronze_apple", new Item(new Item.Settings().food(ModFoodComponents.BRONZE_APPLE)));
+    public static final Item COBALT_APPLE = registerItem("cobalt_apple", new Item(new Item.Settings().food(ModFoodComponents.COBALT_APPLE)));
+
+    public static final Item RAW_DUCK = registerItem("raw_duck", new Item(new Item.Settings().food(new FoodComponent.Builder().nutrition(2).saturationModifier(0.3F).statusEffect(new StatusEffectInstance(StatusEffects.HUNGER, 600, 0), 0.3F).build())));
+    public static final Item COOKED_DUCK = registerItem("cooked_duck", new Item(new Item.Settings().food(new FoodComponent.Builder().nutrition(6).saturationModifier(0.6F).build())));
+
+    public static final Item ANTHRACITE = registerItem("anthracite", new Item(new Item.Settings()));
 
     public static final Item RAW_TIN = registerItem("raw_tin", new Item(new Item.Settings()));
     public static final Item RAW_SILVER = registerItem("raw_silver", new Item(new Item.Settings()));
@@ -94,14 +109,6 @@ public class ModItems {
     public static final Item CARBON_STEEL_NUGGET = registerItem("carbon_steel_nugget", new Item(new Item.Settings()));
     public static final Item HARDENED_STEEL_NUGGET = registerItem("hardened_steel_nugget", new Item(new Item.Settings()));
 
-    public static final Item SILVER_APPLE = registerItem("silver_apple", new Item(new Item.Settings().food(ModFoodComponents.SILVER_APPLE)));
-    public static final Item BRONZE_APPLE = registerItem("bronze_apple", new Item(new Item.Settings().food(ModFoodComponents.BRONZE_APPLE)));
-    public static final Item COBALT_APPLE = registerItem("cobalt_apple", new Item(new Item.Settings().food(ModFoodComponents.COBALT_APPLE)));
-
-    public static final Item RAW_DUCK = registerItem("raw_duck", new Item(new Item.Settings().food(new FoodComponent.Builder().nutrition(2).saturationModifier(0.3F).statusEffect(new StatusEffectInstance(StatusEffects.HUNGER, 600, 0), 0.3F).build())));
-    public static final Item COOKED_DUCK = registerItem("cooked_duck", new Item(new Item.Settings().food(new FoodComponent.Builder().nutrition(6).saturationModifier(0.6F).build())));
-
-    public static final Item ANTHRACITE = registerItem("anthracite", new Item(new Item.Settings()));
 
     //TODO Needs update
     public static final Item DUCK_SPAWN_EGG  = registerItem("duck_spawn_egg", new SpawnEggItem(EntityType.CHICKEN, 0x006808, 0xFFD400, new Item.Settings()));
@@ -1484,8 +1491,14 @@ public class ModItems {
         entries.add(ModItems.ROSE_GOLD_WOLF_ARMOR);
     }
     private static void addItemsToFoodItemGroup(FabricItemGroupEntries entries) {
-        entries.add(CHOCOLATE);
+        entries.add(DARK_CHOCOLATE);
+        entries.add(MILK_CHOCOLATE);
+        entries.add(WHITE_CHOCOLATE);
+        entries.add(LEMON);
         entries.add(CARROT_PIE);
+        entries.add(LEMON_PIE);
+        entries.add(APPLE_PIE);
+        entries.add(SWEET_BERRY_PIE);
         entries.add(VELVET);
         entries.add(RAW_DUCK);
         entries.add(COOKED_DUCK);

@@ -25,6 +25,7 @@ import net.minecraft.predicate.item.EnchantmentPredicate;
 import net.minecraft.predicate.item.ItemPredicate;
 import net.minecraft.registry.RegistryKeys;
 import net.minecraft.registry.RegistryWrapper;
+import net.minecraft.registry.entry.RegistryEntry;
 
 import java.util.List;
 import java.util.concurrent.CompletableFuture;
@@ -45,6 +46,19 @@ public class ModBlockLootTableProvider extends FabricBlockLootTableProvider {
         // =========================
         addDrop(ModBlocks.ALLOY_FURNACE);
         addDrop(ModBlocks.STEEL_CUTTER);
+
+        // =========================
+        // LEMON TREE
+        // =========================
+
+        // Leaves:
+        // - silk touch/shears => drop the leaf block
+        // - otherwise => drop lemons + chance for lemon sapling
+        addDrop(ModBlocks.LEMON_OAK_LEAVES, this::lemonOakLeavesDrops);
+
+        // Sapling block itself drops normally
+        addDrop(ModBlocks.LEMON_OAK_SAPLING);
+
 
         // =========================
         // ANTHRACITE
@@ -460,5 +474,72 @@ public class ModBlockLootTableProvider extends FabricBlockLootTableProvider {
         return this.dropsWithSilkTouch(drop, GroupEntry.create(gemEntry, flintEntry));
     }
 
+    /**
+     * Drops like vanilla leaves:
+     *  - Silk Touch / Shears -> drops itself
+     *  - Otherwise -> sapling chance + lemon drops (from our special leaf block)
+     */
+    private LootTable.Builder lemonOakLeavesDrops(Block leaves) {
+        // TODO Add to config
+        // Fortune 0..3
+        float[] lemonOakSaplingDropChance = new float[]{0.12F, 0.16F, 0.20F, 0.25F};
+        // Vanilla-ish stick chances (these are per leaf block, Fortune increases chance)
+        // slightly raised
+        float[] lemonOakStickDropChance = new float[]{0.05F, 0.07F, 0.09F, 0.125F};
+
+        RegistryEntry<Enchantment> fortune =
+                this.registryLookup
+                        .getWrapperOrThrow(RegistryKeys.ENCHANTMENT)
+                        .getOrThrow(Enchantments.FORTUNE);
+
+
+        LootCondition.Builder shearsOrSilk = this.createWithShearsOrSilkTouchCondition();
+        LootCondition.Builder noShearsOrSilk = InvertedLootCondition.builder(shearsOrSilk);
+
+        LootTable.Builder table = LootTable.builder();
+
+        // 1) Shears or Silk Touch -> drop the leaf block itself
+        table.pool(
+                LootPool.builder()
+                        .rolls(ConstantLootNumberProvider.create(1))
+                        .conditionally(shearsOrSilk)
+                        .with(ItemEntry.builder(leaves))
+        );
+
+        // 2) Normal breaking -> guaranteed lemon
+        table.pool(
+                LootPool.builder()
+                        .rolls(ConstantLootNumberProvider.create(1))
+                        .conditionally(noShearsOrSilk)
+                        .with(ItemEntry.builder(ModItems.LEMON))
+        );
+
+        // 3) Normal breaking -> sapling chance (Fortune-aware)
+        table.pool(
+                LootPool.builder()
+                        .rolls(ConstantLootNumberProvider.create(1))
+                        .conditionally(noShearsOrSilk)
+                        .with(
+                                ItemEntry.builder(ModBlocks.LEMON_OAK_SAPLING)
+                                        // Applies Fortune-based chance array (0..3)
+                                        .conditionally(TableBonusLootCondition.builder(fortune, lemonOakSaplingDropChance))
+                        )
+        );
+
+        // 4) Normal breaking -> stick chance (Fortune-aware)
+        table.pool(
+                LootPool.builder()
+                        .rolls(ConstantLootNumberProvider.create(1))
+                        .conditionally(noShearsOrSilk)
+                        .with(
+                                ItemEntry.builder(Items.STICK)
+                                        // Vanilla leaves drop 1–2 sticks; we mimic that with SetCount.
+                                        .apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(1.0F, 2.0F)))
+                                        .conditionally(TableBonusLootCondition.builder(fortune, lemonOakStickDropChance))
+                        )
+        );
+
+        return table;
+    }
 
 }

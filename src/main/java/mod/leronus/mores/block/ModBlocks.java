@@ -4,6 +4,7 @@ import mod.leronus.mores.Mores;
 import mod.leronus.mores.block.custom.AlloyFurnaceBlock;
 import mod.leronus.mores.block.custom.FallingOreBlock;
 import mod.leronus.mores.block.custom.SteelCutterBlock;
+import mod.leronus.mores.world.gen.lemon.ModLemonSaplingGenerator;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroupEntries;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.minecraft.block.*;
@@ -15,7 +16,6 @@ import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.util.ColorCode;
-import net.minecraft.util.DyeColor;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.intprovider.ConstantIntProvider;
 import net.minecraft.util.math.intprovider.UniformIntProvider;
@@ -35,6 +35,9 @@ public class ModBlocks {
     //.strength(destroyTime, blastResistance)
     public static final AlloyFurnaceBlock ALLOY_FURNACE = registerBlock("alloy_furnace", new AlloyFurnaceBlock(AbstractBlock.Settings.copy(Blocks.FURNACE).mapColor(MapColor.LIGHT_GRAY).strength(4.0F, 6.0F).sounds(BlockSoundGroup.METAL).requiresTool().luminance(createLightLevelFromLitBlockState(13))));
     public static final SteelCutterBlock STEEL_CUTTER = registerBlock("steel_cutter", new SteelCutterBlock(AbstractBlock.Settings.copy(Blocks.STONECUTTER).sounds(BlockSoundGroup.METAL).requiresTool()));
+
+    public static final LeavesBlock LEMON_OAK_LEAVES = registerBlock("lemon_oak_leaves", new LeavesBlock(AbstractBlock.Settings.copy(Blocks.OAK_LEAVES)));
+    public static final SaplingBlock LEMON_OAK_SAPLING = registerBlock("lemon_oak_sapling", new SaplingBlock(ModLemonSaplingGenerator.LEMON_OAK, AbstractBlock.Settings.copy(Blocks.OAK_SAPLING)));
 
     public static final Block QUARTZ_ORE = registerBlock("quartz_ore", new ExperienceDroppingBlock(UniformIntProvider.create(0, 2), AbstractBlock.Settings.copy(Blocks.NETHER_QUARTZ_ORE).strength(3.0F, 3.0F).sounds(BlockSoundGroup.STONE).requiresTool()));
     public static final Block ELECTRUM_ORE = registerBlock("electrum_ore", new ExperienceDroppingBlock(UniformIntProvider.create(0, 2), AbstractBlock.Settings.copy(Blocks.GOLD_ORE).strength(3.0F, 3.0F).sounds(BlockSoundGroup.STONE).requiresTool()));
@@ -206,6 +209,9 @@ public class ModBlocks {
 
     private static void addItemsToBuildingBlockItemGroup(FabricItemGroupEntries entries) {
         entries.add(ALLOY_FURNACE);
+        entries.add(STEEL_CUTTER);
+        entries.add(LEMON_OAK_LEAVES);
+        entries.add(LEMON_OAK_SAPLING);
 
         entries.add(TIN_BLOCK);
         entries.add(RAW_TIN_BLOCK);

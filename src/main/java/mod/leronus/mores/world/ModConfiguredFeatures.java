@@ -2,6 +2,8 @@ package mod.leronus.mores.world;
 
 import mod.leronus.mores.Mores;
 import mod.leronus.mores.block.ModBlocks;
+import mod.leronus.mores.config.CommonConfig;
+import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.registry.Registerable;
 import net.minecraft.registry.RegistryKey;
@@ -10,10 +12,14 @@ import net.minecraft.registry.tag.BlockTags;
 import net.minecraft.structure.rule.BlockMatchRuleTest;
 import net.minecraft.structure.rule.TagMatchRuleTest;
 import net.minecraft.util.Identifier;
-import net.minecraft.world.gen.feature.ConfiguredFeature;
-import net.minecraft.world.gen.feature.Feature;
-import net.minecraft.world.gen.feature.FeatureConfig;
-import net.minecraft.world.gen.feature.OreFeatureConfig;
+import net.minecraft.util.collection.DataPool;
+import net.minecraft.util.math.intprovider.ConstantIntProvider;
+import net.minecraft.world.gen.feature.*;
+import net.minecraft.world.gen.feature.size.TwoLayersFeatureSize;
+import net.minecraft.world.gen.foliage.BlobFoliagePlacer;
+import net.minecraft.world.gen.stateprovider.BlockStateProvider;
+import net.minecraft.world.gen.stateprovider.WeightedBlockStateProvider;
+import net.minecraft.world.gen.trunk.StraightTrunkPlacer;
 
 import java.util.List;
 
@@ -92,6 +98,14 @@ public class ModConfiguredFeatures {
     public static final RegistryKey<ConfiguredFeature<?, ?>> ENDER_ONYX_ORE_KEY = registerKey("ender_onyx_ore");
 
     public static final RegistryKey<ConfiguredFeature<?, ?>> ENDERITE_ORE_KEY = registerKey("enderite_ore");
+
+    public static final RegistryKey<ConfiguredFeature<?, ?>> LEMON_OAK_TREE_WG =
+            registerKey("lemon_oak_tree_wg");
+
+    public static final RegistryKey<ConfiguredFeature<?, ?>> LEMON_OAK_TREE_SAPLING =
+            registerKey("lemon_oak_tree_sapling");
+
+
 
     public static void bootstrap(Registerable<ConfiguredFeature<?, ?>> context) {
         // --- Overworld ores (stone + deepslate + "universal" variants) ---
@@ -406,7 +420,51 @@ public class ModConfiguredFeatures {
         register(context, ENDER_MOISSANITE_ORE_KEY, Feature.ORE, new OreFeatureConfig(ENDER_MOISSANITE_ORES, 1, 1.0F));
 
         register(context, ENDERITE_ORE_KEY, Feature.ORE, new OreFeatureConfig(ENDERITE_ORES, 3, 1.0F));
+
+        // --------------------
+        // Lemon Oak Tree configs
+        // --------------------
+
+        int lemonWeightWorldgen = clamp01_100(CommonConfig.lemonLeafWeightWorldgen);
+        int lemonWeightSapling  = clamp01_100(CommonConfig.lemonLeavesFromSaplingWeight);
+
+        TreeFeatureConfig worldgenConfig = makeLemonOakConfig(lemonWeightWorldgen);
+        TreeFeatureConfig saplingConfig  = makeLemonOakConfig(lemonWeightSapling);
+
+        register(context, LEMON_OAK_TREE_WG, Feature.TREE, worldgenConfig);
+        register(context, LEMON_OAK_TREE_SAPLING, Feature.TREE, saplingConfig);
+
     }
+    private static int clamp01_100(int v) {
+        if (v < 0) return 0;
+        if (v > 100) return 100;
+        return v;
+    }
+
+
+    private static TreeFeatureConfig makeLemonOakConfig(int lemonWeight) {
+        int oakWeight = 100 - lemonWeight;
+
+        // Mix lemon leaf block into normal oak leaves
+        WeightedBlockStateProvider mixedLeaves = new WeightedBlockStateProvider(
+                net.minecraft.util.collection.DataPool.<net.minecraft.block.BlockState>builder()
+                        .add(net.minecraft.block.Blocks.OAK_LEAVES.getDefaultState(), oakWeight)
+                        .add(mod.leronus.mores.block.ModBlocks.LEMON_OAK_LEAVES.getDefaultState(), lemonWeight)
+        );
+
+        return new TreeFeatureConfig.Builder(
+                net.minecraft.world.gen.stateprovider.BlockStateProvider.of(net.minecraft.block.Blocks.OAK_LOG),
+                new net.minecraft.world.gen.trunk.StraightTrunkPlacer(4, 2, 0),
+                mixedLeaves,
+                new net.minecraft.world.gen.foliage.BlobFoliagePlacer(
+                        net.minecraft.util.math.intprovider.ConstantIntProvider.create(2),
+                        net.minecraft.util.math.intprovider.ConstantIntProvider.create(0),
+                        3
+                ),
+                new net.minecraft.world.gen.feature.size.TwoLayersFeatureSize(1, 0, 1)
+        ).ignoreVines().build();
+    }
+
 
     public static RegistryKey<ConfiguredFeature<?, ?>> registerKey(String name) {
         return RegistryKey.of(RegistryKeys.CONFIGURED_FEATURE, Identifier.of(Mores.MOD_ID, name));

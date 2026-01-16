@@ -4,6 +4,7 @@ import mod.leronus.mores.block.screen.SteelCutterScreenHandler;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.HorizontalFacingBlock;
+import net.minecraft.block.StonecutterBlock;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.item.ItemPlacementContext;
@@ -22,7 +23,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.world.World;
 
-public class SteelCutterBlock extends Block {
+public class SteelCutterBlock extends StonecutterBlock {
     public static final DirectionProperty FACING = HorizontalFacingBlock.FACING;
     private static final Text TITLE = Text.translatable("container.mores.steel_cutter");
 
