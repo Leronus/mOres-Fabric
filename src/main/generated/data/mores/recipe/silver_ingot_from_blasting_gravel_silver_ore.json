@@ -4,7 +4,7 @@
   "cookingtime": 100,
   "experience": 0.6,
   "ingredient": {
-    "item": "mores:ender_silver_ore"
+    "item": "mores:gravel_silver_ore"
   },
   "result": {
     "id": "mores:silver_ingot"

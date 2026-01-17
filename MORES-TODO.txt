@@ -1,16 +1,25 @@
 Fabric 1.21.1 
 
+Testing:
+- Check tooltips for wolf armor and spears, as well as updating the bonuses (& colors)
+- Villager Trades - replacing vanilla see what's missing
+- Check hardened steel natural village generation again because he seemed too rare
+- Test horse/wolf armor & shield enchants
+- Check food recipes (chocolate) maybe play test a little with lemons and such
+- Turquoise / Lapis Lazuli horse armor
+
 Doing:
-- Todo: MAKE SPEARS OPTIONAL SINCE THEY DEPEND ON BACKPORTED SPEARS
-- Fix villager trades - duplicates, cleric 2 slots instead of 3 for level 1 & 2 - villager discount and xp don't scale properly at all
+- Tool materials (update shields stats -> cooldown)
+- Ore generation as well as datagen for it (buff nether onyx)
+- Custom Recipes for Steel Cutter (quartz/lapis/amethyst/turquoise dust from their material)
 - Armor trim models not correct
-- Tags (check if missing anything (shears for wolf armor - wax off/on with axes?)
-- Mores tooltips end up above enchantments on mores tools, on armor above the armor stat too, make it bottom (not vanilla, maybe because of the attack dmg/speed bug)
+- Tags (check if missing anything (shears for wolf armor)
+- Advancements (don't forget to add axes to wax/on wax/off - add stuff for new food & golem & duck ofc)
 - Quartz deepslate
 - Armor effects; Citrine (jump boost), Moissanite (poison - tools too), Obsidian (explosion), Rose Gold (Piglin), Enderite (Endermen)
-- Apples (bronze, silver, cobalt)
-- Loot table hardened steel golem
-- Trail Chambers - gem armor
+- Loot tables CHESTS - tools, weapons, shields, horse/wolf armor, food, smithing templates & ENTITIES drops (golem + duck)
+- Add duck, duck egg & spawnegg as well as golem spawnegg and add duck egg to egg tag so it can be used for pies & cake etc
+
 -- ENTITY SPAWNING
 - Piglins -> rose gold armor & rose gold sword (5% rose gold spear?)
 - Piglin Brutes -> rose gold axe sometimes just like zombified
@@ -21,23 +30,10 @@ Doing:
 - Drowned? small small chance? haven't seen it
 
 Todo:
-- Tool materials
-- Recipes (quartz/lapis/amethyst/turquoise dust from their material)
-- Horse Armor -> Tooltips for horse armor not working (shows 0 durability on horse armor - maybe separate tooltip for durability) / Graphene
-- Weapons -> onyx battleaxe/mace/weapons?
-- Spawn the hardened golem in villages (and add spawn egg and advancement)
-- Ore generation as well as datagen for it (buff nether onyx)
-- REI integration (specifically Alloy Furnace)
+- Add more options to config (oregen, armor bonuses, entity spawning -> golem,duck,hostile mobs)
 - Change graphene textures and add new recipes / change existing
-- Check if all textures are added to item groups (ModItemGroups looked complete, check vanillabackport code could be interesting)
-- Add Silver carrot
-- Add lemon tree?
-- Add Config
-- Loot tables (chests, entity, misc?)
-- Check Block Experience (smelting/blasting)
-- Advancements (need fixing)
-- Shields (stats, cooldown etc - fabricshield.reflect? enchant)
-- Duck entity
-- Spears?
-- Wolf Armor
+- Texturing -> onyx battleaxe/mace/weapons?
+- Add enchanted apples? (bronze, silver, cobalt) & Rose Gold apple
+- More spears/wolf armor
+- ItemGroup overhaul (one category but with filters like vanillabackport)
 

@@ -28,8 +28,6 @@ public class ModRecipeProvider extends FabricRecipeProvider {
 
     @Override
     public void generate(RecipeExporter exporter) {
-        //TODO Add tags for minecraft:egg (so mores:duck_egg and other eggs can be used for the carrot_pie & velvet)
-
         generateBlocks(exporter);
         generateShieldDecoration(exporter);
         generateFood(exporter);
@@ -1536,7 +1534,6 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .input('$', TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "ingot/carbon_steel")))
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))))
                 .offerTo(exporter, Identifier.of("mores", "carbon_steel_battle_mace"));
-        if (isBackportedSpearsLoaded()) {
             ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, Registries.ITEM.get(Identifier.of("mores", "carbon_steel_dagger")), 1)
                     .pattern(" $ ")
                     .pattern(" # ")
@@ -1544,15 +1541,16 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                     .input('$', TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "ingot/carbon_steel")))
                     .criterion(hasItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))))
                     .offerTo(exporter, Identifier.of("mores", "carbon_steel_dagger"));
+        if (isBackportedSpearsLoaded()) {
+            ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, Registries.ITEM.get(Identifier.of("mores", "carbon_steel_spear")), 1)
+                    .pattern("  $")
+                    .pattern(" # ")
+                    .pattern("#  ")
+                    .input('#', Registries.ITEM.get(Identifier.of("minecraft", "stick")))
+                    .input('$', TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "ingot/carbon_steel")))
+                    .criterion(hasItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))))
+                    .offerTo(exporter, Identifier.of("mores", "carbon_steel_spear"));
         }
-        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, Registries.ITEM.get(Identifier.of("mores", "carbon_steel_spear")), 1)
-                .pattern("  $")
-                .pattern(" # ")
-                .pattern("#  ")
-                .input('#', Registries.ITEM.get(Identifier.of("minecraft", "stick")))
-                .input('$', TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "ingot/carbon_steel")))
-                .criterion(hasItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))))
-                .offerTo(exporter, Identifier.of("mores", "carbon_steel_spear"));
         //Shield
         ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, Registries.ITEM.get(Identifier.of("mores", "carbon_steel_shield")), 1)
                 .pattern("WoW")

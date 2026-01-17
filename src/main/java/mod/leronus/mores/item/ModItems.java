@@ -49,6 +49,7 @@ public class ModItems {
     public static final Item SILVER_APPLE = registerItem("silver_apple", new Item(new Item.Settings().food(ModFoodComponents.SILVER_APPLE).rarity(Rarity.UNCOMMON)));
     public static final Item BRONZE_APPLE = registerItem("bronze_apple", new Item(new Item.Settings().food(ModFoodComponents.BRONZE_APPLE).rarity(Rarity.UNCOMMON)));
     public static final Item COBALT_APPLE = registerItem("cobalt_apple", new Item(new Item.Settings().food(ModFoodComponents.COBALT_APPLE).rarity(Rarity.RARE)));
+    public static final Item ENCHANTED_COBALT_APPLE = registerItem("enchanted_cobalt_apple", new ModGlintItem(new Item.Settings().food(ModFoodComponents.ENCHANTED_COBALT_APPLE).rarity(Rarity.EPIC)));
 
     public static final Item RAW_DUCK = registerItem("raw_duck", new Item(new Item.Settings().food(new FoodComponent.Builder().nutrition(2).saturationModifier(0.3F).statusEffect(new StatusEffectInstance(StatusEffects.HUNGER, 600, 0), 0.3F).build())));
     public static final Item COOKED_DUCK = registerItem("cooked_duck", new Item(new Item.Settings().food(new FoodComponent.Builder().nutrition(6).saturationModifier(0.6F).build())));
@@ -1641,6 +1642,7 @@ public class ModItems {
         entries.add(LEMON);
         entries.add(BRONZE_APPLE);
         entries.add(COBALT_APPLE);
+        entries.add(ENCHANTED_COBALT_APPLE);
         entries.add(SILVER_APPLE);
         entries.add(SILVER_CARROT);
         entries.add(CARROT_PIE);

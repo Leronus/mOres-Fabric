@@ -14,6 +14,7 @@ import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.data.client.*;
 import net.minecraft.util.Identifier;
 
+import java.util.Optional;
 import java.util.function.Supplier;
 
 public class ModModelProvider extends FabricModelProvider {
@@ -369,54 +370,6 @@ public class ModModelProvider extends FabricModelProvider {
         });
     }
 
-    private static JsonArray crossElements(String textureRef, boolean tinted) {
-        JsonArray arr = new JsonArray();
-
-        // Plane 1: NW-SE diagonal
-        JsonObject e1 = new JsonObject();
-        e1.add("from", intArray(0, 0, 8));
-        e1.add("to", intArray(16, 16, 8));
-        e1.add("rotation", rotationY(45));
-        e1.add("faces", crossFaces(textureRef, tinted));
-        arr.add(e1);
-
-        // Plane 2: NE-SW diagonal
-        JsonObject e2 = new JsonObject();
-        e2.add("from", intArray(8, 0, 0));
-        e2.add("to", intArray(8, 16, 16));
-        e2.add("rotation", rotationY(45));
-        e2.add("faces", crossFaces(textureRef, tinted));
-        arr.add(e2);
-
-        return arr;
-    }
-
-    private static JsonObject rotationY(int angle) {
-        JsonObject rot = new JsonObject();
-        rot.add("origin", intArray(8, 8, 8));
-        rot.addProperty("axis", "y");
-        rot.addProperty("angle", angle);
-        rot.addProperty("rescale", true);
-        return rot;
-    }
-
-    private static JsonObject crossFaces(String textureRef, boolean tinted) {
-        JsonObject faces = new JsonObject();
-
-        // Cross models only need "north" and "east"; game mirrors the rest
-        JsonObject north = new JsonObject();
-        north.addProperty("texture", textureRef);
-        if (tinted) north.addProperty("tintindex", 0);
-        faces.add("north", north);
-
-        JsonObject east = new JsonObject();
-        east.addProperty("texture", textureRef);
-        if (tinted) east.addProperty("tintindex", 0);
-        faces.add("east", east);
-
-        return faces;
-    }
-
     /**
      * Builds the 6 faces of a full cube.
      *
@@ -460,6 +413,7 @@ public class ModModelProvider extends FabricModelProvider {
 
         itemModelGenerator.register(ModItems.BRONZE_APPLE, Models.GENERATED);
         itemModelGenerator.register(ModItems.COBALT_APPLE, Models.GENERATED);
+        Models.GENERATED.upload(ModelIds.getItemModelId(ModItems.ENCHANTED_COBALT_APPLE), TextureMap.layer0(Identifier.of(Mores.MOD_ID, "item/cobalt_apple")), itemModelGenerator.writer);
         itemModelGenerator.register(ModItems.SILVER_APPLE, Models.GENERATED);
         itemModelGenerator.register(ModItems.SILVER_CARROT, Models.GENERATED);
 
