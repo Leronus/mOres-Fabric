@@ -1,11 +1,11 @@
 package mod.leronus.mores.datagen;
 
-import com.terraformersmc.modmenu.util.mod.Mod;
 import mod.leronus.mores.item.ModTags;
 import mod.leronus.mores.item.ModItems;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider;
 import net.fabricmc.fabric.api.tag.convention.v2.ConventionalItemTags;
+import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.item.Items;
 import net.minecraft.registry.RegistryKeys;
 import net.minecraft.registry.RegistryWrapper;
@@ -18,6 +18,11 @@ import java.util.concurrent.CompletableFuture;
 public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
     public ModItemTagProvider(FabricDataOutput output, CompletableFuture<RegistryWrapper.WrapperLookup> completableFuture) {
         super(output, completableFuture);
+    }
+
+    private static boolean isBackportedSpearsLoaded() {
+        FabricLoader loader = FabricLoader.getInstance();
+        return loader.isModLoaded("spears");
     }
 
     @Override
@@ -334,23 +339,32 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
         );
 
         //Backported Spears
-        getOrCreateTagBuilder(TagKey.of(RegistryKeys.ITEM, Identifier.ofVanilla("spears"))).add(
-                ModItems.ROSE_GOLD_SPEAR,
-                ModItems.CARBON_STEEL_SPEAR,
-                ModItems.HARDENED_STEEL_SPEAR,
-                ModItems.ENDERITE_SPEAR
-        );
+        if (isBackportedSpearsLoaded()) {
+            getOrCreateTagBuilder(TagKey.of(RegistryKeys.ITEM, Identifier.ofVanilla("spears"))).add(
+                    ModItems.ROSE_GOLD_SPEAR,
+                    ModItems.CARBON_STEEL_SPEAR,
+                    ModItems.HARDENED_STEEL_SPEAR,
+                    ModItems.ENDERITE_SPEAR
+            );
+        }
 
         //Wolf Armors
         // Allow wolves to equip these (our mixin will check this tag)
         getOrCreateTagBuilder(ModTags.Items.WOLF_ARMOR).add(
-                ModItems.ROSE_GOLD_WOLF_ARMOR
+                ModItems.TIN_WOLF_ARMOR,
+                ModItems.GOLD_WOLF_ARMOR,
+                ModItems.SILVER_WOLF_ARMOR,
+                ModItems.COPPER_WOLF_ARMOR,
+                ModItems.STERLING_SILVER_WOLF_ARMOR,
+                ModItems.ROSE_GOLD_WOLF_ARMOR,
+                ModItems.BRONZE_WOLF_ARMOR,
+                ModItems.IRON_WOLF_ARMOR,
+                ModItems.COBALT_WOLF_ARMOR,
+                ModItems.CARBON_STEEL_WOLF_ARMOR,
+                ModItems.HARDENED_STEEL_WOLF_ARMOR,
+                ModItems.DIAMOND_WOLF_ARMOR
                 );
-        // .add(ModItems.TIN_WOLF_ARMOR) ...
-        getOrCreateTagBuilder(TagKey.of(RegistryKeys.ITEM, Identifier.of("minecraft", "durability_enchantable")))
-                .add(ModItems.ROSE_GOLD_WOLF_ARMOR);
-        getOrCreateTagBuilder(TagKey.of(RegistryKeys.ITEM, Identifier.of("minecraft", "dyeable")))
-                .add(ModItems.ROSE_GOLD_WOLF_ARMOR);
+
 
         /*
          * Modded tags for recipes (universal)

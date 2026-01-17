@@ -383,7 +383,7 @@ public class ModItemGroups {
                         entries.add(ModItems.ROSE_GOLD_BATTLE_AXE);
                         entries.add(ModItems.ROSE_GOLD_BATTLE_MACE);
                         entries.add(ModItems.ROSE_GOLD_DAGGER);
-                        entries.add(ModItems.ROSE_GOLD_SPEAR);
+                        if (ModItems.ROSE_GOLD_SPEAR != null) entries.add(ModItems.ROSE_GOLD_SPEAR);
                         entries.add(ModItems.BRONZE_SWORD);
                         entries.add(ModItems.BRONZE_BATTLE_AXE);
                         entries.add(ModItems.BRONZE_BATTLE_MACE);
@@ -399,12 +399,12 @@ public class ModItemGroups {
                         entries.add(ModItems.CARBON_STEEL_BATTLE_AXE);
                         entries.add(ModItems.CARBON_STEEL_BATTLE_MACE);
                         entries.add(ModItems.CARBON_STEEL_DAGGER);
-                        entries.add(ModItems.CARBON_STEEL_SPEAR);
+                        if (ModItems.CARBON_STEEL_SPEAR != null) entries.add(ModItems.CARBON_STEEL_SPEAR);
                         entries.add(ModItems.HARDENED_STEEL_SWORD);
                         entries.add(ModItems.HARDENED_STEEL_BATTLE_AXE);
                         entries.add(ModItems.HARDENED_STEEL_BATTLE_MACE);
                         entries.add(ModItems.HARDENED_STEEL_DAGGER);
-                        entries.add(ModItems.HARDENED_STEEL_SPEAR);
+                        if (ModItems.HARDENED_STEEL_SPEAR != null) entries.add(ModItems.HARDENED_STEEL_SPEAR);
                         entries.add(ModItems.TURQUOISE_SWORD);
                         entries.add(ModItems.TURQUOISE_BATTLE_AXE);
                         entries.add(ModItems.TURQUOISE_BATTLE_MACE);
@@ -479,7 +479,7 @@ public class ModItemGroups {
                         entries.add(ModItems.ENDERITE_BATTLE_AXE);
                         entries.add(ModItems.ENDERITE_BATTLE_MACE);
                         entries.add(ModItems.ENDERITE_DAGGER);
-                        entries.add(ModItems.ENDERITE_SPEAR);
+                        if (ModItems.ENDERITE_SPEAR != null) entries.add(ModItems.ENDERITE_SPEAR);
                     }).build());
 
     public static final ItemGroup ARMOR_GROUP = Registry.register(Registries.ITEM_GROUP,
@@ -619,19 +619,28 @@ public class ModItemGroups {
                         entries.add(ModItems.ENDERITE_SHIELD);
                     }).build());
 
-        public static final ItemGroup HORSE_ARMOR_GROUP = Registry.register(Registries.ITEM_GROUP,
-            Identifier.of(Mores.MOD_ID, "horse_armor"),
-            FabricItemGroup.builder().displayName(Text.translatable("creativemodetab.mores_horse_armor"))
+        public static final ItemGroup ANIMAL_ARMOR_GROUP = Registry.register(Registries.ITEM_GROUP,
+            Identifier.of(Mores.MOD_ID, "animal_armor"),
+            FabricItemGroup.builder().displayName(Text.translatable("creativemodetab.mores_animal_armor"))
                     .icon(() -> new ItemStack(ModItems.TOURMALINE_HORSE_ARMOR)).entries((displayContext, entries) -> {
                         entries.add(ModItems.TIN_HORSE_ARMOR);
+                        entries.add(ModItems.TIN_WOLF_ARMOR);
                         entries.add(ModItems.SILVER_HORSE_ARMOR);
+                        entries.add(ModItems.SILVER_WOLF_ARMOR);
                         entries.add(ModItems.COPPER_HORSE_ARMOR);
+                        entries.add(ModItems.COPPER_WOLF_ARMOR);
                         entries.add(ModItems.STERLING_SILVER_HORSE_ARMOR);
+                        entries.add(ModItems.STERLING_SILVER_WOLF_ARMOR);
                         entries.add(ModItems.ROSE_GOLD_HORSE_ARMOR);
+                        entries.add(ModItems.ROSE_GOLD_WOLF_ARMOR);
                         entries.add(ModItems.BRONZE_HORSE_ARMOR);
+                        entries.add(ModItems.BRONZE_WOLF_ARMOR);
                         entries.add(ModItems.COBALT_HORSE_ARMOR);
+                        entries.add(ModItems.COBALT_WOLF_ARMOR);
                         entries.add(ModItems.CARBON_STEEL_HORSE_ARMOR);
+                        entries.add(ModItems.CARBON_STEEL_WOLF_ARMOR);
                         entries.add(ModItems.HARDENED_STEEL_HORSE_ARMOR);
+                        entries.add(ModItems.HARDENED_STEEL_WOLF_ARMOR);
                         entries.add(ModItems.TURQUOISE_HORSE_ARMOR);
                         entries.add(ModItems.LAPIS_LAZULI_HORSE_ARMOR);
                         entries.add(ModItems.AMETHYST_HORSE_ARMOR);
@@ -650,8 +659,6 @@ public class ModItemGroups {
                         entries.add(ModItems.NETHERITE_HORSE_ARMOR);
                         entries.add(ModItems.ADAMANTIUM_HORSE_ARMOR);
                         entries.add(ModItems.ENDERITE_HORSE_ARMOR);
-
-                        entries.add(ModItems.ROSE_GOLD_WOLF_ARMOR);
                     }).build());
 //
     public static final ItemGroup FOOD_GROUP = Registry.register(Registries.ITEM_GROUP,

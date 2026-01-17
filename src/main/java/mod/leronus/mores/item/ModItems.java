@@ -5,6 +5,7 @@ import mod.leronus.mores.item.custom.*;
 import mod.leronus.mores.sound.ModJukeboxSongs;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroupEntries;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
+import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.component.type.FoodComponent;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.effect.StatusEffectInstance;
@@ -143,6 +144,66 @@ public class ModItems {
     public static final Item ADAMANTIUM_HORSE_ARMOR = registerItem("adamantium_horse_armor", new AnimalArmorItem(ModArmorMaterials.ADAMANTIUM, AnimalArmorItem.Type.EQUESTRIAN, false, new Item.Settings().maxCount(1)));
     public static final Item ENDERITE_HORSE_ARMOR = registerItem("enderite_horse_armor", new AnimalArmorItem(ModArmorMaterials.ENDERITE, AnimalArmorItem.Type.EQUESTRIAN, false, new Item.Settings().maxCount(1)));
 
+    public static final Item TIN_WOLF_ARMOR = registerItem(
+            "tin_wolf_armor",
+            new ModWolfArmorItem(
+                    ModArmorMaterials.TIN,
+                    false,
+                    new Item.Settings(),
+                    Identifier.of("mores", "textures/entity/wolf/wolf_armor_tin.png"),
+                    Identifier.of("mores", "textures/entity/wolf/wolf_armor_tin_overlay.png")
+            )
+    );
+    public static final Item GOLD_WOLF_ARMOR = registerItem(
+            "gold_wolf_armor",
+            new ModWolfArmorItem(
+                    ArmorMaterials.GOLD,
+                    false,
+                    new Item.Settings(),
+                    Identifier.of("mores", "textures/entity/wolf/wolf_armor_gold.png"),
+                    Identifier.of("mores", "textures/entity/wolf/wolf_armor_gold_overlay.png")
+            )
+    );
+    public static final Item SILVER_WOLF_ARMOR = registerItem(
+            "silver_wolf_armor",
+            new ModWolfArmorItem(
+                    ModArmorMaterials.SILVER,
+                    false,
+                    new Item.Settings(),
+                    Identifier.of("mores", "textures/entity/wolf/wolf_armor_silver.png"),
+                    Identifier.of("mores", "textures/entity/wolf/wolf_armor_silver_overlay.png")
+            )
+    );
+    public static final Item COPPER_WOLF_ARMOR = registerItem(
+            "copper_wolf_armor",
+            new ModWolfArmorItem(
+                    ModArmorMaterials.COPPER,
+                    false,
+                    new Item.Settings(),
+                    Identifier.of("mores", "textures/entity/wolf/wolf_armor_copper.png"),
+                    Identifier.of("mores", "textures/entity/wolf/wolf_armor_copper_overlay.png")
+            )
+    );
+    public static final Item STERLING_SILVER_WOLF_ARMOR = registerItem(
+            "sterling_silver_wolf_armor",
+            new ModWolfArmorItem(
+                    ModArmorMaterials.STERLING_SILVER,
+                    false,
+                    new Item.Settings(),
+                    Identifier.of("mores", "textures/entity/wolf/wolf_armor_sterling_silver.png"),
+                    Identifier.of("mores", "textures/entity/wolf/wolf_armor_sterling_silver_overlay.png")
+            )
+    );
+    public static final Item BRONZE_WOLF_ARMOR = registerItem(
+            "bronze_wolf_armor",
+            new ModWolfArmorItem(
+                    ModArmorMaterials.BRONZE,
+                    false,
+                    new Item.Settings(),
+                    Identifier.of("mores", "textures/entity/wolf/wolf_armor_bronze.png"),
+                    Identifier.of("mores", "textures/entity/wolf/wolf_armor_bronze_overlay.png")
+            )
+    );
     public static final Item ROSE_GOLD_WOLF_ARMOR = registerItem(
             "rose_gold_wolf_armor",
             new ModWolfArmorItem(
@@ -153,6 +214,57 @@ public class ModItems {
                     Identifier.of("mores", "textures/entity/wolf/wolf_armor_rose_gold_overlay.png")
             )
     );
+    public static final Item IRON_WOLF_ARMOR = registerItem(
+            "iron_wolf_armor",
+            new ModWolfArmorItem(
+                    ArmorMaterials.IRON,
+                    false,
+                    new Item.Settings(),
+                    Identifier.of("mores", "textures/entity/wolf/wolf_armor_iron.png"),
+                    Identifier.of("mores", "textures/entity/wolf/wolf_armor_iron_overlay.png")
+            )
+    );
+    public static final Item COBALT_WOLF_ARMOR = registerItem(
+            "cobalt_wolf_armor",
+            new ModWolfArmorItem(
+                    ModArmorMaterials.COBALT,
+                    false,
+                    new Item.Settings(),
+                    Identifier.of("mores", "textures/entity/wolf/wolf_armor_cobalt.png"),
+                    Identifier.of("mores", "textures/entity/wolf/wolf_armor_cobalt_overlay.png")
+            )
+    );
+    public static final Item CARBON_STEEL_WOLF_ARMOR = registerItem(
+            "carbon_steel_wolf_armor",
+            new ModWolfArmorItem(
+                    ModArmorMaterials.CARBON_STEEL,
+                    false,
+                    new Item.Settings(),
+                    Identifier.of("mores", "textures/entity/wolf/wolf_armor_carbon_steel.png"),
+                    Identifier.of("mores", "textures/entity/wolf/wolf_armor_carbon_steel_overlay.png")
+            )
+    );
+    public static final Item HARDENED_STEEL_WOLF_ARMOR = registerItem(
+            "hardened_steel_wolf_armor",
+            new ModWolfArmorItem(
+                    ModArmorMaterials.HARDENED_STEEL,
+                    false,
+                    new Item.Settings(),
+                    Identifier.of("mores", "textures/entity/wolf/wolf_armor_hardened_steel.png"),
+                    Identifier.of("mores", "textures/entity/wolf/wolf_armor_hardened_steel_overlay.png")
+            )
+    );
+    public static final Item DIAMOND_WOLF_ARMOR = registerItem(
+            "diamond_wolf_armor",
+            new ModWolfArmorItem(
+                    ArmorMaterials.DIAMOND,
+                    false,
+                    new Item.Settings(),
+                    Identifier.of("mores", "textures/entity/wolf/wolf_armor_diamond.png"),
+                    Identifier.of("mores", "textures/entity/wolf/wolf_armor_diamond_overlay.png")
+            )
+    );
+
 
 // All armor (durability via ModArmorDurability.scale(base, piece))
 
@@ -653,11 +765,32 @@ public class ModItems {
     public static final Item ADAMANTIUM_DAGGER = registerItem("adamantium_dagger", new ModBattleAxeItem(ModToolMaterials.ADAMANTIUM, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ModToolMaterials.ADAMANTIUM, 1, -1.5f))));
     public static final Item ENDERITE_DAGGER = registerItem("enderite_dagger", new ModBattleAxeItem(ModToolMaterials.ENDERITE, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ModToolMaterials.ENDERITE, 1, -1.5f))));
 
-    public static final Item ROSE_GOLD_SPEAR = registerItem("rose_gold_spear", new ModSpearItem(ModToolMaterials.ROSE_GOLD, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ModToolMaterials.ROSE_GOLD, 0, -2.95f)).maxCount(1)));
-    public static final Item CARBON_STEEL_SPEAR = registerItem("carbon_steel_spear", new ModSpearItem(ModToolMaterials.CARBON_STEEL, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ModToolMaterials.CARBON_STEEL, 0, -2.95f)).maxCount(1)));
-    public static final Item HARDENED_STEEL_SPEAR = registerItem("hardened_steel_spear", new ModSpearItem(ModToolMaterials.HARDENED_STEEL, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ModToolMaterials.HARDENED_STEEL, 0, -3.00f)).maxCount(1)));
-    public static final Item ENDERITE_SPEAR = registerItem("enderite_spear", new ModSpearItem(ModToolMaterials.ENDERITE, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ModToolMaterials.ENDERITE, 0, -3.20f)).maxCount(1)));
+    public static Item ROSE_GOLD_SPEAR;
+    public static Item CARBON_STEEL_SPEAR;
+    public static Item HARDENED_STEEL_SPEAR;
+    public static Item ENDERITE_SPEAR;
 
+    private static void registerSpearsIfPresent() {
+        if (!FabricLoader.getInstance().isModLoaded("spears")) { // <-- replace with the real mod id
+            return;
+        }
+
+        ROSE_GOLD_SPEAR = registerItem("rose_gold_spear",
+                new ModSpearItem(ModToolMaterials.ROSE_GOLD,
+                        new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ModToolMaterials.ROSE_GOLD, 0, -2.95f)).maxCount(1)));
+
+        CARBON_STEEL_SPEAR = registerItem("carbon_steel_spear",
+                new ModSpearItem(ModToolMaterials.CARBON_STEEL,
+                        new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ModToolMaterials.CARBON_STEEL, 0, -2.95f)).maxCount(1)));
+
+        HARDENED_STEEL_SPEAR = registerItem("hardened_steel_spear",
+                new ModSpearItem(ModToolMaterials.HARDENED_STEEL,
+                        new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ModToolMaterials.HARDENED_STEEL, 0, -3.00f)).maxCount(1)));
+
+        ENDERITE_SPEAR = registerItem("enderite_spear",
+                new ModSpearItem(ModToolMaterials.ENDERITE,
+                        new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ModToolMaterials.ENDERITE, 0, -3.20f)).maxCount(1)));
+    }
 
 
     // All pickaxes
@@ -1206,7 +1339,7 @@ public class ModItems {
         entries.add(ROSE_GOLD_BATTLE_AXE);
         entries.add(ROSE_GOLD_BATTLE_MACE);
         entries.add(ROSE_GOLD_DAGGER);
-        entries.add(ROSE_GOLD_SPEAR);
+        if (ROSE_GOLD_SPEAR != null) entries.add(ROSE_GOLD_SPEAR);
 
         entries.add(BRONZE_SWORD);
         entries.add(BRONZE_BATTLE_AXE);
@@ -1226,13 +1359,13 @@ public class ModItems {
         entries.add(CARBON_STEEL_BATTLE_AXE);
         entries.add(CARBON_STEEL_BATTLE_MACE);
         entries.add(CARBON_STEEL_DAGGER);
-        entries.add(CARBON_STEEL_SPEAR);
+        if (CARBON_STEEL_SPEAR != null) entries.add(CARBON_STEEL_SPEAR);
 
         entries.add(HARDENED_STEEL_SWORD);
         entries.add(HARDENED_STEEL_BATTLE_AXE);
         entries.add(HARDENED_STEEL_BATTLE_MACE);
         entries.add(HARDENED_STEEL_DAGGER);
-        entries.add(HARDENED_STEEL_SPEAR);
+        if (HARDENED_STEEL_SPEAR != null) entries.add(HARDENED_STEEL_SPEAR);
 
         entries.add(TURQUOISE_SWORD);
         entries.add(TURQUOISE_BATTLE_AXE);
@@ -1326,7 +1459,7 @@ public class ModItems {
         entries.add(ENDERITE_BATTLE_AXE);
         entries.add(ENDERITE_BATTLE_MACE);
         entries.add(ENDERITE_DAGGER);
-        entries.add(ENDERITE_SPEAR);
+        if (ENDERITE_SPEAR != null) entries.add(ENDERITE_SPEAR);
 
         entries.add(ModItems.TIN_HELMET);
         entries.add(ModItems.TIN_CHESTPLATE);
@@ -1488,7 +1621,18 @@ public class ModItems {
         entries.add(ModItems.ADAMANTIUM_HORSE_ARMOR);
         entries.add(ModItems.ENDERITE_HORSE_ARMOR);
 
+        entries.add(ModItems.TIN_WOLF_ARMOR);
+        entries.add(ModItems.GOLD_WOLF_ARMOR);
+        entries.add(ModItems.SILVER_WOLF_ARMOR);
+        entries.add(ModItems.COPPER_WOLF_ARMOR);
+        entries.add(ModItems.STERLING_SILVER_WOLF_ARMOR);
         entries.add(ModItems.ROSE_GOLD_WOLF_ARMOR);
+        entries.add(ModItems.BRONZE_WOLF_ARMOR);
+        entries.add(ModItems.IRON_WOLF_ARMOR);
+        entries.add(ModItems.COBALT_WOLF_ARMOR);
+        entries.add(ModItems.CARBON_STEEL_WOLF_ARMOR);
+        entries.add(ModItems.HARDENED_STEEL_WOLF_ARMOR);
+        entries.add(ModItems.DIAMOND_WOLF_ARMOR);
     }
     private static void addItemsToFoodItemGroup(FabricItemGroupEntries entries) {
         entries.add(DARK_CHOCOLATE);
@@ -1649,7 +1793,7 @@ public class ModItems {
 
     public static void registerModItems() {
         Mores.LOGGER.info("Registering Mod Items for " + Mores.MOD_ID);
-
+        registerSpearsIfPresent();
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.INGREDIENTS).register(ModItems::addItemsToIngredientItemGroup);
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.COMBAT).register(ModItems::addItemsToCombatItemGroup);
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.FOOD_AND_DRINK).register(ModItems::addItemsToFoodItemGroup);

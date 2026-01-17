@@ -110,8 +110,13 @@ dependencies {
     include(modImplementation("com.terraformersmc:modmenu:${project.mod_menu_version}"))
 
     // Backported Spears (compile against it; optional dependency)
-    modImplementation "maven.modrinth:backported-spears:${project.backported_spears_version}"
+    modCompileOnly "maven.modrinth:backported-spears:${project.backported_spears_version}"
 
+    // REI (compile against it; optional dependency)
+    modCompileOnly "maven.modrinth:architectury-api:${project.architectury_version}"
+    modCompileOnly "maven.modrinth:cloth-config:${project.cloth_config_version}"
+    modCompileOnly "me.shedaniel.cloth:basic-math:0.6.1"
+    modCompileOnly "maven.modrinth:rei:${project.rei_version}"
 
     /* ---- RUNTIME / DEV ONLY MODS ---- */
     modRuntimeOnly "maven.modrinth:sodium:${project.sodium_version}"
@@ -126,11 +131,6 @@ dependencies {
     // Serene Seasons (not needed at compile-time)
     modRuntimeOnly "maven.modrinth:serene-seasons:${project.serene_seasons_version}"
 
-    // REI (not needed at compile-time)
-    modRuntimeOnly "maven.modrinth:architectury-api:${project.architectury_version}"
-    modRuntimeOnly "maven.modrinth:cloth-config:${project.cloth_config_version}"
-    modRuntimeOnly "me.shedaniel.cloth:basic-math:0.6.1"
-    modRuntimeOnly "maven.modrinth:rei:${project.rei_version}"
 
 
     // Optional

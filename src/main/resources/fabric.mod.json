@@ -26,8 +26,11 @@
 		],
         "modmenu": [
             "mod.leronus.mores.config.ModMenu"
+        ],
+        "rei_client": [
+          "mod.leronus.mores.compat.rei.MoresReiClientPlugin"
         ]
-	},
+    },
 	"mixins": [
       "mores.mixins.json"
 	],
@@ -36,9 +39,11 @@
 		"minecraft": "~1.21.1",
 		"java": ">=21",
 		"fabric-api": "*",
-		"fabricshieldlib": "*",
-		"spears": "*"
+		"fabricshieldlib": "*"
 	},
+    "recommends": {
+        "spears": "*"
+    },
 	"suggests": {
 		"universal_ores": "*"
 	}

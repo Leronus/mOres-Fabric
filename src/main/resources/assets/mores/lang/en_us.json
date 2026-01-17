@@ -66,14 +66,17 @@
   "item.mores.iron_battle_axe" : "Iron Battle Axe",
   "item.mores.iron_battle_mace" : "Iron Battle Mace",
   "item.mores.iron_dagger" : "Iron Dagger",
+  "item.mores.iron_wolf_armor" : "Iron Wolf Armor",
 
   "item.mores.gold_battle_axe" : "Gold Battle Axe",
   "item.mores.gold_battle_mace" : "Gold Battle Mace",
   "item.mores.gold_dagger" : "Gold Dagger",
+  "item.mores.gold_wolf_armor" : "Gold Wolf Armor",
 
   "item.mores.diamond_battle_axe" : "Diamond Battle Axe",
   "item.mores.diamond_battle_mace" : "Diamond Battle Mace",
   "item.mores.diamond_dagger" : "Diamond Dagger",
+  "item.mores.diamond_wolf_armor" : "Diamond Wolf Armor",
 
   "item.mores.netherite_battle_axe" : "Netherite Battle Axe",
   "item.mores.netherite_battle_mace" : "Netherite Battle Mace",
@@ -87,6 +90,7 @@
 
   "item.mores.tin_ingot" : "Tin Ingot",
   "item.mores.tin_horse_armor" : "Tin Horse Armor",
+  "item.mores.tin_wolf_armor" : "Tin Wolf Armor",
   "block.mores.tin_block" : "Tin Block",
   "block.mores.raw_tin_block" : "Raw Block of Tin",
   "block.mores.tin_ore" : "Tin Ore",
@@ -114,6 +118,7 @@
 
   "item.mores.silver_ingot" : "Silver Ingot",
   "item.mores.silver_horse_armor" : "Silver Horse Armor",
+  "item.mores.silver_wolf_armor" : "Silver Wolf Armor",
   "block.mores.silver_block" : "Silver Block",
   "block.mores.raw_silver_block" : "Raw Block of Silver",
   "block.mores.silver_ore" : "Silver Ore",
@@ -145,6 +150,7 @@
   "item.mores.silver_boots" : "Silver Boots",
 
   "item.mores.copper_horse_armor" : "Copper Horse Armor",
+  "item.mores.copper_wolf_armor" : "Copper Wolf Armor",
   "item.mores.copper_sword" : "Copper Sword",
   "item.mores.copper_shovel" : "Copper Shovel",
   "item.mores.copper_pickaxe" : "Copper Pickaxe",
@@ -162,6 +168,7 @@
 
   "item.mores.sterling_silver_ingot" : "Sterling Silver Ingot",
   "item.mores.sterling_silver_horse_armor" : "Sterling Silver Horse Armor",
+  "item.mores.sterling_silver_wolf_armor" : "Sterling Silver Wolf Armor",
   "block.mores.sterling_silver_block" : "Sterling Silver Block",
   "item.mores.sterling_silver_sword" : "Sterling Silver Sword",
   "item.mores.sterling_silver_shovel" : "Sterling Silver Shovel",
@@ -181,6 +188,7 @@
 
   "item.mores.rose_gold_ingot" : "Rose Gold Ingot",
   "item.mores.rose_gold_horse_armor" : "Rose Gold Horse Armor",
+  "item.mores.rose_gold_wolf_armor" : "Rose Gold Wolf Armor",
   "block.mores.rose_gold_block" : "Rose Gold Block",
   "item.mores.rose_gold_sword" : "Rose Gold Sword",
   "item.mores.rose_gold_shovel" : "Rose Gold Shovel",
@@ -200,6 +208,7 @@
 
   "item.mores.bronze_ingot" : "Bronze Ingot",
   "item.mores.bronze_horse_armor" : "Bronze Horse Armor",
+  "item.mores.bronze_wolf_armor" : "Bronze Wolf Armor",
   "block.mores.bronze_block" : "Bronze Block",
   "item.mores.bronze_sword" : "Bronze Sword",
   "item.mores.bronze_shovel" : "Bronze Shovel",
@@ -221,6 +230,7 @@
   "item.mores.carbon_steel_scrap" : "Carbon Steel Scrap",
   "item.mores.carbon_steel_ingot" : "Carbon Steel Ingot",
   "item.mores.carbon_steel_horse_armor" : "Carbon Steel Horse Armor",
+  "item.mores.carbon_steel_wolf_armor" : "Carbon Steel Wolf Armor",
   "block.mores.carbon_steel_block" : "Carbon Steel Block",
   "item.mores.carbon_steel_sword" : "Carbon Steel Sword",
   "item.mores.carbon_steel_shovel" : "Carbon Steel Shovel",
@@ -239,6 +249,7 @@
 
   "item.mores.hardened_steel_ingot" : "Hardened Steel Ingot",
   "item.mores.hardened_steel_horse_armor" : "Hardened Steel Horse Armor",
+  "item.mores.hardened_steel_wolf_armor" : "Hardened Steel Wolf Armor",
   "block.mores.hardened_steel_block" : "Hardened Steel Block",
   "item.mores.hardened_steel_sword" : "Hardened Steel Sword",
   "item.mores.hardened_steel_shovel" : "Hardened Steel Shovel",
@@ -264,6 +275,7 @@
 
   "item.mores.cobalt_ingot" : "Cobalt Ingot",
   "item.mores.cobalt_horse_armor" : "Cobalt Horse Armor",
+  "item.mores.cobalt_wolf_armor" : "Cobalt Wolf Armor",
   "block.mores.cobalt_block" : "Cobalt Block",
   "block.mores.raw_cobalt_block" : "Raw Block of Cobalt",
   "block.mores.cobalt_ore" : "Cobalt Ore",
@@ -1238,6 +1250,14 @@
   "tag.item.mores.dust.turquoise": "Turquoise Dust",
   "tag.item.mores.dust.amethyst": "Amethyst Dust",
   "tag.item.mores.dust.quartz": "Quartz Dust",
+  "tag.item.mores.nugget.tin": "Tin",
+  "tag.item.mores.nugget.silver": "Silver",
+  "tag.item.mores.nugget.sterling_silver": "Sterling Silver",
+  "tag.item.mores.nugget.bronze": "Bronze",
+  "tag.item.mores.nugget.cobalt": "Cobalt",
+  "tag.item.mores.nugget.rose_gold": "Rose Gold",
+  "tag.item.mores.nugget.carbon_steel": "Carbon Steel",
+  "tag.item.mores.nugget.hardened_steel": "Hardened Steel",
   "tag.item.mores.ingot.tin": "Tin",
   "tag.item.mores.ingot.silver": "Silver",
   "tag.item.mores.ingot.sterling_silver": "Sterling Silver",
@@ -1265,6 +1285,9 @@
 
   "tag.item.spears.can_lunge_while_gliding": "Can lunge while gliding",
   "tag.item.dragonloot.explosion_resistant": "Explosion Resistant",
+
+  "category.mores.alloying": "Alloying",
+  "rei.mores.any_fuel": "Any fuel",
 
   "mores.midnightconfig.category.visual": "Visual",
   "mores.midnightconfig.category.gameplay": "Gameplay",

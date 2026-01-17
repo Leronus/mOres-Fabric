@@ -4,6 +4,7 @@ import mod.leronus.mores.recipe.AlloyingRecipe;
 import mod.leronus.mores.recipe.ShieldDecorationRecipe;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider;
+import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.data.server.recipe.*;
 import net.minecraft.item.ItemStack;
 import net.minecraft.recipe.Ingredient;
@@ -75,6 +76,12 @@ public class ModRecipeProvider extends FabricRecipeProvider {
         generateCutting(exporter);
     }
 
+    private static boolean isBackportedSpearsLoaded() {
+        FabricLoader loader = FabricLoader.getInstance();
+        return loader.isModLoaded("spears");
+    }
+
+
     private void generateBlocks(RecipeExporter exporter) {
         //Alloy Furnace
         ShapedRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, Registries.ITEM.get(Identifier.of("mores", "alloy_furnace")), 1)
@@ -126,21 +133,21 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .input(Registries.ITEM.get(Identifier.of("minecraft", "sugar")))
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("minecraft", "cocoa_beans"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("minecraft", "cocoa_beans"))))
                 .offerTo(exporter, Identifier.of("mores", "white_chocolate"));
-        ShapelessRecipeJsonBuilder.create(RecipeCategory.FOOD, Registries.ITEM.get(Identifier.of("mores", "velvet")), 1)
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.FOOD, Registries.ITEM.get(Identifier.of("mores", "velvet")), 2)
                 .input(Registries.ITEM.get(Identifier.of("minecraft", "beetroot")))
                 .input(Registries.ITEM.get(Identifier.of("minecraft", "egg")))
                 .input(Registries.ITEM.get(Identifier.of("minecraft", "wheat")))
                 .input(Registries.ITEM.get(Identifier.of("minecraft", "sugar")))
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("minecraft", "egg"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("minecraft", "egg"))))
                 .offerTo(exporter, Identifier.of("mores", "velvet"));
-        ShapelessRecipeJsonBuilder.create(RecipeCategory.FOOD, Registries.ITEM.get(Identifier.of("mores", "carrot_pie")), 1)
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.FOOD, Registries.ITEM.get(Identifier.of("mores", "carrot_pie")), 2)
                 .input(Registries.ITEM.get(Identifier.of("minecraft", "carrot")))
                 .input(Registries.ITEM.get(Identifier.of("minecraft", "egg")))
                 .input(Registries.ITEM.get(Identifier.of("minecraft", "wheat")))
                 .input(Registries.ITEM.get(Identifier.of("minecraft", "sugar")))
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("minecraft", "carrot"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("minecraft", "carrot"))))
                 .offerTo(exporter, Identifier.of("mores", "carrot_pie"));
-        ShapelessRecipeJsonBuilder.create(RecipeCategory.FOOD, Registries.ITEM.get(Identifier.of("mores", "lemon_pie")), 1)
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.FOOD, Registries.ITEM.get(Identifier.of("mores", "lemon_pie")), 2)
                 .input(Registries.ITEM.get(Identifier.of("mores", "lemon")))
                 .input(Registries.ITEM.get(Identifier.of("minecraft", "egg")))
                 .input(Registries.ITEM.get(Identifier.of("minecraft", "wheat")))
@@ -1046,6 +1053,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .input('$', TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "ingot/rose_gold")))
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))))
                 .offerTo(exporter, Identifier.of("mores", "rose_gold_dagger"));
+        if (isBackportedSpearsLoaded()) {
         ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, Registries.ITEM.get(Identifier.of("mores", "rose_gold_spear")), 1)
                 .pattern("  $")
                 .pattern(" # ")
@@ -1054,6 +1062,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .input('$', TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "ingot/rose_gold")))
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))))
                 .offerTo(exporter, Identifier.of("mores", "rose_gold_spear"));
+        }
         //Shield
         ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, Registries.ITEM.get(Identifier.of("mores", "rose_gold_shield")), 1)
                 .pattern("WoW")
@@ -1101,8 +1110,6 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .input('G', TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "ingot/rose_gold")))
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "rose_gold_helmet"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "rose_gold_helmet"))))
                 .offerTo(exporter, Identifier.of("mores", "rose_gold_horse_armor"));
-
-
     }
 
     private void generateBronze(RecipeExporter exporter) {
@@ -1529,13 +1536,15 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .input('$', TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "ingot/carbon_steel")))
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))))
                 .offerTo(exporter, Identifier.of("mores", "carbon_steel_battle_mace"));
-        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, Registries.ITEM.get(Identifier.of("mores", "carbon_steel_dagger")), 1)
-                .pattern(" $ ")
-                .pattern(" # ")
-                .input('#', Registries.ITEM.get(Identifier.of("minecraft", "stick")))
-                .input('$', TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "ingot/carbon_steel")))
-                .criterion(hasItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))))
-                .offerTo(exporter, Identifier.of("mores", "carbon_steel_dagger"));
+        if (isBackportedSpearsLoaded()) {
+            ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, Registries.ITEM.get(Identifier.of("mores", "carbon_steel_dagger")), 1)
+                    .pattern(" $ ")
+                    .pattern(" # ")
+                    .input('#', Registries.ITEM.get(Identifier.of("minecraft", "stick")))
+                    .input('$', TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "ingot/carbon_steel")))
+                    .criterion(hasItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))))
+                    .offerTo(exporter, Identifier.of("mores", "carbon_steel_dagger"));
+        }
         ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, Registries.ITEM.get(Identifier.of("mores", "carbon_steel_spear")), 1)
                 .pattern("  $")
                 .pattern(" # ")
@@ -1699,14 +1708,16 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .input('$', TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "ingot/hardened_steel")))
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))))
                 .offerTo(exporter, Identifier.of("mores", "hardened_steel_dagger"));
-        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, Registries.ITEM.get(Identifier.of("mores", "hardened_steel_spear")), 1)
-                .pattern("  $")
-                .pattern(" # ")
-                .pattern("#  ")
-                .input('#', Registries.ITEM.get(Identifier.of("minecraft", "stick")))
-                .input('$', TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "ingot/hardened_steel")))
-                .criterion(hasItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))))
-                .offerTo(exporter, Identifier.of("mores", "hardened_steel_spear"));
+        if (isBackportedSpearsLoaded()) {
+            ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, Registries.ITEM.get(Identifier.of("mores", "hardened_steel_spear")), 1)
+                    .pattern("  $")
+                    .pattern(" # ")
+                    .pattern("#  ")
+                    .input('#', Registries.ITEM.get(Identifier.of("minecraft", "stick")))
+                    .input('$', TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "ingot/hardened_steel")))
+                    .criterion(hasItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))))
+                    .offerTo(exporter, Identifier.of("mores", "hardened_steel_spear"));
+        }
         //Shield
         ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, Registries.ITEM.get(Identifier.of("mores", "hardened_steel_shield")), 1)
                 .pattern("WoW")
@@ -3876,9 +3887,11 @@ public class ModRecipeProvider extends FabricRecipeProvider {
         SmithingTransformRecipeJsonBuilder.create(Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "enderite_upgrade_smithing_template"))), Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "diamond_dagger"))), Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "enderite_ingot"))), RecipeCategory.COMBAT, Registries.ITEM.get(Identifier.of("mores", "enderite_dagger")))
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "diamond_dagger"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "diamond_dagger"))))
                 .offerTo(exporter, Identifier.of("mores", "enderite_dagger_smithing"));
-        SmithingTransformRecipeJsonBuilder.create(Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "enderite_upgrade_smithing_template"))), Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "diamond_spear"))), Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "enderite_ingot"))), RecipeCategory.COMBAT, Registries.ITEM.get(Identifier.of("mores", "enderite_spear")))
-                .criterion(hasItem(Registries.ITEM.get(Identifier.of("minecraft", "diamond_spear"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("minecraft", "diamond_spear"))))
-                .offerTo(exporter, Identifier.of("mores", "enderite_spear_smithing"));
+        if (isBackportedSpearsLoaded()) {
+            SmithingTransformRecipeJsonBuilder.create(Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "enderite_upgrade_smithing_template"))), Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "diamond_spear"))), Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "enderite_ingot"))), RecipeCategory.COMBAT, Registries.ITEM.get(Identifier.of("mores", "enderite_spear")))
+                    .criterion(hasItem(Registries.ITEM.get(Identifier.of("minecraft", "diamond_spear"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("minecraft", "diamond_spear"))))
+                    .offerTo(exporter, Identifier.of("mores", "enderite_spear_smithing"));
+        }
         //Shield
         ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "enderite_shield")), 1)
                 .pattern("WoW")
@@ -4429,16 +4442,34 @@ public class ModRecipeProvider extends FabricRecipeProvider {
         CookingRecipeJsonBuilder.createBlasting(Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "raw_silver_block"))), RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "silver_block")), 7.8f, 900)
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "raw_silver_block"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "raw_silver_block"))))
                 .offerTo(exporter, Identifier.of("mores", "silver_block_from_raw_silver_block_blasting"));
-        CookingRecipeJsonBuilder.createBlasting(Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "silver_ore"))), RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "silver_ingot")), 0.6f, 100)
-                .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "silver_ore"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "silver_ore"))))
-                .offerTo(exporter, Identifier.of("mores", "silver_ingot_from_blasting_silver_ore"));
+        CookingRecipeJsonBuilder.createBlasting(Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "andesite_silver_ore"))), RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "silver_ingot")), 0.6f, 100)
+                .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "andesite_silver_ore"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "andesite_silver_ore"))))
+                .offerTo(exporter, Identifier.of("mores", "silver_ingot_from_blasting_andesite_silver_ore"));
+        CookingRecipeJsonBuilder.createBlasting(Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "basalt_silver_ore"))), RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "silver_ingot")), 0.6f, 100)
+                .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "basalt_silver_ore"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "basalt_silver_ore"))))
+                .offerTo(exporter, Identifier.of("mores", "silver_ingot_from_blasting_basalt_silver_ore"));
+        CookingRecipeJsonBuilder.createBlasting(Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "blackstone_silver_ore"))), RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "silver_ingot")), 0.6f, 100)
+                .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "blackstone_silver_ore"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "blackstone_silver_ore"))))
+                .offerTo(exporter, Identifier.of("mores", "silver_ingot_from_blasting_blackstone_silver_ore"));
+        CookingRecipeJsonBuilder.createBlasting(Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "diorite_silver_ore"))), RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "silver_ingot")), 0.6f, 100)
+                .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "diorite_silver_ore"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "diorite_silver_ore"))))
+                .offerTo(exporter, Identifier.of("mores", "silver_ingot_from_blasting_diorite_silver_ore"));
+        CookingRecipeJsonBuilder.createBlasting(Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "granite_silver_ore"))), RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "silver_ingot")), 0.6f, 100)
+                .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "granite_silver_ore"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "granite_silver_ore"))))
+                .offerTo(exporter, Identifier.of("mores", "silver_ingot_from_blasting_granite_silver_ore"));
+        CookingRecipeJsonBuilder.createBlasting(Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "gravel_silver_ore"))), RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "silver_ingot")), 0.6f, 100)
+                .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "gravel_silver_ore"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "gravel_silver_ore"))))
+                .offerTo(exporter, Identifier.of("mores", "silver_ingot_from_blasting_gravel_silver_ore"));
+        CookingRecipeJsonBuilder.createBlasting(Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "tuff_silver_ore"))), RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "silver_ingot")), 0.6f, 100)
+                .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "tuff_silver_ore"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "tuff_silver_ore"))))
+                .offerTo(exporter, Identifier.of("mores", "silver_ingot_from_blasting_tuff_silver_ore"));
         CookingRecipeJsonBuilder.createBlasting(Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "deepslate_silver_ore"))), RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "silver_ingot")), 0.6f, 100)
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "deepslate_silver_ore"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "deepslate_silver_ore"))))
                 .offerTo(exporter, Identifier.of("mores", "silver_ingot_from_blasting_deepslate_silver_ore"));
         CookingRecipeJsonBuilder.createBlasting(Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "nether_silver_ore"))), RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "silver_ingot")), 0.6f, 100)
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "nether_silver_ore"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "nether_silver_ore"))))
                 .offerTo(exporter, Identifier.of("mores", "silver_ingot_from_blasting_nether_silver_ore"));
-        CookingRecipeJsonBuilder.createBlasting(Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "ender_silver_ore"))), RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "silver_ingot")), 0.6f, 200)
+        CookingRecipeJsonBuilder.createBlasting(Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "ender_silver_ore"))), RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "silver_ingot")), 0.6f, 100)
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "ender_silver_ore"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "ender_silver_ore"))))
                 .offerTo(exporter, Identifier.of("mores", "silver_ingot_from_blasting_ender_silver_ore"));
         //Electrum

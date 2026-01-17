@@ -62,42 +62,62 @@ public class Mores implements ModInitializer {
                 ModGolemEntity.createHardenedSteelGolemAttributes()
         );
 
-        //Register Spear Attributes
-         final Set<Item> SPEARS_WITH_SHARED_ATTRS = Set.of(
-                ModItems.ROSE_GOLD_SPEAR,
-                ModItems.CARBON_STEEL_SPEAR,
-                ModItems.HARDENED_STEEL_SPEAR,
-                ModItems.ENDERITE_SPEAR
-        );
+        // Register Spear Attributes (only if the Spears mod is loaded)
+        if (net.fabricmc.loader.api.FabricLoader.getInstance().isModLoaded("spears")) {
 
-        DefaultItemComponentEvents.MODIFY.register(ctx -> {
-            ctx.modify(
-                    SPEARS_WITH_SHARED_ATTRS::contains,
-                    (builder, item) -> {
-                        builder.add(Spears.USE_EFFECTS, new UseEffects(1.0F, true, false));
-                        builder.add(Spears.SWING_ANIMATION, new SwingAnimation(19, "stab"));
+            // Use a mutable set so we can safely add only what exists
+            final java.util.Set<net.minecraft.item.Item> SPEARS_WITH_SHARED_ATTRS = new java.util.HashSet<>();
 
-                        builder.add(Spears.PIERCING_WEAPON, new PiercingWeapon(
-                                0.25F, true, false,
-                                vanillaSound("item.spear.attack"),
-                                vanillaSound("item.spear.hit")
-                        ));
+            // Add your spear items (these must also be registered only when spears is loaded)
+            // If you made them nullable anywhere, this stays safe.
+            if (ModItems.ROSE_GOLD_SPEAR != null) SPEARS_WITH_SHARED_ATTRS.add(ModItems.ROSE_GOLD_SPEAR);
+            if (ModItems.CARBON_STEEL_SPEAR != null) SPEARS_WITH_SHARED_ATTRS.add(ModItems.CARBON_STEEL_SPEAR);
+            if (ModItems.HARDENED_STEEL_SPEAR != null) SPEARS_WITH_SHARED_ATTRS.add(ModItems.HARDENED_STEEL_SPEAR);
+            if (ModItems.ENDERITE_SPEAR != null) SPEARS_WITH_SHARED_ATTRS.add(ModItems.ENDERITE_SPEAR);
 
-                        builder.add(Spears.KINETIC_WEAPON, new KineticWeapon(
-                                0.125F, 10, 12,
-                                KineticWeapon.Condition.ofMinSpeed(50, 8.0F),
-                                KineticWeapon.Condition.ofMinSpeed(90, 5.1F),
-                                KineticWeapon.Condition.ofMinRelativeSpeed(225, 4.6F),
-                                0.38F, 0.95F,
-                                vanillaSound("item.spear.use"),
-                                vanillaSound("item.spear.hit")
-                        ));
+            // Only register the component modifier if we actually have any spear items
+            if (!SPEARS_WITH_SHARED_ATTRS.isEmpty()) {
+                net.fabricmc.fabric.api.item.v1.DefaultItemComponentEvents.MODIFY.register(ctx -> {
+                    ctx.modify(
+                            SPEARS_WITH_SHARED_ATTRS::contains,
+                            (builder, item) -> {
+                                // Everything below references Spears API classes,
+                                // so it MUST stay inside the isModLoaded guard.
 
-                        builder.add(Spears.ATTACK_RANGE, new AttackRange(2.0F, 4.5F));
-                        builder.add(Spears.MINIMUM_ATTACK_CHARGE, 1.0F);
-                    }
-            );
-        });
+                                builder.add(Spears.USE_EFFECTS,
+                                        new UseEffects(1.0F, true, false));
+
+                                builder.add(Spears.SWING_ANIMATION,
+                                        new SwingAnimation(19, "stab"));
+
+                                builder.add(Spears.PIERCING_WEAPON,
+                                        new PiercingWeapon(
+                                                0.25F, true, false,
+                                                vanillaSound("item.spear.attack"),
+                                                vanillaSound("item.spear.hit")
+                                        ));
+
+                                builder.add(Spears.KINETIC_WEAPON,
+                                        new KineticWeapon(
+                                                0.125F, 10, 12,
+                                                KineticWeapon.Condition.ofMinSpeed(50, 8.0F),
+                                                KineticWeapon.Condition.ofMinSpeed(90, 5.1F),
+                                                KineticWeapon.Condition.ofMinRelativeSpeed(225, 4.6F),
+                                                0.38F, 0.95F,
+                                                vanillaSound("item.spear.use"),
+                                                vanillaSound("item.spear.hit")
+                                        ));
+
+                                builder.add(Spears.ATTACK_RANGE,
+                                        new AttackRange(2.0F, 4.5F));
+
+                                builder.add(Spears.MINIMUM_ATTACK_CHARGE, 1.0F);
+                            }
+                    );
+                });
+            }
+        }
+
 
 
 	}

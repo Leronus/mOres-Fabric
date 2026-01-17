@@ -7,11 +7,14 @@
     },
     "S": {
       "item": "mores:carbon_steel_ingot"
+    },
+    "W": {
+      "tag": "minecraft:logs"
     }
   },
   "pattern": [
     " S ",
-    "###"
+    "W#W"
   ],
   "result": {
     "count": 1,
