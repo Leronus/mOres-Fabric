@@ -21,7 +21,6 @@ import net.minecraft.client.render.RenderLayer;
 import net.minecraft.item.Item;
 
 public class MoresClient implements ClientModInitializer {
-    private static boolean lastSent = false;
     @Override
     public void onInitializeClient() {
         MidnightConfig.init(Mores.MOD_ID, ClientConfig.class);

@@ -348,6 +348,9 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
             );
         }
 
+        /*
+         * Modded tags
+         */
         //Wolf Armors
         // Allow wolves to equip these (our mixin will check this tag)
         getOrCreateTagBuilder(ModTags.Items.WOLF_ARMOR).add(
@@ -363,12 +366,60 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
                 ModItems.CARBON_STEEL_WOLF_ARMOR,
                 ModItems.HARDENED_STEEL_WOLF_ARMOR,
                 ModItems.DIAMOND_WOLF_ARMOR
-                );
+        );
+        getOrCreateTagBuilder(ModTags.Items.SHEAR_REMOVES_ANIMAL_ARMOR)
+                // Vanilla
+                .add(Items.LEATHER_HORSE_ARMOR)
+                .add(Items.IRON_HORSE_ARMOR)
+                .add(Items.GOLDEN_HORSE_ARMOR)
+                .add(Items.DIAMOND_HORSE_ARMOR)
+                .add(Items.WOLF_ARMOR)
 
+                // Horse armors (you have a lot; add all you want)
+                .add(ModItems.TIN_HORSE_ARMOR)
+                .add(ModItems.SILVER_HORSE_ARMOR)
+                .add(ModItems.COPPER_HORSE_ARMOR)
+                .add(ModItems.STERLING_SILVER_HORSE_ARMOR)
+                .add(ModItems.ROSE_GOLD_HORSE_ARMOR)
+                .add(ModItems.BRONZE_HORSE_ARMOR)
+                .add(ModItems.COBALT_HORSE_ARMOR)
+                .add(ModItems.CARBON_STEEL_HORSE_ARMOR)
+                .add(ModItems.HARDENED_STEEL_HORSE_ARMOR)
+                .add(ModItems.TURQUOISE_HORSE_ARMOR)
+                .add(ModItems.AMETHYST_HORSE_ARMOR)
+                .add(ModItems.LAPIS_LAZULI_HORSE_ARMOR)
+                .add(ModItems.TOURMALINE_HORSE_ARMOR)
+                .add(ModItems.TANZANITE_HORSE_ARMOR)
+                .add(ModItems.TOPAZ_HORSE_ARMOR)
+                .add(ModItems.EMERALD_HORSE_ARMOR)
+                .add(ModItems.RUBY_HORSE_ARMOR)
+                .add(ModItems.SAPPHIRE_HORSE_ARMOR)
+                .add(ModItems.SPINEL_HORSE_ARMOR)
+                .add(ModItems.CITRINE_HORSE_ARMOR)
+                .add(ModItems.MOISSANITE_HORSE_ARMOR)
+                .add(ModItems.ONYX_HORSE_ARMOR)
+                .add(ModItems.OBSIDIAN_HORSE_ARMOR)
+                .add(ModItems.GRAPHENE_HORSE_ARMOR)
+                .add(ModItems.NETHERITE_HORSE_ARMOR)
+                .add(ModItems.ADAMANTIUM_HORSE_ARMOR)
+                .add(ModItems.ENDERITE_HORSE_ARMOR)
 
-        /*
-         * Modded tags for recipes (universal)
-         */
+                // Wolf armors
+                .add(ModItems.TIN_WOLF_ARMOR)
+                .add(ModItems.GOLD_WOLF_ARMOR)
+                .add(ModItems.SILVER_WOLF_ARMOR)
+                .add(ModItems.COPPER_WOLF_ARMOR)
+                .add(ModItems.STERLING_SILVER_WOLF_ARMOR)
+                .add(ModItems.BRONZE_WOLF_ARMOR)
+                .add(ModItems.ROSE_GOLD_WOLF_ARMOR)
+                .add(ModItems.IRON_WOLF_ARMOR)
+                .add(ModItems.COBALT_WOLF_ARMOR)
+                .add(ModItems.CARBON_STEEL_WOLF_ARMOR)
+                .add(ModItems.HARDENED_STEEL_WOLF_ARMOR)
+                .add(ModItems.DIAMOND_WOLF_ARMOR);
+
+        getOrCreateTagBuilder(ModTags.Items.SHEAR_REMOVES_SADDLE).add(Items.SADDLE);
+
         getOrCreateTagBuilder(ModTags.Items.ANTHRACITE).add(ModItems.ANTHRACITE);
         getOrCreateTagBuilder(ModTags.Items.LAPIS_LAZULI_DUST).add(ModItems.LAPIS_LAZULI_DUST);
         getOrCreateTagBuilder(ModTags.Items.TURQUOISE_DUST).add(ModItems.TURQUOISE_DUST);

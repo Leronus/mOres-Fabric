@@ -23,7 +23,11 @@ public class ModTags {
         public static final TagKey<Item> WOLF_ARMOR =
                 TagKey.of(RegistryKeys.ITEM, Identifier.of("minecraft", "wolf_armor"));
 
-//        public static final TagKey<Item> TRANSFORMABLE_ITEMS = createTag("transformable_items");
+        public static final TagKey<Item> SHEAR_REMOVES_ANIMAL_ARMOR = createTag("shear_removes_animal_armor");
+        public static final TagKey<Item> SHEAR_REMOVES_SADDLE = createTag("shear_removes_saddle");
+
+
+        //        public static final TagKey<Item> TRANSFORMABLE_ITEMS = createTag("transformable_items");
         public static final TagKey<Item> ANTHRACITE = createTag("coal/anthracite");
 
         public static final TagKey<Item> TURQUOISE_DUST = createTag("dust/turquoise");

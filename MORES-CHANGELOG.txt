@@ -2,23 +2,26 @@ v3.0.0
 MASSIVE UPDATE to Minecraft 1.21.1!
 Changelog:
 - Using DataGenerators for Tags, Recipes, Models, Advancements, Loot tables - Massive rewrite
-- Added Carbon Steel (tools, (horse)armor, weapons) with (Hot) Carbon Steel Scrap (needs to be cooled in water)
-- Updated Sterling Silver ingot texture
-- Updated Copper textures with vanilla from 1.21.9
-- Updated Silver ingot, raw, nugget, ore, block and apple
-- Updated Anthracite, Onyx & Turquoise textures
 - Added villager trades for mOres items
 - Added mob spawns with mOres gear (zombies, piglins, skeletons & more!)
 - Added even more trimmable armor and trim materials
-- Added Silver carrot
-- Added Shields back, fully decorable!
-- Added missing tags for better mod compatibility
-- Added back revamped Alloy Furnace (new GUI with colourful themes!)
+- Added lemon oak trees, lemons, lemon pie, apple pie, sweet berry pie and 3 variants of chocolate (dark, milk, white)
+- Added silver carrot & enchanted cobalt apple
+- Added shields back, fully decorable!
+- Added wolf armors for all metals (Tin, Silver, Gold, Copper, Sterling Silver, Rose Gold, Bronze, Iron, Cobalt, Carbon Steel, Hardened Steel, Diamond)
+- Added spears (using optional backported spears - Rose Gold, Carbon Steel, Hardened Steel, Enderite)
+- Added dust/nugget/ingot/gem tags for better mod compatibility & added raw duck + tropical fish to cat_tameable
+- Added back revamped Alloy Furnace (new GUI with colourful themes & REI compatibility!)
 - Added Amethyst, Turquoise, Lapis Lazuli & Quartz dusts used to craft newly updated gems
 - Added Lapis Lazuli (tools, (horse)armor, weapons)
 - Added Rose Gold (Copper + Gold alloy, Pacify piglins full bonus effect!)
 - Added Citrine (tools, (horse)armor, weapons)
-- Added Hardened Steel (Smithing using Upgrade Template)
+- Added Carbon Steel (tools, (horse)armor, weapons) with (Hot) Carbon Steel Scrap (needs to be cooled in water)
+- Added Hardened Steel (Smithing using Upgrade Template) with its own golem that spawns naturally (configurable)
 - Added Enderite (Smithing using Upgrade Template and crafting using Primordial Debris - spawns in the End)
 - Nerfed Turquoise efficiency & base armor but buffed spawnrate
+- Updated Sterling Silver ingot texture
+- Updated Copper textures with vanilla from 1.21.9
+- Updated Silver ingot, raw, nugget, ore, block and apple - and added carrot + wolf armor + spear
+- Updated Anthracite, Onyx & Turquoise textures
 

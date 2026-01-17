@@ -8,6 +8,7 @@ import mod.leronus.mores.entity.ModEntities;
 import mod.leronus.mores.entity.ModGolemEntity;
 import mod.leronus.mores.handlers.ModArmorBonuses;
 import mod.leronus.mores.config.CommonConfig;
+import mod.leronus.mores.handlers.ModShearableAnimalArmorHandler;
 import mod.leronus.mores.item.ModItemGroups;
 import mod.leronus.mores.item.ModItems;
 import mod.leronus.mores.loot.ModChestLootInjector;
@@ -26,6 +27,7 @@ import net.minecraft.item.Item;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.util.HashSet;
 import java.util.Set;
 
 import static mod.leronus.mores.util.SpearSounds.vanillaSound;
@@ -48,7 +50,7 @@ public class Mores implements ModInitializer {
 		ModBlockEntities.registerBlockEntities();
 		ModScreenHandlers.registerScreenHandlers();
         ModNetworking.registerServerReceivers();
-
+        ModShearableAnimalArmorHandler.register();
         ModChestLootInjector.register();
 
         //TODO Check anthracite
@@ -66,7 +68,7 @@ public class Mores implements ModInitializer {
         if (net.fabricmc.loader.api.FabricLoader.getInstance().isModLoaded("spears")) {
 
             // Use a mutable set so we can safely add only what exists
-            final java.util.Set<net.minecraft.item.Item> SPEARS_WITH_SHARED_ATTRS = new java.util.HashSet<>();
+            final Set<Item> SPEARS_WITH_SHARED_ATTRS = new HashSet<>();
 
             // Add your spear items (these must also be registered only when spears is loaded)
             // If you made them nullable anywhere, this stays safe.
@@ -77,7 +79,7 @@ public class Mores implements ModInitializer {
 
             // Only register the component modifier if we actually have any spear items
             if (!SPEARS_WITH_SHARED_ATTRS.isEmpty()) {
-                net.fabricmc.fabric.api.item.v1.DefaultItemComponentEvents.MODIFY.register(ctx -> {
+                DefaultItemComponentEvents.MODIFY.register(ctx -> {
                     ctx.modify(
                             SPEARS_WITH_SHARED_ATTRS::contains,
                             (builder, item) -> {

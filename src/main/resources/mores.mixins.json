@@ -3,6 +3,7 @@
   "package": "mod.leronus.mores.mixin",
   "compatibilityLevel": "JAVA_21",
   "mixins": [
+    "access.MobEntityBodyArmorAccessor",
     "BlockMixin",
     "CarvedPumpkinBlockMixin",
     "EntityDismountUnderwaterMixin",
