@@ -12,11 +12,8 @@ public class CommonConfig extends MidnightConfig {
     @Entry(category = GAMEPLAY, name = "Enable tool and weapon bonuses (onyx wither/ruby autosmelt)")
     public static boolean enableToolAndWeaponBonuses = true;
 
-    @Entry(category = GAMEPLAY, name = "Enable armor set bonuses")
+    @Entry(category = GAMEPLAY, name = "Enable all armor set bonuses")
     public static boolean enableArmorSetBonuses = true;
-
-    @Entry(category = GAMEPLAY, name = "Enable potion / heart effects")
-    public static boolean enablePotionHeartEffects = true;
 
     // =========================
     // LEMON OAK WORLDGEN

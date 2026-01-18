@@ -40,7 +40,6 @@ public final class ModTrimMaterials {
     public static final RegistryKey<ArmorTrimMaterial> MOISSANITE = key("moissanite");
 
     public static final RegistryKey<ArmorTrimMaterial> OBSIDIAN = key("obsidian");
-    public static final RegistryKey<ArmorTrimMaterial> GRAPHENE = key("graphene");
     public static final RegistryKey<ArmorTrimMaterial> ADAMANTIUM = key("adamantium");
     public static final RegistryKey<ArmorTrimMaterial> ENDERITE = key("enderite");
 
@@ -71,7 +70,6 @@ public final class ModTrimMaterials {
         register(registry, MOISSANITE, itemEntry(ModItems.MOISSANITE_GEM), color("#9AE6FF"), 0.28f);
 
         register(registry, OBSIDIAN, itemEntry(ModItems.OBSIDIAN_INGOT), color("#2A1636"), 0.31f);
-        register(registry, GRAPHENE, itemEntry(ModItems.GRAPHENE_GEM), color("#111111"), 0.32f);
         register(registry, ADAMANTIUM, itemEntry(ModItems.ADAMANTIUM_INGOT), color("#00D1B2"), 0.33f);
         register(registry, ENDERITE, itemEntry(ModItems.ENDERITE_INGOT), color("#8B5CF6"), 0.34f);
     }

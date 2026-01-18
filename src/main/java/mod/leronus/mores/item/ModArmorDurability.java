@@ -34,7 +34,7 @@ public final class ModArmorDurability {
     public static final int SAPPHIRE = 1771;
     public static final int MOISSANITE = 1801;
 
-    public static final int GRAPHENE = 1500;
+    public static final int GRAPHENE_CHAINMAIL = 1500;
     public static final int OBSIDIAN = 2111;
     public static final int ADAMANTIUM = 1741;
     public static final int ENDERITE = 2999;

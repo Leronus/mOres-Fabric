@@ -7,14 +7,12 @@ import mod.leronus.mores.Mores;
 import mod.leronus.mores.block.ModBlocks;
 import mod.leronus.mores.block.custom.AlloyFurnaceBlock;
 import mod.leronus.mores.item.ModItems;
-import mod.leronus.mores.trim.ModTrimMaterials;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricModelProvider;
 import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.data.client.*;
 import net.minecraft.util.Identifier;
 
-import java.util.Optional;
 import java.util.function.Supplier;
 
 public class ModModelProvider extends FabricModelProvider {
@@ -479,7 +477,7 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ModItems.CITRINE_GEM, Models.GENERATED);
         itemModelGenerator.register(ModItems.MOISSANITE_GEM, Models.GENERATED);
         itemModelGenerator.register(ModItems.ONYX_GEM, Models.GENERATED);
-        itemModelGenerator.register(ModItems.GRAPHENE_GEM, Models.GENERATED);
+        itemModelGenerator.register(ModItems.GRAPHENE_CHAINMAIL, Models.GENERATED);
 
         itemModelGenerator.register(ModItems.TIN_SWORD, Models.HANDHELD);
         itemModelGenerator.register(ModItems.TIN_PICKAXE, Models.HANDHELD);
@@ -718,14 +716,14 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ModItems.ONYX_BATTLE_MACE, Models.HANDHELD);
         itemModelGenerator.register(ModItems.ONYX_DAGGER, Models.HANDHELD);
 
-        itemModelGenerator.register(ModItems.GRAPHENE_SWORD, Models.HANDHELD);
-        itemModelGenerator.register(ModItems.GRAPHENE_PICKAXE, Models.HANDHELD);
-        itemModelGenerator.register(ModItems.GRAPHENE_SHOVEL, Models.HANDHELD);
-        itemModelGenerator.register(ModItems.GRAPHENE_AXE, Models.HANDHELD);
-        itemModelGenerator.register(ModItems.GRAPHENE_HOE, Models.HANDHELD);
-        itemModelGenerator.register(ModItems.GRAPHENE_BATTLE_AXE, Models.HANDHELD);
-        itemModelGenerator.register(ModItems.GRAPHENE_BATTLE_MACE, Models.HANDHELD);
-        itemModelGenerator.register(ModItems.GRAPHENE_DAGGER, Models.HANDHELD);
+//        itemModelGenerator.register(ModItems.GRAPHENE_SWORD, Models.HANDHELD);
+//        itemModelGenerator.register(ModItems.GRAPHENE_PICKAXE, Models.HANDHELD);
+//        itemModelGenerator.register(ModItems.GRAPHENE_SHOVEL, Models.HANDHELD);
+//        itemModelGenerator.register(ModItems.GRAPHENE_AXE, Models.HANDHELD);
+//        itemModelGenerator.register(ModItems.GRAPHENE_HOE, Models.HANDHELD);
+//        itemModelGenerator.register(ModItems.GRAPHENE_BATTLE_AXE, Models.HANDHELD);
+//        itemModelGenerator.register(ModItems.GRAPHENE_BATTLE_MACE, Models.HANDHELD);
+//        itemModelGenerator.register(ModItems.GRAPHENE_DAGGER, Models.HANDHELD);
 
         itemModelGenerator.register(ModItems.ADAMANTIUM_SWORD, Models.HANDHELD);
         itemModelGenerator.register(ModItems.ADAMANTIUM_PICKAXE, Models.HANDHELD);
@@ -799,7 +797,7 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ModItems.MOISSANITE_HORSE_ARMOR, Models.GENERATED);
         itemModelGenerator.register(ModItems.OBSIDIAN_HORSE_ARMOR, Models.GENERATED);
         itemModelGenerator.register(ModItems.ONYX_HORSE_ARMOR, Models.GENERATED);
-        itemModelGenerator.register(ModItems.GRAPHENE_HORSE_ARMOR, Models.GENERATED);
+//        itemModelGenerator.register(ModItems.GRAPHENE_HORSE_ARMOR, Models.GENERATED);
         itemModelGenerator.register(ModItems.ADAMANTIUM_HORSE_ARMOR, Models.GENERATED);
         itemModelGenerator.register(ModItems.NETHERITE_HORSE_ARMOR, Models.GENERATED);
         itemModelGenerator.register(ModItems.ENDERITE_HORSE_ARMOR, Models.GENERATED);
@@ -840,7 +838,7 @@ public class ModModelProvider extends FabricModelProvider {
         registerShield(itemModelGenerator, "onyx_shield");
         registerShield(itemModelGenerator, "obsidian_shield");
         registerShield(itemModelGenerator, "adamantium_shield");
-        registerShield(itemModelGenerator, "graphene_shield");
+//        registerShield(itemModelGenerator, "graphene_shield");
         registerShield(itemModelGenerator, "enderite_shield");
 
     }

@@ -12,7 +12,7 @@ import net.minecraft.text.Text;
 import java.util.List;
 
 public class ModPickaxeItem extends PickaxeItem {
-    public ModPickaxeItem(ToolMaterial material, int attackDamage, float attackSpeed, Settings settings) {
+    public ModPickaxeItem(ToolMaterial material, Settings settings) {
         super(material, settings);
     }
 

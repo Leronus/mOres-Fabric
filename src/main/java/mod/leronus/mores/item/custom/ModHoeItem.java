@@ -12,7 +12,7 @@ import net.minecraft.text.Text;
 import java.util.List;
 
 public class ModHoeItem extends HoeItem {
-    public ModHoeItem(ToolMaterial material, int attackDamage, float attackSpeed, Settings settings) {
+    public ModHoeItem(ToolMaterial material, Settings settings) {
         super(material, settings);
     }
 

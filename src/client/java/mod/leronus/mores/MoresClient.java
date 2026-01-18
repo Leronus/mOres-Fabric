@@ -57,7 +57,7 @@ public class MoresClient implements ClientModInitializer {
                 ModItems.SAPPHIRE_SHIELD,
                 ModItems.MOISSANITE_SHIELD,
                 ModItems.OBSIDIAN_SHIELD,
-                ModItems.GRAPHENE_SHIELD,
+//                ModItems.GRAPHENE_SHIELD,
                 ModItems.ADAMANTIUM_SHIELD,
                 ModItems.ENDERITE_SHIELD
         );

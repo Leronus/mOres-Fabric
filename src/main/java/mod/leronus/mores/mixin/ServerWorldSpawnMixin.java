@@ -37,8 +37,8 @@ public abstract class ServerWorldSpawnMixin {
 
         ServerWorld world = (ServerWorld) (Object) this;
 
-        // 50% chance to ALSO spawn your hardened steel golem
-        if (world.getRandom().nextFloat() >= 0.5f) return;
+        // 75% chance to ALSO spawn hardened steel golem
+        if (world.getRandom().nextFloat() >= 0.75f) return;
 
         Entity created = ModEntities.HARDENED_STEEL_GOLEM.create(world);
         if (!(created instanceof MobEntity steel)) return;

@@ -3623,120 +3623,33 @@ public class ModRecipeProvider extends FabricRecipeProvider {
     private void generateGraphene(RecipeExporter exporter) {
         /* -- Graphene -- */
         //Items & Blocks
-        //Tools
-        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, Registries.ITEM.get(Identifier.of("mores", "graphene_sword")), 1)
-                .pattern("$")
-                .pattern("$")
-                .pattern("#")
-                .input('#', Registries.ITEM.get(Identifier.of("minecraft", "stick")))
-                .input('$', TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "gem/graphene")))
-                .criterion(hasItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))))
-                .offerTo(exporter, Identifier.of("mores", "graphene_sword"));
-        ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, Registries.ITEM.get(Identifier.of("mores", "graphene_axe")), 1)
-                .pattern("$$")
-                .pattern("$#")
-                .pattern(" #")
-                .input('#', Registries.ITEM.get(Identifier.of("minecraft", "stick")))
-                .input('$', TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "gem/graphene")))
-                .criterion(hasItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))))
-                .offerTo(exporter, Identifier.of("mores", "graphene_axe"));
-        ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, Registries.ITEM.get(Identifier.of("mores", "graphene_pickaxe")), 1)
-                .pattern("$$$")
-                .pattern(" # ")
-                .pattern(" # ")
-                .input('#', Registries.ITEM.get(Identifier.of("minecraft", "stick")))
-                .input('$', TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "gem/graphene")))
-                .criterion(hasItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))))
-                .offerTo(exporter, Identifier.of("mores", "graphene_pickaxe"));
-        ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, Registries.ITEM.get(Identifier.of("mores", "graphene_shovel")), 1)
-                .pattern("$")
-                .pattern("#")
-                .pattern("#")
-                .input('#', Registries.ITEM.get(Identifier.of("minecraft", "stick")))
-                .input('$', TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "gem/graphene")))
-                .criterion(hasItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))))
-                .offerTo(exporter, Identifier.of("mores", "graphene_shovel"));
-        ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, Registries.ITEM.get(Identifier.of("mores", "graphene_hoe")), 1)
-                .pattern("$$")
-                .pattern(" #")
-                .pattern(" #")
-                .input('#', Registries.ITEM.get(Identifier.of("minecraft", "stick")))
-                .input('$', TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "gem/graphene")))
-                .criterion(hasItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))))
-                .offerTo(exporter, Identifier.of("mores", "graphene_hoe"));
-        //Weapons
-        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, Registries.ITEM.get(Identifier.of("mores", "graphene_battle_axe")), 1)
-                .pattern("$ $")
-                .pattern("$#$")
-                .pattern(" # ")
-                .input('#', Registries.ITEM.get(Identifier.of("minecraft", "stick")))
-                .input('$', TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "gem/graphene")))
-                .criterion(hasItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))))
-                .offerTo(exporter, Identifier.of("mores", "graphene_battle_axe"));
-        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, Registries.ITEM.get(Identifier.of("mores", "graphene_battle_mace")), 1)
-                .pattern(" $$")
-                .pattern(" $$")
-                .pattern("#  ")
-                .input('#', Registries.ITEM.get(Identifier.of("minecraft", "stick")))
-                .input('$', TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "gem/graphene")))
-                .criterion(hasItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))))
-                .offerTo(exporter, Identifier.of("mores", "graphene_battle_mace"));
-        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, Registries.ITEM.get(Identifier.of("mores", "graphene_dagger")), 1)
-                .pattern(" $ ")
-                .pattern(" # ")
-                .input('#', Registries.ITEM.get(Identifier.of("minecraft", "stick")))
-                .input('$', TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "gem/graphene")))
-                .criterion(hasItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))))
-                .offerTo(exporter, Identifier.of("mores", "graphene_dagger"));
-        //Shield
-        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, Registries.ITEM.get(Identifier.of("mores", "graphene_shield")), 1)
-                .pattern("WoW")
-                .pattern("WWW")
-                .pattern(" W ")
-                .input('W', TagKey.of(RegistryKeys.ITEM, Identifier.of("minecraft", "planks")))
-                .input('o', TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "gem/graphene")))
-                .criterion("has_planks", conditionsFromTag(TagKey.of(RegistryKeys.ITEM, Identifier.of("minecraft", "planks"))))
-                .offerTo(exporter, Identifier.of("mores", "graphene_shield"));
         //Armor
-        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, Registries.ITEM.get(Identifier.of("mores", "graphene_helmet")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, Registries.ITEM.get(Identifier.of("mores", "graphene_chainmail_helmet")), 1)
                 .pattern("###")
                 .pattern("# #")
-                .input('#', TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "gem/graphene")))
-                .criterion("has_gem_graphene", conditionsFromTag(TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "gem/graphene"))))
-                .offerTo(exporter, Identifier.of("mores", "graphene_helmet"));
-        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, Registries.ITEM.get(Identifier.of("mores", "graphene_chestplate")), 1)
+                .input('#', Registries.ITEM.get(Identifier.of("mores", "graphene_chainmail")))
+                .criterion("has_gem_graphene", conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "graphene_chainmail"))))
+                .offerTo(exporter, Identifier.of("mores", "graphene_chainmail_helmet"));
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, Registries.ITEM.get(Identifier.of("mores", "graphene_chainmail_chestplate")), 1)
                 .pattern("# #")
                 .pattern("###")
                 .pattern("###")
-                .input('#', TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "gem/graphene")))
-                .criterion("has_gem_graphene", conditionsFromTag(TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "gem/graphene"))))
-                .offerTo(exporter, Identifier.of("mores", "graphene_chestplate"));
-        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, Registries.ITEM.get(Identifier.of("mores", "graphene_leggings")), 1)
+                .input('#', Registries.ITEM.get(Identifier.of("mores", "graphene_chainmail")))
+                .criterion("has_gem_graphene", conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "graphene_chainmail"))))
+                .offerTo(exporter, Identifier.of("mores", "graphene_chainmail_chestplate"));
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, Registries.ITEM.get(Identifier.of("mores", "graphene_chainmail_leggings")), 1)
                 .pattern("###")
                 .pattern("# #")
                 .pattern("# #")
-                .input('#', TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "gem/graphene")))
-                .criterion("has_gem_graphene", conditionsFromTag(TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "gem/graphene"))))
-                .offerTo(exporter, Identifier.of("mores", "graphene_leggings"));
-        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, Registries.ITEM.get(Identifier.of("mores", "graphene_boots")), 1)
+                .input('#', Registries.ITEM.get(Identifier.of("mores", "graphene_chainmail")))
+                .criterion("has_gem_graphene", conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "graphene_chainmail"))))
+                .offerTo(exporter, Identifier.of("mores", "graphene_chainmail_leggings"));
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, Registries.ITEM.get(Identifier.of("mores", "graphene_chainmail_boots")), 1)
                 .pattern("# #")
                 .pattern("# #")
-                .input('#', TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "gem/graphene")))
-                .criterion("has_gem_graphene", conditionsFromTag(TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "gem/graphene"))))
-                .offerTo(exporter, Identifier.of("mores", "graphene_boots"));
-        //Horse Armor
-        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, Registries.ITEM.get(Identifier.of("mores", "graphene_horse_armor")), 1)
-                .pattern("  H")
-                .pattern("GWG")
-                .pattern("L L")
-                .input('H', Registries.ITEM.get(Identifier.of("mores", "graphene_helmet")))
-                .input('W', TagKey.of(RegistryKeys.ITEM, Identifier.of("minecraft", "wool")))
-                .input('L', Registries.ITEM.get(Identifier.of("mores", "graphene_leggings")))
-                .input('G', TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "gem/graphene")))
-                .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "graphene_helmet"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "graphene_helmet"))))
-                .offerTo(exporter, Identifier.of("mores", "graphene_horse_armor"));
-
-
+                .input('#', Registries.ITEM.get(Identifier.of("mores", "graphene_chainmail")))
+                .criterion("has_gem_graphene", conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "graphene_chainmail"))))
+                .offerTo(exporter, Identifier.of("mores", "graphene_chainmail_boots"));
     }
     private void generateAdamantium(RecipeExporter exporter) {
         /* -- Adamantium -- */
@@ -4881,16 +4794,15 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 Ingredient.ofItems(DIAMOND),
                 new ItemStack(ADAMANTIUM_INGOT, 1),
                 0.3f, 200,
-                "blue"
+                "soul"
         );
-        //TODO Confirm graphene
         offerAlloying(exporter,
-                "graphene_from_onyx_turquoise",
-                Ingredient.ofItems(ONYX_GEM),
-                Ingredient.ofItems(TURQUOISE_GEM),
-                new ItemStack(GRAPHENE_GEM, 1),
+                "graphene_from_chainmail_anthracite",
+                Ingredient.ofItems(CHAINMAIL),
+                Ingredient.ofItems(ANTHRACITE),
+                new ItemStack(GRAPHENE_CHAINMAIL, 1),
                 0.3f, 200,
-                "purple"
+                "blue"
         );
     }
 

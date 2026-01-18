@@ -72,7 +72,7 @@ public class ModItemGroups {
                        entries.add(ModItems.CITRINE_GEM);
                        entries.add(ModItems.MOISSANITE_GEM);
                        entries.add(ModItems.ONYX_GEM);
-                       entries.add(ModItems.GRAPHENE_GEM);
+                       entries.add(ModItems.GRAPHENE_CHAINMAIL);
                     }).build());
     public static final ItemGroup BLOCK_GROUP = Registry.register(Registries.ITEM_GROUP,
             Identifier.of(Mores.MOD_ID, "blocks"),
@@ -330,10 +330,10 @@ public class ModItemGroups {
                         entries.add(ModItems.MOISSANITE_AXE);
                         entries.add(ModItems.MOISSANITE_SHOVEL);
                         entries.add(ModItems.MOISSANITE_HOE);
-                        entries.add(ModItems.GRAPHENE_PICKAXE);
-                        entries.add(ModItems.GRAPHENE_AXE);
-                        entries.add(ModItems.GRAPHENE_SHOVEL);
-                        entries.add(ModItems.GRAPHENE_HOE);
+//                        entries.add(ModItems.GRAPHENE_PICKAXE);
+//                        entries.add(ModItems.GRAPHENE_AXE);
+//                        entries.add(ModItems.GRAPHENE_SHOVEL);
+//                        entries.add(ModItems.GRAPHENE_HOE);
                         entries.add(ModItems.OBSIDIAN_PICKAXE);
                         entries.add(ModItems.OBSIDIAN_AXE);
                         entries.add(ModItems.OBSIDIAN_SHOVEL);
@@ -460,10 +460,10 @@ public class ModItemGroups {
                         entries.add(ModItems.MOISSANITE_BATTLE_AXE);
                         entries.add(ModItems.MOISSANITE_BATTLE_MACE);
                         entries.add(ModItems.MOISSANITE_DAGGER);
-                        entries.add(ModItems.GRAPHENE_SWORD);
-                        entries.add(ModItems.GRAPHENE_BATTLE_AXE);
-                        entries.add(ModItems.GRAPHENE_BATTLE_MACE);
-                        entries.add(ModItems.GRAPHENE_DAGGER);
+//                        entries.add(ModItems.GRAPHENE_SWORD);
+//                        entries.add(ModItems.GRAPHENE_BATTLE_AXE);
+//                        entries.add(ModItems.GRAPHENE_BATTLE_MACE);
+//                        entries.add(ModItems.GRAPHENE_DAGGER);
                         entries.add(ModItems.OBSIDIAN_SWORD);
                         entries.add(ModItems.OBSIDIAN_BATTLE_AXE);
                         entries.add(ModItems.OBSIDIAN_BATTLE_MACE);
@@ -485,7 +485,7 @@ public class ModItemGroups {
     public static final ItemGroup ARMOR_GROUP = Registry.register(Registries.ITEM_GROUP,
             Identifier.of(Mores.MOD_ID, "armor"),
             FabricItemGroup.builder().displayName(Text.translatable("creativemodetab.mores_armor"))
-                    .icon(() -> new ItemStack(ModItems.GRAPHENE_CHESTPLATE)).entries((displayContext, entries) -> {
+                    .icon(() -> new ItemStack(ModItems.GRAPHENE_CHAINMAIL_CHESTPLATE)).entries((displayContext, entries) -> {
                         entries.add(ModItems.TIN_HELMET);
                         entries.add(ModItems.TIN_CHESTPLATE);
                         entries.add(ModItems.TIN_LEGGINGS);
@@ -570,10 +570,10 @@ public class ModItemGroups {
                         entries.add(ModItems.MOISSANITE_CHESTPLATE);
                         entries.add(ModItems.MOISSANITE_LEGGINGS);
                         entries.add(ModItems.MOISSANITE_BOOTS);
-                        entries.add(ModItems.GRAPHENE_HELMET);
-                        entries.add(ModItems.GRAPHENE_CHESTPLATE);
-                        entries.add(ModItems.GRAPHENE_LEGGINGS);
-                        entries.add(ModItems.GRAPHENE_BOOTS);
+                        entries.add(ModItems.GRAPHENE_CHAINMAIL_HELMET);
+                        entries.add(ModItems.GRAPHENE_CHAINMAIL_CHESTPLATE);
+                        entries.add(ModItems.GRAPHENE_CHAINMAIL_LEGGINGS);
+                        entries.add(ModItems.GRAPHENE_CHAINMAIL_BOOTS);
                         entries.add(ModItems.OBSIDIAN_HELMET);
                         entries.add(ModItems.OBSIDIAN_CHESTPLATE);
                         entries.add(ModItems.OBSIDIAN_LEGGINGS);
@@ -613,7 +613,7 @@ public class ModItemGroups {
                         entries.add(ModItems.RUBY_SHIELD);
                         entries.add(ModItems.SAPPHIRE_SHIELD);
                         entries.add(ModItems.MOISSANITE_SHIELD);
-                        entries.add(ModItems.GRAPHENE_SHIELD);
+//                        entries.add(ModItems.GRAPHENE_SHIELD);
                         entries.add(ModItems.OBSIDIAN_SHIELD);
                         entries.add(ModItems.ADAMANTIUM_SHIELD);
                         entries.add(ModItems.ENDERITE_SHIELD);
@@ -654,7 +654,7 @@ public class ModItemGroups {
                         entries.add(ModItems.RUBY_HORSE_ARMOR);
                         entries.add(ModItems.SAPPHIRE_HORSE_ARMOR);
                         entries.add(ModItems.MOISSANITE_HORSE_ARMOR);
-                        entries.add(ModItems.GRAPHENE_HORSE_ARMOR);
+//                        entries.add(ModItems.GRAPHENE_HORSE_ARMOR);
                         entries.add(ModItems.OBSIDIAN_HORSE_ARMOR);
                         entries.add(ModItems.NETHERITE_HORSE_ARMOR);
                         entries.add(ModItems.ADAMANTIUM_HORSE_ARMOR);

@@ -78,9 +78,6 @@
     "mores:moissanite_sword",
     "mores:moissanite_battle_axe",
     "mores:moissanite_battle_mace",
-    "mores:graphene_sword",
-    "mores:graphene_battle_axe",
-    "mores:graphene_battle_mace",
     "mores:obsidian_sword",
     "mores:obsidian_battle_axe",
     "mores:obsidian_battle_mace",
@@ -113,7 +110,6 @@
     "mores:spinel_dagger",
     "mores:moissanite_dagger",
     "mores:turquoise_dagger",
-    "mores:onyx_dagger",
-    "mores:graphene_dagger"
+    "mores:onyx_dagger"
   ]
 }

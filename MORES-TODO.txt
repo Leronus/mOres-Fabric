@@ -7,6 +7,7 @@ Testing:
 - Test horse/wolf armor & shield enchants
 - Check food recipes (chocolate) maybe play test a little with lemons and such
 - Turquoise / Lapis Lazuli horse armor
+- Spears again
 
 Doing:
 - Tool materials (update shields stats -> cooldown)

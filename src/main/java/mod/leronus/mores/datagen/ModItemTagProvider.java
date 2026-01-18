@@ -54,7 +54,7 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
                 ModItems.MOISSANITE_SWORD,
                 ModItems.ONYX_SWORD,
                 ModItems.OBSIDIAN_SWORD,
-                ModItems.GRAPHENE_SWORD,
+//                ModItems.GRAPHENE_SWORD,
                 ModItems.ADAMANTIUM_SWORD,
                 ModItems.ENDERITE_SWORD);
         getOrCreateTagBuilder(ItemTags.PICKAXES).add(
@@ -80,7 +80,7 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
                 ModItems.MOISSANITE_PICKAXE,
                 ModItems.TURQUOISE_PICKAXE,
                 ModItems.ONYX_PICKAXE,
-                ModItems.GRAPHENE_PICKAXE,
+//                ModItems.GRAPHENE_PICKAXE,
                 ModItems.ADAMANTIUM_PICKAXE,
                 ModItems.ENDERITE_PICKAXE);
         getOrCreateTagBuilder(ItemTags.SHOVELS).add(
@@ -90,7 +90,7 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
                 ModItems.TOPAZ_SHOVEL, ModItems.TOURMALINE_SHOVEL, ModItems.CITRINE_SHOVEL, ModItems.RUBY_SHOVEL, ModItems.SAPPHIRE_SHOVEL, ModItems.SPINEL_SHOVEL,
                 ModItems.MOISSANITE_SHOVEL, ModItems.TURQUOISE_SHOVEL,
                 ModItems.ONYX_SHOVEL,
-                ModItems.GRAPHENE_SHOVEL,
+//                ModItems.GRAPHENE_SHOVEL,
                 ModItems.ADAMANTIUM_SHOVEL,
                 ModItems.ENDERITE_SHOVEL);
         getOrCreateTagBuilder(ItemTags.AXES).add(
@@ -99,7 +99,7 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
                 ModItems.TANZANITE_AXE, ModItems.TOPAZ_AXE, ModItems.TOURMALINE_AXE,
                 ModItems.CITRINE_AXE, ModItems.RUBY_AXE, ModItems.SAPPHIRE_AXE,
                 ModItems.SPINEL_AXE,ModItems.MOISSANITE_AXE, ModItems.TURQUOISE_AXE, ModItems.ONYX_AXE,
-                ModItems.GRAPHENE_AXE,
+//                ModItems.GRAPHENE_AXE,
                 ModItems.ADAMANTIUM_AXE,
                 ModItems.ENDERITE_AXE
         );
@@ -118,7 +118,7 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
                 ModItems.MOISSANITE_HOE,
                 ModItems.TURQUOISE_HOE,
                 ModItems.ONYX_HOE,
-                ModItems.GRAPHENE_HOE,
+//                ModItems.GRAPHENE_HOE,
                 ModItems.ADAMANTIUM_HOE,
                 ModItems.ENDERITE_HOE
         );
@@ -150,7 +150,7 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
                 ModItems.RUBY_SWORD, ModItems.RUBY_BATTLE_AXE, ModItems.RUBY_BATTLE_MACE,
                 ModItems.SAPPHIRE_SWORD, ModItems.SAPPHIRE_BATTLE_AXE, ModItems.SAPPHIRE_BATTLE_MACE,
                 ModItems.MOISSANITE_SWORD, ModItems.MOISSANITE_BATTLE_AXE, ModItems.MOISSANITE_BATTLE_MACE,
-                ModItems.GRAPHENE_SWORD, ModItems.GRAPHENE_BATTLE_AXE, ModItems.GRAPHENE_BATTLE_MACE,
+//                ModItems.GRAPHENE_SWORD, ModItems.GRAPHENE_BATTLE_AXE, ModItems.GRAPHENE_BATTLE_MACE,
                 ModItems.OBSIDIAN_SWORD, ModItems.OBSIDIAN_BATTLE_AXE, ModItems.OBSIDIAN_BATTLE_MACE,
                 ModItems.NETHERITE_BATTLE_AXE, ModItems.NETHERITE_BATTLE_MACE, ModItems.NETHERITE_DAGGER,
                 ModItems.ADAMANTIUM_BATTLE_AXE, ModItems.ADAMANTIUM_BATTLE_MACE, ModItems.ADAMANTIUM_DAGGER,
@@ -159,7 +159,8 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
                 ModItems.TIN_DAGGER, ModItems.COPPER_DAGGER, ModItems.SILVER_DAGGER, ModItems.BRONZE_DAGGER, ModItems.COBALT_DAGGER, ModItems.STERLING_SILVER_DAGGER, ModItems.ROSE_GOLD_DAGGER,
                 ModItems.CARBON_STEEL_DAGGER, ModItems.HARDENED_STEEL_DAGGER, ModItems.AMETHYST_DAGGER, ModItems.EMERALD_DAGGER, ModItems.OBSIDIAN_DAGGER, ModItems.TOPAZ_DAGGER,
                 ModItems.TOURMALINE_DAGGER, ModItems.CITRINE_DAGGER, ModItems.RUBY_DAGGER, ModItems.SAPPHIRE_DAGGER, ModItems.SPINEL_DAGGER, ModItems.MOISSANITE_DAGGER,
-                ModItems.TURQUOISE_DAGGER, ModItems.ONYX_DAGGER, ModItems.GRAPHENE_DAGGER
+                ModItems.TURQUOISE_DAGGER, ModItems.ONYX_DAGGER
+//                ,ModItems.GRAPHENE_DAGGER
                 );
 
         //Raw Materials
@@ -173,7 +174,7 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
                 ModItems.STERLING_SILVER_INGOT, ModItems.ROSE_GOLD_INGOT, ModItems.BRONZE_INGOT, ModItems.COBALT_INGOT,
                 ModItems.CARBON_STEEL_INGOT, ModItems.HARDENED_STEEL_INGOT, ModItems.TURQUOISE_GEM, ModItems.ONYX_GEM, ModItems.CITRINE_GEM, ModItems.TANZANITE_GEM,
                 ModItems.TOURMALINE_GEM, ModItems.TOPAZ_GEM, ModItems.SPINEL_GEM, ModItems.SAPPHIRE_GEM, ModItems.RUBY_GEM, ModItems.MOISSANITE_GEM,
-                ModItems.GRAPHENE_GEM, ModItems.OBSIDIAN_INGOT, ModItems.ADAMANTIUM_INGOT, ModItems.ENDERITE_INGOT
+                ModItems.GRAPHENE_CHAINMAIL, ModItems.OBSIDIAN_INGOT, ModItems.ADAMANTIUM_INGOT, ModItems.ENDERITE_INGOT
                 );
         //Trimmable Armor
         getOrCreateTagBuilder(ItemTags.TRIMMABLE_ARMOR).add(
@@ -199,7 +200,7 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
                 ModItems.SAPPHIRE_HELMET, ModItems.SAPPHIRE_CHESTPLATE, ModItems.SAPPHIRE_LEGGINGS, ModItems.SAPPHIRE_BOOTS,
                 ModItems.SPINEL_HELMET, ModItems.SPINEL_CHESTPLATE, ModItems.SPINEL_LEGGINGS, ModItems.SPINEL_BOOTS,
                 ModItems.MOISSANITE_HELMET, ModItems.MOISSANITE_CHESTPLATE, ModItems.MOISSANITE_LEGGINGS, ModItems.MOISSANITE_BOOTS,
-                ModItems.GRAPHENE_HELMET, ModItems.GRAPHENE_CHESTPLATE, ModItems.GRAPHENE_LEGGINGS, ModItems.GRAPHENE_BOOTS,
+                ModItems.GRAPHENE_CHAINMAIL_HELMET, ModItems.GRAPHENE_CHAINMAIL_CHESTPLATE, ModItems.GRAPHENE_CHAINMAIL_LEGGINGS, ModItems.GRAPHENE_CHAINMAIL_BOOTS,
                 ModItems.OBSIDIAN_HELMET, ModItems.OBSIDIAN_CHESTPLATE, ModItems.OBSIDIAN_LEGGINGS, ModItems.OBSIDIAN_BOOTS,
                 ModItems.ADAMANTIUM_HELMET, ModItems.ADAMANTIUM_CHESTPLATE, ModItems.ADAMANTIUM_LEGGINGS, ModItems.ADAMANTIUM_BOOTS,
                 ModItems.ENDERITE_HELMET, ModItems.ENDERITE_CHESTPLATE, ModItems.ENDERITE_LEGGINGS, ModItems.ENDERITE_BOOTS
@@ -228,7 +229,7 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
                 ModItems.SPINEL_HELMET, ModItems.SPINEL_CHESTPLATE, ModItems.SPINEL_LEGGINGS, ModItems.SPINEL_BOOTS,
                 ModItems.EMERALD_HELMET, ModItems.EMERALD_CHESTPLATE, ModItems.EMERALD_LEGGINGS, ModItems.EMERALD_BOOTS,
                 ModItems.MOISSANITE_HELMET, ModItems.MOISSANITE_CHESTPLATE, ModItems.MOISSANITE_LEGGINGS, ModItems.MOISSANITE_BOOTS,
-                ModItems.GRAPHENE_HELMET, ModItems.GRAPHENE_CHESTPLATE, ModItems.GRAPHENE_LEGGINGS, ModItems.GRAPHENE_BOOTS,
+                ModItems.GRAPHENE_CHAINMAIL_HELMET, ModItems.GRAPHENE_CHAINMAIL_CHESTPLATE, ModItems.GRAPHENE_CHAINMAIL_LEGGINGS, ModItems.GRAPHENE_CHAINMAIL_BOOTS,
                 ModItems.OBSIDIAN_HELMET, ModItems.OBSIDIAN_CHESTPLATE, ModItems.OBSIDIAN_LEGGINGS, ModItems.OBSIDIAN_BOOTS,
                 ModItems.ADAMANTIUM_HELMET, ModItems.ADAMANTIUM_CHESTPLATE, ModItems.ADAMANTIUM_LEGGINGS, ModItems.ADAMANTIUM_BOOTS,
                 ModItems.ENDERITE_HELMET, ModItems.ENDERITE_CHESTPLATE, ModItems.ENDERITE_LEGGINGS, ModItems.ENDERITE_BOOTS
@@ -238,7 +239,7 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
                 ModItems.CARBON_STEEL_HELMET, ModItems.HARDENED_STEEL_HELMET, ModItems.AMETHYST_HELMET, ModItems.EMERALD_HELMET, ModItems.TURQUOISE_HELMET, ModItems.LAPIS_LAZULI_HELMET,
                 ModItems.TOURMALINE_HELMET, ModItems.TOPAZ_HELMET, ModItems.TANZANITE_HELMET,
                 ModItems.RUBY_HELMET, ModItems.SAPPHIRE_HELMET, ModItems.SPINEL_HELMET, ModItems.CITRINE_HELMET, ModItems.MOISSANITE_HELMET, ModItems.ONYX_HELMET, ModItems.OBSIDIAN_HELMET,
-                ModItems.GRAPHENE_HELMET,
+                ModItems.GRAPHENE_CHAINMAIL_HELMET,
                 ModItems.ADAMANTIUM_HELMET,
                 ModItems.ENDERITE_HELMET
         );
@@ -248,7 +249,7 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
                 ModItems.TOURMALINE_CHESTPLATE, ModItems.TOPAZ_CHESTPLATE,  ModItems.TANZANITE_CHESTPLATE,
                 ModItems.RUBY_CHESTPLATE, ModItems.SAPPHIRE_CHESTPLATE, ModItems.SPINEL_CHESTPLATE, ModItems.CITRINE_CHESTPLATE, ModItems.MOISSANITE_CHESTPLATE, ModItems.ONYX_CHESTPLATE,
                 ModItems.OBSIDIAN_CHESTPLATE,
-                ModItems.GRAPHENE_CHESTPLATE,
+                ModItems.GRAPHENE_CHAINMAIL_CHESTPLATE,
                 ModItems.ADAMANTIUM_CHESTPLATE,
                 ModItems.ENDERITE_CHESTPLATE,
 
@@ -257,7 +258,7 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
                 ModItems.TOURMALINE_HORSE_ARMOR, ModItems.TOPAZ_HORSE_ARMOR,  ModItems.TANZANITE_HORSE_ARMOR,
                 ModItems.RUBY_HORSE_ARMOR, ModItems.SAPPHIRE_HORSE_ARMOR, ModItems.SPINEL_HORSE_ARMOR, ModItems.CITRINE_HORSE_ARMOR, ModItems.MOISSANITE_HORSE_ARMOR, ModItems.ONYX_HORSE_ARMOR,
                 ModItems.OBSIDIAN_HORSE_ARMOR,
-                ModItems.GRAPHENE_HORSE_ARMOR,
+//                ModItems.GRAPHENE_HORSE_ARMOR,
                 ModItems.ADAMANTIUM_HORSE_ARMOR,
                 ModItems.ENDERITE_HORSE_ARMOR,
 
@@ -268,7 +269,7 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
                 ModItems.CARBON_STEEL_LEGGINGS, ModItems.HARDENED_STEEL_LEGGINGS, ModItems.AMETHYST_LEGGINGS, ModItems.EMERALD_LEGGINGS, ModItems.TURQUOISE_LEGGINGS, ModItems.LAPIS_LAZULI_LEGGINGS,
                 ModItems.TOURMALINE_LEGGINGS, ModItems.TOPAZ_LEGGINGS, ModItems.TANZANITE_LEGGINGS,
                 ModItems.RUBY_LEGGINGS, ModItems.SAPPHIRE_LEGGINGS, ModItems.SPINEL_LEGGINGS, ModItems.CITRINE_LEGGINGS, ModItems.MOISSANITE_LEGGINGS, ModItems.ONYX_LEGGINGS, ModItems.OBSIDIAN_LEGGINGS,
-                ModItems.GRAPHENE_LEGGINGS,
+                ModItems.GRAPHENE_CHAINMAIL_LEGGINGS,
                 ModItems.ADAMANTIUM_LEGGINGS,
                 ModItems.ENDERITE_LEGGINGS
         );
@@ -277,7 +278,7 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
                 ModItems.CARBON_STEEL_BOOTS, ModItems.HARDENED_STEEL_BOOTS, ModItems.AMETHYST_BOOTS, ModItems.EMERALD_BOOTS, ModItems.TURQUOISE_BOOTS, ModItems.LAPIS_LAZULI_BOOTS,
                 ModItems.TOURMALINE_BOOTS, ModItems.TOPAZ_BOOTS, ModItems.TANZANITE_BOOTS,
                 ModItems.RUBY_BOOTS, ModItems.SAPPHIRE_BOOTS, ModItems.SPINEL_BOOTS, ModItems.CITRINE_BOOTS, ModItems.MOISSANITE_BOOTS, ModItems.ONYX_BOOTS, ModItems.OBSIDIAN_BOOTS,
-                ModItems.GRAPHENE_BOOTS,
+                ModItems.GRAPHENE_CHAINMAIL_BOOTS,
                 ModItems.ADAMANTIUM_BOOTS,
                 ModItems.ENDERITE_BOOTS
         );
@@ -287,7 +288,7 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
                 ModItems.CARBON_STEEL_HELMET, ModItems.HARDENED_STEEL_HELMET, ModItems.AMETHYST_HELMET, ModItems.EMERALD_HELMET, ModItems.TURQUOISE_HELMET, ModItems.LAPIS_LAZULI_HELMET,
                 ModItems.TOURMALINE_HELMET, ModItems.TOPAZ_HELMET, ModItems.TANZANITE_HELMET,
                 ModItems.RUBY_HELMET, ModItems.SAPPHIRE_HELMET, ModItems.SPINEL_HELMET, ModItems.CITRINE_HELMET, ModItems.MOISSANITE_HELMET, ModItems.ONYX_HELMET, ModItems.OBSIDIAN_HELMET,
-                ModItems.GRAPHENE_HELMET,
+                ModItems.GRAPHENE_CHAINMAIL_HELMET,
                 ModItems.ADAMANTIUM_HELMET,
                 ModItems.ENDERITE_HELMET
         );
@@ -297,7 +298,7 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
                 ModItems.TOURMALINE_CHESTPLATE, ModItems.TOPAZ_CHESTPLATE, ModItems.TANZANITE_CHESTPLATE,
                 ModItems.RUBY_CHESTPLATE, ModItems.SAPPHIRE_CHESTPLATE, ModItems.SPINEL_CHESTPLATE, ModItems.CITRINE_CHESTPLATE, ModItems.MOISSANITE_CHESTPLATE, ModItems.ONYX_CHESTPLATE,
                 ModItems.OBSIDIAN_CHESTPLATE,
-                ModItems.GRAPHENE_CHESTPLATE,
+                ModItems.GRAPHENE_CHAINMAIL_CHESTPLATE,
                 ModItems.ADAMANTIUM_CHESTPLATE,
                 ModItems.ENDERITE_CHESTPLATE
         );
@@ -306,7 +307,7 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
                 ModItems.CARBON_STEEL_LEGGINGS, ModItems.HARDENED_STEEL_LEGGINGS, ModItems.AMETHYST_LEGGINGS, ModItems.EMERALD_LEGGINGS, ModItems.TURQUOISE_LEGGINGS, ModItems.LAPIS_LAZULI_LEGGINGS,
                 ModItems.TOURMALINE_LEGGINGS, ModItems.TOPAZ_LEGGINGS, ModItems.TANZANITE_LEGGINGS,
                 ModItems.RUBY_LEGGINGS, ModItems.SAPPHIRE_LEGGINGS, ModItems.SPINEL_LEGGINGS, ModItems.CITRINE_LEGGINGS, ModItems.MOISSANITE_LEGGINGS, ModItems.ONYX_LEGGINGS, ModItems.OBSIDIAN_LEGGINGS,
-                ModItems.GRAPHENE_LEGGINGS,
+                ModItems.GRAPHENE_CHAINMAIL_LEGGINGS,
                 ModItems.ADAMANTIUM_LEGGINGS,
                 ModItems.ENDERITE_LEGGINGS
         );
@@ -315,7 +316,7 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
                 ModItems.CARBON_STEEL_BOOTS, ModItems.HARDENED_STEEL_BOOTS, ModItems.AMETHYST_BOOTS, ModItems.EMERALD_BOOTS, ModItems.TURQUOISE_BOOTS, ModItems.LAPIS_LAZULI_BOOTS,
                 ModItems.TOURMALINE_BOOTS, ModItems.TOPAZ_BOOTS, ModItems.TANZANITE_BOOTS,
                 ModItems.RUBY_BOOTS, ModItems.SAPPHIRE_BOOTS, ModItems.SPINEL_BOOTS, ModItems.CITRINE_BOOTS, ModItems.MOISSANITE_BOOTS, ModItems.ONYX_BOOTS, ModItems.OBSIDIAN_BOOTS,
-                ModItems.GRAPHENE_BOOTS,
+                ModItems.GRAPHENE_CHAINMAIL_BOOTS,
                 ModItems.ADAMANTIUM_BOOTS,
                 ModItems.ENDERITE_BOOTS
         );
@@ -399,7 +400,7 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
                 .add(ModItems.MOISSANITE_HORSE_ARMOR)
                 .add(ModItems.ONYX_HORSE_ARMOR)
                 .add(ModItems.OBSIDIAN_HORSE_ARMOR)
-                .add(ModItems.GRAPHENE_HORSE_ARMOR)
+//                .add(ModItems.GRAPHENE_HORSE_ARMOR)
                 .add(ModItems.NETHERITE_HORSE_ARMOR)
                 .add(ModItems.ADAMANTIUM_HORSE_ARMOR)
                 .add(ModItems.ENDERITE_HORSE_ARMOR)
@@ -418,7 +419,7 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
                 .add(ModItems.HARDENED_STEEL_WOLF_ARMOR)
                 .add(ModItems.DIAMOND_WOLF_ARMOR);
 
-        getOrCreateTagBuilder(ModTags.Items.SHEAR_REMOVES_SADDLE).add(Items.SADDLE);
+//        getOrCreateTagBuilder(ModTags.Items.SHEAR_REMOVES_SADDLE).add(Items.SADDLE);
 
         getOrCreateTagBuilder(ModTags.Items.ANTHRACITE).add(ModItems.ANTHRACITE);
         getOrCreateTagBuilder(ModTags.Items.LAPIS_LAZULI_DUST).add(ModItems.LAPIS_LAZULI_DUST);
@@ -453,7 +454,7 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
         getOrCreateTagBuilder(ModTags.Items.SAPPHIRE_GEM).add(ModItems.SAPPHIRE_GEM);
         getOrCreateTagBuilder(ModTags.Items.SPINEL_GEM).add(ModItems.SPINEL_GEM);
         getOrCreateTagBuilder(ModTags.Items.MOISSANITE_GEM).add(ModItems.MOISSANITE_GEM);
-        getOrCreateTagBuilder(ModTags.Items.GRAPHENE_GEM).add(ModItems.GRAPHENE_GEM);
+        getOrCreateTagBuilder(ModTags.Items.GRAPHENE_GEM).add(ModItems.GRAPHENE_CHAINMAIL);
         getOrCreateTagBuilder(ModTags.Items.OBSIDIAN_INGOT).add(ModItems.OBSIDIAN_INGOT);
         getOrCreateTagBuilder(ModTags.Items.ADAMANTIUM_INGOT).add(ModItems.ADAMANTIUM_INGOT);
         getOrCreateTagBuilder(ModTags.Items.ENDERITE_INGOT).add(ModItems.ENDERITE_INGOT);

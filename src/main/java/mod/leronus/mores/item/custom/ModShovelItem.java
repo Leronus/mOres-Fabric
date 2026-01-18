@@ -12,7 +12,7 @@ import net.minecraft.text.Text;
 import java.util.List;
 
 public class ModShovelItem extends ShovelItem {
-    public ModShovelItem(ToolMaterial material, float attackDamage, float attackSpeed, Settings settings) {
+    public ModShovelItem(ToolMaterial material, Settings settings) {
         super(material,settings);
     }
 

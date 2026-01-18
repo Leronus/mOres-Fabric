@@ -191,10 +191,10 @@ public final class ModTrimmedArmorItemModelProvider implements DataProvider {
                 writeArmor(writer, models, ModItems.ONYX_LEGGINGS, "leggings"),
                 writeArmor(writer, models, ModItems.ONYX_BOOTS, "boots"),
 
-                writeArmor(writer, models, ModItems.GRAPHENE_HELMET, "helmet"),
-                writeArmor(writer, models, ModItems.GRAPHENE_CHESTPLATE, "chestplate"),
-                writeArmor(writer, models, ModItems.GRAPHENE_LEGGINGS, "leggings"),
-                writeArmor(writer, models, ModItems.GRAPHENE_BOOTS, "boots"),
+                writeArmor(writer, models, ModItems.GRAPHENE_CHAINMAIL_HELMET, "helmet"),
+                writeArmor(writer, models, ModItems.GRAPHENE_CHAINMAIL_CHESTPLATE, "chestplate"),
+                writeArmor(writer, models, ModItems.GRAPHENE_CHAINMAIL_LEGGINGS, "leggings"),
+                writeArmor(writer, models, ModItems.GRAPHENE_CHAINMAIL_BOOTS, "boots"),
 
                 writeArmor(writer, models, ModItems.ADAMANTIUM_HELMET, "helmet"),
                 writeArmor(writer, models, ModItems.ADAMANTIUM_CHESTPLATE, "chestplate"),

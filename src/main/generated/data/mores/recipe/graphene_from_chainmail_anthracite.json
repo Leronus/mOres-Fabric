@@ -1,0 +1,15 @@
+{
+  "type": "mores:alloying",
+  "experience": 0.3,
+  "ingredient_a": {
+    "item": "mores:chainmail"
+  },
+  "ingredient_b": {
+    "item": "mores:anthracite"
+  },
+  "result": {
+    "count": 1,
+    "id": "mores:graphene_chainmail"
+  },
+  "theme": "blue"
+}

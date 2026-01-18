@@ -54,7 +54,7 @@ public final class ModArmorMaterials {
                     () -> Ingredient.ofItems(ModItems.BRONZE_INGOT), "bronze", 0.5f, 0.0f));
 
     public static final RegistryEntry<ArmorMaterial> COBALT = register("cobalt",
-            human(2, 5, 6, 2, 6, 7, SoundEvents.ITEM_ARMOR_EQUIP_DIAMOND,
+            human(2, 5, 6, 2, 6, 7, SoundEvents.ITEM_ARMOR_EQUIP_IRON,
                     () -> Ingredient.ofItems(ModItems.COBALT_INGOT), "cobalt", 0.5f, 0.0f));
 
     public static final RegistryEntry<ArmorMaterial> CARBON_STEEL = register("carbon_steel",
@@ -62,7 +62,7 @@ public final class ModArmorMaterials {
                     () -> Ingredient.ofItems(ModItems.CARBON_STEEL_INGOT), "carbon_steel", 0.5f, 0.0f));
 
     public static final RegistryEntry<ArmorMaterial> HARDENED_STEEL = register("hardened_steel",
-            human(2, 5, 6, 2, 10, 12, SoundEvents.ITEM_ARMOR_EQUIP_IRON,
+            human(2, 5, 6, 2, 10, 12, SoundEvents.ITEM_ARMOR_EQUIP_NETHERITE,
                     () -> Ingredient.ofItems(ModItems.HARDENED_STEEL_INGOT), "hardened_steel", 1.0f, 0.1f));
 
     // Gems / special
@@ -119,12 +119,12 @@ public final class ModArmorMaterials {
                     () -> Ingredient.ofItems(ModItems.ONYX_GEM), "onyx", 2.0f, 0.0f));
 
     // High tier
-    public static final RegistryEntry<ArmorMaterial> GRAPHENE = register("graphene",
-            human(3, 6, 6, 3, 13, 16, SoundEvents.ITEM_ARMOR_EQUIP_NETHERITE,
-                    () -> Ingredient.ofItems(ModItems.GRAPHENE_GEM), "graphene", 2.0f, 0.2f));
+    public static final RegistryEntry<ArmorMaterial> GRAPHENE_CHAINMAIL = register("graphene_chainmail",
+            human(2, 5, 6, 2, 8, 16, SoundEvents.ITEM_ARMOR_EQUIP_CHAIN,
+                    () -> Ingredient.ofItems(ModItems.GRAPHENE_CHAINMAIL), "graphene_chainmail", 2.0f, 0.2f));
 
     public static final RegistryEntry<ArmorMaterial> OBSIDIAN = register("obsidian",
-            human(3, 6, 8, 3, 11, 19, SoundEvents.ITEM_ARMOR_EQUIP_DIAMOND,
+            human(3, 6, 8, 3, 11, 19, SoundEvents.ITEM_ARMOR_EQUIP_NETHERITE,
                     () -> Ingredient.ofItems(ModItems.OBSIDIAN_INGOT), "obsidian", 3.0f, 0.1f));
 
     public static final RegistryEntry<ArmorMaterial> ADAMANTIUM = register("adamantium",

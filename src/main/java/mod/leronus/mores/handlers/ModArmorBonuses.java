@@ -8,6 +8,8 @@ import net.minecraft.entity.attribute.EntityAttributeModifier;
 import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
+import net.minecraft.entity.mob.EndermanEntity;
+import net.minecraft.entity.mob.PiglinBruteEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ArmorItem;
 import net.minecraft.item.ArmorMaterial;
@@ -15,9 +17,17 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.util.Identifier;
+import net.minecraft.util.math.Box;
 
 import java.util.*;
 
+/**
+ * Full-player-armor-set bonuses.
+ *
+ * Notes:
+ * - “Infinite” potion effects are applied with duration -1.
+ * - Immunities/pacification are handled here on a short interval to feel responsive.
+ */
 public final class ModArmorBonuses {
 
     private ModArmorBonuses() {}
@@ -25,34 +35,36 @@ public final class ModArmorBonuses {
     private static final Identifier SPINEL_MAX_HEALTH_ID =
             Identifier.of("mores", "spinel_max_health_bonus");
 
-    private static final int CHECK_INTERVAL_TICKS = 20; // 1 second
+    private static final Identifier CITRINE_REACH_ID =
+            Identifier.of("mores", "citrine_block_reach_bonus");
+
+    private static final int CHECK_INTERVAL_TICKS = 5; // 0.25s
 
     private static final Map<UUID, Long> NEXT_CHECK = new HashMap<>();
 
-    // “Signature” templates: infinite duration (-1), ambient=false, particles=false, icon=true
+    // Signature templates: duration -1, ambient=false, particles=false, icon=true
     private static final Map<ArmorMaterial, List<StatusEffectInstance>> EFFECTS_BY_MATERIAL = new HashMap<>();
 
     public static void registerArmorBonuses() {
-        //Rose gold piglin immunity
-
-        put(ModArmorMaterials.HARDENED_STEEL.value(), moresEffect(net.minecraft.entity.effect.StatusEffects.STRENGTH, 0));
-
-        put(ModArmorMaterials.AMETHYST.value(), moresEffect(net.minecraft.entity.effect.StatusEffects.SLOW_FALLING, 0));
-        put(ModArmorMaterials.EMERALD.value(), moresEffect(net.minecraft.entity.effect.StatusEffects.LUCK, 0));
-        put(ModArmorMaterials.TURQUOISE.value(), moresEffect(net.minecraft.entity.effect.StatusEffects.DOLPHINS_GRACE, 0));
+        // Effects (simple “always-on while full set”)
+        put(ModArmorMaterials.HARDENED_STEEL.value(), moresEffect(StatusEffects.STRENGTH, 0));
         put(ModArmorMaterials.LAPIS_LAZULI.value(), moresEffect(StatusEffects.WATER_BREATHING, 0));
+        put(ModArmorMaterials.AMETHYST.value(), moresEffect(StatusEffects.SLOW_FALLING, 0));
+        put(ModArmorMaterials.GRAPHENE_CHAINMAIL.value(), moresEffect(StatusEffects.JUMP_BOOST, 0));
+        put(ModArmorMaterials.TOURMALINE.value(), moresEffect(StatusEffects.REGENERATION, 0));
+        put(ModArmorMaterials.TOPAZ.value(), moresEffect(StatusEffects.HASTE, 0));
+        put(ModArmorMaterials.TANZANITE.value(), moresEffect(StatusEffects.SPEED, 0));
+        put(ModArmorMaterials.RUBY.value(), moresEffect(StatusEffects.FIRE_RESISTANCE, 0));
+        put(ModArmorMaterials.TURQUOISE.value(), moresEffect(StatusEffects.DOLPHINS_GRACE, 0));
+        put(ModArmorMaterials.EMERALD.value(), moresEffect(StatusEffects.LUCK, 0));
+        put(ModArmorMaterials.SAPPHIRE.value(), moresEffect(StatusEffects.NIGHT_VISION, 0));
 
-        put(ModArmorMaterials.TOPAZ.value(), moresEffect(net.minecraft.entity.effect.StatusEffects.HASTE, 0));
-        put(ModArmorMaterials.TOURMALINE.value(), moresEffect(net.minecraft.entity.effect.StatusEffects.REGENERATION, 0));
-
-        put(ModArmorMaterials.RUBY.value(), moresEffect(net.minecraft.entity.effect.StatusEffects.FIRE_RESISTANCE, 0));
-
-        put(ModArmorMaterials.SAPPHIRE.value(), moresEffect(net.minecraft.entity.effect.StatusEffects.NIGHT_VISION, 0));
-//        put(ModArmorMaterials.MOISSANITE.value(), moresEffect(net.minecraft.entity.effect.StatusEffects.JUMP_BOOST, 0));
-
-        //Onyx wither resistance
-
-        //Enderite endermen immunity
+        // Spinel extra hearts handled via attribute (see tick)
+        // Citrine +1 block reach handled via attribute (see tick)
+        // Moissanite poison immunity handled via tick (see tick)
+        // Onyx wither immunity handled via tick (see tick)
+        // Rose Gold piglin brute pacification handled via tick (see tick)
+        // Enderite endermen pacification handled via tick (see tick)
 
         ServerTickEvents.END_SERVER_TICK.register(ModArmorBonuses::onServerTick);
     }
@@ -61,10 +73,6 @@ public final class ModArmorBonuses {
         EFFECTS_BY_MATERIAL.computeIfAbsent(mat, k -> new ArrayList<>()).add(effect);
     }
 
-    /**
-     * Create a “signature” effect instance that we can recognize later.
-     * Duration is infinite (-1) so players see ∞ while wearing the set.
-     */
     private static StatusEffectInstance moresEffect(net.minecraft.registry.entry.RegistryEntry<net.minecraft.entity.effect.StatusEffect> effect, int amplifier) {
         return new StatusEffectInstance(effect, -1, amplifier, false, false, true);
     }
@@ -84,17 +92,17 @@ public final class ModArmorBonuses {
     }
 
     private static void tickPlayer(PlayerEntity player) {
-        // If disabled: remove ours and exit
-        if (!CommonConfig.enableArmorSetBonuses || !CommonConfig.enablePotionHeartEffects) {
+        if (!CommonConfig.enableArmorSetBonuses) {
             removeOnlyOurInfiniteEffects(player);
             removeSpinelBonus(player);
+            removeCitrineReach(player);
             return;
         }
 
         ArmorMaterial fullSetMaterial = getFullSetMaterialOrNull(player);
 
         if (fullSetMaterial != null) {
-            // Apply effects for this set
+            // 1) Standard “infinite” effects
             List<StatusEffectInstance> list = EFFECTS_BY_MATERIAL.get(fullSetMaterial);
             if (list != null) {
                 for (StatusEffectInstance template : list) {
@@ -102,22 +110,39 @@ public final class ModArmorBonuses {
                 }
             }
 
-            // Spinel bonus
+            // 2) Attribute bonuses
             if (fullSetMaterial == ModArmorMaterials.SPINEL.value()) {
                 applySpinelBonus(player);
             } else {
                 removeSpinelBonus(player);
             }
+
+            if (fullSetMaterial == ModArmorMaterials.CITRINE.value()) {
+                applyCitrineReach(player);
+            } else {
+                removeCitrineReach(player);
+            }
+
+            // 3) Immunities / pacification
+            if (fullSetMaterial == ModArmorMaterials.MOISSANITE.value()) {
+                player.removeStatusEffect(StatusEffects.POISON);
+            }
+            if (fullSetMaterial == ModArmorMaterials.ONYX.value()) {
+                player.removeStatusEffect(StatusEffects.WITHER);
+            }
+            if (fullSetMaterial == ModArmorMaterials.ROSE_GOLD.value()) {
+                clearPiglinBruteTargets(player, 32.0);
+            }
+            if (fullSetMaterial == ModArmorMaterials.ENDERITE.value()) {
+                clearEndermanTargets(player, 48.0);
+            }
         } else {
-            // Not a full set: remove ours immediately
             removeOnlyOurInfiniteEffects(player);
             removeSpinelBonus(player);
+            removeCitrineReach(player);
         }
     }
 
-    /**
-     * Returns the shared ArmorMaterial if all 4 armor slots contain ArmorItem of the same material, otherwise returns null.
-     */
     private static ArmorMaterial getFullSetMaterialOrNull(PlayerEntity player) {
         ArmorItem[] armor = getArmorItemsOrNull(player);
         if (armor == null) return null;
@@ -128,9 +153,6 @@ public final class ModArmorBonuses {
                 && armor[3].getMaterial().value() == m0) ? m0 : null;
     }
 
-    /**
-     * Returns {boots, leggings, chest, helmet} if all 4 slots are filled with ArmorItem, else null.
-     */
     private static ArmorItem[] getArmorItemsOrNull(PlayerEntity player) {
         ItemStack bootsStack = player.getInventory().getArmorStack(0);
         ItemStack leggingsStack = player.getInventory().getArmorStack(1);
@@ -155,10 +177,8 @@ public final class ModArmorBonuses {
             return;
         }
 
-        // don't touch other mods' version if signature differs
         if (!looksLikeOurEffect(cur, template)) return;
 
-        // if ours but not infinite, re-apply
         if (!cur.isInfinite()) {
             player.addStatusEffect(copy(template));
         }
@@ -169,7 +189,6 @@ public final class ModArmorBonuses {
             for (StatusEffectInstance template : list) {
                 StatusEffectInstance cur = player.getStatusEffect(template.getEffectType());
                 if (cur == null) continue;
-
                 if (cur.isInfinite() && looksLikeOurEffect(cur, template)) {
                     player.removeStatusEffect(template.getEffectType());
                 }
@@ -187,7 +206,7 @@ public final class ModArmorBonuses {
     private static StatusEffectInstance copy(StatusEffectInstance template) {
         return new StatusEffectInstance(
                 template.getEffectType(),
-                template.getDuration(), // -1
+                template.getDuration(),
                 template.getAmplifier(),
                 template.isAmbient(),
                 template.shouldShowParticles(),
@@ -195,6 +214,9 @@ public final class ModArmorBonuses {
         );
     }
 
+    // =========================
+    // SPINEL: +2 hearts (+4 max health)
+    // =========================
     private static void applySpinelBonus(PlayerEntity player) {
         EntityAttributeInstance attr = player.getAttributeInstance(EntityAttributes.GENERIC_MAX_HEALTH);
         if (attr == null) return;
@@ -217,6 +239,59 @@ public final class ModArmorBonuses {
             float max = (float) player.getMaxHealth();
             if (player.getHealth() > max) {
                 player.setHealth(max);
+            }
+        }
+    }
+
+    // =========================
+    // CITRINE: +1 block interaction range
+    // =========================
+    private static void applyCitrineReach(PlayerEntity player) {
+        EntityAttributeInstance attr = player.getAttributeInstance(EntityAttributes.PLAYER_BLOCK_INTERACTION_RANGE);
+        if (attr == null) return;
+        if (attr.getModifier(CITRINE_REACH_ID) != null) return;
+
+        attr.addTemporaryModifier(new EntityAttributeModifier(
+                CITRINE_REACH_ID,
+                1.0,
+                EntityAttributeModifier.Operation.ADD_VALUE
+        ));
+    }
+
+    private static void removeCitrineReach(PlayerEntity player) {
+        EntityAttributeInstance attr = player.getAttributeInstance(EntityAttributes.PLAYER_BLOCK_INTERACTION_RANGE);
+        if (attr == null) return;
+        if (attr.getModifier(CITRINE_REACH_ID) != null) {
+            attr.removeModifier(CITRINE_REACH_ID);
+        }
+    }
+
+    // =========================
+    // ROSE GOLD: pacify Piglin Brutes
+    // =========================
+    private static void clearPiglinBruteTargets(PlayerEntity player, double radius) {
+        if (!(player instanceof ServerPlayerEntity sp)) return;
+        var world = sp.getServerWorld();
+
+        Box box = player.getBoundingBox().expand(radius);
+        for (PiglinBruteEntity brute : world.getEntitiesByClass(PiglinBruteEntity.class, box, b -> true)) {
+            if (brute.getTarget() == player) {
+                brute.setTarget(null);
+            }
+        }
+    }
+
+    // =========================
+    // ENDERITE: pacify Endermen
+    // =========================
+    private static void clearEndermanTargets(PlayerEntity player, double radius) {
+        if (!(player instanceof ServerPlayerEntity sp)) return;
+        var world = sp.getServerWorld();
+
+        Box box = player.getBoundingBox().expand(radius);
+        for (EndermanEntity enderman : world.getEntitiesByClass(EndermanEntity.class, box, e -> true)) {
+            if (enderman.getTarget() == player) {
+                enderman.setTarget(null);
             }
         }
     }
