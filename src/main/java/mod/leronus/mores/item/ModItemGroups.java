@@ -15,69 +15,66 @@ public class ModItemGroups {
             Identifier.of(Mores.MOD_ID, "materials"),
             FabricItemGroup.builder().displayName(Text.translatable("creativemodetab.mores_materials"))
                     .icon(() -> new ItemStack(ModItems.RUBY_GEM)).entries((displayContext, entries) -> {
-                       entries.add(ModItems.ANTHRACITE);
-                       entries.add(ModItems.TURQUOISE);
-                       entries.add(ModItems.CITRINE);
-                       entries.add(ModItems.ONYX);
+                    entries.add(ModItems.RAW_TIN);
+                    entries.add(ModItems.RAW_SILVER);
+                    entries.add(ModItems.RAW_COBALT);
+                    entries.add(ModItems.CITRINE);
+                    entries.add(ModItems.ONYX);
+                    entries.add(ModItems.QUARTZ_DUST);
+                    entries.add(ModItems.AMETHYST_DUST);
+                    entries.add(ModItems.LAPIS_LAZULI_DUST);
+                    entries.add(ModItems.TURQUOISE_DUST);
 
-                       entries.add(ModItems.OBSIDIAN_UPGRADE_SMITHING_TEMPLATE);
-                       entries.add(ModItems.HARDENED_STEEL_UPGRADE_SMITHING_TEMPLATE);
-                       entries.add(ModItems.ADAMANTIUM_UPGRADE_SMITHING_TEMPLATE);
-                       entries.add(ModItems.ENDERITE_UPGRADE_SMITHING_TEMPLATE);
+                    entries.add(ModItems.COPPER_NUGGET);
+                    entries.add(ModItems.TIN_NUGGET);
+                    entries.add(ModItems.SILVER_NUGGET);
+                    entries.add(ModItems.STERLING_SILVER_NUGGET);
+                    entries.add(ModItems.ROSE_GOLD_NUGGET);
+                    entries.add(ModItems.BRONZE_NUGGET);
+                    entries.add(ModItems.COBALT_NUGGET);
+                    entries.add(ModItems.CARBON_STEEL_NUGGET);
+                    entries.add(ModItems.HARDENED_STEEL_NUGGET);
 
-                       entries.add(ModItems.RAW_TIN);
-                       entries.add(ModItems.RAW_SILVER);
-                       entries.add(ModItems.RAW_COBALT);
+                    entries.add(ModItems.OBSIDIAN_INGOT);
+                    entries.add(ModItems.TIN_INGOT);
+                    entries.add(ModItems.SILVER_INGOT);
+                    entries.add(ModItems.STERLING_SILVER_INGOT);
+                    entries.add(ModItems.ROSE_GOLD_INGOT);
+                    entries.add(ModItems.BRONZE_INGOT);
+                    entries.add(ModItems.COBALT_INGOT);
+                    entries.add(ModItems.CARBON_STEEL_INGOT);
+                    entries.add(ModItems.HARDENED_STEEL_INGOT);
 
-                       entries.add(ModItems.HOT_CARBON_STEEL_SCRAP);
-                       entries.add(ModItems.CARBON_STEEL_SCRAP);
-                       entries.add(ModItems.OBSIDIAN_SCRAP);
-                       entries.add(ModItems.ENDERITE_SCRAP);
+                    entries.add(ModItems.OBSIDIAN_UPGRADE_SMITHING_TEMPLATE);
+                    entries.add(ModItems.HARDENED_STEEL_UPGRADE_SMITHING_TEMPLATE);
+                    entries.add(ModItems.ADAMANTIUM_UPGRADE_SMITHING_TEMPLATE);
+                    entries.add(ModItems.ENDERITE_UPGRADE_SMITHING_TEMPLATE);
+                    entries.add(ModItems.HOT_CARBON_STEEL_SCRAP);
+                    entries.add(ModItems.CARBON_STEEL_SCRAP);
+                    entries.add(ModItems.OBSIDIAN_SCRAP);
+                    entries.add(ModItems.ENDERITE_SCRAP);
+                    entries.add(ModItems.ANTHRACITE);
 
-                       entries.add(ModItems.TIN_NUGGET);
-                       entries.add(ModItems.SILVER_NUGGET);
-                       entries.add(ModItems.COPPER_NUGGET);
-                       entries.add(ModItems.STERLING_SILVER_NUGGET);
-                       entries.add(ModItems.ROSE_GOLD_NUGGET);
-                       entries.add(ModItems.BRONZE_NUGGET);
-                       entries.add(ModItems.COBALT_NUGGET);
-                       entries.add(ModItems.CARBON_STEEL_NUGGET);
-                       entries.add(ModItems.HARDENED_STEEL_NUGGET);
+                    entries.add(ModItems.ADAMANTIUM_INGOT);
+                    entries.add(ModItems.ENDERITE_INGOT);
+                    entries.add(ModItems.TURQUOISE);
+                    entries.add(ModItems.TURQUOISE_GEM);
+                    entries.add(ModItems.AMETHYST_GEM);
+                    entries.add(ModItems.LAPIS_LAZULI_GEM);
+                    entries.add(ModItems.CITRINE_GEM);
+                    entries.add(ModItems.ONYX_GEM);
+                    entries.add(ModItems.TOURMALINE_GEM);
 
-                       entries.add(ModItems.AMETHYST_DUST);
-                       entries.add(ModItems.QUARTZ_DUST);
-                       entries.add(ModItems.LAPIS_LAZULI_DUST);
-                       entries.add(ModItems.TURQUOISE_DUST);
-
-                       entries.add(ModItems.TIN_INGOT);
-                       entries.add(ModItems.BRONZE_INGOT);
-                       entries.add(ModItems.SILVER_INGOT);
-                       entries.add(ModItems.STERLING_SILVER_INGOT);
-                       entries.add(ModItems.ROSE_GOLD_INGOT);
-                       entries.add(ModItems.COBALT_INGOT);
-                       entries.add(ModItems.CARBON_STEEL_INGOT);
-                       entries.add(ModItems.HARDENED_STEEL_INGOT);
-                       entries.add(ModItems.OBSIDIAN_INGOT);
-                       entries.add(ModItems.ADAMANTIUM_INGOT);
-                       entries.add(ModItems.ENDERITE_INGOT);
-
-                       entries.add(ModItems.AMETHYST_GEM);
-                       entries.add(ModItems.LAPIS_LAZULI_GEM);
-                       entries.add(ModItems.TURQUOISE_GEM);
-                       entries.add(ModItems.TOURMALINE_GEM);
-                       entries.add(ModItems.TOPAZ_GEM);
-                       entries.add(ModItems.RUBY_GEM);
-                       entries.add(ModItems.SAPPHIRE_GEM);
-                       entries.add(ModItems.SPINEL_GEM);
-                       entries.add(ModItems.CITRINE_GEM);
-                       entries.add(ModItems.MOISSANITE_GEM);
-                       entries.add(ModItems.ONYX_GEM);
-                       entries.add(ModItems.GRAPHENE_CHAINMAIL);
+                    entries.add(ModItems.TOPAZ_GEM);
+                    entries.add(ModItems.SPINEL_GEM);
+                    entries.add(ModItems.RUBY_GEM);
+                    entries.add(ModItems.SAPPHIRE_GEM);
+                    entries.add(ModItems.MOISSANITE_GEM);
                     }).build());
     public static final ItemGroup BLOCK_GROUP = Registry.register(Registries.ITEM_GROUP,
             Identifier.of(Mores.MOD_ID, "blocks"),
             FabricItemGroup.builder().displayName(Text.translatable("creativemodetab.mores_blocks"))
-                    .icon(() -> new ItemStack(ModBlocks.TURQUOISE_BLOCK)).entries((displayContext, entries) -> {
+                    .icon(() -> new ItemStack(ModBlocks.ALLOY_FURNACE)).entries((displayContext, entries) -> {
                         entries.add(ModBlocks.ALLOY_FURNACE);
                         entries.add(ModBlocks.STEEL_CUTTER);
                         entries.add(ModBlocks.LEMON_OAK_LEAVES);
@@ -110,7 +107,7 @@ public class ModItemGroups {
     public static final ItemGroup ORE_GROUP = Registry.register(Registries.ITEM_GROUP,
             Identifier.of(Mores.MOD_ID, "ores"),
             FabricItemGroup.builder().displayName(Text.translatable("creativemodetab.mores_ores"))
-                    .icon(() -> new ItemStack(ModBlocks.DEEPSLATE_TURQUOISE_ORE)).entries((displayContext, entries) -> {
+                    .icon(() -> new ItemStack(ModBlocks.ENDER_SAPPHIRE_ORE)).entries((displayContext, entries) -> {
                         entries.add(ModBlocks.ANTHRACITE_ORE);
                         entries.add(ModBlocks.DEEPSLATE_ANTHRACITE_ORE);
                         entries.add(ModBlocks.NETHER_ANTHRACITE_ORE);
@@ -485,7 +482,7 @@ public class ModItemGroups {
     public static final ItemGroup ARMOR_GROUP = Registry.register(Registries.ITEM_GROUP,
             Identifier.of(Mores.MOD_ID, "armor"),
             FabricItemGroup.builder().displayName(Text.translatable("creativemodetab.mores_armor"))
-                    .icon(() -> new ItemStack(ModItems.GRAPHENE_CHAINMAIL_CHESTPLATE)).entries((displayContext, entries) -> {
+                    .icon(() -> new ItemStack(ModItems.ENDERITE_CHESTPLATE)).entries((displayContext, entries) -> {
                         entries.add(ModItems.TIN_HELMET);
                         entries.add(ModItems.TIN_CHESTPLATE);
                         entries.add(ModItems.TIN_LEGGINGS);

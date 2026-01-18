@@ -8,18 +8,21 @@ Testing:
 - Check food recipes (chocolate) maybe play test a little with lemons and such
 - Turquoise / Lapis Lazuli horse armor
 - Spears again
+- Armor Effects on server make sure they're working (for animals too) - citrine, spinel etc
+- Turquoise enchanting
+- Playtest graphene chainmail (alloying it and recipes)
 
-Doing:
+Todo:
 - Tool materials (update shields stats -> cooldown)
 - Ore generation as well as datagen for it (buff nether onyx)
 - Custom Recipes for Steel Cutter (quartz/lapis/amethyst/turquoise dust from their material)
 - Armor trim models not correct
-- Tags (check if missing anything (shears for wolf armor)
 - Advancements (don't forget to add axes to wax/on wax/off - add stuff for new food & golem & duck ofc)
 - Quartz deepslate
-- Armor effects; Citrine (jump boost), Moissanite (poison - tools too), Obsidian (explosion), Rose Gold (Piglin), Enderite (Endermen)
+- Armor effects; Rose Gold (Piglin), Enderite (Endermen)
 - Loot tables CHESTS - tools, weapons, shields, horse/wolf armor, food, smithing templates & ENTITIES drops (golem + duck)
 - Add duck, duck egg & spawnegg as well as golem spawnegg and add duck egg to egg tag so it can be used for pies & cake etc
+- Fix graphene_chainmail armor model magenta for some reason (maybe because see-through)
 
 -- ENTITY SPAWNING
 - Piglins -> rose gold armor & rose gold sword (5% rose gold spear?)
@@ -30,11 +33,12 @@ Doing:
 - Vex -> silver sword / sterling-silver smaller chance
 - Drowned? small small chance? haven't seen it
 
-Todo:
+Optional:
 - Add more options to config (oregen, armor bonuses, entity spawning -> golem,duck,hostile mobs)
-- Change graphene textures and add new recipes / change existing
 - Texturing -> onyx battleaxe/mace/weapons?
-- Add enchanted apples? (bronze, silver, cobalt) & Rose Gold apple
-- More spears/wolf armor
-- ItemGroup overhaul (one category but with filters like vanillabackport)
+- Add enchanted apples? (bronze, silver) & Rose Gold apple!
+- More wolf armor?
 
+Future ideas:
+- ItemGroup overhaul (one category but with filters like vanillabackport)
+- More spears

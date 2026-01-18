@@ -262,7 +262,18 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
                 ModItems.ADAMANTIUM_HORSE_ARMOR,
                 ModItems.ENDERITE_HORSE_ARMOR,
 
-                ModItems.ROSE_GOLD_WOLF_ARMOR
+                ModItems.TIN_WOLF_ARMOR,
+                ModItems.GOLD_WOLF_ARMOR,
+                ModItems.SILVER_WOLF_ARMOR,
+                ModItems.COPPER_WOLF_ARMOR,
+                ModItems.STERLING_SILVER_WOLF_ARMOR,
+                ModItems.BRONZE_WOLF_ARMOR,
+                ModItems.ROSE_GOLD_WOLF_ARMOR,
+                ModItems.IRON_WOLF_ARMOR,
+                ModItems.COBALT_WOLF_ARMOR,
+                ModItems.CARBON_STEEL_WOLF_ARMOR,
+                ModItems.HARDENED_STEEL_WOLF_ARMOR,
+                ModItems.DIAMOND_WOLF_ARMOR
         );
         getOrCreateTagBuilder(ItemTags.LEG_ARMOR_ENCHANTABLE).add(
                 ModItems.TIN_LEGGINGS, ModItems.COPPER_LEGGINGS, ModItems.SILVER_LEGGINGS, ModItems.BRONZE_LEGGINGS, ModItems.COBALT_LEGGINGS, ModItems.STERLING_SILVER_LEGGINGS, ModItems.ROSE_GOLD_LEGGINGS,
@@ -376,7 +387,7 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
                 .add(Items.DIAMOND_HORSE_ARMOR)
                 .add(Items.WOLF_ARMOR)
 
-                // Horse armors (you have a lot; add all you want)
+                // Horse armors
                 .add(ModItems.TIN_HORSE_ARMOR)
                 .add(ModItems.SILVER_HORSE_ARMOR)
                 .add(ModItems.COPPER_HORSE_ARMOR)

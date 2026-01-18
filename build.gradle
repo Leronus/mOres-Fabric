@@ -131,7 +131,8 @@ dependencies {
     // Serene Seasons (not needed at compile-time)
     modRuntimeOnly "maven.modrinth:serene-seasons:${project.serene_seasons_version}"
 
-
+    // Jade
+    modRuntimeOnly "maven.modrinth:jade:${project.jade_version}"
 
     // Optional
     // modRuntimeOnly "maven.modrinth:entityculling:${project.entity_culling_version}"
