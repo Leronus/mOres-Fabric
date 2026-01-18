@@ -1,5 +1,5 @@
 {
-  "parent": "mores:craft_alloy_furnace",
+  "parent": "mores:obtain_silver_ingot",
   "criteria": {
     "has_carbon_steel": {
       "conditions": {
@@ -13,12 +13,12 @@
     }
   },
   "display": {
-    "description": "Obtain a carbon steel ingot.",
+    "description": "Obtain a cobalt ingot.",
     "icon": {
       "count": 1,
-      "id": "mores:carbon_steel_ingot"
+      "id": "mores:cobalt_ingot"
     },
-    "title": "Hephaestus"
+    "title": "Very Cobalt"
   },
   "requirements": [
     [

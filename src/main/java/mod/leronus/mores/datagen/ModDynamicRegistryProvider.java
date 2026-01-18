@@ -1,6 +1,5 @@
 package mod.leronus.mores.datagen;
 
-import mod.leronus.mores.Mores;
 import mod.leronus.mores.sound.ModRegistryKeyFixes;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricDynamicRegistryProvider;

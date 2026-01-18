@@ -51,6 +51,17 @@
     "mores:obsidian_horse_armor",
     "mores:adamantium_horse_armor",
     "mores:enderite_horse_armor",
-    "mores:rose_gold_wolf_armor"
+    "mores:tin_wolf_armor",
+    "mores:gold_wolf_armor",
+    "mores:silver_wolf_armor",
+    "mores:copper_wolf_armor",
+    "mores:sterling_silver_wolf_armor",
+    "mores:bronze_wolf_armor",
+    "mores:rose_gold_wolf_armor",
+    "mores:iron_wolf_armor",
+    "mores:cobalt_wolf_armor",
+    "mores:carbon_steel_wolf_armor",
+    "mores:hardened_steel_wolf_armor",
+    "mores:diamond_wolf_armor"
   ]
 }

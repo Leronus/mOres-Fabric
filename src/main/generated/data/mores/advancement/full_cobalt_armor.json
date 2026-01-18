@@ -1,5 +1,5 @@
 {
-  "parent": "mores:hephaestus",
+  "parent": "mores:obtain_cobalt_ingot",
   "criteria": {
     "cobalt_boots": {
       "conditions": {

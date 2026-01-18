@@ -17,14 +17,19 @@ import net.minecraft.advancement.AdvancementFrame;
 
 import net.minecraft.advancement.criterion.*;
 
+import net.minecraft.block.Blocks;
 import net.minecraft.entity.EntityType;
 import net.minecraft.item.ItemConvertible;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
+import net.minecraft.predicate.BlockPredicate;
 import net.minecraft.predicate.NumberRange;
 import net.minecraft.predicate.entity.EntityPredicate;
 import net.minecraft.predicate.entity.LocationPredicate;
+import net.minecraft.predicate.item.ItemPredicate;
 import net.minecraft.registry.RegistryWrapper;
+import net.minecraft.registry.tag.BlockTags;
+import net.minecraft.registry.tag.ItemTags;
 import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 
@@ -139,7 +144,7 @@ public class ModAdvancementProvider extends FabricAdvancementProvider {
                         4, 8
                 ))
                 .criterion("has_carbon_steel", hasItem(ModItems.CARBON_STEEL_INGOT))
-                .build(exporter, id("hephaestus"));
+                .build(exporter, id("obtain_cobalt_ingot"));
 
         AdvancementEntry fullCobaltArmor = Advancement.Builder.create()
                 .parent(obtainCobalt)
@@ -376,12 +381,78 @@ public class ModAdvancementProvider extends FabricAdvancementProvider {
                                 .y(NumberRange.DoubleRange.exactly(-63.0))
                 ))
                 .build(exporter, id("where"));
-    }
 
+
+        @SuppressWarnings("removal")
+        AdvancementEntry waxOff = Advancement.Builder.create()
+                .parent(Identifier.of("minecraft", "husbandry/wax_on")) // <-- vanilla location
+                .display(new AdvancementDisplay(
+                        new ItemStack(Items.STONE_AXE),
+                        Text.translatable("advancements.husbandry.wax_off.title"),
+                        Text.translatable("advancements.husbandry.wax_off.description"),
+                        Optional.empty(),
+                        AdvancementFrame.TASK,
+                        true, true, false
+                ))
+                .criterion("wax_off", itemUsedOnBlock(
+                        LocationPredicate.Builder.create().block(
+                                BlockPredicate.Builder.create().blocks(
+                                        Blocks.WAXED_COPPER_BLOCK,
+                                        Blocks.WAXED_EXPOSED_COPPER,
+                                        Blocks.WAXED_WEATHERED_COPPER,
+                                        Blocks.WAXED_OXIDIZED_COPPER,
+
+                                        Blocks.WAXED_CUT_COPPER,
+                                        Blocks.WAXED_EXPOSED_CUT_COPPER,
+                                        Blocks.WAXED_WEATHERED_CUT_COPPER,
+                                        Blocks.WAXED_OXIDIZED_CUT_COPPER,
+
+                                        Blocks.WAXED_CUT_COPPER_SLAB,
+                                        Blocks.WAXED_EXPOSED_CUT_COPPER_SLAB,
+                                        Blocks.WAXED_WEATHERED_CUT_COPPER_SLAB,
+                                        Blocks.WAXED_OXIDIZED_CUT_COPPER_SLAB,
+
+                                        Blocks.WAXED_CUT_COPPER_STAIRS,
+                                        Blocks.WAXED_EXPOSED_CUT_COPPER_STAIRS,
+                                        Blocks.WAXED_WEATHERED_CUT_COPPER_STAIRS,
+                                        Blocks.WAXED_OXIDIZED_CUT_COPPER_STAIRS,
+
+                                        // 1.21+ extras (if present in your version)
+                                        Blocks.WAXED_CHISELED_COPPER,
+                                        Blocks.WAXED_EXPOSED_CHISELED_COPPER,
+                                        Blocks.WAXED_WEATHERED_CHISELED_COPPER,
+                                        Blocks.WAXED_OXIDIZED_CHISELED_COPPER,
+                                        Blocks.WAXED_COPPER_DOOR,
+                                        Blocks.WAXED_EXPOSED_COPPER_DOOR,
+                                        Blocks.WAXED_WEATHERED_COPPER_DOOR,
+                                        Blocks.WAXED_OXIDIZED_COPPER_DOOR,
+                                        Blocks.WAXED_COPPER_TRAPDOOR,
+                                        Blocks.WAXED_EXPOSED_COPPER_TRAPDOOR,
+                                        Blocks.WAXED_WEATHERED_COPPER_TRAPDOOR,
+                                        Blocks.WAXED_OXIDIZED_COPPER_TRAPDOOR,
+                                        Blocks.WAXED_COPPER_GRATE,
+                                        Blocks.WAXED_EXPOSED_COPPER_GRATE,
+                                        Blocks.WAXED_WEATHERED_COPPER_GRATE,
+                                        Blocks.WAXED_OXIDIZED_COPPER_GRATE,
+                                        Blocks.WAXED_COPPER_BULB,
+                                        Blocks.WAXED_EXPOSED_COPPER_BULB,
+                                        Blocks.WAXED_WEATHERED_COPPER_BULB,
+                                        Blocks.WAXED_OXIDIZED_COPPER_BULB
+                                )
+                        ),
+                        ItemPredicate.Builder.create().tag(ItemTags.AXES) // your axes must be in this tag
+                ))
+                .build(exporter, mc("husbandry/wax_off"));
+
+
+    }
     // -------- helpers --------
     private static String id(String path) {
         return Mores.MOD_ID + ":" + path;
     }
+    private static String mc(String path) {return "minecraft:" + path;
+    }
+
 
     private static AdvancementCriterion<?> hasItem(ItemConvertible item) {
         return Criteria.INVENTORY_CHANGED.create(InventoryChangedCriterion.Conditions.items(item).conditions());
@@ -398,6 +469,12 @@ public class ModAdvancementProvider extends FabricAdvancementProvider {
     private static AdvancementCriterion<?> summonEntity(EntityType<?> type) {
         return SummonedEntityCriterion.Conditions.create(EntityPredicate.Builder.create().type(type)
         );
+    }
+    private static AdvancementCriterion<?> itemUsedOnBlock(
+            net.minecraft.predicate.entity.LocationPredicate.Builder location,
+            net.minecraft.predicate.item.ItemPredicate.Builder item
+    ) {
+        return net.minecraft.advancement.criterion.ItemCriterion.Conditions.createItemUsedOnBlock(location, item);
     }
 
     private static AdvancementDisplay display(
