@@ -351,14 +351,14 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
         );
 
         //Backported Spears
-        if (isBackportedSpearsLoaded()) {
-            getOrCreateTagBuilder(TagKey.of(RegistryKeys.ITEM, Identifier.ofVanilla("spears"))).add(
-                    ModItems.ROSE_GOLD_SPEAR,
-                    ModItems.CARBON_STEEL_SPEAR,
-                    ModItems.HARDENED_STEEL_SPEAR,
-                    ModItems.ENDERITE_SPEAR
-            );
-        }
+
+        getOrCreateTagBuilder(TagKey.of(RegistryKeys.ITEM, Identifier.ofVanilla("spears"))).add(
+                ModItems.ROSE_GOLD_SPEAR,
+                ModItems.CARBON_STEEL_SPEAR,
+                ModItems.HARDENED_STEEL_SPEAR,
+                ModItems.ENDERITE_SPEAR
+        );
+
 
         /*
          * Modded tags

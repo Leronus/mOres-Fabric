@@ -801,23 +801,14 @@ public class ModItems {
     public static final Item ADAMANTIUM_DAGGER = registerItem("adamantium_dagger", new ModSwordItem(ModToolMaterials.ADAMANTIUM, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ModToolMaterials.ADAMANTIUM, 1, -1.5f))));
     public static final Item ENDERITE_DAGGER = registerItem("enderite_dagger", new ModSwordItem(ModToolMaterials.ENDERITE, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ModToolMaterials.ENDERITE, 1, -1.5f))));
 
-    public static Item ROSE_GOLD_SPEAR;
-    public static Item CARBON_STEEL_SPEAR;
-    public static Item HARDENED_STEEL_SPEAR;
-    public static Item ENDERITE_SPEAR;
-    private static void registerSpearsIfPresent() {
-        if (!FabricLoader.getInstance().isModLoaded("spears")) { // <-- replace with the real mod id
-            return;
-        }
-        ROSE_GOLD_SPEAR = registerItem("rose_gold_spear", new ModSpearItem(ModToolMaterials.ROSE_GOLD, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ModToolMaterials.ROSE_GOLD,
+    public static final Item ROSE_GOLD_SPEAR = registerItem("rose_gold_spear", new ModSpearItem(ModToolMaterials.ROSE_GOLD, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ModToolMaterials.ROSE_GOLD,
                 0, -2.95f)).maxCount(1)));
-        CARBON_STEEL_SPEAR = registerItem("carbon_steel_spear", new ModSpearItem(ModToolMaterials.CARBON_STEEL, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ModToolMaterials.CARBON_STEEL,
+    public static final Item CARBON_STEEL_SPEAR = registerItem("carbon_steel_spear", new ModSpearItem(ModToolMaterials.CARBON_STEEL, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ModToolMaterials.CARBON_STEEL,
                 0, -2.95f)).maxCount(1)));
-        HARDENED_STEEL_SPEAR = registerItem("hardened_steel_spear", new ModSpearItem(ModToolMaterials.HARDENED_STEEL, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ModToolMaterials.HARDENED_STEEL,
+    public static final Item HARDENED_STEEL_SPEAR = registerItem("hardened_steel_spear", new ModSpearItem(ModToolMaterials.HARDENED_STEEL, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ModToolMaterials.HARDENED_STEEL,
                 0, -3.00f)).maxCount(1)));
-        ENDERITE_SPEAR = registerItem("enderite_spear", new ModSpearItem(ModToolMaterials.ENDERITE, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ModToolMaterials.ENDERITE,
+    public static final Item ENDERITE_SPEAR = registerItem("enderite_spear", new ModSpearItem(ModToolMaterials.ENDERITE, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ModToolMaterials.ENDERITE,
                 0, -3.20f)).maxCount(1)));
-    }
 
     // All pickaxes
     public static final Item TIN_PICKAXE = registerItem("tin_pickaxe", new ModPickaxeItem(ModToolMaterials.TIN, new Item.Settings().attributeModifiers(PickaxeItem.createAttributeModifiers(ModToolMaterials.TIN,
@@ -1616,7 +1607,6 @@ public class ModItems {
 
     public static void registerModItems() {
         Mores.LOGGER.info("Registering Mod Items for " + Mores.MOD_ID);
-        registerSpearsIfPresent();
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.INGREDIENTS).register(ModItems::addItemsToIngredientItemGroup);
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.COMBAT).register(ModItems::addItemsToCombatItemGroup);
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.FOOD_AND_DRINK).register(ModItems::addItemsToFoodItemGroup);
