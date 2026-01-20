@@ -610,14 +610,14 @@ public class ModItems {
     //p_i48460_2_: Attack Damage (1 = 1 Attack Point)
     //p_i48460_3_: Attack Speed (1.0F = ... Attack Speed)
     public static final Item TIN_SWORD = registerItem("tin_sword", new ModSwordItem(ModToolMaterials.TIN, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ModToolMaterials.TIN, 3, -2.4f))));
-    public static final Item SILVER_SWORD = registerItem("silver_sword", new ModSwordItem(ModToolMaterials.SILVER, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ModToolMaterials.STERLING_SILVER, 3, -2.4f))));
+    public static final Item SILVER_SWORD = registerItem("silver_sword", new ModSwordItem(ModToolMaterials.SILVER, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ModToolMaterials.SILVER, 3, -2.4f))));
     public static final Item COPPER_SWORD = registerItem("copper_sword", new ModSwordItem(ModToolMaterials.COPPER, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ModToolMaterials.COPPER, 3, -2.4f))));
     public static final Item STERLING_SILVER_SWORD = registerItem("sterling_silver_sword", new ModSwordItem(ModToolMaterials.STERLING_SILVER, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ModToolMaterials.STERLING_SILVER, 3, -2.4f))));
-    public static final Item ROSE_GOLD_SWORD = registerItem("rose_gold_sword", new ModSwordItem(ModToolMaterials.ROSE_GOLD, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ModToolMaterials.STERLING_SILVER, 3, -2.4f))));
+    public static final Item ROSE_GOLD_SWORD = registerItem("rose_gold_sword", new ModSwordItem(ModToolMaterials.ROSE_GOLD, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ModToolMaterials.ROSE_GOLD, 3, -2.4f))));
     public static final Item BRONZE_SWORD = registerItem("bronze_sword", new ModSwordItem(ModToolMaterials.BRONZE, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ModToolMaterials.BRONZE, 3, -2.4f))));
     public static final Item COBALT_SWORD = registerItem("cobalt_sword", new ModSwordItem(ModToolMaterials.COBALT, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ModToolMaterials.COBALT, 3, -2.4f))));
     public static final Item CARBON_STEEL_SWORD = registerItem("carbon_steel_sword", new ModSwordItem(ModToolMaterials.CARBON_STEEL, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ModToolMaterials.CARBON_STEEL, 3, -2.4f))));
-    public static final Item HARDENED_STEEL_SWORD = registerItem("hardened_steel_sword", new ModSwordItem(ModToolMaterials.HARDENED_STEEL, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ModToolMaterials.CARBON_STEEL, 3, -2.4f))));
+    public static final Item HARDENED_STEEL_SWORD = registerItem("hardened_steel_sword", new ModSwordItem(ModToolMaterials.HARDENED_STEEL, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ModToolMaterials.HARDENED_STEEL, 3, -2.4f))));
 
     public static final Item TURQUOISE_SWORD = registerItem("turquoise_sword", new ModSwordItem(ModToolMaterials.TURQUOISE, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ModToolMaterials.TURQUOISE, 3, -2.4f))));
     public static final Item LAPIS_LAZULI_SWORD = registerItem("lapis_lazuli_sword", new ModSwordItem(ModToolMaterials.LAPIS_LAZULI, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ModToolMaterials.LAPIS_LAZULI, 3, -2.4f))));
@@ -1152,7 +1152,7 @@ public class ModItems {
         entries.add(ROSE_GOLD_BATTLE_AXE);
         entries.add(ROSE_GOLD_BATTLE_MACE);
         entries.add(ROSE_GOLD_DAGGER);
-        if (ROSE_GOLD_SPEAR != null) entries.add(ROSE_GOLD_SPEAR);
+        entries.add(ROSE_GOLD_SPEAR);
 
         entries.add(BRONZE_SWORD);
         entries.add(BRONZE_BATTLE_AXE);
@@ -1172,13 +1172,13 @@ public class ModItems {
         entries.add(CARBON_STEEL_BATTLE_AXE);
         entries.add(CARBON_STEEL_BATTLE_MACE);
         entries.add(CARBON_STEEL_DAGGER);
-        if (CARBON_STEEL_SPEAR != null) entries.add(CARBON_STEEL_SPEAR);
+        entries.add(CARBON_STEEL_SPEAR);
 
         entries.add(HARDENED_STEEL_SWORD);
         entries.add(HARDENED_STEEL_BATTLE_AXE);
         entries.add(HARDENED_STEEL_BATTLE_MACE);
         entries.add(HARDENED_STEEL_DAGGER);
-        if (HARDENED_STEEL_SPEAR != null) entries.add(HARDENED_STEEL_SPEAR);
+        entries.add(HARDENED_STEEL_SPEAR);
 
         entries.add(TURQUOISE_SWORD);
         entries.add(TURQUOISE_BATTLE_AXE);
@@ -1272,7 +1272,7 @@ public class ModItems {
         entries.add(ENDERITE_BATTLE_AXE);
         entries.add(ENDERITE_BATTLE_MACE);
         entries.add(ENDERITE_DAGGER);
-        if (ENDERITE_SPEAR != null) entries.add(ENDERITE_SPEAR);
+        entries.add(ENDERITE_SPEAR);
 
         entries.add(ModItems.TIN_HELMET);
         entries.add(ModItems.TIN_CHESTPLATE);

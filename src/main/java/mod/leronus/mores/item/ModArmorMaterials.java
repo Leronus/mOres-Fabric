@@ -121,7 +121,7 @@ public final class ModArmorMaterials {
     // High tier
     public static final RegistryEntry<ArmorMaterial> GRAPHENE_CHAINMAIL = register("graphene_chainmail",
             human(2, 5, 6, 2, 8, 16, SoundEvents.ITEM_ARMOR_EQUIP_CHAIN,
-                    () -> Ingredient.ofItems(ModItems.GRAPHENE_CHAINMAIL), "graphene_chainmail", 0.5f, 0.05f));
+                    () -> Ingredient.ofItems(ModItems.GRAPHENE_CHAINMAIL), "graphene_chainmail", 2.0f, 0.05f));
 
     public static final RegistryEntry<ArmorMaterial> OBSIDIAN = register("obsidian",
             human(3, 6, 8, 3, 11, 19, SoundEvents.ITEM_ARMOR_EQUIP_NETHERITE,
