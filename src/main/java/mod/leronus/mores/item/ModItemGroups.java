@@ -351,9 +351,9 @@ public class ModItemGroups {
             Identifier.of(Mores.MOD_ID, "weapons"),
             FabricItemGroup.builder().displayName(Text.translatable("creativemodetab.mores_weapons"))
                     .icon(() -> new ItemStack(ModItems.NETHERITE_BATTLE_AXE)).entries((displayContext, entries) -> {
-                        entries.add(ModItems.WOOD_BATTLE_AXE);
-                        entries.add(ModItems.WOOD_BATTLE_MACE);
-                        entries.add(ModItems.WOOD_DAGGER);
+                        entries.add(ModItems.WOODEN_BATTLE_AXE);
+                        entries.add(ModItems.WOODEN_BATTLE_MACE);
+                        entries.add(ModItems.WOODEN_DAGGER);
                         entries.add(ModItems.STONE_BATTLE_AXE);
                         entries.add(ModItems.STONE_BATTLE_MACE);
                         entries.add(ModItems.STONE_DAGGER);

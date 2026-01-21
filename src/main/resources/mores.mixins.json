@@ -24,8 +24,6 @@
     "OakToLemonTreeMixin"
   ],
   "client": [
-    "client.DrawContextMixin",
-    "client.ModelPredicateProviderRegistryMixin",
     "client.WolfArmorFeatureRendererMixin"
   ],
   "injectors": {

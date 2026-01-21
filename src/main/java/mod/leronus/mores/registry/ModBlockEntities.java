@@ -15,18 +15,19 @@ public final class ModBlockEntities {
 
     private ModBlockEntities() {}
 
+    @SuppressWarnings("deprecation")
     public static void registerBlockEntities() {
         Mores.LOGGER.info("Registering Block Entities for " + Mores.MOD_ID);
         ALLOY_FURNACE_BE = Registry.register(
                 Registries.BLOCK_ENTITY_TYPE,
-                id("alloy_furnace"),
+                id(),
                 FabricBlockEntityTypeBuilder
                         .create(AlloyFurnaceBlockEntity::new, ModBlocks.ALLOY_FURNACE)
                         .build()
         );
     }
 
-    private static Identifier id(String path) {
-        return Identifier.of(Mores.MOD_ID, path);
+    private static Identifier id() {
+        return Identifier.of(Mores.MOD_ID, "alloy_furnace");
     }
 }

@@ -1,7 +1,7 @@
 Fabric 1.21.1 
 
 Testing:
-- Check tooltips for wolf armor and spears, as well as updating the bonuses (& colors)
+- Check tooltips for wolf armor and spears, as well as updating the bonuses (& colors) also fix shulker shell durability>?>?
 - Villager Trades - replacing vanilla see what's missing
 - Check hardened steel natural village generation again because he seemed too rare
 - Test horse/wolf armor & shield enchants

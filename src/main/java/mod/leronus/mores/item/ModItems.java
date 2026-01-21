@@ -5,7 +5,6 @@ import mod.leronus.mores.item.custom.*;
 import mod.leronus.mores.sound.ModJukeboxSongs;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroupEntries;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
-import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.component.type.FoodComponent;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.effect.StatusEffectInstance;
@@ -644,7 +643,7 @@ public class ModItems {
     //All battle_axes
     //p_i48460_2_: Attack Damage (1 = 1 Attack Point)
     //p_i48460_3_: Attack Speed (1.0F = ... Attack Speed)
-    public static final Item WOOD_BATTLE_AXE = registerItem("wood_battle_axe", new ModBattleAxeItem(ToolMaterials.WOOD, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ToolMaterials.WOOD, 5, -2.8f))));
+    public static final Item WOODEN_BATTLE_AXE = registerItem("wood_battle_axe", new ModBattleAxeItem(ToolMaterials.WOOD, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ToolMaterials.WOOD, 5, -2.8f))));
     public static final Item STONE_BATTLE_AXE = registerItem("stone_battle_axe", new ModBattleAxeItem(ToolMaterials.STONE, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ToolMaterials.STONE, 5, -2.8f))));
     public static final Item TIN_BATTLE_AXE = registerItem("tin_battle_axe", new ModBattleAxeItem(ModToolMaterials.TIN, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ModToolMaterials.TIN, 5, -2.8f))));
     public static final Item GOLD_BATTLE_AXE = registerItem("gold_battle_axe", new ModBattleAxeItem(ToolMaterials.GOLD, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ToolMaterials.GOLD, 5, -2.8f))));
@@ -686,7 +685,7 @@ public class ModItems {
     //p_i48460_2_: Attack Damage (1 = 1 Attack Point)
     //p_i48460_3_: Attack Speed (1.0F = ... Attack Speed)
     //TODO Check attack speed
-    public static final Item WOOD_BATTLE_MACE = registerItem("wood_battle_mace", new ModSwordItem(ToolMaterials.WOOD, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ToolMaterials.WOOD,
+    public static final Item WOODEN_BATTLE_MACE = registerItem("wood_battle_mace", new ModSwordItem(ToolMaterials.WOOD, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ToolMaterials.WOOD,
     3, -2.2f))));
     public static final Item STONE_BATTLE_MACE = registerItem("stone_battle_mace", new ModSwordItem(ToolMaterials.STONE, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ToolMaterials.STONE,
     3, -2.2f))));
@@ -754,7 +753,7 @@ public class ModItems {
     //All daggers
     //p_i48460_2_: Attack Damage (1 = 1 Attack Point)
     //p_i48460_3_: Attack Speed (1.0F = ... Attack Speed)
-    public static final Item WOOD_DAGGER = registerItem("wood_dagger", new ModSwordItem(ToolMaterials.WOOD, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ToolMaterials.WOOD,
+    public static final Item WOODEN_DAGGER = registerItem("wood_dagger", new ModSwordItem(ToolMaterials.WOOD, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ToolMaterials.WOOD,
     1, -1.8f))));
     public static final Item STONE_DAGGER = registerItem("stone_dagger", new ModSwordItem(ToolMaterials.STONE, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ToolMaterials.STONE,
     1, -1.8f))));
@@ -1116,89 +1115,89 @@ public class ModItems {
         entries.add(ENDERITE_UPGRADE_SMITHING_TEMPLATE);
     }
     private static void addItemsToCombatItemGroup(FabricItemGroupEntries entries) {
-        entries.add(WOOD_BATTLE_AXE);
-        entries.add(WOOD_BATTLE_MACE);
-        entries.add(WOOD_DAGGER);
+        entries.addAfter(Items.WOODEN_SWORD, WOODEN_BATTLE_AXE);
+        entries.addAfter(WOODEN_BATTLE_AXE, WOODEN_BATTLE_MACE);
+        entries.addAfter(WOODEN_BATTLE_MACE, WOODEN_DAGGER);
 
-        entries.add(STONE_BATTLE_AXE);
-        entries.add(STONE_BATTLE_MACE);
-        entries.add(STONE_DAGGER);
+        entries.addAfter(Items.STONE_SWORD, STONE_BATTLE_AXE);
+        entries.addAfter(STONE_BATTLE_AXE, STONE_BATTLE_MACE);
+        entries.addAfter(STONE_BATTLE_MACE, STONE_DAGGER);
 
-        entries.add(TIN_SWORD);
-        entries.add(TIN_BATTLE_AXE);
-        entries.add(TIN_BATTLE_MACE);
-        entries.add(TIN_DAGGER);
+        entries.addAfter(STONE_DAGGER, TIN_SWORD);
+        entries.addAfter(TIN_SWORD, TIN_BATTLE_AXE);
+        entries.addAfter(TIN_BATTLE_AXE, TIN_BATTLE_MACE);
+        entries.addAfter(TIN_BATTLE_MACE, TIN_DAGGER);
 
-        entries.add(GOLD_BATTLE_AXE);
-        entries.add(GOLD_BATTLE_MACE);
-        entries.add(GOLD_DAGGER);
+        entries.addAfter(TIN_DAGGER, SILVER_SWORD);
+        entries.addAfter(SILVER_SWORD, SILVER_BATTLE_AXE);
+        entries.addAfter(SILVER_BATTLE_AXE, SILVER_BATTLE_MACE);
+        entries.addAfter(SILVER_BATTLE_MACE, SILVER_DAGGER);
 
-        entries.add(SILVER_SWORD);
-        entries.add(SILVER_BATTLE_AXE);
-        entries.add(SILVER_BATTLE_MACE);
-        entries.add(SILVER_DAGGER);
+        entries.addAfter(SILVER_DAGGER, COPPER_SWORD);
+        entries.addAfter(COPPER_SWORD, COPPER_BATTLE_AXE);
+        entries.addAfter(COPPER_BATTLE_AXE, COPPER_BATTLE_MACE);
+        entries.addAfter(COPPER_BATTLE_MACE, COPPER_DAGGER);
 
-        entries.add(COPPER_SWORD);
-        entries.add(COPPER_BATTLE_AXE);
-        entries.add(COPPER_BATTLE_MACE);
-        entries.add(COPPER_DAGGER);
+        entries.addAfter(COPPER_DAGGER, STERLING_SILVER_SWORD);
+        entries.addAfter(STERLING_SILVER_SWORD, STERLING_SILVER_BATTLE_AXE);
+        entries.addAfter(STERLING_SILVER_BATTLE_AXE, STERLING_SILVER_BATTLE_MACE);
+        entries.addAfter(STERLING_SILVER_BATTLE_MACE, STERLING_SILVER_DAGGER);
 
-        entries.add(STERLING_SILVER_SWORD);
-        entries.add(STERLING_SILVER_BATTLE_AXE);
-        entries.add(STERLING_SILVER_BATTLE_MACE);
-        entries.add(STERLING_SILVER_DAGGER);
+        entries.addAfter(STERLING_SILVER_DAGGER, BRONZE_SWORD);
+        entries.addAfter(BRONZE_SWORD, BRONZE_BATTLE_AXE);
+        entries.addAfter(BRONZE_BATTLE_AXE, BRONZE_BATTLE_MACE);
+        entries.addAfter(BRONZE_BATTLE_MACE, BRONZE_DAGGER);
 
-        entries.add(ROSE_GOLD_SWORD);
-        entries.add(ROSE_GOLD_BATTLE_AXE);
-        entries.add(ROSE_GOLD_BATTLE_MACE);
-        entries.add(ROSE_GOLD_DAGGER);
-        entries.add(ROSE_GOLD_SPEAR);
+        entries.addAfter(Items.IRON_SWORD, IRON_BATTLE_AXE);
+        entries.addAfter(IRON_BATTLE_AXE, IRON_BATTLE_MACE);
+        entries.addAfter(IRON_BATTLE_MACE, IRON_DAGGER);
 
-        entries.add(BRONZE_SWORD);
-        entries.add(BRONZE_BATTLE_AXE);
-        entries.add(BRONZE_BATTLE_MACE);
-        entries.add(BRONZE_DAGGER);
+        entries.addAfter(Items.GOLDEN_SWORD, GOLD_BATTLE_AXE);
+        entries.addAfter(GOLD_BATTLE_AXE, GOLD_BATTLE_MACE);
+        entries.addAfter(GOLD_BATTLE_MACE, GOLD_DAGGER);
 
-        entries.add(IRON_BATTLE_AXE);
-        entries.add(IRON_BATTLE_MACE);
-        entries.add(IRON_DAGGER);
+        entries.addAfter(GOLD_DAGGER, ROSE_GOLD_SWORD);
+        entries.addAfter(ROSE_GOLD_SWORD, ROSE_GOLD_BATTLE_AXE);
+        entries.addAfter(ROSE_GOLD_BATTLE_AXE, ROSE_GOLD_BATTLE_MACE);
+        entries.addAfter(ROSE_GOLD_BATTLE_MACE, ROSE_GOLD_DAGGER);
+//        entries.addAfter(ROSE_GOLD_DAGGER, ROSE_GOLD_SPEAR);
 
-        entries.add(COBALT_SWORD);
-        entries.add(COBALT_BATTLE_AXE);
-        entries.add(COBALT_BATTLE_MACE);
-        entries.add(COBALT_DAGGER);
+        entries.addAfter(ROSE_GOLD_DAGGER, COBALT_SWORD);
+        entries.addAfter(COBALT_SWORD, COBALT_BATTLE_AXE);
+        entries.addAfter(COBALT_BATTLE_AXE, COBALT_BATTLE_MACE);
+        entries.addAfter(COBALT_BATTLE_MACE, COBALT_DAGGER);
 
-        entries.add(CARBON_STEEL_SWORD);
-        entries.add(CARBON_STEEL_BATTLE_AXE);
-        entries.add(CARBON_STEEL_BATTLE_MACE);
-        entries.add(CARBON_STEEL_DAGGER);
-        entries.add(CARBON_STEEL_SPEAR);
+        entries.addAfter(COBALT_DAGGER, CARBON_STEEL_SWORD);
+        entries.addAfter(CARBON_STEEL_SWORD, CARBON_STEEL_BATTLE_AXE);
+        entries.addAfter(CARBON_STEEL_BATTLE_AXE, CARBON_STEEL_BATTLE_MACE);
+        entries.addAfter(CARBON_STEEL_BATTLE_MACE, CARBON_STEEL_DAGGER);
+//        entries.addAfter(CARBON_STEEL_DAGGER, CARBON_STEEL_SPEAR);
 
-        entries.add(HARDENED_STEEL_SWORD);
-        entries.add(HARDENED_STEEL_BATTLE_AXE);
-        entries.add(HARDENED_STEEL_BATTLE_MACE);
-        entries.add(HARDENED_STEEL_DAGGER);
-        entries.add(HARDENED_STEEL_SPEAR);
+        entries.addAfter(CARBON_STEEL_DAGGER, HARDENED_STEEL_SWORD);
+        entries.addAfter(HARDENED_STEEL_SWORD, HARDENED_STEEL_BATTLE_AXE);
+        entries.addAfter(HARDENED_STEEL_BATTLE_AXE, HARDENED_STEEL_BATTLE_MACE);
+        entries.addAfter(HARDENED_STEEL_BATTLE_MACE, HARDENED_STEEL_DAGGER);
+//        entries.addAfter(HARDENED_STEEL_DAGGER, HARDENED_STEEL_SPEAR);
 
-        entries.add(TURQUOISE_SWORD);
-        entries.add(TURQUOISE_BATTLE_AXE);
-        entries.add(TURQUOISE_BATTLE_MACE);
-        entries.add(TURQUOISE_DAGGER);
+        entries.addAfter(HARDENED_STEEL_DAGGER, TURQUOISE_SWORD);
+        entries.addAfter(TURQUOISE_SWORD, TURQUOISE_BATTLE_AXE);
+        entries.addAfter(TURQUOISE_BATTLE_AXE, TURQUOISE_BATTLE_MACE);
+        entries.addAfter(TURQUOISE_BATTLE_MACE, TURQUOISE_DAGGER);
 
-        entries.add(LAPIS_LAZULI_SWORD);
-        entries.add(LAPIS_LAZULI_BATTLE_AXE);
-        entries.add(LAPIS_LAZULI_BATTLE_MACE);
-        entries.add(LAPIS_LAZULI_DAGGER);
+        entries.addAfter(TURQUOISE_DAGGER, LAPIS_LAZULI_SWORD);
+        entries.addAfter(LAPIS_LAZULI_SWORD, LAPIS_LAZULI_BATTLE_AXE);
+        entries.addAfter(LAPIS_LAZULI_BATTLE_AXE, LAPIS_LAZULI_BATTLE_MACE);
+        entries.addAfter(LAPIS_LAZULI_BATTLE_MACE, LAPIS_LAZULI_DAGGER);
 
-        entries.add(AMETHYST_SWORD);
-        entries.add(AMETHYST_BATTLE_AXE);
-        entries.add(AMETHYST_BATTLE_MACE);
-        entries.add(AMETHYST_DAGGER);
+        entries.addAfter(TURQUOISE_DAGGER, LAPIS_LAZULI_SWORD);
+        entries.addAfter(LAPIS_LAZULI_SWORD, LAPIS_LAZULI_BATTLE_AXE);
+        entries.addAfter(LAPIS_LAZULI_BATTLE_AXE, LAPIS_LAZULI_BATTLE_MACE);
+        entries.addAfter(LAPIS_LAZULI_BATTLE_MACE, LAPIS_LAZULI_DAGGER);
 
-        entries.add(TANZANITE_SWORD);
-        entries.add(TANZANITE_BATTLE_AXE);
-        entries.add(TANZANITE_BATTLE_MACE);
-        entries.add(TANZANITE_DAGGER);
+        entries.addAfter(LAPIS_LAZULI_DAGGER, TURQUOISE_SWORD);
+        entries.addAfter(TURQUOISE_SWORD, TURQUOISE_BATTLE_AXE);
+        entries.addAfter(TURQUOISE_BATTLE_AXE, TURQUOISE_BATTLE_MACE);
+        entries.addAfter(TURQUOISE_BATTLE_MACE, TURQUOISE_DAGGER);
 
         entries.add(TOURMALINE_SWORD);
         entries.add(TOURMALINE_BATTLE_AXE);

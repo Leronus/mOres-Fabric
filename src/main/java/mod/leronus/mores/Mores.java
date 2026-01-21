@@ -76,6 +76,12 @@ public class Mores implements ModInitializer {
             if (ModItems.CARBON_STEEL_SPEAR != null) SPEARS_WITH_SHARED_ATTRS.add(ModItems.CARBON_STEEL_SPEAR);
             if (ModItems.HARDENED_STEEL_SPEAR != null) SPEARS_WITH_SHARED_ATTRS.add(ModItems.HARDENED_STEEL_SPEAR);
             if (ModItems.ENDERITE_SPEAR != null) SPEARS_WITH_SHARED_ATTRS.add(ModItems.ENDERITE_SPEAR);
+            SPEARS_WITH_SHARED_ATTRS.add(Spears.WOODEN_SPEAR);
+            SPEARS_WITH_SHARED_ATTRS.add(Spears.STONE_SPEAR);
+            SPEARS_WITH_SHARED_ATTRS.add(Spears.IRON_SPEAR);
+            SPEARS_WITH_SHARED_ATTRS.add(Spears.GOLDEN_SPEAR);
+            SPEARS_WITH_SHARED_ATTRS.add(Spears.DIAMOND_SPEAR);
+            SPEARS_WITH_SHARED_ATTRS.add(Spears.NETHERITE_SPEAR);
 
             // Only register the component modifier if we actually have any spear items
             if (!SPEARS_WITH_SHARED_ATTRS.isEmpty()) {
@@ -111,16 +117,13 @@ public class Mores implements ModInitializer {
                                         ));
 
                                 builder.add(Spears.ATTACK_RANGE,
-                                        new AttackRange(2.0F, 4.5F));
+                                        new AttackRange(1.5F, 4.25F));
 
-                                builder.add(Spears.MINIMUM_ATTACK_CHARGE, 1.0F);
+                                builder.add(Spears.MINIMUM_ATTACK_CHARGE, 0.75F);
                             }
                     );
                 });
             }
         }
-
-
-
 	}
 }

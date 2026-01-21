@@ -111,6 +111,7 @@ dependencies {
 
     // Backported Spears (compile against it; optional dependency)
     modCompileOnly "maven.modrinth:backported-spears:${project.backported_spears_version}"
+//    include(modImplementation("maven.modrinth:backported-spears:${project.backported_spears_version}"))
 
     // REI (compile against it; optional dependency)
     modCompileOnly "maven.modrinth:architectury-api:${project.architectury_version}"

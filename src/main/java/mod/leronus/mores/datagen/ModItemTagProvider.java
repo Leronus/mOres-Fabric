@@ -124,7 +124,7 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
         );
         //TODO Change to sharp for battleaxe?
         getOrCreateTagBuilder(ItemTags.SWORD_ENCHANTABLE).add(
-                ModItems.WOOD_BATTLE_AXE, ModItems.WOOD_BATTLE_MACE, ModItems.WOOD_DAGGER,
+                ModItems.WOODEN_BATTLE_AXE, ModItems.WOODEN_BATTLE_MACE, ModItems.WOODEN_DAGGER,
                 ModItems.TIN_SWORD, ModItems.TIN_BATTLE_AXE, ModItems.TIN_BATTLE_MACE,
                 ModItems.GOLD_BATTLE_AXE, ModItems.GOLD_BATTLE_MACE, ModItems.GOLD_DAGGER,
                 ModItems.SILVER_SWORD, ModItems.SILVER_BATTLE_AXE, ModItems.SILVER_BATTLE_MACE,

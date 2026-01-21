@@ -4,7 +4,7 @@
     {
       "model": "mores:item/hardened_steel_spear_in_hand",
       "predicate": {
-        "spears:in_gui": 1
+        "spears:in_gui": 0
       }
     }
   ],

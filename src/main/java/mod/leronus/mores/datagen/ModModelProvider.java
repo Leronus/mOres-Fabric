@@ -20,11 +20,6 @@ public class ModModelProvider extends FabricModelProvider {
         super(output);
     }
 
-    private static boolean isBackportedSpearsLoaded() {
-        FabricLoader loader = FabricLoader.getInstance();
-        return loader.isModLoaded("spears");
-    }
-
     @Override
     public void generateBlockStateModels(BlockStateModelGenerator blockStateModelGenerator) {
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.RAW_TIN_BLOCK);
@@ -742,9 +737,9 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ModItems.ENDERITE_BATTLE_MACE, Models.HANDHELD);
         itemModelGenerator.register(ModItems.ENDERITE_DAGGER, Models.HANDHELD);
 
-        itemModelGenerator.register(ModItems.WOOD_BATTLE_AXE, Models.HANDHELD);
-        itemModelGenerator.register(ModItems.WOOD_BATTLE_MACE, Models.HANDHELD);
-        itemModelGenerator.register(ModItems.WOOD_DAGGER, Models.HANDHELD);
+        itemModelGenerator.register(ModItems.WOODEN_BATTLE_AXE, Models.HANDHELD);
+        itemModelGenerator.register(ModItems.WOODEN_BATTLE_MACE, Models.HANDHELD);
+        itemModelGenerator.register(ModItems.WOODEN_DAGGER, Models.HANDHELD);
         itemModelGenerator.register(ModItems.STONE_BATTLE_AXE, Models.HANDHELD);
         itemModelGenerator.register(ModItems.STONE_BATTLE_MACE, Models.HANDHELD);
         itemModelGenerator.register(ModItems.STONE_DAGGER, Models.HANDHELD);
@@ -856,7 +851,7 @@ public class ModModelProvider extends FabricModelProvider {
             JsonObject ov = new JsonObject();
 
             JsonObject predicate = new JsonObject();
-            predicate.addProperty("spears:in_gui", 1);
+            predicate.addProperty("spears:in_gui", 0);
             ov.add("predicate", predicate);
 
             ov.addProperty("model", modid + ":item/" + name + "_in_hand");
