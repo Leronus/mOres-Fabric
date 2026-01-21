@@ -50,7 +50,7 @@ public final class ModArmorBonuses {
         put(ModArmorMaterials.HARDENED_STEEL.value(), moresEffect(StatusEffects.STRENGTH, 0));
         put(ModArmorMaterials.LAPIS_LAZULI.value(), moresEffect(StatusEffects.WATER_BREATHING, 0));
         put(ModArmorMaterials.AMETHYST.value(), moresEffect(StatusEffects.SLOW_FALLING, 0));
-        put(ModArmorMaterials.GRAPHENE_CHAINMAIL.value(), moresEffect(StatusEffects.JUMP_BOOST, 0));
+        put(ModArmorMaterials.GRAPHENE_CHAINMAIL.value(), moresEffect(StatusEffects.JUMP_BOOST, 1));
         put(ModArmorMaterials.TOURMALINE.value(), moresEffect(StatusEffects.REGENERATION, 0));
         put(ModArmorMaterials.TOPAZ.value(), moresEffect(StatusEffects.HASTE, 0));
         put(ModArmorMaterials.TANZANITE.value(), moresEffect(StatusEffects.SPEED, 0));

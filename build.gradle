@@ -134,9 +134,13 @@ dependencies {
     // Jade
     modRuntimeOnly "maven.modrinth:jade:${project.jade_version}"
 
-    // Optional
-    // modRuntimeOnly "maven.modrinth:entityculling:${project.entity_culling_version}"
+    //Continuity
+    modRuntimeOnly "maven.modrinth:continuity:${project.continuity_version}"
+//    modRuntimeOnly "maven.modrinth:platform:${project.platform_version}"
+//    modRuntimeOnly "maven.modrinth:vanillabackport:${project.vanilla_backport_version}"
+    // Xray
      modRuntimeOnly "curse.maven:advanced-xray-fabric-edition-444663:5424324"
+    // modRuntimeOnly "maven.modrinth:entityculling:${project.entity_culling_version}"
 }
 
 

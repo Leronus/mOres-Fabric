@@ -7,10 +7,8 @@ Testing:
 - Test horse/wolf armor & shield enchants
 - Check food recipes (chocolate) maybe play test a little with lemons and such
 - Turquoise / Lapis Lazuli horse armor
-- Spears again
 - Armor Effects on server make sure they're working (for animals too) - citrine, spinel etc
-- Turquoise enchanting
-- Playtest graphene chainmail (alloying it and recipes)
+- Turquoise enchanting -> with easy magic
 
 Todo:
 - Tool materials (update shields stats -> cooldown)
@@ -19,10 +17,11 @@ Todo:
 - Armor trim models not correct
 - Advancements (don't forget to add axes to wax/on wax/off - add stuff for new food & golem & duck ofc)
 - Quartz deepslate
-- Armor effects; Rose Gold (Piglin), Enderite (Endermen)
+- Armor effects; Rose Gold (Piglin), Obsidian (Explosion Immunity)
+- Turquoise horse armor / lapis -> faster sink? maybe a little less resistance
 - Loot tables CHESTS - tools, weapons, shields, horse/wolf armor, food, smithing templates & ENTITIES drops (golem + duck)
 - Add duck, duck egg & spawnegg as well as golem spawnegg and add duck egg to egg tag so it can be used for pies & cake etc
-- Fix graphene_chainmail armor model magenta for some reason (maybe because see-through)
+- Villager trades: vanilla still overriding
 
 -- ENTITY SPAWNING
 - Piglins -> rose gold armor & rose gold sword (5% rose gold spear?)

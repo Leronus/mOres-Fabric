@@ -1,95 +1,75 @@
 package mod.leronus.mores.trade;
 
+import it.unimi.dsi.fastutil.ints.Int2ObjectMap;
+import it.unimi.dsi.fastutil.ints.Int2ObjectOpenHashMap;
 import mod.leronus.mores.item.ModItems;
-import net.fabricmc.fabric.api.object.builder.v1.trade.TradeOfferHelper;
 import net.minecraft.item.Items;
 import net.minecraft.util.math.random.Random;
 import net.minecraft.village.TradeOffers;
-import net.minecraft.village.VillagerProfession;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class ModWeaponsmithTradesWeighted {
 
-    private static boolean REGISTERED = false;
+    public static Int2ObjectMap<TradeOffers.Factory[]> buildLeveledTradeMap() {
+        Int2ObjectMap<TradeOffers.Factory[]> out = new Int2ObjectOpenHashMap<>();
+        Random r = Random.create();
 
-    public static void register() {
-        if (REGISTERED) return;
-        REGISTERED = true;
-
-        // NOVICE (3 slots)
-        TradeOfferHelper.registerVillagerOffers(VillagerProfession.WEAPONSMITH, 1, factories -> {
-            factories.clear();
-            Random r = Random.create();
-
+        // ==================== LEVEL 1: 1 buy + 2 sell ====================
+        {
             List<WeightedTrade> buyPool = new ArrayList<>();
             List<WeightedTrade> sellPool = new ArrayList<>();
 
-            // BUY (pick 1)
-            buyPool.add(new WeightedTrade("BUY_COAL", WeightTiers.COMMON,
+            buyPool.add(new WeightedTrade("BUY_COAL", 50,
                     TradeFactoryUtil.buyItemForEmeralds(Items.COAL, 15, 1, 16, 2, 0.05f)));
-            buyPool.add(new WeightedTrade("BUY_ANTHRACITE", WeightTiers.UNCOMMON,
+            buyPool.add(new WeightedTrade("BUY_ANTHRACITE", 25,
                     TradeFactoryUtil.buyItemForEmeralds(ModItems.ANTHRACITE, 9, 1, 12, 2, 0.05f)));
-            //COMMON: 50 UNCOMMON: 25 -> 1x50 + 4x25 = 150 -> chance for 1 uncommon is 4x25 / 150 -> 66.67%
 
-            // SELL (pick 2)
-            sellPool.add(new WeightedTrade("SELL_IRON_SWORD", WeightTiers.UNCOMMON,
+            sellPool.add(new WeightedTrade("SELL_IRON_SWORD", 25,
                     new TradeOffers.SellItemFactory(Items.IRON_SWORD, 3, 1, 12, 1, 0.20f)));
-            sellPool.add(new WeightedTrade("SELL_IRON_DAGGER", WeightTiers.UNCOMMON,
+            sellPool.add(new WeightedTrade("SELL_IRON_DAGGER", 25,
                     new TradeOffers.SellItemFactory(ModItems.IRON_DAGGER, 2, 1, 12, 1, 0.20f)));
-            sellPool.add(new WeightedTrade("SELL_IRON_BATTLE_AXE", WeightTiers.UNCOMMON,
+            sellPool.add(new WeightedTrade("SELL_IRON_BATTLE_AXE", 25,
                     new TradeOffers.SellItemFactory(ModItems.IRON_BATTLE_AXE, 4, 1, 12, 1, 0.20f)));
-            sellPool.add(new WeightedTrade("SELL_IRON_BATTLE_MACE", WeightTiers.UNCOMMON,
+            sellPool.add(new WeightedTrade("SELL_IRON_BATTLE_MACE", 25,
                     new TradeOffers.SellItemFactory(ModItems.IRON_BATTLE_MACE, 4, 1, 12, 1, 0.20f)));
 
-            addSelected(buyPool, 1, r, factories);
-            addSelected(sellPool, 2, r, factories);
-        });
+            out.put(1, concat(
+                    pick(buyPool, 1, r),
+                    pick(sellPool, 2, r)
+            ));
+        }
 
-
-        // APPRENTICE (3 slots)
-        TradeOfferHelper.registerVillagerOffers(VillagerProfession.WEAPONSMITH, 2, factories -> {
-            factories.clear();
-            Random r = Random.create();
-
+        // ==================== LEVEL 2 (3 slots) ====================
+        {
             List<WeightedTrade> pool = new ArrayList<>();
 
-            pool.add(new WeightedTrade("BUY_IRON_INGOT", 25,
+            pool.add(new WeightedTrade("BUY_IRON", 25,
                     TradeFactoryUtil.buyItemForEmeralds(Items.IRON_INGOT, 4, 1, 12, 10, 0.05f)));
-
             pool.add(new WeightedTrade("SELL_BELL", 25,
                     new TradeOffers.SellItemFactory(Items.BELL, 36, 1, 12, 5, 0.05f)));
-
-            pool.add(new WeightedTrade("BUY_SILVER_INGOT", 25,
+            pool.add(new WeightedTrade("BUY_SILVER", 25,
                     TradeFactoryUtil.buyItemForEmeralds(ModItems.SILVER_INGOT, 7, 1, 12, 10, 0.05f)));
-
-            pool.add(new WeightedTrade("BUY_COPPER_INGOT", 25,
+            pool.add(new WeightedTrade("BUY_COPPER", 25,
                     TradeFactoryUtil.buyItemForEmeralds(Items.COPPER_INGOT, 10, 1, 12, 10, 0.05f)));
-
-            pool.add(new WeightedTrade("BUY_COBALT_INGOT", 25,
+            pool.add(new WeightedTrade("BUY_COBALT", 25,
                     TradeFactoryUtil.buyItemForEmeralds(ModItems.COBALT_INGOT, 4, 1, 12, 10, 0.05f)));
 
-            WeightedTradeSelector.select(pool, 3, r).forEach(t -> factories.add(t.factory()));
-        });
+            out.put(2, pick(pool, 3, r));
+        }
 
-        // JOURNEYMAN (3 slots)
-        TradeOfferHelper.registerVillagerOffers(VillagerProfession.WEAPONSMITH, 3, factories -> {
-            factories.clear();
-            Random r = Random.create();
-
+        // ==================== LEVEL 3 (3 slots) ====================
+        {
             List<WeightedTrade> pool = new ArrayList<>();
 
             pool.add(new WeightedTrade("BUY_FLINT", 30,
                     TradeFactoryUtil.buyItemForEmeralds(Items.FLINT, 24, 1, 12, 20, 0.05f)));
-
             pool.add(new WeightedTrade("BUY_STERLING_SILVER", 25,
                     TradeFactoryUtil.buyItemForEmeralds(ModItems.STERLING_SILVER_INGOT, 2, 1, 12, 20, 0.05f)));
-
             pool.add(new WeightedTrade("BUY_MOISSANITE", 20,
                     TradeFactoryUtil.buyItemForEmeralds(ModItems.MOISSANITE_GEM, 1, 1, 12, 20, 0.05f)));
 
-            // dagger sell slot – tier weights (tanzanite lowest)
             pool.add(new WeightedTrade("SELL_DAGGER_MOISSANITE", 5,
                     new TradeOffers.SellItemFactory(ModItems.MOISSANITE_DAGGER, 3, 1, 3, 10, 0.20f)));
             pool.add(new WeightedTrade("SELL_DAGGER_SAPPHIRE", 7,
@@ -105,17 +85,13 @@ public class ModWeaponsmithTradesWeighted {
             pool.add(new WeightedTrade("SELL_DAGGER_TANZANITE", 7,
                     new TradeOffers.SellItemFactory(ModItems.TANZANITE_DAGGER, 2, 1, 3, 10, 0.20f)));
 
-            WeightedTradeSelector.select(pool, 3, r).forEach(t -> factories.add(t.factory()));
-        });
+            out.put(3, pick(pool, 3, r));
+        }
 
-        // EXPERT (3 slots)
-        TradeOfferHelper.registerVillagerOffers(VillagerProfession.WEAPONSMITH, 4, factories -> {
-            factories.clear();
-            Random r = Random.create();
-
+        // ==================== LEVEL 4 (3 slots) ====================
+        {
             List<WeightedTrade> pool = new ArrayList<>();
 
-            // enchanted sword / mace – allow variety, no broad keys
             pool.add(new WeightedTrade("ENCH_SWORD_DIAMOND", 13,
                     new TradeOffers.SellEnchantedToolFactory(Items.DIAMOND_SWORD, 13, 3, 15, 0.20f)));
             pool.add(new WeightedTrade("ENCH_BATTLE_MACE_DIAMOND", 14,
@@ -140,6 +116,7 @@ public class ModWeaponsmithTradesWeighted {
                     new TradeOffers.SellEnchantedToolFactory(ModItems.SPINEL_SWORD, 13, 3, 15, 0.20f)));
             pool.add(new WeightedTrade("ENCH_BATTLE_MACE_SPINEL", 14,
                     new TradeOffers.SellEnchantedToolFactory(ModItems.SPINEL_BATTLE_MACE, 20, 3, 15, 0.20f)));
+
             pool.add(new WeightedTrade("ENCH_SWORD_TOPAZ", 16,
                     new TradeOffers.SellEnchantedToolFactory(ModItems.TOPAZ_SWORD, 12, 3, 15, 0.20f)));
             pool.add(new WeightedTrade("ENCH_BATTLE_MACE_TOPAZ", 16,
@@ -155,18 +132,14 @@ public class ModWeaponsmithTradesWeighted {
             pool.add(new WeightedTrade("ENCH_BATTLE_MACE_TANZANITE", 15,
                     new TradeOffers.SellEnchantedToolFactory(ModItems.TANZANITE_BATTLE_MACE, 18, 3, 15, 0.20f)));
 
-            WeightedTradeSelector.select(pool, 3, r).forEach(t -> factories.add(t.factory()));
-        });
+            out.put(4, pick(pool, 3, r));
+        }
 
-        // MASTER (3 slots)
-        TradeOfferHelper.registerVillagerOffers(VillagerProfession.WEAPONSMITH, 5, factories -> {
-            factories.clear();
-            Random r = Random.create();
-
+        // ==================== LEVEL 5: 1 buy + 2 sell ====================
+        {
             List<WeightedTrade> buyPool = new ArrayList<>();
             List<WeightedTrade> sellPool = new ArrayList<>();
 
-            // buy materials (normal multiplier)
             buyPool.add(new WeightedTrade("BUY_TIN", 18,
                     TradeFactoryUtil.buyItemForEmeralds(ModItems.TIN_INGOT, 26, 1, 16, 30, 0.05f)));
             buyPool.add(new WeightedTrade("BUY_IRON", 24,
@@ -180,10 +153,9 @@ public class ModWeaponsmithTradesWeighted {
             buyPool.add(new WeightedTrade("BUY_STERLING_SILVER", 22,
                     TradeFactoryUtil.buyItemForEmeralds(ModItems.STERLING_SILVER_INGOT, 4, 1, 12, 30, 0.05f)));
 
-            // master sells – allow multiple different items (keys per item)
             sellPool.add(new WeightedTrade("ENCH_BATTLE_AXE_DIAMOND", 11,
                     new TradeOffers.SellEnchantedToolFactory(ModItems.DIAMOND_BATTLE_AXE, 18, 3, 30, 0.20f)));
-            sellPool.add(new WeightedTrade("ENCH_BATTLE_AXE_MOISSANITE", 7,
+            sellPool.add(new WeightedTrade("ENCH_BATTLE_AXE_MOISS", 7,
                     new TradeOffers.SellEnchantedToolFactory(ModItems.MOISSANITE_BATTLE_AXE, 24, 3, 30, 0.20f)));
             sellPool.add(new WeightedTrade("ENCH_BATTLE_AXE_SAPPHIRE", 10,
                     new TradeOffers.SellEnchantedToolFactory(ModItems.SAPPHIRE_BATTLE_AXE, 22, 3, 30, 0.20f)));
@@ -198,18 +170,29 @@ public class ModWeaponsmithTradesWeighted {
             sellPool.add(new WeightedTrade("ENCH_BATTLE_AXE_TANZANITE", 12,
                     new TradeOffers.SellEnchantedToolFactory(ModItems.TANZANITE_BATTLE_AXE, 18, 3, 30, 0.20f)));
 
-            // TEMPLATE: SUPER RARE + NORMAL multiplier (geen 0.5)
             sellPool.add(new WeightedTrade("TEMPLATE_OBSIDIAN", 1,
                     new TradeOffers.SellItemFactory(ModItems.OBSIDIAN_UPGRADE_SMITHING_TEMPLATE, 60, 1, 1, 30, 0.05f)));
 
-            WeightedTradeSelector.select(buyPool, 1, r).forEach(t -> factories.add(t.factory()));
-            WeightedTradeSelector.select(sellPool, 2, r).forEach(t -> factories.add(t.factory()));
-        });
+            out.put(5, concat(
+                    pick(buyPool, 1, r),
+                    pick(sellPool, 2, r)
+            ));
+        }
+
+        return out;
     }
 
-    private static void addSelected(List<WeightedTrade> pool, int count, Random r, List<TradeOffers.Factory> factories) {
-        if (pool.isEmpty() || count <= 0) return;
-        WeightedTradeSelector.select(pool, Math.min(count, pool.size()), r)
-                .forEach(t -> factories.add(t.factory()));
+    private static TradeOffers.Factory[] pick(List<WeightedTrade> pool, int count, Random r) {
+        return WeightedTradeSelector.select(pool, Math.min(count, pool.size()), r)
+                .stream()
+                .map(WeightedTrade::factory)
+                .toArray(TradeOffers.Factory[]::new);
+    }
+
+    private static TradeOffers.Factory[] concat(TradeOffers.Factory[] a, TradeOffers.Factory[] b) {
+        TradeOffers.Factory[] out = new TradeOffers.Factory[a.length + b.length];
+        System.arraycopy(a, 0, out, 0, a.length);
+        System.arraycopy(b, 0, out, a.length, b.length);
+        return out;
     }
 }

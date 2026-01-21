@@ -856,7 +856,7 @@ public class ModModelProvider extends FabricModelProvider {
             JsonObject ov = new JsonObject();
 
             JsonObject predicate = new JsonObject();
-            predicate.addProperty("spears:in_gui", 0);
+            predicate.addProperty("spears:in_gui", 1);
             ov.add("predicate", predicate);
 
             ov.addProperty("model", modid + ":item/" + name + "_in_hand");

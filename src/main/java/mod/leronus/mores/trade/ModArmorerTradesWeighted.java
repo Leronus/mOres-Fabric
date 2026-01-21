@@ -1,237 +1,190 @@
 package mod.leronus.mores.trade;
 
+import it.unimi.dsi.fastutil.ints.Int2ObjectMap;
+import it.unimi.dsi.fastutil.ints.Int2ObjectOpenHashMap;
 import mod.leronus.mores.item.ModItems;
-import net.fabricmc.fabric.api.object.builder.v1.trade.TradeOfferHelper;
 import net.minecraft.item.Items;
 import net.minecraft.util.math.random.Random;
 import net.minecraft.village.TradeOffers;
-import net.minecraft.village.VillagerProfession;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class ModArmorerTradesWeighted {
-    //Blast Furnace
-    private static boolean REGISTERED = false;
 
-    public static void register() {
-        if (REGISTERED) return;
-        REGISTERED = true;
+    public static Int2ObjectMap<TradeOffers.Factory[]> buildLeveledTradeMap() {
+        Int2ObjectMap<TradeOffers.Factory[]> out = new Int2ObjectOpenHashMap<>();
+        Random r = Random.create();
 
-        // NOVICE (3 slots)
-        TradeOfferHelper.registerVillagerOffers(VillagerProfession.ARMORER, 1, factories -> {
-            factories.clear() ;
-            Random r = Random.create();
+        // LEVEL 1: 1 buy + 2 sell
+        {
             List<WeightedTrade> buyPool = new ArrayList<>();
             List<WeightedTrade> sellPool = new ArrayList<>();
 
-            buyPool.add(new WeightedTrade("BUY_COAL", WeightTiers.COMMON,
+            buyPool.add(new WeightedTrade("BUY", 50,
                     TradeFactoryUtil.buyItemForEmeralds(Items.COAL, 15, 1, 16, 2, 0.05f)));
-            buyPool.add(new WeightedTrade("BUY_ANTHRACITE", WeightTiers.UNCOMMON,
+            buyPool.add(new WeightedTrade("BUY", 25,
                     TradeFactoryUtil.buyItemForEmeralds(ModItems.ANTHRACITE, 9, 1, 12, 2, 0.05f)));
-            buyPool.add(new WeightedTrade("BUY_RAW_SILVER", WeightTiers.UNCOMMON,
+            buyPool.add(new WeightedTrade("BUY", 25,
                     TradeFactoryUtil.buyItemForEmeralds(ModItems.RAW_SILVER, 7, 1, 12, 2, 0.05f)));
-            buyPool.add(new WeightedTrade("BUY_RAW_COPPER", WeightTiers.UNCOMMON,
+            buyPool.add(new WeightedTrade("BUY", 25,
                     TradeFactoryUtil.buyItemForEmeralds(Items.RAW_COPPER, 16, 1, 12, 2, 0.05f)));
-            buyPool.add(new WeightedTrade("BUY_RAW_TIN", WeightTiers.UNCOMMON,
+            buyPool.add(new WeightedTrade("BUY", 25,
                     TradeFactoryUtil.buyItemForEmeralds(ModItems.RAW_TIN, 14, 1, 12, 2, 0.05f)));
-            //COMMON: 50 UNCOMMON: 25 -> 1x50 + 4x25 = 150 -> chance for 1 uncommon is 4x25 / 150 -> 66.67%
 
-            // Armor sells – iron weight lager, cobalt/silver hoger
-            sellPool.add(new WeightedTrade("SELL_IRON_HELMET", 10, new TradeOffers.SellItemFactory(Items.IRON_HELMET, 5, 1, 12, 1, 0.20f)));
-            sellPool.add(new WeightedTrade("SELL_IRON_CHEST", 10, new TradeOffers.SellItemFactory(Items.IRON_CHESTPLATE, 9, 1, 12, 1, 0.20f)));
-            sellPool.add(new WeightedTrade("SELL_IRON_LEGS", 10, new TradeOffers.SellItemFactory(Items.IRON_LEGGINGS, 7, 1, 12, 1, 0.20f)));
-            sellPool.add(new WeightedTrade("SELL_IRON_BOOTS", 10, new TradeOffers.SellItemFactory(Items.IRON_BOOTS, 4, 1, 12, 1, 0.20f)));
+            // 2 armor sells; key prevents 2 helmets etc.
+            sellPool.add(new WeightedTrade("SELL_ARMOR", 10, new TradeOffers.SellItemFactory(Items.IRON_HELMET, 5, 1, 12, 1, 0.20f)));
+            sellPool.add(new WeightedTrade("SELL_ARMOR", 10, new TradeOffers.SellItemFactory(Items.IRON_CHESTPLATE, 9, 1, 12, 1, 0.20f)));
+            sellPool.add(new WeightedTrade("SELL_ARMOR", 10, new TradeOffers.SellItemFactory(Items.IRON_LEGGINGS, 7, 1, 12, 1, 0.20f)));
+            sellPool.add(new WeightedTrade("SELL_ARMOR", 10, new TradeOffers.SellItemFactory(Items.IRON_BOOTS, 4, 1, 12, 1, 0.20f)));
 
-            sellPool.add(new WeightedTrade("SELL_COBALT_HELMET", 14, new TradeOffers.SellItemFactory(ModItems.COBALT_HELMET, 5, 1, 12, 1, 0.20f)));
-            sellPool.add(new WeightedTrade("SELL_COBALT_CHEST", 14, new TradeOffers.SellItemFactory(ModItems.COBALT_CHESTPLATE, 9, 1, 12, 1, 0.20f)));
-            sellPool.add(new WeightedTrade("SELL_COBALT_LEGS", 14, new TradeOffers.SellItemFactory(ModItems.COBALT_LEGGINGS, 7, 1, 12, 1, 0.20f)));
-            sellPool.add(new WeightedTrade("SELL_COBALT_BOOTS", 14, new TradeOffers.SellItemFactory(ModItems.COBALT_BOOTS, 4, 1, 12, 1, 0.20f)));
+            sellPool.add(new WeightedTrade("SELL_ARMOR", 14, new TradeOffers.SellItemFactory(ModItems.COBALT_HELMET, 5, 1, 12, 1, 0.20f)));
+            sellPool.add(new WeightedTrade("SELL_ARMOR", 14, new TradeOffers.SellItemFactory(ModItems.COBALT_CHESTPLATE, 9, 1, 12, 1, 0.20f)));
+            sellPool.add(new WeightedTrade("SELL_ARMOR", 14, new TradeOffers.SellItemFactory(ModItems.COBALT_LEGGINGS, 7, 1, 12, 1, 0.20f)));
+            sellPool.add(new WeightedTrade("SELL_ARMOR", 14, new TradeOffers.SellItemFactory(ModItems.COBALT_BOOTS, 4, 1, 12, 1, 0.20f)));
 
-            sellPool.add(new WeightedTrade("SELL_SILVER_HELMET", 16, new TradeOffers.SellItemFactory(ModItems.SILVER_HELMET, 4, 1, 12, 1, 0.20f)));
-            sellPool.add(new WeightedTrade("SELL_SILVER_CHEST", 16, new TradeOffers.SellItemFactory(ModItems.SILVER_CHESTPLATE, 8, 1, 12, 1, 0.20f)));
-            sellPool.add(new WeightedTrade("SELL_SILVER_LEGS", 16, new TradeOffers.SellItemFactory(ModItems.SILVER_LEGGINGS, 6, 1, 12, 1, 0.20f)));
-            sellPool.add(new WeightedTrade("SELL_SILVER_BOOTS", 16, new TradeOffers.SellItemFactory(ModItems.SILVER_BOOTS, 3, 1, 12, 1, 0.20f)));
+            sellPool.add(new WeightedTrade("SELL_ARMOR", 16, new TradeOffers.SellItemFactory(ModItems.SILVER_HELMET, 4, 1, 12, 1, 0.20f)));
+            sellPool.add(new WeightedTrade("SELL_ARMOR", 16, new TradeOffers.SellItemFactory(ModItems.SILVER_CHESTPLATE, 8, 1, 12, 1, 0.20f)));
+            sellPool.add(new WeightedTrade("SELL_ARMOR", 16, new TradeOffers.SellItemFactory(ModItems.SILVER_LEGGINGS, 6, 1, 12, 1, 0.20f)));
+            sellPool.add(new WeightedTrade("SELL_ARMOR", 16, new TradeOffers.SellItemFactory(ModItems.SILVER_BOOTS, 3, 1, 12, 1, 0.20f)));
 
-            addSelected(buyPool, 1, r, factories);
-            addSelected(sellPool, 2, r, factories);
-        });
+            out.put(1, concat(
+                    pick(buyPool, 1, r),
+                    pick(sellPool, 2, r)
+            ));
+        }
 
-        // APPRENTICE (3 slots)
-        TradeOfferHelper.registerVillagerOffers(VillagerProfession.ARMORER, 2, factories -> {
-            factories.clear();
-            Random r = Random.create();
+        // LEVEL 2: 2 buy + 1 sell
+        {
             List<WeightedTrade> buyPool = new ArrayList<>();
             List<WeightedTrade> sellPool = new ArrayList<>();
-            buyPool.add(new WeightedTrade("BUY_IRON", WeightTiers.UNCOMMON,
-                    TradeFactoryUtil.buyItemForEmeralds(Items.IRON_INGOT, 4, 1, 12, 10, 0.05f)));
-            buyPool.add(new WeightedTrade("BUY_SILVER", WeightTiers.UNCOMMON,
-                    TradeFactoryUtil.buyItemForEmeralds(ModItems.SILVER_INGOT, 7, 1, 12, 10, 0.05f)));
-            buyPool.add(new WeightedTrade("BUY_COPPER", WeightTiers.UNCOMMON,
-                    TradeFactoryUtil.buyItemForEmeralds(Items.COPPER_INGOT, 10, 1, 12, 10, 0.05f)));
-            buyPool.add(new WeightedTrade("BUY_COBALT", WeightTiers.UNCOMMON,
-                    TradeFactoryUtil.buyItemForEmeralds(ModItems.COBALT_INGOT, 4, 1, 12, 10, 0.05f)));
 
-            sellPool.add(new WeightedTrade("SELL_BELL", 20,
-                    new TradeOffers.SellItemFactory(Items.BELL, 24, 1, 12, 5, 0.05f)));
-            sellPool.add(new WeightedTrade("SELL_GRAPHENE_CHAINMAIL_HELMET", 20,
-                    new TradeOffers.SellItemFactory(ModItems.GRAPHENE_CHAINMAIL_HELMET, 36, 1, 3, 10, 0.05f)));
-            sellPool.add(new WeightedTrade("SELL_GRAPHENE_CHAINMAIL_CHESTPLATE", 20,
-                    new TradeOffers.SellItemFactory(ModItems.GRAPHENE_CHAINMAIL_CHESTPLATE, 36, 1, 3, 10, 0.05f)));
-            sellPool.add(new WeightedTrade("SELL_GRAPHENE_CHAINMAIL_LEGGINGS", 20,
-                    new TradeOffers.SellItemFactory(ModItems.GRAPHENE_CHAINMAIL_LEGGINGS, 36, 1, 3, 10, 0.05f)));
-            sellPool.add(new WeightedTrade("SELL_GRAPHENE_CHAINMAIL_BOOTS", 20,
-                    new TradeOffers.SellItemFactory(ModItems.GRAPHENE_CHAINMAIL_BOOTS, 36, 1, 3, 10, 0.05f)));
+            buyPool.add(new WeightedTrade("BUY", 25, TradeFactoryUtil.buyItemForEmeralds(Items.IRON_INGOT, 4, 1, 12, 10, 0.05f)));
+            buyPool.add(new WeightedTrade("BUY", 25, TradeFactoryUtil.buyItemForEmeralds(ModItems.SILVER_INGOT, 7, 1, 12, 10, 0.05f)));
+            buyPool.add(new WeightedTrade("BUY", 25, TradeFactoryUtil.buyItemForEmeralds(Items.COPPER_INGOT, 10, 1, 12, 10, 0.05f)));
+            buyPool.add(new WeightedTrade("BUY", 25, TradeFactoryUtil.buyItemForEmeralds(ModItems.COBALT_INGOT, 4, 1, 12, 10, 0.05f)));
 
+            // ONE sell slot: either bell or graphene chainmail pieces
+            sellPool.add(new WeightedTrade("SELL_SPECIAL", 20, new TradeOffers.SellItemFactory(Items.BELL, 24, 1, 12, 5, 0.05f)));
 
-            WeightedTradeSelector.select(buyPool, 2, r).forEach(t -> factories.add(t.factory()));
-            WeightedTradeSelector.select(sellPool, 1, r).forEach(t -> factories.add(t.factory()));
-        });
+            sellPool.add(new WeightedTrade("SELL_SPECIAL", 20, new TradeOffers.SellItemFactory(ModItems.GRAPHENE_CHAINMAIL_HELMET, 36, 1, 3, 10, 0.05f)));
+            sellPool.add(new WeightedTrade("SELL_SPECIAL", 20, new TradeOffers.SellItemFactory(ModItems.GRAPHENE_CHAINMAIL_CHESTPLATE, 36, 1, 3, 10, 0.05f)));
+            sellPool.add(new WeightedTrade("SELL_SPECIAL", 20, new TradeOffers.SellItemFactory(ModItems.GRAPHENE_CHAINMAIL_LEGGINGS, 36, 1, 3, 10, 0.05f)));
+            sellPool.add(new WeightedTrade("SELL_SPECIAL", 20, new TradeOffers.SellItemFactory(ModItems.GRAPHENE_CHAINMAIL_BOOTS, 36, 1, 3, 10, 0.05f)));
 
-        // JOURNEYMAN (3 slots) – more shields!
-        TradeOfferHelper.registerVillagerOffers(VillagerProfession.ARMORER, 3, factories -> {
-            factories.clear();
-            Random r = Random.create();
+            out.put(2, concat(
+                    pick(buyPool, 2, r),
+                    pick(sellPool, 1, r)
+            ));
+        }
+
+        // LEVEL 3: pick 3
+        {
             List<WeightedTrade> pool = new ArrayList<>();
 
-            pool.add(new WeightedTrade("BUY_LAVA_BUCKET", 18,
-                    TradeFactoryUtil.buyItemForEmeralds(Items.LAVA_BUCKET, 1, 1, 12, 20, 0.05f)));
-            pool.add(new WeightedTrade("BUY_ROSE_GOLD", 18,
-                    TradeFactoryUtil.buyItemForEmeralds(ModItems.ROSE_GOLD_INGOT, 2, 1, 12, 20, 0.05f)));
+            pool.add(new WeightedTrade("BUY", 18, TradeFactoryUtil.buyItemForEmeralds(Items.LAVA_BUCKET, 1, 1, 12, 20, 0.05f)));
+            pool.add(new WeightedTrade("BUY", 18, TradeFactoryUtil.buyItemForEmeralds(ModItems.ROSE_GOLD_INGOT, 2, 1, 12, 20, 0.05f)));
 
-            // Shields: higher overall weights so they appear more across villagers
-            pool.add(new WeightedTrade("SHIELD_COBALT", 18, new TradeOffers.SellItemFactory(ModItems.COBALT_SHIELD, 12, 1, 3, 10, 0.20f)));
-            pool.add(new WeightedTrade("SHIELD_CARBON_STEEL", 18, new TradeOffers.SellItemFactory(ModItems.CARBON_STEEL_SHIELD, 12, 1, 3, 10, 0.20f)));
-            pool.add(new WeightedTrade("SHIELD_TOPAZ", 14, new TradeOffers.SellItemFactory(ModItems.TOPAZ_SHIELD, 11, 1, 3, 10, 0.20f)));
-            pool.add(new WeightedTrade("SHIELD_TOURMALINE", 10, new TradeOffers.SellItemFactory(ModItems.TOURMALINE_SHIELD, 10, 1, 3, 10, 0.20f)));
-            pool.add(new WeightedTrade("SHIELD_RUBY", 10, new TradeOffers.SellItemFactory(ModItems.RUBY_SHIELD, 13, 1, 3, 10, 0.20f)));
-            pool.add(new WeightedTrade("SHIELD_SAPPHIRE", 10, new TradeOffers.SellItemFactory(ModItems.SAPPHIRE_SHIELD, 14, 1, 3, 10, 0.20f)));
-            pool.add(new WeightedTrade("SHIELD_EMERALD", 12, new TradeOffers.SellItemFactory(ModItems.EMERALD_SHIELD, 14, 1, 3, 10, 0.20f)));
-            pool.add(new WeightedTrade("SHIELD_AMETHYST", 12, new TradeOffers.SellItemFactory(ModItems.AMETHYST_SHIELD, 14, 1, 3, 10, 0.20f)));
-            pool.add(new WeightedTrade("SHIELD_LAPIS", 16, new TradeOffers.SellItemFactory(ModItems.LAPIS_LAZULI_SHIELD, 12, 1, 3, 10, 0.20f)));
-            pool.add(new WeightedTrade("SHIELD_CITRINE", 12, new TradeOffers.SellItemFactory(ModItems.CITRINE_SHIELD, 12, 1, 3, 10, 0.20f)));
+            pool.add(new WeightedTrade("SELL_SHIELD", 18, new TradeOffers.SellItemFactory(ModItems.COBALT_SHIELD, 12, 1, 3, 10, 0.20f)));
+            pool.add(new WeightedTrade("SELL_SHIELD", 18, new TradeOffers.SellItemFactory(ModItems.CARBON_STEEL_SHIELD, 12, 1, 3, 10, 0.20f)));
+            pool.add(new WeightedTrade("SELL_SHIELD", 14, new TradeOffers.SellItemFactory(ModItems.TOPAZ_SHIELD, 11, 1, 3, 10, 0.20f)));
+            pool.add(new WeightedTrade("SELL_SHIELD", 10, new TradeOffers.SellItemFactory(ModItems.TOURMALINE_SHIELD, 10, 1, 3, 10, 0.20f)));
+            pool.add(new WeightedTrade("SELL_SHIELD", 10, new TradeOffers.SellItemFactory(ModItems.RUBY_SHIELD, 13, 1, 3, 10, 0.20f)));
+            pool.add(new WeightedTrade("SELL_SHIELD", 10, new TradeOffers.SellItemFactory(ModItems.SAPPHIRE_SHIELD, 14, 1, 3, 10, 0.20f)));
+            pool.add(new WeightedTrade("SELL_SHIELD", 12, new TradeOffers.SellItemFactory(ModItems.EMERALD_SHIELD, 14, 1, 3, 10, 0.20f)));
+            pool.add(new WeightedTrade("SELL_SHIELD", 12, new TradeOffers.SellItemFactory(ModItems.AMETHYST_SHIELD, 14, 1, 3, 10, 0.20f)));
+            pool.add(new WeightedTrade("SELL_SHIELD", 16, new TradeOffers.SellItemFactory(ModItems.LAPIS_LAZULI_SHIELD, 12, 1, 3, 10, 0.20f)));
+            pool.add(new WeightedTrade("SELL_SHIELD", 12, new TradeOffers.SellItemFactory(ModItems.CITRINE_SHIELD, 12, 1, 3, 10, 0.20f)));
 
-            // Gems buy (keep variety)
-            pool.add(new WeightedTrade("BUY_SAPPHIRE", 12,
-                    TradeFactoryUtil.buyItemForEmeralds(ModItems.SAPPHIRE_GEM, 1, 1, 12, 20, 0.05f)));
-            pool.add(new WeightedTrade("BUY_SPINEL", 12,
-                    TradeFactoryUtil.buyItemForEmeralds(ModItems.SPINEL_GEM, 1, 1, 12, 20, 0.05f)));
-            pool.add(new WeightedTrade("BUY_RUBY", 11,
-                    TradeFactoryUtil.buyItemForEmeralds(ModItems.RUBY_GEM, 1, 1, 12, 20, 0.05f)));
-            pool.add(new WeightedTrade("BUY_TOPAZ", 14,
-                    TradeFactoryUtil.buyItemForEmeralds(ModItems.TOPAZ_GEM, 1, 1, 12, 20, 0.05f)));
-            pool.add(new WeightedTrade("BUY_TOURMALINE", 15,
-                    TradeFactoryUtil.buyItemForEmeralds(ModItems.TOURMALINE_GEM, 1, 1, 12, 20, 0.05f)));
-            pool.add(new WeightedTrade("BUY_TANZANITE", 13,
-                    TradeFactoryUtil.buyItemForEmeralds(ModItems.TANZANITE_GEM, 1, 1, 12, 20, 0.05f)));
+            pool.add(new WeightedTrade("BUY_GEM", 12, TradeFactoryUtil.buyItemForEmeralds(ModItems.SAPPHIRE_GEM, 1, 1, 12, 20, 0.05f)));
+            pool.add(new WeightedTrade("BUY_GEM", 12, TradeFactoryUtil.buyItemForEmeralds(ModItems.SPINEL_GEM, 1, 1, 12, 20, 0.05f)));
+            pool.add(new WeightedTrade("BUY_GEM", 11, TradeFactoryUtil.buyItemForEmeralds(ModItems.RUBY_GEM, 1, 1, 12, 20, 0.05f)));
+            pool.add(new WeightedTrade("BUY_GEM", 14, TradeFactoryUtil.buyItemForEmeralds(ModItems.TOPAZ_GEM, 1, 1, 12, 20, 0.05f)));
+            pool.add(new WeightedTrade("BUY_GEM", 15, TradeFactoryUtil.buyItemForEmeralds(ModItems.TOURMALINE_GEM, 1, 1, 12, 20, 0.05f)));
+            pool.add(new WeightedTrade("BUY_GEM", 13, TradeFactoryUtil.buyItemForEmeralds(ModItems.TANZANITE_GEM, 1, 1, 12, 20, 0.05f)));
 
-            WeightedTradeSelector.select(pool, 3, r).forEach(t -> factories.add(t.factory()));
-        });
+            out.put(3, pick(pool, 3, r));
+        }
 
-        // EXPERT (3 slots)
-        TradeOfferHelper.registerVillagerOffers(VillagerProfession.ARMORER, 4, factories -> {
-            factories.clear();
-            Random r = Random.create();
+        // LEVEL 4: pick 3
+        {
             List<WeightedTrade> pool = new ArrayList<>();
 
-            // diamond + mores armor; tanz/topaz/tour lower weights
-            pool.add(new WeightedTrade("ENCH_DIAMOND_LEGS", 14,
-                    new TradeOffers.SellEnchantedToolFactory(Items.DIAMOND_LEGGINGS, 19, 3, 30, 0.20f)));
-            pool.add(new WeightedTrade("ENCH_DIAMOND_BOOTS", 14,
-                    new TradeOffers.SellEnchantedToolFactory(Items.DIAMOND_BOOTS, 13, 3, 30, 0.20f)));
+            pool.add(new WeightedTrade("SELL_ENCH", 14, new TradeOffers.SellEnchantedToolFactory(Items.DIAMOND_LEGGINGS, 19, 3, 30, 0.20f)));
+            pool.add(new WeightedTrade("SELL_ENCH", 14, new TradeOffers.SellEnchantedToolFactory(Items.DIAMOND_BOOTS, 13, 3, 30, 0.20f)));
 
-            pool.add(new WeightedTrade("ENCH_SAPPHIRE_LEGS", 12,
-                    new TradeOffers.SellEnchantedToolFactory(ModItems.SAPPHIRE_LEGGINGS, 23, 3, 30, 0.20f)));
-            pool.add(new WeightedTrade("ENCH_SAPPHIRE_BOOTS", 12,
-                    new TradeOffers.SellEnchantedToolFactory(ModItems.SAPPHIRE_BOOTS, 17, 3, 30, 0.20f)));
+            pool.add(new WeightedTrade("SELL_ENCH", 12, new TradeOffers.SellEnchantedToolFactory(ModItems.SAPPHIRE_LEGGINGS, 23, 3, 30, 0.20f)));
+            pool.add(new WeightedTrade("SELL_ENCH", 12, new TradeOffers.SellEnchantedToolFactory(ModItems.SAPPHIRE_BOOTS, 17, 3, 30, 0.20f)));
 
-            pool.add(new WeightedTrade("ENCH_RUBY_LEGS", 12,
-                    new TradeOffers.SellEnchantedToolFactory(ModItems.RUBY_LEGGINGS, 27, 3, 30, 0.20f)));
-            pool.add(new WeightedTrade("ENCH_RUBY_BOOTS", 12,
-                    new TradeOffers.SellEnchantedToolFactory(ModItems.RUBY_BOOTS, 21, 3, 30, 0.20f)));
+            pool.add(new WeightedTrade("SELL_ENCH", 12, new TradeOffers.SellEnchantedToolFactory(ModItems.RUBY_LEGGINGS, 27, 3, 30, 0.20f)));
+            pool.add(new WeightedTrade("SELL_ENCH", 12, new TradeOffers.SellEnchantedToolFactory(ModItems.RUBY_BOOTS, 21, 3, 30, 0.20f)));
 
-            pool.add(new WeightedTrade("ENCH_SPINEL_LEGS", 14,
-                    new TradeOffers.SellEnchantedToolFactory(ModItems.SPINEL_LEGGINGS, 21, 3, 30, 0.20f)));
-            pool.add(new WeightedTrade("ENCH_SPINEL_BOOTS", 14,
-                    new TradeOffers.SellEnchantedToolFactory(ModItems.SPINEL_BOOTS, 15, 3, 30, 0.20f)));
+            pool.add(new WeightedTrade("SELL_ENCH", 14, new TradeOffers.SellEnchantedToolFactory(ModItems.SPINEL_LEGGINGS, 21, 3, 30, 0.20f)));
+            pool.add(new WeightedTrade("SELL_ENCH", 14, new TradeOffers.SellEnchantedToolFactory(ModItems.SPINEL_BOOTS, 15, 3, 30, 0.20f)));
 
-            pool.add(new WeightedTrade("ENCH_MOISSANITE_LEGS", 10,
-                    new TradeOffers.SellEnchantedToolFactory(ModItems.MOISSANITE_LEGGINGS, 27, 3, 30, 0.20f)));
-            pool.add(new WeightedTrade("ENCH_MOISSANITE_BOOTS", 10,
-                    new TradeOffers.SellEnchantedToolFactory(ModItems.MOISSANITE_BOOTS, 19, 3, 30, 0.20f)));
+            pool.add(new WeightedTrade("SELL_ENCH", 10, new TradeOffers.SellEnchantedToolFactory(ModItems.MOISSANITE_LEGGINGS, 27, 3, 30, 0.20f)));
+            pool.add(new WeightedTrade("SELL_ENCH", 10, new TradeOffers.SellEnchantedToolFactory(ModItems.MOISSANITE_BOOTS, 19, 3, 30, 0.20f)));
 
-            pool.add(new WeightedTrade("ENCH_TOPAZ_LEGS", 6,
-                    new TradeOffers.SellEnchantedToolFactory(ModItems.TOPAZ_LEGGINGS, 22, 3, 30, 0.20f)));
-            pool.add(new WeightedTrade("ENCH_TOPAZ_BOOTS", 6,
-                    new TradeOffers.SellEnchantedToolFactory(ModItems.TOPAZ_BOOTS, 16, 3, 30, 0.20f)));
+            pool.add(new WeightedTrade("SELL_ENCH", 6, new TradeOffers.SellEnchantedToolFactory(ModItems.TOPAZ_LEGGINGS, 22, 3, 30, 0.20f)));
+            pool.add(new WeightedTrade("SELL_ENCH", 6, new TradeOffers.SellEnchantedToolFactory(ModItems.TOPAZ_BOOTS, 16, 3, 30, 0.20f)));
 
-            pool.add(new WeightedTrade("ENCH_TOUR_LEGS", 5,
-                    new TradeOffers.SellEnchantedToolFactory(ModItems.TOURMALINE_LEGGINGS, 19, 3, 30, 0.20f)));
-            pool.add(new WeightedTrade("ENCH_TOUR_BOOTS", 5,
-                    new TradeOffers.SellEnchantedToolFactory(ModItems.TOURMALINE_BOOTS, 13, 3, 30, 0.20f)));
+            pool.add(new WeightedTrade("SELL_ENCH", 5, new TradeOffers.SellEnchantedToolFactory(ModItems.TOURMALINE_LEGGINGS, 19, 3, 30, 0.20f)));
+            pool.add(new WeightedTrade("SELL_ENCH", 5, new TradeOffers.SellEnchantedToolFactory(ModItems.TOURMALINE_BOOTS, 13, 3, 30, 0.20f)));
 
-            pool.add(new WeightedTrade("ENCH_TANZ_LEGS", 3,
-                    new TradeOffers.SellEnchantedToolFactory(ModItems.TANZANITE_LEGGINGS, 23, 3, 30, 0.20f)));
-            pool.add(new WeightedTrade("ENCH_TANZ_BOOTS", 3,
-                    new TradeOffers.SellEnchantedToolFactory(ModItems.TANZANITE_BOOTS, 17, 3, 30, 0.20f)));
+            pool.add(new WeightedTrade("SELL_ENCH", 3, new TradeOffers.SellEnchantedToolFactory(ModItems.TANZANITE_LEGGINGS, 23, 3, 30, 0.20f)));
+            pool.add(new WeightedTrade("SELL_ENCH", 3, new TradeOffers.SellEnchantedToolFactory(ModItems.TANZANITE_BOOTS, 17, 3, 30, 0.20f)));
 
-            WeightedTradeSelector.select(pool, 3, r).forEach(t -> factories.add(t.factory()));
-        });
+            out.put(4, pick(pool, 3, r));
+        }
 
-        // MASTER (3 slots) – template rare + normal multiplier
-        TradeOfferHelper.registerVillagerOffers(VillagerProfession.ARMORER, 5, factories -> {
-            factories.clear();
-            Random r = Random.create();
+        // LEVEL 5: pick 3 (template rare)
+        {
             List<WeightedTrade> pool = new ArrayList<>();
 
-            pool.add(new WeightedTrade("ENCH_DIAMOND_CHEST", 14,
-                    new TradeOffers.SellEnchantedToolFactory(Items.DIAMOND_CHESTPLATE, 20, 3, 30, 0.20f)));
-            pool.add(new WeightedTrade("ENCH_DIAMOND_HELM", 14,
-                    new TradeOffers.SellEnchantedToolFactory(Items.DIAMOND_HELMET, 12, 3, 30, 0.20f)));
+            pool.add(new WeightedTrade("SELL_ENCH", 14, new TradeOffers.SellEnchantedToolFactory(Items.DIAMOND_CHESTPLATE, 20, 3, 30, 0.20f)));
+            pool.add(new WeightedTrade("SELL_ENCH", 14, new TradeOffers.SellEnchantedToolFactory(Items.DIAMOND_HELMET, 12, 3, 30, 0.20f)));
 
-            pool.add(new WeightedTrade("ENCH_SAPPHIRE_CHEST", 12,
-                    new TradeOffers.SellEnchantedToolFactory(ModItems.SAPPHIRE_CHESTPLATE, 25, 3, 30, 0.20f)));
-            pool.add(new WeightedTrade("ENCH_SAPPHIRE_HELM", 12,
-                    new TradeOffers.SellEnchantedToolFactory(ModItems.SAPPHIRE_HELMET, 17, 3, 30, 0.20f)));
+            pool.add(new WeightedTrade("SELL_ENCH", 12, new TradeOffers.SellEnchantedToolFactory(ModItems.SAPPHIRE_CHESTPLATE, 25, 3, 30, 0.20f)));
+            pool.add(new WeightedTrade("SELL_ENCH", 12, new TradeOffers.SellEnchantedToolFactory(ModItems.SAPPHIRE_HELMET, 17, 3, 30, 0.20f)));
 
-            pool.add(new WeightedTrade("ENCH_RUBY_CHEST", 12,
-                    new TradeOffers.SellEnchantedToolFactory(ModItems.RUBY_CHESTPLATE, 29, 3, 30, 0.20f)));
-            pool.add(new WeightedTrade("ENCH_RUBY_HELM", 12,
-                    new TradeOffers.SellEnchantedToolFactory(ModItems.RUBY_HELMET, 21, 3, 30, 0.20f)));
+            pool.add(new WeightedTrade("SELL_ENCH", 12, new TradeOffers.SellEnchantedToolFactory(ModItems.RUBY_CHESTPLATE, 29, 3, 30, 0.20f)));
+            pool.add(new WeightedTrade("SELL_ENCH", 12, new TradeOffers.SellEnchantedToolFactory(ModItems.RUBY_HELMET, 21, 3, 30, 0.20f)));
 
-            pool.add(new WeightedTrade("ENCH_SPINEL_CHEST", 14,
-                    new TradeOffers.SellEnchantedToolFactory(ModItems.SPINEL_CHESTPLATE, 23, 3, 30, 0.20f)));
-            pool.add(new WeightedTrade("ENCH_SPINEL_HELM", 14,
-                    new TradeOffers.SellEnchantedToolFactory(ModItems.SPINEL_HELMET, 15, 3, 30, 0.20f)));
+            pool.add(new WeightedTrade("SELL_ENCH", 14, new TradeOffers.SellEnchantedToolFactory(ModItems.SPINEL_CHESTPLATE, 23, 3, 30, 0.20f)));
+            pool.add(new WeightedTrade("SELL_ENCH", 14, new TradeOffers.SellEnchantedToolFactory(ModItems.SPINEL_HELMET, 15, 3, 30, 0.20f)));
 
-            pool.add(new WeightedTrade("ENCH_MOISSANITE_CHEST", 10,
-                    new TradeOffers.SellEnchantedToolFactory(ModItems.MOISSANITE_CHESTPLATE, 29, 3, 30, 0.20f)));
-            pool.add(new WeightedTrade("ENCH_MOISSANITE_HELM", 10,
-                    new TradeOffers.SellEnchantedToolFactory(ModItems.MOISSANITE_HELMET, 19, 3, 30, 0.20f)));
+            pool.add(new WeightedTrade("SELL_ENCH", 10, new TradeOffers.SellEnchantedToolFactory(ModItems.MOISSANITE_CHESTPLATE, 29, 3, 30, 0.20f)));
+            pool.add(new WeightedTrade("SELL_ENCH", 10, new TradeOffers.SellEnchantedToolFactory(ModItems.MOISSANITE_HELMET, 19, 3, 30, 0.20f)));
 
-            pool.add(new WeightedTrade("ENCH_TOPAZ_CHEST", 16,
-                    new TradeOffers.SellEnchantedToolFactory(ModItems.TOPAZ_CHESTPLATE, 24, 3, 30, 0.20f)));
-            pool.add(new WeightedTrade("ENCH_TOPAZ_HELM", 16,
-                    new TradeOffers.SellEnchantedToolFactory(ModItems.TOPAZ_HELMET, 16, 3, 30, 0.20f)));
+            pool.add(new WeightedTrade("SELL_ENCH", 16, new TradeOffers.SellEnchantedToolFactory(ModItems.TOPAZ_CHESTPLATE, 24, 3, 30, 0.20f)));
+            pool.add(new WeightedTrade("SELL_ENCH", 16, new TradeOffers.SellEnchantedToolFactory(ModItems.TOPAZ_HELMET, 16, 3, 30, 0.20f)));
 
-            pool.add(new WeightedTrade("ENCH_TOUR_CHEST", 16,
-                    new TradeOffers.SellEnchantedToolFactory(ModItems.TOURMALINE_CHESTPLATE, 21, 3, 30, 0.20f)));
-            pool.add(new WeightedTrade("ENCH_TOUR_HELM", 16,
-                    new TradeOffers.SellEnchantedToolFactory(ModItems.TOURMALINE_HELMET, 13, 3, 30, 0.20f)));
+            pool.add(new WeightedTrade("SELL_ENCH", 16, new TradeOffers.SellEnchantedToolFactory(ModItems.TOURMALINE_CHESTPLATE, 21, 3, 30, 0.20f)));
+            pool.add(new WeightedTrade("SELL_ENCH", 16, new TradeOffers.SellEnchantedToolFactory(ModItems.TOURMALINE_HELMET, 13, 3, 30, 0.20f)));
 
-            pool.add(new WeightedTrade("ENCH_TANZ_CHEST", 16,
-                    new TradeOffers.SellEnchantedToolFactory(ModItems.TANZANITE_CHESTPLATE, 25, 3, 30, 0.20f)));
-            pool.add(new WeightedTrade("ENCH_TANZ_HELM", 16,
-                    new TradeOffers.SellEnchantedToolFactory(ModItems.TANZANITE_HELMET, 17, 3, 30, 0.20f)));
-            pool.add(new WeightedTrade("TEMPLATE_HARDENED_STEEL", 2,
+            pool.add(new WeightedTrade("SELL_ENCH", 16, new TradeOffers.SellEnchantedToolFactory(ModItems.TANZANITE_CHESTPLATE, 25, 3, 30, 0.20f)));
+            pool.add(new WeightedTrade("SELL_ENCH", 16, new TradeOffers.SellEnchantedToolFactory(ModItems.TANZANITE_HELMET, 17, 3, 30, 0.20f)));
+
+            pool.add(new WeightedTrade("SELL_TEMPLATE", 2,
                     new TradeOffers.SellItemFactory(ModItems.HARDENED_STEEL_UPGRADE_SMITHING_TEMPLATE, 48, 1, 1, 30, 0.05f)));
 
-            WeightedTradeSelector.select(pool, 3, r).forEach(t -> factories.add(t.factory()));
-        });
+            out.put(5, pick(pool, 3, r));
+        }
+
+        return out;
     }
-    private static void addSelected(List<WeightedTrade> pool, int count, Random r, List<TradeOffers.Factory> factories) {
-        if (pool.isEmpty() || count <= 0) return;
-        WeightedTradeSelector.select(pool, Math.min(count, pool.size()), r)
-                .forEach(t -> factories.add(t.factory()));
+
+    private static TradeOffers.Factory[] pick(List<WeightedTrade> pool, int count, Random r) {
+        return WeightedTradeSelector.select(pool, Math.min(count, pool.size()), r)
+                .stream()
+                .map(WeightedTrade::factory)
+                .toArray(TradeOffers.Factory[]::new);
+    }
+
+    private static TradeOffers.Factory[] concat(TradeOffers.Factory[] a, TradeOffers.Factory[] b) {
+        TradeOffers.Factory[] out = new TradeOffers.Factory[a.length + b.length];
+        System.arraycopy(a, 0, out, 0, a.length);
+        System.arraycopy(b, 0, out, a.length, b.length);
+        return out;
     }
 }
