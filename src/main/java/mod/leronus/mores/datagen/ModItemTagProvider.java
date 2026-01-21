@@ -363,6 +363,13 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
         /*
          * Modded tags
          */
+        getOrCreateTagBuilder(TagKey.of(RegistryKeys.ITEM, Identifier.of("easymagic", "enchanting_catalysts"))).add(
+                ModItems.TURQUOISE
+        );
+        getOrCreateTagBuilder(TagKey.of(RegistryKeys.ITEM, Identifier.of("easymagic", "reroll_catalysts"))).add(
+                ModItems.TURQUOISE
+        );
+
         //Wolf Armors
         // Allow wolves to equip these (our mixin will check this tag)
         getOrCreateTagBuilder(ModTags.Items.WOLF_ARMOR).add(

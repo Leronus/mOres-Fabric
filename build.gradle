@@ -119,6 +119,11 @@ dependencies {
     modCompileOnly "me.shedaniel.cloth:basic-math:0.6.1"
     modCompileOnly "maven.modrinth:rei:${project.rei_version}"
 
+    // Fuzs Easy Magic (compile against it; optional dependency)
+    modCompileOnly "maven.modrinth:forge-config-api-port:${project.forge_config_api_port_version}"
+    modCompileOnly "maven.modrinth:puzzles-lib:${project.puzzles_lib_version}"
+    modCompileOnly "maven.modrinth:easy-magic:${project.easy_magic_version}"
+
     /* ---- RUNTIME / DEV ONLY MODS ---- */
     modRuntimeOnly "maven.modrinth:sodium:${project.sodium_version}"
     modRuntimeOnly "maven.modrinth:lithium:${project.lithium_version}"
