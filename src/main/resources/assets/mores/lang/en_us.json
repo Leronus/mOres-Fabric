@@ -67,7 +67,9 @@
   "item.mores.silver_apple" : "Silver Apple",
   "item.mores.bronze_apple" : "Bronze Apple",
   "item.mores.cobalt_apple" : "Cobalt Apple",
+  "item.mores.rose_gold_apple" : "Rose Gold Apple",
   "item.mores.enchanted_cobalt_apple" : "Enchanted Cobalt Apple",
+  "item.mores.enchanted_rose_gold_apple" : "Enchanted Rose Gold Apple",
 
   "item.mores.velvet": "Velvet",
   "item.mores.carrot_pie": "Carrot Pie",

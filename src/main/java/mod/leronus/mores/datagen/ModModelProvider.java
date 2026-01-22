@@ -406,7 +406,9 @@ public class ModModelProvider extends FabricModelProvider {
 
         itemModelGenerator.register(ModItems.BRONZE_APPLE, Models.GENERATED);
         itemModelGenerator.register(ModItems.COBALT_APPLE, Models.GENERATED);
+        itemModelGenerator.register(ModItems.ROSE_GOLD_APPLE, Models.GENERATED);
         Models.GENERATED.upload(ModelIds.getItemModelId(ModItems.ENCHANTED_COBALT_APPLE), TextureMap.layer0(Identifier.of(Mores.MOD_ID, "item/cobalt_apple")), itemModelGenerator.writer);
+        Models.GENERATED.upload(ModelIds.getItemModelId(ModItems.ENCHANTED_ROSE_GOLD_APPLE), TextureMap.layer0(Identifier.of(Mores.MOD_ID, "item/rose_gold_apple")), itemModelGenerator.writer);
         itemModelGenerator.register(ModItems.SILVER_APPLE, Models.GENERATED);
         itemModelGenerator.register(ModItems.SILVER_CARROT, Models.GENERATED);
 

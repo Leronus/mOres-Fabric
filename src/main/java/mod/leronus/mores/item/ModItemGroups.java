@@ -669,6 +669,8 @@ public class ModItemGroups {
                         entries.add(ModItems.BRONZE_APPLE);
                         entries.add(ModItems.COBALT_APPLE);
                         entries.add(ModItems.ENCHANTED_COBALT_APPLE);
+                        entries.add(ModItems.ROSE_GOLD_APPLE);
+                        entries.add(ModItems.ENCHANTED_ROSE_GOLD_APPLE);
                         entries.add(ModItems.SILVER_APPLE);
                         entries.add(ModItems.SILVER_CARROT);
                         entries.add(ModItems.LEMON);
