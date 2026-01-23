@@ -1,11 +1,11 @@
 {
-  "parent": "mores:obtain_silver_ingot",
+  "parent": "mores:craft_alloy_furnace",
   "criteria": {
-    "has_cobalt": {
+    "has_adamantium": {
       "conditions": {
         "items": [
           {
-            "items": "mores:cobalt_ingot"
+            "items": "mores:adamantium_ingot"
           }
         ]
       },
@@ -13,16 +13,16 @@
     }
   },
   "display": {
-    "description": "Obtain a cobalt ingot.",
+    "description": "Obtain an adamantium ingot by alloying iron and diamond.",
     "icon": {
       "count": 1,
-      "id": "mores:cobalt_ingot"
+      "id": "mores:adamantium_ingot"
     },
-    "title": "Very Cobalt"
+    "title": "Adamantium"
   },
   "requirements": [
     [
-      "has_cobalt"
+      "has_adamantium"
     ]
   ],
   "sends_telemetry_event": true

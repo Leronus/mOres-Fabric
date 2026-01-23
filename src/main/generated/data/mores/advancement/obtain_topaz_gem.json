@@ -1,11 +1,11 @@
 {
-  "parent": "mores:obtain_silver_ingot",
+  "parent": "mores:obtain_citrine_gem",
   "criteria": {
-    "has_cobalt": {
+    "has_topaz_gem": {
       "conditions": {
         "items": [
           {
-            "items": "mores:cobalt_ingot"
+            "items": "mores:topaz_gem"
           }
         ]
       },
@@ -13,16 +13,16 @@
     }
   },
   "display": {
-    "description": "Obtain a cobalt ingot.",
+    "description": "Obtain an topaz gem.",
     "icon": {
       "count": 1,
-      "id": "mores:cobalt_ingot"
+      "id": "mores:topaz_gem"
     },
-    "title": "Very Cobalt"
+    "title": "Topazzler"
   },
   "requirements": [
     [
-      "has_cobalt"
+      "has_topaz_gem"
     ]
   ],
   "sends_telemetry_event": true

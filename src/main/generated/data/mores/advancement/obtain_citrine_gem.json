@@ -1,11 +1,11 @@
 {
-  "parent": "mores:obtain_silver_ingot",
+  "parent": "mores:obtain_lapis_lazuli_gem",
   "criteria": {
-    "has_cobalt": {
+    "has_citrine_gem": {
       "conditions": {
         "items": [
           {
-            "items": "mores:cobalt_ingot"
+            "items": "mores:citrine_gem"
           }
         ]
       },
@@ -13,16 +13,16 @@
     }
   },
   "display": {
-    "description": "Obtain a cobalt ingot.",
+    "description": "Obtain an citrine gem.",
     "icon": {
       "count": 1,
-      "id": "mores:cobalt_ingot"
+      "id": "mores:citrine_gem"
     },
-    "title": "Very Cobalt"
+    "title": "Citroën"
   },
   "requirements": [
     [
-      "has_cobalt"
+      "has_citrine_gem"
     ]
   ],
   "sends_telemetry_event": true

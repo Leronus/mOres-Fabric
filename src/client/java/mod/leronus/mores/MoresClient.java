@@ -3,6 +3,7 @@ package mod.leronus.mores;
 import eu.midnightdust.lib.config.MidnightConfig;
 import mod.leronus.mores.block.ModBlocks;
 import mod.leronus.mores.entity.ModEntities;
+import mod.leronus.mores.render.DuckRenderer;
 import mod.leronus.mores.render.HardenedSteelGolemRenderer;
 import mod.leronus.mores.render.ShieldLikeRenderer;
 import mod.leronus.mores.screen.AlloyFurnaceScreen;
@@ -32,6 +33,10 @@ public class MoresClient implements ClientModInitializer {
         EntityRendererRegistry.register(
                 ModEntities.HARDENED_STEEL_GOLEM,
                 HardenedSteelGolemRenderer::new
+        );
+        EntityRendererRegistry.register(
+                ModEntities.DUCK,
+                DuckRenderer::new
         );
         registerShield(shieldRenderer,
                 ModItems.TIN_SHIELD,

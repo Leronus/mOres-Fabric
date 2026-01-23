@@ -1,11 +1,11 @@
 {
-  "parent": "mores:obtain_silver_ingot",
+  "parent": "mores:obtain_obsidian_ingot",
   "criteria": {
-    "has_cobalt": {
+    "has_primordial_debris": {
       "conditions": {
         "items": [
           {
-            "items": "mores:cobalt_ingot"
+            "items": "mores:primordial_debris"
           }
         ]
       },
@@ -13,16 +13,16 @@
     }
   },
   "display": {
-    "description": "Obtain a cobalt ingot.",
+    "description": "Obtain Primordial Debris.",
     "icon": {
       "count": 1,
-      "id": "mores:cobalt_ingot"
+      "id": "mores:primordial_debris"
     },
-    "title": "Very Cobalt"
+    "title": "Hidden in the Ends"
   },
   "requirements": [
     [
-      "has_cobalt"
+      "has_primordial_debris"
     ]
   ],
   "sends_telemetry_event": true

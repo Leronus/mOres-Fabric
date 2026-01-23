@@ -1,26 +1,26 @@
 {
-  "parent": "mores:obtain_silver_ingot",
+  "parent": "mores:obtain_rose_gold_ingot",
   "criteria": {
-    "has_silver_apple": {
+    "eat_rose_gold_apple": {
       "conditions": {
         "item": {
-          "items": "mores:silver_apple"
+          "items": "mores:rose_gold_apple"
         }
       },
       "trigger": "minecraft:consume_item"
     }
   },
   "display": {
-    "description": "Eat a silver apple.",
+    "description": "Eat a rose gold apple.",
     "icon": {
       "count": 1,
-      "id": "mores:silver_apple"
+      "id": "mores:rose_gold_apple"
     },
-    "title": "Crunchy"
+    "title": "Pink snacc"
   },
   "requirements": [
     [
-      "has_silver_apple"
+      "eat_rose_gold_apple"
     ]
   ],
   "sends_telemetry_event": true

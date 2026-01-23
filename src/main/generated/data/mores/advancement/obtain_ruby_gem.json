@@ -1,11 +1,11 @@
 {
-  "parent": "mores:obtain_silver_ingot",
+  "parent": "mores:obtain_tourmaline_gem",
   "criteria": {
-    "has_cobalt": {
+    "has_ruby_gem": {
       "conditions": {
         "items": [
           {
-            "items": "mores:cobalt_ingot"
+            "items": "mores:ruby_gem"
           }
         ]
       },
@@ -13,16 +13,16 @@
     }
   },
   "display": {
-    "description": "Obtain a cobalt ingot.",
+    "description": "Obtain an ruby gem.",
     "icon": {
       "count": 1,
-      "id": "mores:cobalt_ingot"
+      "id": "mores:ruby_gem"
     },
-    "title": "Very Cobalt"
+    "title": "Blood Diamond"
   },
   "requirements": [
     [
-      "has_cobalt"
+      "has_ruby_gem"
     ]
   ],
   "sends_telemetry_event": true

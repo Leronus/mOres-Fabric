@@ -1,11 +1,11 @@
 {
-  "parent": "mores:obtain_silver_ingot",
+  "parent": "mores:obtain_sapphire_gem",
   "criteria": {
-    "has_cobalt": {
+    "has_moissanite_gem": {
       "conditions": {
         "items": [
           {
-            "items": "mores:cobalt_ingot"
+            "items": "mores:moissanite_gem"
           }
         ]
       },
@@ -13,16 +13,16 @@
     }
   },
   "display": {
-    "description": "Obtain a cobalt ingot.",
+    "description": "Obtain an moissanite gem.",
     "icon": {
       "count": 1,
-      "id": "mores:cobalt_ingot"
+      "id": "mores:moissanite_gem"
     },
-    "title": "Very Cobalt"
+    "title": "What are you doing in my Swamp?"
   },
   "requirements": [
     [
-      "has_cobalt"
+      "has_moissanite_gem"
     ]
   ],
   "sends_telemetry_event": true

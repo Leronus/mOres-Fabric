@@ -1,0 +1,68 @@
+{
+  "parent": "mores:obtain_ruby_gem",
+  "criteria": {
+    "ruby_boots": {
+      "conditions": {
+        "items": [
+          {
+            "items": "mores:ruby_boots"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "ruby_chestplate": {
+      "conditions": {
+        "items": [
+          {
+            "items": "mores:ruby_chestplate"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "ruby_helmet": {
+      "conditions": {
+        "items": [
+          {
+            "items": "mores:ruby_helmet"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "ruby_leggings": {
+      "conditions": {
+        "items": [
+          {
+            "items": "mores:ruby_leggings"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": "Craft a full set of ruby armor.",
+    "icon": {
+      "count": 1,
+      "id": "mores:ruby_chestplate"
+    },
+    "title": "Elmo"
+  },
+  "requirements": [
+    [
+      "ruby_helmet"
+    ],
+    [
+      "ruby_chestplate"
+    ],
+    [
+      "ruby_leggings"
+    ],
+    [
+      "ruby_boots"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

@@ -4,6 +4,7 @@ import com.notunanancyowen.spears.Spears;
 import com.notunanancyowen.spears.components.*;
 import eu.midnightdust.lib.config.MidnightConfig;
 import mod.leronus.mores.block.ModBlocks;
+import mod.leronus.mores.entity.ModDuckEntity;
 import mod.leronus.mores.entity.ModEntities;
 import mod.leronus.mores.entity.ModGolemEntity;
 import mod.leronus.mores.handlers.ModArmorBonuses;
@@ -40,10 +41,10 @@ public class Mores implements ModInitializer {
 	public void onInitialize() {
         MidnightConfig.init(MOD_ID, CommonConfig.class);
         ModArmorBonuses.registerArmorBonuses();
+        ModEntities.registerEntities();
         ModItemGroups.registerItemGroups();
 		ModItems.registerModItems();
 		ModBlocks.registerModBlocks();
-//		ModLootTableModifiers.modifyLootTables();
 		ModTradeOverride.registerCustomTrades();
 		ModSounds.registerSounds();
         ModRecipes.registerRecipes();
@@ -62,6 +63,11 @@ public class Mores implements ModInitializer {
         FabricDefaultAttributeRegistry.register(
                 ModEntities.HARDENED_STEEL_GOLEM,
                 ModGolemEntity.createHardenedSteelGolemAttributes()
+        );
+        //Register Duck Attributes
+        FabricDefaultAttributeRegistry.register(
+                ModEntities.DUCK,
+                ModDuckEntity.createDuckAttributes()
         );
 
         // Register Spear Attributes (only if the Spears mod is loaded)

@@ -1,0 +1,68 @@
+{
+  "parent": "mores:obtain_spinel_gem",
+  "criteria": {
+    "spinel_boots": {
+      "conditions": {
+        "items": [
+          {
+            "items": "mores:spinel_boots"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "spinel_chestplate": {
+      "conditions": {
+        "items": [
+          {
+            "items": "mores:spinel_chestplate"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "spinel_helmet": {
+      "conditions": {
+        "items": [
+          {
+            "items": "mores:spinel_helmet"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "spinel_leggings": {
+      "conditions": {
+        "items": [
+          {
+            "items": "mores:spinel_leggings"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": "Craft a full set of spinel armor.",
+    "icon": {
+      "count": 1,
+      "id": "mores:spinel_chestplate"
+    },
+    "title": "Healthy"
+  },
+  "requirements": [
+    [
+      "spinel_helmet"
+    ],
+    [
+      "spinel_chestplate"
+    ],
+    [
+      "spinel_leggings"
+    ],
+    [
+      "spinel_boots"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

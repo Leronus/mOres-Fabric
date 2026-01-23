@@ -1,11 +1,11 @@
 {
-  "parent": "mores:obtain_silver_ingot",
+  "parent": "mores:obtain_cobalt_ingot",
   "criteria": {
-    "has_cobalt": {
+    "has_amethyst_gem": {
       "conditions": {
         "items": [
           {
-            "items": "mores:cobalt_ingot"
+            "items": "mores:amethyst_gem"
           }
         ]
       },
@@ -13,16 +13,16 @@
     }
   },
   "display": {
-    "description": "Obtain a cobalt ingot.",
+    "description": "Obtain an amethyst gem.",
     "icon": {
       "count": 1,
-      "id": "mores:cobalt_ingot"
+      "id": "mores:amethyst_gem"
     },
-    "title": "Very Cobalt"
+    "title": "Awtysm"
   },
   "requirements": [
     [
-      "has_cobalt"
+      "has_amethyst_gem"
     ]
   ],
   "sends_telemetry_event": true

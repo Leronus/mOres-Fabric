@@ -1,11 +1,11 @@
 {
-  "parent": "mores:obtain_silver_ingot",
+  "parent": "mores:obtain_cobalt_ingot",
   "criteria": {
-    "has_cobalt": {
+    "has_lapis_lazuli_gem": {
       "conditions": {
         "items": [
           {
-            "items": "mores:cobalt_ingot"
+            "items": "mores:lapis_lazuli_gem"
           }
         ]
       },
@@ -13,16 +13,16 @@
     }
   },
   "display": {
-    "description": "Obtain a cobalt ingot.",
+    "description": "Obtain a lapis lazuli gem.",
     "icon": {
       "count": 1,
-      "id": "mores:cobalt_ingot"
+      "id": "mores:lapis_lazuli_gem"
     },
-    "title": "Very Cobalt"
+    "title": "The Sea Calls To Me"
   },
   "requirements": [
     [
-      "has_cobalt"
+      "has_lapis_lazuli_gem"
     ]
   ],
   "sends_telemetry_event": true

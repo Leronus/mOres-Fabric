@@ -1,0 +1,68 @@
+{
+  "parent": "mores:obtain_obsidian_ingot",
+  "criteria": {
+    "obsidian_boots": {
+      "conditions": {
+        "items": [
+          {
+            "items": "mores:obsidian_boots"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "obsidian_chestplate": {
+      "conditions": {
+        "items": [
+          {
+            "items": "mores:obsidian_chestplate"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "obsidian_helmet": {
+      "conditions": {
+        "items": [
+          {
+            "items": "mores:obsidian_helmet"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "obsidian_leggings": {
+      "conditions": {
+        "items": [
+          {
+            "items": "mores:obsidian_leggings"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": "Craft a full set of obsidian armor.",
+    "icon": {
+      "count": 1,
+      "id": "mores:obsidian_chestplate"
+    },
+    "title": "Bombsquad"
+  },
+  "requirements": [
+    [
+      "obsidian_helmet"
+    ],
+    [
+      "obsidian_chestplate"
+    ],
+    [
+      "obsidian_leggings"
+    ],
+    [
+      "obsidian_boots"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

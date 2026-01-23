@@ -1,0 +1,68 @@
+{
+  "parent": "mores:obtain_tourmaline_gem",
+  "criteria": {
+    "tourmaline_boots": {
+      "conditions": {
+        "items": [
+          {
+            "items": "mores:tourmaline_boots"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "tourmaline_chestplate": {
+      "conditions": {
+        "items": [
+          {
+            "items": "mores:tourmaline_chestplate"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "tourmaline_helmet": {
+      "conditions": {
+        "items": [
+          {
+            "items": "mores:tourmaline_helmet"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "tourmaline_leggings": {
+      "conditions": {
+        "items": [
+          {
+            "items": "mores:tourmaline_leggings"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": "Craft a full set of tourmaline armor.",
+    "icon": {
+      "count": 1,
+      "id": "mores:tourmaline_chestplate"
+    },
+    "title": "Yes, I'm a SIMP - Sniper Monkey"
+  },
+  "requirements": [
+    [
+      "tourmaline_helmet"
+    ],
+    [
+      "tourmaline_chestplate"
+    ],
+    [
+      "tourmaline_leggings"
+    ],
+    [
+      "tourmaline_boots"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

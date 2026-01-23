@@ -1,0 +1,68 @@
+{
+  "parent": "mores:obtain_sapphire_gem",
+  "criteria": {
+    "sapphire_boots": {
+      "conditions": {
+        "items": [
+          {
+            "items": "mores:sapphire_boots"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "sapphire_chestplate": {
+      "conditions": {
+        "items": [
+          {
+            "items": "mores:sapphire_chestplate"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "sapphire_helmet": {
+      "conditions": {
+        "items": [
+          {
+            "items": "mores:sapphire_helmet"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "sapphire_leggings": {
+      "conditions": {
+        "items": [
+          {
+            "items": "mores:sapphire_leggings"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": "Craft a full set of sapphire armor.",
+    "icon": {
+      "count": 1,
+      "id": "mores:sapphire_chestplate"
+    },
+    "title": "I'm Blue"
+  },
+  "requirements": [
+    [
+      "sapphire_helmet"
+    ],
+    [
+      "sapphire_chestplate"
+    ],
+    [
+      "sapphire_leggings"
+    ],
+    [
+      "sapphire_boots"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

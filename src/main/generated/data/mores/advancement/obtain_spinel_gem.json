@@ -1,11 +1,11 @@
 {
-  "parent": "mores:obtain_silver_ingot",
+  "parent": "mores:obtain_tourmaline_gem",
   "criteria": {
-    "has_cobalt": {
+    "has_spinel_gem": {
       "conditions": {
         "items": [
           {
-            "items": "mores:cobalt_ingot"
+            "items": "mores:spinel_gem"
           }
         ]
       },
@@ -13,16 +13,16 @@
     }
   },
   "display": {
-    "description": "Obtain a cobalt ingot.",
+    "description": "Obtain an spinel gem.",
     "icon": {
       "count": 1,
-      "id": "mores:cobalt_ingot"
+      "id": "mores:spinel_gem"
     },
-    "title": "Very Cobalt"
+    "title": "Love"
   },
   "requirements": [
     [
-      "has_cobalt"
+      "has_spinel_gem"
     ]
   ],
   "sends_telemetry_event": true

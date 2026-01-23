@@ -13,6 +13,7 @@ import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.data.client.*;
 import net.minecraft.util.Identifier;
 
+import java.util.Optional;
 import java.util.function.Supplier;
 
 public class ModModelProvider extends FabricModelProvider {
@@ -801,12 +802,13 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ModItems.RAW_DUCK, Models.GENERATED);
         itemModelGenerator.register(ModItems.COOKED_DUCK, Models.GENERATED);
         itemModelGenerator.register(ModItems.DUCK_EGG, Models.GENERATED);
+        itemModelGenerator.register(ModItems.DUCK_SPAWN_EGG,
+                new Model(Optional.of(Identifier.of("item/template_spawn_egg")), Optional.empty()));
+        itemModelGenerator.register(ModItems.HARDENED_STEEL_GOLEM_SPAWN_EGG,
+                new Model(Optional.of(Identifier.of("item/template_spawn_egg")), Optional.empty()));
         itemModelGenerator.register(ModItems.SWEET_CAROLINE_MUSIC_DISC, Models.GENERATED);
         itemModelGenerator.register(ModItems.CIPHER_MUSIC_DISC, Models.GENERATED);
 
-        //TODO Fix duck egg
-//        itemModelGenerator.register(ModItems.DUCK_SPAWN_EGG,
-//                new Model(Optional.of(new Identifier("item/template_spawn_egg")), Optional.empty()));
 
         /* Shields */
         registerShield(itemModelGenerator, "tin_shield");

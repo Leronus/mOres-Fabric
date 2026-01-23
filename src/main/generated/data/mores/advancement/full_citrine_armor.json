@@ -1,0 +1,68 @@
+{
+  "parent": "mores:obtain_citrine_gem",
+  "criteria": {
+    "citrine_boots": {
+      "conditions": {
+        "items": [
+          {
+            "items": "mores:citrine_boots"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "citrine_chestplate": {
+      "conditions": {
+        "items": [
+          {
+            "items": "mores:citrine_chestplate"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "citrine_helmet": {
+      "conditions": {
+        "items": [
+          {
+            "items": "mores:citrine_helmet"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "citrine_leggings": {
+      "conditions": {
+        "items": [
+          {
+            "items": "mores:citrine_leggings"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": "Craft a full set of citrine armor.",
+    "icon": {
+      "count": 1,
+      "id": "mores:citrine_chestplate"
+    },
+    "title": "You're Reaching"
+  },
+  "requirements": [
+    [
+      "citrine_helmet"
+    ],
+    [
+      "citrine_chestplate"
+    ],
+    [
+      "citrine_leggings"
+    ],
+    [
+      "citrine_boots"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

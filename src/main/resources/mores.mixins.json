@@ -21,7 +21,8 @@
     "WolfEntityMixin",
     "WolfArmorSyncMixin",
     "ZombifiedPiglinEntityMixin",
-    "OakToLemonTreeMixin"
+    "OakToLemonTreeMixin",
+    "server.ZombieDuckJockeyMixin"
   ],
   "client": [
     "client.WolfArmorFeatureRendererMixin"

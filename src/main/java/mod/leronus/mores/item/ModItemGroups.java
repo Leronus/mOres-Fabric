@@ -686,6 +686,7 @@ public class ModItemGroups {
 //            Identifier.of(Mores.MOD_ID, "Entities"),
 //            FabricItemGroup.builder().displayName(Text.translatable("creativemodetab.mores_entities"))
 //                    .icon(() -> new ItemStack(ModItems.DUCK_SPAWN_EGG)).entries((displayContext, entries) -> {
+//                        entries.add(ModItems.HARDENED_STEEL_GOLEM_SPAWN_EGG);
 //                        entries.add(ModItems.DUCK_SPAWN_EGG);
 //                    }).build());
 

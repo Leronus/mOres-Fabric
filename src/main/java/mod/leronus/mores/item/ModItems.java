@@ -1,6 +1,7 @@
 package mod.leronus.mores.item;
 
 import mod.leronus.mores.Mores;
+import mod.leronus.mores.entity.ModEntities;
 import mod.leronus.mores.item.custom.*;
 import mod.leronus.mores.sound.ModJukeboxSongs;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroupEntries;
@@ -112,10 +113,9 @@ public class ModItems {
     public static final Item CARBON_STEEL_NUGGET = registerItem("carbon_steel_nugget", new Item(new Item.Settings()));
     public static final Item HARDENED_STEEL_NUGGET = registerItem("hardened_steel_nugget", new Item(new Item.Settings()));
 
-
-    //TODO Needs update
-    public static final Item DUCK_SPAWN_EGG  = registerItem("duck_spawn_egg", new SpawnEggItem(EntityType.CHICKEN, 0x006808, 0xFFD400, new Item.Settings()));
-    public static final Item DUCK_EGG  = registerItem("duck_egg", new EggItem(new Item.Settings()));
+    public static final Item HARDENED_STEEL_GOLEM_SPAWN_EGG = registerItem("hardened_steel_golem_spawn_egg", new SpawnEggItem(ModEntities.HARDENED_STEEL_GOLEM, 14405058, 0x006808, new Item.Settings()));
+    public static final Item DUCK_SPAWN_EGG  = registerItem("duck_spawn_egg", new SpawnEggItem(ModEntities.DUCK, 0x006808, 0xFFD400, new Item.Settings()));
+    public static final Item DUCK_EGG  = registerItem("duck_egg", new ModEggItem(new Item.Settings().maxCount(16)));
 
     // Horse Armor (1.21.1 uses AnimalArmorItem)
     public static final Item TIN_HORSE_ARMOR = registerItem("tin_horse_armor", new AnimalArmorItem(ModArmorMaterials.TIN, AnimalArmorItem.Type.EQUESTRIAN, false, new Item.Settings().maxCount(1)));
@@ -147,11 +147,10 @@ public class ModItems {
     public static final Item ENDERITE_HORSE_ARMOR = registerItem("enderite_horse_armor", new AnimalArmorItem(ModArmorMaterials.ENDERITE, AnimalArmorItem.Type.EQUESTRIAN, false, new Item.Settings().maxCount(1)));
 
     public static final Item TIN_WOLF_ARMOR = registerItem(
-            "tin_wolf_armor",
-            new ModWolfArmorItem(
+            "tin_wolf_armor", new ModWolfArmorItem(
                     ModArmorMaterials.TIN,
                     false,
-                    new Item.Settings(),
+                    new Item.Settings().maxCount(1),
                     Identifier.of("mores", "textures/entity/wolf/wolf_armor_tin.png"),
                     Identifier.of("mores", "textures/entity/wolf/wolf_armor_tin_overlay.png")
             )
@@ -161,7 +160,7 @@ public class ModItems {
             new ModWolfArmorItem(
                     ArmorMaterials.GOLD,
                     false,
-                    new Item.Settings(),
+                    new Item.Settings().maxCount(1),
                     Identifier.of("mores", "textures/entity/wolf/wolf_armor_gold.png"),
                     Identifier.of("mores", "textures/entity/wolf/wolf_armor_gold_overlay.png")
             )
@@ -171,7 +170,7 @@ public class ModItems {
             new ModWolfArmorItem(
                     ModArmorMaterials.SILVER,
                     false,
-                    new Item.Settings(),
+                    new Item.Settings().maxCount(1),
                     Identifier.of("mores", "textures/entity/wolf/wolf_armor_silver.png"),
                     Identifier.of("mores", "textures/entity/wolf/wolf_armor_silver_overlay.png")
             )
@@ -181,7 +180,7 @@ public class ModItems {
             new ModWolfArmorItem(
                     ModArmorMaterials.COPPER,
                     false,
-                    new Item.Settings(),
+                    new Item.Settings().maxCount(1),
                     Identifier.of("mores", "textures/entity/wolf/wolf_armor_copper.png"),
                     Identifier.of("mores", "textures/entity/wolf/wolf_armor_copper_overlay.png")
             )
@@ -191,7 +190,7 @@ public class ModItems {
             new ModWolfArmorItem(
                     ModArmorMaterials.STERLING_SILVER,
                     false,
-                    new Item.Settings(),
+                    new Item.Settings().maxCount(1),
                     Identifier.of("mores", "textures/entity/wolf/wolf_armor_sterling_silver.png"),
                     Identifier.of("mores", "textures/entity/wolf/wolf_armor_sterling_silver_overlay.png")
             )
@@ -201,7 +200,7 @@ public class ModItems {
             new ModWolfArmorItem(
                     ModArmorMaterials.BRONZE,
                     false,
-                    new Item.Settings(),
+                    new Item.Settings().maxCount(1),
                     Identifier.of("mores", "textures/entity/wolf/wolf_armor_bronze.png"),
                     Identifier.of("mores", "textures/entity/wolf/wolf_armor_bronze_overlay.png")
             )
@@ -211,7 +210,7 @@ public class ModItems {
             new ModWolfArmorItem(
                     ModArmorMaterials.ROSE_GOLD,
                     false,
-                    new Item.Settings(),
+                    new Item.Settings().maxCount(1),
                     Identifier.of("mores", "textures/entity/wolf/wolf_armor_rose_gold.png"),
                     Identifier.of("mores", "textures/entity/wolf/wolf_armor_rose_gold_overlay.png")
             )
@@ -221,7 +220,7 @@ public class ModItems {
             new ModWolfArmorItem(
                     ArmorMaterials.IRON,
                     false,
-                    new Item.Settings(),
+                    new Item.Settings().maxCount(1),
                     Identifier.of("mores", "textures/entity/wolf/wolf_armor_iron.png"),
                     Identifier.of("mores", "textures/entity/wolf/wolf_armor_iron_overlay.png")
             )
@@ -231,7 +230,7 @@ public class ModItems {
             new ModWolfArmorItem(
                     ModArmorMaterials.COBALT,
                     false,
-                    new Item.Settings(),
+                    new Item.Settings().maxCount(1),
                     Identifier.of("mores", "textures/entity/wolf/wolf_armor_cobalt.png"),
                     Identifier.of("mores", "textures/entity/wolf/wolf_armor_cobalt_overlay.png")
             )
@@ -241,7 +240,7 @@ public class ModItems {
             new ModWolfArmorItem(
                     ModArmorMaterials.CARBON_STEEL,
                     false,
-                    new Item.Settings(),
+                    new Item.Settings().maxCount(1),
                     Identifier.of("mores", "textures/entity/wolf/wolf_armor_carbon_steel.png"),
                     Identifier.of("mores", "textures/entity/wolf/wolf_armor_carbon_steel_overlay.png")
             )
@@ -251,7 +250,7 @@ public class ModItems {
             new ModWolfArmorItem(
                     ModArmorMaterials.HARDENED_STEEL,
                     false,
-                    new Item.Settings(),
+                    new Item.Settings().maxCount(1),
                     Identifier.of("mores", "textures/entity/wolf/wolf_armor_hardened_steel.png"),
                     Identifier.of("mores", "textures/entity/wolf/wolf_armor_hardened_steel_overlay.png")
             )
@@ -261,7 +260,7 @@ public class ModItems {
             new ModWolfArmorItem(
                     ArmorMaterials.DIAMOND,
                     false,
-                    new Item.Settings(),
+                    new Item.Settings().maxCount(1),
                     Identifier.of("mores", "textures/entity/wolf/wolf_armor_diamond.png"),
                     Identifier.of("mores", "textures/entity/wolf/wolf_armor_diamond_overlay.png")
             )
@@ -1067,54 +1066,71 @@ public class ModItems {
 //    public static final Item NETHERITE_SHIELD = registerItem("netherite_shield", new ModShieldItem(new Item.Settings().maxDamage(1333), 10, 19, Items.NETHERITE_INGOT));
 
     private static void addItemsToIngredientItemGroup(FabricItemGroupEntries entries) {
-        entries.add(ANTHRACITE);
-        entries.add(CITRINE);
-        entries.add(TURQUOISE);
-        entries.add(ONYX);
+        entries.addBefore(Items.COAL, ANTHRACITE);
 
-        entries.add(RAW_TIN);
-        entries.add(RAW_SILVER);
-        entries.add(RAW_COBALT);
+        entries.addBefore(Items.RAW_IRON, RAW_TIN);
+        entries.addAfter(RAW_TIN, RAW_SILVER);
+        entries.addAfter(Items.RAW_GOLD, RAW_COBALT);
 
-        entries.add(HOT_CARBON_STEEL_SCRAP);
-        entries.add(CARBON_STEEL_SCRAP);
-        entries.add(OBSIDIAN_SCRAP);
-        entries.add(ENDERITE_SCRAP);
+        entries.addAfter(Items.LAPIS_LAZULI, TURQUOISE);
+        entries.addAfter(TURQUOISE, AMETHYST_GEM);
+        entries.addAfter(AMETHYST_GEM, LAPIS_LAZULI_GEM);
+        entries.addAfter(LAPIS_LAZULI_GEM, TURQUOISE_GEM);
+        entries.addAfter(TURQUOISE_GEM, CITRINE_GEM);
+        entries.addAfter(CITRINE_GEM, ONYX_GEM);
 
-        entries.add(AMETHYST_DUST);
-        entries.add(QUARTZ_DUST);
-        entries.add(LAPIS_LAZULI_DUST);
-        entries.add(TURQUOISE_DUST);
+        entries.addAfter(Items.QUARTZ, CITRINE);
+        entries.addAfter(CITRINE, ONYX);
 
-        entries.add(TIN_INGOT);
-        entries.add(SILVER_INGOT);
-        entries.add(STERLING_SILVER_INGOT);
-        entries.add(ROSE_GOLD_INGOT);
-        entries.add(BRONZE_INGOT);
-        entries.add(COBALT_INGOT);
-        entries.add(CARBON_STEEL_INGOT);
-        entries.add(HARDENED_STEEL_INGOT);
-        entries.add(OBSIDIAN_INGOT);
-        entries.add(ADAMANTIUM_INGOT);
-        entries.add(ENDERITE_INGOT);
-        entries.add(AMETHYST_GEM);
-        entries.add(LAPIS_LAZULI_GEM);
-        entries.add(TURQUOISE_GEM);
-        entries.add(TANZANITE_GEM);
-        entries.add(TOURMALINE_GEM);
-        entries.add(TOPAZ_GEM);
-        entries.add(RUBY_GEM);
-        entries.add(SAPPHIRE_GEM);
-        entries.add(SPINEL_GEM);
-        entries.add(CITRINE_GEM);
-        entries.add(MOISSANITE_GEM);
-        entries.add(ONYX_GEM);
-        entries.add(GRAPHENE_CHAINMAIL);
+        entries.addBefore(Items.IRON_NUGGET, SILVER_NUGGET);
+        entries.addBefore(SILVER_NUGGET, TIN_NUGGET);
+        entries.addAfter(Items.IRON_NUGGET, COPPER_NUGGET);
+        entries.addAfter(Items.GOLD_NUGGET, STERLING_SILVER_NUGGET);
+        entries.addAfter(STERLING_SILVER_NUGGET, ROSE_GOLD_NUGGET);
+        entries.addAfter(ROSE_GOLD_NUGGET, BRONZE_NUGGET);
+        entries.addAfter(BRONZE_NUGGET, COBALT_NUGGET);
+        entries.addAfter(COBALT_NUGGET, CARBON_STEEL_NUGGET);
+        entries.addAfter(CARBON_STEEL_NUGGET, HARDENED_STEEL_NUGGET);
 
-        entries.add(HARDENED_STEEL_UPGRADE_SMITHING_TEMPLATE);
-        entries.add(OBSIDIAN_UPGRADE_SMITHING_TEMPLATE);
-        entries.add(ADAMANTIUM_UPGRADE_SMITHING_TEMPLATE);
-        entries.add(ENDERITE_UPGRADE_SMITHING_TEMPLATE);
+        entries.addAfter(HARDENED_STEEL_NUGGET, CHAINMAIL);
+        entries.addAfter(CHAINMAIL, GRAPHENE_CHAINMAIL);
+
+        entries.addBefore(Items.DIAMOND, SPINEL_GEM);
+        entries.addBefore(SPINEL_GEM, TOPAZ_GEM);
+        entries.addBefore(TOPAZ_GEM, TOURMALINE_GEM);
+        entries.addBefore(TOURMALINE_GEM, TANZANITE_GEM);
+
+        entries.addAfter(Items.DIAMOND, RUBY_GEM);
+        entries.addAfter(RUBY_GEM, SAPPHIRE_GEM);
+        entries.addAfter(SAPPHIRE_GEM, MOISSANITE_GEM);
+
+        entries.addBefore(Items.IRON_INGOT, TIN_INGOT);
+        entries.addAfter(TIN_INGOT, SILVER_INGOT);
+        entries.addAfter(Items.GOLD_INGOT, STERLING_SILVER_INGOT);
+        entries.addAfter(STERLING_SILVER_INGOT, ROSE_GOLD_INGOT);
+        entries.addAfter(ROSE_GOLD_INGOT, BRONZE_INGOT);
+        entries.addAfter(BRONZE_INGOT, COBALT_INGOT);
+        entries.addAfter(COBALT_INGOT, CARBON_STEEL_INGOT);
+        entries.addBefore(CARBON_STEEL_INGOT, CARBON_STEEL_SCRAP);
+        entries.addAfter(CARBON_STEEL_SCRAP, HOT_CARBON_STEEL_SCRAP);
+        entries.addAfter(CARBON_STEEL_INGOT, HARDENED_STEEL_INGOT);
+        entries.addAfter(HARDENED_STEEL_INGOT, OBSIDIAN_INGOT);
+        entries.addBefore(OBSIDIAN_INGOT, OBSIDIAN_SCRAP);
+        entries.addAfter(OBSIDIAN_INGOT, ADAMANTIUM_INGOT);
+        entries.addAfter(ADAMANTIUM_INGOT, ENDERITE_INGOT);
+        entries.addBefore(ENDERITE_INGOT, ENDERITE_SCRAP);
+
+        entries.addAfter(Items.GUNPOWDER, AMETHYST_DUST);
+        entries.addAfter(AMETHYST_DUST, QUARTZ_DUST);
+        entries.addAfter(QUARTZ_DUST, LAPIS_LAZULI_DUST);
+        entries.addAfter(LAPIS_LAZULI_DUST, TURQUOISE_DUST);
+
+        entries.addAfter(Items.NETHERITE_UPGRADE_SMITHING_TEMPLATE, HARDENED_STEEL_UPGRADE_SMITHING_TEMPLATE);
+        entries.addAfter(HARDENED_STEEL_UPGRADE_SMITHING_TEMPLATE, OBSIDIAN_UPGRADE_SMITHING_TEMPLATE);
+        entries.addAfter(OBSIDIAN_UPGRADE_SMITHING_TEMPLATE, ADAMANTIUM_UPGRADE_SMITHING_TEMPLATE);
+        entries.addAfter(ADAMANTIUM_UPGRADE_SMITHING_TEMPLATE, ENDERITE_UPGRADE_SMITHING_TEMPLATE);
+
+        entries.addAfter(Items.EGG, ModItems.DUCK_EGG);
     }
     private static void addItemsToCombatItemGroup(FabricItemGroupEntries entries) {
         entries.addAfter(Items.WOODEN_SWORD, WOODEN_BATTLE_AXE);
@@ -1201,79 +1217,74 @@ public class ModItems {
         entries.addAfter(TURQUOISE_BATTLE_AXE, TURQUOISE_BATTLE_MACE);
         entries.addAfter(TURQUOISE_BATTLE_MACE, TURQUOISE_DAGGER);
 
-        entries.add(TOURMALINE_SWORD);
-        entries.add(TOURMALINE_BATTLE_AXE);
-        entries.add(TOURMALINE_BATTLE_MACE);
-        entries.add(TOURMALINE_DAGGER);
+        entries.addAfter(TURQUOISE_DAGGER, TOURMALINE_SWORD);
+        entries.addAfter(TOURMALINE_SWORD, TOURMALINE_BATTLE_AXE);
+        entries.addAfter(TOURMALINE_BATTLE_AXE, TOURMALINE_BATTLE_MACE);
+        entries.addAfter(TOURMALINE_BATTLE_MACE, TOURMALINE_DAGGER);
 
-        entries.add(TOPAZ_SWORD);
-        entries.add(TOPAZ_BATTLE_AXE);
-        entries.add(TOPAZ_BATTLE_MACE);
-        entries.add(TOPAZ_DAGGER);
+        entries.addAfter(TOURMALINE_DAGGER, CITRINE_SWORD);
+        entries.addAfter(CITRINE_SWORD, CITRINE_BATTLE_AXE);
+        entries.addAfter(CITRINE_BATTLE_AXE, CITRINE_BATTLE_MACE);
+        entries.addAfter(CITRINE_BATTLE_MACE, CITRINE_DAGGER);
 
-        entries.add(EMERALD_SWORD);
-        entries.add(EMERALD_BATTLE_AXE);
-        entries.add(EMERALD_BATTLE_MACE);
-        entries.add(EMERALD_DAGGER);
+        entries.addAfter(CITRINE_DAGGER, ONYX_SWORD);
+        entries.addAfter(ONYX_SWORD, ONYX_BATTLE_AXE);
+        entries.addAfter(ONYX_BATTLE_AXE, ONYX_BATTLE_MACE);
+        entries.addAfter(ONYX_BATTLE_MACE, ONYX_DAGGER);
 
-        entries.add(DIAMOND_BATTLE_AXE);
-        entries.add(DIAMOND_BATTLE_MACE);
-        entries.add(DIAMOND_DAGGER);
+        entries.addAfter(ONYX_DAGGER, TOPAZ_SWORD);
+        entries.addAfter(TOPAZ_SWORD, TOPAZ_BATTLE_AXE);
+        entries.addAfter(TOPAZ_BATTLE_AXE, TOPAZ_BATTLE_MACE);
+        entries.addAfter(TOPAZ_BATTLE_MACE, TOPAZ_DAGGER);
 
-        entries.add(RUBY_SWORD);
-        entries.add(RUBY_BATTLE_AXE);
-        entries.add(RUBY_BATTLE_MACE);
-        entries.add(RUBY_DAGGER);
+        entries.addAfter(TOPAZ_DAGGER, SPINEL_SWORD);
+        entries.addAfter(SPINEL_SWORD, SPINEL_BATTLE_AXE);
+        entries.addAfter(SPINEL_BATTLE_AXE, SPINEL_BATTLE_MACE);
+        entries.addAfter(SPINEL_BATTLE_MACE, SPINEL_DAGGER);
 
-        entries.add(SAPPHIRE_SWORD);
-        entries.add(SAPPHIRE_BATTLE_AXE);
-        entries.add(SAPPHIRE_BATTLE_MACE);
-        entries.add(SAPPHIRE_DAGGER);
+        entries.addAfter(SPINEL_DAGGER, EMERALD_SWORD);
+        entries.addAfter(EMERALD_SWORD, EMERALD_BATTLE_AXE);
+        entries.addAfter(EMERALD_BATTLE_AXE, EMERALD_BATTLE_MACE);
+        entries.addAfter(EMERALD_BATTLE_MACE, EMERALD_DAGGER);
 
-        entries.add(SPINEL_SWORD);
-        entries.add(SPINEL_BATTLE_AXE);
-        entries.add(SPINEL_BATTLE_MACE);
-        entries.add(SPINEL_DAGGER);
+        entries.addAfter(Items.DIAMOND_SWORD, DIAMOND_BATTLE_AXE);
+        entries.addAfter(DIAMOND_BATTLE_AXE, DIAMOND_BATTLE_MACE);
+        entries.addAfter(DIAMOND_BATTLE_MACE, DIAMOND_DAGGER);
 
-        entries.add(CITRINE_SWORD);
-        entries.add(CITRINE_BATTLE_AXE);
-        entries.add(CITRINE_BATTLE_MACE);
-        entries.add(CITRINE_DAGGER);
+        entries.addAfter(DIAMOND_DAGGER, RUBY_SWORD);
+        entries.addAfter(RUBY_SWORD, RUBY_BATTLE_AXE);
+        entries.addAfter(RUBY_BATTLE_AXE, RUBY_BATTLE_MACE);
+        entries.addAfter(RUBY_BATTLE_MACE, RUBY_DAGGER);
 
-        entries.add(MOISSANITE_SWORD);
-        entries.add(MOISSANITE_BATTLE_AXE);
-        entries.add(MOISSANITE_BATTLE_MACE);
-        entries.add(MOISSANITE_DAGGER);
+        entries.addAfter(RUBY_DAGGER, SAPPHIRE_SWORD);
+        entries.addAfter(SAPPHIRE_SWORD, SAPPHIRE_BATTLE_AXE);
+        entries.addAfter(SAPPHIRE_BATTLE_AXE, SAPPHIRE_BATTLE_MACE);
+        entries.addAfter(SAPPHIRE_BATTLE_MACE, SAPPHIRE_DAGGER);
 
-        entries.add(ONYX_SWORD);
-        entries.add(ONYX_BATTLE_AXE);
-        entries.add(ONYX_BATTLE_MACE);
-        entries.add(ONYX_DAGGER);
+        entries.addAfter(SAPPHIRE_DAGGER, MOISSANITE_SWORD);
+        entries.addAfter(MOISSANITE_SWORD, MOISSANITE_BATTLE_AXE);
+        entries.addAfter(MOISSANITE_BATTLE_AXE, MOISSANITE_BATTLE_MACE);
+        entries.addAfter(MOISSANITE_BATTLE_MACE, MOISSANITE_DAGGER);
 
-        entries.add(OBSIDIAN_SWORD);
-        entries.add(OBSIDIAN_BATTLE_AXE);
-        entries.add(OBSIDIAN_BATTLE_MACE);
-        entries.add(OBSIDIAN_DAGGER);
+        entries.addAfter(MOISSANITE_DAGGER, OBSIDIAN_SWORD);
+        entries.addAfter(OBSIDIAN_SWORD, OBSIDIAN_BATTLE_AXE);
+        entries.addAfter(OBSIDIAN_BATTLE_AXE, OBSIDIAN_BATTLE_MACE);
+        entries.addAfter(OBSIDIAN_BATTLE_MACE, OBSIDIAN_DAGGER);
 
-        entries.add(NETHERITE_BATTLE_AXE);
-        entries.add(NETHERITE_BATTLE_MACE);
-        entries.add(NETHERITE_DAGGER);
+        entries.addAfter(OBSIDIAN_DAGGER, ADAMANTIUM_SWORD);
+        entries.addAfter(ADAMANTIUM_SWORD, ADAMANTIUM_BATTLE_AXE);
+        entries.addAfter(ADAMANTIUM_BATTLE_AXE, ADAMANTIUM_BATTLE_MACE);
+        entries.addAfter(ADAMANTIUM_BATTLE_MACE, ADAMANTIUM_DAGGER);
 
-//        entries.add(GRAPHENE_SWORD);
-//        entries.add(GRAPHENE_BATTLE_AXE);
-//        entries.add(GRAPHENE_BATTLE_MACE);
-//        entries.add(GRAPHENE_DAGGER);
+        entries.addAfter(Items.NETHERITE_SWORD, NETHERITE_BATTLE_AXE);
+        entries.addAfter(NETHERITE_BATTLE_AXE, NETHERITE_BATTLE_MACE);
+        entries.addAfter(NETHERITE_BATTLE_MACE, NETHERITE_DAGGER);
 
-        entries.add(ADAMANTIUM_SWORD);
-        entries.add(ADAMANTIUM_BATTLE_AXE);
-        entries.add(ADAMANTIUM_BATTLE_MACE);
-        entries.add(ADAMANTIUM_DAGGER);
-
-        entries.add(ENDERITE_SWORD);
-        entries.add(ENDERITE_BATTLE_AXE);
-        entries.add(ENDERITE_BATTLE_MACE);
-        entries.add(ENDERITE_DAGGER);
-        entries.add(ENDERITE_SPEAR);
+        entries.addAfter(NETHERITE_DAGGER, ENDERITE_SWORD);
+        entries.addAfter(ENDERITE_SWORD, ENDERITE_BATTLE_AXE);
+        entries.addAfter(ENDERITE_BATTLE_AXE, ENDERITE_BATTLE_MACE);
+        entries.addAfter(ENDERITE_BATTLE_MACE, ENDERITE_DAGGER);
+        entries.addAfter(ENDERITE_DAGGER, ENDERITE_SPEAR);
 
         entries.add(ModItems.TIN_HELMET);
         entries.add(ModItems.TIN_CHESTPLATE);
@@ -1603,6 +1614,11 @@ public class ModItems {
         entries.add(CIPHER_MUSIC_DISC);
     }
 
+    private static void addItemsToSpawnEggItemGroup(FabricItemGroupEntries entries) {
+        entries.addAfter(Items.DROWNED_SPAWN_EGG, HARDENED_STEEL_GOLEM_SPAWN_EGG);
+        entries.addAfter(HARDENED_STEEL_GOLEM_SPAWN_EGG, DUCK_SPAWN_EGG);
+    }
+
 
     private static Item registerItem(String name, Item item) {
         return Registry.register(Registries.ITEM, Identifier.of(Mores.MOD_ID, name), item);
@@ -1614,5 +1630,6 @@ public class ModItems {
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.COMBAT).register(ModItems::addItemsToCombatItemGroup);
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.FOOD_AND_DRINK).register(ModItems::addItemsToFoodItemGroup);
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.TOOLS).register(ModItems::addItemsToToolsItemGroup);
+        ItemGroupEvents.modifyEntriesEvent(ItemGroups.SPAWN_EGGS).register(ModItems::addItemsToSpawnEggItemGroup);
     }
 }

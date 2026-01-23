@@ -1,0 +1,68 @@
+{
+  "parent": "mores:obtain_primordial_debris",
+  "criteria": {
+    "enderite_boots": {
+      "conditions": {
+        "items": [
+          {
+            "items": "mores:enderite_boots"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "enderite_chestplate": {
+      "conditions": {
+        "items": [
+          {
+            "items": "mores:enderite_chestplate"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "enderite_helmet": {
+      "conditions": {
+        "items": [
+          {
+            "items": "mores:enderite_helmet"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "enderite_leggings": {
+      "conditions": {
+        "items": [
+          {
+            "items": "mores:enderite_leggings"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": "Craft a full set of enderite armor.",
+    "icon": {
+      "count": 1,
+      "id": "mores:enderite_chestplate"
+    },
+    "title": "Indestructible"
+  },
+  "requirements": [
+    [
+      "enderite_helmet"
+    ],
+    [
+      "enderite_chestplate"
+    ],
+    [
+      "enderite_leggings"
+    ],
+    [
+      "enderite_boots"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

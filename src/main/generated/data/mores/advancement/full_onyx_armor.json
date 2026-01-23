@@ -1,0 +1,68 @@
+{
+  "parent": "mores:obtain_onyx_gem",
+  "criteria": {
+    "onyx_boots": {
+      "conditions": {
+        "items": [
+          {
+            "items": "mores:onyx_boots"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "onyx_chestplate": {
+      "conditions": {
+        "items": [
+          {
+            "items": "mores:onyx_chestplate"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "onyx_helmet": {
+      "conditions": {
+        "items": [
+          {
+            "items": "mores:onyx_helmet"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "onyx_leggings": {
+      "conditions": {
+        "items": [
+          {
+            "items": "mores:onyx_leggings"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": "Craft a full set of onyx armor.",
+    "icon": {
+      "count": 1,
+      "id": "mores:onyx_chestplate"
+    },
+    "title": "The Dark Knight"
+  },
+  "requirements": [
+    [
+      "onyx_helmet"
+    ],
+    [
+      "onyx_chestplate"
+    ],
+    [
+      "onyx_leggings"
+    ],
+    [
+      "onyx_boots"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

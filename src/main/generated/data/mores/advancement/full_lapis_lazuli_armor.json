@@ -1,0 +1,68 @@
+{
+  "parent": "mores:obtain_lapis_lazuli_gem",
+  "criteria": {
+    "lapis_lazuli_boots": {
+      "conditions": {
+        "items": [
+          {
+            "items": "mores:lapis_lazuli_boots"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "lapis_lazuli_chestplate": {
+      "conditions": {
+        "items": [
+          {
+            "items": "mores:lapis_lazuli_chestplate"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "lapis_lazuli_helmet": {
+      "conditions": {
+        "items": [
+          {
+            "items": "mores:lapis_lazuli_helmet"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "lapis_lazuli_leggings": {
+      "conditions": {
+        "items": [
+          {
+            "items": "mores:lapis_lazuli_leggings"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": "Craft a full set of lapis lazuli armor.",
+    "icon": {
+      "count": 1,
+      "id": "mores:lapis_lazuli_helmet"
+    },
+    "title": "OceanGate Titan"
+  },
+  "requirements": [
+    [
+      "lapis_lazuli_helmet"
+    ],
+    [
+      "lapis_lazuli_chestplate"
+    ],
+    [
+      "lapis_lazuli_leggings"
+    ],
+    [
+      "lapis_lazuli_boots"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

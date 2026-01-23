@@ -1,0 +1,68 @@
+{
+  "parent": "mores:obtain_turquoise_gem",
+  "criteria": {
+    "turquoise_boots": {
+      "conditions": {
+        "items": [
+          {
+            "items": "mores:turquoise_boots"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "turquoise_chestplate": {
+      "conditions": {
+        "items": [
+          {
+            "items": "mores:turquoise_chestplate"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "turquoise_helmet": {
+      "conditions": {
+        "items": [
+          {
+            "items": "mores:turquoise_helmet"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "turquoise_leggings": {
+      "conditions": {
+        "items": [
+          {
+            "items": "mores:turquoise_leggings"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": "Craft a full set of turquoise armor.",
+    "icon": {
+      "count": 1,
+      "id": "mores:turquoise_helmet"
+    },
+    "title": "Submarine Poseidon"
+  },
+  "requirements": [
+    [
+      "turquoise_helmet"
+    ],
+    [
+      "turquoise_chestplate"
+    ],
+    [
+      "turquoise_leggings"
+    ],
+    [
+      "turquoise_boots"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

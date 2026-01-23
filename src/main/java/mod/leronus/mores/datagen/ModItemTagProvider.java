@@ -1,5 +1,6 @@
 package mod.leronus.mores.datagen;
 
+import mod.leronus.mores.block.ModBlocks;
 import mod.leronus.mores.item.ModTags;
 import mod.leronus.mores.item.ModItems;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
@@ -30,7 +31,6 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
         //Meat
         getOrCreateTagBuilder(ItemTags.MEAT).add(ModItems.RAW_DUCK, ModItems.COOKED_DUCK);
         //Tools
-        //TODO Add enderite, tanzanite, adamantium
         getOrCreateTagBuilder(ItemTags.SWORDS).add(
                 ModItems.TIN_SWORD,
                 ModItems.COPPER_SWORD,
@@ -125,42 +125,35 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
         //TODO Change to sharp for battleaxe?
         getOrCreateTagBuilder(ItemTags.SWORD_ENCHANTABLE).add(
                 ModItems.WOODEN_BATTLE_AXE, ModItems.WOODEN_BATTLE_MACE, ModItems.WOODEN_DAGGER,
-                ModItems.TIN_SWORD, ModItems.TIN_BATTLE_AXE, ModItems.TIN_BATTLE_MACE,
+                ModItems.TIN_SWORD, ModItems.TIN_BATTLE_AXE, ModItems.TIN_BATTLE_MACE, ModItems.TIN_DAGGER,
                 ModItems.GOLD_BATTLE_AXE, ModItems.GOLD_BATTLE_MACE, ModItems.GOLD_DAGGER,
-                ModItems.SILVER_SWORD, ModItems.SILVER_BATTLE_AXE, ModItems.SILVER_BATTLE_MACE,
-                ModItems.COPPER_SWORD, ModItems.COPPER_BATTLE_AXE, ModItems.COPPER_BATTLE_MACE,
-                ModItems.BRONZE_SWORD, ModItems.BRONZE_BATTLE_AXE, ModItems.BRONZE_BATTLE_MACE,
-                ModItems.STERLING_SILVER_SWORD, ModItems.STERLING_SILVER_BATTLE_AXE, ModItems.STERLING_SILVER_BATTLE_MACE,
-                ModItems.ROSE_GOLD_SWORD, ModItems.ROSE_GOLD_BATTLE_AXE, ModItems.ROSE_GOLD_BATTLE_MACE,
+                ModItems.SILVER_SWORD, ModItems.SILVER_BATTLE_AXE, ModItems.SILVER_BATTLE_MACE, ModItems.SILVER_DAGGER,
+                ModItems.COPPER_SWORD, ModItems.COPPER_BATTLE_AXE, ModItems.COPPER_BATTLE_MACE, ModItems.COPPER_DAGGER,
+                ModItems.BRONZE_SWORD, ModItems.BRONZE_BATTLE_AXE, ModItems.BRONZE_BATTLE_MACE, ModItems.BRONZE_DAGGER,
+                ModItems.STERLING_SILVER_SWORD, ModItems.STERLING_SILVER_BATTLE_AXE, ModItems.STERLING_SILVER_BATTLE_MACE, ModItems.STERLING_SILVER_DAGGER,
+                ModItems.ROSE_GOLD_SWORD, ModItems.ROSE_GOLD_BATTLE_AXE, ModItems.ROSE_GOLD_BATTLE_MACE, ModItems.ROSE_GOLD_DAGGER,
                 ModItems.IRON_BATTLE_AXE, ModItems.IRON_BATTLE_MACE, ModItems.IRON_DAGGER,
-                ModItems.COBALT_SWORD, ModItems.COBALT_BATTLE_AXE, ModItems.COBALT_BATTLE_MACE,
-                ModItems.CARBON_STEEL_SWORD, ModItems.CARBON_STEEL_BATTLE_AXE, ModItems.CARBON_STEEL_BATTLE_MACE,
-                ModItems.HARDENED_STEEL_SWORD, ModItems.HARDENED_STEEL_BATTLE_AXE, ModItems.HARDENED_STEEL_BATTLE_MACE,
-                ModItems.AMETHYST_SWORD, ModItems.AMETHYST_BATTLE_AXE, ModItems.AMETHYST_BATTLE_MACE,
-                ModItems.TURQUOISE_SWORD, ModItems.TURQUOISE_BATTLE_AXE, ModItems.TURQUOISE_BATTLE_MACE,
-                ModItems.LAPIS_LAZULI_SWORD, ModItems.LAPIS_LAZULI_BATTLE_AXE, ModItems.LAPIS_LAZULI_BATTLE_MACE,
-                ModItems.CITRINE_SWORD, ModItems.CITRINE_BATTLE_AXE, ModItems.CITRINE_BATTLE_MACE,
-                ModItems.ONYX_SWORD, ModItems.ONYX_BATTLE_AXE, ModItems.ONYX_BATTLE_MACE,
-                ModItems.TANZANITE_SWORD, ModItems.TANZANITE_BATTLE_AXE, ModItems.TANZANITE_BATTLE_MACE,
-                ModItems.TOURMALINE_SWORD, ModItems.TOURMALINE_BATTLE_AXE, ModItems.TOURMALINE_BATTLE_MACE,
-                ModItems.TOPAZ_SWORD, ModItems.TOPAZ_BATTLE_AXE, ModItems.TOPAZ_BATTLE_MACE,
-                ModItems.SPINEL_SWORD, ModItems.SPINEL_BATTLE_AXE, ModItems.SPINEL_BATTLE_MACE,
-                ModItems.EMERALD_SWORD, ModItems.EMERALD_BATTLE_AXE, ModItems.EMERALD_BATTLE_MACE,
+                ModItems.COBALT_SWORD, ModItems.COBALT_BATTLE_AXE, ModItems.COBALT_BATTLE_MACE, ModItems.COBALT_DAGGER,
+                ModItems.CARBON_STEEL_SWORD, ModItems.CARBON_STEEL_BATTLE_AXE, ModItems.CARBON_STEEL_BATTLE_MACE, ModItems.CARBON_STEEL_DAGGER,
+                ModItems.HARDENED_STEEL_SWORD, ModItems.HARDENED_STEEL_BATTLE_AXE, ModItems.HARDENED_STEEL_BATTLE_MACE, ModItems.HARDENED_STEEL_DAGGER,
+                ModItems.AMETHYST_SWORD, ModItems.AMETHYST_BATTLE_AXE, ModItems.AMETHYST_BATTLE_MACE, ModItems.AMETHYST_DAGGER,
+                ModItems.TURQUOISE_SWORD, ModItems.TURQUOISE_BATTLE_AXE, ModItems.TURQUOISE_BATTLE_MACE, ModItems.TURQUOISE_DAGGER,
+                ModItems.LAPIS_LAZULI_SWORD, ModItems.LAPIS_LAZULI_BATTLE_AXE, ModItems.LAPIS_LAZULI_BATTLE_MACE, ModItems.LAPIS_LAZULI_DAGGER,
+                ModItems.CITRINE_SWORD, ModItems.CITRINE_BATTLE_AXE, ModItems.CITRINE_BATTLE_MACE, ModItems.CITRINE_DAGGER,
+                ModItems.ONYX_SWORD, ModItems.ONYX_BATTLE_AXE, ModItems.ONYX_BATTLE_MACE, ModItems.ONYX_DAGGER,
+                ModItems.TANZANITE_SWORD, ModItems.TANZANITE_BATTLE_AXE, ModItems.TANZANITE_BATTLE_MACE, ModItems.TANZANITE_DAGGER,
+                ModItems.TOURMALINE_SWORD, ModItems.TOURMALINE_BATTLE_AXE, ModItems.TOURMALINE_BATTLE_MACE, ModItems.TOURMALINE_DAGGER,
+                ModItems.TOPAZ_SWORD, ModItems.TOPAZ_BATTLE_AXE, ModItems.TOPAZ_BATTLE_MACE, ModItems.TOPAZ_DAGGER,
+                ModItems.SPINEL_SWORD, ModItems.SPINEL_BATTLE_AXE, ModItems.SPINEL_BATTLE_MACE, ModItems.SPINEL_DAGGER,
+                ModItems.EMERALD_SWORD, ModItems.EMERALD_BATTLE_AXE, ModItems.EMERALD_BATTLE_MACE, ModItems.EMERALD_DAGGER,
                 ModItems.DIAMOND_BATTLE_AXE, ModItems.DIAMOND_BATTLE_MACE, ModItems.DIAMOND_DAGGER,
-                ModItems.RUBY_SWORD, ModItems.RUBY_BATTLE_AXE, ModItems.RUBY_BATTLE_MACE,
-                ModItems.SAPPHIRE_SWORD, ModItems.SAPPHIRE_BATTLE_AXE, ModItems.SAPPHIRE_BATTLE_MACE,
-                ModItems.MOISSANITE_SWORD, ModItems.MOISSANITE_BATTLE_AXE, ModItems.MOISSANITE_BATTLE_MACE,
-//                ModItems.GRAPHENE_SWORD, ModItems.GRAPHENE_BATTLE_AXE, ModItems.GRAPHENE_BATTLE_MACE,
-                ModItems.OBSIDIAN_SWORD, ModItems.OBSIDIAN_BATTLE_AXE, ModItems.OBSIDIAN_BATTLE_MACE,
+                ModItems.RUBY_SWORD, ModItems.RUBY_BATTLE_AXE, ModItems.RUBY_BATTLE_MACE, ModItems.RUBY_DAGGER,
+                ModItems.SAPPHIRE_SWORD, ModItems.SAPPHIRE_BATTLE_AXE, ModItems.SAPPHIRE_BATTLE_MACE, ModItems.SAPPHIRE_DAGGER,
+                ModItems.MOISSANITE_SWORD, ModItems.MOISSANITE_BATTLE_AXE, ModItems.MOISSANITE_BATTLE_MACE, ModItems.MOISSANITE_DAGGER,
+                ModItems.OBSIDIAN_SWORD, ModItems.OBSIDIAN_BATTLE_AXE, ModItems.OBSIDIAN_BATTLE_MACE, ModItems.OBSIDIAN_DAGGER,
                 ModItems.NETHERITE_BATTLE_AXE, ModItems.NETHERITE_BATTLE_MACE, ModItems.NETHERITE_DAGGER,
                 ModItems.ADAMANTIUM_BATTLE_AXE, ModItems.ADAMANTIUM_BATTLE_MACE, ModItems.ADAMANTIUM_DAGGER,
-                ModItems.ENDERITE_BATTLE_AXE, ModItems.ENDERITE_BATTLE_MACE, ModItems.ENDERITE_DAGGER,
-
-                ModItems.TIN_DAGGER, ModItems.COPPER_DAGGER, ModItems.SILVER_DAGGER, ModItems.BRONZE_DAGGER, ModItems.COBALT_DAGGER, ModItems.STERLING_SILVER_DAGGER, ModItems.ROSE_GOLD_DAGGER,
-                ModItems.CARBON_STEEL_DAGGER, ModItems.HARDENED_STEEL_DAGGER, ModItems.AMETHYST_DAGGER, ModItems.EMERALD_DAGGER, ModItems.OBSIDIAN_DAGGER, ModItems.TOPAZ_DAGGER,
-                ModItems.TOURMALINE_DAGGER, ModItems.CITRINE_DAGGER, ModItems.RUBY_DAGGER, ModItems.SAPPHIRE_DAGGER, ModItems.SPINEL_DAGGER, ModItems.MOISSANITE_DAGGER,
-                ModItems.TURQUOISE_DAGGER, ModItems.ONYX_DAGGER
-//                ,ModItems.GRAPHENE_DAGGER
+                ModItems.ENDERITE_BATTLE_AXE, ModItems.ENDERITE_BATTLE_MACE, ModItems.ENDERITE_DAGGER
                 );
 
         //Raw Materials
@@ -332,6 +325,19 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
                 ModItems.ENDERITE_BOOTS
         );
 
+        //Piglin
+        getOrCreateTagBuilder(ItemTags.PIGLIN_LOVED).add(
+                ModItems.ROSE_GOLD_INGOT, ModItems.ROSE_GOLD_NUGGET, ModItems.ROSE_GOLD_APPLE, ModItems.ENCHANTED_ROSE_GOLD_APPLE,
+                ModItems.ROSE_GOLD_HELMET,
+                ModItems.ROSE_GOLD_CHESTPLATE,
+                ModItems.ROSE_GOLD_LEGGINGS,
+                ModItems.ROSE_GOLD_BOOTS,
+                ModItems.ROSE_GOLD_SWORD, ModItems.ROSE_GOLD_BATTLE_AXE, ModItems.ROSE_GOLD_BATTLE_MACE, ModItems.ROSE_GOLD_DAGGER,
+                ModItems.ROSE_GOLD_AXE, ModItems.ROSE_GOLD_SHOVEL, ModItems.ROSE_GOLD_PICKAXE, ModItems.ROSE_GOLD_HOE, ModItems.ROSE_GOLD_SHIELD, ModItems.ROSE_GOLD_SPEAR,
+                ModItems.ROSE_GOLD_HORSE_ARMOR, ModItems.ROSE_GOLD_WOLF_ARMOR,
+                ModBlocks.ROSE_GOLD_BLOCK.asItem()
+                );
+
         //Music Discs
         getOrCreateTagBuilder(ItemTags.CREEPER_DROP_MUSIC_DISCS).add(
                 ModItems.SWEET_CAROLINE_MUSIC_DISC, ModItems.CIPHER_MUSIC_DISC
@@ -351,14 +357,12 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
         );
 
         //Backported Spears
-
         getOrCreateTagBuilder(TagKey.of(RegistryKeys.ITEM, Identifier.ofVanilla("spears"))).add(
                 ModItems.ROSE_GOLD_SPEAR,
                 ModItems.CARBON_STEEL_SPEAR,
                 ModItems.HARDENED_STEEL_SPEAR,
                 ModItems.ENDERITE_SPEAR
         );
-
 
         /*
          * Modded tags

@@ -1,0 +1,68 @@
+{
+  "parent": "mores:obtain_topaz_gem",
+  "criteria": {
+    "topaz_boots": {
+      "conditions": {
+        "items": [
+          {
+            "items": "mores:topaz_boots"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "topaz_chestplate": {
+      "conditions": {
+        "items": [
+          {
+            "items": "mores:topaz_chestplate"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "topaz_helmet": {
+      "conditions": {
+        "items": [
+          {
+            "items": "mores:topaz_helmet"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "topaz_leggings": {
+      "conditions": {
+        "items": [
+          {
+            "items": "mores:topaz_leggings"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": "Craft a full set of topaz armor.",
+    "icon": {
+      "count": 1,
+      "id": "mores:topaz_chestplate"
+    },
+    "title": "Efficiency 100"
+  },
+  "requirements": [
+    [
+      "topaz_helmet"
+    ],
+    [
+      "topaz_chestplate"
+    ],
+    [
+      "topaz_leggings"
+    ],
+    [
+      "topaz_boots"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

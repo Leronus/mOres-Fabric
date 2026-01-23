@@ -1,11 +1,11 @@
 {
   "parent": "mores:obtain_silver_ingot",
   "criteria": {
-    "has_cobalt": {
+    "has_silver_nugget": {
       "conditions": {
         "items": [
           {
-            "items": "mores:cobalt_ingot"
+            "items": "mores:silver_nugget"
           }
         ]
       },
@@ -13,16 +13,16 @@
     }
   },
   "display": {
-    "description": "Obtain a cobalt ingot.",
+    "description": "Obtain a silver nugget.",
     "icon": {
       "count": 1,
-      "id": "mores:cobalt_ingot"
+      "id": "mores:silver_nugget"
     },
-    "title": "Very Cobalt"
+    "title": "McNugget"
   },
   "requirements": [
     [
-      "has_cobalt"
+      "has_silver_nugget"
     ]
   ],
   "sends_telemetry_event": true

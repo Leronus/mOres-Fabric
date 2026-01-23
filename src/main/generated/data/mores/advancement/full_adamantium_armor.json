@@ -1,0 +1,68 @@
+{
+  "parent": "mores:obtain_adamantium_ingot",
+  "criteria": {
+    "adamantium_boots": {
+      "conditions": {
+        "items": [
+          {
+            "items": "mores:adamantium_boots"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "adamantium_chestplate": {
+      "conditions": {
+        "items": [
+          {
+            "items": "mores:adamantium_chestplate"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "adamantium_helmet": {
+      "conditions": {
+        "items": [
+          {
+            "items": "mores:adamantium_helmet"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "adamantium_leggings": {
+      "conditions": {
+        "items": [
+          {
+            "items": "mores:adamantium_leggings"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": "Craft a full set of adamantium armor.",
+    "icon": {
+      "count": 1,
+      "id": "mores:adamantium_chestplate"
+    },
+    "title": "Immovable Object"
+  },
+  "requirements": [
+    [
+      "adamantium_helmet"
+    ],
+    [
+      "adamantium_chestplate"
+    ],
+    [
+      "adamantium_leggings"
+    ],
+    [
+      "adamantium_boots"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

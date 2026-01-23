@@ -1,0 +1,68 @@
+{
+  "parent": "mores:obtain_tanzanite_gem",
+  "criteria": {
+    "tanzanite_boots": {
+      "conditions": {
+        "items": [
+          {
+            "items": "mores:tanzanite_boots"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "tanzanite_chestplate": {
+      "conditions": {
+        "items": [
+          {
+            "items": "mores:tanzanite_chestplate"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "tanzanite_helmet": {
+      "conditions": {
+        "items": [
+          {
+            "items": "mores:tanzanite_helmet"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "tanzanite_leggings": {
+      "conditions": {
+        "items": [
+          {
+            "items": "mores:tanzanite_leggings"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": "Craft a full set of tanzanite armor.",
+    "icon": {
+      "count": 1,
+      "id": "mores:tanzanite_chestplate"
+    },
+    "title": "The Flash"
+  },
+  "requirements": [
+    [
+      "tanzanite_helmet"
+    ],
+    [
+      "tanzanite_chestplate"
+    ],
+    [
+      "tanzanite_leggings"
+    ],
+    [
+      "tanzanite_boots"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

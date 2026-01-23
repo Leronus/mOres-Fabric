@@ -1,0 +1,68 @@
+{
+  "parent": "mores:obtain_moissanite_gem",
+  "criteria": {
+    "moissanite_boots": {
+      "conditions": {
+        "items": [
+          {
+            "items": "mores:moissanite_boots"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "moissanite_chestplate": {
+      "conditions": {
+        "items": [
+          {
+            "items": "mores:moissanite_chestplate"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "moissanite_helmet": {
+      "conditions": {
+        "items": [
+          {
+            "items": "mores:moissanite_helmet"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "moissanite_leggings": {
+      "conditions": {
+        "items": [
+          {
+            "items": "mores:moissanite_leggings"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": "Craft a full set of moissanite armor.",
+    "icon": {
+      "count": 1,
+      "id": "mores:moissanite_chestplate"
+    },
+    "title": "Shrek the Ogre"
+  },
+  "requirements": [
+    [
+      "moissanite_helmet"
+    ],
+    [
+      "moissanite_chestplate"
+    ],
+    [
+      "moissanite_leggings"
+    ],
+    [
+      "moissanite_boots"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

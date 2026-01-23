@@ -10,10 +10,14 @@ import net.minecraft.sound.SoundEvent;
 import net.minecraft.util.Identifier;
 
 public class ModSounds {
-    public static final SoundEvent SWEET_CAROLINE_BOOTLEG = registerSoundEvent("sweet_caroline_bootleg");
-    public static final SoundEvent CIPHER = registerSoundEvent( "cipher");
-    public static final SoundEvent WORTEL9 = registerSoundEvent( "wortel9");
-    public static final SoundEvent WATWAAROM = registerSoundEvent( "watwaarom");
+//    public static final SoundEvent WORTEL9 = registerSoundEvent( "wortel9");
+//    public static final SoundEvent WATWAAROM = registerSoundEvent( "watwaarom");
+
+    public static SoundEvent SWEET_CAROLINE_BOOTLEG;
+    public static SoundEvent CIPHER;
+    public static SoundEvent DUCK_HURT;
+    public static SoundEvent DUCK_DYING;
+    public static SoundEvent DUCK_LIVING;
 
     public static final RegistryKey<JukeboxSong> SWEET_CAROLINE_KEY =
             RegistryKey.of(RegistryKeys.JUKEBOX_SONG, Identifier.of(Mores.MOD_ID, "sweet_caroline_bootleg"));
@@ -28,5 +32,10 @@ public class ModSounds {
 
     public static void registerSounds() {
         Mores.LOGGER.info("Registering Sounds for " + Mores.MOD_ID);
+        SWEET_CAROLINE_BOOTLEG = registerSoundEvent("sweet_caroline_bootleg");
+        CIPHER = registerSoundEvent( "cipher");
+        DUCK_HURT = registerSoundEvent( "duck_hurt");
+        DUCK_DYING = registerSoundEvent( "duck_dying");
+        DUCK_LIVING = registerSoundEvent( "duck_living");
     }
 }

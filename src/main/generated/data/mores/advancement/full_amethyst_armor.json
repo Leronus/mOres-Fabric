@@ -1,0 +1,68 @@
+{
+  "parent": "mores:obtain_amethyst_gem",
+  "criteria": {
+    "amethyst_boots": {
+      "conditions": {
+        "items": [
+          {
+            "items": "mores:amethyst_boots"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "amethyst_chestplate": {
+      "conditions": {
+        "items": [
+          {
+            "items": "mores:amethyst_chestplate"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "amethyst_helmet": {
+      "conditions": {
+        "items": [
+          {
+            "items": "mores:amethyst_helmet"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "amethyst_leggings": {
+      "conditions": {
+        "items": [
+          {
+            "items": "mores:amethyst_leggings"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": "Craft a full set of amethyst armor.",
+    "icon": {
+      "count": 1,
+      "id": "mores:amethyst_helmet"
+    },
+    "title": "Soft Landing"
+  },
+  "requirements": [
+    [
+      "amethyst_helmet"
+    ],
+    [
+      "amethyst_chestplate"
+    ],
+    [
+      "amethyst_leggings"
+    ],
+    [
+      "amethyst_boots"
+    ]
+  ],
+  "sends_telemetry_event": true
+}
