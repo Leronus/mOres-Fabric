@@ -183,6 +183,7 @@ public class ModBlockLootTableProvider extends FabricBlockLootTableProvider {
         // QUARTZ
         // =========================
         addDrop(ModBlocks.QUARTZ_ORE, oreDrop(ModBlocks.QUARTZ_ORE, Items.QUARTZ));
+        addDrop(ModBlocks.DEEPSLATE_QUARTZ_ORE, oreDrop(ModBlocks.DEEPSLATE_QUARTZ_ORE, Items.QUARTZ));
 
         // =========================
         // TANZANITE

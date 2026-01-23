@@ -30,7 +30,7 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 ModBlocks.TURQUOISE_ORE, ModBlocks.DEEPSLATE_TURQUOISE_ORE,
                 ModBlocks.CITRINE_ORE, ModBlocks.NETHER_CITRINE_ORE,
                 ModBlocks.ENDER_ONYX_ORE,
-                ModBlocks.QUARTZ_ORE,
+                ModBlocks.QUARTZ_ORE, ModBlocks.DEEPSLATE_QUARTZ_ORE,
                 ModBlocks.TANZANITE_ORE, ModBlocks.DEEPSLATE_TANZANITE_ORE, ModBlocks.NETHER_TANZANITE_ORE, ModBlocks.ENDER_TANZANITE_ORE,
                 ModBlocks.ANDESITE_TANZANITE_ORE,  ModBlocks.BASALT_TANZANITE_ORE, ModBlocks.BLACKSTONE_TANZANITE_ORE, ModBlocks.CALCITE_TANZANITE_ORE, ModBlocks.DIORITE_TANZANITE_ORE,
                 ModBlocks.GRANITE_TANZANITE_ORE, ModBlocks.TUFF_TANZANITE_ORE,
@@ -83,7 +83,6 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 ModBlocks.TOURMALINE_BLOCK, ModBlocks.TANZANITE_BLOCK, ModBlocks.RUBY_BLOCK, ModBlocks.SAPPHIRE_BLOCK, ModBlocks.SPINEL_BLOCK, ModBlocks.CITRINE_BLOCK,
                 ModBlocks.MOISSANITE_BLOCK, ModBlocks.TURQUOISE_BLOCK, ModBlocks.ONYX_BLOCK, ModBlocks.ADAMANTIUM_BLOCK, ModBlocks.ENDERITE_BLOCK);
 
-        //TODO Add Universal Ores (Diorite/Granite/Tuff/Andesite)
         //Ores
         getOrCreateTagBuilder(ConventionalBlockTags.ORES).add(
                 ModBlocks.ANTHRACITE_ORE, ModBlocks.DEEPSLATE_ANTHRACITE_ORE, ModBlocks.NETHER_ANTHRACITE_ORE,
@@ -93,6 +92,7 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 ModBlocks.COBALT_ORE, ModBlocks.DEEPSLATE_COBALT_ORE, ModBlocks.ENDER_COBALT_ORE, ModBlocks.ANDESITE_COBALT_ORE, ModBlocks.BASALT_COBALT_ORE, ModBlocks.BLACKSTONE_COBALT_ORE, ModBlocks.CALCITE_COBALT_ORE, ModBlocks.DIORITE_COBALT_ORE,
                 ModBlocks.GRANITE_COBALT_ORE, ModBlocks.GRAVEL_COBALT_ORE, ModBlocks.TUFF_COBALT_ORE,
                 ModBlocks.TURQUOISE_ORE, ModBlocks.DEEPSLATE_TURQUOISE_ORE,
+                ModBlocks.QUARTZ_ORE, ModBlocks.DEEPSLATE_QUARTZ_ORE,
                 ModBlocks.ENDER_ONYX_ORE,
                 ModBlocks.CITRINE_ORE, ModBlocks.NETHER_CITRINE_ORE,
                 ModBlocks.TANZANITE_ORE, ModBlocks.DEEPSLATE_TANZANITE_ORE, ModBlocks.NETHER_TANZANITE_ORE, ModBlocks.ENDER_TANZANITE_ORE, ModBlocks.ANDESITE_TANZANITE_ORE, ModBlocks.BASALT_TANZANITE_ORE, ModBlocks.BLACKSTONE_TANZANITE_ORE, ModBlocks.CALCITE_TANZANITE_ORE, ModBlocks.DIORITE_TANZANITE_ORE,
@@ -128,6 +128,7 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 ModBlocks.TURQUOISE_BLOCK, ModBlocks.AMETHYST_BLOCK, ModBlocks.CITRINE_BLOCK, ModBlocks.ONYX_BLOCK,
                 ModBlocks.TOPAZ_BLOCK, ModBlocks.TOURMALINE_BLOCK, ModBlocks.TANZANITE_BLOCK,
                 ModBlocks.TURQUOISE_ORE, ModBlocks.DEEPSLATE_TURQUOISE_ORE,
+                ModBlocks.QUARTZ_ORE, ModBlocks.DEEPSLATE_QUARTZ_ORE,
                 ModBlocks.CITRINE_ORE, ModBlocks.NETHER_CITRINE_ORE,
                 ModBlocks.ENDER_ONYX_ORE,
                 ModBlocks.TANZANITE_ORE, ModBlocks.DEEPSLATE_TANZANITE_ORE, ModBlocks.NETHER_TANZANITE_ORE, ModBlocks.ENDER_TANZANITE_ORE, ModBlocks.ANDESITE_TANZANITE_ORE, ModBlocks.BASALT_TANZANITE_ORE, ModBlocks.BLACKSTONE_TANZANITE_ORE, ModBlocks.CALCITE_TANZANITE_ORE, ModBlocks.DIORITE_TANZANITE_ORE,

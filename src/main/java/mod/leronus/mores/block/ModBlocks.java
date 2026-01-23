@@ -40,6 +40,7 @@ public class ModBlocks {
     public static final SaplingBlock LEMON_OAK_SAPLING = registerBlock("lemon_oak_sapling", new SaplingBlock(ModLemonSaplingGenerator.LEMON_OAK, AbstractBlock.Settings.copy(Blocks.OAK_SAPLING)));
 
     public static final Block QUARTZ_ORE = registerBlock("quartz_ore", new ExperienceDroppingBlock(UniformIntProvider.create(0, 2), AbstractBlock.Settings.copy(Blocks.NETHER_QUARTZ_ORE).strength(3.0F, 3.0F).sounds(BlockSoundGroup.STONE).requiresTool()));
+    public static final Block DEEPSLATE_QUARTZ_ORE = registerBlock("deepslate_quartz_ore", new ExperienceDroppingBlock(UniformIntProvider.create(0, 2), AbstractBlock.Settings.copy(Blocks.NETHER_QUARTZ_ORE).strength(4.5F, 3.0F).sounds(BlockSoundGroup.STONE).requiresTool()));
     public static final Block ELECTRUM_ORE = registerBlock("electrum_ore", new ExperienceDroppingBlock(UniformIntProvider.create(0, 2), AbstractBlock.Settings.copy(Blocks.GOLD_ORE).strength(3.0F, 3.0F).sounds(BlockSoundGroup.STONE).requiresTool()));
 
     public static final Block ANTHRACITE_ORE = registerBlock("anthracite_ore", new ExperienceDroppingBlock(UniformIntProvider.create(0, 2), AbstractBlock.Settings.copy(Blocks.COAL_ORE).strength(3.0F, 3.0F).sounds(BlockSoundGroup.STONE).requiresTool()));
@@ -114,7 +115,6 @@ public class ModBlocks {
     public static final Block CALCITE_TOURMALINE_ORE = registerBlock("calcite_tourmaline_ore", new ExperienceDroppingBlock(UniformIntProvider.create(3, 7), AbstractBlock.Settings.copy(Blocks.CALCITE).requiresTool().strength(1.5F)));
     public static final Block DIORITE_TOURMALINE_ORE = registerBlock("diorite_tourmaline_ore", new ExperienceDroppingBlock(UniformIntProvider.create(3, 7), AbstractBlock.Settings.copy(Blocks.DIORITE).requiresTool().strength(3.0F, 3.0F)));
     public static final Block GRANITE_TOURMALINE_ORE = registerBlock("granite_tourmaline_ore", new ExperienceDroppingBlock(UniformIntProvider.create(3, 7), AbstractBlock.Settings.copy(Blocks.GRANITE).requiresTool().strength(3.0F, 3.0F)));
-    //TODO Figure out how to award xp
     public static final Block GRAVEL_TOURMALINE_ORE = registerBlock("gravel_tourmaline_ore", new FallingOreBlock(UniformIntProvider.create(3, 7), new ColorCode(-8356741), AbstractBlock.Settings.copy(Blocks.GRAVEL).requiresTool().strength(1.2F)));
     public static final Block TUFF_TOURMALINE_ORE = registerBlock("tuff_tourmaline_ore", new ExperienceDroppingBlock(UniformIntProvider.create(3, 7), AbstractBlock.Settings.copy(Blocks.TUFF).requiresTool().strength(3.0F, 3.0F)));
 
@@ -264,6 +264,7 @@ public class ModBlocks {
 
         entries.add(AMETHYST_BLOCK);
         entries.add(QUARTZ_ORE);
+        entries.add(DEEPSLATE_QUARTZ_ORE);
 
         entries.add(CITRINE_BLOCK);
         entries.add(CITRINE_ORE);

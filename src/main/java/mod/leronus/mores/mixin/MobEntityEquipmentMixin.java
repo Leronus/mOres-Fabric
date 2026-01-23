@@ -1,5 +1,6 @@
 package mod.leronus.mores.mixin;
 
+import mod.leronus.mores.config.CommonConfig;
 import mod.leronus.mores.entity.ModMobEquipmentHelper;
 import net.minecraft.entity.EntityData;
 import net.minecraft.entity.SpawnReason;
@@ -27,42 +28,33 @@ public abstract class MobEntityEquipmentMixin {
     private void mores$afterInitEquipment(Random random, LocalDifficulty difficulty, CallbackInfo ci) {
         MobEntity mob = (MobEntity) (Object) this;
 
-        // Wither skeleton
-        if (mob instanceof WitherSkeletonEntity witherSkeleton) {
-            ModMobEquipmentHelper.maybeUpgradeWitherSkeleton(witherSkeleton, random, difficulty);
+        //initialize() below (final safety)
+        if (mob instanceof PiglinEntity) {
             return;
         }
-
-        // Piglin
-        if (mob instanceof PiglinEntity piglin) {
-            ModMobEquipmentHelper.maybeUpgradePiglin(piglin, random, difficulty);
-            return;
-        }
-
-        // IMPORTANT: Zombified piglins handled by ZombifiedPiglinEntityMixin + initialize() below (final safety)
         if (mob instanceof ZombifiedPiglinEntity) {
             return;
         }
-
-        if (mob instanceof VindicatorEntity vindicator) {
-            ModMobEquipmentHelper.maybeUpgradeVindicator(vindicator, random, difficulty);
+        if (mob instanceof PiglinBruteEntity) {
             return;
         }
-
-        if (mob instanceof VexEntity vex) {
-            ModMobEquipmentHelper.maybeUpgradeVex(vex, random);
+        if (mob instanceof VexEntity) {
             return;
         }
-
-        // Skeleton / Stray (Stray extends SkeletonEntity)
+        if (mob instanceof VindicatorEntity) {
+            return;
+        }
+        if (mob instanceof WitherSkeletonEntity) {
+            return;
+        }
+        // Skeleton
         if (mob instanceof SkeletonEntity skeleton) {
-            ModMobEquipmentHelper.maybeUpgradeSkeletonLike(skeleton, random, difficulty);
+            ModMobEquipmentHelper.maybeUpgradeSkeletonLike(skeleton, random);
             return;
         }
-
         // Zombies (+ variants)
         if (mob instanceof ZombieEntity zombie && !(mob instanceof DrownedEntity)) {
-            ModMobEquipmentHelper.maybeUpgradeZombieLike(zombie, random, difficulty);
+            ModMobEquipmentHelper.maybeUpgradeZombieLike(zombie, random);
         }
     }
 
@@ -80,10 +72,27 @@ public abstract class MobEntityEquipmentMixin {
                                        @Nullable EntityData entityData,
                                        CallbackInfoReturnable<EntityData> cir) {
 
-        MobEntity mob = (MobEntity) (Object) this;
+        if (CommonConfig.enableMobGeneration) {
+            MobEntity mob = (MobEntity) (Object) this;
 
-        if (mob instanceof ZombifiedPiglinEntity zp) {
-            ModMobEquipmentHelper.maybeUpgradeZombifiedPiglin(zp, zp.getRandom());
+            if (mob instanceof ZombifiedPiglinEntity zp) {
+                ModMobEquipmentHelper.maybeUpgradeZombifiedPiglin(zp, zp.getRandom());
+            }
+            if (mob instanceof PiglinEntity pe) {
+                ModMobEquipmentHelper.maybeUpgradePiglin(pe, pe.getRandom());
+            }
+            if (mob instanceof PiglinBruteEntity pbe) {
+                ModMobEquipmentHelper.maybeUpgradePiglinBrute(pbe, pbe.getRandom());
+            }
+            if (mob instanceof VindicatorEntity vex) {
+                ModMobEquipmentHelper.maybeUpgradeVex(vex, vex.getRandom());
+            }
+            if (mob instanceof VindicatorEntity vd) {
+                ModMobEquipmentHelper.maybeUpgradeVindicator(vd, vd.getRandom());
+            }
+            if (mob instanceof WitherSkeletonEntity wk) {
+                ModMobEquipmentHelper.maybeUpgradeWitherSkeleton(wk, wk.getRandom());
+            }
         }
     }
 }

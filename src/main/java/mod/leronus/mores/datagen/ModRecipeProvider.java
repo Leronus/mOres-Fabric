@@ -4016,6 +4016,13 @@ public class ModRecipeProvider extends FabricRecipeProvider {
         CookingRecipeJsonBuilder.createSmelting(Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "deepslate_turquoise_ore"))), RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "turquoise")), 0.3f, 200)
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "deepslate_turquoise_ore"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "deepslate_turquoise_ore"))))
                 .offerTo(exporter, Identifier.of("mores", "turquoise_from_smelting_deepslate_turquoise_ore"));
+        //Quartz
+        CookingRecipeJsonBuilder.createSmelting(Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "quartz_ore"))), RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("minecraft", "quartz")), 0.3f, 200)
+                .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "quartz_ore"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "quartz_ore"))))
+                .offerTo(exporter, Identifier.of("mores", "quartz_from_smelting_quartz_ore"));
+        CookingRecipeJsonBuilder.createSmelting(Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "deepslate_quartz_ore"))), RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("minecraft", "quartz")), 0.3f, 200)
+                .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "deepslate_quartz_ore"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "deepslate_quartz_ore"))))
+                .offerTo(exporter, Identifier.of("mores", "quartz_from_smelting_deepslate_quartz_ore"));
         //Tanzanite
         CookingRecipeJsonBuilder.createSmelting(Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "tanzanite_ore"))), RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "tanzanite_gem")), 0.9f, 200)
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "tanzanite_ore"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "tanzanite_ore"))))
@@ -4448,6 +4455,13 @@ public class ModRecipeProvider extends FabricRecipeProvider {
         CookingRecipeJsonBuilder.createBlasting(Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "deepslate_turquoise_ore"))), RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "turquoise")), 0.9f, 100)
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "deepslate_turquoise_ore"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "deepslate_turquoise_ore"))))
                 .offerTo(exporter, Identifier.of("mores", "turquoise_from_blasting_deepslate_turquoise_ore"));
+        //Quartz
+        CookingRecipeJsonBuilder.createBlasting(Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "quartz_ore"))), RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("minecraft", "quartz")), 0.9f, 100)
+                .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "quartz_ore"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "quartz_ore"))))
+                .offerTo(exporter, Identifier.of("mores", "quartz_from_blasting_quartz_ore"));
+        CookingRecipeJsonBuilder.createBlasting(Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "deepslate_quartz_ore"))), RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("minecraft", "quartz")), 0.9f, 100)
+                .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "deepslate_quartz_ore"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "deepslate_quartz_ore"))))
+                .offerTo(exporter, Identifier.of("mores", "quartz_from_blasting_deepslate_quartz_ore"));
         //Tanzanite
         CookingRecipeJsonBuilder.createBlasting(Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "tanzanite_ore"))), RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "tanzanite_gem")), 0.9f, 100)
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "tanzanite_ore"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "tanzanite_ore"))))

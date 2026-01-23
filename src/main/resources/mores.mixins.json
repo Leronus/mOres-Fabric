@@ -22,6 +22,11 @@
     "WolfArmorSyncMixin",
     "ZombifiedPiglinEntityMixin",
     "OakToLemonTreeMixin",
+    "PiglinBruteEntityMixin",
+    "PiglinEntityMixin",
+    "VexEntityMixin",
+    "VindicatorEntityMixin",
+    "WitherSkeletonEntityMixin",
     "server.ZombieDuckJockeyMixin"
   ],
   "client": [

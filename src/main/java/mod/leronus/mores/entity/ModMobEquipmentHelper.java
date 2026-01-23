@@ -1,6 +1,7 @@
 package mod.leronus.mores.entity;
 
 import mod.leronus.mores.Mores;
+import mod.leronus.mores.config.CommonConfig;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.mob.MobEntity;
 import net.minecraft.item.Item;
@@ -19,19 +20,34 @@ import java.util.Optional;
 public final class ModMobEquipmentHelper {
     private ModMobEquipmentHelper() {}
 
-    public static final float DROP_CHANCE_HAND  = 0.02f;
-    public static final float DROP_CHANCE_ARMOR = 0.02f;
+    //Armor drop chance (3%)
+    public static final float DROP_CHANCE_HAND  = CommonConfig.handDropChance;
+    public static final float DROP_CHANCE_ARMOR = CommonConfig.armorDropChance;
 
-    public static final float SKELETON_ARMOR_CHANCE = 0.22f;
+    //Zombies
+    public static final int ZOMBIE_UPGRADE_MIN = CommonConfig.zombieUpgradeMin;
+    public static final int ZOMBIE_UPGRADE_MAX = CommonConfig.zombieUpgradeMax;
+    public static final float ZOMBIE_WEAPON_CHANCE = CommonConfig.zombieWeaponChance;
+    public static final float ZOMBIE_ARMOR_CHANCE = CommonConfig.zombieArmorChance;
+
+    //Skeletons
+    public static final float SKELETON_ARMOR_CHANCE = CommonConfig.skeletonArmorChance;
+
+    //Piglins (10%)
+    public static final float PIGLIN_ROSE_GOLD_SWORD_CHANCE = CommonConfig.piglinSwordChance;
+    public static final float PIGLIN_ROSE_GOLD_ARMOR_CHANCE = CommonConfig.piglinArmorChance;
+    public static final float ZOMBIFIED_PIGLIN_ROSE_GOLD_SWORD_CHANCE = CommonConfig.zombifiedPiglinSwordChance;
+    public static final float PIGLIN_BRUTE_ROSE_GOLD_AXE_CHANCE = CommonConfig.piglinBruteAxeChance;
 
     // Withers
-    public static final float WITHER_UPGRADE_CHANCE = 0.20f;
-    public static final float WITHER_VERY_STRONG_SWORD_CHANCE = 0.06f;
-    public static final float WITHER_STRONG_SWORD_CHANCE = 0.18f;
-    public static final float WITHER_ARMOR_WITH_UPGRADE_CHANCE = 0.12f;
+    public static final float WITHER_UPGRADE_CHANCE = CommonConfig.witherUpgradeChance;
+    public static final float WITHER_VERY_STRONG_SWORD_CHANCE = CommonConfig.witherVeryStrongSwordChance;
+    public static final float WITHER_STRONG_SWORD_CHANCE = CommonConfig.witherStrongSwordChance;
+    public static final float WITHER_ARMOR_WITH_UPGRADE_CHANCE = CommonConfig.witherWithArmorUpgradeChance;
 
-    // Zombified piglin: explicit 5%
-    public static final float ZOMBIFIED_PIGLIN_ROSE_GOLD_SWORD_CHANCE = 0.10f;
+    //Vindicator+Vex
+    public static final float VINDICATOR_WEAPON_CHANCE = CommonConfig.vindicatorWeaponChance;
+    public static final float VEX_WEAPON_CHANCE = CommonConfig.vexWeaponChance;
 
     private static final String[] VERY_STRONG_SWORDS = {
             "mores:obsidian_sword",
@@ -40,6 +56,9 @@ public final class ModMobEquipmentHelper {
 
     private static final String[] PIGLIN_WEAPONS = {
             "mores:rose_gold_sword"
+    };
+    private static final String[] BRUTE_AXES = {
+            "mores:rose_gold_axe",
     };
 
     private static final String[] ROSE_GOLD_ARMOR = {
@@ -51,6 +70,7 @@ public final class ModMobEquipmentHelper {
 
     private static final String[] VINDICATOR_AXES = {
             "mores:bronze_axe",
+            "mores:sterling_silver_axe",
             "mores:carbon_steel_axe",
             "mores:cobalt_axe"
     };
@@ -115,12 +135,12 @@ public final class ModMobEquipmentHelper {
        ENTRY POINTS
        =========================== */
 
-    public static void maybeUpgradeZombieLike(MobEntity mob, Random random, LocalDifficulty difficulty) {
+    public static void maybeUpgradeZombieLike(MobEntity mob, Random random) {
         // random 1/(4..7)
-        if (!rollOneInRange(random, 4, 7)) return;
+        if (!rollOneInRange(random, ZOMBIE_UPGRADE_MIN, ZOMBIE_UPGRADE_MAX)) return;
 
-        boolean doArmor  = random.nextFloat() < 0.75f;
-        boolean doWeapon = random.nextFloat() < 0.70f;
+        boolean doArmor  = random.nextFloat() < ZOMBIE_ARMOR_CHANCE;
+        boolean doWeapon = random.nextFloat() < ZOMBIE_WEAPON_CHANCE;
         if (!doArmor && !doWeapon) doWeapon = true;
 
         if (doArmor) {
@@ -134,12 +154,12 @@ public final class ModMobEquipmentHelper {
         }
     }
 
-    public static void maybeUpgradeSkeletonLike(MobEntity mob, Random random, LocalDifficulty difficulty) {
+    public static void maybeUpgradeSkeletonLike(MobEntity mob, Random random) {
         if (random.nextFloat() >= SKELETON_ARMOR_CHANCE) return;
         equipSkeletonArmorMixed(mob, random);
     }
 
-    public static void maybeUpgradeWitherSkeleton(MobEntity mob, Random random, LocalDifficulty difficulty) {
+    public static void maybeUpgradeWitherSkeleton(MobEntity mob, Random random) {
         if (random.nextFloat() >= WITHER_UPGRADE_CHANCE) return;
 
         float roll = random.nextFloat();
@@ -159,9 +179,9 @@ public final class ModMobEquipmentHelper {
         }
     }
 
-    public static void maybeUpgradePiglin(MobEntity mob, Random random, LocalDifficulty difficulty) {
+    public static void maybeUpgradePiglin(MobEntity mob, Random random) {
         // Armor: visible chance, rose_gold only (your design)
-        if (random.nextFloat() < 0.30f) {
+        if (random.nextFloat() < PIGLIN_ROSE_GOLD_ARMOR_CHANCE) {
             maybeEquipSlotIfEmptyChance(mob, EquipmentSlot.HEAD,  ROSE_GOLD_ARMOR[0], 0.25f, random);
             maybeEquipSlotIfEmptyChance(mob, EquipmentSlot.CHEST, ROSE_GOLD_ARMOR[1], 0.25f, random);
             maybeEquipSlotIfEmptyChance(mob, EquipmentSlot.LEGS,  ROSE_GOLD_ARMOR[2], 0.25f, random);
@@ -171,7 +191,7 @@ public final class ModMobEquipmentHelper {
 
         // Weapon: only sword piglins (not crossbow)
         ItemStack hand = mob.getEquippedStack(EquipmentSlot.MAINHAND);
-        if (!hand.isEmpty() && !hand.isOf(Items.CROSSBOW) && random.nextFloat() < 0.35f) {
+        if (!hand.isEmpty() && !hand.isOf(Items.CROSSBOW) && random.nextFloat() < PIGLIN_ROSE_GOLD_SWORD_CHANCE) {
             equipMainhandFromAny(mob, PIGLIN_WEAPONS, random);
         }
     }
@@ -190,15 +210,21 @@ public final class ModMobEquipmentHelper {
 //             Mores.LOGGER.info("Equipped rose_gold_sword on Zombified Piglin {}", mob.getUuidAsString());
 //        }
     }
+    public static void maybeUpgradePiglinBrute(MobEntity mob, Random random) {
+        // Weapon: only sword piglins (not crossbow)
+        ItemStack hand = mob.getEquippedStack(EquipmentSlot.MAINHAND);
+        if (!hand.isEmpty() && random.nextFloat() < PIGLIN_BRUTE_ROSE_GOLD_AXE_CHANCE) {
+            equipMainhandFromAny(mob, BRUTE_AXES, random);
+        }
+    }
 
-
-    public static void maybeUpgradeVindicator(MobEntity mob, Random random, LocalDifficulty difficulty) {
-        if (random.nextFloat() >= 0.18f) return;
+    public static void maybeUpgradeVindicator(MobEntity mob, Random random) {
+        if (random.nextFloat() >= VINDICATOR_WEAPON_CHANCE) return;
         equipMainhandFromAny(mob, VINDICATOR_AXES, random);
     }
 
     public static void maybeUpgradeVex(MobEntity mob, Random random) {
-        if (random.nextFloat() >= 0.18f) return;
+        if (random.nextFloat() >= VEX_WEAPON_CHANCE) return;
         equipRandomWeaponVariant(mob, "tin", random);
     }
 

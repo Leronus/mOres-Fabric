@@ -18,7 +18,6 @@ public class CommonConfig extends MidnightConfig {
     // =========================
     // LEMON OAK WORLDGEN
     // =========================
-
     @Entry(category = WORLDGEN, name = "Enable lemon leaves generation")
     public static boolean enableLemonOakWorldgen = true;
 
@@ -42,6 +41,47 @@ public class CommonConfig extends MidnightConfig {
      */
     @Entry(category = WORLDGEN, min = 0, max = 100, isSlider = true, name = "Lemon leaves from sapling weight")
     public static int lemonLeavesFromSaplingWeight = 12;
+
+    // =========================
+    // MOB WEAPON/ARMOR GENERATION
+    // =========================
+    @Entry(category = WORLDGEN, name = "Enable mob weapon and armor generation")
+    public static boolean enableMobGeneration = true;
+    @Entry(category = WORLDGEN, name = "Mob Hand Drop Chance")
+    public static float handDropChance = 0.03f;
+    @Entry(category = WORLDGEN, name = "Mob Armor Drop Chance")
+    public static float armorDropChance = 0.03f;
+
+    @Entry(category = WORLDGEN, min = 0, max = 100, isSlider = false, name = "Zombie Upgrade Minimum (1/4)")
+    public static int zombieUpgradeMin = 4;
+    @Entry(category = WORLDGEN, min = 0, max = 100, isSlider = false, name = "Zombie Upgrade Maximum (1/7)")
+    public static int zombieUpgradeMax = 7;
+    @Entry(category = WORLDGEN, name = "Zombie Weapon Chance")
+    public static float zombieWeaponChance = 0.70f;
+    @Entry(category = WORLDGEN, name = "Zombie Armor Chance")
+    public static float zombieArmorChance = 0.75f;
+    @Entry(category = WORLDGEN, name = "Skeleton Armor Chance")
+    public static float skeletonArmorChance = 0.22f;
+    @Entry(category = WORLDGEN, name = "Piglin Armor Chance")
+    public static float piglinArmorChance = 0.15f;
+    @Entry(category = WORLDGEN, name = "Piglin Sword Chance")
+    public static float piglinSwordChance = 0.10f;
+    @Entry(category = WORLDGEN, name = "Zombified Piglin Sword Chance")
+    public static float zombifiedPiglinSwordChance = 0.10f;
+    @Entry(category = WORLDGEN, name = "Piglin Brute Axe Chance")
+    public static float piglinBruteAxeChance = 0.10f;
+    @Entry(category = WORLDGEN, name = "Wither Upgrade Chance")
+    public static float witherUpgradeChance = 0.15f;
+    @Entry(category = WORLDGEN, name = "Wither with Upgrade Armor Chance")
+    public static float witherWithArmorUpgradeChance = 0.12f;
+    @Entry(category = WORLDGEN, name = "Wither Strong Sword Chance")
+    public static float witherStrongSwordChance = 0.18f;
+    @Entry(category = WORLDGEN, name = "Wither Very Strong Sword Chance")
+    public static float witherVeryStrongSwordChance = 0.06f;
+    @Entry(category = WORLDGEN, name = "Vindicator Weapon Chance")
+    public static float vindicatorWeaponChance = 0.18f;
+    @Entry(category = WORLDGEN, name = "Vex Weapon Chance")
+    public static float vexWeaponChance = 0.18f;
 
     // Materials (restart required in practice)
     @Entry(category = GAMEPLAY, name = "Material presets (restart required)")

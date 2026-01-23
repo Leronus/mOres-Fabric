@@ -144,6 +144,7 @@ public class ModItemGroups {
                         entries.add(ModBlocks.TURQUOISE_ORE);
                         entries.add(ModBlocks.DEEPSLATE_TURQUOISE_ORE);
                         entries.add(ModBlocks.QUARTZ_ORE);
+                        entries.add(ModBlocks.DEEPSLATE_QUARTZ_ORE);
                         entries.add(ModBlocks.CITRINE_ORE);
                         entries.add(ModBlocks.NETHER_CITRINE_ORE);
                         entries.add(ModBlocks.NETHER_ONYX_ORE);

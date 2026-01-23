@@ -68,6 +68,7 @@ public class ModModelProvider extends FabricModelProvider {
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.DEEPSLATE_TURQUOISE_ORE);
 
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.QUARTZ_ORE);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.DEEPSLATE_QUARTZ_ORE);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.CITRINE_ORE);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.NETHER_CITRINE_ORE);
 
