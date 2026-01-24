@@ -72,7 +72,7 @@ public abstract class MobEntityEquipmentMixin {
                                        @Nullable EntityData entityData,
                                        CallbackInfoReturnable<EntityData> cir) {
 
-        if (CommonConfig.enableMobGeneration) {
+        if (CommonConfig.enableHostileGearGeneration) {
             MobEntity mob = (MobEntity) (Object) this;
 
             if (mob instanceof ZombifiedPiglinEntity zp) {

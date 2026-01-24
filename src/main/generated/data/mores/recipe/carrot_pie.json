@@ -6,7 +6,7 @@
       "item": "minecraft:carrot"
     },
     {
-      "item": "minecraft:egg"
+      "tag": "c:eggs"
     },
     {
       "item": "minecraft:wheat"

@@ -338,6 +338,44 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
                 ModBlocks.ROSE_GOLD_BLOCK.asItem()
                 );
 
+        getOrCreateTagBuilder(ConventionalItemTags.EGGS).add(
+                ModItems.DUCK_EGG
+        );
+        getOrCreateTagBuilder(ConventionalItemTags.FOOD_POISONING_FOODS).add(
+                ModItems.RAW_DUCK
+        );
+        getOrCreateTagBuilder(ConventionalItemTags.COOKED_MEAT_FOODS).add(
+                ModItems.COOKED_DUCK
+        );
+        getOrCreateTagBuilder(ConventionalItemTags.FRUIT_FOODS).add(
+                ModItems.BRONZE_APPLE,
+                ModItems.SILVER_APPLE,
+                ModItems.COBALT_APPLE,
+                ModItems.ENCHANTED_COBALT_APPLE,
+                ModItems.ROSE_GOLD_APPLE,
+                ModItems.ENCHANTED_ROSE_GOLD_APPLE,
+                ModItems.LEMON
+        );
+        getOrCreateTagBuilder(ConventionalItemTags.VEGETABLE_FOODS).add(
+                ModItems.SILVER_CARROT
+        );
+        getOrCreateTagBuilder(ConventionalItemTags.GOLDEN_FOODS).add(
+                ModItems.ROSE_GOLD_APPLE,
+                ModItems.ENCHANTED_ROSE_GOLD_APPLE
+        );
+        getOrCreateTagBuilder(ConventionalItemTags.PIE_FOODS).add(
+                ModItems.APPLE_PIE,
+                ModItems.LEMON_PIE,
+                ModItems.CARROT_PIE,
+                ModItems.VELVET,
+                ModItems.SWEET_BERRY_PIE
+        );
+        getOrCreateTagBuilder(ConventionalItemTags.COOKIE_FOODS).add(
+                ModItems.DARK_CHOCOLATE,
+                ModItems.MILK_CHOCOLATE,
+                ModItems.WHITE_CHOCOLATE
+        );
+
         //Music Discs
         getOrCreateTagBuilder(ItemTags.CREEPER_DROP_MUSIC_DISCS).add(
                 ModItems.SWEET_CAROLINE_MUSIC_DISC, ModItems.CIPHER_MUSIC_DISC

@@ -1,5 +1,5 @@
 {
-  "parent": "mores:root",
+  "parent": "mores:kill_duck",
   "criteria": {
     "eat_raw_duck": {
       "conditions": {

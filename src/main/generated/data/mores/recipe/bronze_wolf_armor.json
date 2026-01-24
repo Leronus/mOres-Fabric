@@ -1,0 +1,26 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "G": {
+      "tag": "mores:ingot/bronze"
+    },
+    "H": {
+      "item": "mores:bronze_helmet"
+    },
+    "L": {
+      "item": "mores:bronze_leggings"
+    },
+    "W": {
+      "tag": "minecraft:wool"
+    }
+  },
+  "pattern": [
+    "  H",
+    "GWL"
+  ],
+  "result": {
+    "count": 1,
+    "id": "mores:bronze_wolf_armor"
+  }
+}

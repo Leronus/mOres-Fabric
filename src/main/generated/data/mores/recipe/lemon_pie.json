@@ -6,7 +6,7 @@
       "item": "mores:lemon"
     },
     {
-      "item": "minecraft:egg"
+      "tag": "c:eggs"
     },
     {
       "item": "minecraft:wheat"

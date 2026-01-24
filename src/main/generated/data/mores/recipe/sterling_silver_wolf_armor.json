@@ -1,0 +1,26 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "G": {
+      "tag": "mores:ingot/sterling_silver"
+    },
+    "H": {
+      "item": "mores:sterling_silver_helmet"
+    },
+    "L": {
+      "item": "mores:sterling_silver_leggings"
+    },
+    "W": {
+      "tag": "minecraft:wool"
+    }
+  },
+  "pattern": [
+    "  H",
+    "GWL"
+  ],
+  "result": {
+    "count": 1,
+    "id": "mores:sterling_silver_wolf_armor"
+  }
+}

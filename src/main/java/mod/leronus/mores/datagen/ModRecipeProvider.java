@@ -128,34 +128,34 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .offerTo(exporter, Identifier.of("mores", "white_chocolate"));
         ShapelessRecipeJsonBuilder.create(RecipeCategory.FOOD, Registries.ITEM.get(Identifier.of("mores", "velvet")), 2)
                 .input(Registries.ITEM.get(Identifier.of("minecraft", "beetroot")))
-                .input(Registries.ITEM.get(Identifier.of("minecraft", "egg")))
+                .input(TagKey.of(RegistryKeys.ITEM, Identifier.of("c", "eggs")))
                 .input(Registries.ITEM.get(Identifier.of("minecraft", "wheat")))
                 .input(Registries.ITEM.get(Identifier.of("minecraft", "sugar")))
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("minecraft", "egg"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("minecraft", "egg"))))
                 .offerTo(exporter, Identifier.of("mores", "velvet"));
         ShapelessRecipeJsonBuilder.create(RecipeCategory.FOOD, Registries.ITEM.get(Identifier.of("mores", "carrot_pie")), 2)
                 .input(Registries.ITEM.get(Identifier.of("minecraft", "carrot")))
-                .input(Registries.ITEM.get(Identifier.of("minecraft", "egg")))
+                .input(TagKey.of(RegistryKeys.ITEM, Identifier.of("c", "eggs")))
                 .input(Registries.ITEM.get(Identifier.of("minecraft", "wheat")))
                 .input(Registries.ITEM.get(Identifier.of("minecraft", "sugar")))
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("minecraft", "carrot"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("minecraft", "carrot"))))
                 .offerTo(exporter, Identifier.of("mores", "carrot_pie"));
         ShapelessRecipeJsonBuilder.create(RecipeCategory.FOOD, Registries.ITEM.get(Identifier.of("mores", "lemon_pie")), 2)
                 .input(Registries.ITEM.get(Identifier.of("mores", "lemon")))
-                .input(Registries.ITEM.get(Identifier.of("minecraft", "egg")))
+                .input(TagKey.of(RegistryKeys.ITEM, Identifier.of("c", "eggs")))
                 .input(Registries.ITEM.get(Identifier.of("minecraft", "wheat")))
                 .input(Registries.ITEM.get(Identifier.of("minecraft", "sugar")))
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("minecraft", "egg"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("minecraft", "egg"))))
                 .offerTo(exporter, Identifier.of("mores", "lemon_pie"));
         ShapelessRecipeJsonBuilder.create(RecipeCategory.FOOD, Registries.ITEM.get(Identifier.of("mores", "apple_pie")), 1)
                 .input(Registries.ITEM.get(Identifier.of("minecraft", "apple")))
-                .input(Registries.ITEM.get(Identifier.of("minecraft", "egg")))
+                .input(TagKey.of(RegistryKeys.ITEM, Identifier.of("c", "eggs")))
                 .input(Registries.ITEM.get(Identifier.of("minecraft", "sugar")))
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("minecraft", "egg"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("minecraft", "egg"))))
                 .offerTo(exporter, Identifier.of("mores", "apple_pie"));
         ShapelessRecipeJsonBuilder.create(RecipeCategory.FOOD, Registries.ITEM.get(Identifier.of("mores", "sweet_berry_pie")), 1)
                 .input(Registries.ITEM.get(Identifier.of("minecraft", "sweet_berries")))
-                .input(Registries.ITEM.get(Identifier.of("minecraft", "egg")))
+                .input(TagKey.of(RegistryKeys.ITEM, Identifier.of("c", "eggs")))
                 .input(Registries.ITEM.get(Identifier.of("minecraft", "sugar")))
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("minecraft", "egg"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("minecraft", "egg"))))
                 .offerTo(exporter, Identifier.of("mores", "sweet_berry_pie"));
@@ -482,8 +482,15 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .input('G', TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "ingot/tin")))
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "tin_helmet"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "tin_helmet"))))
                 .offerTo(exporter, Identifier.of("mores", "tin_horse_armor"));
-
-
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, Registries.ITEM.get(Identifier.of("mores", "tin_wolf_armor")), 1)
+                .pattern("  H")
+                .pattern("GWL")
+                .input('H', Registries.ITEM.get(Identifier.of("mores", "tin_helmet")))
+                .input('W', TagKey.of(RegistryKeys.ITEM, Identifier.of("minecraft", "wool")))
+                .input('L', Registries.ITEM.get(Identifier.of("mores", "tin_leggings")))
+                .input('G', TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "ingot/tin")))
+                .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "tin_helmet"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "tin_helmet"))))
+                .offerTo(exporter, Identifier.of("mores", "tin_wolf_armor"));
     }
 
     private void generateGold(RecipeExporter exporter) {
@@ -523,7 +530,15 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .input('G', Registries.ITEM.get(Identifier.of("minecraft", "gold_ingot")))
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("minecraft", "golden_helmet"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("minecraft", "golden_helmet"))))
                 .offerTo(exporter, Identifier.of("mores", "gold_horse_armor"));
-
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, Registries.ITEM.get(Identifier.of("mores", "gold_wolf_armor")), 1)
+                .pattern("  H")
+                .pattern("GWL")
+                .input('H', Registries.ITEM.get(Identifier.of("minecraft", "golden_helmet")))
+                .input('W', TagKey.of(RegistryKeys.ITEM, Identifier.of("minecraft", "wool")))
+                .input('L', Registries.ITEM.get(Identifier.of("minecraft", "golden_leggings")))
+                .input('G', Registries.ITEM.get(Identifier.of("minecraft", "gold_ingot")))
+                .criterion(hasItem(Registries.ITEM.get(Identifier.of("minecraft", "golden_helmet"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("minecraft", "golden_helmet"))))
+                .offerTo(exporter, Identifier.of("mores", "gold_wolf_armor"));
     }
 
     private void generateSilver(RecipeExporter exporter) {
@@ -677,8 +692,16 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .input('G', TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "ingot/silver")))
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "silver_helmet"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "silver_helmet"))))
                 .offerTo(exporter, Identifier.of("mores", "silver_horse_armor"));
-
-
+        //Wolf Armor
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, Registries.ITEM.get(Identifier.of("mores", "silver_wolf_armor")), 1)
+                .pattern("  H")
+                .pattern("GWL")
+                .input('H', Registries.ITEM.get(Identifier.of("mores", "silver_helmet")))
+                .input('W', TagKey.of(RegistryKeys.ITEM, Identifier.of("minecraft", "wool")))
+                .input('L', Registries.ITEM.get(Identifier.of("mores", "silver_leggings")))
+                .input('G', TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "ingot/silver")))
+                .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "silver_helmet"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "silver_helmet"))))
+                .offerTo(exporter, Identifier.of("mores", "silver_wolf_armor"));
     }
 
     private void generateCopper(RecipeExporter exporter) {
@@ -808,7 +831,16 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .input('G', Registries.ITEM.get(Identifier.of("minecraft", "copper_ingot")))
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "copper_helmet"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "copper_helmet"))))
                 .offerTo(exporter, Identifier.of("mores", "copper_horse_armor"));
-
+        //Wolf Armor
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, Registries.ITEM.get(Identifier.of("mores", "copper_wolf_armor")), 1)
+                .pattern("  H")
+                .pattern("GWL")
+                .input('H', Registries.ITEM.get(Identifier.of("mores", "copper_helmet")))
+                .input('W', TagKey.of(RegistryKeys.ITEM, Identifier.of("minecraft", "wool")))
+                .input('L', Registries.ITEM.get(Identifier.of("mores", "copper_leggings")))
+                .input('G', Registries.ITEM.get(Identifier.of("minecraft", "copper_ingot")))
+                .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "copper_helmet"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "copper_helmet"))))
+                .offerTo(exporter, Identifier.of("mores", "copper_wolf_armor"));
     }
 
     private void generateSterlingSilver(RecipeExporter exporter) {
@@ -950,8 +982,16 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .input('G', TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "ingot/sterling_silver")))
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "sterling_silver_helmet"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "sterling_silver_helmet"))))
                 .offerTo(exporter, Identifier.of("mores", "sterling_silver_horse_armor"));
-
-
+        //Wolf Armor
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, Registries.ITEM.get(Identifier.of("mores", "sterling_silver_wolf_armor")), 1)
+                .pattern("  H")
+                .pattern("GWL")
+                .input('H', Registries.ITEM.get(Identifier.of("mores", "sterling_silver_helmet")))
+                .input('W', TagKey.of(RegistryKeys.ITEM, Identifier.of("minecraft", "wool")))
+                .input('L', Registries.ITEM.get(Identifier.of("mores", "sterling_silver_leggings")))
+                .input('G', TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "ingot/sterling_silver")))
+                .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "sterling_silver_helmet"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "sterling_silver_helmet"))))
+                .offerTo(exporter, Identifier.of("mores", "sterling_silver_wolf_armor"));
     }
 
     private void generateRoseGold(RecipeExporter exporter) {
@@ -1101,6 +1141,16 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .input('G', TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "ingot/rose_gold")))
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "rose_gold_helmet"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "rose_gold_helmet"))))
                 .offerTo(exporter, Identifier.of("mores", "rose_gold_horse_armor"));
+        //Wolf Armor
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, Registries.ITEM.get(Identifier.of("mores", "rose_gold_wolf_armor")), 1)
+                .pattern("  H")
+                .pattern("GWL")
+                .input('H', Registries.ITEM.get(Identifier.of("mores", "rose_gold_helmet")))
+                .input('W', TagKey.of(RegistryKeys.ITEM, Identifier.of("minecraft", "wool")))
+                .input('L', Registries.ITEM.get(Identifier.of("mores", "rose_gold_leggings")))
+                .input('G', TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "ingot/rose_gold")))
+                .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "rose_gold_helmet"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "rose_gold_helmet"))))
+                .offerTo(exporter, Identifier.of("mores", "rose_gold_wolf_armor"));
     }
 
     private void generateBronze(RecipeExporter exporter) {
@@ -1241,8 +1291,16 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .input('G', TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "ingot/bronze")))
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "bronze_helmet"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "bronze_helmet"))))
                 .offerTo(exporter, Identifier.of("mores", "bronze_horse_armor"));
-
-
+        //Wolf Armor
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, Registries.ITEM.get(Identifier.of("mores", "bronze_wolf_armor")), 1)
+                .pattern("  H")
+                .pattern("GWL")
+                .input('H', Registries.ITEM.get(Identifier.of("mores", "bronze_helmet")))
+                .input('W', TagKey.of(RegistryKeys.ITEM, Identifier.of("minecraft", "wool")))
+                .input('L', Registries.ITEM.get(Identifier.of("mores", "bronze_leggings")))
+                .input('G', TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "ingot/bronze")))
+                .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "bronze_helmet"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "bronze_helmet"))))
+                .offerTo(exporter, Identifier.of("mores", "bronze_wolf_armor"));
     }
 
     private void generateIron(RecipeExporter exporter) {
@@ -1282,8 +1340,16 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .input('G', Registries.ITEM.get(Identifier.of("minecraft", "iron_ingot")))
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("minecraft", "iron_helmet"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("minecraft", "iron_helmet"))))
                 .offerTo(exporter, Identifier.of("mores", "iron_horse_armor"));
-
-
+        //Horse Armor
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, Registries.ITEM.get(Identifier.of("mores", "iron_wolf_armor")), 1)
+                .pattern("  H")
+                .pattern("GWL")
+                .input('H', Registries.ITEM.get(Identifier.of("minecraft", "iron_helmet")))
+                .input('W', TagKey.of(RegistryKeys.ITEM, Identifier.of("minecraft", "wool")))
+                .input('L', Registries.ITEM.get(Identifier.of("minecraft", "iron_leggings")))
+                .input('G', Registries.ITEM.get(Identifier.of("minecraft", "iron_ingot")))
+                .criterion(hasItem(Registries.ITEM.get(Identifier.of("minecraft", "iron_helmet"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("minecraft", "iron_helmet"))))
+                .offerTo(exporter, Identifier.of("mores", "iron_wolf_armor"));
     }
 
     private void generateCobalt(RecipeExporter exporter) {
@@ -1438,8 +1504,16 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .input('G', TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "ingot/cobalt")))
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "cobalt_helmet"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "cobalt_helmet"))))
                 .offerTo(exporter, Identifier.of("mores", "cobalt_horse_armor"));
-
-
+        //Wolf Armor
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, Registries.ITEM.get(Identifier.of("mores", "cobalt_wolf_armor")), 1)
+                .pattern("  H")
+                .pattern("GWL")
+                .input('H', Registries.ITEM.get(Identifier.of("mores", "cobalt_helmet")))
+                .input('W', TagKey.of(RegistryKeys.ITEM, Identifier.of("minecraft", "wool")))
+                .input('L', Registries.ITEM.get(Identifier.of("mores", "cobalt_leggings")))
+                .input('G', TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "ingot/cobalt")))
+                .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "cobalt_helmet"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "cobalt_helmet"))))
+                .offerTo(exporter, Identifier.of("mores", "cobalt_wolf_armor"));
     }
 
     private void generateCarbonSteel(RecipeExporter exporter) {
@@ -1589,7 +1663,16 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .input('G', TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "ingot/carbon_steel")))
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "carbon_steel_helmet"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "carbon_steel_helmet"))))
                 .offerTo(exporter, Identifier.of("mores", "carbon_steel_horse_armor"));
-
+        //Wolf Armor
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, Registries.ITEM.get(Identifier.of("mores", "carbon_steel_wolf_armor")), 1)
+                .pattern("  H")
+                .pattern("GWL")
+                .input('H', Registries.ITEM.get(Identifier.of("mores", "carbon_steel_helmet")))
+                .input('W', TagKey.of(RegistryKeys.ITEM, Identifier.of("minecraft", "wool")))
+                .input('L', Registries.ITEM.get(Identifier.of("mores", "carbon_steel_leggings")))
+                .input('G', TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "ingot/carbon_steel")))
+                .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "carbon_steel_helmet"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "carbon_steel_helmet"))))
+                .offerTo(exporter, Identifier.of("mores", "carbon_steel_wolf_armor"));
     }
 
     private void generateHardenedSteel(RecipeExporter exporter) {
@@ -1606,8 +1689,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .input(Registries.ITEM.get(Identifier.of("mores", "carbon_steel_ingot")))
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "carbon_steel_scrap"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "carbon_steel_scrap"))))
                 .offerTo(exporter, Identifier.of("mores", "hardened_steel_ingot"));
-        //TODO Check if correct
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "hardened_steel_upgrade_smithing_template")), 7)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "hardened_steel_upgrade_smithing_template")), 2)
                 .pattern("#S#")
                 .pattern("#C#")
                 .pattern("###")
@@ -1752,8 +1834,16 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .input('G', TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "ingot/hardened_steel")))
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "hardened_steel_helmet"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "hardened_steel_helmet"))))
                 .offerTo(exporter, Identifier.of("mores", "hardened_steel_horse_armor"));
-
-
+        //Wolf Armor
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, Registries.ITEM.get(Identifier.of("mores", "hardened_steel_wolf_armor")), 1)
+                .pattern("  H")
+                .pattern("GWL")
+                .input('H', Registries.ITEM.get(Identifier.of("mores", "hardened_steel_helmet")))
+                .input('W', TagKey.of(RegistryKeys.ITEM, Identifier.of("minecraft", "wool")))
+                .input('L', Registries.ITEM.get(Identifier.of("mores", "hardened_steel_leggings")))
+                .input('G', TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "ingot/hardened_steel")))
+                .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "hardened_steel_helmet"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "hardened_steel_helmet"))))
+                .offerTo(exporter, Identifier.of("mores", "hardened_steel_wolf_armor"));
     }
 
     private void generateTurquoise(RecipeExporter exporter) {

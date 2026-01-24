@@ -43,44 +43,48 @@ public class CommonConfig extends MidnightConfig {
     public static int lemonLeavesFromSaplingWeight = 12;
 
     // =========================
-    // MOB WEAPON/ARMOR GENERATION
+    // MOB (ENTITY/WEAPON/ARMOR) GENERATION
     // =========================
+    @Entry(category = WORLDGEN, name = "Enable Hardened Steel Golem natural generation")
+    public static boolean enableHardenedSteelGolemSpawn = true;
+    @Entry(category = WORLDGEN, name = "Hardened Steel Golem spawn chance")
+    public static float hardenedSteelGolemSpawnChance = 0.85f;
     @Entry(category = WORLDGEN, name = "Enable mob weapon and armor generation")
-    public static boolean enableMobGeneration = true;
-    @Entry(category = WORLDGEN, name = "Mob Hand Drop Chance")
+    public static boolean enableHostileGearGeneration = true;
+    @Entry(category = WORLDGEN, name = "Mob hand drop chance")
     public static float handDropChance = 0.03f;
-    @Entry(category = WORLDGEN, name = "Mob Armor Drop Chance")
+    @Entry(category = WORLDGEN, name = "Mob armor drop chance")
     public static float armorDropChance = 0.03f;
 
-    @Entry(category = WORLDGEN, min = 0, max = 100, isSlider = false, name = "Zombie Upgrade Minimum (1/4)")
+    @Entry(category = WORLDGEN, min = 0, max = 100, isSlider = false, name = "Zombie upgrade minimum (1/4)")
     public static int zombieUpgradeMin = 4;
-    @Entry(category = WORLDGEN, min = 0, max = 100, isSlider = false, name = "Zombie Upgrade Maximum (1/7)")
+    @Entry(category = WORLDGEN, min = 0, max = 100, isSlider = false, name = "Zombie upgrade maximum (1/7)")
     public static int zombieUpgradeMax = 7;
-    @Entry(category = WORLDGEN, name = "Zombie Weapon Chance")
+    @Entry(category = WORLDGEN, name = "Zombie weapon chance")
     public static float zombieWeaponChance = 0.70f;
-    @Entry(category = WORLDGEN, name = "Zombie Armor Chance")
+    @Entry(category = WORLDGEN, name = "Zombie armor chance")
     public static float zombieArmorChance = 0.75f;
-    @Entry(category = WORLDGEN, name = "Skeleton Armor Chance")
+    @Entry(category = WORLDGEN, name = "Skeleton armor chance")
     public static float skeletonArmorChance = 0.22f;
-    @Entry(category = WORLDGEN, name = "Piglin Armor Chance")
+    @Entry(category = WORLDGEN, name = "Piglin armor chance")
     public static float piglinArmorChance = 0.15f;
-    @Entry(category = WORLDGEN, name = "Piglin Sword Chance")
+    @Entry(category = WORLDGEN, name = "Piglin sword chance")
     public static float piglinSwordChance = 0.10f;
-    @Entry(category = WORLDGEN, name = "Zombified Piglin Sword Chance")
+    @Entry(category = WORLDGEN, name = "Zombified Piglin sword chance")
     public static float zombifiedPiglinSwordChance = 0.10f;
-    @Entry(category = WORLDGEN, name = "Piglin Brute Axe Chance")
+    @Entry(category = WORLDGEN, name = "Piglin Brute axe chance")
     public static float piglinBruteAxeChance = 0.10f;
-    @Entry(category = WORLDGEN, name = "Wither Upgrade Chance")
+    @Entry(category = WORLDGEN, name = "Wither upgrade chance")
     public static float witherUpgradeChance = 0.15f;
-    @Entry(category = WORLDGEN, name = "Wither with Upgrade Armor Chance")
+    @Entry(category = WORLDGEN, name = "Wither with upgrade armor chance")
     public static float witherWithArmorUpgradeChance = 0.12f;
-    @Entry(category = WORLDGEN, name = "Wither Strong Sword Chance")
+    @Entry(category = WORLDGEN, name = "Wither strong sword chance")
     public static float witherStrongSwordChance = 0.18f;
-    @Entry(category = WORLDGEN, name = "Wither Very Strong Sword Chance")
+    @Entry(category = WORLDGEN, name = "Wither very Strong sword chance")
     public static float witherVeryStrongSwordChance = 0.06f;
-    @Entry(category = WORLDGEN, name = "Vindicator Weapon Chance")
+    @Entry(category = WORLDGEN, name = "Vindicator weapon chance")
     public static float vindicatorWeaponChance = 0.18f;
-    @Entry(category = WORLDGEN, name = "Vex Weapon Chance")
+    @Entry(category = WORLDGEN, name = "Vex weapon chance")
     public static float vexWeaponChance = 0.18f;
 
     // Materials (restart required in practice)

@@ -7,14 +7,14 @@ Testing:
 - Test horse/wolf armor & shield enchants
 - Check food recipes (chocolate) maybe play test a little with lemons and such - seemed to work
 - Turquoise / Lapis Lazuli horse armor & tanzanite is it working? i think so
+- Entity Spawning -> Withers, Vexes etc
 
 Todo:
 - Tool materials (update shields stats -> cooldown)
 - Ore generation as well as datagen for it (buff nether onyx)
-- Custom Recipes for Steel Cutter (quartz/lapis/amethyst/turquoise dust from their material)
+- Custom Recipes for Steel Cutter (quartz/lapis/amethyst/turquoise dust from their material) -> Tools back to gem?
 - Armor trim models not correct
 - Advancements (add stuff for new food & golem & duck ofc)
-- Quartz deepslate
 - Armor effects; Rose Gold (Piglin immunity), Obsidian (Explosion Immunity)
 - Turquoise horse armor / lapis -> faster sink? maybe a little less resistance
 - Loot tables CHESTS - tools, weapons, shields, horse/wolf armor, food, smithing templates & ENTITIES drops (golem + duck)
@@ -22,13 +22,8 @@ Todo:
 - Added skeleton/other mob jockeys for duck
 
 -- ENTITY SPAWNING
-- Piglins -> rose gold armor & rose gold sword (5% rose gold spear?)
-- Piglin Brutes -> rose gold axe sometimes just like zombified
-- Wither Skeleton -> tin sword rarely?
-- Vindicator -> silver axe more commonly, cobalt very rarely? or carbon steel! or all
 - Strays -> small chance to spawn in metal armor (vanilla esque)
 - Vex -> silver sword / sterling-silver smaller chance
-- Drowned? small small chance? haven't seen it
 
 Optional:
 - Add more options to config (oregen, armor bonuses, entity spawning -> golem,duck,hostile mobs)

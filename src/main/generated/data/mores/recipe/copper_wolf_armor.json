@@ -1,0 +1,26 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "G": {
+      "item": "minecraft:copper_ingot"
+    },
+    "H": {
+      "item": "mores:copper_helmet"
+    },
+    "L": {
+      "item": "mores:copper_leggings"
+    },
+    "W": {
+      "tag": "minecraft:wool"
+    }
+  },
+  "pattern": [
+    "  H",
+    "GWL"
+  ],
+  "result": {
+    "count": 1,
+    "id": "mores:copper_wolf_armor"
+  }
+}

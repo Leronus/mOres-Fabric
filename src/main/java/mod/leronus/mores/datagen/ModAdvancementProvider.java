@@ -783,19 +783,19 @@ public class ModAdvancementProvider extends FabricAdvancementProvider {
         // -------------------------
         // Misc
         // -------------------------
-//        AdvancementEntry killDuck = Advancement.Builder.create()
-//                .parent(root)
-//                .display(display(
-//                        ModItems.DUCK_EGG,
-//                        "You Animal",
-//                        "Kill a duck.",
-//                        AdvancementFrame.TASK,
-//                        7, 4
-//                ))
-//                .criterion("kill_duck", killEntity(ModEntities.DUCK))
-//                .build(exporter, id("kill_duck"));
-        AdvancementEntry eatRawDuck = Advancement.Builder.create()
+        AdvancementEntry killDuck = Advancement.Builder.create()
                 .parent(root)
+                .display(display(
+                        ModItems.DUCK_EGG,
+                        "You Animal",
+                        "Kill a duck.",
+                        AdvancementFrame.TASK,
+                        7, 4
+                ))
+                .criterion("kill_duck", killEntity(ModEntities.DUCK))
+                .build(exporter, id("kill_duck"));
+        AdvancementEntry eatRawDuck = Advancement.Builder.create()
+                .parent(killDuck)
                 .display(display(
                         ModItems.RAW_DUCK,
                         "You Savage",

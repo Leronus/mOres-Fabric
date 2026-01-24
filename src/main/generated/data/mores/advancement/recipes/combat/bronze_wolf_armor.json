@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_bronze_helmet": {
+      "conditions": {
+        "items": [
+          {
+            "items": "mores:bronze_helmet"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "mores:bronze_wolf_armor"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_bronze_helmet"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "mores:bronze_wolf_armor"
+    ]
+  }
+}

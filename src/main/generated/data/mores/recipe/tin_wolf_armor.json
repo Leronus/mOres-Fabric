@@ -1,0 +1,26 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "G": {
+      "tag": "mores:ingot/tin"
+    },
+    "H": {
+      "item": "mores:tin_helmet"
+    },
+    "L": {
+      "item": "mores:tin_leggings"
+    },
+    "W": {
+      "tag": "minecraft:wool"
+    }
+  },
+  "pattern": [
+    "  H",
+    "GWL"
+  ],
+  "result": {
+    "count": 1,
+    "id": "mores:tin_wolf_armor"
+  }
+}

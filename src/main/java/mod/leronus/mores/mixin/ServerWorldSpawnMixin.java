@@ -1,5 +1,6 @@
 package mod.leronus.mores.mixin;
 
+import mod.leronus.mores.config.CommonConfig;
 import mod.leronus.mores.entity.ModEntities;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
@@ -24,6 +25,7 @@ public abstract class ServerWorldSpawnMixin {
     )
     private void mores$afterSpawnEntity(Entity entity, CallbackInfoReturnable<Boolean> cir) {
         if (!cir.getReturnValue()) return;
+        if (!CommonConfig.enableHardenedSteelGolemSpawn) return;
         //Debug
         //System.out.println("[MORES] ServerWorld#spawnEntity hit: " + entity.getType());
 
@@ -38,7 +40,7 @@ public abstract class ServerWorldSpawnMixin {
         ServerWorld world = (ServerWorld) (Object) this;
 
         // 75% chance to ALSO spawn hardened steel golem
-        if (world.getRandom().nextFloat() >= 0.75f) return;
+        if (world.getRandom().nextFloat() >= CommonConfig.hardenedSteelGolemSpawnChance) return;
 
         Entity created = ModEntities.HARDENED_STEEL_GOLEM.create(world);
         if (!(created instanceof MobEntity steel)) return;

@@ -1,0 +1,26 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "G": {
+      "tag": "mores:ingot/rose_gold"
+    },
+    "H": {
+      "item": "mores:rose_gold_helmet"
+    },
+    "L": {
+      "item": "mores:rose_gold_leggings"
+    },
+    "W": {
+      "tag": "minecraft:wool"
+    }
+  },
+  "pattern": [
+    "  H",
+    "GWL"
+  ],
+  "result": {
+    "count": 1,
+    "id": "mores:rose_gold_wolf_armor"
+  }
+}

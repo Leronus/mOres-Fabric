@@ -1,0 +1,26 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "G": {
+      "tag": "mores:ingot/hardened_steel"
+    },
+    "H": {
+      "item": "mores:hardened_steel_helmet"
+    },
+    "L": {
+      "item": "mores:hardened_steel_leggings"
+    },
+    "W": {
+      "tag": "minecraft:wool"
+    }
+  },
+  "pattern": [
+    "  H",
+    "GWL"
+  ],
+  "result": {
+    "count": 1,
+    "id": "mores:hardened_steel_wolf_armor"
+  }
+}
