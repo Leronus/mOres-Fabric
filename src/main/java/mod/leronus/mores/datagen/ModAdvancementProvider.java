@@ -5,7 +5,6 @@ import mod.leronus.mores.block.ModBlocks;
 import mod.leronus.mores.entity.ModEntities;
 import mod.leronus.mores.item.ModItems;
 
-import mod.leronus.mores.item.ModTags;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricAdvancementProvider;
 
@@ -28,7 +27,6 @@ import net.minecraft.predicate.entity.EntityPredicate;
 import net.minecraft.predicate.entity.LocationPredicate;
 import net.minecraft.predicate.item.ItemPredicate;
 import net.minecraft.registry.RegistryWrapper;
-import net.minecraft.registry.tag.BlockTags;
 import net.minecraft.registry.tag.ItemTags;
 import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
@@ -36,6 +34,7 @@ import net.minecraft.util.Identifier;
 import java.util.Optional;
 import java.util.concurrent.CompletableFuture;
 import java.util.function.Consumer;
+
 
 public class ModAdvancementProvider extends FabricAdvancementProvider {
 
@@ -164,7 +163,7 @@ public class ModAdvancementProvider extends FabricAdvancementProvider {
                         "Built Different",
                         "Craft a full set of cobalt armor.",
                         AdvancementFrame.TASK,
-                        10, 9
+                        5, 9
                 ))
                 .criterion("cobalt_helmet", hasItem(ModItems.COBALT_HELMET))
                 .criterion("cobalt_chestplate", hasItem(ModItems.COBALT_CHESTPLATE))
@@ -756,8 +755,6 @@ public class ModAdvancementProvider extends FabricAdvancementProvider {
                 .criterion("adamantium_boots", hasItem(ModItems.ADAMANTIUM_BOOTS))
                 .build(exporter, id("full_adamantium_armor"));
 
-
-
         AdvancementEntry gravelLucky = Advancement.Builder.create()
                 .parent(root) // or parent to your “gravel ores” hub
                 .display(display(
@@ -767,16 +764,7 @@ public class ModAdvancementProvider extends FabricAdvancementProvider {
                         AdvancementFrame.GOAL,
                         9, 4
                 ))
-                .criterion("has_flint", hasItem(Items.FLINT))
-                .criterion("has_any_gem", hasAnyItem(
-                        ModItems.TOPAZ_GEM,
-                        ModItems.TOURMALINE_GEM,
-                        ModItems.TANZANITE_GEM,
-                        ModItems.RUBY_GEM,
-                        ModItems.SAPPHIRE_GEM,
-                        ModItems.SPINEL_GEM,
-                        ModItems.MOISSANITE_GEM
-                ))
+                .criterion("gravel_jackpot", Criteria.IMPOSSIBLE.create(new ImpossibleCriterion.Conditions()))
                 .build(exporter, id("gravel_jackpot"));
 
 

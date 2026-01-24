@@ -403,6 +403,7 @@
 
   "item.mores.quartz_dust" : "Quartz Dust",
   "block.mores.quartz_ore" : "Quartz Ore",
+  "block.mores.deepslate_quartz_ore" : "Deepslate Quartz Ore",
 
   "item.mores.amethyst_dust" : "Amethyst Dust",
   "item.mores.amethyst_gem" : "Amethyst Gem",

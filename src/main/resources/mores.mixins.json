@@ -5,6 +5,7 @@
   "mixins": [
     "access.MobEntityBodyArmorAccessor",
     "BlockMixin",
+    "BlockDropStacksMixin",
     "CarvedPumpkinBlockMixin",
     "EnchantmentLapisSlotMixin",
     "EnchantmentScreenHandlerQuickMoveMixin",

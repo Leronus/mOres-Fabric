@@ -444,32 +444,58 @@ public class ModBlockLootTableProvider extends FabricBlockLootTableProvider {
     }
 
 
-    private LootTable.Builder gravelOreDropWithFortuneFlint(Block drop, Item gem) {
+    private LootTable.Builder gravelOreDropWithFortuneFlint(Block ore, Item gem) {
         RegistryWrapper.Impl<Enchantment> ench =
                 this.registryLookup.getWrapperOrThrow(RegistryKeys.ENCHANTMENT);
 
-        var fortune = ench.getOrThrow(Enchantments.FORTUNE);
+        RegistryEntry<Enchantment> fortune = ench.getOrThrow(Enchantments.FORTUNE);
 
-        // Always 1 gem, but Fortune can increase it (vanilla ore behavior)
-        LeafEntry.Builder<?> gemEntry =
-                this.applyExplosionDecay(
-                        drop,
-                        ((LeafEntry.Builder<?>) ItemEntry.builder(gem))
-                                .apply(SetCountLootFunction.builder(ConstantLootNumberProvider.create(1)))
-                                .apply(ApplyBonusLootFunction.oreDrops(fortune))
-                );
+        // Use the same silk-touch condition helpers you already use in lemonOakLeavesDrops()
+        LootCondition.Builder silkTouch = this.createSilkTouchCondition();
+        LootCondition.Builder noSilkTouch = InvertedLootCondition.builder(silkTouch);
 
-        // Sometimes flint (Fortune-boosted exactly like gravel)
-        LeafEntry.Builder<?> flintEntry =
-                this.applyExplosionDecay(drop, ItemEntry.builder(Items.FLINT))
-                        .conditionally(TableBonusLootCondition.builder(
-                                fortune,
-                                new float[]{0.1F, 0.14285715F, 0.25F, 1.0F}
-                        ));
+        LootTable.Builder table = LootTable.builder();
 
-        // Silk Touch -> block; otherwise drop gem (always) + flint (sometimes)
-        return this.dropsWithSilkTouch(drop, GroupEntry.create(gemEntry, flintEntry));
+        // 1) Silk Touch -> drop the block itself
+        table.pool(
+                LootPool.builder()
+                        .rolls(ConstantLootNumberProvider.create(1))
+                        .conditionally(silkTouch)
+                        .with(ItemEntry.builder(ore))
+        );
+
+        // 2) Normal breaking -> ALWAYS drop the gem (Fortune boosts like ore)
+        table.pool(
+                LootPool.builder()
+                        .rolls(ConstantLootNumberProvider.create(1))
+                        .conditionally(noSilkTouch)
+                        .with(
+                                this.applyExplosionDecay(
+                                        ore,
+                                        ((LeafEntry.Builder<?>) ItemEntry.builder(gem))
+                                                .apply(SetCountLootFunction.builder(ConstantLootNumberProvider.create(1)))
+                                                .apply(ApplyBonusLootFunction.oreDrops(fortune))
+                                )
+                        )
+        );
+
+        // 3) Normal breaking -> SOMETIMES drop flint (Fortune-boosted like gravel)
+        table.pool(
+                LootPool.builder()
+                        .rolls(ConstantLootNumberProvider.create(1))
+                        .conditionally(noSilkTouch)
+                        .with(
+                                this.applyExplosionDecay(ore, ItemEntry.builder(Items.FLINT))
+                                        .conditionally(TableBonusLootCondition.builder(
+                                                fortune,
+                                                new float[]{0.1F, 0.14285715F, 0.25F, 1.0F}
+                                        ))
+                        )
+        );
+
+        return table;
     }
+
 
     /**
      * Drops like vanilla leaves:

@@ -1,43 +1,8 @@
 {
   "parent": "mores:root",
   "criteria": {
-    "has_any_gem": {
-      "conditions": {
-        "items": [
-          {
-            "items": "mores:topaz_gem"
-          },
-          {
-            "items": "mores:tourmaline_gem"
-          },
-          {
-            "items": "mores:tanzanite_gem"
-          },
-          {
-            "items": "mores:ruby_gem"
-          },
-          {
-            "items": "mores:sapphire_gem"
-          },
-          {
-            "items": "mores:spinel_gem"
-          },
-          {
-            "items": "mores:moissanite_gem"
-          }
-        ]
-      },
-      "trigger": "minecraft:inventory_changed"
-    },
-    "has_flint": {
-      "conditions": {
-        "items": [
-          {
-            "items": "minecraft:flint"
-          }
-        ]
-      },
-      "trigger": "minecraft:inventory_changed"
+    "gravel_jackpot": {
+      "trigger": "minecraft:impossible"
     }
   },
   "display": {
@@ -51,10 +16,7 @@
   },
   "requirements": [
     [
-      "has_flint"
-    ],
-    [
-      "has_any_gem"
+      "gravel_jackpot"
     ]
   ],
   "sends_telemetry_event": true

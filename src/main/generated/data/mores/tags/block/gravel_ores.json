@@ -1,0 +1,13 @@
+{
+  "values": [
+    "mores:gravel_tin_ore",
+    "mores:gravel_silver_ore",
+    "mores:gravel_cobalt_ore",
+    "mores:gravel_topaz_ore",
+    "mores:gravel_tourmaline_ore",
+    "mores:gravel_spinel_ore",
+    "mores:gravel_ruby_ore",
+    "mores:gravel_sapphire_ore",
+    "mores:gravel_moissanite_ore"
+  ]
+}

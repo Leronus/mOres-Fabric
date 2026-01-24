@@ -159,5 +159,18 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 ModBlocks.ADAMANTIUM_BLOCK,
                 ModBlocks.PRIMORDIAL_DEBRIS,
                 ModBlocks.ENDERITE_BLOCK);
+
+
+        getOrCreateTagBuilder(ModTags.Blocks.GRAVEL_ORES).add(
+                ModBlocks.GRAVEL_TIN_ORE,
+                ModBlocks.GRAVEL_SILVER_ORE,
+                ModBlocks.GRAVEL_COBALT_ORE,
+                ModBlocks.GRAVEL_TOPAZ_ORE,
+                ModBlocks.GRAVEL_TOURMALINE_ORE,
+                ModBlocks.GRAVEL_SPINEL_ORE,
+                ModBlocks.GRAVEL_RUBY_ORE,
+                ModBlocks.GRAVEL_SAPPHIRE_ORE,
+                ModBlocks.GRAVEL_MOISSANITE_ORE
+        );
     }
 }

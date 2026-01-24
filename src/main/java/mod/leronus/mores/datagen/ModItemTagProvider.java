@@ -479,7 +479,21 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
                 .add(ModItems.HARDENED_STEEL_WOLF_ARMOR)
                 .add(ModItems.DIAMOND_WOLF_ARMOR);
 
-//        getOrCreateTagBuilder(ModTags.Items.SHEAR_REMOVES_SADDLE).add(Items.SADDLE);
+
+        getOrCreateTagBuilder(ModTags.Items.GEMS).add(
+                ModItems.AMETHYST_GEM,
+                ModItems.CITRINE_GEM,
+                ModItems.ONYX_GEM,
+                ModItems.LAPIS_LAZULI_GEM,
+                ModItems.TURQUOISE_GEM,
+                ModItems.TANZANITE_GEM,
+                ModItems.TOURMALINE_GEM,
+                ModItems.TOPAZ_GEM,
+                ModItems.RUBY_GEM,
+                ModItems.SAPPHIRE_GEM,
+                ModItems.SPINEL_GEM,
+                ModItems.MOISSANITE_GEM
+        );
 
         getOrCreateTagBuilder(ModTags.Items.ANTHRACITE).add(ModItems.ANTHRACITE);
         getOrCreateTagBuilder(ModTags.Items.LAPIS_LAZULI_DUST).add(ModItems.LAPIS_LAZULI_DUST);
