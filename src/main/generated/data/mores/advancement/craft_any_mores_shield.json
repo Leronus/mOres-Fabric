@@ -1,0 +1,101 @@
+{
+  "parent": "mores:craft_wood_mace",
+  "criteria": {
+    "has_any_mores_shield": {
+      "conditions": {
+        "items": [
+          {
+            "items": "mores:tin_shield"
+          },
+          {
+            "items": "mores:silver_shield"
+          },
+          {
+            "items": "mores:copper_shield"
+          },
+          {
+            "items": "mores:sterling_silver_shield"
+          },
+          {
+            "items": "mores:rose_gold_shield"
+          },
+          {
+            "items": "mores:bronze_shield"
+          },
+          {
+            "items": "mores:cobalt_shield"
+          },
+          {
+            "items": "mores:carbon_steel_shield"
+          },
+          {
+            "items": "mores:hardened_steel_shield"
+          },
+          {
+            "items": "mores:turquoise_shield"
+          },
+          {
+            "items": "mores:lapis_lazuli_shield"
+          },
+          {
+            "items": "mores:amethyst_shield"
+          },
+          {
+            "items": "mores:tanzanite_shield"
+          },
+          {
+            "items": "mores:tourmaline_shield"
+          },
+          {
+            "items": "mores:topaz_shield"
+          },
+          {
+            "items": "mores:emerald_shield"
+          },
+          {
+            "items": "mores:ruby_shield"
+          },
+          {
+            "items": "mores:sapphire_shield"
+          },
+          {
+            "items": "mores:citrine_shield"
+          },
+          {
+            "items": "mores:spinel_shield"
+          },
+          {
+            "items": "mores:moissanite_shield"
+          },
+          {
+            "items": "mores:onyx_shield"
+          },
+          {
+            "items": "mores:obsidian_shield"
+          },
+          {
+            "items": "mores:adamantium_shield"
+          },
+          {
+            "items": "mores:enderite_shield"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": "Craft any mOres shield.",
+    "icon": {
+      "count": 1,
+      "id": "mores:silver_shield"
+    },
+    "title": "Not Tomorrow, Thank You"
+  },
+  "requirements": [
+    [
+      "has_any_mores_shield"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

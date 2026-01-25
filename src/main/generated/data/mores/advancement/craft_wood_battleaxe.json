@@ -1,0 +1,29 @@
+{
+  "parent": "mores:craft_wood_dagger",
+  "criteria": {
+    "has_wood_battleaxe": {
+      "conditions": {
+        "items": [
+          {
+            "items": "mores:wood_battle_axe"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": "Craft a wooden battleaxe",
+    "icon": {
+      "count": 1,
+      "id": "mores:wood_battle_axe"
+    },
+    "title": "Mjölnir"
+  },
+  "requirements": [
+    [
+      "has_wood_battleaxe"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

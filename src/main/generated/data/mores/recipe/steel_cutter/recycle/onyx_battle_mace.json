@@ -1,0 +1,10 @@
+{
+  "type": "mores:steel_cutting",
+  "ingredient": {
+    "item": "mores:onyx_battle_mace"
+  },
+  "result": {
+    "count": 1,
+    "id": "mores:onyx_gem"
+  }
+}

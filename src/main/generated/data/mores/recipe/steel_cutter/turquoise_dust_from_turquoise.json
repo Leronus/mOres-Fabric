@@ -1,5 +1,5 @@
 {
-  "type": "minecraft:stonecutting",
+  "type": "mores:steel_cutting",
   "ingredient": {
     "item": "mores:turquoise"
   },

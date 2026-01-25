@@ -83,7 +83,7 @@ public class ModAdvancementProvider extends FabricAdvancementProvider {
                         "Whiter than Bart",
                         "Craft a full set of tin armor.",
                         AdvancementFrame.TASK,
-                        3, 2
+                        2, 1
                 ))
                 .criterion("tin_helmet", hasItem(ModItems.TIN_HELMET))
                 .criterion("tin_chestplate", hasItem(ModItems.TIN_CHESTPLATE))
@@ -113,7 +113,7 @@ public class ModAdvancementProvider extends FabricAdvancementProvider {
                         "Quicksilver",
                         "Craft a full set of silver armor.",
                         AdvancementFrame.TASK,
-                        7, 2
+                        7, 1
                 ))
                 .criterion("silver_helmet", hasItem(ModItems.SILVER_HELMET))
                 .criterion("silver_chestplate", hasItem(ModItems.SILVER_CHESTPLATE))
@@ -127,7 +127,7 @@ public class ModAdvancementProvider extends FabricAdvancementProvider {
                         "Crunchy",
                         "Eat a silver apple.",
                         AdvancementFrame.TASK,
-                        7, 4
+                        7, 2
                 ))
                 .criterion("has_silver_apple", eatItem(ModItems.SILVER_APPLE))
                 .build(exporter, id("eat_silver_apple"));
@@ -138,7 +138,7 @@ public class ModAdvancementProvider extends FabricAdvancementProvider {
                         "McNugget",
                         "Obtain a silver nugget.",
                         AdvancementFrame.TASK,
-                        7, 4
+                        7, 0
                 ))
                 .criterion("has_silver_nugget", hasItem(ModItems.SILVER_NUGGET))
                 .build(exporter, id("obtain_silver_nugget"));
@@ -151,7 +151,7 @@ public class ModAdvancementProvider extends FabricAdvancementProvider {
                         "Very Cobalt",
                         "Obtain a cobalt ingot.",
                         AdvancementFrame.TASK,
-                        4, 8
+                        6, 3
                 ))
                 .criterion("has_cobalt", hasItem(ModItems.COBALT_INGOT))
                 .build(exporter, id("obtain_cobalt_ingot"));
@@ -163,7 +163,7 @@ public class ModAdvancementProvider extends FabricAdvancementProvider {
                         "Built Different",
                         "Craft a full set of cobalt armor.",
                         AdvancementFrame.TASK,
-                        5, 9
+                        7, 3
                 ))
                 .criterion("cobalt_helmet", hasItem(ModItems.COBALT_HELMET))
                 .criterion("cobalt_chestplate", hasItem(ModItems.COBALT_CHESTPLATE))
@@ -182,7 +182,7 @@ public class ModAdvancementProvider extends FabricAdvancementProvider {
                         "Aqua Coin",
                         "Obtain a turquoise gem.",
                         AdvancementFrame.TASK,
-                        4, 8
+                        10, 2
                 ))
                 .criterion("has_turquoise_gem", hasItem(ModItems.TURQUOISE_GEM))
                 .build(exporter, id("obtain_turquoise_gem"));
@@ -193,7 +193,7 @@ public class ModAdvancementProvider extends FabricAdvancementProvider {
                         "Submarine Poseidon",
                         "Craft a full set of turquoise armor.",
                         AdvancementFrame.TASK,
-                        10, 9
+                        11, 2
                 ))
                 .criterion("turquoise_helmet", hasItem(ModItems.TURQUOISE_HELMET))
                 .criterion("turquoise_chestplate", hasItem(ModItems.TURQUOISE_CHESTPLATE))
@@ -209,10 +209,25 @@ public class ModAdvancementProvider extends FabricAdvancementProvider {
                         "The Sea Calls To Me",
                         "Obtain a lapis lazuli gem.",
                         AdvancementFrame.TASK,
-                        4, 8
+                        10, 3
                 ))
                 .criterion("has_lapis_lazuli_gem", hasItem(ModItems.LAPIS_LAZULI_GEM))
                 .build(exporter, id("obtain_lapis_lazuli_gem"));
+        AdvancementEntry obtainLapisHorseArmor = Advancement.Builder.create()
+                .parent(obtainLapisLazuli)
+                .display(display(
+                        ModItems.LAPIS_LAZULI_HORSE_ARMOR,
+                        "Sea Horse",
+                        "Craft/find lapis lazuli horse armor",
+                        AdvancementFrame.TASK,
+                        10, 4
+                ))
+                .criterion(
+                        "has_lapis_horse_armor",
+                        hasItem(ModItems.LAPIS_LAZULI_HORSE_ARMOR)
+                )
+                .build(exporter, id("obtain_lapis_horse_armor"));
+
         AdvancementEntry fullLapisLazuliArmor = Advancement.Builder.create()
                 .parent(obtainLapisLazuli)
                 .display(display(
@@ -220,7 +235,7 @@ public class ModAdvancementProvider extends FabricAdvancementProvider {
                         "OceanGate Titan",
                         "Craft a full set of lapis lazuli armor.",
                         AdvancementFrame.TASK,
-                        10, 9
+                        11, 3
                 ))
                 .criterion("lapis_lazuli_helmet", hasItem(ModItems.LAPIS_LAZULI_HELMET))
                 .criterion("lapis_lazuli_chestplate", hasItem(ModItems.LAPIS_LAZULI_CHESTPLATE))
@@ -236,10 +251,24 @@ public class ModAdvancementProvider extends FabricAdvancementProvider {
                         "Awtysm",
                         "Obtain an amethyst gem.",
                         AdvancementFrame.TASK,
-                        4, 8
+                        10, 4
                 ))
                 .criterion("has_amethyst_gem", hasItem(ModItems.AMETHYST_GEM))
                 .build(exporter, id("obtain_amethyst_gem"));
+        AdvancementEntry obtainAmethystHorseArmor = Advancement.Builder.create()
+                .parent(obtainAmethyst)
+                .display(display(
+                        ModItems.AMETHYST_HORSE_ARMOR,
+                        "Unicorn",
+                        "Craft/find amethyst horse armor",
+                        AdvancementFrame.TASK,
+                        10, 5
+                ))
+                .criterion(
+                        "has_amethyst_horse_armor",
+                        hasItem(ModItems.AMETHYST_HORSE_ARMOR)
+                )
+                .build(exporter, id("obtain_amethyst_horse_armor"));
         AdvancementEntry fullAmethystArmor = Advancement.Builder.create()
                 .parent(obtainAmethyst)
                 .display(display(
@@ -247,7 +276,7 @@ public class ModAdvancementProvider extends FabricAdvancementProvider {
                         "Soft Landing",
                         "Craft a full set of amethyst armor.",
                         AdvancementFrame.TASK,
-                        10, 9
+                        11, 4
                 ))
                 .criterion("amethyst_helmet", hasItem(ModItems.AMETHYST_HELMET))
                 .criterion("amethyst_chestplate", hasItem(ModItems.AMETHYST_CHESTPLATE))
@@ -266,7 +295,7 @@ public class ModAdvancementProvider extends FabricAdvancementProvider {
                         "Citroën",
                         "Obtain an citrine gem.",
                         AdvancementFrame.TASK,
-                        4, 8
+                        14, 2
                 ))
                 .criterion("has_citrine_gem", hasItem(ModItems.CITRINE_GEM))
                 .build(exporter, id("obtain_citrine_gem"));
@@ -277,7 +306,7 @@ public class ModAdvancementProvider extends FabricAdvancementProvider {
                         "You're Reaching",
                         "Craft a full set of citrine armor.",
                         AdvancementFrame.TASK,
-                        10, 9
+                        15, 2
                 ))
                 .criterion("citrine_helmet", hasItem(ModItems.CITRINE_HELMET))
                 .criterion("citrine_chestplate", hasItem(ModItems.CITRINE_CHESTPLATE))
@@ -292,7 +321,7 @@ public class ModAdvancementProvider extends FabricAdvancementProvider {
                         "Wither Currency",
                         "Obtain an onyx gem.",
                         AdvancementFrame.TASK,
-                        4, 8
+                        14, 4
                 ))
                 .criterion("has_onyx_gem", hasItem(ModItems.ONYX_GEM))
                 .build(exporter, id("obtain_onyx_gem"));
@@ -303,7 +332,7 @@ public class ModAdvancementProvider extends FabricAdvancementProvider {
                         "The Dark Knight",
                         "Craft a full set of onyx armor.",
                         AdvancementFrame.TASK,
-                        10, 9
+                        15, 4
                 ))
                 .criterion("onyx_helmet", hasItem(ModItems.ONYX_HELMET))
                 .criterion("onyx_chestplate", hasItem(ModItems.ONYX_CHESTPLATE))
@@ -319,10 +348,10 @@ public class ModAdvancementProvider extends FabricAdvancementProvider {
                 .parent(obtainCitrine)
                 .display(display(
                         ModItems.TANZANITE_GEM,
-                        "",
+                        "Tanzanite Babyy",
                         "Obtain an tanzanite gem.",
                         AdvancementFrame.TASK,
-                        4, 8
+                        18, 1
                 ))
                 .criterion("has_tanzanite_gem", hasItem(ModItems.TANZANITE_GEM))
                 .build(exporter, id("obtain_tanzanite_gem"));
@@ -333,7 +362,7 @@ public class ModAdvancementProvider extends FabricAdvancementProvider {
                         "The Flash",
                         "Craft a full set of tanzanite armor.",
                         AdvancementFrame.TASK,
-                        10, 9
+                        19, 1
                 ))
                 .criterion("tanzanite_helmet", hasItem(ModItems.TANZANITE_HELMET))
                 .criterion("tanzanite_chestplate", hasItem(ModItems.TANZANITE_CHESTPLATE))
@@ -348,7 +377,7 @@ public class ModAdvancementProvider extends FabricAdvancementProvider {
                         "Topazzler",
                         "Obtain an topaz gem.",
                         AdvancementFrame.TASK,
-                        4, 8
+                        18, 2
                 ))
                 .criterion("has_topaz_gem", hasItem(ModItems.TOPAZ_GEM))
                 .build(exporter, id("obtain_topaz_gem"));
@@ -359,7 +388,7 @@ public class ModAdvancementProvider extends FabricAdvancementProvider {
                         "Efficiency 100",
                         "Craft a full set of topaz armor.",
                         AdvancementFrame.TASK,
-                        10, 9
+                        19, 2
                 ))
                 .criterion("topaz_helmet", hasItem(ModItems.TOPAZ_HELMET))
                 .criterion("topaz_chestplate", hasItem(ModItems.TOPAZ_CHESTPLATE))
@@ -374,7 +403,7 @@ public class ModAdvancementProvider extends FabricAdvancementProvider {
                         "Valentine",
                         "Obtain an tourmaline gem.",
                         AdvancementFrame.TASK,
-                        4, 8
+                        18, 3
                 ))
                 .criterion("has_tourmaline_gem", hasItem(ModItems.TOURMALINE_GEM))
                 .build(exporter, id("obtain_tourmaline_gem"));
@@ -385,7 +414,7 @@ public class ModAdvancementProvider extends FabricAdvancementProvider {
                         "Yes, I'm a SIMP - Sniper Monkey",
                         "Craft a full set of tourmaline armor.",
                         AdvancementFrame.TASK,
-                        10, 9
+                        19, 3
                 ))
                 .criterion("tourmaline_helmet", hasItem(ModItems.TOURMALINE_HELMET))
                 .criterion("tourmaline_chestplate", hasItem(ModItems.TOURMALINE_CHESTPLATE))
@@ -401,7 +430,7 @@ public class ModAdvancementProvider extends FabricAdvancementProvider {
                         "Love",
                         "Obtain an spinel gem.",
                         AdvancementFrame.TASK,
-                        4, 8
+                        22, 3
                 ))
                 .criterion("has_spinel_gem", hasItem(ModItems.SPINEL_GEM))
                 .build(exporter, id("obtain_spinel_gem"));
@@ -412,7 +441,7 @@ public class ModAdvancementProvider extends FabricAdvancementProvider {
                         "Healthy",
                         "Craft a full set of spinel armor.",
                         AdvancementFrame.TASK,
-                        10, 9
+                        23, 3
                 ))
                 .criterion("spinel_helmet", hasItem(ModItems.SPINEL_HELMET))
                 .criterion("spinel_chestplate", hasItem(ModItems.SPINEL_CHESTPLATE))
@@ -444,7 +473,7 @@ public class ModAdvancementProvider extends FabricAdvancementProvider {
                         "Latios",
                         "Obtain an sapphire gem.",
                         AdvancementFrame.TASK,
-                        4, 8
+                        22, 2
                 ))
                 .criterion("has_sapphire_gem", hasItem(ModItems.SAPPHIRE_GEM))
                 .build(exporter, id("obtain_sapphire_gem"));
@@ -455,7 +484,7 @@ public class ModAdvancementProvider extends FabricAdvancementProvider {
                         "I'm Blue",
                         "Craft a full set of sapphire armor.",
                         AdvancementFrame.TASK,
-                        10, 9
+                        23, 2
                 ))
                 .criterion("sapphire_helmet", hasItem(ModItems.SAPPHIRE_HELMET))
                 .criterion("sapphire_chestplate", hasItem(ModItems.SAPPHIRE_CHESTPLATE))
@@ -471,7 +500,7 @@ public class ModAdvancementProvider extends FabricAdvancementProvider {
                         "Blood Diamond",
                         "Obtain an ruby gem.",
                         AdvancementFrame.TASK,
-                        4, 8
+                        22, 4
                 ))
                 .criterion("has_ruby_gem", hasItem(ModItems.RUBY_GEM))
                 .build(exporter, id("obtain_ruby_gem"));
@@ -482,7 +511,7 @@ public class ModAdvancementProvider extends FabricAdvancementProvider {
                         "Elmo",
                         "Craft a full set of ruby armor.",
                         AdvancementFrame.TASK,
-                        10, 9
+                        23, 4
                 ))
                 .criterion("ruby_helmet", hasItem(ModItems.RUBY_HELMET))
                 .criterion("ruby_chestplate", hasItem(ModItems.RUBY_CHESTPLATE))
@@ -498,7 +527,7 @@ public class ModAdvancementProvider extends FabricAdvancementProvider {
                         "What are you doing in my Swamp?",
                         "Obtain an moissanite gem.",
                         AdvancementFrame.TASK,
-                        4, 8
+                        26, 1
                 ))
                 .criterion("has_moissanite_gem", hasItem(ModItems.MOISSANITE_GEM))
                 .build(exporter, id("obtain_moissanite_gem"));
@@ -509,7 +538,7 @@ public class ModAdvancementProvider extends FabricAdvancementProvider {
                         "Shrek the Ogre",
                         "Craft a full set of moissanite armor.",
                         AdvancementFrame.TASK,
-                        10, 9
+                        27, 1
                 ))
                 .criterion("moissanite_helmet", hasItem(ModItems.MOISSANITE_HELMET))
                 .criterion("moissanite_chestplate", hasItem(ModItems.MOISSANITE_CHESTPLATE))
@@ -525,10 +554,24 @@ public class ModAdvancementProvider extends FabricAdvancementProvider {
                         "Lava Bucket Challenge",
                         "Obtain an obsidian ingot.",
                         AdvancementFrame.TASK,
-                        4, 8
+                        26, 3
                 ))
                 .criterion("has_obsidian_ingot", hasItem(ModItems.OBSIDIAN_INGOT))
                 .build(exporter, id("obtain_obsidian_ingot"));
+        AdvancementEntry obtainObsidianHorseArmor = Advancement.Builder.create()
+                .parent(obtainObsidian)
+                .display(display(
+                        ModItems.OBSIDIAN_HORSE_ARMOR,
+                        "Steadfast",
+                        "Craft/find obsidian horse armor",
+                        AdvancementFrame.TASK,
+                        26, 4
+                ))
+                .criterion(
+                        "has_obsidian_horse_armor",
+                        hasItem(ModItems.OBSIDIAN_HORSE_ARMOR)
+                )
+                .build(exporter, id("obtain_obsidian_horse_armor"));
         AdvancementEntry fullObsidianArmor = Advancement.Builder.create()
                 .parent(obtainObsidian)
                 .display(display(
@@ -536,7 +579,7 @@ public class ModAdvancementProvider extends FabricAdvancementProvider {
                         "Bombsquad",
                         "Craft a full set of obsidian armor.",
                         AdvancementFrame.TASK,
-                        10, 9
+                        27, 3
                 ))
                 .criterion("obsidian_helmet", hasItem(ModItems.OBSIDIAN_HELMET))
                 .criterion("obsidian_chestplate", hasItem(ModItems.OBSIDIAN_CHESTPLATE))
@@ -552,7 +595,7 @@ public class ModAdvancementProvider extends FabricAdvancementProvider {
                         "Hidden in the Ends",
                         "Obtain Primordial Debris.",
                         AdvancementFrame.TASK,
-                        4, 8
+                        30, 3
                 ))
                 .criterion("has_primordial_debris", hasItem(ModBlocks.PRIMORDIAL_DEBRIS))
                 .build(exporter, id("obtain_primordial_debris"));
@@ -563,7 +606,7 @@ public class ModAdvancementProvider extends FabricAdvancementProvider {
                         "Indestructible",
                         "Craft a full set of enderite armor.",
                         AdvancementFrame.TASK,
-                        10, 9
+                        31, 3
                 ))
                 .criterion("enderite_helmet", hasItem(ModItems.ENDERITE_HELMET))
                 .criterion("enderite_chestplate", hasItem(ModItems.ENDERITE_CHESTPLATE))
@@ -583,7 +626,7 @@ public class ModAdvancementProvider extends FabricAdvancementProvider {
                         "Alloying Time",
                         "Craft an alloy furnace.",
                         AdvancementFrame.TASK,
-                        2, 6
+                        2, 4
                 ))
                 .criterion("has_alloy_furnace", hasItem(ModBlocks.ALLOY_FURNACE.asItem()))
                 .build(exporter, id("craft_alloy_furnace"));
@@ -596,7 +639,7 @@ public class ModAdvancementProvider extends FabricAdvancementProvider {
                         "The Bronze Age",
                         "Obtain a bronze ingot by alloying copper and tin.",
                         AdvancementFrame.TASK,
-                        4, 6
+                        4, 3
                 ))
                 .criterion("has_bronze", hasItem(ModItems.BRONZE_INGOT))
                 .build(exporter, id("obtain_bronze_ingot"));
@@ -604,10 +647,10 @@ public class ModAdvancementProvider extends FabricAdvancementProvider {
                 .parent(obtainBronze)
                 .display(display(
                         ModItems.BRONZE_APPLE,
-                        "Bronze Snacc",
+                        "Bronze iEat",
                         "Eat a bronze apple.",
                         AdvancementFrame.TASK,
-                        6, 6
+                        6, 3
                 ))
                 .criterion("eat_bronze_apple", eatItem(ModItems.BRONZE_APPLE))
                 .build(exporter, id("eat_bronze_apple"));
@@ -618,7 +661,7 @@ public class ModAdvancementProvider extends FabricAdvancementProvider {
                         "Hoplite",
                         "Craft a full set of bronze armor.",
                         AdvancementFrame.TASK,
-                        6, 7
+                        6, 4
                 ))
                 .criterion("bronze_helmet", hasItem(ModItems.BRONZE_HELMET))
                 .criterion("bronze_chestplate", hasItem(ModItems.BRONZE_CHESTPLATE))
@@ -634,7 +677,7 @@ public class ModAdvancementProvider extends FabricAdvancementProvider {
                         "Hephaestus",
                         "Obtain a carbon steel ingot.",
                         AdvancementFrame.TASK,
-                        4, 8
+                        4, 9
                 ))
                 .criterion("has_carbon_steel", hasItem(ModItems.CARBON_STEEL_INGOT))
                 .build(exporter, id("hephaestus"));
@@ -685,7 +728,7 @@ public class ModAdvancementProvider extends FabricAdvancementProvider {
                         "Hired Brother",
                         "Build a Hardened Steel Golem.",
                         AdvancementFrame.GOAL, // GOAL or CHALLENGE both fit
-                        2, 10 // pick a lane so it doesn't clutter root
+                        8, 11 // pick a lane so it doesn't clutter root
                 ))
                 .criterion("summon_hardened_steel_golem", summonEntity(ModEntities.HARDENED_STEEL_GOLEM))
                 .build(exporter, id("summon_hardened_steel_golem"));
@@ -698,7 +741,7 @@ public class ModAdvancementProvider extends FabricAdvancementProvider {
                         "Ohh Prettyyyy",
                         "Obtain a rose gold ingot by alloying copper and gold.",
                         AdvancementFrame.TASK,
-                        4, 6
+                        4, 5
                 ))
                 .criterion("has_rose_gold", hasItem(ModItems.ROSE_GOLD_INGOT))
                 .build(exporter, id("obtain_rose_gold_ingot"));
@@ -709,7 +752,7 @@ public class ModAdvancementProvider extends FabricAdvancementProvider {
                         "Piggies love me",
                         "Craft a full set of rose gold armor.",
                         AdvancementFrame.TASK,
-                        6, 7
+                        6, 6
                 ))
                 .criterion("rose_gold_helmet", hasItem(ModItems.ROSE_GOLD_HELMET))
                 .criterion("rose_gold_chestplate", hasItem(ModItems.ROSE_GOLD_CHESTPLATE))
@@ -720,10 +763,10 @@ public class ModAdvancementProvider extends FabricAdvancementProvider {
                 .parent(obtainRoseGold)
                 .display(display(
                         ModItems.ROSE_GOLD_APPLE,
-                        "Pink snacc",
+                        "Pink Snacc",
                         "Eat a rose gold apple.",
                         AdvancementFrame.TASK,
-                        6, 6
+                        6, 5
                 ))
                 .criterion("eat_rose_gold_apple", eatItem(ModItems.ROSE_GOLD_APPLE))
                 .build(exporter, id("eat_rose_gold_apple"));
@@ -736,10 +779,21 @@ public class ModAdvancementProvider extends FabricAdvancementProvider {
                         "Adamantium",
                         "Obtain an adamantium ingot by alloying iron and diamond.",
                         AdvancementFrame.TASK,
-                        4, 6
+                        4, 7
                 ))
                 .criterion("has_adamantium", hasItem(ModItems.ADAMANTIUM_INGOT))
                 .build(exporter, id("obtain_adamantium_ingot"));
+        AdvancementEntry obtainAdamantiumHorseArmor = Advancement.Builder.create()
+                .parent(obtainAdamantium)
+                .display(display(
+                        ModItems.ADAMANTIUM_HORSE_ARMOR,
+                        "Immovable Horse",
+                        "Craft/find adamantium horse armor",
+                        AdvancementFrame.TASK,
+                        5, 8
+                ))
+                .criterion("has_adamantium_horse_armor", hasItem(ModItems.ADAMANTIUM_HORSE_ARMOR))
+                .build(exporter, id("obtain_adamantium_horse_armor"));
         AdvancementEntry fullAdamantiumArmor = Advancement.Builder.create()
                 .parent(obtainAdamantium)
                 .display(display(
@@ -755,22 +809,218 @@ public class ModAdvancementProvider extends FabricAdvancementProvider {
                 .criterion("adamantium_boots", hasItem(ModItems.ADAMANTIUM_BOOTS))
                 .build(exporter, id("full_adamantium_armor"));
 
-        AdvancementEntry gravelLucky = Advancement.Builder.create()
-                .parent(root) // or parent to your “gravel ores” hub
+
+        // -------------------------
+// WEAPONS / GEAR BRANCH (NEW)
+// -------------------------
+
+// Wooden Dagger (from your JSON: title/icon)
+// Parent: root
+        AdvancementEntry craftWoodDagger = Advancement.Builder.create()
+                .parent(root)
                 .display(display(
-                        Items.FLINT,
-                        "Gravel Jackpot",
-                        "Get flint and a gem from mOres gravel ores.",
-                        AdvancementFrame.GOAL,
-                        9, 4
+                        ModItems.WOODEN_DAGGER,
+                        "Prison Shank",
+                        "Craft a makeshift dagger",
+                        AdvancementFrame.TASK,
+                        -6, 0
                 ))
-                .criterion("gravel_jackpot", Criteria.IMPOSSIBLE.create(new ImpossibleCriterion.Conditions()))
-                .build(exporter, id("gravel_jackpot"));
+                .criterion("has_wood_dagger", hasItem(ModItems.WOODEN_DAGGER))
+                .build(exporter, id("craft_wood_dagger"));
+
+// Wooden Battleaxe (from your JSON: title/icon)
+// Parent: craftWoodDagger
+        AdvancementEntry craftWoodBattleAxe = Advancement.Builder.create()
+                .parent(craftWoodDagger)
+                .display(display(
+                        ModItems.WOODEN_BATTLE_AXE,
+                        "Mjölnir",
+                        "Craft a wooden battleaxe",
+                        AdvancementFrame.TASK,
+                        -5, 1
+                ))
+                .criterion("has_wood_battleaxe", hasItem(ModItems.WOODEN_BATTLE_AXE))
+                .build(exporter, id("craft_wood_battleaxe"));
+
+// Wooden Mace (from your JSON: title/icon)
+// Parent: craftWoodBattleAxe
+        AdvancementEntry craftWoodMace = Advancement.Builder.create()
+                .parent(craftWoodBattleAxe)
+                .display(display(
+                        ModItems.WOODEN_BATTLE_MACE,
+                        "The Knuppel",
+                        "Craft a wooden mace",
+                        AdvancementFrame.TASK,
+                        -4, 2
+                ))
+                .criterion("has_wood_mace", hasItem(ModItems.WOODEN_BATTLE_MACE))
+                .build(exporter, id("craft_wood_mace"));
+
+
+// Craft any mOres shield
+        AdvancementEntry craftAnyMoresShield = Advancement.Builder.create()
+                .parent(craftWoodMace)
+                .display(display(
+                        ModItems.SILVER_SHIELD,
+                        "Not Tomorrow, Thank You",
+                        "Craft any mOres shield.",
+                        AdvancementFrame.TASK,
+                        -3, 3
+                ))
+                .criterion("has_any_mores_shield", hasAnyItem(
+                        ModItems.TIN_SHIELD,
+                        ModItems.SILVER_SHIELD,
+                        ModItems.COPPER_SHIELD,
+                        ModItems.STERLING_SILVER_SHIELD,
+                        ModItems.ROSE_GOLD_SHIELD,
+                        ModItems.BRONZE_SHIELD,
+                        ModItems.COBALT_SHIELD,
+                        ModItems.CARBON_STEEL_SHIELD,
+                        ModItems.HARDENED_STEEL_SHIELD,
+                        ModItems.TURQUOISE_SHIELD,
+                        ModItems.LAPIS_LAZULI_SHIELD,
+                        ModItems.AMETHYST_SHIELD,
+                        ModItems.TANZANITE_SHIELD,
+                        ModItems.TOURMALINE_SHIELD,
+                        ModItems.TOPAZ_SHIELD,
+                        ModItems.EMERALD_SHIELD,
+                        ModItems.RUBY_SHIELD,
+                        ModItems.SAPPHIRE_SHIELD,
+                        ModItems.CITRINE_SHIELD,
+                        ModItems.SPINEL_SHIELD,
+                        ModItems.MOISSANITE_SHIELD,
+                        ModItems.ONYX_SHIELD,
+                        ModItems.OBSIDIAN_SHIELD,
+                        ModItems.ADAMANTIUM_SHIELD,
+                        ModItems.ENDERITE_SHIELD
+                ))
+                .build(exporter, id("craft_any_mores_shield"));
+
+
+// Equip any mOres horse armor
+// NOTE: There isn't a clean "on equip horse armor" criterion in many setups; the most reliable
+// datapack-friendly approach is inventory detection. If you *do* have an interaction/equip trigger
+// available in your version/mappings, tell me which one you're using and I’ll swap it.
+        AdvancementEntry equipAnyMoresHorseArmor = Advancement.Builder.create()
+                .parent(craftAnyMoresShield)
+                .display(display(
+                        ModItems.TOURMALINE_HORSE_ARMOR,
+                        "Look at my Horse (Amazing)",
+                        "Find/craft any mOres horse armor.",
+                        AdvancementFrame.TASK,
+                        -4, 4
+                ))
+                .criterion("has_any_mores_horse_armor", hasAnyItem(
+                        ModItems.TIN_HORSE_ARMOR,
+                        ModItems.SILVER_HORSE_ARMOR,
+                        ModItems.COPPER_HORSE_ARMOR,
+                        ModItems.STERLING_SILVER_HORSE_ARMOR,
+                        ModItems.ROSE_GOLD_HORSE_ARMOR,
+                        ModItems.BRONZE_HORSE_ARMOR,
+                        ModItems.COBALT_HORSE_ARMOR,
+                        ModItems.CARBON_STEEL_HORSE_ARMOR,
+                        ModItems.HARDENED_STEEL_HORSE_ARMOR,
+                        ModItems.TURQUOISE_HORSE_ARMOR,
+                        ModItems.ONYX_HORSE_ARMOR,
+                        ModItems.CITRINE_HORSE_ARMOR,
+                        ModItems.TANZANITE_HORSE_ARMOR,
+                        ModItems.TOURMALINE_HORSE_ARMOR,
+                        ModItems.TOPAZ_HORSE_ARMOR,
+                        ModItems.SPINEL_HORSE_ARMOR,
+                        ModItems.EMERALD_HORSE_ARMOR,
+                        ModItems.RUBY_HORSE_ARMOR,
+                        ModItems.SAPPHIRE_HORSE_ARMOR,
+                        ModItems.MOISSANITE_HORSE_ARMOR,
+                        ModItems.NETHERITE_HORSE_ARMOR,
+                        ModItems.ENDERITE_HORSE_ARMOR
+                ))
+                .build(exporter, id("equip_any_mores_horse_armor"));
+
+
+        // Equip any mOres wolf armor
+        // Same note as horse armor: inventory detection is the most robust generic trigger.
+        AdvancementEntry equipAnyMoresWolfArmor = Advancement.Builder.create()
+                .parent(craftAnyMoresShield)
+                .display(display(
+                        ModItems.DIAMOND_WOLF_ARMOR,
+                        "Look at my Wolf",
+                        "Find/craft any mOres wolf armor.",
+                        AdvancementFrame.TASK,
+                        -2, 4
+                ))
+                .criterion("has_any_mores_wolf_armor", hasAnyItem(
+                        ModItems.TIN_WOLF_ARMOR,
+                        ModItems.GOLD_WOLF_ARMOR,
+                        ModItems.SILVER_WOLF_ARMOR,
+                        ModItems.COPPER_WOLF_ARMOR,
+                        ModItems.STERLING_SILVER_WOLF_ARMOR,
+                        ModItems.ROSE_GOLD_WOLF_ARMOR,
+                        ModItems.BRONZE_WOLF_ARMOR,
+                        ModItems.IRON_WOLF_ARMOR,
+                        ModItems.COBALT_WOLF_ARMOR,
+                        ModItems.CARBON_STEEL_WOLF_ARMOR,
+                        ModItems.HARDENED_STEEL_WOLF_ARMOR,
+                        ModItems.DIAMOND_WOLF_ARMOR
+                ))
+                .build(exporter, id("equip_any_mores_wolf_armor"));
+
+
+        // -------------------------
+        // FOOD BRANCH (NEW)
+        // -------------------------
+        AdvancementEntry eatDarkChocolate = Advancement.Builder.create()
+                .parent(root)
+                .display(display(
+                        ModItems.DARK_CHOCOLATE,
+                        "Pure Choco",
+                        "Eat dark chocolate.",
+                        AdvancementFrame.TASK,
+                        -2, -2
+                ))
+                .criterion("eat_dark_chocolate", eatItem(ModItems.DARK_CHOCOLATE))
+                .build(exporter, id("eat_dark_chocolate"));
+
+        AdvancementEntry eatMilkChocolate = Advancement.Builder.create()
+                .parent(eatDarkChocolate)
+                .display(display(
+                        ModItems.MILK_CHOCOLATE,
+                        "Milka Oreo",
+                        "Eat milk chocolate.",
+                        AdvancementFrame.TASK,
+                        -1, -3
+                ))
+                .criterion("eat_milk_chocolate", eatItem(ModItems.MILK_CHOCOLATE))
+                .build(exporter, id("eat_milk_chocolate"));
+
+        AdvancementEntry eatWhiteChocolate = Advancement.Builder.create()
+                .parent(eatMilkChocolate)
+                .display(display(
+                        ModItems.WHITE_CHOCOLATE,
+                        "Weiße Schokolade",
+                        "Eat white chocolate.",
+                        AdvancementFrame.TASK,
+                        0, -4
+                ))
+                .criterion("eat_white_chocolate", eatItem(ModItems.WHITE_CHOCOLATE))
+                .build(exporter, id("eat_white_chocolate"));
+
 
 
         // -------------------------
         // Misc
         // -------------------------
+        AdvancementEntry gravelLucky = Advancement.Builder.create()
+                .parent(root) // or parent to your “gravel ores” hub
+                .display(display(
+                        Items.FLINT,
+                        "Jackpot!",
+                        "Get both flint and a gem from a mOres gravel ore.",
+                        AdvancementFrame.GOAL,
+                        0, 6
+                ))
+                .criterion("gravel_jackpot", Criteria.IMPOSSIBLE.create(new ImpossibleCriterion.Conditions()))
+                .build(exporter, id("gravel_jackpot"));
+
         AdvancementEntry killDuck = Advancement.Builder.create()
                 .parent(root)
                 .display(display(
@@ -778,7 +1028,7 @@ public class ModAdvancementProvider extends FabricAdvancementProvider {
                         "You Animal",
                         "Kill a duck.",
                         AdvancementFrame.TASK,
-                        7, 4
+                        -4, 4
                 ))
                 .criterion("kill_duck", killEntity(ModEntities.DUCK))
                 .build(exporter, id("kill_duck"));
@@ -789,7 +1039,7 @@ public class ModAdvancementProvider extends FabricAdvancementProvider {
                         "You Savage",
                         "Eat a raw duck.",
                         AdvancementFrame.TASK,
-                        7, 4
+                        -3, 5
                 ))
                 .criterion("eat_raw_duck", eatItem(ModItems.RAW_DUCK))
                 .build(exporter, id("eat_raw_duck"));
@@ -800,7 +1050,7 @@ public class ModAdvancementProvider extends FabricAdvancementProvider {
                         "Mmm tasty (but still wrong)",
                         "Eat a cooked duck.",
                         AdvancementFrame.TASK,
-                        7, 4
+                        -2, 6
                 ))
                 .criterion("eat_cooked_duck", eatItem(ModItems.COOKED_DUCK))
                 .build(exporter, id("eat_cooked_duck"));
@@ -891,12 +1141,11 @@ public class ModAdvancementProvider extends FabricAdvancementProvider {
     private static String mc(String path) {return "minecraft:" + path;
     }
 
-
+    private static AdvancementCriterion<?> hasAnyItem(ItemConvertible... items) {
+        return Criteria.INVENTORY_CHANGED.create(InventoryChangedCriterion.Conditions.items(items).conditions());
+    }
     private static AdvancementCriterion<?> hasItem(ItemConvertible item) {
         return Criteria.INVENTORY_CHANGED.create(InventoryChangedCriterion.Conditions.items(item).conditions());
-    }
-    private static AdvancementCriterion<?> hasAnyItem(ItemConvertible... items) {
-        return InventoryChangedCriterion.Conditions.items(items);
     }
     private static AdvancementCriterion<?> eatItem(ItemConvertible item) {
         return Criteria.CONSUME_ITEM.create(ConsumeItemCriterion.Conditions.item(item).conditions());
@@ -905,8 +1154,7 @@ public class ModAdvancementProvider extends FabricAdvancementProvider {
         return OnKilledCriterion.Conditions.createPlayerKilledEntity(EntityPredicate.Builder.create().type(type));
     }
     private static AdvancementCriterion<?> summonEntity(EntityType<?> type) {
-        return SummonedEntityCriterion.Conditions.create(EntityPredicate.Builder.create().type(type)
-        );
+        return SummonedEntityCriterion.Conditions.create(EntityPredicate.Builder.create().type(type));
     }
     private static AdvancementCriterion<?> itemUsedOnBlock(
             net.minecraft.predicate.entity.LocationPredicate.Builder location,

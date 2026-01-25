@@ -1,0 +1,27 @@
+{
+  "parent": "mores:eat_milk_chocolate",
+  "criteria": {
+    "eat_white_chocolate": {
+      "conditions": {
+        "item": {
+          "items": "mores:white_chocolate"
+        }
+      },
+      "trigger": "minecraft:consume_item"
+    }
+  },
+  "display": {
+    "description": "Eat white chocolate.",
+    "icon": {
+      "count": 1,
+      "id": "mores:white_chocolate"
+    },
+    "title": "Weiße Schokolade"
+  },
+  "requirements": [
+    [
+      "eat_white_chocolate"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

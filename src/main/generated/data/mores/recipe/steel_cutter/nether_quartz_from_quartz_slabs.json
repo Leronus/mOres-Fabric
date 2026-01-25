@@ -1,0 +1,15 @@
+{
+  "type": "mores:steel_cutting",
+  "ingredient": [
+    {
+      "item": "minecraft:quartz_slab"
+    },
+    {
+      "item": "minecraft:smooth_quartz_slab"
+    }
+  ],
+  "result": {
+    "count": 2,
+    "id": "minecraft:quartz"
+  }
+}

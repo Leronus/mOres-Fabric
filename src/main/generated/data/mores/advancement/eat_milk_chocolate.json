@@ -1,0 +1,27 @@
+{
+  "parent": "mores:eat_dark_chocolate",
+  "criteria": {
+    "eat_milk_chocolate": {
+      "conditions": {
+        "item": {
+          "items": "mores:milk_chocolate"
+        }
+      },
+      "trigger": "minecraft:consume_item"
+    }
+  },
+  "display": {
+    "description": "Eat milk chocolate.",
+    "icon": {
+      "count": 1,
+      "id": "mores:milk_chocolate"
+    },
+    "title": "Milka Oreo"
+  },
+  "requirements": [
+    [
+      "eat_milk_chocolate"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

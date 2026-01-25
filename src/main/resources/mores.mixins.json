@@ -28,7 +28,8 @@
     "VexEntityMixin",
     "VindicatorEntityMixin",
     "WitherSkeletonEntityMixin",
-    "server.ZombieDuckJockeyMixin"
+    "server.ZombieDuckJockeyMixin",
+    "server.OverworldHostileDuckJockeyMixin"
   ],
   "client": [
     "client.WolfArmorFeatureRendererMixin"

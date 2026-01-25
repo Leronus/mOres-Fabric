@@ -1,0 +1,27 @@
+{
+  "parent": "mores:root",
+  "criteria": {
+    "eat_dark_chocolate": {
+      "conditions": {
+        "item": {
+          "items": "mores:dark_chocolate"
+        }
+      },
+      "trigger": "minecraft:consume_item"
+    }
+  },
+  "display": {
+    "description": "Eat dark chocolate.",
+    "icon": {
+      "count": 1,
+      "id": "mores:dark_chocolate"
+    },
+    "title": "Pure Choco"
+  },
+  "requirements": [
+    [
+      "eat_dark_chocolate"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

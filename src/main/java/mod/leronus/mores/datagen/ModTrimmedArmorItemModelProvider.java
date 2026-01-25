@@ -10,6 +10,7 @@ import net.minecraft.data.DataOutput;
 import net.minecraft.data.DataProvider;
 import net.minecraft.data.DataWriter;
 import net.minecraft.item.Item;
+import net.minecraft.item.Items;
 import net.minecraft.registry.Registries;
 import net.minecraft.util.Identifier;
 
@@ -74,6 +75,32 @@ public final class ModTrimmedArmorItemModelProvider implements DataProvider {
         DataOutput.PathResolver models = output.getResolver(DataOutput.OutputType.RESOURCE_PACK, "models/item");
 
         return CompletableFuture.allOf(
+                // ----- VANILLA ARMOR (so your custom trim materials render on vanilla armor items) -----
+                writeVanillaArmor(writer, models, Items.DIAMOND_HELMET, "diamond_helmet", "helmet"),
+                writeVanillaArmor(writer, models, Items.DIAMOND_CHESTPLATE, "diamond_chestplate", "chestplate"),
+                writeVanillaArmor(writer, models, Items.DIAMOND_LEGGINGS, "diamond_leggings", "leggings"),
+                writeVanillaArmor(writer, models, Items.DIAMOND_BOOTS, "diamond_boots", "boots"),
+
+                writeVanillaArmor(writer, models, Items.IRON_HELMET, "iron_helmet", "helmet"),
+                writeVanillaArmor(writer, models, Items.IRON_CHESTPLATE, "iron_chestplate", "chestplate"),
+                writeVanillaArmor(writer, models, Items.IRON_LEGGINGS, "iron_leggings", "leggings"),
+                writeVanillaArmor(writer, models, Items.IRON_BOOTS, "iron_boots", "boots"),
+
+                writeVanillaArmor(writer, models, Items.NETHERITE_HELMET, "netherite_helmet", "helmet"),
+                writeVanillaArmor(writer, models, Items.NETHERITE_CHESTPLATE, "netherite_chestplate", "chestplate"),
+                writeVanillaArmor(writer, models, Items.NETHERITE_LEGGINGS, "netherite_leggings", "leggings"),
+                writeVanillaArmor(writer, models, Items.NETHERITE_BOOTS, "netherite_boots", "boots"),
+
+                writeVanillaArmor(writer, models, Items.GOLDEN_HELMET, "golden_helmet", "helmet"),
+                writeVanillaArmor(writer, models, Items.GOLDEN_CHESTPLATE, "golden_chestplate", "chestplate"),
+                writeVanillaArmor(writer, models, Items.GOLDEN_LEGGINGS, "golden_leggings", "leggings"),
+                writeVanillaArmor(writer, models, Items.GOLDEN_BOOTS, "golden_boots", "boots"),
+
+                writeVanillaArmor(writer, models, Items.CHAINMAIL_HELMET, "chainmail_helmet", "helmet"),
+                writeVanillaArmor(writer, models, Items.CHAINMAIL_CHESTPLATE, "chainmail_chestplate", "chestplate"),
+                writeVanillaArmor(writer, models, Items.CHAINMAIL_LEGGINGS, "chainmail_leggings", "leggings"),
+                writeVanillaArmor(writer, models, Items.CHAINMAIL_BOOTS, "chainmail_boots", "boots"),
+
                 // ----- Metals -----
                 writeArmor(writer, models, ModItems.TIN_HELMET, "helmet"),
                 writeArmor(writer, models, ModItems.TIN_CHESTPLATE, "chestplate"),
@@ -237,6 +264,72 @@ public final class ModTrimmedArmorItemModelProvider implements DataProvider {
         Path basePath = models.resolve(Identifier.of(modid + ":" + armorPath), "json");
         return CompletableFuture.allOf(all, DataProvider.writeToPath(writer, GSON.toJsonTree(base), basePath));
     }
+
+    private CompletableFuture<?> writeVanillaArmor(
+            DataWriter writer,
+            DataOutput.PathResolver models,
+            Item item,
+            String vanillaItemName,   // e.g. "diamond_helmet"
+            String piece              // "helmet", "chestplate", "leggings", "boots"
+    ) {
+        Identifier baseModelId = Identifier.of("minecraft", vanillaItemName);
+
+        JsonObject base = new JsonObject();
+        base.addProperty("parent", "minecraft:item/generated");
+
+        JsonObject textures = new JsonObject();
+        textures.addProperty("layer0", "minecraft:item/" + vanillaItemName);
+        base.add("textures", textures);
+
+        // overrides
+        JsonArray overrides = new JsonArray();
+
+        // vanilla trims + your trims
+        for (TrimDef t : VANILLA_TRIMS) {
+            overrides.add(trimOverride("minecraft:item/" + vanillaItemName + "_" + t.name + "_trim", t.idx));
+            writeVanillaTrimModel(writer, models, vanillaItemName, piece, t.name);
+        }
+        for (TrimDef t : MORES_TRIMS) {
+            overrides.add(trimOverride("minecraft:item/" + vanillaItemName + "_" + t.name + "_trim", t.idx));
+            writeVanillaTrimModel(writer, models, vanillaItemName, piece, t.name);
+        }
+
+        base.add("overrides", overrides);
+
+        Path path = models.resolve(baseModelId, "json");
+        return DataProvider.writeToPath(writer, base, path);
+    }
+
+    private JsonObject trimOverride(String model, float idx) {
+        JsonObject o = new JsonObject();
+        JsonObject pred = new JsonObject();
+        pred.addProperty("trim_type", idx);
+        o.add("predicate", pred);
+        o.addProperty("model", model);
+        return o;
+    }
+
+    private CompletableFuture<?> writeVanillaTrimModel(
+            DataWriter writer,
+            DataOutput.PathResolver models,
+            String vanillaItemName,
+            String piece,
+            String trimName
+    ) {
+        Identifier modelId = Identifier.of("minecraft", vanillaItemName + "_" + trimName + "_trim");
+
+        JsonObject m = new JsonObject();
+        m.addProperty("parent", "minecraft:item/generated");
+
+        JsonObject tex = new JsonObject();
+        tex.addProperty("layer0", "minecraft:item/" + vanillaItemName);
+        tex.addProperty("layer1", "minecraft:trims/items/" + piece + "_trim_" + trimName);
+        m.add("textures", tex);
+
+        Path path = models.resolve(modelId, "json");
+        return DataProvider.writeToPath(writer, m, path);
+    }
+
 
     private static CompletableFuture<?> writePerTrim(DataWriter writer, DataOutput.PathResolver models, String modid, String armorPath, String piece, String trimName) {
         JsonObject m = new JsonObject();

@@ -1,0 +1,29 @@
+{
+  "parent": "mores:craft_wood_battleaxe",
+  "criteria": {
+    "has_wood_mace": {
+      "conditions": {
+        "items": [
+          {
+            "items": "mores:wood_battle_mace"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": "Craft a wooden mace",
+    "icon": {
+      "count": 1,
+      "id": "mores:wood_battle_mace"
+    },
+    "title": "The Knuppel"
+  },
+  "requirements": [
+    [
+      "has_wood_mace"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

@@ -13,22 +13,22 @@ public class AlloyFurnaceScreen extends HandledScreen<AlloyFurnaceScreenHandler>
             Identifier.of("mores", "textures/gui/alloy_furnace.png");
 
     private static final Identifier BURN_SOUL =
-            Identifier.of("mores", "textures/gui/theme/soul_burn.png");
+            Identifier.of("mores", "textures/gui/sprites/container/alloy_furnace/soul_burn.png");
     private static final Identifier BURN_RED =
-            Identifier.of("mores", "textures/gui/theme/red_burn.png");
+            Identifier.of("mores", "textures/gui/sprites/container/alloy_furnace/red_burn.png");
     private static final Identifier BURN_PURPLE =
-            Identifier.of("mores", "textures/gui/theme/purple_burn.png");
+            Identifier.of("mores", "textures/gui/sprites/container/alloy_furnace/purple_burn.png");
     private static final Identifier BURN_BLUE =
-            Identifier.of("mores", "textures/gui/theme/blue_burn.png");
+            Identifier.of("mores", "textures/gui/sprites/container/alloy_furnace/blue_burn.png");
 
     private static final Identifier ARROW_SOUL =
-            Identifier.of("mores", "textures/gui/theme/soul_arrow.png");
+            Identifier.of("mores", "textures/gui/sprites/container/alloy_furnace/soul_arrow.png");
     private static final Identifier ARROW_RED =
-            Identifier.of("mores", "textures/gui/theme/red_arrow.png");
+            Identifier.of("mores", "textures/gui/sprites/container/alloy_furnace/red_arrow.png");
     private static final Identifier ARROW_PURPLE =
-            Identifier.of("mores", "textures/gui/theme/purple_arrow.png");
+            Identifier.of("mores", "textures/gui/sprites/container/alloy_furnace/purple_arrow.png");
     private static final Identifier ARROW_BLUE =
-            Identifier.of("mores", "textures/gui/theme/blue_arrow.png");
+            Identifier.of("mores", "textures/gui/sprites/container/alloy_furnace/blue_arrow.png");
 
     public AlloyFurnaceScreen(AlloyFurnaceScreenHandler handler,
                               PlayerInventory inventory,

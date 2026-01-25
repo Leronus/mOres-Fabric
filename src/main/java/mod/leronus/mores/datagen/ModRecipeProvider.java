@@ -1,10 +1,12 @@
 package mod.leronus.mores.datagen;
 
+import mod.leronus.mores.Mores;
+import mod.leronus.mores.item.ModItems;
 import mod.leronus.mores.recipe.AlloyingRecipe;
 import mod.leronus.mores.recipe.ShieldDecorationRecipe;
+import mod.leronus.mores.recipe.SteelCuttingRecipe;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider;
-import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.data.server.recipe.*;
 import net.minecraft.item.ItemStack;
 import net.minecraft.recipe.Ingredient;
@@ -4815,31 +4817,171 @@ public class ModRecipeProvider extends FabricRecipeProvider {
     }
 
     private void generateCutting(RecipeExporter exporter) {
-        StonecuttingRecipeJsonBuilder
-                .createStonecutting(Ingredient.ofItems(LAPIS_LAZULI), RecipeCategory.MISC, LAPIS_LAZULI_DUST, 2)
-                .criterion(hasItem(LAPIS_LAZULI), conditionsFromItem(LAPIS_LAZULI))
-                .offerTo(exporter, "steel_cutter/lapis_lazuli_dust_from_lapis_lazuli");
+        // Existing dust recipes you already had
+        offerSteelCutting(exporter,
+                "steel_cutter/lapis_lazuli_dust_from_lapis_lazuli",
+                Ingredient.ofItems(LAPIS_LAZULI),
+                LAPIS_LAZULI_DUST,
+                2
+        );
 
-        StonecuttingRecipeJsonBuilder
-                .createStonecutting(Ingredient.ofItems(TURQUOISE), RecipeCategory.MISC, TURQUOISE_DUST, 2)
-                .criterion(hasItem(TURQUOISE), conditionsFromItem(TURQUOISE))
-                .offerTo(exporter, "steel_cutter/turquoise_dust_from_turquoise");
+        offerSteelCutting(exporter,
+                "steel_cutter/turquoise_dust_from_turquoise",
+                Ingredient.ofItems(TURQUOISE),
+                TURQUOISE_DUST,
+                2
+        );
 
-        StonecuttingRecipeJsonBuilder
-                .createStonecutting(Ingredient.ofItems(QUARTZ), RecipeCategory.MISC, QUARTZ_DUST, 2)
-                .criterion(hasItem(QUARTZ), conditionsFromItem(QUARTZ))
-                .offerTo(exporter, "steel_cutter/quartz_dust_from_quartz");
+        offerSteelCutting(exporter,
+                "steel_cutter/quartz_dust_from_quartz",
+                Ingredient.ofItems(QUARTZ),
+                QUARTZ_DUST,
+                2
+        );
 
-        StonecuttingRecipeJsonBuilder
-                .createStonecutting(Ingredient.ofItems(AMETHYST_SHARD), RecipeCategory.MISC, AMETHYST_DUST, 2)
-                .criterion(hasItem(AMETHYST_SHARD), conditionsFromItem(AMETHYST_SHARD))
-                .offerTo(exporter, "steel_cutter/amethyst_dust_from_amethyst_shard");
+        offerSteelCutting(exporter,
+                "steel_cutter/amethyst_dust_from_amethyst_shard",
+                Ingredient.ofItems(AMETHYST_SHARD),
+                AMETHYST_DUST,
+                2
+        );
+
+        // ---------------------------
+        // Quartz block variants -> Nether Quartz
+        // ---------------------------
+
+        // 4 quartz from any quartz "block" variant
+        offerSteelCutting(exporter,
+                "steel_cutter/nether_quartz_from_quartz_blocks",
+                Ingredient.ofItems(
+                        QUARTZ_BLOCK,
+                        CHISELED_QUARTZ_BLOCK,
+                        QUARTZ_BRICKS,
+                        QUARTZ_PILLAR,
+                        SMOOTH_QUARTZ
+                ),
+                QUARTZ,
+                4
+        );
+
+        // 2 quartz from slabs (normal + smooth)
+        offerSteelCutting(exporter,
+                "steel_cutter/nether_quartz_from_quartz_slabs",
+                Ingredient.ofItems(
+                        QUARTZ_SLAB,
+                        SMOOTH_QUARTZ_SLAB
+                ),
+                QUARTZ,
+                2
+        );
+
+        // 3 quartz from stairs (normal + smooth)
+        offerSteelCutting(exporter,
+                "steel_cutter/nether_quartz_from_quartz_stairs",
+                Ingredient.ofItems(
+                        QUARTZ_STAIRS,
+                        SMOOTH_QUARTZ_STAIRS
+                ),
+                QUARTZ,
+                3
+        );
+
+        // ---------------------------
+        // Block -> 9 items
+        // ---------------------------
+
+        // 1 lapis block -> 9 vanilla lapis
+        offerSteelCutting(exporter,
+                "steel_cutter/lapis_lazuli_from_lapis_block",
+                Ingredient.ofItems(LAPIS_BLOCK),
+                LAPIS_LAZULI,
+                9
+        );
+
+        // 1 turquoise block -> 9 turquoise gems (mores:turquoise_gem)
+        offerSteelCutting(exporter,
+                "steel_cutter/turquoise_gems_from_turquoise_block",
+                Ingredient.ofItems(moresItem("turquoise_block")),
+                moresItem("turquoise_gem"),
+                9
+        );
+
+        // ---------------------------
+        // Tool recycling -> 1 gem back
+        // ---------------------------
+        addToolRecycling(exporter);
     }
+
+    // Convenience: grab a mores item by id
+    private static net.minecraft.item.Item moresItem(String path) {
+        return Registries.ITEM.get(Identifier.of(Mores.MOD_ID, path));
+    }
+
+// ---------------------------
+// Tool recycling -> 1 gem back
+// ---------------------------
+
+    private void addToolRecycling(RecipeExporter exporter) {
+        // Mod gem outputs (your *_GEM constants)
+        addToolRecyclingForMaterial(exporter, "lapis_lazuli", LAPIS_LAZULI_GEM);
+        addToolRecyclingForMaterial(exporter, "turquoise",   TURQUOISE_GEM);
+        addToolRecyclingForMaterial(exporter, "citrine",     CITRINE_GEM);
+        addToolRecyclingForMaterial(exporter, "onyx",        ONYX_GEM);
+        addToolRecyclingForMaterial(exporter, "amethyst",    AMETHYST_GEM);
+        addToolRecyclingForMaterial(exporter, "topaz",       TOPAZ_GEM);
+        addToolRecyclingForMaterial(exporter, "tourmaline",  TOURMALINE_GEM);
+        addToolRecyclingForMaterial(exporter, "spinel",      SPINEL_GEM);
+        addToolRecyclingForMaterial(exporter, "ruby",        RUBY_GEM);
+        addToolRecyclingForMaterial(exporter, "sapphire",    SAPPHIRE_GEM);
+        addToolRecyclingForMaterial(exporter, "moissanite",  MOISSANITE_GEM);
+
+        // Vanilla gem outputs
+        addToolRecyclingForMaterial(exporter, "emerald", EMERALD);
+        addToolRecyclingForMaterial(exporter, "diamond", DIAMOND);
+    }
+
+    /**
+     * Looks up a mores:<path> item safely.
+     * Returns null if the id doesn't exist so datagen doesn't crash.
+     */
+    private static net.minecraft.item.Item tryMoresItem(String path) {
+        Identifier id = Identifier.of(Mores.MOD_ID, path);
+        return Registries.ITEM.containsId(id) ? Registries.ITEM.get(id) : null;
+    }
+
+    private void addToolRecyclingForMaterial(RecipeExporter exporter, String material, net.minecraft.item.Item gemOut) {
+        String[] toolSuffixes = {
+                "axe",
+                "pickaxe",
+                "battle_axe",
+                "battle_mace"
+        };
+
+        for (String suffix : toolSuffixes) {
+            String toolIdPath = material + "_" + suffix;
+
+            // Inputs are ALWAYS mores:<material>_<tool> (even for emerald/diamond tools)
+            net.minecraft.item.Item toolItem = tryMoresItem(toolIdPath);
+            if (toolItem == null) {
+                // Tool not present in this build; skip generating a recipe for it
+                continue;
+            }
+
+            offerSteelCutting(
+                    exporter,
+                    "steel_cutter/recycle/" + toolIdPath,
+                    Ingredient.ofItems(toolItem),
+                    gemOut,
+                    1
+            );
+        }
+    }
+
 
 
     private void generateAlloying(RecipeExporter exporter) {
         offerAlloying(exporter,
-                "bronze_from_copper_tin",
+                "alloying/bronze_from_copper_tin",
                 Ingredient.ofItems(COPPER_INGOT),
                 Ingredient.ofItems(TIN_INGOT),
                 new ItemStack(BRONZE_INGOT, 1),
@@ -4848,7 +4990,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
         );
 
         offerAlloying(exporter,
-                "sterling_silver_from_copper_silver",
+                "alloying/sterling_silver_from_copper_silver",
                 Ingredient.ofItems(COPPER_INGOT),
                 Ingredient.ofItems(SILVER_INGOT),
                 new ItemStack(STERLING_SILVER_INGOT, 1),
@@ -4857,7 +4999,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
         );
 
         offerAlloying(exporter,
-                "rose_gold_from_copper_gold",
+                "alloying/rose_gold_from_copper_gold",
                 Ingredient.ofItems(COPPER_INGOT),
                 Ingredient.ofItems(GOLD_INGOT),
                 new ItemStack(ROSE_GOLD_INGOT, 1),
@@ -4872,7 +5014,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
         );
 
         offerAlloying(exporter,
-                "carbon_steel_from_iron_coal",
+                "alloying/carbon_steel_from_iron_coal",
                 Ingredient.ofItems(IRON_INGOT),
                 coalOrAnthracite,
                 new ItemStack(CARBON_STEEL_INGOT, 1),
@@ -4881,7 +5023,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
         );
 
         offerAlloying(exporter,
-                "adamantium_from_iron_diamond",
+                "alloying/adamantium_from_iron_diamond",
                 Ingredient.ofItems(IRON_INGOT),
                 Ingredient.ofItems(DIAMOND),
                 new ItemStack(ADAMANTIUM_INGOT, 1),
@@ -4889,7 +5031,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 "soul"
         );
         offerAlloying(exporter,
-                "graphene_from_chainmail_anthracite",
+                "alloying/graphene_from_chainmail_anthracite",
                 Ingredient.ofItems(CHAINMAIL),
                 Ingredient.ofItems(ANTHRACITE),
                 new ItemStack(GRAPHENE_CHAINMAIL, 1),
@@ -4915,6 +5057,22 @@ public class ModRecipeProvider extends FabricRecipeProvider {
         exporter.accept(
                 id,
                 new AlloyingRecipe(a, b, result, experience, cookingTime, theme),
+                null
+        );
+    }
+    private static void offerSteelCutting(
+            RecipeExporter exporter,
+            String recipeIdPath,
+            Ingredient input,
+            net.minecraft.item.Item output,
+            int count
+    ) {
+        Identifier id = Identifier.of(Mores.MOD_ID, recipeIdPath);
+
+        // Exporter wants a real Recipe<?> in 1.21.1 (same pattern you used for Alloying)
+        exporter.accept(
+                id,
+                new SteelCuttingRecipe("", input, new ItemStack(output, count)),
                 null
         );
     }

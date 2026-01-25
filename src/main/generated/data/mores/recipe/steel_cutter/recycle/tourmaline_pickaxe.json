@@ -1,0 +1,10 @@
+{
+  "type": "mores:steel_cutting",
+  "ingredient": {
+    "item": "mores:tourmaline_pickaxe"
+  },
+  "result": {
+    "count": 1,
+    "id": "mores:tourmaline_gem"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "type": "mores:steel_cutting",
+  "ingredient": {
+    "item": "minecraft:lapis_block"
+  },
+  "result": {
+    "count": 9,
+    "id": "minecraft:lapis_lazuli"
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "parent": "mores:obtain_adamantium_ingot",
+  "criteria": {
+    "has_adamantium_horse_armor": {
+      "conditions": {
+        "items": [
+          {
+            "items": "mores:adamantium_horse_armor"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": "Craft/find adamantium horse armor",
+    "icon": {
+      "count": 1,
+      "id": "mores:adamantium_horse_armor"
+    },
+    "title": "Immovable Horse"
+  },
+  "requirements": [
+    [
+      "has_adamantium_horse_armor"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

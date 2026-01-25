@@ -1,0 +1,10 @@
+{
+  "type": "mores:steel_cutting",
+  "ingredient": {
+    "item": "mores:topaz_axe"
+  },
+  "result": {
+    "count": 1,
+    "id": "mores:topaz_gem"
+  }
+}

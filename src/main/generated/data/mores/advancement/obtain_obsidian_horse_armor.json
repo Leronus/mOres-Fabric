@@ -1,0 +1,29 @@
+{
+  "parent": "mores:obtain_obsidian_ingot",
+  "criteria": {
+    "has_obsidian_horse_armor": {
+      "conditions": {
+        "items": [
+          {
+            "items": "mores:obsidian_horse_armor"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": "Craft/find obsidian horse armor",
+    "icon": {
+      "count": 1,
+      "id": "mores:obsidian_horse_armor"
+    },
+    "title": "Steadfast"
+  },
+  "requirements": [
+    [
+      "has_obsidian_horse_armor"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

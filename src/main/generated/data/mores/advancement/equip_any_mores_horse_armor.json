@@ -1,0 +1,104 @@
+{
+  "parent": "mores:craft_any_mores_shield",
+  "criteria": {
+    "has_any_mores_horse_armor": {
+      "conditions": {
+        "items": [
+          {
+            "items": "mores:tin_horse_armor"
+          },
+          {
+            "items": "mores:silver_horse_armor"
+          },
+          {
+            "items": "mores:copper_horse_armor"
+          },
+          {
+            "items": "mores:sterling_silver_horse_armor"
+          },
+          {
+            "items": "mores:rose_gold_horse_armor"
+          },
+          {
+            "items": "mores:bronze_horse_armor"
+          },
+          {
+            "items": "mores:cobalt_horse_armor"
+          },
+          {
+            "items": "mores:carbon_steel_horse_armor"
+          },
+          {
+            "items": "mores:hardened_steel_horse_armor"
+          },
+          {
+            "items": "mores:turquoise_horse_armor"
+          },
+          {
+            "items": "mores:lapis_lazuli_horse_armor"
+          },
+          {
+            "items": "mores:amethyst_horse_armor"
+          },
+          {
+            "items": "mores:onyx_horse_armor"
+          },
+          {
+            "items": "mores:citrine_horse_armor"
+          },
+          {
+            "items": "mores:tanzanite_horse_armor"
+          },
+          {
+            "items": "mores:tourmaline_horse_armor"
+          },
+          {
+            "items": "mores:topaz_horse_armor"
+          },
+          {
+            "items": "mores:spinel_horse_armor"
+          },
+          {
+            "items": "mores:emerald_horse_armor"
+          },
+          {
+            "items": "mores:ruby_horse_armor"
+          },
+          {
+            "items": "mores:sapphire_horse_armor"
+          },
+          {
+            "items": "mores:moissanite_horse_armor"
+          },
+          {
+            "items": "mores:obsidian_horse_armor"
+          },
+          {
+            "items": "mores:netherite_horse_armor"
+          },
+          {
+            "items": "mores:adamantium_horse_armor"
+          },
+          {
+            "items": "mores:enderite_horse_armor"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": "Find/craft any mOres horse armor.",
+    "icon": {
+      "count": 1,
+      "id": "mores:tourmaline_horse_armor"
+    },
+    "title": "Look at my Horse (Amazing)"
+  },
+  "requirements": [
+    [
+      "has_any_mores_horse_armor"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

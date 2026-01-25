@@ -1,0 +1,10 @@
+{
+  "type": "mores:steel_cutting",
+  "ingredient": {
+    "item": "mores:moissanite_battle_axe"
+  },
+  "result": {
+    "count": 1,
+    "id": "mores:moissanite_gem"
+  }
+}

@@ -6,13 +6,13 @@
     }
   },
   "display": {
-    "description": "Get flint and a gem from mOres gravel ores.",
+    "description": "Get both flint and a gem from a mOres gravel ore.",
     "frame": "goal",
     "icon": {
       "count": 1,
       "id": "minecraft:flint"
     },
-    "title": "Gravel Jackpot"
+    "title": "Jackpot!"
   },
   "requirements": [
     [

@@ -10,6 +10,7 @@ import mod.leronus.mores.screen.AlloyFurnaceScreen;
 import mod.leronus.mores.config.ClientConfig;
 import mod.leronus.mores.item.ModItems;
 import mod.leronus.mores.registry.ModScreenHandlers;
+import mod.leronus.mores.screen.SteelCutterScreen;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
 import net.fabricmc.fabric.api.client.rendering.v1.BuiltinItemRendererRegistry;
@@ -27,7 +28,7 @@ public class MoresClient implements ClientModInitializer {
         MidnightConfig.init(Mores.MOD_ID, ClientConfig.class);
         VanillaTooltipHook.init();
         HandledScreens.register(ModScreenHandlers.ALLOY_FURNACE, AlloyFurnaceScreen::new);
-        HandledScreens.register(ModScreenHandlers.STEEL_CUTTER, StonecutterScreen::new);
+        HandledScreens.register(ModScreenHandlers.STEEL_CUTTER, SteelCutterScreen::new);
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.STEEL_CUTTER, RenderLayer.getCutout());
         ShieldLikeRenderer shieldRenderer = new ShieldLikeRenderer();
         EntityRendererRegistry.register(

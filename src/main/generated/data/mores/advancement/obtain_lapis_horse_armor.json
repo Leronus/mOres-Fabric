@@ -1,0 +1,29 @@
+{
+  "parent": "mores:obtain_lapis_lazuli_gem",
+  "criteria": {
+    "has_lapis_horse_armor": {
+      "conditions": {
+        "items": [
+          {
+            "items": "mores:lapis_lazuli_horse_armor"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": "Craft/find lapis lazuli horse armor",
+    "icon": {
+      "count": 1,
+      "id": "mores:lapis_lazuli_horse_armor"
+    },
+    "title": "Sea Horse"
+  },
+  "requirements": [
+    [
+      "has_lapis_horse_armor"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

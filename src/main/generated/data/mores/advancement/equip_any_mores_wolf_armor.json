@@ -1,0 +1,62 @@
+{
+  "parent": "mores:craft_any_mores_shield",
+  "criteria": {
+    "has_any_mores_wolf_armor": {
+      "conditions": {
+        "items": [
+          {
+            "items": "mores:tin_wolf_armor"
+          },
+          {
+            "items": "mores:gold_wolf_armor"
+          },
+          {
+            "items": "mores:silver_wolf_armor"
+          },
+          {
+            "items": "mores:copper_wolf_armor"
+          },
+          {
+            "items": "mores:sterling_silver_wolf_armor"
+          },
+          {
+            "items": "mores:rose_gold_wolf_armor"
+          },
+          {
+            "items": "mores:bronze_wolf_armor"
+          },
+          {
+            "items": "mores:iron_wolf_armor"
+          },
+          {
+            "items": "mores:cobalt_wolf_armor"
+          },
+          {
+            "items": "mores:carbon_steel_wolf_armor"
+          },
+          {
+            "items": "mores:hardened_steel_wolf_armor"
+          },
+          {
+            "items": "mores:diamond_wolf_armor"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": "Find/craft any mOres wolf armor.",
+    "icon": {
+      "count": 1,
+      "id": "mores:diamond_wolf_armor"
+    },
+    "title": "Look at my Wolf"
+  },
+  "requirements": [
+    [
+      "has_any_mores_wolf_armor"
+    ]
+  ],
+  "sends_telemetry_event": true
+}
