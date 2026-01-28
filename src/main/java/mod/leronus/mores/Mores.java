@@ -7,7 +7,7 @@ import mod.leronus.mores.block.ModBlocks;
 import mod.leronus.mores.entity.ModDuckEntity;
 import mod.leronus.mores.entity.ModEntities;
 import mod.leronus.mores.entity.ModGolemEntity;
-import mod.leronus.mores.handlers.ModArmorBonuses;
+import mod.leronus.mores.handlers.ModArmorBonusHandler;
 import mod.leronus.mores.config.CommonConfig;
 import mod.leronus.mores.handlers.ModShearableAnimalArmorHandler;
 import mod.leronus.mores.item.ModItemGroups;
@@ -40,7 +40,7 @@ public class Mores implements ModInitializer {
 	@Override
 	public void onInitialize() {
         MidnightConfig.init(MOD_ID, CommonConfig.class);
-        ModArmorBonuses.registerArmorBonuses();
+        ModArmorBonusHandler.registerArmorBonuses();
         ModEntities.registerEntities();
         ModItemGroups.registerItemGroups();
 		ModItems.registerModItems();

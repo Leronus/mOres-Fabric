@@ -3,11 +3,14 @@ package mod.leronus.mores.handlers;
 import mod.leronus.mores.config.CommonConfig;
 import mod.leronus.mores.item.ModArmorMaterials;
 import net.fabricmc.fabric.api.event.lifecycle.v1.ServerTickEvents;
+import net.fabricmc.fabric.api.event.player.AttackEntityCallback;
+import net.minecraft.entity.ai.brain.MemoryModuleType;
 import net.minecraft.entity.attribute.EntityAttributeInstance;
 import net.minecraft.entity.attribute.EntityAttributeModifier;
 import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
+import net.minecraft.entity.mob.AbstractPiglinEntity;
 import net.minecraft.entity.mob.EndermanEntity;
 import net.minecraft.entity.mob.PiglinBruteEntity;
 import net.minecraft.entity.player.PlayerEntity;
@@ -16,6 +19,7 @@ import net.minecraft.item.ArmorMaterial;
 import net.minecraft.item.ItemStack;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.network.ServerPlayerEntity;
+import net.minecraft.util.ActionResult;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.Box;
 
@@ -27,10 +31,11 @@ import java.util.*;
  * Notes:
  * - “Infinite” potion effects are applied with duration -1.
  * - Immunities/pacification are handled here on a short interval to feel responsive.
+ * - Explosion immunity for OBSIDIAN is handled by a small damage mixin (see mixin class below).
  */
-public final class ModArmorBonuses {
+public final class ModArmorBonusHandler {
 
-    private ModArmorBonuses() {}
+    private ModArmorBonusHandler() {}
 
     private static final Identifier SPINEL_MAX_HEALTH_ID =
             Identifier.of("mores", "spinel_max_health_bonus");
@@ -38,8 +43,10 @@ public final class ModArmorBonuses {
     private static final Identifier CITRINE_REACH_ID =
             Identifier.of("mores", "citrine_block_reach_bonus");
 
-    private static final int CHECK_INTERVAL_TICKS = 5; // 0.25s
+    private static final int PROVOKE_TICKS = 20 * 30; // 30 seconds
+    private static final Map<UUID, Long> PROVOKED_UNTIL = new HashMap<>();
 
+    private static final int CHECK_INTERVAL_TICKS = 5; // 0.25s
     private static final Map<UUID, Long> NEXT_CHECK = new HashMap<>();
 
     // Signature templates: duration -1, ambient=false, particles=false, icon=true
@@ -63,10 +70,18 @@ public final class ModArmorBonuses {
         // Citrine +1 block reach handled via attribute (see tick)
         // Moissanite poison immunity handled via tick (see tick)
         // Onyx wither immunity handled via tick (see tick)
-        // Rose Gold piglin brute pacification handled via tick (see tick)
-        // Enderite endermen pacification handled via tick (see tick)
+        // Obsidian explosion immunity handled via mixin (cancel explosion damage)
 
-        ServerTickEvents.END_SERVER_TICK.register(ModArmorBonuses::onServerTick);
+        AttackEntityCallback.EVENT.register((player, world, hand, entity, hitResult) -> {
+            if (world.isClient()) return ActionResult.PASS;
+
+            if (entity instanceof AbstractPiglinEntity) {
+                markProvokedPiglins(player);
+            }
+            return ActionResult.PASS;
+        });
+
+        ServerTickEvents.END_SERVER_TICK.register(ModArmorBonusHandler::onServerTick);
     }
 
     private static void put(ArmorMaterial mat, StatusEffectInstance effect) {
@@ -130,18 +145,51 @@ public final class ModArmorBonuses {
             if (fullSetMaterial == ModArmorMaterials.ONYX.value()) {
                 player.removeStatusEffect(StatusEffects.WITHER);
             }
-            if (fullSetMaterial == ModArmorMaterials.ROSE_GOLD.value()) {
-                clearPiglinBruteTargets(player, 32.0);
-            }
-            if (fullSetMaterial == ModArmorMaterials.ENDERITE.value()) {
-                clearEndermanTargets(player, 48.0);
-            }
         } else {
             removeOnlyOurInfiniteEffects(player);
             removeSpinelBonus(player);
             removeCitrineReach(player);
         }
     }
+    public static void markProvokedPiglins(PlayerEntity player) {
+        if (player.getServer() == null) return;
+        long now = player.getServer().getOverworld().getTime();
+        PROVOKED_UNTIL.put(player.getUuid(), now + PROVOKE_TICKS);
+    }
+    private static boolean isProvoked(PlayerEntity player) {
+        if (!(player instanceof ServerPlayerEntity sp)) return false;
+        long now = sp.getServer().getOverworld().getTime();
+        long until = PROVOKED_UNTIL.getOrDefault(player.getUuid(), 0L);
+        return now < until;
+    }
+    public static boolean isPlayerProvokedPiglins(PlayerEntity player) {
+        return isProvoked(player);
+    }
+
+    // =========================================================
+    // PUBLIC HELPERS (used by mixins / other systems)
+    // =========================================================
+
+    /** True if the player currently wears a full set of the given armor material. */
+    public static boolean isWearingFullSet(PlayerEntity player, ArmorMaterial material) {
+        ArmorItem[] armor = getArmorItemsOrNull(player);
+        if (armor == null) return false;
+
+        ArmorMaterial m0 = armor[0].getMaterial().value();
+        if (m0 != material) return false;
+
+        return armor[1].getMaterial().value() == material
+                && armor[2].getMaterial().value() == material
+                && armor[3].getMaterial().value() == material;
+    }
+
+    /** For your obsidian “set bonus” checks. */
+    public static boolean isWearingFullObsidian(PlayerEntity player) {
+        return CommonConfig.enableArmorSetBonuses
+                && isWearingFullSet(player, ModArmorMaterials.OBSIDIAN.value());
+    }
+
+    // =========================================================
 
     private static ArmorMaterial getFullSetMaterialOrNull(PlayerEntity player) {
         ArmorItem[] armor = getArmorItemsOrNull(player);
@@ -269,17 +317,28 @@ public final class ModArmorBonuses {
     // =========================
     // ROSE GOLD: pacify Piglin Brutes
     // =========================
-    private static void clearPiglinBruteTargets(PlayerEntity player, double radius) {
+    private static void clearPiglinTargets(PlayerEntity player, double radius) {
         if (!(player instanceof ServerPlayerEntity sp)) return;
         var world = sp.getServerWorld();
 
+        // If you implement "provoked" logic, keep this guard:
+        if (isProvoked(player)) return;
+
         Box box = player.getBoundingBox().expand(radius);
-        for (PiglinBruteEntity brute : world.getEntitiesByClass(PiglinBruteEntity.class, box, b -> true)) {
-            if (brute.getTarget() == player) {
-                brute.setTarget(null);
+
+        for (AbstractPiglinEntity piglin : world.getEntitiesByClass(AbstractPiglinEntity.class, box, p -> true)) {
+            if (piglin.getTarget() == player) {
+                piglin.setTarget(null);
             }
+
+            // Clear AI memory so they don't instantly reacquire
+            var brain = piglin.getBrain();
+            brain.forget(MemoryModuleType.ATTACK_TARGET);
+            brain.forget(MemoryModuleType.ANGRY_AT);
+            brain.forget(MemoryModuleType.UNIVERSAL_ANGER);
         }
     }
+
 
     // =========================
     // ENDERITE: pacify Endermen

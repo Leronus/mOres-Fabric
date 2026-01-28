@@ -11,14 +11,12 @@ Testing:
 - Add duck egg to egg tag so it can be used for pies & cake etc
 - Added skeleton/other mob jockeys for duck
 - Custom Recipes for Steel Cutter (quartz/lapis/amethyst/turquoise dust from their material) -> Tools back to gem?
-- Armor trim models not correct
 - Advancements (add stuff for new food & golem & duck ofc)
 
 
 Todo:
 - Tool materials (update shields stats -> cooldown)
 - Ore generation as well as datagen for it (buff nether onyx)
-- Armor effects; Rose Gold (Piglin immunity), Obsidian (Explosion Immunity)
 - Turquoise horse armor / lapis -> faster sink? maybe a little less resistance
 - Loot tables CHESTS - tools, weapons, shields, horse/wolf armor, food, smithing templates & ENTITIES drops (golem + duck)
 
@@ -26,7 +24,6 @@ Todo:
 Optional:
 - Add more options to config (oregen, armor bonuses, entity spawning -> golem,duck,hostile mobs)
 - Texturing -> onyx battleaxe/mace/weapons?
-- Add enchanted apples? (bronze, silver) & Rose Gold apple!
 - More wolf armor?
 -- ENTITY SPAWNING
 - Strays -> small chance to spawn in metal armor (vanilla esque)

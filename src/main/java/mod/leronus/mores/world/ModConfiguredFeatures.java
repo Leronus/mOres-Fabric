@@ -24,80 +24,80 @@ import net.minecraft.world.gen.trunk.StraightTrunkPlacer;
 import java.util.List;
 
 public class ModConfiguredFeatures {
-    public static final RegistryKey<ConfiguredFeature<?, ?>> OVERWORLD_ANTHRACITE_ORE_KEY = registerKey("overworld_anthracite_ore");
-    public static final RegistryKey<ConfiguredFeature<?, ?>> NETHER_ANTHRACITE_ORE_KEY = registerKey("nether_anthracite_ore");
+    public static final RegistryKey<ConfiguredFeature<?, ?>> OVERWORLD_ANTHRACITE_ORE = registerKey("overworld_anthracite_ore");
+    public static final RegistryKey<ConfiguredFeature<?, ?>> NETHER_ANTHRACITE_ORE = registerKey("nether_anthracite_ore");
 
-    public static final RegistryKey<ConfiguredFeature<?, ?>> TIN_UPPER_ORE_KEY = registerKey("tin_upper_ore");
-    public static final RegistryKey<ConfiguredFeature<?, ?>> TIN_MIDDLE_ORE_KEY = registerKey("tin_middle_ore");
-    public static final RegistryKey<ConfiguredFeature<?, ?>> TIN_SMALL_ORE_KEY = registerKey("tin_small_ore");
+    public static final RegistryKey<ConfiguredFeature<?, ?>> TIN_UPPER_ORE = registerKey("tin_upper_ore");
+    public static final RegistryKey<ConfiguredFeature<?, ?>> TIN_MIDDLE_ORE = registerKey("tin_middle_ore");
+    public static final RegistryKey<ConfiguredFeature<?, ?>> TIN_SMALL_ORE = registerKey("tin_small_ore");
 
-    public static final RegistryKey<ConfiguredFeature<?, ?>> SILVER_UPPER_ORE_KEY = registerKey("silver_upper_ore");
-    public static final RegistryKey<ConfiguredFeature<?, ?>> SILVER_MIDDLE_ORE_KEY = registerKey("silver_middle_ore");
-    public static final RegistryKey<ConfiguredFeature<?, ?>> SILVER_SMALL_ORE_KEY = registerKey("silver_small_ore");
-    public static final RegistryKey<ConfiguredFeature<?, ?>> NETHER_SILVER_ORE_KEY = registerKey("nether_silver_ore");
-    public static final RegistryKey<ConfiguredFeature<?, ?>> ENDER_SILVER_ORE_KEY = registerKey("ender_silver_ore");
+    public static final RegistryKey<ConfiguredFeature<?, ?>> SILVER_UPPER_ORE = registerKey("silver_upper_ore");
+    public static final RegistryKey<ConfiguredFeature<?, ?>> SILVER_MIDDLE_ORE = registerKey("silver_middle_ore");
+    public static final RegistryKey<ConfiguredFeature<?, ?>> SILVER_SMALL_ORE = registerKey("silver_small_ore");
+    public static final RegistryKey<ConfiguredFeature<?, ?>> NETHER_SILVER_ORE = registerKey("nether_silver_ore");
+    public static final RegistryKey<ConfiguredFeature<?, ?>> ENDER_SILVER_ORE = registerKey("ender_silver_ore");
 
-    public static final RegistryKey<ConfiguredFeature<?, ?>> COBALT_UPPER_ORE_KEY = registerKey("cobalt_upper_ore");
-    public static final RegistryKey<ConfiguredFeature<?, ?>> COBALT_MIDDLE_ORE_KEY = registerKey("cobalt_middle_ore");
-    public static final RegistryKey<ConfiguredFeature<?, ?>> COBALT_SMALL_ORE_KEY = registerKey("cobalt_small_ore");
-    public static final RegistryKey<ConfiguredFeature<?, ?>> ENDER_COBALT_ORE_KEY = registerKey("ender_cobalt_ore");
+    public static final RegistryKey<ConfiguredFeature<?, ?>> COBALT_UPPER_ORE = registerKey("cobalt_upper_ore");
+    public static final RegistryKey<ConfiguredFeature<?, ?>> COBALT_MIDDLE_ORE = registerKey("cobalt_middle_ore");
+    public static final RegistryKey<ConfiguredFeature<?, ?>> COBALT_SMALL_ORE = registerKey("cobalt_small_ore");
+    public static final RegistryKey<ConfiguredFeature<?, ?>> ENDER_COBALT_ORE = registerKey("ender_cobalt_ore");
 
     //TODO Make one key once ready to make changes
-    public static final RegistryKey<ConfiguredFeature<?, ?>> TURQUOISE_SMALL_ORE_KEY = registerKey("turquoise_small_ore");
-    public static final RegistryKey<ConfiguredFeature<?, ?>> TURQUOISE_LARGE_ORE_KEY = registerKey("turquoise_large_ore");
-    public static final RegistryKey<ConfiguredFeature<?, ?>> TURQUOISE_BURIED_ORE_KEY = registerKey("turquoise_buried_ore");
+    public static final RegistryKey<ConfiguredFeature<?, ?>> TURQUOISE_SMALL_ORE = registerKey("turquoise_small_ore");
+    public static final RegistryKey<ConfiguredFeature<?, ?>> TURQUOISE_LARGE_ORE = registerKey("turquoise_large_ore");
+    public static final RegistryKey<ConfiguredFeature<?, ?>> TURQUOISE_BURIED_ORE = registerKey("turquoise_buried_ore");
 
-    public static final RegistryKey<ConfiguredFeature<?, ?>> QUARTZ_ORE_KEY = registerKey("quartz_ore");
+    public static final RegistryKey<ConfiguredFeature<?, ?>> QUARTZ_ORE = registerKey("quartz_ore");
 
-    public static final RegistryKey<ConfiguredFeature<?, ?>> CITRINE_ORE_KEY = registerKey("citrine_ore");
-    public static final RegistryKey<ConfiguredFeature<?, ?>> NETHER_CITRINE_ORE_KEY = registerKey("nether_citrine_ore");
+    public static final RegistryKey<ConfiguredFeature<?, ?>> CITRINE_ORE = registerKey("citrine_ore");
+    public static final RegistryKey<ConfiguredFeature<?, ?>> NETHER_CITRINE_ORE = registerKey("nether_citrine_ore");
 
-    public static final RegistryKey<ConfiguredFeature<?, ?>> TANZANITE_SMALL_ORE_KEY = registerKey("tanzanite_small_ore");
-    public static final RegistryKey<ConfiguredFeature<?, ?>> TANZANITE_LARGE_ORE_KEY = registerKey("tanzanite_large_ore");
-    public static final RegistryKey<ConfiguredFeature<?, ?>> TANZANITE_BURIED_ORE_KEY = registerKey("tanzanite_buried_ore");
-    public static final RegistryKey<ConfiguredFeature<?, ?>> NETHER_TANZANITE_ORE_KEY = registerKey("nether_tanzanite_ore");
-    public static final RegistryKey<ConfiguredFeature<?, ?>> ENDER_TANZANITE_ORE_KEY = registerKey("ender_tanzanite_ore");
+    public static final RegistryKey<ConfiguredFeature<?, ?>> TANZANITE_SMALL_ORE = registerKey("tanzanite_small_ore");
+    public static final RegistryKey<ConfiguredFeature<?, ?>> TANZANITE_LARGE_ORE = registerKey("tanzanite_large_ore");
+    public static final RegistryKey<ConfiguredFeature<?, ?>> TANZANITE_BURIED_ORE = registerKey("tanzanite_buried_ore");
+    public static final RegistryKey<ConfiguredFeature<?, ?>> NETHER_TANZANITE_ORE = registerKey("nether_tanzanite_ore");
+    public static final RegistryKey<ConfiguredFeature<?, ?>> ENDER_TANZANITE_ORE = registerKey("ender_tanzanite_ore");
 
-    public static final RegistryKey<ConfiguredFeature<?, ?>> TOPAZ_SMALL_ORE_KEY = registerKey("topaz_small_ore");
-    public static final RegistryKey<ConfiguredFeature<?, ?>> TOPAZ_LARGE_ORE_KEY = registerKey("topaz_large_ore");
-    public static final RegistryKey<ConfiguredFeature<?, ?>> TOPAZ_BURIED_ORE_KEY = registerKey("topaz_buried_ore");
-    public static final RegistryKey<ConfiguredFeature<?, ?>> NETHER_TOPAZ_ORE_KEY = registerKey("nether_topaz_ore");
-    public static final RegistryKey<ConfiguredFeature<?, ?>> ENDER_TOPAZ_ORE_KEY = registerKey("ender_topaz_ore");
+    public static final RegistryKey<ConfiguredFeature<?, ?>> TOPAZ_SMALL_ORE = registerKey("topaz_small_ore");
+    public static final RegistryKey<ConfiguredFeature<?, ?>> TOPAZ_LARGE_ORE = registerKey("topaz_large_ore");
+    public static final RegistryKey<ConfiguredFeature<?, ?>> TOPAZ_BURIED_ORE = registerKey("topaz_buried_ore");
+    public static final RegistryKey<ConfiguredFeature<?, ?>> NETHER_TOPAZ_ORE = registerKey("nether_topaz_ore");
+    public static final RegistryKey<ConfiguredFeature<?, ?>> ENDER_TOPAZ_ORE = registerKey("ender_topaz_ore");
 
-    public static final RegistryKey<ConfiguredFeature<?, ?>> TOURMALINE_SMALL_ORE_KEY = registerKey("tourmaline_small_ore");
-    public static final RegistryKey<ConfiguredFeature<?, ?>> TOURMALINE_LARGE_ORE_KEY = registerKey("tourmaline_large_ore");
-    public static final RegistryKey<ConfiguredFeature<?, ?>> TOURMALINE_BURIED_ORE_KEY = registerKey("tourmaline_buried_ore");
-    public static final RegistryKey<ConfiguredFeature<?, ?>> NETHER_TOURMALINE_ORE_KEY = registerKey("nether_tourmaline_ore");
-    public static final RegistryKey<ConfiguredFeature<?, ?>> ENDER_TOURMALINE_ORE_KEY = registerKey("ender_tourmaline_ore");
+    public static final RegistryKey<ConfiguredFeature<?, ?>> TOURMALINE_SMALL_ORE = registerKey("tourmaline_small_ore");
+    public static final RegistryKey<ConfiguredFeature<?, ?>> TOURMALINE_LARGE_ORE = registerKey("tourmaline_large_ore");
+    public static final RegistryKey<ConfiguredFeature<?, ?>> TOURMALINE_BURIED_ORE = registerKey("tourmaline_buried_ore");
+    public static final RegistryKey<ConfiguredFeature<?, ?>> NETHER_TOURMALINE_ORE = registerKey("nether_tourmaline_ore");
+    public static final RegistryKey<ConfiguredFeature<?, ?>> ENDER_TOURMALINE_ORE = registerKey("ender_tourmaline_ore");
 
-    public static final RegistryKey<ConfiguredFeature<?, ?>> RUBY_SMALL_ORE_KEY = registerKey("ruby_small_ore");
-    public static final RegistryKey<ConfiguredFeature<?, ?>> RUBY_LARGE_ORE_KEY = registerKey("ruby_large_ore");
-    public static final RegistryKey<ConfiguredFeature<?, ?>> RUBY_BURIED_ORE_KEY = registerKey("ruby_buried_ore");
-    public static final RegistryKey<ConfiguredFeature<?, ?>> NETHER_RUBY_ORE_KEY = registerKey("nether_ruby_ore");
-    public static final RegistryKey<ConfiguredFeature<?, ?>> ENDER_RUBY_ORE_KEY = registerKey("ender_ruby_ore");
+    public static final RegistryKey<ConfiguredFeature<?, ?>> RUBY_SMALL_ORE = registerKey("ruby_small_ore");
+    public static final RegistryKey<ConfiguredFeature<?, ?>> RUBY_LARGE_ORE = registerKey("ruby_large_ore");
+    public static final RegistryKey<ConfiguredFeature<?, ?>> RUBY_BURIED_ORE = registerKey("ruby_buried_ore");
+    public static final RegistryKey<ConfiguredFeature<?, ?>> NETHER_RUBY_ORE = registerKey("nether_ruby_ore");
+    public static final RegistryKey<ConfiguredFeature<?, ?>> ENDER_RUBY_ORE = registerKey("ender_ruby_ore");
 
-    public static final RegistryKey<ConfiguredFeature<?, ?>> SAPPHIRE_SMALL_ORE_KEY = registerKey("sapphire_small_ore");
-    public static final RegistryKey<ConfiguredFeature<?, ?>> SAPPHIRE_LARGE_ORE_KEY = registerKey("sapphire_large_ore");
-    public static final RegistryKey<ConfiguredFeature<?, ?>> SAPPHIRE_BURIED_ORE_KEY = registerKey("sapphire_buried_ore");
-    public static final RegistryKey<ConfiguredFeature<?, ?>> NETHER_SAPPHIRE_ORE_KEY = registerKey("nether_sapphire_ore");
-    public static final RegistryKey<ConfiguredFeature<?, ?>> ENDER_SAPPHIRE_ORE_KEY = registerKey("ender_sapphire_ore");
+    public static final RegistryKey<ConfiguredFeature<?, ?>> SAPPHIRE_SMALL_ORE = registerKey("sapphire_small_ore");
+    public static final RegistryKey<ConfiguredFeature<?, ?>> SAPPHIRE_LARGE_ORE = registerKey("sapphire_large_ore");
+    public static final RegistryKey<ConfiguredFeature<?, ?>> SAPPHIRE_BURIED_ORE = registerKey("sapphire_buried_ore");
+    public static final RegistryKey<ConfiguredFeature<?, ?>> NETHER_SAPPHIRE_ORE = registerKey("nether_sapphire_ore");
+    public static final RegistryKey<ConfiguredFeature<?, ?>> ENDER_SAPPHIRE_ORE = registerKey("ender_sapphire_ore");
 
-    public static final RegistryKey<ConfiguredFeature<?, ?>> SPINEL_SMALL_ORE_KEY = registerKey("spinel_small_ore");
-    public static final RegistryKey<ConfiguredFeature<?, ?>> SPINEL_LARGE_ORE_KEY = registerKey("spinel_large_ore");
-    public static final RegistryKey<ConfiguredFeature<?, ?>> SPINEL_BURIED_ORE_KEY = registerKey("spinel_buried_ore");
-    public static final RegistryKey<ConfiguredFeature<?, ?>> NETHER_SPINEL_ORE_KEY = registerKey("nether_spinel_ore");
-    public static final RegistryKey<ConfiguredFeature<?, ?>> ENDER_SPINEL_ORE_KEY = registerKey("ender_spinel_ore");
+    public static final RegistryKey<ConfiguredFeature<?, ?>> SPINEL_SMALL_ORE = registerKey("spinel_small_ore");
+    public static final RegistryKey<ConfiguredFeature<?, ?>> SPINEL_LARGE_ORE = registerKey("spinel_large_ore");
+    public static final RegistryKey<ConfiguredFeature<?, ?>> SPINEL_BURIED_ORE = registerKey("spinel_buried_ore");
+    public static final RegistryKey<ConfiguredFeature<?, ?>> NETHER_SPINEL_ORE = registerKey("nether_spinel_ore");
+    public static final RegistryKey<ConfiguredFeature<?, ?>> ENDER_SPINEL_ORE = registerKey("ender_spinel_ore");
 
-    public static final RegistryKey<ConfiguredFeature<?, ?>> MOISSANITE_SMALL_ORE_KEY = registerKey("moissanite_small_ore");
-    public static final RegistryKey<ConfiguredFeature<?, ?>> MOISSANITE_LARGE_ORE_KEY = registerKey("moissanite_large_ore");
-    public static final RegistryKey<ConfiguredFeature<?, ?>> MOISSANITE_BURIED_ORE_KEY = registerKey("moissanite_buried_ore");
-    public static final RegistryKey<ConfiguredFeature<?, ?>> NETHER_MOISSANITE_ORE_KEY = registerKey("nether_moissanite_ore");
-    public static final RegistryKey<ConfiguredFeature<?, ?>> ENDER_MOISSANITE_ORE_KEY = registerKey("ender_moissanite_ore");
+    public static final RegistryKey<ConfiguredFeature<?, ?>> MOISSANITE_SMALL_ORE = registerKey("moissanite_small_ore");
+    public static final RegistryKey<ConfiguredFeature<?, ?>> MOISSANITE_LARGE_ORE = registerKey("moissanite_large_ore");
+    public static final RegistryKey<ConfiguredFeature<?, ?>> MOISSANITE_BURIED_ORE = registerKey("moissanite_buried_ore");
+    public static final RegistryKey<ConfiguredFeature<?, ?>> NETHER_MOISSANITE_ORE = registerKey("nether_moissanite_ore");
+    public static final RegistryKey<ConfiguredFeature<?, ?>> ENDER_MOISSANITE_ORE = registerKey("ender_moissanite_ore");
 
-    public static final RegistryKey<ConfiguredFeature<?, ?>> NETHER_ONYX_ORE_KEY = registerKey("nether_onyx_ore");
-    public static final RegistryKey<ConfiguredFeature<?, ?>> ENDER_ONYX_ORE_KEY = registerKey("ender_onyx_ore");
+    public static final RegistryKey<ConfiguredFeature<?, ?>> NETHER_ONYX_ORE = registerKey("nether_onyx_ore");
+    public static final RegistryKey<ConfiguredFeature<?, ?>> ENDER_ONYX_ORE = registerKey("ender_onyx_ore");
 
-    public static final RegistryKey<ConfiguredFeature<?, ?>> ENDERITE_ORE_KEY = registerKey("enderite_ore");
+    public static final RegistryKey<ConfiguredFeature<?, ?>> ENDERITE_ORE = registerKey("enderite_ore");
 
     public static final RegistryKey<ConfiguredFeature<?, ?>> LEMON_OAK_TREE_WG =
             registerKey("lemon_oak_tree_wg");
@@ -106,6 +106,26 @@ public class ModConfiguredFeatures {
             registerKey("lemon_oak_tree_sapling");
 
 
+//        ORE_NETHER_GOLD, Feature.ORE, new OreFeatureConfig(ruleTest4, Blocks.NETHER_GOLD_ORE.getDefaultState(), 10));
+//        ORE_QUARTZ, Feature.ORE, new OreFeatureConfig(ruleTest4, Blocks.NETHER_QUARTZ_ORE.getDefaultState(), 14));
+//        ORE_COAL, Feature.ORE, new OreFeatureConfig(list6, 17));
+//        ORE_COAL_BURIED, Feature.ORE, new OreFeatureConfig(list6, 17, 0.5F));
+//        ORE_IRON, Feature.ORE, new OreFeatureConfig(list, 9));
+//        ORE_IRON_SMALL, Feature.ORE, new OreFeatureConfig(list, 4));
+//        ORE_GOLD, Feature.ORE, new OreFeatureConfig(list2, 9));
+//        ORE_GOLD_BURIED, Feature.ORE, new OreFeatureConfig(list2, 9, 0.5F));
+//        ORE_REDSTONE, Feature.ORE, new OreFeatureConfig(List.of(OreFeatureConfig.createTarget(ruleTest2, Blocks.REDSTONE_ORE.getDefaultState()), OreFeatureConfig.createTarget(ruleTest3, Blocks.DEEPSLATE_REDSTONE_ORE.getDefaultState())), 8));
+//        ORE_DIAMOND_SMALL, Feature.ORE, new OreFeatureConfig(list3, 4, 0.5F));
+//        ORE_DIAMOND_LARGE, Feature.ORE, new OreFeatureConfig(list3, 12, 0.7F));
+//        ORE_DIAMOND_BURIED, Feature.ORE, new OreFeatureConfig(list3, 8, 1.0F));
+//        ORE_DIAMOND_MEDIUM, Feature.ORE, new OreFeatureConfig(list3, 8, 0.5F));
+//        ORE_LAPIS, Feature.ORE, new OreFeatureConfig(list4, 7));
+//        ORE_LAPIS_BURIED, Feature.ORE, new OreFeatureConfig(list4, 7, 1.0F));
+//        ORE_EMERALD, Feature.ORE, new OreFeatureConfig(List.of(OreFeatureConfig.createTarget(ruleTest2, Blocks.EMERALD_ORE.getDefaultState()), OreFeatureConfig.createTarget(ruleTest3, Blocks.DEEPSLATE_EMERALD_ORE.getDefaultState())), 3));
+//        ORE_ANCIENT_DEBRIS_LARGE, Feature.SCATTERED_ORE, new OreFeatureConfig(ruleTest5, Blocks.ANCIENT_DEBRIS.getDefaultState(), 3, 1.0F));
+//        ORE_ANCIENT_DEBRIS_SMALL, Feature.SCATTERED_ORE, new OreFeatureConfig(ruleTest5, Blocks.ANCIENT_DEBRIS.getDefaultState(), 2, 1.0F));
+//        ORE_COPPER_SMALL, Feature.ORE, new OreFeatureConfig(list5, 10));
+//        ORE_COPPER_LARGE, Feature.ORE, new OreFeatureConfig(list5, 20));
 
     public static void bootstrap(Registerable<ConfiguredFeature<?, ?>> context) {
         // --- Overworld ores (stone + deepslate + "universal" variants) ---
@@ -150,7 +170,8 @@ public class ModConfiguredFeatures {
         );
 
         List<OreFeatureConfig.Target> OVERWORLD_QUARTZ_ORES = List.of(
-                OreFeatureConfig.createTarget(new TagMatchRuleTest(BlockTags.STONE_ORE_REPLACEABLES), ModBlocks.QUARTZ_ORE.getDefaultState())
+                OreFeatureConfig.createTarget(new TagMatchRuleTest(BlockTags.STONE_ORE_REPLACEABLES), ModBlocks.QUARTZ_ORE.getDefaultState()),
+                OreFeatureConfig.createTarget(new TagMatchRuleTest(BlockTags.DEEPSLATE_ORE_REPLACEABLES), ModBlocks.DEEPSLATE_QUARTZ_ORE.getDefaultState())
         );
 
         List<OreFeatureConfig.Target> OVERWORLD_CITRINE_ORES = List.of(
@@ -345,81 +366,81 @@ public class ModConfiguredFeatures {
 
 
         // --- Register configured features ---
-        register(context, OVERWORLD_ANTHRACITE_ORE_KEY, Feature.ORE, new OreFeatureConfig(OVERWORLD_ANTHRACITE_ORES, 6, 0.3F));
-        register(context, NETHER_ANTHRACITE_ORE_KEY, Feature.ORE, new OreFeatureConfig(NETHER_ANTHRACITE_ORES, 13, 0.65F));
+        register(context, OVERWORLD_ANTHRACITE_ORE, Feature.ORE, new OreFeatureConfig(OVERWORLD_ANTHRACITE_ORES, 6, 0.3F));
+        register(context, NETHER_ANTHRACITE_ORE, Feature.ORE, new OreFeatureConfig(NETHER_ANTHRACITE_ORES, 13, 0.65F));
 
-        register(context, TIN_UPPER_ORE_KEY, Feature.ORE, new OreFeatureConfig(OVERWORLD_TIN_ORES, 10));
-        register(context, TIN_MIDDLE_ORE_KEY, Feature.ORE, new OreFeatureConfig(OVERWORLD_TIN_ORES, 8));
-        register(context, TIN_SMALL_ORE_KEY, Feature.ORE, new OreFeatureConfig(OVERWORLD_TIN_ORES, 4));
+        register(context, TIN_UPPER_ORE, Feature.ORE, new OreFeatureConfig(OVERWORLD_TIN_ORES, 10));
+        register(context, TIN_MIDDLE_ORE, Feature.ORE, new OreFeatureConfig(OVERWORLD_TIN_ORES, 8));
+        register(context, TIN_SMALL_ORE, Feature.ORE, new OreFeatureConfig(OVERWORLD_TIN_ORES, 4));
 
-        register(context, COBALT_UPPER_ORE_KEY, Feature.ORE, new OreFeatureConfig(OVERWORLD_COBALT_ORES, 8, 0.8F));
-        register(context, COBALT_MIDDLE_ORE_KEY, Feature.ORE, new OreFeatureConfig(OVERWORLD_COBALT_ORES, 8, 0.8F));
-        register(context, COBALT_SMALL_ORE_KEY, Feature.ORE, new OreFeatureConfig(OVERWORLD_COBALT_ORES, 4, 0.5F));
-        register(context, ENDER_COBALT_ORE_KEY, Feature.ORE, new OreFeatureConfig(ENDER_COBALT_ORES, 7));
+        register(context, COBALT_UPPER_ORE, Feature.ORE, new OreFeatureConfig(OVERWORLD_COBALT_ORES, 8, 0.8F));
+        register(context, COBALT_MIDDLE_ORE, Feature.ORE, new OreFeatureConfig(OVERWORLD_COBALT_ORES, 8, 0.8F));
+        register(context, COBALT_SMALL_ORE, Feature.ORE, new OreFeatureConfig(OVERWORLD_COBALT_ORES, 4, 0.5F));
+        register(context, ENDER_COBALT_ORE, Feature.ORE, new OreFeatureConfig(ENDER_COBALT_ORES, 7));
 
-        register(context, SILVER_UPPER_ORE_KEY, Feature.ORE, new OreFeatureConfig(OVERWORLD_SILVER_ORES, 8));
-        register(context, SILVER_MIDDLE_ORE_KEY, Feature.ORE, new OreFeatureConfig(OVERWORLD_SILVER_ORES, 8));
-        register(context, SILVER_SMALL_ORE_KEY, Feature.ORE, new OreFeatureConfig(OVERWORLD_SILVER_ORES, 4));
-        register(context, NETHER_SILVER_ORE_KEY, Feature.ORE, new OreFeatureConfig(NETHER_SILVER_ORES, 9));
-        register(context, ENDER_SILVER_ORE_KEY, Feature.ORE, new OreFeatureConfig(ENDER_SILVER_ORES, 8));
+        register(context, SILVER_UPPER_ORE, Feature.ORE, new OreFeatureConfig(OVERWORLD_SILVER_ORES, 8));
+        register(context, SILVER_MIDDLE_ORE, Feature.ORE, new OreFeatureConfig(OVERWORLD_SILVER_ORES, 8));
+        register(context, SILVER_SMALL_ORE, Feature.ORE, new OreFeatureConfig(OVERWORLD_SILVER_ORES, 4));
+        register(context, NETHER_SILVER_ORE, Feature.ORE, new OreFeatureConfig(NETHER_SILVER_ORES, 9));
+        register(context, ENDER_SILVER_ORE, Feature.ORE, new OreFeatureConfig(ENDER_SILVER_ORES, 8));
 
-        register(context, TURQUOISE_SMALL_ORE_KEY, Feature.ORE, new OreFeatureConfig(OVERWORLD_TURQUOISE_ORES, 6, 0.5F));
-        register(context, TURQUOISE_LARGE_ORE_KEY, Feature.ORE, new OreFeatureConfig(OVERWORLD_TURQUOISE_ORES, 7, 0.7F));
-        register(context, TURQUOISE_BURIED_ORE_KEY, Feature.ORE, new OreFeatureConfig(OVERWORLD_TURQUOISE_ORES, 6, 1.0F));
-
-        //TODO Check values
-        register(context, QUARTZ_ORE_KEY, Feature.ORE, new OreFeatureConfig(OVERWORLD_QUARTZ_ORES, 9, 0.5F));
-        register(context, CITRINE_ORE_KEY, Feature.ORE, new OreFeatureConfig(OVERWORLD_CITRINE_ORES, 9, 0.5F));
-        register(context, NETHER_CITRINE_ORE_KEY, Feature.ORE, new OreFeatureConfig(NETHER_CITRINE_ORES, 9, 0.5F));
+        register(context, TURQUOISE_SMALL_ORE, Feature.ORE, new OreFeatureConfig(OVERWORLD_TURQUOISE_ORES, 6, 0.5F));
+        register(context, TURQUOISE_LARGE_ORE, Feature.ORE, new OreFeatureConfig(OVERWORLD_TURQUOISE_ORES, 7, 0.7F));
+        register(context, TURQUOISE_BURIED_ORE, Feature.ORE, new OreFeatureConfig(OVERWORLD_TURQUOISE_ORES, 6, 1.0F));
 
         //TODO Check values
-        register(context, TANZANITE_SMALL_ORE_KEY, Feature.ORE, new OreFeatureConfig(OVERWORLD_TANZANITE_ORES, 4, 0.2F));
-        register(context, TANZANITE_LARGE_ORE_KEY, Feature.ORE, new OreFeatureConfig(OVERWORLD_TANZANITE_ORES, 10, 0.6F));
-        register(context, TANZANITE_BURIED_ORE_KEY, Feature.ORE, new OreFeatureConfig(OVERWORLD_TANZANITE_ORES, 8, 0.8F));
-        register(context, NETHER_TANZANITE_ORE_KEY, Feature.ORE, new OreFeatureConfig(NETHER_TANZANITE_ORES, 5, 0.7F));
-        register(context, ENDER_TANZANITE_ORE_KEY, Feature.ORE, new OreFeatureConfig(ENDER_TANZANITE_ORES, 5, 0.7F));
-
-        register(context, TOPAZ_SMALL_ORE_KEY, Feature.ORE, new OreFeatureConfig(OVERWORLD_TOPAZ_ORES, 4, 0.2F));
-        register(context, TOPAZ_LARGE_ORE_KEY, Feature.ORE, new OreFeatureConfig(OVERWORLD_TOPAZ_ORES, 10, 0.6F));
-        register(context, TOPAZ_BURIED_ORE_KEY, Feature.ORE, new OreFeatureConfig(OVERWORLD_TOPAZ_ORES, 8, 0.8F));
-        register(context, NETHER_TOPAZ_ORE_KEY, Feature.ORE, new OreFeatureConfig(NETHER_TOPAZ_ORES, 5, 0.7F));
-        register(context, ENDER_TOPAZ_ORE_KEY, Feature.ORE, new OreFeatureConfig(ENDER_TOPAZ_ORES, 5, 0.7F));
-
-        register(context, TOURMALINE_SMALL_ORE_KEY, Feature.ORE, new OreFeatureConfig(OVERWORLD_TOURMALINE_ORES, 4, 0.1F));
-        register(context, TOURMALINE_LARGE_ORE_KEY, Feature.ORE, new OreFeatureConfig(OVERWORLD_TOURMALINE_ORES, 10, 0.8F));
-        register(context, TOURMALINE_BURIED_ORE_KEY, Feature.ORE, new OreFeatureConfig(OVERWORLD_TOURMALINE_ORES, 8, 0.6F));
-        register(context, NETHER_TOURMALINE_ORE_KEY, Feature.ORE, new OreFeatureConfig(NETHER_TOURMALINE_ORES, 5, 0.7F));
-        register(context, ENDER_TOURMALINE_ORE_KEY, Feature.ORE, new OreFeatureConfig(ENDER_TOURMALINE_ORES, 5, 0.7F));
-
-        register(context, RUBY_SMALL_ORE_KEY, Feature.ORE, new OreFeatureConfig(OVERWORLD_RUBY_ORES, 4, 0.5F));
-        register(context, RUBY_LARGE_ORE_KEY, Feature.ORE, new OreFeatureConfig(OVERWORLD_RUBY_ORES, 10, 0.7F));
-        register(context, RUBY_BURIED_ORE_KEY, Feature.ORE, new OreFeatureConfig(OVERWORLD_RUBY_ORES, 8, 1.0F));
-        register(context, NETHER_RUBY_ORE_KEY, Feature.ORE, new OreFeatureConfig(NETHER_RUBY_ORES, 6, 0.8F));
-        register(context, ENDER_RUBY_ORE_KEY, Feature.ORE, new OreFeatureConfig(ENDER_RUBY_ORES, 6, 0.8F));
-
-        register(context, SAPPHIRE_SMALL_ORE_KEY, Feature.ORE, new OreFeatureConfig(OVERWORLD_SAPPHIRE_ORES, 4, 0.5F));
-        register(context, SAPPHIRE_LARGE_ORE_KEY, Feature.ORE, new OreFeatureConfig(OVERWORLD_SAPPHIRE_ORES, 10, 0.7F));
-        register(context, SAPPHIRE_BURIED_ORE_KEY, Feature.ORE, new OreFeatureConfig(OVERWORLD_SAPPHIRE_ORES, 8, 1.0F));
-        register(context, NETHER_SAPPHIRE_ORE_KEY, Feature.ORE, new OreFeatureConfig(NETHER_SAPPHIRE_ORES, 5, 0.7F));
-        register(context, ENDER_SAPPHIRE_ORE_KEY, Feature.ORE, new OreFeatureConfig(ENDER_SAPPHIRE_ORES, 6, 0.8F));
-
-        register(context, SPINEL_SMALL_ORE_KEY, Feature.ORE, new OreFeatureConfig(OVERWORLD_SPINEL_ORES, 4, 0.5F));
-        register(context, SPINEL_LARGE_ORE_KEY, Feature.ORE, new OreFeatureConfig(OVERWORLD_SPINEL_ORES, 10, 0.7F));
-        register(context, SPINEL_BURIED_ORE_KEY, Feature.ORE, new OreFeatureConfig(OVERWORLD_SPINEL_ORES, 8, 1.0F));
-        register(context, NETHER_SPINEL_ORE_KEY, Feature.ORE, new OreFeatureConfig(NETHER_SPINEL_ORES, 5, 0.7F));
-        register(context, ENDER_SPINEL_ORE_KEY, Feature.ORE, new OreFeatureConfig(ENDER_SPINEL_ORES, 5, 0.7F));
-
-        register(context, NETHER_ONYX_ORE_KEY, Feature.ORE, new OreFeatureConfig(NETHER_ONYX_ORES, 8));
-        register(context, ENDER_ONYX_ORE_KEY, Feature.ORE, new OreFeatureConfig(ENDER_ONYX_ORES, 8));
+        register(context, QUARTZ_ORE, Feature.ORE, new OreFeatureConfig(OVERWORLD_QUARTZ_ORES, 9, 0.5F));
+        register(context, CITRINE_ORE, Feature.ORE, new OreFeatureConfig(OVERWORLD_CITRINE_ORES, 9, 0.5F));
+        register(context, NETHER_CITRINE_ORE, Feature.ORE, new OreFeatureConfig(NETHER_CITRINE_ORES, 9, 0.5F));
 
         //TODO Check values
-        register(context, MOISSANITE_SMALL_ORE_KEY, Feature.ORE, new OreFeatureConfig(OVERWORLD_MOISSANITE_ORES, 2, 0.5F));
-        register(context, MOISSANITE_LARGE_ORE_KEY, Feature.ORE, new OreFeatureConfig(OVERWORLD_MOISSANITE_ORES, 6, 0.7F));
-        register(context, MOISSANITE_BURIED_ORE_KEY, Feature.ORE, new OreFeatureConfig(OVERWORLD_MOISSANITE_ORES, 4, 1.0F));
-        register(context, NETHER_MOISSANITE_ORE_KEY, Feature.ORE, new OreFeatureConfig(NETHER_MOISSANITE_ORES, 4));
-        register(context, ENDER_MOISSANITE_ORE_KEY, Feature.ORE, new OreFeatureConfig(ENDER_MOISSANITE_ORES, 1, 1.0F));
+        register(context, TANZANITE_SMALL_ORE, Feature.ORE, new OreFeatureConfig(OVERWORLD_TANZANITE_ORES, 4, 0.2F));
+        register(context, TANZANITE_LARGE_ORE, Feature.ORE, new OreFeatureConfig(OVERWORLD_TANZANITE_ORES, 10, 0.6F));
+        register(context, TANZANITE_BURIED_ORE, Feature.ORE, new OreFeatureConfig(OVERWORLD_TANZANITE_ORES, 8, 0.8F));
+        register(context, NETHER_TANZANITE_ORE, Feature.ORE, new OreFeatureConfig(NETHER_TANZANITE_ORES, 5, 0.7F));
+        register(context, ENDER_TANZANITE_ORE, Feature.ORE, new OreFeatureConfig(ENDER_TANZANITE_ORES, 5, 0.7F));
 
-        register(context, ENDERITE_ORE_KEY, Feature.ORE, new OreFeatureConfig(ENDERITE_ORES, 3, 1.0F));
+        register(context, TOPAZ_SMALL_ORE, Feature.ORE, new OreFeatureConfig(OVERWORLD_TOPAZ_ORES, 4, 0.2F));
+        register(context, TOPAZ_LARGE_ORE, Feature.ORE, new OreFeatureConfig(OVERWORLD_TOPAZ_ORES, 10, 0.6F));
+        register(context, TOPAZ_BURIED_ORE, Feature.ORE, new OreFeatureConfig(OVERWORLD_TOPAZ_ORES, 8, 0.8F));
+        register(context, NETHER_TOPAZ_ORE, Feature.ORE, new OreFeatureConfig(NETHER_TOPAZ_ORES, 5, 0.7F));
+        register(context, ENDER_TOPAZ_ORE, Feature.ORE, new OreFeatureConfig(ENDER_TOPAZ_ORES, 5, 0.7F));
+
+        register(context, TOURMALINE_SMALL_ORE, Feature.ORE, new OreFeatureConfig(OVERWORLD_TOURMALINE_ORES, 4, 0.1F));
+        register(context, TOURMALINE_LARGE_ORE, Feature.ORE, new OreFeatureConfig(OVERWORLD_TOURMALINE_ORES, 10, 0.8F));
+        register(context, TOURMALINE_BURIED_ORE, Feature.ORE, new OreFeatureConfig(OVERWORLD_TOURMALINE_ORES, 8, 0.6F));
+        register(context, NETHER_TOURMALINE_ORE, Feature.ORE, new OreFeatureConfig(NETHER_TOURMALINE_ORES, 5, 0.7F));
+        register(context, ENDER_TOURMALINE_ORE, Feature.ORE, new OreFeatureConfig(ENDER_TOURMALINE_ORES, 5, 0.7F));
+
+        register(context, RUBY_SMALL_ORE, Feature.ORE, new OreFeatureConfig(OVERWORLD_RUBY_ORES, 4, 0.5F));
+        register(context, RUBY_LARGE_ORE, Feature.ORE, new OreFeatureConfig(OVERWORLD_RUBY_ORES, 10, 0.7F));
+        register(context, RUBY_BURIED_ORE, Feature.ORE, new OreFeatureConfig(OVERWORLD_RUBY_ORES, 8, 1.0F));
+        register(context, NETHER_RUBY_ORE, Feature.ORE, new OreFeatureConfig(NETHER_RUBY_ORES, 6, 0.8F));
+        register(context, ENDER_RUBY_ORE, Feature.ORE, new OreFeatureConfig(ENDER_RUBY_ORES, 6, 0.8F));
+
+        register(context, SAPPHIRE_SMALL_ORE, Feature.ORE, new OreFeatureConfig(OVERWORLD_SAPPHIRE_ORES, 4, 0.5F));
+        register(context, SAPPHIRE_LARGE_ORE, Feature.ORE, new OreFeatureConfig(OVERWORLD_SAPPHIRE_ORES, 10, 0.7F));
+        register(context, SAPPHIRE_BURIED_ORE, Feature.ORE, new OreFeatureConfig(OVERWORLD_SAPPHIRE_ORES, 8, 1.0F));
+        register(context, NETHER_SAPPHIRE_ORE, Feature.ORE, new OreFeatureConfig(NETHER_SAPPHIRE_ORES, 5, 0.7F));
+        register(context, ENDER_SAPPHIRE_ORE, Feature.ORE, new OreFeatureConfig(ENDER_SAPPHIRE_ORES, 6, 0.8F));
+
+        register(context, SPINEL_SMALL_ORE, Feature.ORE, new OreFeatureConfig(OVERWORLD_SPINEL_ORES, 4, 0.5F));
+        register(context, SPINEL_LARGE_ORE, Feature.ORE, new OreFeatureConfig(OVERWORLD_SPINEL_ORES, 10, 0.7F));
+        register(context, SPINEL_BURIED_ORE, Feature.ORE, new OreFeatureConfig(OVERWORLD_SPINEL_ORES, 8, 1.0F));
+        register(context, NETHER_SPINEL_ORE, Feature.ORE, new OreFeatureConfig(NETHER_SPINEL_ORES, 5, 0.7F));
+        register(context, ENDER_SPINEL_ORE, Feature.ORE, new OreFeatureConfig(ENDER_SPINEL_ORES, 5, 0.7F));
+
+        register(context, NETHER_ONYX_ORE, Feature.ORE, new OreFeatureConfig(NETHER_ONYX_ORES, 8));
+        register(context, ENDER_ONYX_ORE, Feature.ORE, new OreFeatureConfig(ENDER_ONYX_ORES, 8));
+
+        //TODO Check values
+        register(context, MOISSANITE_SMALL_ORE, Feature.ORE, new OreFeatureConfig(OVERWORLD_MOISSANITE_ORES, 2, 0.5F));
+        register(context, MOISSANITE_LARGE_ORE, Feature.ORE, new OreFeatureConfig(OVERWORLD_MOISSANITE_ORES, 6, 0.7F));
+        register(context, MOISSANITE_BURIED_ORE, Feature.ORE, new OreFeatureConfig(OVERWORLD_MOISSANITE_ORES, 4, 1.0F));
+        register(context, NETHER_MOISSANITE_ORE, Feature.ORE, new OreFeatureConfig(NETHER_MOISSANITE_ORES, 4));
+        register(context, ENDER_MOISSANITE_ORE, Feature.ORE, new OreFeatureConfig(ENDER_MOISSANITE_ORES, 1, 1.0F));
+
+        register(context, ENDERITE_ORE, Feature.SCATTERED_ORE, new OreFeatureConfig(ENDERITE_ORES, 3, 1.0F));
 
         // --------------------
         // Lemon Oak Tree configs
