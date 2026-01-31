@@ -20,6 +20,13 @@ Todo:
 - Turquoise horse armor / lapis -> faster sink? maybe a little less resistance
 - Loot tables CHESTS - tools, weapons, shields, horse/wolf armor, food, smithing templates & ENTITIES drops (golem + duck)
 
+Modpack:
+Animated Textures
+Horseman testing with mores horse armor
+Steelcutter REI integration
+Custom nether portal frame (horizontal but vertical too, check it) - RTP command translations
+Emissive texture fix?
+
 
 Optional:
 - Add more options to config (oregen, armor bonuses, entity spawning -> golem,duck,hostile mobs)

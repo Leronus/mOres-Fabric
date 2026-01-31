@@ -35,8 +35,11 @@
     "server.OverworldHostileDuckJockeyMixin"
   ],
   "client": [
-    "client.WolfArmorFeatureRendererMixin"
+    "client.WolfArmorFeatureRendererMixin",
+    "client.PlayerEntityRendererMixin",
+    "client.CapeFeatureRendererMixin"
   ],
+  "plugin": "mod.leronus.mores.mixin.MoresMixinPlugin",
   "injectors": {
     "defaultRequire": 1
   }

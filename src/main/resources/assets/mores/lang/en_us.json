@@ -1290,5 +1290,11 @@
   "mores.midnightconfig.category.worldgen": "Worldgen",
   "mores.midnightconfig.enum.MaterialPreset.DEFAULT": "Default",
   "mores.midnightconfig.enum.MaterialPreset.SOFTER": "Softer",
-  "mores.midnightconfig.enum.MaterialPreset.HARDER": "Harder"
+  "mores.midnightconfig.enum.MaterialPreset.HARDER": "Harder",
+
+  "block.customnetherportals.horizontal_nether_portal": "Custom Nether Portal",
+  "ftbessentials.rtp.looking": "Looking for random location...",
+  "ftbessentials.rtp.found": "Found a random location. Teleporting...",
+  "ftbessentials.unknown_dest": "Home has not been set yet.",
+  "ftbessentials.home.set": "Home has been set."
 }
