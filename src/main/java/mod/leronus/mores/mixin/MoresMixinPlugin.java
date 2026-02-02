@@ -14,6 +14,10 @@ public class MoresMixinPlugin implements IMixinConfigPlugin {
     @Override public String getRefMapperConfig() { return null; }
 
     @Override public boolean shouldApplyMixin(String targetClassName, String mixinClassName) {
+        // Gate anything that touches DetailAB
+        if (mixinClassName.endsWith("MultiArmorBarMixin")) {
+            return isModLoaded("detailabreconst");
+        }
         // Only gate THIS mixin
         if (mixinClassName.endsWith("CapeFeatureRendererMixin")) {
             return isModLoaded("accessories");

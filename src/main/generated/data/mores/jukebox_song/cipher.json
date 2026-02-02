@@ -3,6 +3,6 @@
   "description": {
     "translate": "item.mores.cipher_music_disc.desc"
   },
-  "length_in_seconds": 3820,
+  "length_in_seconds": 191,
   "sound_event": "mores:cipher"
 }

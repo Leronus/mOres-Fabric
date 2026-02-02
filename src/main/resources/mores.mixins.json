@@ -37,7 +37,8 @@
   "client": [
     "client.WolfArmorFeatureRendererMixin",
     "client.PlayerEntityRendererMixin",
-    "client.CapeFeatureRendererMixin"
+    "client.CapeFeatureRendererMixin",
+    "client.MultiArmorBarMixin"
   ],
   "plugin": "mod.leronus.mores.mixin.MoresMixinPlugin",
   "injectors": {
