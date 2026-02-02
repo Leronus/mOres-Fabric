@@ -1,0 +1,11 @@
+{
+  "type": "mores:steel_cutting",
+  "group": "steel_cutting",
+  "ingredient": {
+    "item": "mores:amethyst_chestplate"
+  },
+  "result": {
+    "count": 2,
+    "id": "mores:amethyst_gem"
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "type": "minecraft:blasting",
+  "category": "misc",
+  "cookingtime": 100,
+  "experience": 0.1,
+  "ingredient": [
+    {
+      "item": "mores:bronze_pickaxe"
+    },
+    {
+      "item": "mores:bronze_shovel"
+    },
+    {
+      "item": "mores:bronze_axe"
+    },
+    {
+      "item": "mores:bronze_hoe"
+    },
+    {
+      "item": "mores:bronze_sword"
+    },
+    {
+      "item": "mores:bronze_helmet"
+    },
+    {
+      "item": "mores:bronze_chestplate"
+    },
+    {
+      "item": "mores:bronze_leggings"
+    },
+    {
+      "item": "mores:bronze_boots"
+    },
+    {
+      "item": "mores:bronze_horse_armor"
+    },
+    {
+      "item": "mores:bronze_battle_mace"
+    },
+    {
+      "item": "mores:bronze_dagger"
+    },
+    {
+      "item": "mores:bronze_battle_axe"
+    }
+  ],
+  "result": {
+    "id": "mores:bronze_nugget"
+  }
+}

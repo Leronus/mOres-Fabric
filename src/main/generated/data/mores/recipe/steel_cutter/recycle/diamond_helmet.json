@@ -1,0 +1,11 @@
+{
+  "type": "mores:steel_cutting",
+  "group": "steel_cutting",
+  "ingredient": {
+    "item": "minecraft:diamond_helmet"
+  },
+  "result": {
+    "count": 1,
+    "id": "minecraft:diamond"
+  }
+}

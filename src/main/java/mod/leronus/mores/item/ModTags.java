@@ -43,6 +43,7 @@ public class ModTags {
 
         public static final TagKey<Item> TIN_NUGGET = createTag("nugget/tin");
         public static final TagKey<Item> SILVER_NUGGET = createTag("nugget/silver");
+        public static final TagKey<Item> COPPER_NUGGET = createTag("nugget/copper");
         public static final TagKey<Item> STERLING_SILVER_NUGGET = createTag("nugget/sterling_silver");
         public static final TagKey<Item> ROSE_GOLD_NUGGET = createTag("nugget/rose_gold");
         public static final TagKey<Item> BRONZE_NUGGET = createTag("nugget/bronze");

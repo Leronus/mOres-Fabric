@@ -1,0 +1,11 @@
+{
+  "type": "mores:steel_cutting",
+  "group": "steel_cutting",
+  "ingredient": {
+    "item": "mores:onyx_boots"
+  },
+  "result": {
+    "count": 1,
+    "id": "mores:onyx_gem"
+  }
+}

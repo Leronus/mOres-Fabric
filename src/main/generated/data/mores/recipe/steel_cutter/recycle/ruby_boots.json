@@ -1,0 +1,11 @@
+{
+  "type": "mores:steel_cutting",
+  "group": "steel_cutting",
+  "ingredient": {
+    "item": "mores:ruby_boots"
+  },
+  "result": {
+    "count": 1,
+    "id": "mores:ruby_gem"
+  }
+}

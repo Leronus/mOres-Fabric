@@ -1,0 +1,11 @@
+{
+  "type": "mores:steel_cutting",
+  "group": "steel_cutting",
+  "ingredient": {
+    "item": "mores:lapis_lazuli_boots"
+  },
+  "result": {
+    "count": 1,
+    "id": "mores:lapis_lazuli_gem"
+  }
+}

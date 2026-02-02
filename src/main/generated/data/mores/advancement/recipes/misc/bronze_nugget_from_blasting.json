@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_bronze_pickaxe": {
+      "conditions": {
+        "items": [
+          {
+            "items": "mores:bronze_pickaxe"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "mores:bronze_nugget_from_blasting"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_bronze_pickaxe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "mores:bronze_nugget_from_blasting"
+    ]
+  }
+}

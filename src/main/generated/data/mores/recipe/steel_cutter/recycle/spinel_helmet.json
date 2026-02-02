@@ -1,0 +1,11 @@
+{
+  "type": "mores:steel_cutting",
+  "group": "steel_cutting",
+  "ingredient": {
+    "item": "mores:spinel_helmet"
+  },
+  "result": {
+    "count": 1,
+    "id": "mores:spinel_gem"
+  }
+}

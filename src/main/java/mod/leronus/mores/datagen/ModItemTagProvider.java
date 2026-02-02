@@ -577,6 +577,18 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
                 ModItems.MOISSANITE_GEM
         );
 
+        getOrCreateTagBuilder(ConventionalItemTags.NUGGETS).add(
+                ModItems.TIN_NUGGET,
+                ModItems.SILVER_NUGGET,
+                ModItems.COPPER_NUGGET,
+                ModItems.BRONZE_NUGGET,
+                ModItems.COBALT_NUGGET,
+                ModItems.STERLING_SILVER_NUGGET,
+                ModItems.ROSE_GOLD_NUGGET,
+                ModItems.CARBON_STEEL_NUGGET,
+                ModItems.HARDENED_STEEL_NUGGET
+        );
+
         getOrCreateTagBuilder(ModTags.Items.ANTHRACITE).add(ModItems.ANTHRACITE);
         getOrCreateTagBuilder(ModTags.Items.LAPIS_LAZULI_DUST).add(ModItems.LAPIS_LAZULI_DUST);
         getOrCreateTagBuilder(ModTags.Items.TURQUOISE_DUST).add(ModItems.TURQUOISE_DUST);
@@ -584,6 +596,7 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
         getOrCreateTagBuilder(ModTags.Items.AMETHYST_DUST).add(ModItems.AMETHYST_DUST);
         getOrCreateTagBuilder(ModTags.Items.TIN_NUGGET).add(ModItems.TIN_NUGGET);
         getOrCreateTagBuilder(ModTags.Items.SILVER_NUGGET).add(ModItems.SILVER_NUGGET);
+        getOrCreateTagBuilder(ModTags.Items.COPPER_NUGGET).add(ModItems.COPPER_NUGGET);
         getOrCreateTagBuilder(ModTags.Items.BRONZE_NUGGET).add(ModItems.BRONZE_NUGGET);
         getOrCreateTagBuilder(ModTags.Items.COBALT_NUGGET).add(ModItems.COBALT_NUGGET);
         getOrCreateTagBuilder(ModTags.Items.STERLING_SILVER_NUGGET).add(ModItems.STERLING_SILVER_NUGGET);

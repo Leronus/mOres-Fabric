@@ -36,15 +36,15 @@ public class AlloyingCategory implements DisplayCategory<AlloyingDisplay> {
             Identifier.of(Mores.MOD_ID, "textures/gui/alloy_furnace_rei.png");
 
     // Theme overlays
-    private static final Identifier BURN_SOUL   = Identifier.of(Mores.MOD_ID, "textures/gui/theme/soul_burn.png");
-    private static final Identifier BURN_RED    = Identifier.of(Mores.MOD_ID, "textures/gui/theme/red_burn.png");
-    private static final Identifier BURN_PURPLE = Identifier.of(Mores.MOD_ID, "textures/gui/theme/purple_burn.png");
-    private static final Identifier BURN_BLUE   = Identifier.of(Mores.MOD_ID, "textures/gui/theme/blue_burn.png");
+    private static final Identifier BURN_SOUL   = Identifier.of(Mores.MOD_ID, "textures/gui/sprites/container/alloy_furnace/soul_burn.png");
+    private static final Identifier BURN_RED    = Identifier.of(Mores.MOD_ID, "textures/gui/sprites/container/alloy_furnace/red_burn.png");
+    private static final Identifier BURN_PURPLE = Identifier.of(Mores.MOD_ID, "textures/gui/sprites/container/alloy_furnace/purple_burn.png");
+    private static final Identifier BURN_BLUE   = Identifier.of(Mores.MOD_ID, "textures/gui/sprites/container/alloy_furnace/blue_burn.png");
 
-    private static final Identifier ARROW_SOUL   = Identifier.of(Mores.MOD_ID, "textures/gui/theme/soul_arrow.png");
-    private static final Identifier ARROW_RED    = Identifier.of(Mores.MOD_ID, "textures/gui/theme/red_arrow.png");
-    private static final Identifier ARROW_PURPLE = Identifier.of(Mores.MOD_ID, "textures/gui/theme/purple_arrow.png");
-    private static final Identifier ARROW_BLUE   = Identifier.of(Mores.MOD_ID, "textures/gui/theme/blue_arrow.png");
+    private static final Identifier ARROW_SOUL   = Identifier.of(Mores.MOD_ID, "textures/gui/sprites/container/alloy_furnace/soul_arrow.png");
+    private static final Identifier ARROW_RED    = Identifier.of(Mores.MOD_ID, "textures/gui/sprites/container/alloy_furnace/red_arrow.png");
+    private static final Identifier ARROW_PURPLE = Identifier.of(Mores.MOD_ID, "textures/gui/sprites/container/alloy_furnace/purple_arrow.png");
+    private static final Identifier ARROW_BLUE   = Identifier.of(Mores.MOD_ID, "textures/gui/sprites/container/alloy_furnace/blue_arrow.png");
 
     // Panel size (slot coords assume vanilla 176px wide top section)
     private static final int BG_W = 176;

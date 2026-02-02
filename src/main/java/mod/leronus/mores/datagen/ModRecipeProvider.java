@@ -1,7 +1,6 @@
 package mod.leronus.mores.datagen;
 
 import mod.leronus.mores.Mores;
-import mod.leronus.mores.item.ModItems;
 import mod.leronus.mores.recipe.AlloyingRecipe;
 import mod.leronus.mores.recipe.ShieldDecorationRecipe;
 import mod.leronus.mores.recipe.SteelCuttingRecipe;
@@ -51,6 +50,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
         generateHardenedSteel(exporter);
         generateTurquoise(exporter);
         generateLapisLazuli(exporter);
+        generateQuartz(exporter);
         generateAmethyst(exporter);
         generateTanzanite(exporter);
         generateTourmaline(exporter);
@@ -1857,6 +1857,12 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .input('Q', Registries.ITEM.get(Identifier.of("minecraft", "quartz")))
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "turquoise_dust"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "turquoise_gem"))))
                 .offerTo(exporter, Identifier.of("mores", "turquoise_gem_from_dust"));
+        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "turquoise")), 2)
+                .pattern("##")
+                .pattern("##")
+                .input('#', TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "dust/turquoise")))
+                .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "turquoise_dust"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "turquoise"))))
+                .offerTo(exporter, Identifier.of("mores", "turquoise_from_dust"));
         ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "turquoise_gem")), 9)
                 .group("turquoise_gem")
                 .input(Registries.ITEM.get(Identifier.of("mores", "turquoise_block")))
@@ -1993,6 +1999,12 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .input('Q', Registries.ITEM.get(Identifier.of("minecraft", "quartz")))
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "lapis_lazuli_dust"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "lapis_lazuli_gem"))))
                 .offerTo(exporter, Identifier.of("mores", "lapis_lazuli_gem_from_dust"));
+        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("minecraft", "lapis_lazuli")), 2)
+                .pattern("##")
+                .pattern("##")
+                .input('#', TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "dust/lapis_lazuli")))
+                .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "lapis_lazuli_dust"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("minecraft", "lapis_lazuli"))))
+                .offerTo(exporter, Identifier.of("mores", "lapis_lazuli_from_dust"));
         //Tools
         ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, Registries.ITEM.get(Identifier.of("mores", "lapis_lazuli_sword")), 1)
                 .pattern("$")
@@ -2106,6 +2118,14 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "lapis_lazuli_helmet"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "lapis_lazuli_helmet"))))
                 .offerTo(exporter, Identifier.of("mores", "lapis_lazuli_horse_armor"));
     }
+    private void generateQuartz(RecipeExporter exporter) {
+        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("minecraft", "quartz")), 2)
+                .pattern("##")
+                .pattern("##")
+                .input('#', TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "dust/quartz")))
+                .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "quartz_dust"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("minecraft", "quartz"))))
+                .offerTo(exporter, Identifier.of("mores", "quartz_from_dust"));
+    }
     private void generateAmethyst(RecipeExporter exporter) {
         /* Amethyst */
         //Blocks & Items
@@ -2116,6 +2136,12 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .input('Q', Registries.ITEM.get(Identifier.of("minecraft", "quartz")))
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "amethyst_dust"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "amethyst_gem"))))
                 .offerTo(exporter, Identifier.of("mores", "amethyst_gem_from_dust"));
+        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("minecraft", "amethyst_shard")), 2)
+                .pattern("##")
+                .pattern("##")
+                .input('#', TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "dust/amethyst")))
+                .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "amethyst_dust"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("minecraft", "amethyst_shard"))))
+                .offerTo(exporter, Identifier.of("mores", "amethyst_shard_from_dust"));
         ShapedRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, Registries.ITEM.get(Identifier.of("mores", "amethyst_block")), 1)
                 .pattern("###")
                 .pattern("###")
@@ -3947,14 +3973,14 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "nether_anthracite_ore"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "nether_anthracite_ore"))))
                 .offerTo(exporter, Identifier.of("mores", "anthracite_from_smelting_nether_anthracite_ore"));
         //Copper
-        CookingRecipeJsonBuilder.createSmelting(Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "copper_pickaxe")), Registries.ITEM.get(Identifier.of("mores", "copper_shovel")), Registries.ITEM.get(Identifier.of("mores", "copper_axe")), Registries.ITEM.get(Identifier.of("mores", "copper_hoe")), Registries.ITEM.get(Identifier.of("mores", "copper_sword")), Registries.ITEM.get(Identifier.of("mores", "copper_helmet")), Registries.ITEM.get(Identifier.of("mores", "copper_chestplate")), Registries.ITEM.get(Identifier.of("mores", "copper_leggings")), Registries.ITEM.get(Identifier.of("mores", "copper_boots")), Registries.ITEM.get(Identifier.of("mores", "copper_horse_armor")), Registries.ITEM.get(Identifier.of("mores", "copper_battle_mace")), Registries.ITEM.get(Identifier.of("mores", "copper_dagger")), Registries.ITEM.get(Identifier.of("mores", "copper_battle_axe"))), RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "copper_nugget")), 0.1f, 100)
+        CookingRecipeJsonBuilder.createSmelting(Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "copper_pickaxe")), Registries.ITEM.get(Identifier.of("mores", "copper_shovel")), Registries.ITEM.get(Identifier.of("mores", "copper_axe")), Registries.ITEM.get(Identifier.of("mores", "copper_hoe")), Registries.ITEM.get(Identifier.of("mores", "copper_sword")), Registries.ITEM.get(Identifier.of("mores", "copper_helmet")), Registries.ITEM.get(Identifier.of("mores", "copper_chestplate")), Registries.ITEM.get(Identifier.of("mores", "copper_leggings")), Registries.ITEM.get(Identifier.of("mores", "copper_boots")), Registries.ITEM.get(Identifier.of("mores", "copper_horse_armor")), Registries.ITEM.get(Identifier.of("mores", "copper_battle_mace")), Registries.ITEM.get(Identifier.of("mores", "copper_dagger")), Registries.ITEM.get(Identifier.of("mores", "copper_battle_axe"))), RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "copper_nugget")), 0.1f, 200)
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "copper_pickaxe"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "copper_pickaxe"))))
                 .offerTo(exporter, Identifier.of("mores", "copper_nugget_from_smelting"));
         CookingRecipeJsonBuilder.createSmelting(Ingredient.ofItems(Registries.ITEM.get(Identifier.of("minecraft", "raw_copper_block"))), RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("minecraft", "copper_block")), 6.3f, 1800)
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("minecraft", "raw_copper_block"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("minecraft", "raw_copper_block"))))
                 .offerTo(exporter, Identifier.of("mores", "copper_block_from_raw_copper_block_smelting"));
         //Tin
-        CookingRecipeJsonBuilder.createSmelting(Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "tin_pickaxe")), Registries.ITEM.get(Identifier.of("mores", "tin_shovel")), Registries.ITEM.get(Identifier.of("mores", "tin_axe")), Registries.ITEM.get(Identifier.of("mores", "tin_hoe")), Registries.ITEM.get(Identifier.of("mores", "tin_sword")), Registries.ITEM.get(Identifier.of("mores", "tin_helmet")), Registries.ITEM.get(Identifier.of("mores", "tin_chestplate")), Registries.ITEM.get(Identifier.of("mores", "tin_leggings")), Registries.ITEM.get(Identifier.of("mores", "tin_boots")), Registries.ITEM.get(Identifier.of("mores", "tin_horse_armor")), Registries.ITEM.get(Identifier.of("mores", "tin_battle_mace")), Registries.ITEM.get(Identifier.of("mores", "tin_dagger")), Registries.ITEM.get(Identifier.of("mores", "tin_battle_axe"))), RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "tin_nugget")), 0.1f, 100)
+        CookingRecipeJsonBuilder.createSmelting(Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "tin_pickaxe")), Registries.ITEM.get(Identifier.of("mores", "tin_shovel")), Registries.ITEM.get(Identifier.of("mores", "tin_axe")), Registries.ITEM.get(Identifier.of("mores", "tin_hoe")), Registries.ITEM.get(Identifier.of("mores", "tin_sword")), Registries.ITEM.get(Identifier.of("mores", "tin_helmet")), Registries.ITEM.get(Identifier.of("mores", "tin_chestplate")), Registries.ITEM.get(Identifier.of("mores", "tin_leggings")), Registries.ITEM.get(Identifier.of("mores", "tin_boots")), Registries.ITEM.get(Identifier.of("mores", "tin_horse_armor")), Registries.ITEM.get(Identifier.of("mores", "tin_battle_mace")), Registries.ITEM.get(Identifier.of("mores", "tin_dagger")), Registries.ITEM.get(Identifier.of("mores", "tin_battle_axe"))), RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "tin_nugget")), 0.1f, 200)
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "tin_pickaxe"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "tin_pickaxe"))))
                 .offerTo(exporter, Identifier.of("mores", "tin_nugget_from_smelting"));
         CookingRecipeJsonBuilder.createSmelting(Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "raw_tin"))), RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "tin_ingot")), 0.5f, 200)
@@ -4037,6 +4063,10 @@ public class ModRecipeProvider extends FabricRecipeProvider {
         CookingRecipeJsonBuilder.createSmelting(Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "electrum_ore"))), RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "sterling_silver_ingot")), 0.6f, 200)
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "electrum_ore"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "electrum_ore"))))
                 .offerTo(exporter, Identifier.of("mores", "sterling_silver_ingot_from_smelting_electrum_ore"));
+        //Bronze
+        CookingRecipeJsonBuilder.createSmelting(Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "bronze_pickaxe")), Registries.ITEM.get(Identifier.of("mores", "bronze_shovel")), Registries.ITEM.get(Identifier.of("mores", "bronze_axe")), Registries.ITEM.get(Identifier.of("mores", "bronze_hoe")), Registries.ITEM.get(Identifier.of("mores", "bronze_sword")), Registries.ITEM.get(Identifier.of("mores", "bronze_helmet")), Registries.ITEM.get(Identifier.of("mores", "bronze_chestplate")), Registries.ITEM.get(Identifier.of("mores", "bronze_leggings")), Registries.ITEM.get(Identifier.of("mores", "bronze_boots")), Registries.ITEM.get(Identifier.of("mores", "bronze_horse_armor")), Registries.ITEM.get(Identifier.of("mores", "bronze_battle_mace")), Registries.ITEM.get(Identifier.of("mores", "bronze_dagger")), Registries.ITEM.get(Identifier.of("mores", "bronze_battle_axe"))), RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "bronze_nugget")), 0.1f, 200)
+                .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "bronze_pickaxe"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "bronze_pickaxe"))))
+                .offerTo(exporter, Identifier.of("mores", "bronze_nugget_from_smelting"));
         //Sterling Silver
         CookingRecipeJsonBuilder.createSmelting(Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "sterling_silver_pickaxe")), Registries.ITEM.get(Identifier.of("mores", "sterling_silver_shovel")), Registries.ITEM.get(Identifier.of("mores", "sterling_silver_axe")), Registries.ITEM.get(Identifier.of("mores", "sterling_silver_hoe")), Registries.ITEM.get(Identifier.of("mores", "sterling_silver_sword")), Registries.ITEM.get(Identifier.of("mores", "sterling_silver_helmet")), Registries.ITEM.get(Identifier.of("mores", "sterling_silver_chestplate")), Registries.ITEM.get(Identifier.of("mores", "sterling_silver_leggings")), Registries.ITEM.get(Identifier.of("mores", "sterling_silver_boots")), Registries.ITEM.get(Identifier.of("mores", "sterling_silver_horse_armor")), Registries.ITEM.get(Identifier.of("mores", "sterling_silver_battle_mace")), Registries.ITEM.get(Identifier.of("mores", "sterling_silver_dagger")), Registries.ITEM.get(Identifier.of("mores", "sterling_silver_battle_axe"))), RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "sterling_silver_nugget")), 0.1f, 200)
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "sterling_silver_pickaxe"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "sterling_silver_pickaxe"))))
@@ -4469,6 +4499,10 @@ public class ModRecipeProvider extends FabricRecipeProvider {
         CookingRecipeJsonBuilder.createBlasting(Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "ender_silver_ore"))), RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "silver_ingot")), 0.6f, 100)
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "ender_silver_ore"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "ender_silver_ore"))))
                 .offerTo(exporter, Identifier.of("mores", "silver_ingot_from_blasting_ender_silver_ore"));
+        //Bronze
+        CookingRecipeJsonBuilder.createBlasting(Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "bronze_pickaxe")), Registries.ITEM.get(Identifier.of("mores", "bronze_shovel")), Registries.ITEM.get(Identifier.of("mores", "bronze_axe")), Registries.ITEM.get(Identifier.of("mores", "bronze_hoe")), Registries.ITEM.get(Identifier.of("mores", "bronze_sword")), Registries.ITEM.get(Identifier.of("mores", "bronze_helmet")), Registries.ITEM.get(Identifier.of("mores", "bronze_chestplate")), Registries.ITEM.get(Identifier.of("mores", "bronze_leggings")), Registries.ITEM.get(Identifier.of("mores", "bronze_boots")), Registries.ITEM.get(Identifier.of("mores", "bronze_horse_armor")), Registries.ITEM.get(Identifier.of("mores", "bronze_battle_mace")), Registries.ITEM.get(Identifier.of("mores", "bronze_dagger")), Registries.ITEM.get(Identifier.of("mores", "bronze_battle_axe"))), RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "bronze_nugget")), 0.1f, 100)
+                .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "bronze_pickaxe"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "bronze_pickaxe"))))
+                .offerTo(exporter, Identifier.of("mores", "bronze_nugget_from_blasting"));
         //Electrum
         CookingRecipeJsonBuilder.createBlasting(Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "electrum_ore"))), RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "sterling_silver_ingot")), 0.6f, 100)
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "electrum_ore"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "electrum_ore"))))
@@ -4908,7 +4942,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
         // ---------------------------
         // Tool recycling -> 1 gem back
         // ---------------------------
-        addToolRecycling(exporter);
+        addToolArmorRecycling(exporter);
     }
 
     // Convenience: grab a mores item by id
@@ -4920,32 +4954,65 @@ public class ModRecipeProvider extends FabricRecipeProvider {
 // Tool recycling -> 1 gem back
 // ---------------------------
 
-    private void addToolRecycling(RecipeExporter exporter) {
+    private void addToolArmorRecycling(RecipeExporter exporter) {
         // Mod gem outputs (your *_GEM constants)
         addToolRecyclingForMaterial(exporter, "lapis_lazuli", LAPIS_LAZULI_GEM);
+        addArmorRecyclingForMaterial(exporter, "lapis_lazuli", LAPIS_LAZULI_GEM);
+
         addToolRecyclingForMaterial(exporter, "turquoise",   TURQUOISE_GEM);
+        addArmorRecyclingForMaterial(exporter, "turquoise",   TURQUOISE_GEM);
+
         addToolRecyclingForMaterial(exporter, "citrine",     CITRINE_GEM);
+        addArmorRecyclingForMaterial(exporter, "citrine",     CITRINE_GEM);
+
         addToolRecyclingForMaterial(exporter, "onyx",        ONYX_GEM);
+        addArmorRecyclingForMaterial(exporter, "onyx",        ONYX_GEM);
+
         addToolRecyclingForMaterial(exporter, "amethyst",    AMETHYST_GEM);
+        addArmorRecyclingForMaterial(exporter, "amethyst",    AMETHYST_GEM);
+
         addToolRecyclingForMaterial(exporter, "topaz",       TOPAZ_GEM);
+        addArmorRecyclingForMaterial(exporter, "topaz",       TOPAZ_GEM);
+
         addToolRecyclingForMaterial(exporter, "tourmaline",  TOURMALINE_GEM);
+        addArmorRecyclingForMaterial(exporter, "tourmaline",  TOURMALINE_GEM);
+
         addToolRecyclingForMaterial(exporter, "spinel",      SPINEL_GEM);
+        addArmorRecyclingForMaterial(exporter, "spinel",      SPINEL_GEM);
+
         addToolRecyclingForMaterial(exporter, "ruby",        RUBY_GEM);
+        addArmorRecyclingForMaterial(exporter, "ruby",        RUBY_GEM);
+
         addToolRecyclingForMaterial(exporter, "sapphire",    SAPPHIRE_GEM);
+        addArmorRecyclingForMaterial(exporter, "sapphire",    SAPPHIRE_GEM);
+
         addToolRecyclingForMaterial(exporter, "moissanite",  MOISSANITE_GEM);
+        addArmorRecyclingForMaterial(exporter, "moissanite",  MOISSANITE_GEM);
 
         // Vanilla gem outputs
         addToolRecyclingForMaterial(exporter, "emerald", EMERALD);
+        addArmorRecyclingForMaterial(exporter, "emerald", EMERALD);
+
         addToolRecyclingForMaterial(exporter, "diamond", DIAMOND);
+        addArmorRecyclingForMaterial(exporter, "diamond", DIAMOND);
     }
 
     /**
-     * Looks up a mores:<path> item safely.
-     * Returns null if the id doesn't exist so datagen doesn't crash.
+     * Tries mores:<path> first, then minecraft:<path>.
+     * Returns null if neither exists so datagen doesn't crash.
      */
-    private static net.minecraft.item.Item tryMoresItem(String path) {
-        Identifier id = Identifier.of(Mores.MOD_ID, path);
-        return Registries.ITEM.containsId(id) ? Registries.ITEM.get(id) : null;
+    private static net.minecraft.item.Item tryItemMoresOrMinecraft(String path) {
+        Identifier moresId = Identifier.of(Mores.MOD_ID, path);
+        if (Registries.ITEM.containsId(moresId)) {
+            return Registries.ITEM.get(moresId);
+        }
+
+        Identifier mcId = Identifier.of("minecraft", path);
+        if (Registries.ITEM.containsId(mcId)) {
+            return Registries.ITEM.get(mcId);
+        }
+
+        return null;
     }
 
     private void addToolRecyclingForMaterial(RecipeExporter exporter, String material, net.minecraft.item.Item gemOut) {
@@ -4959,8 +5026,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
         for (String suffix : toolSuffixes) {
             String toolIdPath = material + "_" + suffix;
 
-            // Inputs are ALWAYS mores:<material>_<tool> (even for emerald/diamond tools)
-            net.minecraft.item.Item toolItem = tryMoresItem(toolIdPath);
+            net.minecraft.item.Item toolItem = tryItemMoresOrMinecraft(toolIdPath);
             if (toolItem == null) {
                 // Tool not present in this build; skip generating a recipe for it
                 continue;
@@ -4972,6 +5038,39 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                     Ingredient.ofItems(toolItem),
                     gemOut,
                     1
+            );
+        }
+    }
+
+    private void addArmorRecyclingForMaterial(RecipeExporter exporter, String material, net.minecraft.item.Item gemOut) {
+        String[] armorSuffixes = {
+                "helmet",
+                "chestplate",
+                "leggings",
+                "boots"
+        };
+
+        for (String suffix : armorSuffixes) {
+            String armorIdPath = material + "_" + suffix;
+
+            net.minecraft.item.Item armorItem = tryItemMoresOrMinecraft(armorIdPath);
+            if (armorItem == null) {
+                // Armor not present in this build; skip generating a recipe for it
+                continue;
+            }
+
+            int gemsOutCount = switch (suffix) {
+                case "helmet", "boots" -> 1;
+                case "chestplate", "leggings" -> 2;
+                default -> 1;
+            };
+
+            offerSteelCutting(
+                    exporter,
+                    "steel_cutter/recycle/" + armorIdPath,
+                    Ingredient.ofItems(armorItem),
+                    gemOut,
+                    gemsOutCount
             );
         }
     }
