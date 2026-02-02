@@ -1,5 +1,6 @@
 {
   "type": "mores:steel_cutting",
+  "group": "steel_cutting",
   "ingredient": {
     "item": "minecraft:amethyst_shard"
   },

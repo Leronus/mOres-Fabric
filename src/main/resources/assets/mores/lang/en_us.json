@@ -1256,6 +1256,8 @@
   "trim_material.mores.onyx": "Onyx Material",
   "trim_material.mores.graphene": "Graphene Material",
   "trim_material.mores.obsidian": "Obsidian Material",
+  "trim_material.mores.adamantium": "Adamantium Material",
+  "trim_material.mores.enderite": "Enderite Material",
 
   "tag.block.mores.needs_graphene_tool": "Needs Graphene Tool",
   "tag.item.mores.coal.anthracite": "Anthracite",
@@ -1298,6 +1300,8 @@
 
   "tag.item.spears.can_lunge_while_gliding": "Can lunge while gliding",
   "tag.item.dragonloot.explosion_resistant": "Explosion Resistant",
+
+  "enchantment.fabricshieldlib.reflect": "Reflection I",
 
   "category.mores.alloying": "Alloying",
   "rei.mores.any_fuel": "Any fuel",

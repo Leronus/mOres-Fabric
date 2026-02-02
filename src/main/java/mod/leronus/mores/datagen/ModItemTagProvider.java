@@ -167,7 +167,7 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
                 ModItems.STERLING_SILVER_INGOT, ModItems.ROSE_GOLD_INGOT, ModItems.BRONZE_INGOT, ModItems.COBALT_INGOT,
                 ModItems.CARBON_STEEL_INGOT, ModItems.HARDENED_STEEL_INGOT, ModItems.TURQUOISE_GEM, ModItems.ONYX_GEM, ModItems.CITRINE_GEM, ModItems.TANZANITE_GEM,
                 ModItems.TOURMALINE_GEM, ModItems.TOPAZ_GEM, ModItems.SPINEL_GEM, ModItems.SAPPHIRE_GEM, ModItems.RUBY_GEM, ModItems.MOISSANITE_GEM,
-                ModItems.GRAPHENE_CHAINMAIL, ModItems.OBSIDIAN_INGOT, ModItems.ADAMANTIUM_INGOT, ModItems.ENDERITE_INGOT
+                ModItems.OBSIDIAN_INGOT, ModItems.ADAMANTIUM_INGOT, ModItems.ENDERITE_INGOT
                 );
         //Trimmable Armor
         getOrCreateTagBuilder(ItemTags.TRIMMABLE_ARMOR).add(
@@ -324,6 +324,88 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
                 ModItems.ADAMANTIUM_BOOTS,
                 ModItems.ENDERITE_BOOTS
         );
+
+        getOrCreateTagBuilder(ItemTags.DURABILITY_ENCHANTABLE).add(
+                ModItems.TIN_SHIELD,
+                ModItems.SILVER_SHIELD,
+                ModItems.COPPER_SHIELD,
+                ModItems.STERLING_SILVER_SHIELD,
+                ModItems.ROSE_GOLD_SHIELD,
+                ModItems.BRONZE_SHIELD,
+                ModItems.COBALT_SHIELD,
+                ModItems.CARBON_STEEL_SHIELD,
+                ModItems.HARDENED_STEEL_SHIELD,
+                ModItems.TURQUOISE_SHIELD,
+                ModItems.LAPIS_LAZULI_SHIELD,
+                ModItems.AMETHYST_SHIELD,
+                ModItems.CITRINE_SHIELD,
+                ModItems.ONYX_SHIELD,
+                ModItems.TANZANITE_SHIELD,
+                ModItems.TOURMALINE_SHIELD,
+                ModItems.TOPAZ_SHIELD,
+                ModItems.SPINEL_SHIELD,
+                ModItems.EMERALD_SHIELD,
+                ModItems.RUBY_SHIELD,
+                ModItems.SAPPHIRE_SHIELD,
+                ModItems.MOISSANITE_SHIELD,
+                ModItems.OBSIDIAN_SHIELD,
+                ModItems.ADAMANTIUM_SHIELD,
+                ModItems.ENDERITE_SHIELD,
+
+                ModItems.TIN_HORSE_ARMOR, ModItems.COPPER_HORSE_ARMOR, ModItems.SILVER_HORSE_ARMOR, ModItems.BRONZE_HORSE_ARMOR, ModItems.COBALT_HORSE_ARMOR, ModItems.STERLING_SILVER_HORSE_ARMOR, ModItems.ROSE_GOLD_HORSE_ARMOR,
+                ModItems.CARBON_STEEL_HORSE_ARMOR, ModItems.HARDENED_STEEL_HORSE_ARMOR, ModItems.AMETHYST_HORSE_ARMOR, ModItems.EMERALD_HORSE_ARMOR, ModItems.TURQUOISE_HORSE_ARMOR, ModItems.LAPIS_LAZULI_HORSE_ARMOR,
+                ModItems.TOURMALINE_HORSE_ARMOR, ModItems.TOPAZ_HORSE_ARMOR,  ModItems.TANZANITE_HORSE_ARMOR,
+                ModItems.RUBY_HORSE_ARMOR, ModItems.SAPPHIRE_HORSE_ARMOR, ModItems.SPINEL_HORSE_ARMOR, ModItems.CITRINE_HORSE_ARMOR, ModItems.MOISSANITE_HORSE_ARMOR, ModItems.ONYX_HORSE_ARMOR,
+                ModItems.OBSIDIAN_HORSE_ARMOR,
+//                ModItems.GRAPHENE_HORSE_ARMOR,
+                ModItems.ADAMANTIUM_HORSE_ARMOR,
+                ModItems.ENDERITE_HORSE_ARMOR,
+
+                ModItems.TIN_WOLF_ARMOR,
+                ModItems.GOLD_WOLF_ARMOR,
+                ModItems.SILVER_WOLF_ARMOR,
+                ModItems.COPPER_WOLF_ARMOR,
+                ModItems.STERLING_SILVER_WOLF_ARMOR,
+                ModItems.BRONZE_WOLF_ARMOR,
+                ModItems.ROSE_GOLD_WOLF_ARMOR,
+                ModItems.IRON_WOLF_ARMOR,
+                ModItems.COBALT_WOLF_ARMOR,
+                ModItems.CARBON_STEEL_WOLF_ARMOR,
+                ModItems.HARDENED_STEEL_WOLF_ARMOR,
+                ModItems.DIAMOND_WOLF_ARMOR
+        );
+
+        getOrCreateTagBuilder(ConventionalItemTags.SHIELD_TOOLS).add(
+                ModItems.TIN_SHIELD,
+                ModItems.SILVER_SHIELD,
+                ModItems.COPPER_SHIELD,
+                ModItems.STERLING_SILVER_SHIELD,
+                ModItems.ROSE_GOLD_SHIELD,
+                ModItems.BRONZE_SHIELD,
+                ModItems.COBALT_SHIELD,
+                ModItems.CARBON_STEEL_SHIELD,
+                ModItems.HARDENED_STEEL_SHIELD,
+                ModItems.TURQUOISE_SHIELD,
+                ModItems.LAPIS_LAZULI_SHIELD,
+                ModItems.AMETHYST_SHIELD,
+                ModItems.CITRINE_SHIELD,
+                ModItems.ONYX_SHIELD,
+                ModItems.TANZANITE_SHIELD,
+                ModItems.TOURMALINE_SHIELD,
+                ModItems.TOPAZ_SHIELD,
+                ModItems.SPINEL_SHIELD,
+                ModItems.EMERALD_SHIELD,
+                ModItems.RUBY_SHIELD,
+                ModItems.SAPPHIRE_SHIELD,
+                ModItems.MOISSANITE_SHIELD,
+                ModItems.OBSIDIAN_SHIELD,
+                ModItems.ADAMANTIUM_SHIELD,
+                ModItems.ENDERITE_SHIELD
+        );
+        getOrCreateTagBuilder(ModTags.Items.REFLECT_PRIMARY)
+                .add(net.minecraft.item.Items.BOOK)
+                .addTag(net.fabricmc.fabric.api.tag.convention.v2.ConventionalItemTags.SHIELD_TOOLS);
+
 
         //Piglin
         getOrCreateTagBuilder(ItemTags.PIGLIN_LOVED).add(

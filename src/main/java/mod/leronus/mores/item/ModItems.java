@@ -118,39 +118,39 @@ public class ModItems {
     public static final Item DUCK_EGG  = registerItem("duck_egg", new ModEggItem(new Item.Settings().maxCount(16)));
 
     // Horse Armor (1.21.1 uses AnimalArmorItem)
-    public static final Item TIN_HORSE_ARMOR = registerItem("tin_horse_armor", new AnimalArmorItem(ModArmorMaterials.TIN, AnimalArmorItem.Type.EQUESTRIAN, false, new Item.Settings().maxCount(1)));
-    public static final Item SILVER_HORSE_ARMOR = registerItem("silver_horse_armor", new AnimalArmorItem(ModArmorMaterials.SILVER, AnimalArmorItem.Type.EQUESTRIAN, false, new Item.Settings().maxCount(1)));
-    public static final Item COPPER_HORSE_ARMOR = registerItem("copper_horse_armor", new AnimalArmorItem(ModArmorMaterials.COPPER, AnimalArmorItem.Type.EQUESTRIAN, false, new Item.Settings().maxCount(1)));
-    public static final Item STERLING_SILVER_HORSE_ARMOR = registerItem("sterling_silver_horse_armor", new AnimalArmorItem(ModArmorMaterials.STERLING_SILVER, AnimalArmorItem.Type.EQUESTRIAN, false, new Item.Settings().maxCount(1)));
-    public static final Item ROSE_GOLD_HORSE_ARMOR = registerItem("rose_gold_horse_armor", new AnimalArmorItem(ModArmorMaterials.ROSE_GOLD, AnimalArmorItem.Type.EQUESTRIAN, false, new Item.Settings().maxCount(1)));
-    public static final Item BRONZE_HORSE_ARMOR = registerItem("bronze_horse_armor", new AnimalArmorItem(ModArmorMaterials.BRONZE, AnimalArmorItem.Type.EQUESTRIAN, false, new Item.Settings().maxCount(1)));
-    public static final Item COBALT_HORSE_ARMOR = registerItem("cobalt_horse_armor", new AnimalArmorItem(ModArmorMaterials.COBALT, AnimalArmorItem.Type.EQUESTRIAN, false, new Item.Settings().maxCount(1)));
-    public static final Item CARBON_STEEL_HORSE_ARMOR = registerItem("carbon_steel_horse_armor", new AnimalArmorItem(ModArmorMaterials.CARBON_STEEL, AnimalArmorItem.Type.EQUESTRIAN, false, new Item.Settings().maxCount(1)));
-    public static final Item HARDENED_STEEL_HORSE_ARMOR = registerItem("hardened_steel_horse_armor", new AnimalArmorItem(ModArmorMaterials.HARDENED_STEEL, AnimalArmorItem.Type.EQUESTRIAN, false, new Item.Settings().maxCount(1)));
-    public static final Item TURQUOISE_HORSE_ARMOR = registerItem("turquoise_horse_armor", new AnimalArmorItem(ModArmorMaterials.TURQUOISE, AnimalArmorItem.Type.EQUESTRIAN, false, new Item.Settings().maxCount(1)));
-    public static final Item AMETHYST_HORSE_ARMOR = registerItem("amethyst_horse_armor", new AnimalArmorItem(ModArmorMaterials.AMETHYST, AnimalArmorItem.Type.EQUESTRIAN, false, new Item.Settings().maxCount(1)));
-    public static final Item LAPIS_LAZULI_HORSE_ARMOR = registerItem("lapis_lazuli_horse_armor", new AnimalArmorItem(ModArmorMaterials.LAPIS_LAZULI, AnimalArmorItem.Type.EQUESTRIAN, false, new Item.Settings().maxCount(1)));
-    public static final Item TOURMALINE_HORSE_ARMOR = registerItem("tourmaline_horse_armor", new AnimalArmorItem(ModArmorMaterials.TOURMALINE, AnimalArmorItem.Type.EQUESTRIAN, false, new Item.Settings().maxCount(1)));
-    public static final Item TANZANITE_HORSE_ARMOR = registerItem("tanzanite_horse_armor", new AnimalArmorItem(ModArmorMaterials.TANZANITE, AnimalArmorItem.Type.EQUESTRIAN, false, new Item.Settings().maxCount(1)));
-    public static final Item TOPAZ_HORSE_ARMOR = registerItem("topaz_horse_armor", new AnimalArmorItem(ModArmorMaterials.TOPAZ, AnimalArmorItem.Type.EQUESTRIAN, false, new Item.Settings().maxCount(1)));
-    public static final Item EMERALD_HORSE_ARMOR = registerItem("emerald_horse_armor", new AnimalArmorItem(ModArmorMaterials.EMERALD, AnimalArmorItem.Type.EQUESTRIAN, false, new Item.Settings().maxCount(1)));
-    public static final Item RUBY_HORSE_ARMOR = registerItem("ruby_horse_armor", new AnimalArmorItem(ModArmorMaterials.RUBY, AnimalArmorItem.Type.EQUESTRIAN, false, new Item.Settings().maxCount(1)));
-    public static final Item SAPPHIRE_HORSE_ARMOR = registerItem("sapphire_horse_armor", new AnimalArmorItem(ModArmorMaterials.SAPPHIRE, AnimalArmorItem.Type.EQUESTRIAN, false, new Item.Settings().maxCount(1)));
-    public static final Item SPINEL_HORSE_ARMOR = registerItem("spinel_horse_armor", new AnimalArmorItem(ModArmorMaterials.SPINEL, AnimalArmorItem.Type.EQUESTRIAN, false, new Item.Settings().maxCount(1)));
-    public static final Item CITRINE_HORSE_ARMOR = registerItem("citrine_horse_armor", new AnimalArmorItem(ModArmorMaterials.CITRINE, AnimalArmorItem.Type.EQUESTRIAN, false, new Item.Settings().maxCount(1)));
-    public static final Item MOISSANITE_HORSE_ARMOR = registerItem("moissanite_horse_armor", new AnimalArmorItem(ModArmorMaterials.MOISSANITE, AnimalArmorItem.Type.EQUESTRIAN, false, new Item.Settings().maxCount(1)));
-    public static final Item ONYX_HORSE_ARMOR = registerItem("onyx_horse_armor", new AnimalArmorItem(ModArmorMaterials.ONYX, AnimalArmorItem.Type.EQUESTRIAN, false, new Item.Settings().maxCount(1)));
-    public static final Item OBSIDIAN_HORSE_ARMOR = registerItem("obsidian_horse_armor", new AnimalArmorItem(ModArmorMaterials.OBSIDIAN, AnimalArmorItem.Type.EQUESTRIAN, false, new Item.Settings().maxCount(1)));
-//    public static final Item GRAPHENE_HORSE_ARMOR = registerItem("graphene_horse_armor", new AnimalArmorItem(ModArmorMaterials.GRAPHENE, AnimalArmorItem.Type.EQUESTRIAN, false, new Item.Settings().maxCount(1)));
-    public static final Item NETHERITE_HORSE_ARMOR = registerItem("netherite_horse_armor", new AnimalArmorItem(ModArmorMaterials.NETHERITE, AnimalArmorItem.Type.EQUESTRIAN, false, new Item.Settings().maxCount(1)));
-    public static final Item ADAMANTIUM_HORSE_ARMOR = registerItem("adamantium_horse_armor", new AnimalArmorItem(ModArmorMaterials.ADAMANTIUM, AnimalArmorItem.Type.EQUESTRIAN, false, new Item.Settings().maxCount(1)));
-    public static final Item ENDERITE_HORSE_ARMOR = registerItem("enderite_horse_armor", new AnimalArmorItem(ModArmorMaterials.ENDERITE, AnimalArmorItem.Type.EQUESTRIAN, false, new Item.Settings().maxCount(1)));
+    public static final Item TIN_HORSE_ARMOR = registerItem("tin_horse_armor", new ModAnimalArmorItem(ModArmorMaterials.TIN, AnimalArmorItem.Type.EQUESTRIAN, false, new Item.Settings().maxCount(1).maxDamage(ModArmorDurability.scale(ModArmorDurability.TIN, ArmorItem.Type.BODY))));
+    public static final Item SILVER_HORSE_ARMOR = registerItem("silver_horse_armor", new ModAnimalArmorItem(ModArmorMaterials.SILVER, AnimalArmorItem.Type.EQUESTRIAN, false, new Item.Settings().maxCount(1).maxDamage(ModArmorDurability.scale(ModArmorDurability.SILVER, ArmorItem.Type.BODY))));
+    public static final Item COPPER_HORSE_ARMOR = registerItem("copper_horse_armor", new ModAnimalArmorItem(ModArmorMaterials.COPPER, AnimalArmorItem.Type.EQUESTRIAN, false, new Item.Settings().maxCount(1).maxDamage(ModArmorDurability.scale(ModArmorDurability.COPPER, ArmorItem.Type.BODY))));
+    public static final Item STERLING_SILVER_HORSE_ARMOR = registerItem("sterling_silver_horse_armor", new ModAnimalArmorItem(ModArmorMaterials.STERLING_SILVER, AnimalArmorItem.Type.EQUESTRIAN, false, new Item.Settings().maxCount(1).maxDamage(ModArmorDurability.scale(ModArmorDurability.STERLING_SILVER, ArmorItem.Type.BODY))));
+    public static final Item ROSE_GOLD_HORSE_ARMOR = registerItem("rose_gold_horse_armor", new ModAnimalArmorItem(ModArmorMaterials.ROSE_GOLD, AnimalArmorItem.Type.EQUESTRIAN, false, new Item.Settings().maxCount(1).maxDamage(ModArmorDurability.scale(ModArmorDurability.ROSE_GOLD, ArmorItem.Type.BODY))));
+    public static final Item BRONZE_HORSE_ARMOR = registerItem("bronze_horse_armor", new ModAnimalArmorItem(ModArmorMaterials.BRONZE, AnimalArmorItem.Type.EQUESTRIAN, false, new Item.Settings().maxCount(1).maxDamage(ModArmorDurability.scale(ModArmorDurability.BRONZE, ArmorItem.Type.BODY))));
+    public static final Item COBALT_HORSE_ARMOR = registerItem("cobalt_horse_armor", new ModAnimalArmorItem(ModArmorMaterials.COBALT, AnimalArmorItem.Type.EQUESTRIAN, false, new Item.Settings().maxCount(1).maxDamage(ModArmorDurability.scale(ModArmorDurability.COBALT, ArmorItem.Type.BODY))));
+    public static final Item CARBON_STEEL_HORSE_ARMOR = registerItem("carbon_steel_horse_armor", new ModAnimalArmorItem(ModArmorMaterials.CARBON_STEEL, AnimalArmorItem.Type.EQUESTRIAN, false, new Item.Settings().maxCount(1).maxDamage(ModArmorDurability.scale(ModArmorDurability.CARBON_STEEL, ArmorItem.Type.BODY))));
+    public static final Item HARDENED_STEEL_HORSE_ARMOR = registerItem("hardened_steel_horse_armor", new ModAnimalArmorItem(ModArmorMaterials.HARDENED_STEEL, AnimalArmorItem.Type.EQUESTRIAN, false, new Item.Settings().maxCount(1).maxDamage(ModArmorDurability.scale(ModArmorDurability.HARDENED_STEEL, ArmorItem.Type.BODY))));
+    public static final Item TURQUOISE_HORSE_ARMOR = registerItem("turquoise_horse_armor", new ModAnimalArmorItem(ModArmorMaterials.TURQUOISE, AnimalArmorItem.Type.EQUESTRIAN, false, new Item.Settings().maxCount(1).maxDamage(ModArmorDurability.scale(ModArmorDurability.TURQUOISE, ArmorItem.Type.BODY))));
+    public static final Item AMETHYST_HORSE_ARMOR = registerItem("amethyst_horse_armor", new ModAnimalArmorItem(ModArmorMaterials.AMETHYST, AnimalArmorItem.Type.EQUESTRIAN, false, new Item.Settings().maxCount(1).maxDamage(ModArmorDurability.scale(ModArmorDurability.AMETHYST, ArmorItem.Type.BODY))));
+    public static final Item LAPIS_LAZULI_HORSE_ARMOR = registerItem("lapis_lazuli_horse_armor", new ModAnimalArmorItem(ModArmorMaterials.LAPIS_LAZULI, AnimalArmorItem.Type.EQUESTRIAN, false, new Item.Settings().maxCount(1).maxDamage(ModArmorDurability.scale(ModArmorDurability.LAPIS_LAZULI, ArmorItem.Type.BODY))));
+    public static final Item TOURMALINE_HORSE_ARMOR = registerItem("tourmaline_horse_armor", new ModAnimalArmorItem(ModArmorMaterials.TOURMALINE, AnimalArmorItem.Type.EQUESTRIAN, false, new Item.Settings().maxCount(1).maxDamage(ModArmorDurability.scale(ModArmorDurability.TOURMALINE, ArmorItem.Type.BODY))));
+    public static final Item TANZANITE_HORSE_ARMOR = registerItem("tanzanite_horse_armor", new ModAnimalArmorItem(ModArmorMaterials.TANZANITE, AnimalArmorItem.Type.EQUESTRIAN, false, new Item.Settings().maxCount(1).maxDamage(ModArmorDurability.scale(ModArmorDurability.TANZANITE, ArmorItem.Type.BODY))));
+    public static final Item TOPAZ_HORSE_ARMOR = registerItem("topaz_horse_armor", new ModAnimalArmorItem(ModArmorMaterials.TOPAZ, AnimalArmorItem.Type.EQUESTRIAN, false, new Item.Settings().maxCount(1).maxDamage(ModArmorDurability.scale(ModArmorDurability.TOPAZ, ArmorItem.Type.BODY))));
+    public static final Item EMERALD_HORSE_ARMOR = registerItem("emerald_horse_armor", new ModAnimalArmorItem(ModArmorMaterials.EMERALD, AnimalArmorItem.Type.EQUESTRIAN, false, new Item.Settings().maxCount(1).maxDamage(ModArmorDurability.scale(ModArmorDurability.EMERALD, ArmorItem.Type.BODY))));;
+    public static final Item RUBY_HORSE_ARMOR = registerItem("ruby_horse_armor", new ModAnimalArmorItem(ModArmorMaterials.RUBY, AnimalArmorItem.Type.EQUESTRIAN, false, new Item.Settings().maxCount(1).maxDamage(ModArmorDurability.scale(ModArmorDurability.RUBY, ArmorItem.Type.BODY))));
+    public static final Item SAPPHIRE_HORSE_ARMOR = registerItem("sapphire_horse_armor", new ModAnimalArmorItem(ModArmorMaterials.SAPPHIRE, AnimalArmorItem.Type.EQUESTRIAN, false, new Item.Settings().maxCount(1).maxDamage(ModArmorDurability.scale(ModArmorDurability.SAPPHIRE, ArmorItem.Type.BODY))));
+    public static final Item SPINEL_HORSE_ARMOR = registerItem("spinel_horse_armor", new ModAnimalArmorItem(ModArmorMaterials.SPINEL, AnimalArmorItem.Type.EQUESTRIAN, false, new Item.Settings().maxCount(1).maxDamage(ModArmorDurability.scale(ModArmorDurability.SPINEL, ArmorItem.Type.BODY))));
+    public static final Item CITRINE_HORSE_ARMOR = registerItem("citrine_horse_armor", new ModAnimalArmorItem(ModArmorMaterials.CITRINE, AnimalArmorItem.Type.EQUESTRIAN, false, new Item.Settings().maxCount(1).maxDamage(ModArmorDurability.scale(ModArmorDurability.CITRINE, ArmorItem.Type.BODY))));
+    public static final Item MOISSANITE_HORSE_ARMOR = registerItem("moissanite_horse_armor", new ModAnimalArmorItem(ModArmorMaterials.MOISSANITE, AnimalArmorItem.Type.EQUESTRIAN, false, new Item.Settings().maxCount(1).maxDamage(ModArmorDurability.scale(ModArmorDurability.MOISSANITE, ArmorItem.Type.BODY))));
+    public static final Item ONYX_HORSE_ARMOR = registerItem("onyx_horse_armor", new ModAnimalArmorItem(ModArmorMaterials.ONYX, AnimalArmorItem.Type.EQUESTRIAN, false, new Item.Settings().maxCount(1).maxDamage(ModArmorDurability.scale(ModArmorDurability.ONYX, ArmorItem.Type.BODY))));
+    public static final Item OBSIDIAN_HORSE_ARMOR = registerItem("obsidian_horse_armor", new ModAnimalArmorItem(ModArmorMaterials.OBSIDIAN, AnimalArmorItem.Type.EQUESTRIAN, false, new Item.Settings().maxCount(1).maxDamage(ModArmorDurability.scale(ModArmorDurability.OBSIDIAN, ArmorItem.Type.BODY))));
+//    public static final Item GRAPHENE_HORSE_ARMOR = registerItem("graphene_horse_armor", new ModAnimalArmorItem(ModArmorMaterials.GRAPHENE, AnimalArmorItem.Type.EQUESTRIAN, false, new Item.Settings().maxCount(1)));
+    public static final Item NETHERITE_HORSE_ARMOR = registerItem("netherite_horse_armor", new ModAnimalArmorItem(ModArmorMaterials.NETHERITE, AnimalArmorItem.Type.EQUESTRIAN, false, new Item.Settings().maxCount(1).maxDamage(ModArmorDurability.scale(ModArmorDurability.NETHERITE, ArmorItem.Type.BODY))));
+    public static final Item ADAMANTIUM_HORSE_ARMOR = registerItem("adamantium_horse_armor", new ModAnimalArmorItem(ModArmorMaterials.ADAMANTIUM, AnimalArmorItem.Type.EQUESTRIAN, false, new Item.Settings().maxCount(1).maxDamage(ModArmorDurability.scale(ModArmorDurability.ADAMANTIUM, ArmorItem.Type.BODY))));
+    public static final Item ENDERITE_HORSE_ARMOR = registerItem("enderite_horse_armor", new ModAnimalArmorItem(ModArmorMaterials.ENDERITE, AnimalArmorItem.Type.EQUESTRIAN, false, new Item.Settings().maxCount(1).maxDamage(ModArmorDurability.scale(ModArmorDurability.ENDERITE, ArmorItem.Type.BODY))));
 
     public static final Item TIN_WOLF_ARMOR = registerItem(
             "tin_wolf_armor", new ModWolfArmorItem(
                     ModArmorMaterials.TIN,
                     false,
-                    new Item.Settings().maxCount(1),
+                    new Item.Settings().maxCount(1).maxDamage(ModArmorDurability.scale(ModArmorDurability.TIN, ArmorItem.Type.BODY)),
                     Identifier.of("mores", "textures/entity/wolf/wolf_armor_tin.png"),
                     Identifier.of("mores", "textures/entity/wolf/wolf_armor_tin_overlay.png")
             )
@@ -160,7 +160,7 @@ public class ModItems {
             new ModWolfArmorItem(
                     ArmorMaterials.GOLD,
                     false,
-                    new Item.Settings().maxCount(1),
+                    new Item.Settings().maxCount(1).maxDamage(ModArmorDurability.scale(ModArmorDurability.ROSE_GOLD, ArmorItem.Type.BODY)),
                     Identifier.of("mores", "textures/entity/wolf/wolf_armor_gold.png"),
                     Identifier.of("mores", "textures/entity/wolf/wolf_armor_gold_overlay.png")
             )
@@ -170,7 +170,7 @@ public class ModItems {
             new ModWolfArmorItem(
                     ModArmorMaterials.SILVER,
                     false,
-                    new Item.Settings().maxCount(1),
+                    new Item.Settings().maxCount(1).maxDamage(ModArmorDurability.scale(ModArmorDurability.SILVER, ArmorItem.Type.BODY)),
                     Identifier.of("mores", "textures/entity/wolf/wolf_armor_silver.png"),
                     Identifier.of("mores", "textures/entity/wolf/wolf_armor_silver_overlay.png")
             )
@@ -180,7 +180,7 @@ public class ModItems {
             new ModWolfArmorItem(
                     ModArmorMaterials.COPPER,
                     false,
-                    new Item.Settings().maxCount(1),
+                    new Item.Settings().maxCount(1).maxDamage(ModArmorDurability.scale(ModArmorDurability.COPPER, ArmorItem.Type.BODY)),
                     Identifier.of("mores", "textures/entity/wolf/wolf_armor_copper.png"),
                     Identifier.of("mores", "textures/entity/wolf/wolf_armor_copper_overlay.png")
             )
@@ -190,7 +190,7 @@ public class ModItems {
             new ModWolfArmorItem(
                     ModArmorMaterials.STERLING_SILVER,
                     false,
-                    new Item.Settings().maxCount(1),
+                    new Item.Settings().maxCount(1).maxDamage(ModArmorDurability.scale(ModArmorDurability.STERLING_SILVER, ArmorItem.Type.BODY)),
                     Identifier.of("mores", "textures/entity/wolf/wolf_armor_sterling_silver.png"),
                     Identifier.of("mores", "textures/entity/wolf/wolf_armor_sterling_silver_overlay.png")
             )
@@ -200,7 +200,7 @@ public class ModItems {
             new ModWolfArmorItem(
                     ModArmorMaterials.BRONZE,
                     false,
-                    new Item.Settings().maxCount(1),
+                    new Item.Settings().maxCount(1).maxDamage(ModArmorDurability.scale(ModArmorDurability.BRONZE, ArmorItem.Type.BODY)),
                     Identifier.of("mores", "textures/entity/wolf/wolf_armor_bronze.png"),
                     Identifier.of("mores", "textures/entity/wolf/wolf_armor_bronze_overlay.png")
             )
@@ -210,7 +210,7 @@ public class ModItems {
             new ModWolfArmorItem(
                     ModArmorMaterials.ROSE_GOLD,
                     false,
-                    new Item.Settings().maxCount(1),
+                    new Item.Settings().maxCount(1).maxDamage(ModArmorDurability.scale(ModArmorDurability.ROSE_GOLD, ArmorItem.Type.BODY)),
                     Identifier.of("mores", "textures/entity/wolf/wolf_armor_rose_gold.png"),
                     Identifier.of("mores", "textures/entity/wolf/wolf_armor_rose_gold_overlay.png")
             )
@@ -220,7 +220,7 @@ public class ModItems {
             new ModWolfArmorItem(
                     ArmorMaterials.IRON,
                     false,
-                    new Item.Settings().maxCount(1),
+                    new Item.Settings().maxCount(1).maxDamage(ModArmorDurability.scale(ModArmorDurability.IRON, ArmorItem.Type.BODY)),
                     Identifier.of("mores", "textures/entity/wolf/wolf_armor_iron.png"),
                     Identifier.of("mores", "textures/entity/wolf/wolf_armor_iron_overlay.png")
             )
@@ -230,7 +230,7 @@ public class ModItems {
             new ModWolfArmorItem(
                     ModArmorMaterials.COBALT,
                     false,
-                    new Item.Settings().maxCount(1),
+                    new Item.Settings().maxCount(1).maxDamage(ModArmorDurability.scale(ModArmorDurability.COBALT, ArmorItem.Type.BODY)),
                     Identifier.of("mores", "textures/entity/wolf/wolf_armor_cobalt.png"),
                     Identifier.of("mores", "textures/entity/wolf/wolf_armor_cobalt_overlay.png")
             )
@@ -240,7 +240,7 @@ public class ModItems {
             new ModWolfArmorItem(
                     ModArmorMaterials.CARBON_STEEL,
                     false,
-                    new Item.Settings().maxCount(1),
+                    new Item.Settings().maxCount(1).maxDamage(ModArmorDurability.scale(ModArmorDurability.CARBON_STEEL, ArmorItem.Type.BODY)),
                     Identifier.of("mores", "textures/entity/wolf/wolf_armor_carbon_steel.png"),
                     Identifier.of("mores", "textures/entity/wolf/wolf_armor_carbon_steel_overlay.png")
             )
@@ -250,7 +250,7 @@ public class ModItems {
             new ModWolfArmorItem(
                     ModArmorMaterials.HARDENED_STEEL,
                     false,
-                    new Item.Settings().maxCount(1),
+                    new Item.Settings().maxCount(1).maxDamage(ModArmorDurability.scale(ModArmorDurability.HARDENED_STEEL, ArmorItem.Type.BODY)),
                     Identifier.of("mores", "textures/entity/wolf/wolf_armor_hardened_steel.png"),
                     Identifier.of("mores", "textures/entity/wolf/wolf_armor_hardened_steel_overlay.png")
             )
@@ -260,7 +260,7 @@ public class ModItems {
             new ModWolfArmorItem(
                     ArmorMaterials.DIAMOND,
                     false,
-                    new Item.Settings().maxCount(1),
+                    new Item.Settings().maxCount(1).maxDamage(ModArmorDurability.scale(ModArmorDurability.DIAMOND, ArmorItem.Type.BODY)),
                     Identifier.of("mores", "textures/entity/wolf/wolf_armor_diamond.png"),
                     Identifier.of("mores", "textures/entity/wolf/wolf_armor_diamond_overlay.png")
             )
@@ -1033,36 +1033,35 @@ public class ModItems {
     //Vanilla tools
     //W.I.P.
 
-    //TODO CHECK STATS
-    //Shields
-    public static final Item TIN_SHIELD = registerItem("tin_shield", new ModShieldItem(new Item.Settings().maxDamage(84), 10, 5, ModItems.TIN_INGOT)); // ModShieldItem(maxDamage(durability), cooldownTicks, enchantability, repairItems)
+    //Shields (maxDamage 336)
+    public static final Item TIN_SHIELD = registerItem("tin_shield", new ModShieldItem(new Item.Settings().maxDamage(150), 100, 5, ModItems.TIN_INGOT)); // ModShieldItem(maxDamage(durability), cooldownTicks, enchantability, repairItems)
 //    public static final Item GOLD_SHIELD = registerItem("gold_shield", new ModShieldItem(new Item.Settings().maxDamage(84), 10, 5, Items.GOLD_INGOT)); // ModShieldItem(maxDamage(durability), cooldownTicks, enchantability, repairItems)
-    public static final Item SILVER_SHIELD = registerItem("silver_shield", new ModShieldItem(new Item.Settings().maxDamage(134), 10, 15, ModItems.SILVER_INGOT));
-    public static final Item COPPER_SHIELD = registerItem("copper_shield", new ModShieldItem(new Item.Settings().maxDamage(112), 10, 10, Items.COPPER_INGOT));
-    public static final Item STERLING_SILVER_SHIELD = registerItem("sterling_silver_shield", new ModShieldItem(new Item.Settings().maxDamage(333), 10, 17, ModItems.STERLING_SILVER_INGOT));
-    public static final Item ROSE_GOLD_SHIELD = registerItem("rose_gold_shield", new ModShieldItem(new Item.Settings().maxDamage(333), 10, 17, ModItems.ROSE_GOLD_INGOT));
-    public static final Item BRONZE_SHIELD = registerItem("bronze_shield", new ModShieldItem(new Item.Settings().maxDamage(299), 10, 13, ModItems.BRONZE_INGOT));
-    public static final Item COBALT_SHIELD = registerItem("cobalt_shield", new ModShieldItem(new Item.Settings().maxDamage(388), 10, 22, ModItems.COBALT_INGOT));
-    public static final Item CARBON_STEEL_SHIELD = registerItem("carbon_steel_shield", new ModShieldItem(new Item.Settings().maxDamage(555), 10, 14, ModItems.CARBON_STEEL_INGOT));
-    public static final Item HARDENED_STEEL_SHIELD = registerItem("hardened_steel_shield", new ModShieldItem(new Item.Settings().maxDamage(555), 10, 14, ModItems.HARDENED_STEEL_INGOT));
-    public static final Item TURQUOISE_SHIELD = registerItem("turquoise_shield", new ModShieldItem(new Item.Settings().maxDamage(999), 10, 25, ModItems.TURQUOISE_GEM));
-    public static final Item LAPIS_LAZULI_SHIELD = registerItem("lapis_lazuli_shield", new ModShieldItem(new Item.Settings().maxDamage(999), 10, 25, ModItems.LAPIS_LAZULI_GEM));
-    public static final Item AMETHYST_SHIELD = registerItem("amethyst_shield", new ModShieldItem(new Item.Settings().maxDamage(420), 10, 15, ModItems.AMETHYST_GEM));
-    public static final Item TANZANITE_SHIELD = registerItem("tanzanite_shield", new ModShieldItem(new Item.Settings().maxDamage(621), 10, 16, ModItems.TOURMALINE_GEM));
-    public static final Item TOURMALINE_SHIELD = registerItem("tourmaline_shield", new ModShieldItem(new Item.Settings().maxDamage(621), 10, 16, ModItems.TOURMALINE_GEM));
-    public static final Item TOPAZ_SHIELD = registerItem("topaz_shield", new ModShieldItem(new Item.Settings().maxDamage(632), 10, 14, ModItems.TOPAZ_GEM));
-    public static final Item EMERALD_SHIELD = registerItem("emerald_shield", new ModShieldItem(new Item.Settings().maxDamage(500), 10, 18, Items.EMERALD));
+    public static final Item SILVER_SHIELD = registerItem("silver_shield", new ModShieldItem(new Item.Settings().maxDamage(240), 100, 15, ModItems.SILVER_INGOT));
+    public static final Item COPPER_SHIELD = registerItem("copper_shield", new ModShieldItem(new Item.Settings().maxDamage(300), 100, 10, Items.COPPER_INGOT));
+    public static final Item STERLING_SILVER_SHIELD = registerItem("sterling_silver_shield", new ModShieldItem(new Item.Settings().maxDamage(279), 100, 17, ModItems.STERLING_SILVER_INGOT));
+    public static final Item ROSE_GOLD_SHIELD = registerItem("rose_gold_shield", new ModShieldItem(new Item.Settings().maxDamage(269), 100, 17, ModItems.ROSE_GOLD_INGOT));
+    public static final Item BRONZE_SHIELD = registerItem("bronze_shield", new ModShieldItem(new Item.Settings().maxDamage(299), 100, 13, ModItems.BRONZE_INGOT));
+    public static final Item COBALT_SHIELD = registerItem("cobalt_shield", new ModShieldItem(new Item.Settings().maxDamage(388), 100, 22, ModItems.COBALT_INGOT));
+    public static final Item CARBON_STEEL_SHIELD = registerItem("carbon_steel_shield", new ModShieldItem(new Item.Settings().maxDamage(436), 100, 15, ModItems.CARBON_STEEL_INGOT));
+    public static final Item HARDENED_STEEL_SHIELD = registerItem("hardened_steel_shield", new ModShieldItem(new Item.Settings().maxDamage(969), 90, 16, ModItems.HARDENED_STEEL_INGOT));
+    public static final Item TURQUOISE_SHIELD = registerItem("turquoise_shield", new ModShieldItem(new Item.Settings().maxDamage(420), 95, 25, ModItems.TURQUOISE_GEM));
+    public static final Item LAPIS_LAZULI_SHIELD = registerItem("lapis_lazuli_shield", new ModShieldItem(new Item.Settings().maxDamage(450), 95, 25, ModItems.LAPIS_LAZULI_GEM));
+    public static final Item AMETHYST_SHIELD = registerItem("amethyst_shield", new ModShieldItem(new Item.Settings().maxDamage(469), 95, 15, ModItems.AMETHYST_GEM));
+    public static final Item CITRINE_SHIELD = registerItem("citrine_shield", new ModShieldItem(new Item.Settings().maxDamage(489), 95, 11, ModItems.CITRINE_GEM));
+    public static final Item ONYX_SHIELD = registerItem("onyx_shield", new ModShieldItem(new Item.Settings().maxDamage(600), 95, 13, ModItems.ONYX_GEM));
+    public static final Item TANZANITE_SHIELD = registerItem("tanzanite_shield", new ModShieldItem(new Item.Settings().maxDamage(520), 95, 16, ModItems.TOURMALINE_GEM));
+    public static final Item TOURMALINE_SHIELD = registerItem("tourmaline_shield", new ModShieldItem(new Item.Settings().maxDamage(550), 95, 16, ModItems.TOURMALINE_GEM));
+    public static final Item TOPAZ_SHIELD = registerItem("topaz_shield", new ModShieldItem(new Item.Settings().maxDamage(580), 95, 14, ModItems.TOPAZ_GEM));
+    public static final Item SPINEL_SHIELD = registerItem("spinel_shield", new ModShieldItem(new Item.Settings().maxDamage(669), 95, 11, ModItems.SPINEL_GEM));
+    public static final Item EMERALD_SHIELD = registerItem("emerald_shield", new ModShieldItem(new Item.Settings().maxDamage(550), 95, 18, Items.EMERALD));
 //    public static final Item DIAMOND_SHIELD = registerItem("diamond_shield", new ModShieldItem(new Item.Settings().maxDamage(500), 10, 18, Items.DIAMOND));
-    public static final Item RUBY_SHIELD = registerItem("ruby_shield", new ModShieldItem(new Item.Settings().maxDamage(809), 10, 15, ModItems.RUBY_GEM));
-    public static final Item SAPPHIRE_SHIELD = registerItem("sapphire_shield", new ModShieldItem(new Item.Settings().maxDamage(711), 10, 18, ModItems.SAPPHIRE_GEM));
-    public static final Item CITRINE_SHIELD = registerItem("citrine_shield", new ModShieldItem(new Item.Settings().maxDamage(784), 10, 11, ModItems.CITRINE_GEM));
-    public static final Item SPINEL_SHIELD = registerItem("spinel_shield", new ModShieldItem(new Item.Settings().maxDamage(784), 10, 11, ModItems.SPINEL_GEM));
-    public static final Item MOISSANITE_SHIELD = registerItem("moissanite_shield", new ModShieldItem(new Item.Settings().maxDamage(913), 10, 10, ModItems.MOISSANITE_GEM));
-    public static final Item ONYX_SHIELD = registerItem("onyx_shield", new ModShieldItem(new Item.Settings().maxDamage(1111), 10, 13, ModItems.ONYX_GEM));
-    public static final Item OBSIDIAN_SHIELD = registerItem("obsidian_shield", new ModShieldItem(new Item.Settings().maxDamage(821), 10, 21, ModItems.OBSIDIAN_INGOT));
+    public static final Item RUBY_SHIELD = registerItem("ruby_shield", new ModShieldItem(new Item.Settings().maxDamage(750), 90, 15, ModItems.RUBY_GEM));
+    public static final Item SAPPHIRE_SHIELD = registerItem("sapphire_shield", new ModShieldItem(new Item.Settings().maxDamage(800), 90, 18, ModItems.SAPPHIRE_GEM));
+    public static final Item MOISSANITE_SHIELD = registerItem("moissanite_shield", new ModShieldItem(new Item.Settings().maxDamage(913), 80, 10, ModItems.MOISSANITE_GEM));
+    public static final Item OBSIDIAN_SHIELD = registerItem("obsidian_shield", new ModShieldItem(new Item.Settings().maxDamage(869), 80, 21, ModItems.OBSIDIAN_INGOT));
 //    public static final Item GRAPHENE_SHIELD = registerItem("graphene_shield", new ModShieldItem(new Item.Settings().maxDamage(1333), 10, 19, ModItems.GRAPHENE_GEM));
-    public static final Item ADAMANTIUM_SHIELD = registerItem("adamantium_shield", new ModShieldItem(new Item.Settings().maxDamage(1333), 10, 19, ModItems.ADAMANTIUM_INGOT));
-    public static final Item ENDERITE_SHIELD = registerItem("enderite_shield", new ModShieldItem(new Item.Settings().maxDamage(1333), 10, 19, ModItems.ENDERITE_INGOT));
+    public static final Item ADAMANTIUM_SHIELD = registerItem("adamantium_shield", new ModShieldItem(new Item.Settings().maxDamage(1000), 80, 19, ModItems.ADAMANTIUM_INGOT));
+    public static final Item ENDERITE_SHIELD = registerItem("enderite_shield", new ModShieldItem(new Item.Settings().maxDamage(1333), 60, 19, ModItems.ENDERITE_INGOT));
 //    public static final Item NETHERITE_SHIELD = registerItem("netherite_shield", new ModShieldItem(new Item.Settings().maxDamage(1333), 10, 19, Items.NETHERITE_INGOT));
 
     private static void addItemsToIngredientItemGroup(FabricItemGroupEntries entries) {

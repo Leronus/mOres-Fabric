@@ -1,7 +1,7 @@
 {
   "asset_name": "obsidian",
   "description": {
-    "color": "#2A1636",
+    "color": "#841AC4",
     "translate": "trim_material.mores.obsidian"
   },
   "ingredient": "mores:obsidian_ingot",

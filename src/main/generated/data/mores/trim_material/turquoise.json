@@ -1,7 +1,7 @@
 {
   "asset_name": "turquoise",
   "description": {
-    "color": "#2EC4B6",
+    "color": "#47FFDD",
     "translate": "trim_material.mores.turquoise"
   },
   "ingredient": "mores:turquoise_gem",

@@ -1,7 +1,7 @@
 {
   "asset_name": "adamantium",
   "description": {
-    "color": "#00D1B2",
+    "color": "#00D1CA",
     "translate": "trim_material.mores.adamantium"
   },
   "ingredient": "mores:adamantium_ingot",

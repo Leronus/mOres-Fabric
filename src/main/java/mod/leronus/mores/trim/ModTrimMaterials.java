@@ -51,27 +51,27 @@ public final class ModTrimMaterials {
         // See notes below.
 
         register(registry, TIN, itemEntry(ModItems.TIN_INGOT), color("#CFCFCF"), 0.11f);
-        register(registry, SILVER, itemEntry(ModItems.SILVER_INGOT), color("#E7EEF2"), 0.12f);
-        register(registry, STERLING_SILVER, itemEntry(ModItems.STERLING_SILVER_INGOT), color("#DDE7EA"), 0.13f);
+        register(registry, SILVER, itemEntry(ModItems.SILVER_INGOT), color("#b3e3ff"), 0.12f);
+        register(registry, STERLING_SILVER, itemEntry(ModItems.STERLING_SILVER_INGOT), color("#e6dbae"), 0.13f);
         register(registry, ROSE_GOLD, itemEntry(ModItems.ROSE_GOLD_INGOT), color("#F2A0A0"), 0.14f);
         register(registry, BRONZE, itemEntry(ModItems.BRONZE_INGOT), color("#C47A3C"), 0.15f);
-        register(registry, COBALT, itemEntry(ModItems.COBALT_INGOT), color("#2F63D6"), 0.16f);
-        register(registry, CARBON_STEEL, itemEntry(ModItems.CARBON_STEEL_INGOT), color("#6B6B6B"), 0.17f);
-        register(registry, HARDENED_STEEL, itemEntry(ModItems.HARDENED_STEEL_INGOT), color("#4C4C4C"), 0.18f);
+        register(registry, COBALT, itemEntry(ModItems.COBALT_INGOT), color("#4f8fe3"), 0.16f);
+        register(registry, CARBON_STEEL, itemEntry(ModItems.CARBON_STEEL_INGOT), color("#858275"), 0.17f);
+        register(registry, HARDENED_STEEL, itemEntry(ModItems.HARDENED_STEEL_INGOT), color("#736f6f"), 0.18f);
 
-        register(registry, CITRINE, itemEntry(ModItems.CITRINE_GEM), color("#F2C94C"), 0.19f);
-        register(registry, ONYX, itemEntry(ModItems.ONYX_GEM), color("#1A1A1A"), 0.21f);
-        register(registry, TURQUOISE, itemEntry(ModItems.TURQUOISE_GEM), color("#2EC4B6"), 0.22f);
-        register(registry, TOPAZ, itemEntry(ModItems.TOPAZ_GEM), color("#F2994A"), 0.23f);
-        register(registry, TOURMALINE, itemEntry(ModItems.TOURMALINE_GEM), color("#2ECC71"), 0.24f);
-        register(registry, SPINEL, itemEntry(ModItems.SPINEL_GEM), color("#D7263D"), 0.25f);
-        register(registry, RUBY, itemEntry(ModItems.RUBY_GEM), color("#B80F2B"), 0.26f);
-        register(registry, SAPPHIRE, itemEntry(ModItems.SAPPHIRE_GEM), color("#1F6FEB"), 0.27f);
-        register(registry, MOISSANITE, itemEntry(ModItems.MOISSANITE_GEM), color("#9AE6FF"), 0.28f);
+        register(registry, CITRINE, itemEntry(ModItems.CITRINE_GEM), color("#ff910a"), 0.19f);
+        register(registry, ONYX, itemEntry(ModItems.ONYX_GEM), color("#2b2b2b"), 0.21f);
+        register(registry, TURQUOISE, itemEntry(ModItems.TURQUOISE_GEM), color("#47ffdd"), 0.22f);
+        register(registry, TOPAZ, itemEntry(ModItems.TOPAZ_GEM), color("#4ab5f7"), 0.23f);
+        register(registry, TOURMALINE, itemEntry(ModItems.TOURMALINE_GEM), color("#f57fcc"), 0.24f);
+        register(registry, SPINEL, itemEntry(ModItems.SPINEL_GEM), color("#ff526c"), 0.25f);
+        register(registry, RUBY, itemEntry(ModItems.RUBY_GEM), color("#e83c3c"), 0.26f);
+        register(registry, SAPPHIRE, itemEntry(ModItems.SAPPHIRE_GEM), color("#002ae3"), 0.27f);
+        register(registry, MOISSANITE, itemEntry(ModItems.MOISSANITE_GEM), color("#e4ff38"), 0.28f);
 
-        register(registry, OBSIDIAN, itemEntry(ModItems.OBSIDIAN_INGOT), color("#2A1636"), 0.31f);
-        register(registry, ADAMANTIUM, itemEntry(ModItems.ADAMANTIUM_INGOT), color("#00D1B2"), 0.33f);
-        register(registry, ENDERITE, itemEntry(ModItems.ENDERITE_INGOT), color("#8B5CF6"), 0.34f);
+        register(registry, OBSIDIAN, itemEntry(ModItems.OBSIDIAN_INGOT), color("#841ac4"), 0.31f);
+        register(registry, ADAMANTIUM, itemEntry(ModItems.ADAMANTIUM_INGOT), color("#00d1ca"), 0.33f);
+        register(registry, ENDERITE, itemEntry(ModItems.ENDERITE_INGOT), color("#02d697"), 0.34f);
     }
 
     private static RegistryKey<ArmorTrimMaterial> key(String path) {

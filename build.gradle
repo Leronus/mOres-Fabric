@@ -58,6 +58,17 @@ loom {
             // Helpful when debugging what is / isn't being generated:
             // vmArg "-Dfabric-api.datagen.verbose=true"
         }
+        datagenFabricShieldLib {
+            inherit server
+            name "DataGen FabricShieldLib"
+            runDir "build/datagen"
+
+            vmArg "-Dfabric-api.datagen"
+            vmArg "-Dfabric-api.datagen.output-dir=${file("src/main/generated")}"
+            vmArg "-Dfabric-api.datagen.modid=fabricshieldlib"
+            vmArg "-Dfabric-api.datagen.strict-validation=true"
+            // vmArg "-Dfabric-api.datagen.verbose=true"
+        }
         client {
             vmArg "-Dfabric-tag-conventions-v2.missingTagTranslationWarning=VERBOSE"
         }
@@ -78,9 +89,6 @@ sourceSets {
             // don't package any dev cache folders as resources
             exclude("**/.cache/**")
             exclude(".cache/**")
-
-            // don't package resources that belong to other mods (prevents duplicates like reflect.json)
-            exclude("data/fabricshieldlib/**")
         }
     }
 }

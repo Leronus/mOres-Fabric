@@ -100,7 +100,6 @@ public class ModRecipeProvider extends FabricRecipeProvider {
     private void generateShieldDecoration(RecipeExporter exporter) {
         /* Shield Decoration */
         ComplexRecipeJsonBuilder.create(ShieldDecorationRecipe::new).offerTo(exporter, Identifier.of("mores", "shield_decoration"));
-
     }
 
     private void generateFood(RecipeExporter exporter) {
@@ -5072,7 +5071,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
         // Exporter wants a real Recipe<?> in 1.21.1 (same pattern you used for Alloying)
         exporter.accept(
                 id,
-                new SteelCuttingRecipe("", input, new ItemStack(output, count)),
+                new SteelCuttingRecipe("steel_cutting", input, new ItemStack(output, count)),
                 null
         );
     }

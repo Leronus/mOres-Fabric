@@ -1,7 +1,7 @@
 {
   "asset_name": "topaz",
   "description": {
-    "color": "#F2994A",
+    "color": "#4AB5F7",
     "translate": "trim_material.mores.topaz"
   },
   "ingredient": "mores:topaz_gem",

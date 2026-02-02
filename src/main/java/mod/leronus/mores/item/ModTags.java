@@ -27,6 +27,9 @@ public class ModTags {
         public static final TagKey<Item> SHEAR_REMOVES_ANIMAL_ARMOR = createTag("shear_removes_animal_armor");
         public static final TagKey<Item> SHEAR_REMOVES_SADDLE = createTag("shear_removes_saddle");
 
+        public static final TagKey<Item> REFLECT_PRIMARY =
+                TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "enchantable/reflect_primary"));
+
 
         //        public static final TagKey<Item> TRANSFORMABLE_ITEMS = createTag("transformable_items");
         public static final TagKey<Item> GEMS = createTag("gems");

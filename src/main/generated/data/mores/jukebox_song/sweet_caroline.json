@@ -3,6 +3,6 @@
   "description": {
     "translate": "item.mores.sweet_caroline_music_disc.desc"
   },
-  "length_in_seconds": 202,
+  "length_in_seconds": 4040,
   "sound_event": "mores:sweet_caroline_bootleg"
 }

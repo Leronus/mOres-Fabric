@@ -3,6 +3,7 @@ package mod.leronus.mores.item.custom;
 import net.minecraft.item.AnimalArmorItem;
 import net.minecraft.item.ArmorMaterial;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
 import net.minecraft.registry.entry.RegistryEntry;
 import net.minecraft.util.Identifier;
 import org.jetbrains.annotations.Nullable;
@@ -32,5 +33,10 @@ public class ModWolfArmorItem extends AnimalArmorItem {
     @Nullable
     public Identifier getOverlayTexture() {
         return overlayTexture;
+    }
+
+    @Override
+    public boolean isEnchantable(ItemStack stack) {
+        return true;
     }
 }

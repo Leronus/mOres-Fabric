@@ -22,14 +22,20 @@ public class SteelCuttingRecipe extends StonecuttingRecipe {
     }
 
     /**
-     * StonecuttingRecipe stores ingredients as a list; this exposes the single input.
+     * IMPORTANT:
+     * Prevents vanilla recipe book from trying to categorize this custom recipe type,
+     * which is what causes the "Unknown recipe category" warnings.
      */
+    @Override
+    public boolean isIgnoredInRecipeBook() {
+        return true;
+    }
+
     public Ingredient getInput() {
         return this.getIngredients().get(0);
     }
 
     public ItemStack getResultStack() {
-        // In 1.21.x, getResult can take a registry manager; null works in practice for simple stacks
         return this.getResult(null);
     }
 
@@ -43,18 +49,15 @@ public class SteelCuttingRecipe extends StonecuttingRecipe {
         return ModRecipes.STEEL_CUTTING;
     }
 
-    // === Serializer (matches your AlloyingRecipe structure) ===
     public static final class Serializer implements RecipeSerializer<SteelCuttingRecipe> {
         public static final Serializer INSTANCE = new Serializer();
 
-        // JSON / datapack codec
         private static final MapCodec<SteelCuttingRecipe> CODEC = RecordCodecBuilder.mapCodec(instance -> instance.group(
                 Codec.STRING.optionalFieldOf("group", "").forGetter(SteelCuttingRecipe::getGroup),
                 Ingredient.DISALLOW_EMPTY_CODEC.fieldOf("ingredient").forGetter(SteelCuttingRecipe::getInput),
                 ItemStack.VALIDATED_CODEC.fieldOf("result").forGetter(SteelCuttingRecipe::getResultStack)
         ).apply(instance, SteelCuttingRecipe::new));
 
-        // Network codec (server -> client recipe sync)
         public static final PacketCodec<RegistryByteBuf, SteelCuttingRecipe> PACKET_CODEC =
                 PacketCodec.ofStatic(Serializer::write, Serializer::read);
 
