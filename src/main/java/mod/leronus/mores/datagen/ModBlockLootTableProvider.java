@@ -79,8 +79,8 @@ public class ModBlockLootTableProvider extends FabricBlockLootTableProvider {
         // =========================
         // SILVER_INGOT (ores -> RAW_SILVER)
         // =========================
-        addDrop(ModBlocks.SILVER_ORE, multipleOreDrops(ModBlocks.SILVER_ORE, ModItems.RAW_SILVER, 1f, 3f));
-        addDrop(ModBlocks.DEEPSLATE_SILVER_ORE, multipleOreDrops(ModBlocks.DEEPSLATE_SILVER_ORE, ModItems.RAW_SILVER, 3f, 6f));
+        addDrop(ModBlocks.SILVER_ORE, multipleOreDrops(ModBlocks.SILVER_ORE, ModItems.RAW_SILVER, 1f, 2f));
+        addDrop(ModBlocks.DEEPSLATE_SILVER_ORE, multipleOreDrops(ModBlocks.DEEPSLATE_SILVER_ORE, ModItems.RAW_SILVER, 2f, 4f));
         addDrop(ModBlocks.ANDESITE_SILVER_ORE, multipleOreDrops(ModBlocks.ANDESITE_SILVER_ORE, ModItems.RAW_SILVER, 1f, 3f));
         addDrop(ModBlocks.BASALT_SILVER_ORE, multipleOreDrops(ModBlocks.BASALT_SILVER_ORE, ModItems.RAW_SILVER, 1f, 3f));
         addDrop(ModBlocks.BLACKSTONE_SILVER_ORE, multipleOreDrops(ModBlocks.BLACKSTONE_SILVER_ORE, ModItems.RAW_SILVER, 1f, 3f));
@@ -89,10 +89,10 @@ public class ModBlockLootTableProvider extends FabricBlockLootTableProvider {
         addDrop(ModBlocks.GRANITE_SILVER_ORE, multipleOreDrops(ModBlocks.GRANITE_SILVER_ORE, ModItems.RAW_SILVER, 1f, 3f));
         addDrop(ModBlocks.GRAVEL_SILVER_ORE, multipleOreDrops(ModBlocks.GRAVEL_SILVER_ORE, ModItems.RAW_SILVER, 1f, 3f));
         addDrop(ModBlocks.TUFF_SILVER_ORE, multipleOreDrops(ModBlocks.TUFF_SILVER_ORE, ModItems.RAW_SILVER, 1f, 3f));
-        addDrop(ModBlocks.ENDER_SILVER_ORE, multipleOreDrops(ModBlocks.ENDER_SILVER_ORE, ModItems.RAW_SILVER, 3f, 6f));
+        addDrop(ModBlocks.ENDER_SILVER_ORE, multipleOreDrops(ModBlocks.ENDER_SILVER_ORE, ModItems.RAW_SILVER, 3f, 5f));
 
         // Nether variant drops SILVER_NUGGET
-        addDrop(ModBlocks.NETHER_SILVER_ORE, multipleOreDrops(ModBlocks.NETHER_SILVER_ORE, ModItems.SILVER_NUGGET, 4f, 8f));
+        addDrop(ModBlocks.NETHER_SILVER_ORE, multipleOreDrops(ModBlocks.NETHER_SILVER_ORE, ModItems.SILVER_NUGGET, 6f, 10f));
 
         addDrop(ModBlocks.SILVER_BLOCK);
         addDrop(ModBlocks.RAW_SILVER_BLOCK);
@@ -131,7 +131,7 @@ public class ModBlockLootTableProvider extends FabricBlockLootTableProvider {
         addDrop(ModBlocks.GRANITE_COBALT_ORE, multipleOreDrops(ModBlocks.GRANITE_COBALT_ORE, ModItems.RAW_COBALT, 1f, 2f));
         addDrop(ModBlocks.GRAVEL_COBALT_ORE, multipleOreDrops(ModBlocks.GRAVEL_COBALT_ORE, ModItems.RAW_COBALT, 1f, 2f));
         addDrop(ModBlocks.TUFF_COBALT_ORE, multipleOreDrops(ModBlocks.TUFF_COBALT_ORE, ModItems.RAW_COBALT, 1f, 2f));
-        addDrop(ModBlocks.ENDER_COBALT_ORE, multipleOreDrops(ModBlocks.ENDER_COBALT_ORE, ModItems.RAW_COBALT, 3f, 6f));
+        addDrop(ModBlocks.ENDER_COBALT_ORE, multipleOreDrops(ModBlocks.ENDER_COBALT_ORE, ModItems.RAW_COBALT, 3f, 5f));
 
         addDrop(ModBlocks.COBALT_BLOCK);
         addDrop(ModBlocks.RAW_COBALT_BLOCK);

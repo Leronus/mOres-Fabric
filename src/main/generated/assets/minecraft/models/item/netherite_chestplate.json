@@ -170,12 +170,6 @@
       }
     },
     {
-      "model": "minecraft:item/netherite_chestplate_graphene_trim",
-      "predicate": {
-        "trim_type": 0.32
-      }
-    },
-    {
       "model": "minecraft:item/netherite_chestplate_adamantium_trim",
       "predicate": {
         "trim_type": 0.33

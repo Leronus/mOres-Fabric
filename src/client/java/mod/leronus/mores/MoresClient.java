@@ -94,6 +94,7 @@ public class MoresClient implements ClientModInitializer {
             Mores.LOGGER.info("DetailAB loaded");
             Identifier tinTexture = Identifier.of(Mores.MOD_ID, "textures/ab/tin_sheet.png");
             Identifier silverTexture = Identifier.of(Mores.MOD_ID, "textures/ab/silver_sheet.png");
+            Identifier bronzeTexture = Identifier.of(Mores.MOD_ID, "textures/ab/bronze_sheet.png");
             Identifier sterlingSilverTexture = Identifier.of(Mores.MOD_ID, "textures/ab/sterling_silver_sheet.png");
             Identifier roseGoldTexture = Identifier.of(Mores.MOD_ID, "textures/ab/rose_gold_sheet.png");
             Identifier carbonSteelTexture = Identifier.of(Mores.MOD_ID, "textures/ab/carbon_steel_sheet.png");
@@ -139,6 +140,19 @@ public class MoresClient implements ClientModInitializer {
                             ModItems.SILVER_LEGGINGS, ModItems.SILVER_BOOTS)
                     .render(stack -> new ArmorBarRenderManager(
                             silverTexture,
+                            36, 9,
+                            full,
+                            half,
+                            outline,
+                            outlineHalf
+                    ))
+                    .register();
+
+            DetailArmorBarAPI.customArmorBarBuilder()
+                    .armor(ModItems.BRONZE_HELMET, ModItems.BRONZE_CHESTPLATE,
+                            ModItems.BRONZE_LEGGINGS, ModItems.BRONZE_BOOTS)
+                    .render(stack -> new ArmorBarRenderManager(
+                            bronzeTexture,
                             36, 9,
                             full,
                             half,

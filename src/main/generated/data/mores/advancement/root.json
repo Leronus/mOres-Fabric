@@ -12,12 +12,14 @@
     }
   },
   "display": {
+    "announce_to_chat": false,
     "background": "mores:textures/gui/advancements/background.png",
     "description": "Progress through new ores, alloys, and gems.",
     "icon": {
       "count": 1,
       "id": "mores:ender_ruby_ore"
     },
+    "show_toast": false,
     "title": "mOres Reloaded"
   },
   "requirements": [

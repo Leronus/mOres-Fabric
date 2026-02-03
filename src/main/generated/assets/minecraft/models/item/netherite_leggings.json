@@ -170,12 +170,6 @@
       }
     },
     {
-      "model": "minecraft:item/netherite_leggings_graphene_trim",
-      "predicate": {
-        "trim_type": 0.32
-      }
-    },
-    {
       "model": "minecraft:item/netherite_leggings_adamantium_trim",
       "predicate": {
         "trim_type": 0.33

@@ -170,12 +170,6 @@
       }
     },
     {
-      "model": "mores:item/lapis_lazuli_leggings_graphene_trim",
-      "predicate": {
-        "trim_type": 0.32
-      }
-    },
-    {
       "model": "mores:item/lapis_lazuli_leggings_adamantium_trim",
       "predicate": {
         "trim_type": 0.33

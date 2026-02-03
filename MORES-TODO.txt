@@ -3,29 +3,32 @@ Fabric 1.21.1
 Testing:
 - Check tooltips for wolf armor and spears, as well as updating the bonuses (& colors) also fix shulker shell durability>?>?
 - Villager Trades - replacing vanilla see what's missing
-- Check hardened steel natural village generation again because he seemed too rare
-- Test horse/wolf armor & shield enchants
-- Check food recipes (chocolate) maybe play test a little with lemons and such - seemed to work
+- Check hardened steel natural village generation again because he seemed too rare - still
+- Test horse/wolf armor & shield enchants (seems to be working)
+- Check food recipes (chocolate) maybe play test a little with lemons and such (seemed to work)
 - Turquoise / Lapis Lazuli horse armor & tanzanite is it working? i think so
 - Entity Spawning -> Withers, Vexes etc
-- Add duck egg to egg tag so it can be used for pies & cake etc
-- Added skeleton/other mob jockeys for duck
-- Custom Recipes for Steel Cutter (quartz/lapis/amethyst/turquoise dust from their material) -> Tools back to gem?
+- Added skeleton/other mob jockeys for duck - test!! seen strange things lmao
+- Custom Recipes for Steel Cutter (quartz/lapis/amethyst/turquoise dust from their material) -> Tools and armor now done (seems to be working)
+- Tool materials  (shields testing and -> battle axe and mace speed?)
+
 - Advancements (add stuff for new food & golem & duck ofc)
 
 
 Todo:
-- Tool materials (update shields stats -> cooldown)
 - Ore generation as well as datagen for it (buff nether onyx)
 - Turquoise horse armor / lapis -> faster sink? maybe a little less resistance
 - Loot tables CHESTS - tools, weapons, shields, horse/wolf armor, food, smithing templates & ENTITIES drops (golem + duck)
+- Duck sounds not working for some reason -> also model has a gap near its head idk
+
 
 Modpack:
+Steelcutter REI integration
 Animated Textures
 Horseman testing with mores horse armor
-Steelcutter REI integration
 Custom nether portal frame (horizontal but vertical too, check it) - RTP command translations
-Emissive texture fix?
+Check if modlist complete and playtest
+Ranks and setup world / hosting
 
 
 Optional:

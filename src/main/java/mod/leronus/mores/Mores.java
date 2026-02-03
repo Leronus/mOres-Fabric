@@ -14,6 +14,7 @@ import mod.leronus.mores.item.ModItemGroups;
 import mod.leronus.mores.item.ModItems;
 import mod.leronus.mores.loot.ModChestLootInjector;
 import mod.leronus.mores.network.ModNetworking;
+import mod.leronus.mores.registry.ModFuels;
 import mod.leronus.mores.registry.ModRecipes;
 import mod.leronus.mores.registry.ModBlockEntities;
 import mod.leronus.mores.registry.ModScreenHandlers;
@@ -24,6 +25,7 @@ import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.item.v1.DefaultItemComponentEvents;
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricDefaultAttributeRegistry;
 import net.fabricmc.fabric.api.registry.FuelRegistry;
+import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.item.Item;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -53,10 +55,7 @@ public class Mores implements ModInitializer {
         ModNetworking.registerServerReceivers();
         ModShearableAnimalArmorHandler.register();
         ModChestLootInjector.register();
-
-        //TODO Check anthracite
-		FuelRegistry.INSTANCE.add(ModItems.ANTHRACITE, 4000);
-
+        ModFuels.register();
 		ModWorldGeneration.generateModWorldGen();
 
         //Register Golem Attributes
@@ -71,13 +70,9 @@ public class Mores implements ModInitializer {
         );
 
         // Register Spear Attributes (only if the Spears mod is loaded)
-        if (net.fabricmc.loader.api.FabricLoader.getInstance().isModLoaded("spears")) {
-
+        if (FabricLoader.getInstance().isModLoaded("spears")) {
             // Use a mutable set so we can safely add only what exists
             final Set<Item> SPEARS_WITH_SHARED_ATTRS = new HashSet<>();
-
-            // Add your spear items (these must also be registered only when spears is loaded)
-            // If you made them nullable anywhere, this stays safe.
             if (ModItems.ROSE_GOLD_SPEAR != null) SPEARS_WITH_SHARED_ATTRS.add(ModItems.ROSE_GOLD_SPEAR);
             if (ModItems.CARBON_STEEL_SPEAR != null) SPEARS_WITH_SHARED_ATTRS.add(ModItems.CARBON_STEEL_SPEAR);
             if (ModItems.HARDENED_STEEL_SPEAR != null) SPEARS_WITH_SHARED_ATTRS.add(ModItems.HARDENED_STEEL_SPEAR);
@@ -89,47 +84,48 @@ public class Mores implements ModInitializer {
             SPEARS_WITH_SHARED_ATTRS.add(Spears.DIAMOND_SPEAR);
             SPEARS_WITH_SHARED_ATTRS.add(Spears.NETHERITE_SPEAR);
 
-            // Only register the component modifier if we actually have any spear items
-            if (!SPEARS_WITH_SHARED_ATTRS.isEmpty()) {
-                DefaultItemComponentEvents.MODIFY.register(ctx -> {
-                    ctx.modify(
-                            SPEARS_WITH_SHARED_ATTRS::contains,
-                            (builder, item) -> {
-                                // Everything below references Spears API classes,
-                                // so it MUST stay inside the isModLoaded guard.
-
-                                builder.add(Spears.USE_EFFECTS,
-                                        new UseEffects(1.0F, true, false));
-
-                                builder.add(Spears.SWING_ANIMATION,
-                                        new SwingAnimation(19, "stab"));
-
-                                builder.add(Spears.PIERCING_WEAPON,
-                                        new PiercingWeapon(
-                                                0.25F, true, false,
-                                                vanillaSound("item.spear.attack"),
-                                                vanillaSound("item.spear.hit")
-                                        ));
-
-                                builder.add(Spears.KINETIC_WEAPON,
-                                        new KineticWeapon(
-                                                0.125F, 10, 12,
-                                                KineticWeapon.Condition.ofMinSpeed(50, 8.0F),
-                                                KineticWeapon.Condition.ofMinSpeed(90, 5.1F),
-                                                KineticWeapon.Condition.ofMinRelativeSpeed(225, 4.6F),
-                                                0.38F, 0.95F,
-                                                vanillaSound("item.spear.use"),
-                                                vanillaSound("item.spear.hit")
-                                        ));
-
-                                builder.add(Spears.ATTACK_RANGE,
-                                        new AttackRange(1.5F, 4.25F));
-
-                                builder.add(Spears.MINIMUM_ATTACK_CHARGE, 0.75F);
-                            }
-                    );
-                });
-            }
+            registerSpearAttributes(SPEARS_WITH_SHARED_ATTRS);
         }
 	}
+
+    private static void registerSpearAttributes(Set<Item> SPEARS_WITH_SHARED_ATTRS) {
+        DefaultItemComponentEvents.MODIFY.register(ctx -> {
+            ctx.modify(
+                    SPEARS_WITH_SHARED_ATTRS::contains,
+                    (builder, item) -> {
+                        // Everything below references Spears API classes,
+                        // so it MUST stay inside the isModLoaded guard.
+
+                        builder.add(Spears.USE_EFFECTS,
+                                new UseEffects(1.0F, true, false));
+
+                        builder.add(Spears.SWING_ANIMATION,
+                                new SwingAnimation(19, "stab"));
+
+                        builder.add(Spears.PIERCING_WEAPON,
+                                new PiercingWeapon(
+                                        0.25F, true, false,
+                                        vanillaSound("item.spear.attack"),
+                                        vanillaSound("item.spear.hit")
+                                ));
+
+                        builder.add(Spears.KINETIC_WEAPON,
+                                new KineticWeapon(
+                                        0.125F, 10, 12,
+                                        KineticWeapon.Condition.ofMinSpeed(50, 8.0F),
+                                        KineticWeapon.Condition.ofMinSpeed(90, 5.1F),
+                                        KineticWeapon.Condition.ofMinRelativeSpeed(225, 4.6F),
+                                        0.38F, 0.95F,
+                                        vanillaSound("item.spear.use"),
+                                        vanillaSound("item.spear.hit")
+                                ));
+
+                        builder.add(Spears.ATTACK_RANGE,
+                                new AttackRange(1.5F, 4.25F));
+
+                        builder.add(Spears.MINIMUM_ATTACK_CHARGE, 0.75F);
+                    }
+            );
+        });
+    }
 }

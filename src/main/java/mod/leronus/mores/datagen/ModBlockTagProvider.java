@@ -19,6 +19,7 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
     protected void configure(RegistryWrapper.WrapperLookup wrapperLookup) {
         //Ores & Blocks
         getOrCreateTagBuilder(BlockTags.PICKAXE_MINEABLE).add(
+                ModBlocks.ALLOY_FURNACE,
                 ModBlocks.ANTHRACITE_ORE, ModBlocks.DEEPSLATE_ANTHRACITE_ORE, ModBlocks.NETHER_ANTHRACITE_ORE,
                 ModBlocks.TIN_ORE, ModBlocks.DEEPSLATE_TIN_ORE, ModBlocks.ANDESITE_TIN_ORE, ModBlocks.GRANITE_TIN_ORE, ModBlocks.TUFF_TIN_ORE,
                 ModBlocks.SILVER_ORE,  ModBlocks.DEEPSLATE_SILVER_ORE, ModBlocks.NETHER_SILVER_ORE, ModBlocks.ENDER_SILVER_ORE, ModBlocks.ELECTRUM_ORE,

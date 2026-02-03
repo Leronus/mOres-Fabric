@@ -21,8 +21,7 @@
     "subtitle" : "sound.mores.wortel9",
     "sounds" : [
       {
-        "name" : "mores:wortel9",
-        "stream" : true
+        "name" : "mores:wortel9"
       }
     ]
   },
@@ -30,8 +29,31 @@
     "subtitle" : "sound.mores.watwaarom",
     "sounds" : [
       {
-        "name" : "mores:watwaarom",
-        "stream" : true
+        "name" : "mores:watwaarom"
+      }
+    ]
+  },
+  "duck_hurt": {
+    "subtitle" : "sound.mores.duck_hurt",
+    "sounds" : [
+      {
+        "name" : "mores:duck_hurt"
+      }
+    ]
+  },
+  "duck_dying": {
+    "subtitle" : "sound.mores.duck_dying",
+    "sounds" : [
+      {
+        "name" : "mores:duck_dying"
+      }
+    ]
+  },
+  "duck_living": {
+    "subtitle" : "sound.mores.duck_living",
+    "sounds" : [
+      {
+        "name" : "mores:duck_living"
       }
     ]
   }

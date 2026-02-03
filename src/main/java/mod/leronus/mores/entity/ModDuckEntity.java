@@ -139,6 +139,11 @@ public class ModDuckEntity extends AnimalEntity {
     }
 
     @Override
+    protected float getSoundVolume() {
+        return 0.40f; // ducks are not cows 🦆
+    }
+
+    @Override
     protected void playStepSound(BlockPos pos, BlockState state) {
         this.playSound(SoundEvents.ENTITY_CHICKEN_STEP, 0.15F, 1.0F);
     }

@@ -49,7 +49,7 @@ public class ModAdvancementProvider extends FabricAdvancementProvider {
         // ROOT TAB
         // -------------------------
         AdvancementEntry root = Advancement.Builder.create()
-                .display(displayWithBackground(
+                .display(displaySilently(
                         ModBlocks.ENDER_RUBY_ORE,
                         "mOres Reloaded",
                         "Progress through new ores, alloys, and gems.",
@@ -1200,6 +1200,28 @@ public class ModAdvancementProvider extends FabricAdvancementProvider {
                 frame,
                 true,
                 true,
+                false
+        );
+        d.setPos(x, y);
+        return d;
+    }
+
+    private static AdvancementDisplay displaySilently(
+            ItemConvertible icon,
+            String title,
+            String description,
+            Identifier background,
+            AdvancementFrame frame,
+            float x, float y
+    ) {
+        AdvancementDisplay d = new AdvancementDisplay(
+                new ItemStack(icon),
+                Text.literal(title),
+                Text.literal(description),
+                Optional.of(background),
+                frame,
+                false,
+                false,
                 false
         );
         d.setPos(x, y);

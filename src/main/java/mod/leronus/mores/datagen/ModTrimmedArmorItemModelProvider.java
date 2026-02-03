@@ -61,7 +61,6 @@ public final class ModTrimmedArmorItemModelProvider implements DataProvider {
             new TrimDef("moissanite", 0.28f),
 
             new TrimDef("obsidian", 0.31f),
-            new TrimDef("graphene", 0.32f),
             new TrimDef("adamantium", 0.33f),
             new TrimDef("enderite", 0.34f)
     );
