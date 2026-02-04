@@ -94,7 +94,7 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 ModBlocks.GRANITE_COBALT_ORE, ModBlocks.GRAVEL_COBALT_ORE, ModBlocks.TUFF_COBALT_ORE,
                 ModBlocks.TURQUOISE_ORE, ModBlocks.DEEPSLATE_TURQUOISE_ORE,
                 ModBlocks.QUARTZ_ORE, ModBlocks.DEEPSLATE_QUARTZ_ORE,
-                ModBlocks.ENDER_ONYX_ORE,
+                ModBlocks.NETHER_ONYX_ORE, ModBlocks.ENDER_ONYX_ORE,
                 ModBlocks.CITRINE_ORE, ModBlocks.NETHER_CITRINE_ORE,
                 ModBlocks.TANZANITE_ORE, ModBlocks.DEEPSLATE_TANZANITE_ORE, ModBlocks.NETHER_TANZANITE_ORE, ModBlocks.ENDER_TANZANITE_ORE, ModBlocks.ANDESITE_TANZANITE_ORE, ModBlocks.BASALT_TANZANITE_ORE, ModBlocks.BLACKSTONE_TANZANITE_ORE, ModBlocks.CALCITE_TANZANITE_ORE, ModBlocks.DIORITE_TANZANITE_ORE,
                 ModBlocks.GRANITE_TANZANITE_ORE, ModBlocks.GRAVEL_TANZANITE_ORE, ModBlocks.TUFF_TANZANITE_ORE,
@@ -114,7 +114,7 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
 
         //Harvest Levels
         getOrCreateTagBuilder(BlockTags.NEEDS_STONE_TOOL).add(
-                ModBlocks.TIN_BLOCK, ModBlocks.ALLOY_FURNACE,
+                ModBlocks.ALLOY_FURNACE, ModBlocks.TIN_BLOCK,
                 ModBlocks.ANTHRACITE_ORE, ModBlocks.DEEPSLATE_ANTHRACITE_ORE, ModBlocks.NETHER_ANTHRACITE_ORE,
                 ModBlocks.RAW_TIN_BLOCK, ModBlocks.DEEPSLATE_TIN_ORE, ModBlocks.ANDESITE_TIN_ORE, ModBlocks.GRANITE_TIN_ORE, ModBlocks.GRAVEL_TIN_ORE, ModBlocks.TUFF_TIN_ORE,
                 ModBlocks.SILVER_ORE, ModBlocks.DEEPSLATE_SILVER_ORE, ModBlocks.NETHER_SILVER_ORE, ModBlocks.ELECTRUM_ORE, ModBlocks.ENDER_SILVER_ORE, ModBlocks.ANDESITE_SILVER_ORE, ModBlocks.BASALT_SILVER_ORE, ModBlocks.BLACKSTONE_SILVER_ORE, ModBlocks.CALCITE_SILVER_ORE, ModBlocks.DIORITE_SILVER_ORE,
@@ -131,7 +131,7 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 ModBlocks.TURQUOISE_ORE, ModBlocks.DEEPSLATE_TURQUOISE_ORE,
                 ModBlocks.QUARTZ_ORE, ModBlocks.DEEPSLATE_QUARTZ_ORE,
                 ModBlocks.CITRINE_ORE, ModBlocks.NETHER_CITRINE_ORE,
-                ModBlocks.ENDER_ONYX_ORE,
+                ModBlocks.NETHER_ONYX_ORE, ModBlocks.ENDER_ONYX_ORE,
                 ModBlocks.TANZANITE_ORE, ModBlocks.DEEPSLATE_TANZANITE_ORE, ModBlocks.NETHER_TANZANITE_ORE, ModBlocks.ENDER_TANZANITE_ORE, ModBlocks.ANDESITE_TANZANITE_ORE, ModBlocks.BASALT_TANZANITE_ORE, ModBlocks.BLACKSTONE_TANZANITE_ORE, ModBlocks.CALCITE_TANZANITE_ORE, ModBlocks.DIORITE_TANZANITE_ORE,
                 ModBlocks.GRANITE_TANZANITE_ORE, ModBlocks.GRAVEL_TANZANITE_ORE, ModBlocks.TUFF_TANZANITE_ORE,
                 ModBlocks.TOPAZ_ORE, ModBlocks.DEEPSLATE_TOPAZ_ORE, ModBlocks.NETHER_TOPAZ_ORE, ModBlocks.ENDER_TOPAZ_ORE, ModBlocks.ANDESITE_TOPAZ_ORE, ModBlocks.BASALT_TOPAZ_ORE, ModBlocks.BLACKSTONE_TOPAZ_ORE, ModBlocks.CALCITE_TOPAZ_ORE, ModBlocks.DIORITE_TOPAZ_ORE,

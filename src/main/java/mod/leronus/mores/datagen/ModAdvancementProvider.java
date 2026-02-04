@@ -8,11 +8,7 @@ import mod.leronus.mores.item.ModItems;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricAdvancementProvider;
 
-import net.minecraft.advancement.Advancement;
-import net.minecraft.advancement.AdvancementCriterion;
-import net.minecraft.advancement.AdvancementDisplay;
-import net.minecraft.advancement.AdvancementEntry;
-import net.minecraft.advancement.AdvancementFrame;
+import net.minecraft.advancement.*;
 
 import net.minecraft.advancement.criterion.*;
 
@@ -74,6 +70,7 @@ public class ModAdvancementProvider extends FabricAdvancementProvider {
                         2, 0
                 ))
                 .criterion("has_tin", hasItem(ModItems.TIN_INGOT))
+                .rewards(AdvancementRewards.Builder.experience(20))
                 .build(exporter, id("obtain_tin_ingot"));
 
         AdvancementEntry fullTinArmor = Advancement.Builder.create()
@@ -89,6 +86,7 @@ public class ModAdvancementProvider extends FabricAdvancementProvider {
                 .criterion("tin_chestplate", hasItem(ModItems.TIN_CHESTPLATE))
                 .criterion("tin_leggings", hasItem(ModItems.TIN_LEGGINGS))
                 .criterion("tin_boots", hasItem(ModItems.TIN_BOOTS))
+                .rewards(AdvancementRewards.Builder.experience(50))
                 .build(exporter, id("full_tin_armor"));
 
 
@@ -105,6 +103,7 @@ public class ModAdvancementProvider extends FabricAdvancementProvider {
                         6, 0
                 ))
                 .criterion("has_silver", hasItem(ModItems.SILVER_INGOT))
+                .rewards(AdvancementRewards.Builder.experience(25))
                 .build(exporter, id("obtain_silver_ingot"));
         AdvancementEntry fullSilverArmor = Advancement.Builder.create()
                 .parent(obtainSilver)
@@ -119,6 +118,7 @@ public class ModAdvancementProvider extends FabricAdvancementProvider {
                 .criterion("silver_chestplate", hasItem(ModItems.SILVER_CHESTPLATE))
                 .criterion("silver_leggings", hasItem(ModItems.SILVER_LEGGINGS))
                 .criterion("silver_boots", hasItem(ModItems.SILVER_BOOTS))
+                .rewards(AdvancementRewards.Builder.experience(50))
                 .build(exporter, id("full_silver_armor"));
         AdvancementEntry eatSilverApple = Advancement.Builder.create()
                 .parent(obtainSilver)
@@ -130,6 +130,7 @@ public class ModAdvancementProvider extends FabricAdvancementProvider {
                         7, 2
                 ))
                 .criterion("has_silver_apple", eatItem(ModItems.SILVER_APPLE))
+                .rewards(AdvancementRewards.Builder.experience(50))
                 .build(exporter, id("eat_silver_apple"));
         AdvancementEntry obtainSilverNugget = Advancement.Builder.create()
                 .parent(obtainSilver)
@@ -141,6 +142,7 @@ public class ModAdvancementProvider extends FabricAdvancementProvider {
                         7, 0
                 ))
                 .criterion("has_silver_nugget", hasItem(ModItems.SILVER_NUGGET))
+                .rewards(AdvancementRewards.Builder.experience(20))
                 .build(exporter, id("obtain_silver_nugget"));
 
         // Cobalt
@@ -154,6 +156,7 @@ public class ModAdvancementProvider extends FabricAdvancementProvider {
                         6, 3
                 ))
                 .criterion("has_cobalt", hasItem(ModItems.COBALT_INGOT))
+                .rewards(AdvancementRewards.Builder.experience(25))
                 .build(exporter, id("obtain_cobalt_ingot"));
 
         AdvancementEntry fullCobaltArmor = Advancement.Builder.create()
@@ -169,6 +172,7 @@ public class ModAdvancementProvider extends FabricAdvancementProvider {
                 .criterion("cobalt_chestplate", hasItem(ModItems.COBALT_CHESTPLATE))
                 .criterion("cobalt_leggings", hasItem(ModItems.COBALT_LEGGINGS))
                 .criterion("cobalt_boots", hasItem(ModItems.COBALT_BOOTS))
+                .rewards(AdvancementRewards.Builder.experience(50))
                 .build(exporter, id("full_cobalt_armor"));
 
         // -------------------------
@@ -185,6 +189,7 @@ public class ModAdvancementProvider extends FabricAdvancementProvider {
                         10, 2
                 ))
                 .criterion("has_turquoise_gem", hasItem(ModItems.TURQUOISE_GEM))
+                .rewards(AdvancementRewards.Builder.experience(30))
                 .build(exporter, id("obtain_turquoise_gem"));
         AdvancementEntry fullTurquoiseArmor = Advancement.Builder.create()
                 .parent(obtainTurquoise)
@@ -199,6 +204,7 @@ public class ModAdvancementProvider extends FabricAdvancementProvider {
                 .criterion("turquoise_chestplate", hasItem(ModItems.TURQUOISE_CHESTPLATE))
                 .criterion("turquoise_leggings", hasItem(ModItems.TURQUOISE_LEGGINGS))
                 .criterion("turquoise_boots", hasItem(ModItems.TURQUOISE_BOOTS))
+                .rewards(AdvancementRewards.Builder.experience(69))
                 .build(exporter, id("full_turquoise_armor"));
 
         // LapisLazuli
@@ -212,6 +218,7 @@ public class ModAdvancementProvider extends FabricAdvancementProvider {
                         10, 3
                 ))
                 .criterion("has_lapis_lazuli_gem", hasItem(ModItems.LAPIS_LAZULI_GEM))
+                .rewards(AdvancementRewards.Builder.experience(30))
                 .build(exporter, id("obtain_lapis_lazuli_gem"));
         AdvancementEntry obtainLapisHorseArmor = Advancement.Builder.create()
                 .parent(obtainLapisLazuli)
@@ -226,6 +233,7 @@ public class ModAdvancementProvider extends FabricAdvancementProvider {
                         "has_lapis_horse_armor",
                         hasItem(ModItems.LAPIS_LAZULI_HORSE_ARMOR)
                 )
+                .rewards(AdvancementRewards.Builder.experience(50))
                 .build(exporter, id("obtain_lapis_horse_armor"));
 
         AdvancementEntry fullLapisLazuliArmor = Advancement.Builder.create()
@@ -241,6 +249,7 @@ public class ModAdvancementProvider extends FabricAdvancementProvider {
                 .criterion("lapis_lazuli_chestplate", hasItem(ModItems.LAPIS_LAZULI_CHESTPLATE))
                 .criterion("lapis_lazuli_leggings", hasItem(ModItems.LAPIS_LAZULI_LEGGINGS))
                 .criterion("lapis_lazuli_boots", hasItem(ModItems.LAPIS_LAZULI_BOOTS))
+                .rewards(AdvancementRewards.Builder.experience(69))
                 .build(exporter, id("full_lapis_lazuli_armor"));
 
         // Amethyst
@@ -254,6 +263,7 @@ public class ModAdvancementProvider extends FabricAdvancementProvider {
                         10, 4
                 ))
                 .criterion("has_amethyst_gem", hasItem(ModItems.AMETHYST_GEM))
+                .rewards(AdvancementRewards.Builder.experience(30))
                 .build(exporter, id("obtain_amethyst_gem"));
         AdvancementEntry obtainAmethystHorseArmor = Advancement.Builder.create()
                 .parent(obtainAmethyst)
@@ -268,6 +278,7 @@ public class ModAdvancementProvider extends FabricAdvancementProvider {
                         "has_amethyst_horse_armor",
                         hasItem(ModItems.AMETHYST_HORSE_ARMOR)
                 )
+                .rewards(AdvancementRewards.Builder.experience(50))
                 .build(exporter, id("obtain_amethyst_horse_armor"));
         AdvancementEntry fullAmethystArmor = Advancement.Builder.create()
                 .parent(obtainAmethyst)
@@ -282,6 +293,7 @@ public class ModAdvancementProvider extends FabricAdvancementProvider {
                 .criterion("amethyst_chestplate", hasItem(ModItems.AMETHYST_CHESTPLATE))
                 .criterion("amethyst_leggings", hasItem(ModItems.AMETHYST_LEGGINGS))
                 .criterion("amethyst_boots", hasItem(ModItems.AMETHYST_BOOTS))
+                .rewards(AdvancementRewards.Builder.experience(69))
                 .build(exporter, id("full_amethyst_armor"));
 
         // -------------------------
@@ -298,6 +310,7 @@ public class ModAdvancementProvider extends FabricAdvancementProvider {
                         14, 2
                 ))
                 .criterion("has_citrine_gem", hasItem(ModItems.CITRINE_GEM))
+                .rewards(AdvancementRewards.Builder.experience(30))
                 .build(exporter, id("obtain_citrine_gem"));
         AdvancementEntry fullCitrineArmor = Advancement.Builder.create()
                 .parent(obtainCitrine)
@@ -312,6 +325,7 @@ public class ModAdvancementProvider extends FabricAdvancementProvider {
                 .criterion("citrine_chestplate", hasItem(ModItems.CITRINE_CHESTPLATE))
                 .criterion("citrine_leggings", hasItem(ModItems.CITRINE_LEGGINGS))
                 .criterion("citrine_boots", hasItem(ModItems.CITRINE_BOOTS))
+                .rewards(AdvancementRewards.Builder.experience(69))
                 .build(exporter, id("full_citrine_armor"));
         // Onyx
         AdvancementEntry obtainOnyx = Advancement.Builder.create()
@@ -324,6 +338,7 @@ public class ModAdvancementProvider extends FabricAdvancementProvider {
                         14, 4
                 ))
                 .criterion("has_onyx_gem", hasItem(ModItems.ONYX_GEM))
+                .rewards(AdvancementRewards.Builder.experience(50))
                 .build(exporter, id("obtain_onyx_gem"));
         AdvancementEntry fullOnyxArmor = Advancement.Builder.create()
                 .parent(obtainOnyx)
@@ -338,6 +353,7 @@ public class ModAdvancementProvider extends FabricAdvancementProvider {
                 .criterion("onyx_chestplate", hasItem(ModItems.ONYX_CHESTPLATE))
                 .criterion("onyx_leggings", hasItem(ModItems.ONYX_LEGGINGS))
                 .criterion("onyx_boots", hasItem(ModItems.ONYX_BOOTS))
+                .rewards(AdvancementRewards.Builder.experience(100))
                 .build(exporter, id("full_onyx_armor"));
 
         // -------------------------
@@ -354,6 +370,7 @@ public class ModAdvancementProvider extends FabricAdvancementProvider {
                         18, 1
                 ))
                 .criterion("has_tanzanite_gem", hasItem(ModItems.TANZANITE_GEM))
+                .rewards(AdvancementRewards.Builder.experience(50))
                 .build(exporter, id("obtain_tanzanite_gem"));
         AdvancementEntry fullTanzaniteArmor = Advancement.Builder.create()
                 .parent(obtainTanzanite)
@@ -368,6 +385,7 @@ public class ModAdvancementProvider extends FabricAdvancementProvider {
                 .criterion("tanzanite_chestplate", hasItem(ModItems.TANZANITE_CHESTPLATE))
                 .criterion("tanzanite_leggings", hasItem(ModItems.TANZANITE_LEGGINGS))
                 .criterion("tanzanite_boots", hasItem(ModItems.TANZANITE_BOOTS))
+                .rewards(AdvancementRewards.Builder.experience(100))
                 .build(exporter, id("full_tanzanite_armor"));
         // Topaz
         AdvancementEntry obtainTopaz = Advancement.Builder.create()
@@ -394,6 +412,7 @@ public class ModAdvancementProvider extends FabricAdvancementProvider {
                 .criterion("topaz_chestplate", hasItem(ModItems.TOPAZ_CHESTPLATE))
                 .criterion("topaz_leggings", hasItem(ModItems.TOPAZ_LEGGINGS))
                 .criterion("topaz_boots", hasItem(ModItems.TOPAZ_BOOTS))
+                .rewards(AdvancementRewards.Builder.experience(100))
                 .build(exporter, id("full_topaz_armor"));
         // Tourmaline
         AdvancementEntry obtainTourmaline = Advancement.Builder.create()
@@ -406,6 +425,7 @@ public class ModAdvancementProvider extends FabricAdvancementProvider {
                         18, 3
                 ))
                 .criterion("has_tourmaline_gem", hasItem(ModItems.TOURMALINE_GEM))
+                .rewards(AdvancementRewards.Builder.experience(50))
                 .build(exporter, id("obtain_tourmaline_gem"));
         AdvancementEntry fullTourmalineArmor = Advancement.Builder.create()
                 .parent(obtainTourmaline)
@@ -420,6 +440,7 @@ public class ModAdvancementProvider extends FabricAdvancementProvider {
                 .criterion("tourmaline_chestplate", hasItem(ModItems.TOURMALINE_CHESTPLATE))
                 .criterion("tourmaline_leggings", hasItem(ModItems.TOURMALINE_LEGGINGS))
                 .criterion("tourmaline_boots", hasItem(ModItems.TOURMALINE_BOOTS))
+                .rewards(AdvancementRewards.Builder.experience(100))
                 .build(exporter, id("full_tourmaline_armor"));
 
         // Spinel
@@ -433,6 +454,7 @@ public class ModAdvancementProvider extends FabricAdvancementProvider {
                         22, 3
                 ))
                 .criterion("has_spinel_gem", hasItem(ModItems.SPINEL_GEM))
+                .rewards(AdvancementRewards.Builder.experience(50))
                 .build(exporter, id("obtain_spinel_gem"));
         AdvancementEntry fullSpinelArmor = Advancement.Builder.create()
                 .parent(obtainSpinel)
@@ -447,6 +469,7 @@ public class ModAdvancementProvider extends FabricAdvancementProvider {
                 .criterion("spinel_chestplate", hasItem(ModItems.SPINEL_CHESTPLATE))
                 .criterion("spinel_leggings", hasItem(ModItems.SPINEL_LEGGINGS))
                 .criterion("spinel_boots", hasItem(ModItems.SPINEL_BOOTS))
+                .rewards(AdvancementRewards.Builder.experience(100))
                 .build(exporter, id("full_spinel_armor"));
 
         // Emerald
@@ -476,6 +499,7 @@ public class ModAdvancementProvider extends FabricAdvancementProvider {
                         22, 2
                 ))
                 .criterion("has_sapphire_gem", hasItem(ModItems.SAPPHIRE_GEM))
+                .rewards(AdvancementRewards.Builder.experience(60))
                 .build(exporter, id("obtain_sapphire_gem"));
         AdvancementEntry fullSapphireArmor = Advancement.Builder.create()
                 .parent(obtainSapphire)
@@ -490,6 +514,7 @@ public class ModAdvancementProvider extends FabricAdvancementProvider {
                 .criterion("sapphire_chestplate", hasItem(ModItems.SAPPHIRE_CHESTPLATE))
                 .criterion("sapphire_leggings", hasItem(ModItems.SAPPHIRE_LEGGINGS))
                 .criterion("sapphire_boots", hasItem(ModItems.SAPPHIRE_BOOTS))
+                .rewards(AdvancementRewards.Builder.experience(125))
                 .build(exporter, id("full_sapphire_armor"));
 
         // Ruby
@@ -503,6 +528,7 @@ public class ModAdvancementProvider extends FabricAdvancementProvider {
                         22, 4
                 ))
                 .criterion("has_ruby_gem", hasItem(ModItems.RUBY_GEM))
+                .rewards(AdvancementRewards.Builder.experience(60))
                 .build(exporter, id("obtain_ruby_gem"));
         AdvancementEntry fullRubyArmor = Advancement.Builder.create()
                 .parent(obtainRuby)
@@ -517,6 +543,7 @@ public class ModAdvancementProvider extends FabricAdvancementProvider {
                 .criterion("ruby_chestplate", hasItem(ModItems.RUBY_CHESTPLATE))
                 .criterion("ruby_leggings", hasItem(ModItems.RUBY_LEGGINGS))
                 .criterion("ruby_boots", hasItem(ModItems.RUBY_BOOTS))
+                .rewards(AdvancementRewards.Builder.experience(125))
                 .build(exporter, id("full_ruby_armor"));
 
         // Moissanite
@@ -530,6 +557,7 @@ public class ModAdvancementProvider extends FabricAdvancementProvider {
                         26, 1
                 ))
                 .criterion("has_moissanite_gem", hasItem(ModItems.MOISSANITE_GEM))
+                .rewards(AdvancementRewards.Builder.experience(75))
                 .build(exporter, id("obtain_moissanite_gem"));
         AdvancementEntry fullMoissaniteArmor = Advancement.Builder.create()
                 .parent(obtainMoissanite)
@@ -544,6 +572,7 @@ public class ModAdvancementProvider extends FabricAdvancementProvider {
                 .criterion("moissanite_chestplate", hasItem(ModItems.MOISSANITE_CHESTPLATE))
                 .criterion("moissanite_leggings", hasItem(ModItems.MOISSANITE_LEGGINGS))
                 .criterion("moissanite_boots", hasItem(ModItems.MOISSANITE_BOOTS))
+                .rewards(AdvancementRewards.Builder.experience(150))
                 .build(exporter, id("full_moissanite_armor"));
 
         // Obsidian
@@ -557,6 +586,7 @@ public class ModAdvancementProvider extends FabricAdvancementProvider {
                         26, 3
                 ))
                 .criterion("has_obsidian_ingot", hasItem(ModItems.OBSIDIAN_INGOT))
+                .rewards(AdvancementRewards.Builder.experience(50))
                 .build(exporter, id("obtain_obsidian_ingot"));
         AdvancementEntry obtainObsidianHorseArmor = Advancement.Builder.create()
                 .parent(obtainObsidian)
@@ -571,6 +601,7 @@ public class ModAdvancementProvider extends FabricAdvancementProvider {
                         "has_obsidian_horse_armor",
                         hasItem(ModItems.OBSIDIAN_HORSE_ARMOR)
                 )
+                .rewards(AdvancementRewards.Builder.experience(150))
                 .build(exporter, id("obtain_obsidian_horse_armor"));
         AdvancementEntry fullObsidianArmor = Advancement.Builder.create()
                 .parent(obtainObsidian)
@@ -585,6 +616,7 @@ public class ModAdvancementProvider extends FabricAdvancementProvider {
                 .criterion("obsidian_chestplate", hasItem(ModItems.OBSIDIAN_CHESTPLATE))
                 .criterion("obsidian_leggings", hasItem(ModItems.OBSIDIAN_LEGGINGS))
                 .criterion("obsidian_boots", hasItem(ModItems.OBSIDIAN_BOOTS))
+                .rewards(AdvancementRewards.Builder.experience(175))
                 .build(exporter, id("full_obsidian_armor"));
 
         // Enderite
@@ -598,6 +630,7 @@ public class ModAdvancementProvider extends FabricAdvancementProvider {
                         30, 3
                 ))
                 .criterion("has_primordial_debris", hasItem(ModBlocks.PRIMORDIAL_DEBRIS))
+                .rewards(AdvancementRewards.Builder.experience(150))
                 .build(exporter, id("obtain_primordial_debris"));
         AdvancementEntry fullEnderiteArmor = Advancement.Builder.create()
                 .parent(obtainEnderite)
@@ -612,8 +645,8 @@ public class ModAdvancementProvider extends FabricAdvancementProvider {
                 .criterion("enderite_chestplate", hasItem(ModItems.ENDERITE_CHESTPLATE))
                 .criterion("enderite_leggings", hasItem(ModItems.ENDERITE_LEGGINGS))
                 .criterion("enderite_boots", hasItem(ModItems.ENDERITE_BOOTS))
+                .rewards(AdvancementRewards.Builder.experience(500))
                 .build(exporter, id("full_enderite_armor"));
-
 
 
         // -------------------------
@@ -629,6 +662,7 @@ public class ModAdvancementProvider extends FabricAdvancementProvider {
                         2, 4
                 ))
                 .criterion("has_alloy_furnace", hasItem(ModBlocks.ALLOY_FURNACE.asItem()))
+                .rewards(AdvancementRewards.Builder.experience(25))
                 .build(exporter, id("craft_alloy_furnace"));
 
         // Bronze
@@ -642,6 +676,7 @@ public class ModAdvancementProvider extends FabricAdvancementProvider {
                         4, 3
                 ))
                 .criterion("has_bronze", hasItem(ModItems.BRONZE_INGOT))
+                .rewards(AdvancementRewards.Builder.experience(25))
                 .build(exporter, id("obtain_bronze_ingot"));
         AdvancementEntry bronzeApple = Advancement.Builder.create()
                 .parent(obtainBronze)
@@ -653,6 +688,7 @@ public class ModAdvancementProvider extends FabricAdvancementProvider {
                         6, 3
                 ))
                 .criterion("eat_bronze_apple", eatItem(ModItems.BRONZE_APPLE))
+                .rewards(AdvancementRewards.Builder.experience(30))
                 .build(exporter, id("eat_bronze_apple"));
         AdvancementEntry fullBronzeArmor = Advancement.Builder.create()
                 .parent(obtainBronze)
@@ -667,6 +703,7 @@ public class ModAdvancementProvider extends FabricAdvancementProvider {
                 .criterion("bronze_chestplate", hasItem(ModItems.BRONZE_CHESTPLATE))
                 .criterion("bronze_leggings", hasItem(ModItems.BRONZE_LEGGINGS))
                 .criterion("bronze_boots", hasItem(ModItems.BRONZE_BOOTS))
+                .rewards(AdvancementRewards.Builder.experience(30))
                 .build(exporter, id("craft_full_bronze_armor"));
 
         // Steel
@@ -680,6 +717,7 @@ public class ModAdvancementProvider extends FabricAdvancementProvider {
                         4, 9
                 ))
                 .criterion("has_carbon_steel", hasItem(ModItems.CARBON_STEEL_INGOT))
+                .rewards(AdvancementRewards.Builder.experience(30))
                 .build(exporter, id("hephaestus"));
 
         AdvancementEntry hotHotHot = Advancement.Builder.create()
@@ -692,6 +730,7 @@ public class ModAdvancementProvider extends FabricAdvancementProvider {
                         6, 9
                 ))
                 .criterion("has_hot_carbon_steel", hasItem(ModItems.HOT_CARBON_STEEL_SCRAP))
+                .rewards(AdvancementRewards.Builder.experience(10))
                 .build(exporter, id("hot_hot_hot"));
 
         AdvancementEntry iAmIronMan = Advancement.Builder.create()
@@ -704,6 +743,7 @@ public class ModAdvancementProvider extends FabricAdvancementProvider {
                         8, 9
                 ))
                 .criterion("has_hardened_steel", hasItem(ModItems.HARDENED_STEEL_INGOT))
+                .rewards(AdvancementRewards.Builder.experience(50))
                 .build(exporter, id("i_am_iron_man"));
 
         AdvancementEntry fullHardenedSteelArmor = Advancement.Builder.create()
@@ -719,6 +759,7 @@ public class ModAdvancementProvider extends FabricAdvancementProvider {
                 .criterion("hardened_steel_chestplate", hasItem(ModItems.HARDENED_STEEL_CHESTPLATE))
                 .criterion("hardened_steel_leggings", hasItem(ModItems.HARDENED_STEEL_LEGGINGS))
                 .criterion("hardened_steel_boots", hasItem(ModItems.HARDENED_STEEL_BOOTS))
+                .rewards(AdvancementRewards.Builder.experience(100))
                 .build(exporter, id("full_hardened_steel_armor"));
 
         AdvancementEntry hardenedSteelGolem = Advancement.Builder.create()
@@ -728,9 +769,10 @@ public class ModAdvancementProvider extends FabricAdvancementProvider {
                         "Hired Brother",
                         "Build a Hardened Steel Golem.",
                         AdvancementFrame.GOAL, // GOAL or CHALLENGE both fit
-                        8, 11 // pick a lane so it doesn't clutter root
+                        8, 11
                 ))
                 .criterion("summon_hardened_steel_golem", summonEntity(ModEntities.HARDENED_STEEL_GOLEM))
+                .rewards(AdvancementRewards.Builder.experience(200))
                 .build(exporter, id("summon_hardened_steel_golem"));
 
         // Rose Gold
@@ -744,6 +786,7 @@ public class ModAdvancementProvider extends FabricAdvancementProvider {
                         4, 5
                 ))
                 .criterion("has_rose_gold", hasItem(ModItems.ROSE_GOLD_INGOT))
+                .rewards(AdvancementRewards.Builder.experience(30))
                 .build(exporter, id("obtain_rose_gold_ingot"));
         AdvancementEntry fullRoseGoldArmor = Advancement.Builder.create()
                 .parent(obtainRoseGold)
@@ -769,6 +812,7 @@ public class ModAdvancementProvider extends FabricAdvancementProvider {
                         6, 5
                 ))
                 .criterion("eat_rose_gold_apple", eatItem(ModItems.ROSE_GOLD_APPLE))
+                .rewards(AdvancementRewards.Builder.experience(30))
                 .build(exporter, id("eat_rose_gold_apple"));
 
         // Adamantium
@@ -782,6 +826,7 @@ public class ModAdvancementProvider extends FabricAdvancementProvider {
                         4, 7
                 ))
                 .criterion("has_adamantium", hasItem(ModItems.ADAMANTIUM_INGOT))
+                .rewards(AdvancementRewards.Builder.experience(50))
                 .build(exporter, id("obtain_adamantium_ingot"));
         AdvancementEntry obtainAdamantiumHorseArmor = Advancement.Builder.create()
                 .parent(obtainAdamantium)
@@ -793,6 +838,7 @@ public class ModAdvancementProvider extends FabricAdvancementProvider {
                         5, 8
                 ))
                 .criterion("has_adamantium_horse_armor", hasItem(ModItems.ADAMANTIUM_HORSE_ARMOR))
+                .rewards(AdvancementRewards.Builder.experience(50))
                 .build(exporter, id("obtain_adamantium_horse_armor"));
         AdvancementEntry fullAdamantiumArmor = Advancement.Builder.create()
                 .parent(obtainAdamantium)
@@ -807,6 +853,7 @@ public class ModAdvancementProvider extends FabricAdvancementProvider {
                 .criterion("adamantium_chestplate", hasItem(ModItems.ADAMANTIUM_CHESTPLATE))
                 .criterion("adamantium_leggings", hasItem(ModItems.ADAMANTIUM_LEGGINGS))
                 .criterion("adamantium_boots", hasItem(ModItems.ADAMANTIUM_BOOTS))
+                .rewards(AdvancementRewards.Builder.experience(100))
                 .build(exporter, id("full_adamantium_armor"));
 
 
@@ -826,6 +873,7 @@ public class ModAdvancementProvider extends FabricAdvancementProvider {
                         -6, 0
                 ))
                 .criterion("has_wood_dagger", hasItem(ModItems.WOODEN_DAGGER))
+                .rewards(AdvancementRewards.Builder.experience(15))
                 .build(exporter, id("craft_wood_dagger"));
 
 // Wooden Battleaxe (from your JSON: title/icon)
@@ -840,6 +888,7 @@ public class ModAdvancementProvider extends FabricAdvancementProvider {
                         -5, 1
                 ))
                 .criterion("has_wood_battleaxe", hasItem(ModItems.WOODEN_BATTLE_AXE))
+                .rewards(AdvancementRewards.Builder.experience(15))
                 .build(exporter, id("craft_wood_battleaxe"));
 
 // Wooden Mace (from your JSON: title/icon)
@@ -854,6 +903,7 @@ public class ModAdvancementProvider extends FabricAdvancementProvider {
                         -4, 2
                 ))
                 .criterion("has_wood_mace", hasItem(ModItems.WOODEN_BATTLE_MACE))
+                .rewards(AdvancementRewards.Builder.experience(15))
                 .build(exporter, id("craft_wood_mace"));
 
 
@@ -894,6 +944,7 @@ public class ModAdvancementProvider extends FabricAdvancementProvider {
                         ModItems.ADAMANTIUM_SHIELD,
                         ModItems.ENDERITE_SHIELD
                 ))
+                .rewards(AdvancementRewards.Builder.experience(25))
                 .build(exporter, id("craft_any_mores_shield"));
 
 
@@ -934,6 +985,7 @@ public class ModAdvancementProvider extends FabricAdvancementProvider {
                         ModItems.NETHERITE_HORSE_ARMOR,
                         ModItems.ENDERITE_HORSE_ARMOR
                 ))
+                .rewards(AdvancementRewards.Builder.experience(25))
                 .build(exporter, id("equip_any_mores_horse_armor"));
 
 
@@ -962,6 +1014,7 @@ public class ModAdvancementProvider extends FabricAdvancementProvider {
                         ModItems.HARDENED_STEEL_WOLF_ARMOR,
                         ModItems.DIAMOND_WOLF_ARMOR
                 ))
+                .rewards(AdvancementRewards.Builder.experience(50))
                 .build(exporter, id("equip_any_mores_wolf_armor"));
 
 
@@ -978,6 +1031,7 @@ public class ModAdvancementProvider extends FabricAdvancementProvider {
                         -2, -2
                 ))
                 .criterion("eat_dark_chocolate", eatItem(ModItems.DARK_CHOCOLATE))
+                .rewards(AdvancementRewards.Builder.experience(20))
                 .build(exporter, id("eat_dark_chocolate"));
 
         AdvancementEntry eatMilkChocolate = Advancement.Builder.create()
@@ -990,6 +1044,7 @@ public class ModAdvancementProvider extends FabricAdvancementProvider {
                         -1, -3
                 ))
                 .criterion("eat_milk_chocolate", eatItem(ModItems.MILK_CHOCOLATE))
+                .rewards(AdvancementRewards.Builder.experience(30))
                 .build(exporter, id("eat_milk_chocolate"));
 
         AdvancementEntry eatWhiteChocolate = Advancement.Builder.create()
@@ -1002,6 +1057,7 @@ public class ModAdvancementProvider extends FabricAdvancementProvider {
                         0, -4
                 ))
                 .criterion("eat_white_chocolate", eatItem(ModItems.WHITE_CHOCOLATE))
+                .rewards(AdvancementRewards.Builder.experience(25))
                 .build(exporter, id("eat_white_chocolate"));
 
 
@@ -1019,6 +1075,7 @@ public class ModAdvancementProvider extends FabricAdvancementProvider {
                         0, 6
                 ))
                 .criterion("gravel_jackpot", Criteria.IMPOSSIBLE.create(new ImpossibleCriterion.Conditions()))
+                .rewards(AdvancementRewards.Builder.experience(250))
                 .build(exporter, id("gravel_jackpot"));
 
         AdvancementEntry killDuck = Advancement.Builder.create()
@@ -1031,6 +1088,7 @@ public class ModAdvancementProvider extends FabricAdvancementProvider {
                         -4, 4
                 ))
                 .criterion("kill_duck", killEntity(ModEntities.DUCK))
+                .rewards(AdvancementRewards.Builder.experience(15))
                 .build(exporter, id("kill_duck"));
         AdvancementEntry eatRawDuck = Advancement.Builder.create()
                 .parent(killDuck)
@@ -1042,6 +1100,7 @@ public class ModAdvancementProvider extends FabricAdvancementProvider {
                         -3, 5
                 ))
                 .criterion("eat_raw_duck", eatItem(ModItems.RAW_DUCK))
+                .rewards(AdvancementRewards.Builder.experience(30))
                 .build(exporter, id("eat_raw_duck"));
         AdvancementEntry eatCookedDuck = Advancement.Builder.create()
                 .parent(eatRawDuck)
@@ -1053,6 +1112,7 @@ public class ModAdvancementProvider extends FabricAdvancementProvider {
                         -2, 6
                 ))
                 .criterion("eat_cooked_duck", eatItem(ModItems.COOKED_DUCK))
+                .rewards(AdvancementRewards.Builder.experience(25))
                 .build(exporter, id("eat_cooked_duck"));
 
         AdvancementEntry where = Advancement.Builder.create()
@@ -1068,6 +1128,7 @@ public class ModAdvancementProvider extends FabricAdvancementProvider {
                         LocationPredicate.Builder.create()
                                 .y(NumberRange.DoubleRange.exactly(-63.0))
                 ))
+                .rewards(AdvancementRewards.Builder.experience(100))
                 .build(exporter, id("where"));
 
 
@@ -1130,6 +1191,7 @@ public class ModAdvancementProvider extends FabricAdvancementProvider {
                         ),
                         ItemPredicate.Builder.create().tag(ItemTags.AXES) // your axes must be in this tag
                 ))
+                .rewards(AdvancementRewards.Builder.experience(10))
                 .build(exporter, mc("husbandry/wax_off"));
 
 

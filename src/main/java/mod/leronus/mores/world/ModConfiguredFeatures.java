@@ -392,57 +392,57 @@ public class ModConfiguredFeatures {
         register(context, CITRINE_ORE, Feature.ORE, new OreFeatureConfig(OVERWORLD_CITRINE_ORES, 12, 0.7F));
         register(context, NETHER_CITRINE_ORE, Feature.ORE, new OreFeatureConfig(NETHER_CITRINE_ORES, 12));
 
-        register(context, NETHER_ONYX_ORE, Feature.ORE, new OreFeatureConfig(NETHER_ONYX_ORES, 12));
-        register(context, ENDER_ONYX_ORE, Feature.ORE, new OreFeatureConfig(ENDER_ONYX_ORES, 12));
+        register(context, NETHER_ONYX_ORE, Feature.ORE, new OreFeatureConfig(NETHER_ONYX_ORES, 12, 0.1F));
+        register(context, ENDER_ONYX_ORE, Feature.ORE, new OreFeatureConfig(ENDER_ONYX_ORES, 12, 0.1F));
 
         register(context, TANZANITE_SMALL_ORE, Feature.ORE, new OreFeatureConfig(OVERWORLD_TANZANITE_ORES, 4, 0.2F));
         register(context, TANZANITE_LARGE_ORE, Feature.ORE, new OreFeatureConfig(OVERWORLD_TANZANITE_ORES, 12, 0.6F));
         register(context, TANZANITE_BURIED_ORE, Feature.ORE, new OreFeatureConfig(OVERWORLD_TANZANITE_ORES, 8, 0.8F));
         register(context, TANZANITE_MEDIUM_ORE, Feature.ORE, new OreFeatureConfig(OVERWORLD_TANZANITE_ORES, 8, 0.4F));
-        register(context, NETHER_TANZANITE_ORE, Feature.ORE, new OreFeatureConfig(NETHER_TANZANITE_ORES, 6));
-        register(context, ENDER_TANZANITE_ORE, Feature.ORE, new OreFeatureConfig(ENDER_TANZANITE_ORES, 6, 0.2F));
+        register(context, NETHER_TANZANITE_ORE, Feature.ORE, new OreFeatureConfig(NETHER_TANZANITE_ORES, 6, 0.4F));
+        register(context, ENDER_TANZANITE_ORE, Feature.ORE, new OreFeatureConfig(ENDER_TANZANITE_ORES, 6, 0.3F));
 
-        register(context, TOPAZ_SMALL_ORE, Feature.ORE, new OreFeatureConfig(OVERWORLD_TOPAZ_ORES, 4, 0.2F));
-        register(context, TOPAZ_LARGE_ORE, Feature.ORE, new OreFeatureConfig(OVERWORLD_TOPAZ_ORES, 12, 0.6F));
-        register(context, TOPAZ_BURIED_ORE, Feature.ORE, new OreFeatureConfig(OVERWORLD_TOPAZ_ORES, 8, 0.8F));
+        register(context, TOPAZ_SMALL_ORE, Feature.ORE, new OreFeatureConfig(OVERWORLD_TOPAZ_ORES, 4, 0.4F));
+        register(context, TOPAZ_LARGE_ORE, Feature.ORE, new OreFeatureConfig(OVERWORLD_TOPAZ_ORES, 12, 0.7F));
+        register(context, TOPAZ_BURIED_ORE, Feature.ORE, new OreFeatureConfig(OVERWORLD_TOPAZ_ORES, 8, 1.0F));
         register(context, TOPAZ_MEDIUM_ORE, Feature.ORE, new OreFeatureConfig(OVERWORLD_TOPAZ_ORES, 8, 0.4F));
-        register(context, NETHER_TOPAZ_ORE, Feature.ORE, new OreFeatureConfig(NETHER_TOPAZ_ORES, 6, 0.2F));
-        register(context, ENDER_TOPAZ_ORE, Feature.ORE, new OreFeatureConfig(ENDER_TOPAZ_ORES, 6, 0.2F));
+        register(context, NETHER_TOPAZ_ORE, Feature.ORE, new OreFeatureConfig(NETHER_TOPAZ_ORES, 6, 0.4F));
+        register(context, ENDER_TOPAZ_ORE, Feature.ORE, new OreFeatureConfig(ENDER_TOPAZ_ORES, 6, 0.3F));
 
-        register(context, TOURMALINE_SMALL_ORE, Feature.ORE, new OreFeatureConfig(OVERWORLD_TOURMALINE_ORES, 4, 0.1F));
-        register(context, TOURMALINE_LARGE_ORE, Feature.ORE, new OreFeatureConfig(OVERWORLD_TOURMALINE_ORES, 12, 0.8F));
-        register(context, TOURMALINE_BURIED_ORE, Feature.ORE, new OreFeatureConfig(OVERWORLD_TOURMALINE_ORES, 8, 0.6F));
+        register(context, TOURMALINE_SMALL_ORE, Feature.ORE, new OreFeatureConfig(OVERWORLD_TOURMALINE_ORES, 4, 0.4F));
+        register(context, TOURMALINE_LARGE_ORE, Feature.ORE, new OreFeatureConfig(OVERWORLD_TOURMALINE_ORES, 12, 0.7F));
+        register(context, TOURMALINE_BURIED_ORE, Feature.ORE, new OreFeatureConfig(OVERWORLD_TOURMALINE_ORES, 8, 1.0F));
         register(context, TOURMALINE_MEDIUM_ORE, Feature.ORE, new OreFeatureConfig(OVERWORLD_TOURMALINE_ORES, 8, 0.4F));
-        register(context, NETHER_TOURMALINE_ORE, Feature.ORE, new OreFeatureConfig(NETHER_TOURMALINE_ORES, 6, 0.2F));
-        register(context, ENDER_TOURMALINE_ORE, Feature.ORE, new OreFeatureConfig(ENDER_TOURMALINE_ORES, 6, 0.2F));
+        register(context, NETHER_TOURMALINE_ORE, Feature.ORE, new OreFeatureConfig(NETHER_TOURMALINE_ORES, 6, 0.4F));
+        register(context, ENDER_TOURMALINE_ORE, Feature.ORE, new OreFeatureConfig(ENDER_TOURMALINE_ORES, 6, 0.3F));
 
         register(context, RUBY_SMALL_ORE, Feature.ORE, new OreFeatureConfig(OVERWORLD_RUBY_ORES, 4, 0.5F));
         register(context, RUBY_LARGE_ORE, Feature.ORE, new OreFeatureConfig(OVERWORLD_RUBY_ORES, 12, 0.7F));
         register(context, RUBY_BURIED_ORE, Feature.ORE, new OreFeatureConfig(OVERWORLD_RUBY_ORES, 8, 1.0F));
         register(context, RUBY_MEDIUM_ORE, Feature.ORE, new OreFeatureConfig(OVERWORLD_RUBY_ORES, 8, 0.5F));
-        register(context, NETHER_RUBY_ORE, Feature.ORE, new OreFeatureConfig(NETHER_RUBY_ORES, 6, 0.2F));
-        register(context, ENDER_RUBY_ORE, Feature.ORE, new OreFeatureConfig(ENDER_RUBY_ORES, 6, 0.2F));
+        register(context, NETHER_RUBY_ORE, Feature.ORE, new OreFeatureConfig(NETHER_RUBY_ORES, 6, 0.5F));
+        register(context, ENDER_RUBY_ORE, Feature.ORE, new OreFeatureConfig(ENDER_RUBY_ORES, 6, 0.4F));
 
         register(context, SAPPHIRE_SMALL_ORE, Feature.ORE, new OreFeatureConfig(OVERWORLD_SAPPHIRE_ORES, 4, 0.5F));
         register(context, SAPPHIRE_LARGE_ORE, Feature.ORE, new OreFeatureConfig(OVERWORLD_SAPPHIRE_ORES, 12, 0.7F));
         register(context, SAPPHIRE_BURIED_ORE, Feature.ORE, new OreFeatureConfig(OVERWORLD_SAPPHIRE_ORES, 8, 1.0F));
         register(context, SAPPHIRE_MEDIUM_ORE, Feature.ORE, new OreFeatureConfig(OVERWORLD_SAPPHIRE_ORES, 8, 0.5F));
-        register(context, NETHER_SAPPHIRE_ORE, Feature.ORE, new OreFeatureConfig(NETHER_SAPPHIRE_ORES, 6, 0.2F));
-        register(context, ENDER_SAPPHIRE_ORE, Feature.ORE, new OreFeatureConfig(ENDER_SAPPHIRE_ORES, 6, 0.2F));
+        register(context, NETHER_SAPPHIRE_ORE, Feature.ORE, new OreFeatureConfig(NETHER_SAPPHIRE_ORES, 6, 0.5F));
+        register(context, ENDER_SAPPHIRE_ORE, Feature.ORE, new OreFeatureConfig(ENDER_SAPPHIRE_ORES, 6, 0.4F));
 
         register(context, SPINEL_SMALL_ORE, Feature.ORE, new OreFeatureConfig(OVERWORLD_SPINEL_ORES, 4, 0.5F));
         register(context, SPINEL_LARGE_ORE, Feature.ORE, new OreFeatureConfig(OVERWORLD_SPINEL_ORES, 12, 0.7F));
         register(context, SPINEL_BURIED_ORE, Feature.ORE, new OreFeatureConfig(OVERWORLD_SPINEL_ORES, 8, 1.0F));
         register(context, SPINEL_MEDIUM_ORE, Feature.ORE, new OreFeatureConfig(OVERWORLD_SPINEL_ORES, 8, 0.5F));
-        register(context, NETHER_SPINEL_ORE, Feature.ORE, new OreFeatureConfig(NETHER_SPINEL_ORES, 5, 0.2F));
-        register(context, ENDER_SPINEL_ORE, Feature.ORE, new OreFeatureConfig(ENDER_SPINEL_ORES, 5, 0.2F));
+        register(context, NETHER_SPINEL_ORE, Feature.ORE, new OreFeatureConfig(NETHER_SPINEL_ORES, 5, 0.5F));
+        register(context, ENDER_SPINEL_ORE, Feature.ORE, new OreFeatureConfig(ENDER_SPINEL_ORES, 5, 0.5F));
 
         register(context, MOISSANITE_SMALL_ORE, Feature.ORE, new OreFeatureConfig(OVERWORLD_MOISSANITE_ORES, 4, 0.6F));
         register(context, MOISSANITE_LARGE_ORE, Feature.ORE, new OreFeatureConfig(OVERWORLD_MOISSANITE_ORES, 10, 0.8F));
         register(context, MOISSANITE_BURIED_ORE, Feature.ORE, new OreFeatureConfig(OVERWORLD_MOISSANITE_ORES, 8, 1.0F));
         register(context, MOISSANITE_MEDIUM_ORE, Feature.ORE, new OreFeatureConfig(OVERWORLD_MOISSANITE_ORES, 8, 0.6F));
         register(context, NETHER_MOISSANITE_ORE, Feature.ORE, new OreFeatureConfig(NETHER_MOISSANITE_ORES, 4));
-        register(context, ENDER_MOISSANITE_ORE, Feature.ORE, new OreFeatureConfig(ENDER_MOISSANITE_ORES, 1, 0.3F));
+        register(context, ENDER_MOISSANITE_ORE, Feature.ORE, new OreFeatureConfig(ENDER_MOISSANITE_ORES, 1, 0.7F));
 
         register(context, ENDERITE_SMALL_ORE, Feature.SCATTERED_ORE, new OreFeatureConfig(ENDERITE_ORES, 2, 1.0F));
         register(context, ENDERITE_LARGE_ORE, Feature.SCATTERED_ORE, new OreFeatureConfig(ENDERITE_ORES, 3, 1.0F));

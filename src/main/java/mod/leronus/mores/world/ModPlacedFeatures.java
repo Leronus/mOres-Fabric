@@ -149,7 +149,7 @@ public class ModPlacedFeatures {
                 ModOrePlacement.modifiersWithCount(13, // VeinsPerChunk
                         HeightRangePlacementModifier.trapezoid(YOffset.fixed(-24), YOffset.fixed(104))));
         register(context, TIN_LARGE, configuredFeatureRegistryEntryLookup.getOrThrow(ModConfiguredFeatures.TIN_LARGE_ORE),
-                ModOrePlacement.modifiersWithCount(12, // VeinsPerChunk
+                ModOrePlacement.modifiersWithCount(9, // VeinsPerChunk
                         HeightRangePlacementModifier.trapezoid(YOffset.fixed(-8), YOffset.fixed(120))));
 
         register(context, SILVER_SMALL, configuredFeatureRegistryEntryLookup.getOrThrow(ModConfiguredFeatures.SILVER_SMALL_ORE),
@@ -183,14 +183,14 @@ public class ModPlacedFeatures {
 
         register(context, TURQUOISE, configuredFeatureRegistryEntryLookup.getOrThrow(ModConfiguredFeatures.TURQUOISE_ORE),
                 ModOrePlacement.modifiersWithCount(2, // VeinsPerChunk
-                        HeightRangePlacementModifier.trapezoid(YOffset.fixed(-32), YOffset.fixed(32))));
+                        HeightRangePlacementModifier.trapezoid(YOffset.fixed(-32), YOffset.fixed(24))));
         register(context, TURQUOISE_BURIED, configuredFeatureRegistryEntryLookup.getOrThrow(ModConfiguredFeatures.TURQUOISE_BURIED_ORE),
                 ModOrePlacement.modifiersWithCount(4, // VeinsPerChunk
                         HeightRangePlacementModifier.uniform(YOffset.getBottom(), YOffset.fixed(64))));
 
         register(context, QUARTZ, configuredFeatureRegistryEntryLookup.getOrThrow(ModConfiguredFeatures.QUARTZ_ORE),
                 ModOrePlacement.modifiersWithCount(2, // VeinsPerChunk
-                        HeightRangePlacementModifier.uniform(YOffset.fixed(-32), YOffset.fixed(32))));
+                        HeightRangePlacementModifier.uniform(YOffset.fixed(-32), YOffset.fixed(24))));
         register(context, QUARTZ_UPPER, configuredFeatureRegistryEntryLookup.getOrThrow(ModConfiguredFeatures.QUARTZ_ORE),
                 ModOrePlacement.modifiersWithCount(9, // VeinsPerChunk
                         HeightRangePlacementModifier.uniform(YOffset.fixed(128), YOffset.fixed(384))));
@@ -218,10 +218,10 @@ public class ModPlacedFeatures {
                 ModOrePlacement.modifiersWithCount(2, // VeinsPerChunk
                         HeightRangePlacementModifier.uniform(YOffset.fixed(-54), YOffset.fixed(6))));
         register(context, TANZANITE_LARGE, configuredFeatureRegistryEntryLookup.getOrThrow(ModConfiguredFeatures.TANZANITE_LARGE_ORE),
-                ModOrePlacement.modifiersWithCount(7, // VeinsPerChunk
+                ModOrePlacement.modifiersWithRarity(7, // VeinsPerChunk
                         HeightRangePlacementModifier.trapezoid(YOffset.aboveBottom(-70), YOffset.aboveBottom(70))));
         register(context, TANZANITE_BURIED, configuredFeatureRegistryEntryLookup.getOrThrow(ModConfiguredFeatures.TANZANITE_BURIED_ORE),
-                ModOrePlacement.modifiersWithRarity(4, // VeinsPerChunk
+                ModOrePlacement.modifiersWithCount(4, // VeinsPerChunk
                         HeightRangePlacementModifier.trapezoid(YOffset.aboveBottom(-70), YOffset.aboveBottom(70))));
         register(context, NETHER_TANZANITE, configuredFeatureRegistryEntryLookup.getOrThrow(ModConfiguredFeatures.NETHER_TANZANITE_ORE),
                 ModOrePlacement.modifiersWithCount(6, // VeinsPerChunk
@@ -237,10 +237,10 @@ public class ModPlacedFeatures {
                 ModOrePlacement.modifiersWithCount(2, // VeinsPerChunk
                         HeightRangePlacementModifier.uniform(YOffset.fixed(-44), YOffset.fixed(16))));
         register(context, TOPAZ_LARGE, configuredFeatureRegistryEntryLookup.getOrThrow(ModConfiguredFeatures.TOPAZ_LARGE_ORE),
-                ModOrePlacement.modifiersWithCount(7, // VeinsPerChunk
+                ModOrePlacement.modifiersWithRarity(7, // VeinsPerChunk
                         HeightRangePlacementModifier.trapezoid(YOffset.aboveBottom(-65), YOffset.aboveBottom(65))));
         register(context, TOPAZ_BURIED, configuredFeatureRegistryEntryLookup.getOrThrow(ModConfiguredFeatures.TOPAZ_BURIED_ORE),
-                ModOrePlacement.modifiersWithRarity(4, // VeinsPerChunk
+                ModOrePlacement.modifiersWithCount(4, // VeinsPerChunk
                         HeightRangePlacementModifier.trapezoid(YOffset.aboveBottom(-65), YOffset.aboveBottom(75))));
         register(context, NETHER_TOPAZ, configuredFeatureRegistryEntryLookup.getOrThrow(ModConfiguredFeatures.NETHER_TOPAZ_ORE),
                 ModOrePlacement.modifiersWithCount(6, // VeinsPerChunk
@@ -256,10 +256,10 @@ public class ModPlacedFeatures {
                 ModOrePlacement.modifiersWithCount(2, // VeinsPerChunk
                         HeightRangePlacementModifier.uniform(YOffset.fixed(-44), YOffset.fixed(16))));
         register(context, TOURMALINE_LARGE, configuredFeatureRegistryEntryLookup.getOrThrow(ModConfiguredFeatures.TOURMALINE_LARGE_ORE),
-                ModOrePlacement.modifiersWithCount(7, // VeinsPerChunk
+                ModOrePlacement.modifiersWithRarity(7, // VeinsPerChunk
                         HeightRangePlacementModifier.trapezoid(YOffset.aboveBottom(-65), YOffset.aboveBottom(65))));
         register(context, TOURMALINE_BURIED, configuredFeatureRegistryEntryLookup.getOrThrow(ModConfiguredFeatures.TOURMALINE_BURIED_ORE),
-                ModOrePlacement.modifiersWithRarity(4, // VeinsPerChunk
+                ModOrePlacement.modifiersWithCount(4, // VeinsPerChunk
                         HeightRangePlacementModifier.trapezoid(YOffset.aboveBottom(-65), YOffset.aboveBottom(65))));
         register(context, NETHER_TOURMALINE, configuredFeatureRegistryEntryLookup.getOrThrow(ModConfiguredFeatures.NETHER_TOURMALINE_ORE),
                 ModOrePlacement.modifiersWithCount(6, // VeinsPerChunk
@@ -275,10 +275,10 @@ public class ModPlacedFeatures {
                 ModOrePlacement.modifiersWithCount(2, // VeinsPerChunk
                         HeightRangePlacementModifier.uniform(YOffset.fixed(-54), YOffset.fixed(6))));
         register(context, SPINEL_LARGE, configuredFeatureRegistryEntryLookup.getOrThrow(ModConfiguredFeatures.SPINEL_LARGE_ORE),
-                ModOrePlacement.modifiersWithCount(7, // VeinsPerChunk
+                ModOrePlacement.modifiersWithRarity(7, // VeinsPerChunk
                         HeightRangePlacementModifier.trapezoid(YOffset.aboveBottom(-70), YOffset.aboveBottom(65))));
         register(context, SPINEL_BURIED, configuredFeatureRegistryEntryLookup.getOrThrow(ModConfiguredFeatures.SPINEL_BURIED_ORE),
-                ModOrePlacement.modifiersWithRarity(4, // VeinsPerChunk
+                ModOrePlacement.modifiersWithCount(4, // VeinsPerChunk
                         HeightRangePlacementModifier.trapezoid(YOffset.aboveBottom(-70), YOffset.aboveBottom(65))));
         register(context, NETHER_SPINEL, configuredFeatureRegistryEntryLookup.getOrThrow(ModConfiguredFeatures.NETHER_SPINEL_ORE),
                 ModOrePlacement.modifiersWithCount(5, // VeinsPerChunk
@@ -354,12 +354,12 @@ public class ModPlacedFeatures {
                         HeightRangePlacementModifier.uniform(YOffset.getBottom(), YOffset.getTop())));
 
         register(context, LEMON_OAK, configuredFeatureRegistryEntryLookup.getOrThrow(ModConfiguredFeatures.LEMON_OAK_TREE_WG),
-                        List.of(
-                                // placement rules match vanilla oak
-                                PlacedFeatures.WORLD_SURFACE_WG_HEIGHTMAP,
-                                SquarePlacementModifier.of(),
-                                BiomePlacementModifier.of()
-                        ));
+                List.of(
+                        // placement rules match vanilla oak
+                        PlacedFeatures.WORLD_SURFACE_WG_HEIGHTMAP,
+                        SquarePlacementModifier.of(),
+                        BiomePlacementModifier.of()
+                ));
     }
 
     public static RegistryKey<PlacedFeature> registerKey(String name) {
