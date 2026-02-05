@@ -23,5 +23,8 @@
       "eat_white_chocolate"
     ]
   ],
+  "rewards": {
+    "experience": 25
+  },
   "sends_telemetry_event": true
 }

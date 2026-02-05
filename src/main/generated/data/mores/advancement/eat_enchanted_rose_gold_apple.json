@@ -1,0 +1,30 @@
+{
+  "parent": "mores:eat_rose_gold_apple",
+  "criteria": {
+    "eat_enchanted_rose_gold_apple": {
+      "conditions": {
+        "item": {
+          "items": "mores:enchanted_rose_gold_apple"
+        }
+      },
+      "trigger": "minecraft:consume_item"
+    }
+  },
+  "display": {
+    "description": "Eat an enchanted rose gold apple.",
+    "icon": {
+      "count": 1,
+      "id": "mores:enchanted_rose_gold_apple"
+    },
+    "title": "Berserk"
+  },
+  "requirements": [
+    [
+      "eat_enchanted_rose_gold_apple"
+    ]
+  ],
+  "rewards": {
+    "experience": 60
+  },
+  "sends_telemetry_event": true
+}

@@ -25,5 +25,8 @@
       "has_carbon_steel"
     ]
   ],
+  "rewards": {
+    "experience": 30
+  },
   "sends_telemetry_event": true
 }

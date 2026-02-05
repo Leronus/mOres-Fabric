@@ -30,5 +30,8 @@
       "summon_hardened_steel_golem"
     ]
   ],
+  "rewards": {
+    "experience": 200
+  },
   "sends_telemetry_event": true
 }

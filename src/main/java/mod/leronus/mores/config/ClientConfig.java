@@ -6,14 +6,14 @@ public class ClientConfig extends MidnightConfig {
 
     public static final String VISUAL = "visual";
 
-    @Entry(category = VISUAL, name = "Alloy Furnace: fire & smoke particles")
-    public static boolean alloyFurnaceParticles = true;
-
-    @Entry(category = VISUAL, name = "Alloy Furnace: active glow when burning")
-    public static boolean alloyFurnaceActiveGlow = true;
-
-    @Entry(category = VISUAL, name = "Use themed alloy furnace UI")
-    public static boolean themedAlloyFurnaceUI = true;
+//    @Entry(category = VISUAL, name = "Alloy Furnace: fire & smoke particles")
+//    public static boolean alloyFurnaceParticles = true;
+//
+//    @Entry(category = VISUAL, name = "Alloy Furnace: active glow when burning")
+//    public static boolean alloyFurnaceActiveGlow = true;
+//
+//    @Entry(category = VISUAL, name = "Use themed alloy furnace UI")
+//    public static boolean themedAlloyFurnaceUI = true;
 
     @Entry(category = VISUAL, name = "Tooltips: Durability, Efficiency, Armor Set Bonus")
     public static boolean extraTooltips = true;

@@ -25,5 +25,8 @@
       "has_tanzanite_gem"
     ]
   ],
+  "rewards": {
+    "experience": 50
+  },
   "sends_telemetry_event": true
 }

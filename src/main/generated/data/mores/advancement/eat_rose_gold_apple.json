@@ -23,5 +23,8 @@
       "eat_rose_gold_apple"
     ]
   ],
+  "rewards": {
+    "experience": 30
+  },
   "sends_telemetry_event": true
 }

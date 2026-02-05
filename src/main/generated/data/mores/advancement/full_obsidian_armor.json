@@ -64,5 +64,8 @@
       "obsidian_boots"
     ]
   ],
+  "rewards": {
+    "experience": 175
+  },
   "sends_telemetry_event": true
 }

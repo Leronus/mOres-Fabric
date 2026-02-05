@@ -25,5 +25,8 @@
       "has_primordial_debris"
     ]
   ],
+  "rewards": {
+    "experience": 150
+  },
   "sends_telemetry_event": true
 }

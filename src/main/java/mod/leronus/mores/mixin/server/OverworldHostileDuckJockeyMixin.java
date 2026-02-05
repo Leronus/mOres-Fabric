@@ -2,12 +2,12 @@ package mod.leronus.mores.mixin.server;
 
 import mod.leronus.mores.entity.ModDuckEntity;
 import mod.leronus.mores.entity.ModEntities;
-import net.minecraft.entity.EntityData;
-import net.minecraft.entity.EntityType;
-import net.minecraft.entity.SpawnReason;
-import net.minecraft.entity.mob.HostileEntity;
-import net.minecraft.entity.mob.MobEntity;
+import net.minecraft.entity.*;
+import net.minecraft.entity.mob.*;
+import net.minecraft.entity.raid.RaiderEntity;
 import net.minecraft.server.world.ServerWorld;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.Heightmap;
 import net.minecraft.world.LocalDifficulty;
 import net.minecraft.world.ServerWorldAccess;
 import net.minecraft.world.World;
@@ -48,8 +48,8 @@ public abstract class OverworldHostileDuckJockeyMixin {
 
         MobEntity mob = (MobEntity) (Object) this;
 
-        // Hostiles only
-        if (!(mob instanceof HostileEntity)) return;
+        // Must be an allowed rider
+        if (!canBeDuckJockeyRider(mob)) return;
 
         // Only allow certain spawn reasons
         if (!isAllowedSpawnReason(reason)) return;
@@ -60,11 +60,11 @@ public abstract class OverworldHostileDuckJockeyMixin {
         // Don’t recurse: don’t make ducks ride ducks / duck entities be riders
         if (mob instanceof ModDuckEntity) return;
 
-        // Skip bosses (optional but sane)
+        // Skip bosses
         EntityType<?> t = mob.getType();
         if (t == EntityType.ENDER_DRAGON || t == EntityType.WITHER || t == EntityType.WARDEN) return;
 
-        // Optional size sanity check (keeps ravager-sized stuff off ducks, etc.)
+        // Size sanity
         if (SIZE_LIMIT) {
             var dims = mob.getDimensions(mob.getPose());
             if (dims.width() > MAX_WIDTH || dims.height() > MAX_HEIGHT) return;
@@ -73,20 +73,50 @@ public abstract class OverworldHostileDuckJockeyMixin {
         // Chance gate
         if (serverWorld.getRandom().nextFloat() >= DUCK_JOCKEY_CHANCE) return;
 
-        // Spawn duck at mob position
+        // Grounded + valid placement
+        BlockPos ground = serverWorld.getTopPosition(Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, mob.getBlockPos());
+        if (Math.abs(mob.getY() - ground.getY()) > 2.5) return;
+
+        // Spawn duck
         ModDuckEntity duck = ModEntities.DUCK.create(serverWorld);
         if (duck == null) return;
 
         duck.refreshPositionAndAngles(
-                mob.getX(), mob.getY(), mob.getZ(),
+                ground.getX() + 0.5, ground.getY(), ground.getZ() + 0.5,
                 mob.getYaw(), mob.getPitch()
         );
+
+        // Optional: ensure space & spawn restrictions
+        if (!serverWorld.isSpaceEmpty(duck)) return;
+        if (!SpawnRestriction.canSpawn(ModEntities.DUCK, serverWorld, SpawnReason.NATURAL, ground, serverWorld.getRandom())) return;
 
         if (!serverWorld.spawnEntity(duck)) return;
 
         // Put hostile on the duck
         mob.startRiding(duck, true);
         duck.setHasJockey(true);
+
+    }
+
+    private static boolean canBeDuckJockeyRider(MobEntity mob) {
+        // Must be a monster (helps prevent “weird places” + excludes lots of non-hostiles)
+        if (mob.getType().getSpawnGroup() != SpawnGroup.MONSTER) return false;
+
+        // Must be hostile (your existing rule)
+        if (!(mob instanceof HostileEntity)) return false;
+
+        // Explicitly exclude “no-arm / weird-body” hostiles (even if they’re hostile monsters)
+        if (mob instanceof CreeperEntity) return false;
+        if (mob instanceof SpiderEntity) return false;
+        if (mob instanceof EndermiteEntity) return false;
+        if (mob instanceof SilverfishEntity) return false;
+        if (mob instanceof BlazeEntity) return false;
+        if (mob instanceof GuardianEntity) return false;
+        if (mob instanceof VexEntity) return false;
+
+        // Allow “armed/humanoid-ish” hostiles (these are the ones players expect as riders)
+        // pillager/vindicator/evoker/illusioner etc.
+        return mob instanceof ZombieEntity || mob instanceof AbstractSkeletonEntity || mob instanceof AbstractPiglinEntity || mob instanceof RaiderEntity || mob instanceof EndermanEntity;
     }
 
     private static boolean isAllowedSpawnReason(SpawnReason reason) {

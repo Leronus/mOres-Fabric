@@ -814,6 +814,19 @@ public class ModAdvancementProvider extends FabricAdvancementProvider {
                 .criterion("eat_rose_gold_apple", eatItem(ModItems.ROSE_GOLD_APPLE))
                 .rewards(AdvancementRewards.Builder.experience(30))
                 .build(exporter, id("eat_rose_gold_apple"));
+        // Enchanted Rose Gold Apple -> child of the regular apple advancement
+        AdvancementEntry enchantedRoseGoldApple = Advancement.Builder.create()
+                .parent(roseGoldApple)
+                .display(display(
+                        ModItems.ENCHANTED_ROSE_GOLD_APPLE,
+                        "Berserk",
+                        "Eat an enchanted rose gold apple.",
+                        AdvancementFrame.TASK,
+                        7, 5
+                ))
+                .criterion("eat_enchanted_rose_gold_apple", eatItem(ModItems.ENCHANTED_ROSE_GOLD_APPLE))
+                .rewards(AdvancementRewards.Builder.experience(60))
+                .build(exporter, id("eat_enchanted_rose_gold_apple"));
 
         // Adamantium
         AdvancementEntry obtainAdamantium = Advancement.Builder.create()

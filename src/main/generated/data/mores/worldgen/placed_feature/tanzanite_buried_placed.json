@@ -2,8 +2,8 @@
   "feature": "mores:tanzanite_buried_ore",
   "placement": [
     {
-      "type": "minecraft:rarity_filter",
-      "chance": 4
+      "type": "minecraft:count",
+      "count": 4
     },
     {
       "type": "minecraft:in_square"
@@ -13,7 +13,7 @@
       "height": {
         "type": "minecraft:trapezoid",
         "max_inclusive": {
-          "above_bottom": 90
+          "above_bottom": 70
         },
         "min_inclusive": {
           "above_bottom": -70

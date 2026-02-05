@@ -23,5 +23,8 @@
       "eat_dark_chocolate"
     ]
   ],
+  "rewards": {
+    "experience": 20
+  },
   "sends_telemetry_event": true
 }

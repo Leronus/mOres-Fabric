@@ -1,19 +1,25 @@
 package mod.leronus.mores.mixin;
 
 import mod.leronus.mores.item.ModItems;
+import mod.leronus.mores.item.ModTags;
 import net.minecraft.entity.ItemEntity;
+import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.item.ItemStack;
 import net.minecraft.particle.ParticleTypes;
+import net.minecraft.registry.tag.DamageTypeTags;
 import net.minecraft.registry.tag.FluidTags;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
+import net.minecraft.world.explosion.Explosion;
 import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
+import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(ItemEntity.class)
 public abstract class ItemEntityMixin {
@@ -49,6 +55,23 @@ public abstract class ItemEntityMixin {
         );
         // Nice feedback (optional)
         world.playSound(null, pos, SoundEvents.BLOCK_FIRE_EXTINGUISH, SoundCategory.BLOCKS, 0.6f, 1.2f);
+    }
+
+    @Shadow public abstract ItemStack getStack();
+
+    @Inject(method = "damage", at = @At("HEAD"), cancellable = true)
+    private void mores$obsidianItemsIgnoreExplosionDamage(
+            DamageSource source, float amount, CallbackInfoReturnable<Boolean> cir
+    ) {
+        // Only explosions
+        if (!source.isIn(DamageTypeTags.IS_EXPLOSION)) return;
+
+        ItemStack stack = this.getStack();
+
+        if (stack.isIn(ModTags.Items.OBSIDIAN_GEAR)) {
+            // Returning false = "not damaged" => explosion won't delete it
+            cir.setReturnValue(false);
+        }
     }
 }
 

@@ -4,6 +4,7 @@
   "compatibilityLevel": "JAVA_21",
   "mixins": [
     "access.MobEntityBodyArmorAccessor",
+    "access.LivingEntityAccessor",
     "BlockMixin",
     "BlockDropStacksMixin",
     "CarvedPumpkinBlockMixin",

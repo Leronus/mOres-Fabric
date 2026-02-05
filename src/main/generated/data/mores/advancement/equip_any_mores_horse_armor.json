@@ -88,5 +88,8 @@
       "has_any_mores_horse_armor"
     ]
   ],
+  "rewards": {
+    "experience": 25
+  },
   "sends_telemetry_event": true
 }

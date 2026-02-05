@@ -9,8 +9,10 @@ import me.shedaniel.rei.api.common.util.EntryStacks;
 
 import mod.leronus.mores.block.ModBlocks;              // adjust if your package differs
 import mod.leronus.mores.recipe.AlloyingRecipe;
+import mod.leronus.mores.recipe.SteelCuttingRecipe;
 import mod.leronus.mores.registry.ModRecipes;
 import mod.leronus.mores.screen.AlloyFurnaceScreen;    // must extend HandledScreen<AlloyFurnaceScreenHandler>
+import mod.leronus.mores.screen.SteelCutterScreen;
 
 public class MoresReiClientPlugin implements REIClientPlugin {
 
@@ -18,6 +20,9 @@ public class MoresReiClientPlugin implements REIClientPlugin {
     public void registerCategories(CategoryRegistry registry) {
         registry.add(new AlloyingCategory());
         registry.addWorkstations(AlloyingCategory.ID, EntryStacks.of(ModBlocks.ALLOY_FURNACE));
+
+        registry.add(new SteelCuttingCategory());
+        registry.addWorkstations(SteelCuttingCategory.ID, EntryStacks.of(ModBlocks.STEEL_CUTTER));
     }
 
     @Override
@@ -28,6 +33,11 @@ public class MoresReiClientPlugin implements REIClientPlugin {
                 ModRecipes.ALLOYING,
                 AlloyingDisplay::new
         );
+        registry.registerRecipeFiller(
+                SteelCuttingRecipe.class,
+                ModRecipes.STEEL_CUTTING,
+                SteelCuttingDisplay::new
+        );
     }
 
     @Override
@@ -37,6 +47,11 @@ public class MoresReiClientPlugin implements REIClientPlugin {
                 new Rectangle(78, 32, 28, 18),
                 AlloyFurnaceScreen.class,
                 AlloyingCategory.ID
+        );
+        registry.registerContainerClickArea(
+                new Rectangle(134, 32, 24, 17), // <-- adjust to match your texture/widget position
+                SteelCutterScreen.class,
+                SteelCuttingCategory.ID
         );
     }
 }

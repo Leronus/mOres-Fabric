@@ -156,7 +156,7 @@ public class ModPlacedFeatures {
                 ModOrePlacement.modifiersWithCount(12, // VeinsPerChunk
                         HeightRangePlacementModifier.uniform(YOffset.getBottom(), YOffset.fixed(90))));
         register(context, SILVER_UPPER, configuredFeatureRegistryEntryLookup.getOrThrow(ModConfiguredFeatures.SILVER_UPPER_ORE),
-                ModOrePlacement.modifiersWithCount(85, // VeinsPerChunk
+                ModOrePlacement.modifiersWithCount(75, // VeinsPerChunk
                         HeightRangePlacementModifier.trapezoid(YOffset.fixed(90), YOffset.fixed(384))));
         register(context, SILVER_MIDDLE, configuredFeatureRegistryEntryLookup.getOrThrow(ModConfiguredFeatures.SILVER_MIDDLE_ORE),
                 ModOrePlacement.modifiersWithCount(11, // VeinsPerChunk
@@ -172,7 +172,7 @@ public class ModPlacedFeatures {
                 ModOrePlacement.modifiersWithCount(10, // VeinsPerChunk
                         HeightRangePlacementModifier.uniform(YOffset.getBottom(), YOffset.fixed(80))));
         register(context, COBALT_UPPER, configuredFeatureRegistryEntryLookup.getOrThrow(ModConfiguredFeatures.COBALT_UPPER_ORE),
-                ModOrePlacement.modifiersWithCount(75, // VeinsPerChunk
+                ModOrePlacement.modifiersWithCount(55, // VeinsPerChunk
                         HeightRangePlacementModifier.trapezoid(YOffset.fixed(80), YOffset.aboveBottom(384))));
         register(context, COBALT_MIDDLE, configuredFeatureRegistryEntryLookup.getOrThrow(ModConfiguredFeatures.COBALT_MIDDLE_ORE),
                 ModOrePlacement.modifiersWithCount(10, // VeinsPerChunk

@@ -25,5 +25,8 @@
       "has_tourmaline_gem"
     ]
   ],
+  "rewards": {
+    "experience": 50
+  },
   "sends_telemetry_event": true
 }

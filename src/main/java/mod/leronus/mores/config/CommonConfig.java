@@ -52,9 +52,9 @@ public class CommonConfig extends MidnightConfig {
     @Entry(category = WORLDGEN, name = "Enable mob weapon and armor generation")
     public static boolean enableHostileGearGeneration = true;
     @Entry(category = WORLDGEN, name = "Mob hand drop chance")
-    public static float handDropChance = 0.03f;
+    public static float handDropChance = 0.085f;
     @Entry(category = WORLDGEN, name = "Mob armor drop chance")
-    public static float armorDropChance = 0.03f;
+    public static float armorDropChance = 0.085f;
 
     @Entry(category = WORLDGEN, min = 0, max = 100, isSlider = false, name = "Zombie upgrade minimum (1/4)")
     public static int zombieUpgradeMin = 4;
@@ -87,36 +87,19 @@ public class CommonConfig extends MidnightConfig {
     @Entry(category = WORLDGEN, name = "Vex weapon chance")
     public static float vexWeaponChance = 0.18f;
 
-    // Materials (restart required in practice)
-    @Entry(category = GAMEPLAY, name = "Material presets (restart required)")
-    public static MaterialPreset materialPreset = MaterialPreset.DEFAULT;
-
-    public enum MaterialPreset {
-        DEFAULT, SOFTER, HARDER
-    }
-
-    // Alloy Furnace (logic)
-    @Entry(category = ALLOYING, min = 1, max = 200000, isSlider = true, name = "Base cook time (ticks)")
-    public static int alloyFurnaceCookTimeTicks = 200;
-
-    @Entry(category = ALLOYING, min = 0, max = 64, isSlider = false, name = "Extra time per ingredient (ticks)")
-    public static int alloyFurnaceExtraTimePerIngredientTicks = 20;
-
-    @Entry(category = ALLOYING, min = 0.05D, max = 10.0D, isSlider = true, precision = 100, name = "Fuel multiplier")
-    public static double alloyFurnaceFuelMultiplier = 1.0D;
 
     // Worldgen (note: affects new chunks)
-    @Entry(category = WORLDGEN, name = "Enable ore generation")
-    public static boolean enableOreGeneration = true;
+//    @Entry(category = WORLDGEN, name = "Enable ore generation")
+//    public static boolean enableOreGeneration = true;
 
-    @Entry(category = WORLDGEN, min = -64, max = 320, isSlider = true, name = "Tin Ore min Y")
-    public static int tinOreMinY = 0;
-    @Entry(category = WORLDGEN, min = -64, max = 320, isSlider = true, name = "Tin Ore max Y")
-    public static int tinOreMaxY = 64;
-    @Entry(category = WORLDGEN, min = 1, max = 64, isSlider = true, name = "Tin Ore vein size")
-    public static int tinOreVeinSize = 8;
-    @Entry(category = WORLDGEN, min = 0, max = 50, isSlider = true, name = "Tin Ore veins per chunk")
-    public static int tinOreVeinsPerChunk = 10;
+//    @Entry(category = WORLDGEN, min = -64, max = 320, isSlider = true, name = "Tin Ore min Y")
+//    public static int tinOreMinY = 0;
+//    @Entry(category = WORLDGEN, min = -64, max = 320, isSlider = true, name = "Tin Ore max Y")
+//    public static int tinOreMaxY = 64;
+//    @Entry(category = WORLDGEN, min = 1, max = 64, isSlider = true, name = "Tin Ore vein size")
+//    public static int tinOreVeinSize = 8;
+//    @Entry(category = WORLDGEN, min = 0, max = 50, isSlider = true, name = "Tin Ore veins per chunk")
+//    public static int tinOreVeinsPerChunk = 10;
 
     //Copper etc
 }

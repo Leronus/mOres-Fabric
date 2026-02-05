@@ -25,5 +25,8 @@
       "has_rose_gold"
     ]
   ],
+  "rewards": {
+    "experience": 30
+  },
   "sends_telemetry_event": true
 }

@@ -25,5 +25,8 @@
       "has_wood_dagger"
     ]
   ],
+  "rewards": {
+    "experience": 15
+  },
   "sends_telemetry_event": true
 }

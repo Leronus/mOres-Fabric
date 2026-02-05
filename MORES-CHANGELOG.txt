@@ -4,10 +4,10 @@ Changelog:
 - Using DataGenerators for Tags, Recipes, Models, Advancements, Loot tables - Massive rewrite
 - Added villager trades for mOres items
 - Added mob spawns with mOres gear (zombies, piglins, skeletons & more!)
-- Added even more trimmable armor and trim materials
+- Added even more trimmable armor and trim materials (Citrine, Adamantium, Enderite & updated textures)
 - Added lemon oak trees, lemons, lemon pie, apple pie, sweet berry pie and 3 variants of chocolate (dark, milk, white)
-- Added silver carrot & enchanted cobalt apple
-- Added shields back, fully decorable!
+- Added silver carrot, rose gold & enchanted cobalt/rose gold apples
+- Added shields back, fully decorable! (And with updated cooldowns!)
 - Added wolf armors for all metals (Tin, Silver, Gold, Copper, Sterling Silver, Rose Gold, Bronze, Iron, Cobalt, Carbon Steel, Hardened Steel, Diamond)
 - Added spears (using optional backported spears - Rose Gold, Carbon Steel, Hardened Steel, Enderite)
 - Added dust/nugget/ingot/gem tags for better mod compatibility & added raw duck + tropical fish to cat_tameable
@@ -19,9 +19,22 @@ Changelog:
 - Added Carbon Steel (tools, (horse)armor, weapons) with (Hot) Carbon Steel Scrap (needs to be cooled in water)
 - Added Hardened Steel (Smithing using Upgrade Template) with its own golem that spawns naturally (configurable)
 - Added Enderite (Smithing using Upgrade Template and crafting using Primordial Debris - spawns in the End)
+- Added potion effects to tool sets Amethyst (Levitating), Citrine (+1 Reach), Sapphire (Glowing), Moissanite (Poison), Obsidian (Explosion Resistant)
+- Added chance for Duck jockeys to spawn (hostile overworld mobs riding a duck - ducks still poop golden nuggets as well as their own duck egg which can be used in any pie recipe)
+
+- Reworked Battle Axes -> -50% mining speed on wood but still very effective for wood chopping, strong offensive weapon able to disable shields (can also wax copper and strip wood)
+- Reworked Battle Maces -> Functions like a sword (can have Sweeping Edge) but disabled shields when hitting while sprinting, when not sprinting still 25% chance to disable shields. Lower damage but fast attack speed.
 - Nerfed Turquoise efficiency & base armor but buffed spawnrate
 - Updated Sterling Silver ingot texture
 - Updated Copper textures with vanilla from 1.21.9
 - Updated Silver ingot, raw, nugget, ore, block and apple - and added carrot + wolf armor + spear
 - Updated Anthracite, Onyx & Turquoise textures
+- Updated config to disable certain features like the lemon leaves and tune mob armor/tool spawn rates
+- Updated chest loot so you can now find dust & nuggets as well as (horse/wolf) armor, tools, shields and smithing templates along with food & other ingredients. Compatible with mods.
+- Updated advancements with the newly added materials & food and the return of the Alloy Furnace :)
+
+LIST OF FEATURES:
+- Craftable saddles
+- Craftable & horse & wolf armor with durability and effects (shown in tooltip)
+
 

@@ -64,5 +64,8 @@
       "bronze_boots"
     ]
   ],
+  "rewards": {
+    "experience": 30
+  },
   "sends_telemetry_event": true
 }

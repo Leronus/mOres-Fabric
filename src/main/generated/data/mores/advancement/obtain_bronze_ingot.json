@@ -25,5 +25,8 @@
       "has_bronze"
     ]
   ],
+  "rewards": {
+    "experience": 25
+  },
   "sends_telemetry_event": true
 }

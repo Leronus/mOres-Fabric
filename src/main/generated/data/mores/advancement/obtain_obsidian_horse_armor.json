@@ -25,5 +25,8 @@
       "has_obsidian_horse_armor"
     ]
   ],
+  "rewards": {
+    "experience": 150
+  },
   "sends_telemetry_event": true
 }

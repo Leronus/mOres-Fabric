@@ -193,7 +193,14 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .input('X', Registries.ITEM.get(Identifier.of("minecraft", "apple")))
                 .criterion("has_ingot_cobalt", conditionsFromTag(TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "ingot/cobalt"))))
                 .offerTo(exporter, Identifier.of("mores", "cobalt_apple"));
-
+        ShapedRecipeJsonBuilder.create(RecipeCategory.FOOD, Registries.ITEM.get(Identifier.of("mores", "rose_gold_apple")), 1)
+                .pattern("###")
+                .pattern("#X#")
+                .pattern("###")
+                .input('#', TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "ingot/rose_gold")))
+                .input('X', Registries.ITEM.get(Identifier.of("minecraft", "apple")))
+                .criterion("has_ingot_rose_gold", conditionsFromTag(TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "ingot/rose_gold"))))
+                .offerTo(exporter, Identifier.of("mores", "rose_gold_apple"));
 
     }
 

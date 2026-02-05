@@ -25,5 +25,8 @@
       "has_amethyst_gem"
     ]
   ],
+  "rewards": {
+    "experience": 30
+  },
   "sends_telemetry_event": true
 }

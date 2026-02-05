@@ -30,6 +30,8 @@ public class ModTags {
         public static final TagKey<Item> REFLECT_PRIMARY =
                 TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "enchantable/reflect_primary"));
 
+        public static final TagKey<Item> OBSIDIAN_GEAR = createTag("obsidian_gear");
+
 
         //        public static final TagKey<Item> TRANSFORMABLE_ITEMS = createTag("transformable_items");
         public static final TagKey<Item> GEMS = createTag("gems");

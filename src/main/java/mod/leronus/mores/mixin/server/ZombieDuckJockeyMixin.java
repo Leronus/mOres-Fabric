@@ -21,7 +21,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 @Mixin(ZombieEntity.class)
 public abstract class ZombieDuckJockeyMixin {
     private static final Logger LOGGER = LogUtils.getLogger();
-    private static final float DUCK_MOUNT_CHANCE = 0.5f; // set lower later
+    private static final float DUCK_MOUNT_CHANCE = 0.25f; // set lower later
 
     @Inject(
             method = "initialize(Lnet/minecraft/world/ServerWorldAccess;Lnet/minecraft/world/LocalDifficulty;Lnet/minecraft/entity/SpawnReason;Lnet/minecraft/entity/EntityData;)Lnet/minecraft/entity/EntityData;",

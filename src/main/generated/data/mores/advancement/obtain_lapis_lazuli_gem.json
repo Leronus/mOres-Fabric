@@ -25,5 +25,8 @@
       "has_lapis_lazuli_gem"
     ]
   ],
+  "rewards": {
+    "experience": 30
+  },
   "sends_telemetry_event": true
 }

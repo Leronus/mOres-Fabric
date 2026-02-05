@@ -97,5 +97,8 @@
       "has_any_mores_shield"
     ]
   ],
+  "rewards": {
+    "experience": 25
+  },
   "sends_telemetry_event": true
 }

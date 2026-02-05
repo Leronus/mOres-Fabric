@@ -25,5 +25,8 @@
       "has_hot_carbon_steel"
     ]
   ],
+  "rewards": {
+    "experience": 10
+  },
   "sends_telemetry_event": true
 }

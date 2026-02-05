@@ -1,6 +1,11 @@
 {
   "mores.shield_damage_reduction" : "Shield Damage Reduction",
   "mores.shield_blocking" : "Shield Blocking",
+  "mores.battle_axe_penalty": "-50% Mining Speed",
+  "mores.battle_mace_shield_on_hit": "On Hit: ",
+  "mores.battle_mace_shield_chance": "25% Chance Shield Cooldown",
+  "mores.battle_mace_shield_on_hit_when_sprinting": "On Hit When Sprinting: ",
+  "mores.battle_mace_shield_sprinting": "100% Chance Shield Cooldown",
   "mores.bonus": "Bonus: ",
   "mores.full_set_bonus": "Full Set Bonus: ",
   "mores.harvest_level": "Harvest Level: ",
@@ -19,7 +24,6 @@
   "mores.water_effects": "Water Breathing & Dolphins",
   "mores.water_breathing": "Water Breathing",
   "mores.dolphins_grace": "Dolphin's Grace",
-  "mores.wither_effect": "Wither Effect",
   "mores.wither_immunity": "Wither Immunity",
   "mores.poison_immunity": "Poison Immunity",
   "mores.explosion_immunity": "Explosion Immunity",
@@ -28,7 +32,11 @@
   "mores.piglin_immunity": "Piglin Brute Immunity",
   "mores.extra_block_reach": "Extra Block Reach",
   "mores.extra_hearts": "Extra Health",
+  "mores.wither_effect": "Wither Effect",
   "mores.burn_effect": "Burn Effect",
+  "mores.poison_effect": "Poison Effect",
+  "mores.glowing_effect": "Glowing Effect",
+  "mores.levitating_effect": "Levitating Effect",
   "mores.auto_smelt": "Automatic Smelting",
 
   "sound.mores.living_duck_sound" : "Duck quacks",
@@ -1304,6 +1312,7 @@
   "enchantment.fabricshieldlib.reflect": "Reflection I",
 
   "category.mores.alloying": "Alloying",
+  "category.mores.steel_cutting": "Steel Cutting",
   "rei.mores.any_fuel": "Any fuel",
 
   "mores.midnightconfig.category.visual": "Visual",

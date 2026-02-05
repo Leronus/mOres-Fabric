@@ -8,9 +8,14 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.registry.Registries;
+import net.minecraft.registry.RegistryKey;
+import net.minecraft.registry.RegistryKeys;
+import net.minecraft.server.world.ServerWorld;
+import net.minecraft.structure.StructureStart;
 import net.minecraft.util.Identifier;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.random.Random;
-import net.minecraft.world.LocalDifficulty;
+import net.minecraft.world.gen.structure.Structure;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -49,6 +54,17 @@ public final class ModMobEquipmentHelper {
     public static final float VINDICATOR_WEAPON_CHANCE = CommonConfig.vindicatorWeaponChance;
     public static final float VEX_WEAPON_CHANCE = CommonConfig.vexWeaponChance;
 
+    /**
+     * Exotic roll chances:
+     * - NORMAL: extremely rare (0.05% => 1/2000)
+     * - TRIAL CHAMBER: much more frequent (1.0% => 1/100)
+     */
+    private static final float EXOTIC_CHANCE_NORMAL = 0.0005f;
+    private static final float EXOTIC_CHANCE_TRIAL  = 0.01f;
+
+    private static final RegistryKey<Structure> TRIAL_CHAMBERS_KEY =
+            RegistryKey.of(RegistryKeys.STRUCTURE, Identifier.of("minecraft", "trial_chambers"));
+
     private static final String[] VERY_STRONG_SWORDS = {
             "mores:obsidian_sword",
             "mores:hardened_steel_sword"
@@ -75,6 +91,19 @@ public final class ModMobEquipmentHelper {
             "mores:cobalt_axe"
     };
 
+    /** The “exotic” materials you asked for */
+    private static final String[] EXOTIC_MATERIALS = {
+            "emerald",
+            "spinel",
+            "tanzanite",
+            "tourmaline",
+            "topaz",
+            "ruby",
+            "sapphire",
+            "moissanite",
+            "obsidian"
+    };
+
     /* ===========================
        RANDOM HELPERS
        =========================== */
@@ -88,10 +117,6 @@ public final class ModMobEquipmentHelper {
        MATERIAL POOLS
        =========================== */
 
-    // Zombie ARMOR pool: reduced cobalt + no hardened on armor
-    // sum 100: tin 24, copper 20, silver 15, sterling 10, bronze 15, carbon 12, rose_gold 4, cobalt 0? -> we want SOME cobalt:
-    // Let's do cobalt 3, rose_gold 1 = still possible but rare:
-    // tin 24, copper 20, silver 15, sterling 10, bronze 15, carbon 12, cobalt 3, rose_gold 1 = 100
     private static String pickZombieArmorMaterial(Random random) {
         int r = random.nextInt(100);
         if (r < 24) return "tin";
@@ -104,8 +129,6 @@ public final class ModMobEquipmentHelper {
         return "rose_gold";                 // 1%
     }
 
-    // Zombie WEAPON material pool (you wanted rose_gold ~5%, hardened very rare, cobalt noticeable)
-    // tin 22, copper 18, silver 14, sterling 8, bronze 14, carbon 10, cobalt 8, rose_gold 5, hardened 1
     private static String pickZombieWeaponMaterial(Random random) {
         int r = random.nextInt(100);
         if (r < 22) return "tin";
@@ -131,12 +154,15 @@ public final class ModMobEquipmentHelper {
         return "rose_gold";
     }
 
+    private static String pickExoticMaterial(Random random) {
+        return EXOTIC_MATERIALS[random.nextInt(EXOTIC_MATERIALS.length)];
+    }
+
     /* ===========================
        ENTRY POINTS
        =========================== */
 
     public static void maybeUpgradeZombieLike(MobEntity mob, Random random) {
-        // random 1/(4..7)
         if (!rollOneInRange(random, ZOMBIE_UPGRADE_MIN, ZOMBIE_UPGRADE_MAX)) return;
 
         boolean doArmor  = random.nextFloat() < ZOMBIE_ARMOR_CHANCE;
@@ -174,13 +200,11 @@ public final class ModMobEquipmentHelper {
         }
 
         if (random.nextFloat() < WITHER_ARMOR_WITH_UPGRADE_CHANCE) {
-            // Withers can remain mixed but harder-leaning:
             equipZombieArmorMixedLimitedCobalt(mob, random);
         }
     }
 
     public static void maybeUpgradePiglin(MobEntity mob, Random random) {
-        // Armor: visible chance, rose_gold only (your design)
         if (random.nextFloat() < PIGLIN_ROSE_GOLD_ARMOR_CHANCE) {
             maybeEquipSlotIfEmptyChance(mob, EquipmentSlot.HEAD,  ROSE_GOLD_ARMOR[0], 0.25f, random);
             maybeEquipSlotIfEmptyChance(mob, EquipmentSlot.CHEST, ROSE_GOLD_ARMOR[1], 0.25f, random);
@@ -189,7 +213,6 @@ public final class ModMobEquipmentHelper {
             setArmorDropChances(mob);
         }
 
-        // Weapon: only sword piglins (not crossbow)
         ItemStack hand = mob.getEquippedStack(EquipmentSlot.MAINHAND);
         if (!hand.isEmpty() && !hand.isOf(Items.CROSSBOW) && random.nextFloat() < PIGLIN_ROSE_GOLD_SWORD_CHANCE) {
             equipMainhandFromAny(mob, PIGLIN_WEAPONS, random);
@@ -197,21 +220,11 @@ public final class ModMobEquipmentHelper {
     }
 
     public static void maybeUpgradeZombifiedPiglin(MobEntity mob, Random random) {
-        // Explicit 5%
         if (random.nextFloat() >= ZOMBIFIED_PIGLIN_ROSE_GOLD_SWORD_CHANCE) return;
-
-        boolean equipped = equipMainhandFromAny(mob, PIGLIN_WEAPONS, random);
-
-//        // Debug: if roll passed but item didn't equip, log it (helps catch registry/id issues)
-//        if (!equipped) {
-//            Mores.LOGGER.warn("Rolled rose_gold for Zombified Piglin but failed to equip. Check item id: {}", PIGLIN_WEAPONS[0]);
-//        } else {
-//            // Optional: uncomment to confirm it's happening
-//             Mores.LOGGER.info("Equipped rose_gold_sword on Zombified Piglin {}", mob.getUuidAsString());
-//        }
+        equipMainhandFromAny(mob, PIGLIN_WEAPONS, random);
     }
+
     public static void maybeUpgradePiglinBrute(MobEntity mob, Random random) {
-        // Weapon: only sword piglins (not crossbow)
         ItemStack hand = mob.getEquippedStack(EquipmentSlot.MAINHAND);
         if (!hand.isEmpty() && random.nextFloat() < PIGLIN_BRUTE_ROSE_GOLD_AXE_CHANCE) {
             equipMainhandFromAny(mob, BRUTE_AXES, random);
@@ -226,6 +239,34 @@ public final class ModMobEquipmentHelper {
     public static void maybeUpgradeVex(MobEntity mob, Random random) {
         if (random.nextFloat() >= VEX_WEAPON_CHANCE) return;
         equipRandomWeaponVariant(mob, "tin", random);
+    }
+
+    /**
+     * NEW: Very rare “exotic” loadout roll.
+     * Call this after initialization so we can detect Trial Chambers.
+     *
+     * - Outside Trial Chambers: 0.05% (1/2000)
+     * - Inside Trial Chambers: 1% (1/100)
+     */
+    public static void maybeApplyExoticLoadoutIfEligible(MobEntity mob, Random random) {
+        float chance = isInTrialChamber(mob) ? EXOTIC_CHANCE_TRIAL : EXOTIC_CHANCE_NORMAL;
+        if (random.nextFloat() >= chance) return;
+
+        String mat = pickExoticMaterial(random);
+
+        // Similar feel to vanilla “diamond chance”: sometimes weapon only, sometimes armor only, sometimes both.
+        boolean doWeapon = random.nextFloat() < 0.65f;
+        boolean doArmor  = random.nextFloat() < 0.55f;
+        if (!doWeapon && !doArmor) doWeapon = true;
+
+        if (doWeapon) {
+            equipRandomWeaponVariantOverride(mob, mat, random);
+        }
+
+        if (doArmor) {
+            equipExoticArmorOverride(mob, mat, random);
+            setArmorDropChances(mob);
+        }
     }
 
     /* ===========================
@@ -247,7 +288,7 @@ public final class ModMobEquipmentHelper {
 
         int equipped = 0;
         int cobaltPieces = 0;
-        final int COBALT_CAP = 1; // <-- change to 2 if you ever want slightly more cobalt
+        final int COBALT_CAP = 1;
 
         for (EquipmentSlot slot : slots) {
             if (equipped >= pieces) break;
@@ -255,7 +296,6 @@ public final class ModMobEquipmentHelper {
 
             String mat = pickZombieArmorMaterial(random);
             if ("cobalt".equals(mat) && cobaltPieces >= COBALT_CAP) {
-                // reroll once to avoid cobalt spam
                 mat = pickZombieArmorMaterial(random);
                 if ("cobalt".equals(mat)) mat = "carbon_steel";
             }
@@ -295,7 +335,50 @@ public final class ModMobEquipmentHelper {
     }
 
     /* ===========================
-       WEAPONS
+       EXOTIC ARMOR/WEAPON (OVERRIDE)
+       =========================== */
+
+    private static void equipExoticArmorOverride(MobEntity mob, String material, Random random) {
+        // Heavily biased to partial sets (like vanilla diamond spawns)
+        int pieces;
+        float r = random.nextFloat();
+        if (r < 0.70f) pieces = 1;
+        else if (r < 0.92f) pieces = 2;
+        else if (r < 0.985f) pieces = 3;
+        else pieces = 4;
+
+        List<EquipmentSlot> slots = new ArrayList<>(List.of(
+                EquipmentSlot.HEAD, EquipmentSlot.CHEST, EquipmentSlot.LEGS, EquipmentSlot.FEET
+        ));
+        Collections.shuffle(slots, new java.util.Random(random.nextLong()));
+
+        int equipped = 0;
+        for (EquipmentSlot slot : slots) {
+            if (equipped >= pieces) break;
+
+            String id = armorId(material, slot);
+            if (equipSlotOverride(mob, slot, id)) {
+                equipped++;
+            }
+        }
+    }
+
+    private static void equipRandomWeaponVariantOverride(MobEntity mob, String material, Random random) {
+        List<String> candidates = new ArrayList<>(List.of(
+                toolId(material, "dagger"),
+                toolId(material, "battle_axe"),
+                toolId(material, "battle_mace"),
+                toolId(material, "sword")
+        ));
+        Collections.shuffle(candidates, new java.util.Random(random.nextLong()));
+
+        for (String id : candidates) {
+            if (equipMainhandOverride(mob, id)) return;
+        }
+    }
+
+    /* ===========================
+       WEAPONS (EXISTING)
        =========================== */
 
     private static void equipRandomWeaponVariant(MobEntity mob, String material, Random random) {
@@ -369,12 +452,58 @@ public final class ModMobEquipmentHelper {
         return true;
     }
 
+    /** NEW: override armor even if occupied */
+    private static boolean equipSlotOverride(MobEntity mob, EquipmentSlot slot, String itemId) {
+        if (itemId == null) return false;
+
+        Optional<Item> item = getItem(itemId);
+        if (item.isEmpty()) return false;
+
+        mob.equipStack(slot, new ItemStack(item.get()));
+        return true;
+    }
+
+    /** NEW: override mainhand even if occupied */
+    private static boolean equipMainhandOverride(MobEntity mob, String itemId) {
+        Optional<Item> item = getItem(itemId);
+        if (item.isEmpty()) return false;
+
+        mob.equipStack(EquipmentSlot.MAINHAND, new ItemStack(item.get()));
+        mob.setEquipmentDropChance(EquipmentSlot.MAINHAND, DROP_CHANCE_HAND);
+        return true;
+    }
+
     private static Optional<Item> getItem(String id) {
         try {
             return Registries.ITEM.getOrEmpty(Identifier.of(id));
         } catch (Exception e) {
             Mores.LOGGER.warn("Bad item id in mob equipment config: {}", id);
             return Optional.empty();
+        }
+    }
+
+    /* ===========================
+       TRIAL CHAMBER DETECTION
+       =========================== */
+
+    private static boolean isInTrialChamber(MobEntity mob) {
+        if (!(mob.getWorld() instanceof ServerWorld sw)) return false;
+
+        BlockPos pos = mob.getBlockPos();
+
+        // Resolve the actual Structure instance from the registry
+        Optional<Structure> trialOpt = sw.getRegistryManager()
+                .get(RegistryKeys.STRUCTURE)
+                .getOrEmpty(Identifier.of("minecraft", "trial_chambers"));
+
+        if (trialOpt.isEmpty()) return false;
+
+        try {
+            StructureStart start = sw.getStructureAccessor().getStructureContaining(pos, trialOpt.get());
+            return start != null && start.hasChildren();
+        } catch (Throwable t) {
+            // mapping/version-safe fallback
+            return false;
         }
     }
 }

@@ -25,5 +25,8 @@
       "has_sapphire_gem"
     ]
   ],
+  "rewards": {
+    "experience": 60
+  },
   "sends_telemetry_event": true
 }

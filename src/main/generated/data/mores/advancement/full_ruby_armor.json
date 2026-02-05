@@ -64,5 +64,8 @@
       "ruby_boots"
     ]
   ],
+  "rewards": {
+    "experience": 125
+  },
   "sends_telemetry_event": true
 }
