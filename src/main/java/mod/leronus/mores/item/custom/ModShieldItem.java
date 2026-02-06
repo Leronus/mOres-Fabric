@@ -37,4 +37,9 @@ public class ModShieldItem extends FabricShieldItem {
         Text colorText = Text.translatable("color.minecraft." + base.getName());
         return Text.translatable("%s %s", colorText, super.getName(stack));
     }
+
+    @Override
+    public int getCoolDownTicks() {
+        return super.getCoolDownTicks();
+    }
 }

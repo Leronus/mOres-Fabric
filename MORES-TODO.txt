@@ -1,6 +1,12 @@
 Fabric 1.21.1 
 
 Testing:
+- Battle Mace shield disable
+- Tanzanite too much? Sapphire a little too much
+- Buff mineshaft loot a little bit
+- Electrum ore
+
+
 - Check tooltips for wolf armor and spears, as well as updating the bonuses (& colors) also fix shulker shell durability>?>?
 - Villager Trades - replacing vanilla see what's missing
 - Check hardened steel natural village generation again because he seemed too rare - still

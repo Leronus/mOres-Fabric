@@ -1,14 +1,17 @@
 package mod.leronus.mores.loot;
 
 import mod.leronus.mores.item.ModItems;
-import net.fabricmc.fabric.api.loot.v2.LootTableEvents;
+import net.fabricmc.fabric.api.loot.v3.LootTableEvents;
 import net.minecraft.item.Item;
 import net.minecraft.loot.LootPool;
 import net.minecraft.loot.condition.RandomChanceLootCondition;
 import net.minecraft.loot.entry.ItemEntry;
+import net.minecraft.loot.function.EnchantRandomlyLootFunction;
 import net.minecraft.loot.function.SetCountLootFunction;
+import net.minecraft.loot.function.SetDamageLootFunction;
 import net.minecraft.loot.provider.number.ConstantLootNumberProvider;
 import net.minecraft.loot.provider.number.UniformLootNumberProvider;
+import net.minecraft.registry.RegistryWrapper;
 import net.minecraft.util.Identifier;
 
 import java.util.Locale;
@@ -29,6 +32,7 @@ import java.util.Locale;
  * Stack variety:
  * - Dusts and nuggets use SetCount (real stack sizes) so you get 2–6 nuggets / 2–5 dust in ONE slot.
  * - Duck meats/eggs also use SetCount so you see small stacks (1–3 meat, 1–2 eggs).
+ * - Extra “splitting” pools added so you can also get multiple smaller stacks across a chest.
  *
  * Tier split:
  * EARLY (metals): tin, copper, bronze, silver, sterling silver, carbon steel, cobalt (+ rose gold)
@@ -41,10 +45,6 @@ import java.util.Locale;
  * - Push cobalt/rose_gold out of library “treasure feel” and bias toward mid/late gems + late ingots (NO enderite).
  * - Ensure mores loot shows up reliably (very high injection chances + a tiny “safety net” pool).
  * - Stronghold horse armor is biased toward mid/late (lapis/spinel/sapphire/ruby/obsidian/adamantium/etc).
- *
- * NOTE on blocks & alloy furnace:
- * - Diamond blocks basically don’t spawn as vanilla chest loot; “block treasure” usually feels weird as loot.
- *   Gem blocks + machines fit better as worldgen/structure placement (or boss rewards / special structures).
  */
 public final class ModChestLootInjector {
 
@@ -383,7 +383,6 @@ public final class ModChestLootInjector {
             ModItems.OBSIDIAN_HORSE_ARMOR,
             ModItems.ADAMANTIUM_HORSE_ARMOR,
             ModItems.HARDENED_STEEL_HORSE_ARMOR
-            // If you *also* have EMERALD_HORSE_ARMOR in ModItems and want it here, add it above.
     };
 
     private static final Item[] ENDERITE_HORSE_ARMOR = new Item[]{
@@ -411,7 +410,7 @@ public final class ModChestLootInjector {
     // -------------------------------------------------------------------------
 
     public static void register() {
-        LootTableEvents.MODIFY.register((key, tableBuilder, source) -> {
+        LootTableEvents.MODIFY.register((key, tableBuilder, source, registries) -> {
             if (!source.isBuiltin()) return;
 
             Identifier id = key.getValue();
@@ -422,160 +421,215 @@ public final class ModChestLootInjector {
 
             switch (cat) {
 
-                // -----------------------------------------------------------------
-                // VILLAGES (all variants)
-                // -----------------------------------------------------------------
                 case VILLAGE -> {
-                    addGear(tableBuilder, EARLY_TOOLS, EARLY_ARMOR, EARLY_SHIELDS,
-                            0.50f, 0.28f, 0.10f, 1, 1);
+                    // Early reduced very slightly (tiny weight shift handled in weightFor())
+                    addGear(tableBuilder, registries, EARLY_TOOLS, EARLY_ARMOR, EARLY_SHIELDS,
+                            0.48f, 0.26f, 0.095f, 1, 1,
+                            0.10f, 0.10f, 0.10f,
+                            0.30f);
 
-                    addGear(tableBuilder, MID_TOOLS, MID_ARMOR, MID_SHIELDS,
-                            0.10f, 0.05f, 0.02f, 1, 1);
+                    // Mid slightly increased (variety)
+                    addGear(tableBuilder, registries, MID_TOOLS, MID_ARMOR, MID_SHIELDS,
+                            0.12f, 0.06f, 0.028f, 1, 1,
+                            0.16f, 0.16f, 0.16f,
+                            0.32f);
 
-                    // Horse/wolf armor slightly increased (tiny bump)
-                    addHorseArmor(tableBuilder, EARLY_HORSE_ARMOR, 0.12f);
-                    addWolfArmor(tableBuilder, 0.06f);
+                    addHorseArmor(tableBuilder, registries, EARLY_HORSE_ARMOR, 0.12f, 0.18f, 0.28f);
+                    addWolfArmor(tableBuilder, registries, 0.06f, 0.18f, 0.25f);
 
-                    // Foods
                     addPies(tableBuilder, 0.72f, 1, 2);
 
                     if (isOaky(path)) addSimpleItems(tableBuilder, LEMONS_OAKY, 0.26f, 1, 2, WeightProfile.FLAT);
                     if (isJungle(path)) addSimpleItems(tableBuilder, CHOCOLATES, 0.18f, 1, 2, WeightProfile.FLAT);
 
-                    // Duck: villages/plains/river vibes -> small bump in villages
                     addDuckLoot(tableBuilder, 0.18f, 0.10f);
 
+                    // Apples noticeably present but balanced: similar “golden apple-ish” vibe.
                     addSpecialFoods(tableBuilder,
-                            0.10f,
-                            0.07f,
-                            0.0012f
+                            0.12f,   // silver carrot
+                            0.10f,   // apples
+                            0.0025f  // enchanted apples
                     );
 
-                    addEarlyMaterials(tableBuilder, path, 0.80f);
-                    addMidMaterials(tableBuilder, path, 0.18f);
-                    addLateMaterials(tableBuilder, path, 0.035f);
+                    addEarlyMaterials(tableBuilder, path, 0.78f);
+                    addMidMaterials(tableBuilder, path, 0.22f);
+                    addLateMaterials(tableBuilder, path, 0.040f);
+
+                    // Extra split pools to get multiple smaller stacks across a chest
+                    addSplitStacks(tableBuilder, EARLY_NUGGETS, 0.45f, 1, 2, 1, 4, 9);
+                    addSplitStacks(tableBuilder, MID_DUSTS, 0.40f, 1, 2, 1, 3, 10);
                 }
 
-                // -----------------------------------------------------------------
-                // STRONGHOLD LIBRARY (special: make it feel late-game / treasurey)
-                // -----------------------------------------------------------------
                 case STRONGHOLD_LIBRARY -> {
-                    // Keep some gear, but bias upward a bit
-                    addGear(tableBuilder, MID_TOOLS, MID_ARMOR, MID_SHIELDS,
-                            0.10f, 0.05f, 0.02f, 1, 1);
+                    addGear(tableBuilder, registries, MID_TOOLS, MID_ARMOR, MID_SHIELDS,
+                            0.11f, 0.06f, 0.025f, 1, 1,
+                            0.22f, 0.22f, 0.22f,
+                            0.35f);
 
-                    addGear(tableBuilder, LATE_TOOLS, LATE_ARMOR, LATE_SHIELDS,
-                            0.08f, 0.04f, 0.02f, 1, 1);
+                    addGear(tableBuilder, registries, LATE_TOOLS, LATE_ARMOR, LATE_SHIELDS,
+                            0.09f, 0.05f, 0.022f, 1, 1,
+                            0.30f, 0.30f, 0.30f,
+                            0.40f);
 
-                    // Horse armor: library should have “better” finds
-                    addHorseArmor(tableBuilder, MID_HORSE_ARMOR, 0.06f);
-                    addHorseArmor(tableBuilder, LATE_HORSE_ARMOR, 0.05f);
+                    addHorseArmor(tableBuilder, registries, MID_HORSE_ARMOR, 0.06f, 0.26f, 0.35f);
+                    addHorseArmor(tableBuilder, registries, LATE_HORSE_ARMOR, 0.05f, 0.30f, 0.40f);
 
-                    addWolfArmor(tableBuilder, 0.05f);
+                    addWolfArmor(tableBuilder, registries, 0.05f, 0.24f, 0.35f);
 
-                    // Food: no pies here; light lemon; duck light
                     addSimpleItems(tableBuilder, DUNGEON_LEMONS, 0.08f, 1, 1, WeightProfile.FLAT);
                     addDuckLoot(tableBuilder, 0.12f, 0.06f);
 
-                    // Specials: same “golden apple-ish” vibe; enchanted extremely rare
+                    // Library: apples a bit more visible than average
                     addSpecialFoods(tableBuilder,
+                            0.14f,
                             0.12f,
-                            0.10f,
-                            0.0022f
+                            0.0035f
                     );
 
-                    // Discs: a library is a fine place for rare discs
                     addDiscs(tableBuilder, 0.08f);
 
-                    // Materials:
-                    // - Reduce EARLY (no “cobalt/rose gold spam”)
-                    // - Increase MID gems/dusts
-                    // - Increase LATE treasure (obsidian/hardened/adamantium + ruby/sapphire/spinel/moissanite)
-                    addEarlyMaterialsLow(tableBuilder, path, 0.35f);
-                    addMidMaterials(tableBuilder, path, 0.78f);
-                    addLateMaterials(tableBuilder, path, 0.18f);
+                    addEarlyMaterialsLow(tableBuilder, path, 0.32f);
+                    addMidMaterials(tableBuilder, path, 0.82f);
+                    addLateMaterials(tableBuilder, path, 0.20f);
 
-                    // Extra “library treasure” pool: gems + late ingots, very high chance
                     addStrongholdLibraryTreasure(tableBuilder, 0.90f);
 
-                    // Anthracite: okay as a small extra
                     addAnthracite(tableBuilder, 0.20f);
 
-                    // Scraps: still strict (no enderite); obsidian scrap stays very rare
                     addDungeonScrapsStrict(tableBuilder, 0.42f);
 
-                    // Safety net: ensure at least *some* mores item appears most of the time.
-                    // (Add-only can’t guarantee per chest 100%, but this makes “no mores loot” extremely unlikely.)
                     addMoresSafetyNet(tableBuilder, 0.85f);
+
+                    // Extra split pools
+                    addSplitStacks(tableBuilder, MID_DUSTS, 0.55f, 1, 2, 1, 3, 10);
                 }
 
                 // -----------------------------------------------------------------
-                // DUNGEON / MINESHAFT / STRONGHOLD (non-library) / IGLOO / RUINS / SHIPWRECK / TREASURE
+                // MINESHAFT (buffed: stronger gear + late salvage + more late presence)
                 // -----------------------------------------------------------------
-                case DUNGEON_MINESHAFT, STRONGHOLD, IGLOO, RUINED_PORTAL_OVERWORLD, UNDERWATER_RUIN, SHIPWRECK, BURIED_TREASURE -> {
+                case DUNGEON_MINESHAFT -> {
+                    addGear(tableBuilder, registries, EARLY_TOOLS, EARLY_ARMOR, EARLY_SHIELDS,
+                            0.32f, 0.15f, 0.065f, 1, 1,
+                            0.18f, 0.18f, 0.18f,
+                            0.35f);
 
-                    addGear(tableBuilder, EARLY_TOOLS, EARLY_ARMOR, EARLY_SHIELDS,
-                            0.34f, 0.16f, 0.07f, 1, 1);
+                    addGear(tableBuilder, registries, MID_TOOLS, MID_ARMOR, MID_SHIELDS,
+                            0.11f, 0.05f, 0.022f, 1, 1,
+                            0.24f, 0.24f, 0.24f,
+                            0.38f);
 
-                    addGear(tableBuilder, MID_TOOLS, MID_ARMOR, MID_SHIELDS,
-                            0.07f, 0.03f, 0.015f, 1, 1);
+                    // Late gear definitely possible here (tools + armor + shields)
+                    addGear(tableBuilder, registries, LATE_TOOLS, LATE_ARMOR, LATE_SHIELDS,
+                            0.085f, 0.045f, 0.020f, 1, 1,
+                            0.32f, 0.32f, 0.32f,
+                            0.45f);
 
-                    float lateGearChance = (cat == ChestCategory.BURIED_TREASURE) ? 0.06f : 0.02f;
-                    addGear(tableBuilder, LATE_TOOLS, LATE_ARMOR, LATE_SHIELDS,
-                            lateGearChance, lateGearChance * 0.45f, lateGearChance * 0.25f, 1, 1);
+                    addHorseArmor(tableBuilder, registries, EARLY_HORSE_ARMOR, 0.06f, 0.22f, 0.35f);
+                    addHorseArmor(tableBuilder, registries, MID_HORSE_ARMOR, 0.035f, 0.28f, 0.40f);
+                    addHorseArmor(tableBuilder, registries, LATE_HORSE_ARMOR, 0.018f, 0.34f, 0.45f);
 
-                    // Horse armor slightly increased (tiny bump)
-                    addHorseArmor(tableBuilder, EARLY_HORSE_ARMOR, 0.06f);
-                    addHorseArmor(tableBuilder, MID_HORSE_ARMOR, (cat == ChestCategory.BURIED_TREASURE) ? 0.03f : 0.02f);
+                    addWolfArmor(tableBuilder, registries, 0.04f, 0.24f, 0.35f);
 
-                    addWolfArmor(tableBuilder, 0.04f);
-
-                    // Foods: NO pies here. Lemons low.
                     addSimpleItems(tableBuilder, DUNGEON_LEMONS, 0.10f, 1, 1, WeightProfile.FLAT);
-
-                    // Duck: dungeons/ruins occasionally
                     addDuckLoot(tableBuilder, 0.16f, 0.08f);
 
+                    // Dungeons/mineshafts: apples should appear noticeably but still balanced.
                     addSpecialFoods(tableBuilder,
                             0.14f,
-                            0.10f,
-                            0.0020f
+                            0.12f,
+                            0.0035f
                     );
 
                     addDiscs(tableBuilder, 0.06f);
 
-                    addEarlyMaterials(tableBuilder, path, 0.78f);
-                    addMidMaterials(tableBuilder, path, 0.42f);
-                    addLateMaterials(tableBuilder, path, 0.055f);
+                    // Materials: bump mid/late (worth exploring)
+                    addEarlyMaterials(tableBuilder, path, 0.74f);
+                    addMidMaterials(tableBuilder, path, 0.50f);
+                    addLateMaterials(tableBuilder, path, 0.115f);
 
-                    addAnthracite(tableBuilder, 0.28f);
+                    addAnthracite(tableBuilder, 0.30f);
 
-                    addDungeonScrapsStrict(tableBuilder, 0.56f);
+                    addDungeonScrapsStrict(tableBuilder, 0.74f);
 
-                    // Very rare hardened ingot treasure (fits “rare steel parts”)
-                    addVeryRareHardenedIngotTreasure(tableBuilder, 0.010f);
+                    addMineshaftLateSalvage(tableBuilder, 0.44f);
+
+                    addVeryRareHardenedIngotTreasure(tableBuilder, 0.012f);
+
+                    // Split pools: multiple smaller stacks across the chest
+                    addSplitStacks(tableBuilder, EARLY_NUGGETS, 0.60f, 1, 3, 1, 4, 9);
+                    addSplitStacks(tableBuilder, MID_DUSTS, 0.55f, 1, 3, 1, 3, 10);
                 }
 
                 // -----------------------------------------------------------------
-                // TEMPLE / PYRAMID / OUTPOST / MANSION
+                // DUNGEON / STRONGHOLD (non-library) / IGLOO / RUINS / SHIPWRECK / TREASURE
                 // -----------------------------------------------------------------
+                case STRONGHOLD, IGLOO, RUINED_PORTAL_OVERWORLD, UNDERWATER_RUIN, SHIPWRECK, BURIED_TREASURE -> {
+                    addGear(tableBuilder, registries, EARLY_TOOLS, EARLY_ARMOR, EARLY_SHIELDS,
+                            0.32f, 0.15f, 0.065f, 1, 1,
+                            0.18f, 0.18f, 0.18f,
+                            0.35f);
+
+                    addGear(tableBuilder, registries, MID_TOOLS, MID_ARMOR, MID_SHIELDS,
+                            0.10f, 0.045f, 0.020f, 1, 1,
+                            0.24f, 0.24f, 0.24f,
+                            0.38f);
+
+                    float lateGearChance = (cat == ChestCategory.BURIED_TREASURE) ? 0.075f : 0.03f;
+                    addGear(tableBuilder, registries, LATE_TOOLS, LATE_ARMOR, LATE_SHIELDS,
+                            lateGearChance, lateGearChance * 0.55f, lateGearChance * 0.30f, 1, 1,
+                            0.30f, 0.30f, 0.30f,
+                            0.42f);
+
+                    addHorseArmor(tableBuilder, registries, EARLY_HORSE_ARMOR, 0.06f, 0.20f, 0.35f);
+                    addHorseArmor(tableBuilder, registries, MID_HORSE_ARMOR, (cat == ChestCategory.BURIED_TREASURE) ? 0.035f : 0.02f, 0.26f, 0.40f);
+
+                    addWolfArmor(tableBuilder, registries, 0.04f, 0.22f, 0.35f);
+
+                    addSimpleItems(tableBuilder, DUNGEON_LEMONS, 0.10f, 1, 1, WeightProfile.FLAT);
+                    addDuckLoot(tableBuilder, 0.16f, 0.08f);
+
+                    addSpecialFoods(tableBuilder,
+                            0.14f,
+                            0.11f,
+                            0.0030f
+                    );
+
+                    addDiscs(tableBuilder, 0.06f);
+
+                    addEarlyMaterials(tableBuilder, path, 0.74f);
+                    addMidMaterials(tableBuilder, path, 0.48f);
+                    addLateMaterials(tableBuilder, path, (cat == ChestCategory.BURIED_TREASURE) ? 0.10f : 0.07f);
+
+                    addAnthracite(tableBuilder, 0.28f);
+                    addDungeonScrapsStrict(tableBuilder, 0.58f);
+
+                    addVeryRareHardenedIngotTreasure(tableBuilder, 0.010f);
+
+                    addSplitStacks(tableBuilder, EARLY_NUGGETS, 0.55f, 1, 2, 1, 4, 9);
+                    addSplitStacks(tableBuilder, MID_DUSTS, 0.48f, 1, 2, 1, 3, 10);
+                }
+
                 case TEMPLE_PYRAMID, OUTPOST, MANSION -> {
+                    addGear(tableBuilder, registries, EARLY_TOOLS, EARLY_ARMOR, EARLY_SHIELDS,
+                            0.40f, 0.20f, 0.09f, 1, 1,
+                            0.20f, 0.20f, 0.20f,
+                            0.35f);
 
-                    addGear(tableBuilder, EARLY_TOOLS, EARLY_ARMOR, EARLY_SHIELDS,
-                            0.44f, 0.22f, 0.10f, 1, 1);
+                    addGear(tableBuilder, registries, MID_TOOLS, MID_ARMOR, MID_SHIELDS,
+                            0.18f, 0.09f, 0.045f, 1, 1,
+                            0.26f, 0.26f, 0.26f,
+                            0.38f);
 
-                    addGear(tableBuilder, MID_TOOLS, MID_ARMOR, MID_SHIELDS,
-                            0.16f, 0.08f, 0.04f, 1, 1);
+                    addGear(tableBuilder, registries, LATE_TOOLS, LATE_ARMOR, LATE_SHIELDS,
+                            0.085f, 0.045f, 0.022f, 1, 1,
+                            0.32f, 0.32f, 0.32f,
+                            0.45f);
 
-                    addGear(tableBuilder, LATE_TOOLS, LATE_ARMOR, LATE_SHIELDS,
-                            0.06f, 0.03f, 0.015f, 1, 1);
+                    addHorseArmor(tableBuilder, registries, EARLY_HORSE_ARMOR, 0.10f, 0.20f, 0.35f);
+                    addHorseArmor(tableBuilder, registries, MID_HORSE_ARMOR, 0.055f, 0.28f, 0.40f);
+                    addHorseArmor(tableBuilder, registries, LATE_HORSE_ARMOR, (cat == ChestCategory.MANSION) ? 0.035f : 0.025f, 0.34f, 0.45f);
 
-                    // Horse armor: slight bump, these places feel “treasure-y”
-                    addHorseArmor(tableBuilder, EARLY_HORSE_ARMOR, 0.10f);
-                    addHorseArmor(tableBuilder, MID_HORSE_ARMOR, 0.05f);
-                    addHorseArmor(tableBuilder, LATE_HORSE_ARMOR, (cat == ChestCategory.MANSION) ? 0.03f : 0.02f);
-
-                    addWolfArmor(tableBuilder, 0.06f);
+                    addWolfArmor(tableBuilder, registries, 0.06f, 0.22f, 0.35f);
 
                     float pieChance = (cat == ChestCategory.MANSION) ? 0.28f : 0.14f;
                     addPies(tableBuilder, pieChance, 1, (cat == ChestCategory.MANSION) ? 2 : 1);
@@ -583,77 +637,81 @@ public final class ModChestLootInjector {
                     if (isJungle(path)) addSimpleItems(tableBuilder, CHOCOLATES, 0.24f, 1, 2, WeightProfile.FLAT);
                     if (isOaky(path)) addSimpleItems(tableBuilder, LEMONS_OAKY, 0.12f, 1, 2, WeightProfile.FLAT);
 
-                    // Duck: outposts/camps/mansions sometimes
                     addDuckLoot(tableBuilder, 0.18f, 0.10f);
 
+                    // Structures: apples more noticeable, enchanted still rare
                     addSpecialFoods(tableBuilder,
-                            0.10f,
-                            0.08f,
-                            0.0020f
+                            0.12f,
+                            0.12f,
+                            0.0032f
                     );
 
                     addDiscs(tableBuilder, 0.04f);
 
-                    addEarlyMaterials(tableBuilder, path, 0.80f);
-                    addMidMaterials(tableBuilder, path, 0.32f);
-                    addLateMaterials(tableBuilder, path, 0.085f);
+                    addEarlyMaterials(tableBuilder, path, 0.76f);
+                    addMidMaterials(tableBuilder, path, 0.44f);
+                    addLateMaterials(tableBuilder, path, 0.11f);
 
-                    addTemplatesOverworldRich(tableBuilder, 0.06f);
+                    addTemplatesOverworldRich(tableBuilder, 0.07f);
+
+                    addSplitStacks(tableBuilder, EARLY_NUGGETS, 0.50f, 1, 2, 1, 4, 9);
+                    addSplitStacks(tableBuilder, MID_DUSTS, 0.45f, 1, 2, 1, 3, 10);
                 }
 
-                // -----------------------------------------------------------------
-                // NETHER structures
-                // -----------------------------------------------------------------
                 case NETHER -> {
+                    addGear(tableBuilder, registries, MID_TOOLS, MID_ARMOR, MID_SHIELDS,
+                            0.10f, 0.05f, 0.02f, 1, 1,
+                            0.26f, 0.26f, 0.26f,
+                            0.42f);
 
-                    addGear(tableBuilder, MID_TOOLS, MID_ARMOR, MID_SHIELDS,
-                            0.10f, 0.05f, 0.02f, 1, 1);
+                    addGear(tableBuilder, registries, LATE_TOOLS, LATE_ARMOR, LATE_SHIELDS,
+                            0.46f, 0.24f, 0.12f, 1, 1,
+                            0.34f, 0.34f, 0.34f,
+                            0.50f);
 
-                    addGear(tableBuilder, LATE_TOOLS, LATE_ARMOR, LATE_SHIELDS,
-                            0.46f, 0.24f, 0.12f, 1, 1);
+                    addHorseArmor(tableBuilder, registries, LATE_HORSE_ARMOR, 0.07f, 0.36f, 0.50f);
+                    addWolfArmor(tableBuilder, registries, 0.04f, 0.26f, 0.40f);
 
-                    addHorseArmor(tableBuilder, LATE_HORSE_ARMOR, 0.07f);
-                    addWolfArmor(tableBuilder, 0.04f);
-
-                    // Duck minimal in nether
                     addDuckLoot(tableBuilder, 0.05f, 0.00f);
 
                     addSpecialFoods(tableBuilder,
-                            0.08f,
-                            0.06f,
-                            0.0018f
+                            0.10f,
+                            0.10f,
+                            0.0030f
                     );
 
                     addDiscs(tableBuilder, 0.05f);
 
-                    addEarlyMaterials(tableBuilder, path, 0.48f);
-                    addMidMaterials(tableBuilder, path, 0.34f);
-                    addLateMaterials(tableBuilder, path, 0.12f);
+                    addEarlyMaterials(tableBuilder, path, 0.46f);
+                    addMidMaterials(tableBuilder, path, 0.36f);
+                    addLateMaterials(tableBuilder, path, 0.14f);
 
                     addNetherScrapsStrict(tableBuilder, 0.74f);
                     addTemplatesNether(tableBuilder, 0.22f);
+
+                    addSplitStacks(tableBuilder, MID_DUSTS, 0.40f, 1, 2, 1, 3, 10);
                 }
 
-                // -----------------------------------------------------------------
-                // END (End City treasure)
-                // -----------------------------------------------------------------
                 case END_CITY -> {
+                    addGear(tableBuilder, registries, LATE_TOOLS, LATE_ARMOR, LATE_SHIELDS,
+                            0.56f, 0.30f, 0.14f, 1, 1,
+                            0.36f, 0.36f, 0.36f,
+                            0.52f);
 
-                    addGear(tableBuilder, LATE_TOOLS, LATE_ARMOR, LATE_SHIELDS,
-                            0.56f, 0.30f, 0.14f, 1, 1);
+                    addGear(tableBuilder, registries, ENDERITE_TOOLS, ENDERITE_ARMOR, ENDERITE_SHIELDS,
+                            0.08f, 0.04f, 0.02f, 1, 1,
+                            0.40f, 0.40f, 0.40f,
+                            0.58f);
 
-                    addGear(tableBuilder, ENDERITE_TOOLS, ENDERITE_ARMOR, ENDERITE_SHIELDS,
-                            0.08f, 0.04f, 0.02f, 1, 1);
+                    addHorseArmor(tableBuilder, registries, LATE_HORSE_ARMOR, 0.07f, 0.40f, 0.55f);
+                    addHorseArmor(tableBuilder, registries, ENDERITE_HORSE_ARMOR, 0.02f, 0.45f, 0.60f);
 
-                    addHorseArmor(tableBuilder, LATE_HORSE_ARMOR, 0.07f);
-                    addHorseArmor(tableBuilder, ENDERITE_HORSE_ARMOR, 0.02f);
-
-                    addWolfArmor(tableBuilder, 0.05f);
+                    addWolfArmor(tableBuilder, registries, 0.05f, 0.30f, 0.45f);
 
                     addSpecialFoods(tableBuilder,
                             0.10f,
-                            0.08f,
-                            0.0025f
+                            0.10f,
+                            0.0040f
                     );
 
                     addDiscs(tableBuilder, 0.05f);
@@ -664,23 +722,27 @@ public final class ModChestLootInjector {
 
                     addEnderiteOnly(tableBuilder, 0.28f);
                     addTemplatesEnd(tableBuilder, 0.32f);
+
+                    addSplitStacks(tableBuilder, MID_DUSTS, 0.35f, 1, 2, 1, 3, 10);
                 }
 
-                // -----------------------------------------------------------------
-                // Generic: very light touch
-                // -----------------------------------------------------------------
                 case GENERIC -> {
+                    addGear(tableBuilder, registries, EARLY_TOOLS, EARLY_ARMOR, EARLY_SHIELDS,
+                            0.10f, 0.05f, 0.02f, 1, 1,
+                            0.12f, 0.12f, 0.12f,
+                            0.30f);
 
-                    addGear(tableBuilder, EARLY_TOOLS, EARLY_ARMOR, EARLY_SHIELDS,
-                            0.10f, 0.05f, 0.02f, 1, 1);
-
-                    addHorseArmor(tableBuilder, EARLY_HORSE_ARMOR, 0.03f);
-                    addWolfArmor(tableBuilder, 0.02f);
+                    addHorseArmor(tableBuilder, registries, EARLY_HORSE_ARMOR, 0.03f, 0.16f, 0.28f);
+                    addWolfArmor(tableBuilder, registries, 0.02f, 0.14f, 0.25f);
 
                     addPies(tableBuilder, 0.08f, 1, 1);
                     addDuckLoot(tableBuilder, 0.06f, 0.03f);
 
-                    addSpecialFoods(tableBuilder, 0.05f, 0.04f, 0.0010f);
+                    addSpecialFoods(tableBuilder,
+                            0.06f,
+                            0.06f,
+                            0.0015f
+                    );
 
                     addEarlyMaterials(tableBuilder, path, 0.14f);
                     addMidMaterials(tableBuilder, path, 0.06f);
@@ -794,19 +856,42 @@ public final class ModChestLootInjector {
         String s = it.toString().toLowerCase(Locale.ROOT);
 
         if (profile == WeightProfile.TOOLS) {
-            if (s.contains("pickaxe")) return 18;
-            if (s.contains("sword")) return 16;
+            // tiny early-tier downshift for “common clutter”, but only for EARLY tool strings
+            // (we can’t reliably know tier here; keep it minimal and safe)
+            if (s.contains("tin_") || s.contains("copper_") || s.contains("bronze_") || s.contains("silver_") || s.contains("sterling_")
+                    || s.contains("carbon_steel_") || s.contains("cobalt_") || s.contains("rose_gold_")) {
+                // subtract 1 from tool weights, but never below 1
+                int base = baseToolWeight(s);
+                return Math.max(1, base - 1);
+            }
 
-            if (s.contains("battle_mace")) return 12;
-            if (s.contains("battle_axe")) return 12;
-            if (s.contains("dagger")) return 11;
-
-            if (s.contains("axe")) return 12;
-            if (s.contains("shovel")) return 10;
-            if (s.contains("hoe")) return 8;
-            return 10;
+            return baseToolWeight(s);
         }
 
+        int armorW = baseArmorWeight(s);
+        // tiny early-tier downshift for “common clutter”
+        if (s.contains("tin_") || s.contains("copper_") || s.contains("bronze_") || s.contains("silver_") || s.contains("sterling_")
+                || s.contains("carbon_steel_") || s.contains("cobalt_") || s.contains("rose_gold_")) {
+            return Math.max(1, armorW - 1);
+        }
+        return armorW;
+    }
+
+    private static int baseToolWeight(String s) {
+        if (s.contains("pickaxe")) return 18;
+        if (s.contains("sword")) return 16;
+
+        if (s.contains("battle_mace")) return 12;
+        if (s.contains("battle_axe")) return 12;
+        if (s.contains("dagger")) return 11;
+
+        if (s.contains("axe")) return 12;
+        if (s.contains("shovel")) return 10;
+        if (s.contains("hoe")) return 8;
+        return 10;
+    }
+
+    private static int baseArmorWeight(String s) {
         if (s.contains("chestplate")) return 15;
         if (s.contains("leggings")) return 14;
         if (s.contains("helmet")) return 13;
@@ -829,14 +914,90 @@ public final class ModChestLootInjector {
         return pool;
     }
 
+    private static LootPool.Builder weightedPoolMaybeEnchantedAndDamaged(
+            RegistryWrapper.WrapperLookup registries,
+            Item[] items,
+            float chance,
+            int rollsMin,
+            int rollsMax,
+            WeightProfile profile,
+            float enchantChance,
+            float damageChance
+    ) {
+        LootPool.Builder pool = LootPool.builder()
+                .rolls(rollsMin == rollsMax
+                        ? ConstantLootNumberProvider.create(rollsMin)
+                        : UniformLootNumberProvider.create(rollsMin, rollsMax))
+                .conditionally(RandomChanceLootCondition.builder(chance));
+
+        for (Item it : items) {
+            int w = weightFor(it, profile);
+            addMaybeEnchantedAndDamagedEntry(pool, registries, it, w, enchantChance, damageChance);
+        }
+        return pool;
+    }
+
+    /**
+     * Adds an unenchanted entry (always) plus an enchanted variant entry with weight chosen so that
+     * P(enchanted | picked this item) ~= enchantChance, assuming only two variants for that item.
+     *
+     * Also adds a *chance* to apply random damage (durability loss) to both variants.
+     *
+     * IMPORTANT: In 1.21.1, EnchantRandomlyLootFunction needs WrapperLookup (registries) at build time.
+     */
+    private static void addMaybeEnchantedAndDamagedEntry(
+            LootPool.Builder pool,
+            RegistryWrapper.WrapperLookup registries,
+            Item it,
+            int baseWeight,
+            float enchantChance,
+            float damageChance
+    ) {
+        // ---- plain variant
+        ItemEntry.Builder plain = ItemEntry.builder(it).weight(baseWeight);
+        if (damageChance > 0.0001f) {
+            plain.apply(SetDamageLootFunction.builder(UniformLootNumberProvider.create(0.05f, 0.40f))
+                    .conditionally(RandomChanceLootCondition.builder(clamp01(damageChance))));
+        }
+        pool.with(plain);
+
+        // ---- enchanted variant
+        if (enchantChance <= 0.0001f) return;
+        enchantChance = clamp01(enchantChance);
+        if (enchantChance >= 0.9999f) enchantChance = 0.9999f;
+
+        float ratio = enchantChance / (1.0f - enchantChance);
+        int wEnch = Math.max(1, Math.round(baseWeight * ratio));
+
+        ItemEntry.Builder ench = ItemEntry.builder(it)
+                .apply(EnchantRandomlyLootFunction.builder(registries))
+                .weight(wEnch);
+
+        if (damageChance > 0.0001f) {
+            ench.apply(SetDamageLootFunction.builder(UniformLootNumberProvider.create(0.05f, 0.40f))
+                    .conditionally(RandomChanceLootCondition.builder(clamp01(damageChance))));
+        }
+
+        pool.with(ench);
+    }
+
+    private static float clamp01(float f) {
+        if (f < 0.0f) return 0.0f;
+        if (f > 1.0f) return 1.0f;
+        return f;
+    }
+
     private static void addGear(net.minecraft.loot.LootTable.Builder tableBuilder,
+                                RegistryWrapper.WrapperLookup registries,
                                 Item[] tools, Item[] armor, Item[] shields,
                                 float toolChance, float armorChance, float shieldChance,
-                                int toolRollsMin, int toolRollsMax) {
+                                int toolRollsMin, int toolRollsMax,
+                                float toolEnchantChance, float armorEnchantChance, float shieldEnchantChance,
+                                float damageChance) {
 
-        tableBuilder.pool(weightedPool(tools, toolChance, toolRollsMin, toolRollsMax, WeightProfile.TOOLS));
-        tableBuilder.pool(weightedPool(armor, armorChance, 1, 1, WeightProfile.ARMOR));
-        tableBuilder.pool(weightedPool(shields, shieldChance, 1, 1, WeightProfile.FLAT));
+        tableBuilder.pool(weightedPoolMaybeEnchantedAndDamaged(registries, tools, toolChance, toolRollsMin, toolRollsMax, WeightProfile.TOOLS, toolEnchantChance, damageChance));
+        tableBuilder.pool(weightedPoolMaybeEnchantedAndDamaged(registries, armor, armorChance, 1, 1, WeightProfile.ARMOR, armorEnchantChance, damageChance));
+        tableBuilder.pool(weightedPoolMaybeEnchantedAndDamaged(registries, shields, shieldChance, 1, 1, WeightProfile.FLAT, shieldEnchantChance, damageChance));
     }
 
     private static void addSimpleItems(net.minecraft.loot.LootTable.Builder tableBuilder,
@@ -866,17 +1027,19 @@ public final class ModChestLootInjector {
                 .conditionally(RandomChanceLootCondition.builder(silverCarrotChance))
                 .with(ItemEntry.builder(SPECIAL_SILVER_CARROT).weight(10)));
 
+        // Regular apples (explicit pool)
         LootPool.Builder apples = LootPool.builder()
                 .rolls(ConstantLootNumberProvider.create(1))
                 .conditionally(RandomChanceLootCondition.builder(applesChance));
 
-        // Cobalt / Rose gold slightly rarer than silver / bronze
+        // Keep “stronger” apples slightly rarer than silver/bronze.
         apples.with(ItemEntry.builder(ModItems.SILVER_APPLE).weight(8));
         apples.with(ItemEntry.builder(ModItems.BRONZE_APPLE).weight(8));
         apples.with(ItemEntry.builder(ModItems.COBALT_APPLE).weight(5));
         apples.with(ItemEntry.builder(ModItems.ROSE_GOLD_APPLE).weight(5));
         tableBuilder.pool(apples);
 
+        // Enchanted apples (very rare but not absurd)
         LootPool.Builder enchanted = LootPool.builder()
                 .rolls(ConstantLootNumberProvider.create(1))
                 .conditionally(RandomChanceLootCondition.builder(enchantedApplesChance));
@@ -891,7 +1054,6 @@ public final class ModChestLootInjector {
     // -------------------------------------------------------------------------
 
     private static void addDuckLoot(net.minecraft.loot.LootTable.Builder tableBuilder, float meatChance, float eggChance) {
-        // Meat stacks: 1–3 in one slot
         LootPool.Builder meat = LootPool.builder()
                 .rolls(ConstantLootNumberProvider.create(1))
                 .conditionally(RandomChanceLootCondition.builder(meatChance));
@@ -905,7 +1067,6 @@ public final class ModChestLootInjector {
 
         tableBuilder.pool(meat);
 
-        // Eggs: 1–2 in one slot
         if (eggChance > 0.0f) {
             LootPool.Builder eggs = LootPool.builder()
                     .rolls(ConstantLootNumberProvider.create(1))
@@ -921,12 +1082,21 @@ public final class ModChestLootInjector {
     // HORSE / WOLF ARMOR
     // -------------------------------------------------------------------------
 
-    private static void addHorseArmor(net.minecraft.loot.LootTable.Builder tableBuilder, Item[] horseArmor, float chance) {
-        tableBuilder.pool(weightedPool(horseArmor, chance, 1, 1, WeightProfile.FLAT));
+    private static void addHorseArmor(net.minecraft.loot.LootTable.Builder tableBuilder,
+                                      RegistryWrapper.WrapperLookup registries,
+                                      Item[] horseArmor,
+                                      float chance,
+                                      float enchantChance,
+                                      float damageChance) {
+        tableBuilder.pool(weightedPoolMaybeEnchantedAndDamaged(registries, horseArmor, chance, 1, 1, WeightProfile.FLAT, enchantChance, damageChance));
     }
 
-    private static void addWolfArmor(net.minecraft.loot.LootTable.Builder tableBuilder, float chance) {
-        tableBuilder.pool(weightedPool(WOLF_ARMOR_ALL, chance, 1, 1, WeightProfile.FLAT));
+    private static void addWolfArmor(net.minecraft.loot.LootTable.Builder tableBuilder,
+                                     RegistryWrapper.WrapperLookup registries,
+                                     float chance,
+                                     float enchantChance,
+                                     float damageChance) {
+        tableBuilder.pool(weightedPoolMaybeEnchantedAndDamaged(registries, WOLF_ARMOR_ALL, chance, 1, 1, WeightProfile.FLAT, enchantChance, damageChance));
     }
 
     // -------------------------------------------------------------------------
@@ -945,10 +1115,9 @@ public final class ModChestLootInjector {
     /**
      * Standard early materials:
      * - Metals/raw: 1–3 rolls (separate stacks)
-     * - Nuggets: 1 stack with 2–6 count (less intrusive, fewer single-nugget slots)
+     * - Nuggets: one slot, stack 2–6
      */
     private static void addEarlyMaterials(net.minecraft.loot.LootTable.Builder tableBuilder, String path, float chance) {
-        // Ingots/raw: 1–3 picks
         LootPool.Builder metals = LootPool.builder()
                 .rolls(UniformLootNumberProvider.create(1, 3))
                 .conditionally(RandomChanceLootCondition.builder(chance));
@@ -957,7 +1126,6 @@ public final class ModChestLootInjector {
         for (Item it : EARLY_RAW) metals.with(ItemEntry.builder(it).weight(12));
         tableBuilder.pool(metals);
 
-        // Nuggets: one slot, stack 2–6
         addStackedSingleSlot(tableBuilder, EARLY_NUGGETS, chance * 0.70f, 2, 6, 10);
     }
 
@@ -969,17 +1137,14 @@ public final class ModChestLootInjector {
                 .rolls(UniformLootNumberProvider.create(1, 2))
                 .conditionally(RandomChanceLootCondition.builder(chance));
 
-        // Bias toward “useful” early metals if they appear
         for (Item it : EARLY_INGOTS) metals.with(ItemEntry.builder(it).weight(8));
         for (Item it : EARLY_RAW) metals.with(ItemEntry.builder(it).weight(10));
         tableBuilder.pool(metals);
 
-        // Nuggets: rarer in library, but still stacky
         addStackedSingleSlot(tableBuilder, EARLY_NUGGETS, chance * 0.40f, 2, 5, 9);
     }
 
     private static void addMidMaterials(net.minecraft.loot.LootTable.Builder tableBuilder, String path, float chance) {
-        // Gems: 1–2 rolls
         LootPool.Builder gems = LootPool.builder()
                 .rolls(UniformLootNumberProvider.create(1, 2))
                 .conditionally(RandomChanceLootCondition.builder(chance));
@@ -988,12 +1153,10 @@ public final class ModChestLootInjector {
         for (Item it : MID_GEMS) gems.with(ItemEntry.builder(it).weight(gemWeight));
         tableBuilder.pool(gems);
 
-        // Dusts: one slot, stack 2–5
         addStackedSingleSlot(tableBuilder, MID_DUSTS, chance * 0.80f, 2, 5, 12);
     }
 
     private static void addLateMaterials(net.minecraft.loot.LootTable.Builder tableBuilder, String path, float chance) {
-        // Late gems 1–2 (rolls), ingots very rare (weighted)
         LootPool.Builder pool = LootPool.builder()
                 .rolls(UniformLootNumberProvider.create(1, 2))
                 .conditionally(RandomChanceLootCondition.builder(chance));
@@ -1001,48 +1164,34 @@ public final class ModChestLootInjector {
         int lateGemWeight = containsAny(path, "mansion", "stronghold", "temple", "pyramid", "buried_treasure") ? 8 : 5;
         for (Item it : LATE_GEMS) pool.with(ItemEntry.builder(it).weight(lateGemWeight));
 
-        // Adamantium: rare; Obsidian: rarer; Hardened: rare-ish (steel focus)
         int rich = containsAny(path, "mansion", "stronghold", "temple", "pyramid", "buried_treasure") ? 3 : 2;
 
-        pool.with(ItemEntry.builder(ADAMANTIUM_INGOT).weight(rich));  // rare
-        pool.with(ItemEntry.builder(OBSIDIAN_INGOT).weight(1));       // rarer
-        pool.with(ItemEntry.builder(HARDENED_STEEL_INGOT).weight(2)); // rare-ish
+        pool.with(ItemEntry.builder(ADAMANTIUM_INGOT).weight(rich));
+        pool.with(ItemEntry.builder(OBSIDIAN_INGOT).weight(1));
+        pool.with(ItemEntry.builder(HARDENED_STEEL_INGOT).weight(2));
 
         tableBuilder.pool(pool);
     }
 
-    /**
-     * Stronghold library treasure:
-     * - Mid gems (citrine/lapis/amethyst etc) and Late gems (spinel/sapphire/ruby/moissanite)
-     * - Late ingots (hardened/adamantium/obsidian) present, but obsidian is the rarest of the three.
-     *
-     * This is intentionally “treasurey” and avoids pushing cobalt/rose_gold as the highlight.
-     */
     private static void addStrongholdLibraryTreasure(net.minecraft.loot.LootTable.Builder tableBuilder, float chance) {
         LootPool.Builder pool = LootPool.builder()
                 .rolls(UniformLootNumberProvider.create(1, 2))
                 .conditionally(RandomChanceLootCondition.builder(chance));
 
-        // Mid gems (strong)
         for (Item it : MID_GEMS) pool.with(ItemEntry.builder(it).weight(12));
-
-        // Late gems (stronger)
         for (Item it : LATE_GEMS) pool.with(ItemEntry.builder(it).weight(10));
 
-        // Late ingots
         pool.with(ItemEntry.builder(HARDENED_STEEL_INGOT).weight(4));
         pool.with(ItemEntry.builder(ADAMANTIUM_INGOT).weight(3));
-        pool.with(ItemEntry.builder(OBSIDIAN_INGOT).weight(2)); // slightly rarer than adamantium here too
+        pool.with(ItemEntry.builder(OBSIDIAN_INGOT).weight(2));
 
         tableBuilder.pool(pool);
 
-        // A little dust stack in libraries also feels okay (scrolls/arcane vibe)
         addStackedSingleSlot(tableBuilder, MID_DUSTS, chance * 0.55f, 2, 4, 10);
     }
 
     /**
      * Adds one item stack in a single slot with a SetCount range.
-     * This is the key to avoiding “lots of single nuggets everywhere”.
      */
     private static void addStackedSingleSlot(net.minecraft.loot.LootTable.Builder tableBuilder,
                                              Item[] items,
@@ -1064,7 +1213,37 @@ public final class ModChestLootInjector {
         tableBuilder.pool(pool);
     }
 
-    // Enderite-only pool
+    /**
+     * EXTRA VARIETY: makes multiple smaller stacks across a chest possible.
+     * Example: 1 quartz dust in one slot, 3 quartz dust in another, etc.
+     *
+     * rollsMin/rollsMax = how many separate stacks can appear from this pool.
+     * minCount/maxCount = per-stack size.
+     */
+    private static void addSplitStacks(net.minecraft.loot.LootTable.Builder tableBuilder,
+                                       Item[] items,
+                                       float chance,
+                                       int rollsMin,
+                                       int rollsMax,
+                                       int minCount,
+                                       int maxCount,
+                                       int weightEach) {
+
+        LootPool.Builder pool = LootPool.builder()
+                .rolls(rollsMin == rollsMax
+                        ? ConstantLootNumberProvider.create(rollsMin)
+                        : UniformLootNumberProvider.create(rollsMin, rollsMax))
+                .conditionally(RandomChanceLootCondition.builder(chance));
+
+        for (Item it : items) {
+            pool.with(ItemEntry.builder(it)
+                    .apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(minCount, maxCount)))
+                    .weight(weightEach));
+        }
+
+        tableBuilder.pool(pool);
+    }
+
     private static void addEnderiteOnly(net.minecraft.loot.LootTable.Builder tableBuilder, float chance) {
         LootPool.Builder pool = LootPool.builder()
                 .rolls(UniformLootNumberProvider.create(1, 2))
@@ -1076,17 +1255,11 @@ public final class ModChestLootInjector {
         tableBuilder.pool(pool);
     }
 
-    /**
-     * “Safety net” pool:
-     * Adds 1 modest mores item with high chance to prevent “empty” looking chests in special places.
-     * (Still add-only; cannot truly force 100% per-chest, but this makes misses very rare.)
-     */
     private static void addMoresSafetyNet(net.minecraft.loot.LootTable.Builder tableBuilder, float chance) {
         LootPool.Builder pool = LootPool.builder()
                 .rolls(ConstantLootNumberProvider.create(1))
                 .conditionally(RandomChanceLootCondition.builder(chance));
 
-        // Pick from a small set that feels “stronghold library-ish”
         pool.with(ItemEntry.builder(ModItems.LAPIS_LAZULI_DUST)
                 .apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(2, 5)))
                 .weight(10));
@@ -1103,6 +1276,30 @@ public final class ModChestLootInjector {
     }
 
     // -------------------------------------------------------------------------
+    // MINESHAFT LATE SALVAGE (BUFF, NO ENDERITE)
+    // -------------------------------------------------------------------------
+
+    private static void addMineshaftLateSalvage(net.minecraft.loot.LootTable.Builder tableBuilder, float chance) {
+        LootPool.Builder pool = LootPool.builder()
+                .rolls(ConstantLootNumberProvider.create(1))
+                .conditionally(RandomChanceLootCondition.builder(chance));
+
+        pool.with(ItemEntry.builder(CARBON_STEEL_SCRAP)
+                .apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(2, 5)))
+                .weight(18));
+
+        pool.with(ItemEntry.builder(OBSIDIAN_SCRAP)
+                .apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(2, 4)))
+                .weight(7));
+
+        pool.with(ItemEntry.builder(HARDENED_STEEL_INGOT)
+                .apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(1, 1)))
+                .weight(6));
+
+        tableBuilder.pool(pool);
+    }
+
+    // -------------------------------------------------------------------------
     // SCRAPS (STRICT BY CONTEXT)
     // -------------------------------------------------------------------------
 
@@ -1112,12 +1309,8 @@ public final class ModChestLootInjector {
                 .conditionally(RandomChanceLootCondition.builder(chance));
 
         pool.with(ItemEntry.builder(CARBON_STEEL_SCRAP).weight(16));
-
-        // Obsidian scrap very rare (rarer than adamantium)
         pool.with(ItemEntry.builder(OBSIDIAN_SCRAP).weight(1));
 
-        // NEVER: enderite scrap
-        // NEVER: hot carbon steel scrap
         tableBuilder.pool(pool);
     }
 
@@ -1129,7 +1322,6 @@ public final class ModChestLootInjector {
         pool.with(ItemEntry.builder(CARBON_STEEL_SCRAP).weight(12));
         pool.with(ItemEntry.builder(OBSIDIAN_SCRAP).weight(3));
 
-        // NO enderite scrap here.
         tableBuilder.pool(pool);
     }
 
@@ -1144,6 +1336,7 @@ public final class ModChestLootInjector {
     // TEMPLATES
     // -------------------------------------------------------------------------
 
+    // (kept exactly as you adjusted in your snippet)
     private static void addTemplatesOverworldRich(net.minecraft.loot.LootTable.Builder tableBuilder, float chance) {
         LootPool.Builder pool = LootPool.builder()
                 .rolls(ConstantLootNumberProvider.create(1))
@@ -1151,6 +1344,7 @@ public final class ModChestLootInjector {
 
         pool.with(ItemEntry.builder(TEMPLATE_HARDENED).weight(10));
         pool.with(ItemEntry.builder(TEMPLATE_OBSIDIAN).weight(8));
+        pool.with(ItemEntry.builder(TEMPLATE_ADAMANTIUM).weight(5));
 
         tableBuilder.pool(pool);
     }
@@ -1160,9 +1354,9 @@ public final class ModChestLootInjector {
                 .rolls(ConstantLootNumberProvider.create(1))
                 .conditionally(RandomChanceLootCondition.builder(chance));
 
-        pool.with(ItemEntry.builder(TEMPLATE_HARDENED).weight(12));
+        pool.with(ItemEntry.builder(TEMPLATE_HARDENED).weight(11));
         pool.with(ItemEntry.builder(TEMPLATE_OBSIDIAN).weight(12));
-        pool.with(ItemEntry.builder(TEMPLATE_ADAMANTIUM).weight(2));
+        pool.with(ItemEntry.builder(TEMPLATE_ADAMANTIUM).weight(7));
 
         tableBuilder.pool(pool);
     }
@@ -1172,10 +1366,10 @@ public final class ModChestLootInjector {
                 .rolls(ConstantLootNumberProvider.create(1))
                 .conditionally(RandomChanceLootCondition.builder(chance));
 
-        pool.with(ItemEntry.builder(TEMPLATE_ENDERITE).weight(12));
-        pool.with(ItemEntry.builder(TEMPLATE_ADAMANTIUM).weight(10));
+        pool.with(ItemEntry.builder(TEMPLATE_ENDERITE).weight(13));
+        pool.with(ItemEntry.builder(TEMPLATE_ADAMANTIUM).weight(11));
         pool.with(ItemEntry.builder(TEMPLATE_HARDENED).weight(2));
-        pool.with(ItemEntry.builder(TEMPLATE_OBSIDIAN).weight(2));
+        pool.with(ItemEntry.builder(TEMPLATE_OBSIDIAN).weight(4));
 
         tableBuilder.pool(pool);
     }

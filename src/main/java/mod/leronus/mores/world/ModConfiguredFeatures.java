@@ -30,6 +30,9 @@ public class ModConfiguredFeatures {
     public static final RegistryKey<ConfiguredFeature<?, ?>> TIN_LARGE_ORE = registerKey("tin_large_ore");
     public static final RegistryKey<ConfiguredFeature<?, ?>> TIN_SMALL_ORE = registerKey("tin_small_ore");
 
+    public static final RegistryKey<ConfiguredFeature<?, ?>> ELECTRUM_SMALL_ORE = registerKey("electrum_small_ore");
+    public static final RegistryKey<ConfiguredFeature<?, ?>> ELECTRUM_LARGE_ORE = registerKey("electrum_large_ore");
+
     public static final RegistryKey<ConfiguredFeature<?, ?>> SILVER_SMALL_ORE = registerKey("silver_small_ore");
     public static final RegistryKey<ConfiguredFeature<?, ?>> SILVER_UPPER_ORE = registerKey("silver_upper_ore");
     public static final RegistryKey<ConfiguredFeature<?, ?>> SILVER_MIDDLE_ORE = registerKey("silver_middle_ore");
@@ -145,6 +148,11 @@ public class ModConfiguredFeatures {
 
                 OreFeatureConfig.createTarget(new TagMatchRuleTest(BlockTags.STONE_ORE_REPLACEABLES), ModBlocks.SILVER_ORE.getDefaultState()),
                 OreFeatureConfig.createTarget(new TagMatchRuleTest(BlockTags.DEEPSLATE_ORE_REPLACEABLES), ModBlocks.DEEPSLATE_SILVER_ORE.getDefaultState())
+        );
+
+        List<OreFeatureConfig.Target> OVERWORLD_ELECTRUM_ORES = List.of(
+                OreFeatureConfig.createTarget(new TagMatchRuleTest(BlockTags.STONE_ORE_REPLACEABLES), ModBlocks.ELECTRUM_ORE.getDefaultState())
+//                ,OreFeatureConfig.createTarget(new TagMatchRuleTest(BlockTags.DEEPSLATE_ORE_REPLACEABLES), ModBlocks.DEEPSLATE_ELECTRUM_ORE.getDefaultState())
         );
 
         List<OreFeatureConfig.Target> OVERWORLD_TURQUOISE_ORES = List.of(
@@ -314,37 +322,61 @@ public class ModConfiguredFeatures {
 
         // --- Ender ores (netherrack + basalt + blackstone variants where you have them) ---
         List<OreFeatureConfig.Target> ENDER_SILVER_ORES = List.of(
-                OreFeatureConfig.createTarget(new BlockMatchRuleTest(Blocks.END_STONE), ModBlocks.ENDER_SILVER_ORE.getDefaultState())
+                OreFeatureConfig.createTarget(new BlockMatchRuleTest(Blocks.END_STONE), ModBlocks.ENDER_SILVER_ORE.getDefaultState()),
+                OreFeatureConfig.createTarget(new BlockMatchRuleTest(Blocks.BASALT), ModBlocks.BASALT_SILVER_ORE.getDefaultState()),
+                OreFeatureConfig.createTarget(new BlockMatchRuleTest(Blocks.BLACKSTONE), ModBlocks.BLACKSTONE_SILVER_ORE.getDefaultState())
         );
         List<OreFeatureConfig.Target> ENDER_COBALT_ORES = List.of(
-                OreFeatureConfig.createTarget(new BlockMatchRuleTest(Blocks.END_STONE), ModBlocks.ENDER_COBALT_ORE.getDefaultState())
+                OreFeatureConfig.createTarget(new BlockMatchRuleTest(Blocks.END_STONE), ModBlocks.ENDER_COBALT_ORE.getDefaultState()),
+                OreFeatureConfig.createTarget(new BlockMatchRuleTest(Blocks.BASALT), ModBlocks.BASALT_COBALT_ORE.getDefaultState()),
+                OreFeatureConfig.createTarget(new BlockMatchRuleTest(Blocks.BLACKSTONE), ModBlocks.BLACKSTONE_COBALT_ORE.getDefaultState())
         );
         List<OreFeatureConfig.Target> ENDER_ONYX_ORES = List.of(
                 OreFeatureConfig.createTarget(new BlockMatchRuleTest(Blocks.END_STONE), ModBlocks.ENDER_ONYX_ORE.getDefaultState())
         );
         List<OreFeatureConfig.Target> ENDER_TANZANITE_ORES = List.of(
-                OreFeatureConfig.createTarget(new BlockMatchRuleTest(Blocks.END_STONE), ModBlocks.ENDER_TANZANITE_ORE.getDefaultState())
+                OreFeatureConfig.createTarget(new BlockMatchRuleTest(Blocks.END_STONE), ModBlocks.ENDER_TANZANITE_ORE.getDefaultState()),
+                OreFeatureConfig.createTarget(new BlockMatchRuleTest(Blocks.BASALT), ModBlocks.BASALT_TANZANITE_ORE.getDefaultState()),
+                OreFeatureConfig.createTarget(new BlockMatchRuleTest(Blocks.BLACKSTONE), ModBlocks.BLACKSTONE_TANZANITE_ORE.getDefaultState())
         );
         List<OreFeatureConfig.Target> ENDER_TOURMALINE_ORES = List.of(
-                OreFeatureConfig.createTarget(new BlockMatchRuleTest(Blocks.END_STONE), ModBlocks.ENDER_TOURMALINE_ORE.getDefaultState())
+                OreFeatureConfig.createTarget(new BlockMatchRuleTest(Blocks.END_STONE), ModBlocks.ENDER_TOURMALINE_ORE.getDefaultState()),
+                OreFeatureConfig.createTarget(new BlockMatchRuleTest(Blocks.BASALT), ModBlocks.BASALT_TOURMALINE_ORE.getDefaultState()),
+                OreFeatureConfig.createTarget(new BlockMatchRuleTest(Blocks.BLACKSTONE), ModBlocks.BLACKSTONE_TOURMALINE_ORE.getDefaultState())
         );
         List<OreFeatureConfig.Target> ENDER_TOPAZ_ORES = List.of(
-                OreFeatureConfig.createTarget(new BlockMatchRuleTest(Blocks.END_STONE), ModBlocks.ENDER_TOPAZ_ORE.getDefaultState())
+                OreFeatureConfig.createTarget(new BlockMatchRuleTest(Blocks.END_STONE), ModBlocks.ENDER_TOPAZ_ORE.getDefaultState()),
+                OreFeatureConfig.createTarget(new BlockMatchRuleTest(Blocks.BASALT), ModBlocks.BASALT_TOPAZ_ORE.getDefaultState()),
+                OreFeatureConfig.createTarget(new BlockMatchRuleTest(Blocks.BLACKSTONE), ModBlocks.BLACKSTONE_TOPAZ_ORE.getDefaultState())
+
         );
         List<OreFeatureConfig.Target> ENDER_RUBY_ORES = List.of(
-                OreFeatureConfig.createTarget(new BlockMatchRuleTest(Blocks.END_STONE), ModBlocks.ENDER_RUBY_ORE.getDefaultState())
+                OreFeatureConfig.createTarget(new BlockMatchRuleTest(Blocks.END_STONE), ModBlocks.ENDER_RUBY_ORE.getDefaultState()),
+                OreFeatureConfig.createTarget(new BlockMatchRuleTest(Blocks.BASALT), ModBlocks.BASALT_RUBY_ORE.getDefaultState()),
+                OreFeatureConfig.createTarget(new BlockMatchRuleTest(Blocks.BLACKSTONE), ModBlocks.BLACKSTONE_RUBY_ORE.getDefaultState())
+
         );
         List<OreFeatureConfig.Target> ENDER_SAPPHIRE_ORES = List.of(
-                OreFeatureConfig.createTarget(new BlockMatchRuleTest(Blocks.END_STONE), ModBlocks.ENDER_SAPPHIRE_ORE.getDefaultState())
+                OreFeatureConfig.createTarget(new BlockMatchRuleTest(Blocks.END_STONE), ModBlocks.ENDER_SAPPHIRE_ORE.getDefaultState()),
+                OreFeatureConfig.createTarget(new BlockMatchRuleTest(Blocks.BASALT), ModBlocks.BASALT_SAPPHIRE_ORE.getDefaultState()),
+                OreFeatureConfig.createTarget(new BlockMatchRuleTest(Blocks.BLACKSTONE), ModBlocks.BLACKSTONE_SAPPHIRE_ORE.getDefaultState())
+
         );
         List<OreFeatureConfig.Target> ENDER_SPINEL_ORES = List.of(
-                OreFeatureConfig.createTarget(new BlockMatchRuleTest(Blocks.END_STONE), ModBlocks.ENDER_SPINEL_ORE.getDefaultState())
+                OreFeatureConfig.createTarget(new BlockMatchRuleTest(Blocks.END_STONE), ModBlocks.ENDER_SPINEL_ORE.getDefaultState()),
+                OreFeatureConfig.createTarget(new BlockMatchRuleTest(Blocks.BASALT), ModBlocks.BASALT_SPINEL_ORE.getDefaultState()),
+                OreFeatureConfig.createTarget(new BlockMatchRuleTest(Blocks.BLACKSTONE), ModBlocks.BLACKSTONE_SPINEL_ORE.getDefaultState())
         );
         List<OreFeatureConfig.Target> ENDER_MOISSANITE_ORES = List.of(
-                OreFeatureConfig.createTarget(new BlockMatchRuleTest(Blocks.END_STONE), ModBlocks.ENDER_MOISSANITE_ORE.getDefaultState())
+                OreFeatureConfig.createTarget(new BlockMatchRuleTest(Blocks.END_STONE), ModBlocks.ENDER_MOISSANITE_ORE.getDefaultState()),
+                OreFeatureConfig.createTarget(new BlockMatchRuleTest(Blocks.BASALT), ModBlocks.BASALT_MOISSANITE_ORE.getDefaultState()),
+                OreFeatureConfig.createTarget(new BlockMatchRuleTest(Blocks.BLACKSTONE), ModBlocks.BLACKSTONE_MOISSANITE_ORE.getDefaultState())
         );
         List<OreFeatureConfig.Target> ENDERITE_ORES = List.of(
-                OreFeatureConfig.createTarget(new BlockMatchRuleTest(Blocks.END_STONE), ModBlocks.PRIMORDIAL_DEBRIS.getDefaultState())
+                OreFeatureConfig.createTarget(new BlockMatchRuleTest(Blocks.END_STONE), ModBlocks.PRIMORDIAL_DEBRIS.getDefaultState()),
+                OreFeatureConfig.createTarget(new BlockMatchRuleTest(Blocks.BASALT), ModBlocks.PRIMORDIAL_DEBRIS.getDefaultState()),
+                OreFeatureConfig.createTarget(new BlockMatchRuleTest(Blocks.BLACKSTONE), ModBlocks.PRIMORDIAL_DEBRIS.getDefaultState())
+
         );
         //        ORE_NETHER_GOLD, Feature.ORE, new OreFeatureConfig(ruleTest4, Blocks.NETHER_GOLD_ORE.getDefaultState(), 10));
         //        ORE_QUARTZ, Feature.ORE, new OreFeatureConfig(ruleTest4, Blocks.NETHER_QUARTZ_ORE.getDefaultState(), 14));
@@ -374,75 +406,78 @@ public class ModConfiguredFeatures {
         register(context, TIN_SMALL_ORE, Feature.ORE, new OreFeatureConfig(OVERWORLD_TIN_ORES, 6));
         register(context, TIN_LARGE_ORE, Feature.ORE, new OreFeatureConfig(OVERWORLD_TIN_ORES, 12));
 
+        register(context, ELECTRUM_SMALL_ORE, Feature.ORE, new OreFeatureConfig(OVERWORLD_ELECTRUM_ORES, 12));
+        register(context, ELECTRUM_LARGE_ORE, Feature.ORE, new OreFeatureConfig(OVERWORLD_TIN_ORES, 12));
+
         register(context, SILVER_SMALL_ORE, Feature.ORE, new OreFeatureConfig(OVERWORLD_SILVER_ORES, 5));
-        register(context, SILVER_UPPER_ORE, Feature.ORE, new OreFeatureConfig(OVERWORLD_SILVER_ORES, 8));
+        register(context, SILVER_UPPER_ORE, Feature.ORE, new OreFeatureConfig(OVERWORLD_SILVER_ORES, 8, 0.2F));
         register(context, SILVER_MIDDLE_ORE, Feature.ORE, new OreFeatureConfig(OVERWORLD_SILVER_ORES, 9));
         register(context, NETHER_SILVER_ORE, Feature.ORE, new OreFeatureConfig(NETHER_SILVER_ORES, 10));
         register(context, ENDER_SILVER_ORE, Feature.ORE, new OreFeatureConfig(ENDER_SILVER_ORES, 8));
 
-        register(context, COBALT_SMALL_ORE, Feature.ORE, new OreFeatureConfig(OVERWORLD_COBALT_ORES, 4));
-        register(context, COBALT_UPPER_ORE, Feature.ORE, new OreFeatureConfig(OVERWORLD_COBALT_ORES, 10));
-        register(context, COBALT_MIDDLE_ORE, Feature.ORE, new OreFeatureConfig(OVERWORLD_COBALT_ORES, 10));
+        register(context, COBALT_SMALL_ORE, Feature.ORE, new OreFeatureConfig(OVERWORLD_COBALT_ORES, 4, 0.1F));
+        register(context, COBALT_UPPER_ORE, Feature.ORE, new OreFeatureConfig(OVERWORLD_COBALT_ORES, 10, 0.3F));
+        register(context, COBALT_MIDDLE_ORE, Feature.ORE, new OreFeatureConfig(OVERWORLD_COBALT_ORES, 10, 0.1F));
         register(context, ENDER_COBALT_ORE, Feature.ORE, new OreFeatureConfig(ENDER_COBALT_ORES, 8));
 
         register(context, TURQUOISE_ORE, Feature.ORE, new OreFeatureConfig(OVERWORLD_TURQUOISE_ORES, 7));
         register(context, TURQUOISE_BURIED_ORE, Feature.ORE, new OreFeatureConfig(OVERWORLD_TURQUOISE_ORES, 7, 1.0F));
 
-        register(context, QUARTZ_ORE, Feature.ORE, new OreFeatureConfig(OVERWORLD_QUARTZ_ORES, 12, 0.7F));
-        register(context, CITRINE_ORE, Feature.ORE, new OreFeatureConfig(OVERWORLD_CITRINE_ORES, 12, 0.7F));
-        register(context, NETHER_CITRINE_ORE, Feature.ORE, new OreFeatureConfig(NETHER_CITRINE_ORES, 12));
+        register(context, QUARTZ_ORE, Feature.ORE, new OreFeatureConfig(OVERWORLD_QUARTZ_ORES, 8, 0.7F));
+        register(context, CITRINE_ORE, Feature.ORE, new OreFeatureConfig(OVERWORLD_CITRINE_ORES, 8, 0.7F));
+        register(context, NETHER_CITRINE_ORE, Feature.ORE, new OreFeatureConfig(NETHER_CITRINE_ORES, 10, 0.7F));
 
-        register(context, NETHER_ONYX_ORE, Feature.ORE, new OreFeatureConfig(NETHER_ONYX_ORES, 12, 0.1F));
-        register(context, ENDER_ONYX_ORE, Feature.ORE, new OreFeatureConfig(ENDER_ONYX_ORES, 12, 0.1F));
-
-        register(context, TANZANITE_SMALL_ORE, Feature.ORE, new OreFeatureConfig(OVERWORLD_TANZANITE_ORES, 4, 0.2F));
-        register(context, TANZANITE_LARGE_ORE, Feature.ORE, new OreFeatureConfig(OVERWORLD_TANZANITE_ORES, 12, 0.6F));
-        register(context, TANZANITE_BURIED_ORE, Feature.ORE, new OreFeatureConfig(OVERWORLD_TANZANITE_ORES, 8, 0.8F));
-        register(context, TANZANITE_MEDIUM_ORE, Feature.ORE, new OreFeatureConfig(OVERWORLD_TANZANITE_ORES, 8, 0.4F));
-        register(context, NETHER_TANZANITE_ORE, Feature.ORE, new OreFeatureConfig(NETHER_TANZANITE_ORES, 6, 0.4F));
-        register(context, ENDER_TANZANITE_ORE, Feature.ORE, new OreFeatureConfig(ENDER_TANZANITE_ORES, 6, 0.3F));
+        register(context, NETHER_ONYX_ORE, Feature.ORE, new OreFeatureConfig(NETHER_ONYX_ORES, 8, 0.2F));
+        register(context, ENDER_ONYX_ORE, Feature.ORE, new OreFeatureConfig(ENDER_ONYX_ORES, 8, 0.2F));
 
         register(context, TOPAZ_SMALL_ORE, Feature.ORE, new OreFeatureConfig(OVERWORLD_TOPAZ_ORES, 4, 0.4F));
         register(context, TOPAZ_LARGE_ORE, Feature.ORE, new OreFeatureConfig(OVERWORLD_TOPAZ_ORES, 12, 0.7F));
         register(context, TOPAZ_BURIED_ORE, Feature.ORE, new OreFeatureConfig(OVERWORLD_TOPAZ_ORES, 8, 1.0F));
         register(context, TOPAZ_MEDIUM_ORE, Feature.ORE, new OreFeatureConfig(OVERWORLD_TOPAZ_ORES, 8, 0.4F));
-        register(context, NETHER_TOPAZ_ORE, Feature.ORE, new OreFeatureConfig(NETHER_TOPAZ_ORES, 6, 0.4F));
-        register(context, ENDER_TOPAZ_ORE, Feature.ORE, new OreFeatureConfig(ENDER_TOPAZ_ORES, 6, 0.3F));
+        register(context, NETHER_TOPAZ_ORE, Feature.ORE, new OreFeatureConfig(NETHER_TOPAZ_ORES, 8, 0.4F));
+        register(context, ENDER_TOPAZ_ORE, Feature.ORE, new OreFeatureConfig(ENDER_TOPAZ_ORES, 8, 0.4F));
 
         register(context, TOURMALINE_SMALL_ORE, Feature.ORE, new OreFeatureConfig(OVERWORLD_TOURMALINE_ORES, 4, 0.4F));
         register(context, TOURMALINE_LARGE_ORE, Feature.ORE, new OreFeatureConfig(OVERWORLD_TOURMALINE_ORES, 12, 0.7F));
         register(context, TOURMALINE_BURIED_ORE, Feature.ORE, new OreFeatureConfig(OVERWORLD_TOURMALINE_ORES, 8, 1.0F));
         register(context, TOURMALINE_MEDIUM_ORE, Feature.ORE, new OreFeatureConfig(OVERWORLD_TOURMALINE_ORES, 8, 0.4F));
-        register(context, NETHER_TOURMALINE_ORE, Feature.ORE, new OreFeatureConfig(NETHER_TOURMALINE_ORES, 6, 0.4F));
-        register(context, ENDER_TOURMALINE_ORE, Feature.ORE, new OreFeatureConfig(ENDER_TOURMALINE_ORES, 6, 0.3F));
+        register(context, NETHER_TOURMALINE_ORE, Feature.ORE, new OreFeatureConfig(NETHER_TOURMALINE_ORES, 8, 0.4F));
+        register(context, ENDER_TOURMALINE_ORE, Feature.ORE, new OreFeatureConfig(ENDER_TOURMALINE_ORES, 8, 0.4F));
 
-        register(context, RUBY_SMALL_ORE, Feature.ORE, new OreFeatureConfig(OVERWORLD_RUBY_ORES, 4, 0.5F));
-        register(context, RUBY_LARGE_ORE, Feature.ORE, new OreFeatureConfig(OVERWORLD_RUBY_ORES, 12, 0.7F));
-        register(context, RUBY_BURIED_ORE, Feature.ORE, new OreFeatureConfig(OVERWORLD_RUBY_ORES, 8, 1.0F));
-        register(context, RUBY_MEDIUM_ORE, Feature.ORE, new OreFeatureConfig(OVERWORLD_RUBY_ORES, 8, 0.5F));
-        register(context, NETHER_RUBY_ORE, Feature.ORE, new OreFeatureConfig(NETHER_RUBY_ORES, 6, 0.5F));
-        register(context, ENDER_RUBY_ORE, Feature.ORE, new OreFeatureConfig(ENDER_RUBY_ORES, 6, 0.4F));
+        register(context, TANZANITE_SMALL_ORE, Feature.ORE, new OreFeatureConfig(OVERWORLD_TANZANITE_ORES, 4, 0.4F));
+        register(context, TANZANITE_LARGE_ORE, Feature.ORE, new OreFeatureConfig(OVERWORLD_TANZANITE_ORES, 12, 0.7F));
+        register(context, TANZANITE_BURIED_ORE, Feature.ORE, new OreFeatureConfig(OVERWORLD_TANZANITE_ORES, 8, 1.0F));
+        register(context, TANZANITE_MEDIUM_ORE, Feature.ORE, new OreFeatureConfig(OVERWORLD_TANZANITE_ORES, 8, 0.4F));
+        register(context, NETHER_TANZANITE_ORE, Feature.ORE, new OreFeatureConfig(NETHER_TANZANITE_ORES, 6, 0.4F));
+        register(context, ENDER_TANZANITE_ORE, Feature.ORE, new OreFeatureConfig(ENDER_TANZANITE_ORES, 6, 0.4F));
 
-        register(context, SAPPHIRE_SMALL_ORE, Feature.ORE, new OreFeatureConfig(OVERWORLD_SAPPHIRE_ORES, 4, 0.5F));
-        register(context, SAPPHIRE_LARGE_ORE, Feature.ORE, new OreFeatureConfig(OVERWORLD_SAPPHIRE_ORES, 12, 0.7F));
-        register(context, SAPPHIRE_BURIED_ORE, Feature.ORE, new OreFeatureConfig(OVERWORLD_SAPPHIRE_ORES, 8, 1.0F));
-        register(context, SAPPHIRE_MEDIUM_ORE, Feature.ORE, new OreFeatureConfig(OVERWORLD_SAPPHIRE_ORES, 8, 0.5F));
-        register(context, NETHER_SAPPHIRE_ORE, Feature.ORE, new OreFeatureConfig(NETHER_SAPPHIRE_ORES, 6, 0.5F));
-        register(context, ENDER_SAPPHIRE_ORE, Feature.ORE, new OreFeatureConfig(ENDER_SAPPHIRE_ORES, 6, 0.4F));
-
-        register(context, SPINEL_SMALL_ORE, Feature.ORE, new OreFeatureConfig(OVERWORLD_SPINEL_ORES, 4, 0.5F));
+        register(context, SPINEL_SMALL_ORE, Feature.ORE, new OreFeatureConfig(OVERWORLD_SPINEL_ORES, 4, 0.4F));
         register(context, SPINEL_LARGE_ORE, Feature.ORE, new OreFeatureConfig(OVERWORLD_SPINEL_ORES, 12, 0.7F));
         register(context, SPINEL_BURIED_ORE, Feature.ORE, new OreFeatureConfig(OVERWORLD_SPINEL_ORES, 8, 1.0F));
         register(context, SPINEL_MEDIUM_ORE, Feature.ORE, new OreFeatureConfig(OVERWORLD_SPINEL_ORES, 8, 0.5F));
-        register(context, NETHER_SPINEL_ORE, Feature.ORE, new OreFeatureConfig(NETHER_SPINEL_ORES, 5, 0.5F));
-        register(context, ENDER_SPINEL_ORE, Feature.ORE, new OreFeatureConfig(ENDER_SPINEL_ORES, 5, 0.5F));
+        register(context, NETHER_SPINEL_ORE, Feature.ORE, new OreFeatureConfig(NETHER_SPINEL_ORES, 8, 0.5F));
+        register(context, ENDER_SPINEL_ORE, Feature.ORE, new OreFeatureConfig(ENDER_SPINEL_ORES, 8, 0.5F));
+
+        register(context, RUBY_SMALL_ORE, Feature.ORE, new OreFeatureConfig(OVERWORLD_RUBY_ORES, 4, 0.5F));
+        register(context, RUBY_LARGE_ORE, Feature.ORE, new OreFeatureConfig(OVERWORLD_RUBY_ORES, 12, 0.75F));
+        register(context, RUBY_BURIED_ORE, Feature.ORE, new OreFeatureConfig(OVERWORLD_RUBY_ORES, 8, 1.0F));
+        register(context, RUBY_MEDIUM_ORE, Feature.ORE, new OreFeatureConfig(OVERWORLD_RUBY_ORES, 8, 0.45F));
+        register(context, NETHER_RUBY_ORE, Feature.ORE, new OreFeatureConfig(NETHER_RUBY_ORES, 8, 0.5F));
+        register(context, ENDER_RUBY_ORE, Feature.ORE, new OreFeatureConfig(ENDER_RUBY_ORES, 8, 0.5F));
+
+        register(context, SAPPHIRE_SMALL_ORE, Feature.ORE, new OreFeatureConfig(OVERWORLD_SAPPHIRE_ORES, 4, 0.5F));
+        register(context, SAPPHIRE_LARGE_ORE, Feature.ORE, new OreFeatureConfig(OVERWORLD_SAPPHIRE_ORES, 12, 0.75F));
+        register(context, SAPPHIRE_BURIED_ORE, Feature.ORE, new OreFeatureConfig(OVERWORLD_SAPPHIRE_ORES, 8, 1.0F));
+        register(context, SAPPHIRE_MEDIUM_ORE, Feature.ORE, new OreFeatureConfig(OVERWORLD_SAPPHIRE_ORES, 8, 0.45F));
+        register(context, NETHER_SAPPHIRE_ORE, Feature.ORE, new OreFeatureConfig(NETHER_SAPPHIRE_ORES, 8, 0.5F));
+        register(context, ENDER_SAPPHIRE_ORE, Feature.ORE, new OreFeatureConfig(ENDER_SAPPHIRE_ORES, 8, 0.5F));
 
         register(context, MOISSANITE_SMALL_ORE, Feature.ORE, new OreFeatureConfig(OVERWORLD_MOISSANITE_ORES, 4, 0.6F));
         register(context, MOISSANITE_LARGE_ORE, Feature.ORE, new OreFeatureConfig(OVERWORLD_MOISSANITE_ORES, 10, 0.8F));
         register(context, MOISSANITE_BURIED_ORE, Feature.ORE, new OreFeatureConfig(OVERWORLD_MOISSANITE_ORES, 8, 1.0F));
-        register(context, MOISSANITE_MEDIUM_ORE, Feature.ORE, new OreFeatureConfig(OVERWORLD_MOISSANITE_ORES, 8, 0.6F));
-        register(context, NETHER_MOISSANITE_ORE, Feature.ORE, new OreFeatureConfig(NETHER_MOISSANITE_ORES, 4));
-        register(context, ENDER_MOISSANITE_ORE, Feature.ORE, new OreFeatureConfig(ENDER_MOISSANITE_ORES, 1, 0.7F));
+        register(context, MOISSANITE_MEDIUM_ORE, Feature.ORE, new OreFeatureConfig(OVERWORLD_MOISSANITE_ORES, 6, 0.4F));
+        register(context, NETHER_MOISSANITE_ORE, Feature.ORE, new OreFeatureConfig(NETHER_MOISSANITE_ORES, 6, 0.4F));
+        register(context, ENDER_MOISSANITE_ORE, Feature.ORE, new OreFeatureConfig(ENDER_MOISSANITE_ORES, 4, 0.7F));
 
         register(context, ENDERITE_SMALL_ORE, Feature.SCATTERED_ORE, new OreFeatureConfig(ENDERITE_ORES, 2, 1.0F));
         register(context, ENDERITE_LARGE_ORE, Feature.SCATTERED_ORE, new OreFeatureConfig(ENDERITE_ORES, 3, 1.0F));

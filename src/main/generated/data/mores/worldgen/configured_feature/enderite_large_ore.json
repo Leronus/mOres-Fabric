@@ -12,6 +12,24 @@
           "block": "minecraft:end_stone",
           "predicate_type": "minecraft:block_match"
         }
+      },
+      {
+        "state": {
+          "Name": "mores:primordial_debris"
+        },
+        "target": {
+          "block": "minecraft:basalt",
+          "predicate_type": "minecraft:block_match"
+        }
+      },
+      {
+        "state": {
+          "Name": "mores:primordial_debris"
+        },
+        "target": {
+          "block": "minecraft:blackstone",
+          "predicate_type": "minecraft:block_match"
+        }
       }
     ]
   }

@@ -76,20 +76,32 @@ public class ModBattleMaceItem extends SwordItem {
             }
         }
 
-        // Only do shield logic server-side
+        // Server side only
         if (!attacker.getWorld().isClient && target instanceof PlayerEntity player) {
-            // Player must be actively using an item (blocking)
+
+            // Must be actively blocking with shield
             if (player.isUsingItem()) {
                 ItemStack active = player.getActiveItem();
                 Item activeItem = active.getItem();
 
-                // Works for vanilla shield + most modded shields (ShieldItem)
-                if (activeItem instanceof ShieldItem || active.isOf(Items.SHIELD) || activeItem instanceof FabricShieldItem) {
-                     //sprint & chance-based disable (more "classic axe" feel)
-                     float chance = attacker.isSprinting() ? 1.0f : 0.25f;
-                     if (attacker.getWorld().random.nextFloat() < chance) {
-                         player.disableShield();
-                     }
+                boolean isShield =
+                        activeItem instanceof ShieldItem
+                                || active.isOf(Items.SHIELD)
+                                || activeItem instanceof FabricShieldItem;
+
+                if (isShield) {
+                    // sprint & chance-based disable (more "classic axe" feel)
+                    float chance = attacker.isSprinting() ? 1.0f : 0.25f;
+
+                    if (attacker.getWorld().random.nextFloat() < chance) {
+                        player.disableShield();
+
+                        int cd = 100; // fallback for vanilla
+                        if (activeItem instanceof FabricShieldItem modShield) {
+                            cd = modShield.getCoolDownTicks();
+                        }
+                        player.getItemCooldownManager().set(activeItem, cd);
+                    }
                 }
             }
         }
