@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": {
+    "item": "mores:hardened_steel_ingot"
+  },
+  "base": {
+    "item": "mores:carbon_steel_battle_axe"
+  },
+  "result": {
+    "count": 1,
+    "id": "mores:hardened_steel_battle_axe"
+  },
+  "template": {
+    "item": "mores:hardened_steel_upgrade_smithing_template"
+  }
+}

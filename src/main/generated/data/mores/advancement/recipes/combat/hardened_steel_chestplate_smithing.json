@@ -1,11 +1,11 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_stick": {
+    "has_carbon_steel_chestplate": {
       "conditions": {
         "items": [
           {
-            "items": "minecraft:stick"
+            "items": "mores:carbon_steel_chestplate"
           }
         ]
       },
@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "mores:hardened_steel_shovel"
+        "recipe": "mores:hardened_steel_chestplate_smithing"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -21,12 +21,12 @@
   "requirements": [
     [
       "has_the_recipe",
-      "has_stick"
+      "has_carbon_steel_chestplate"
     ]
   ],
   "rewards": {
     "recipes": [
-      "mores:hardened_steel_shovel"
+      "mores:hardened_steel_chestplate_smithing"
     ]
   }
 }

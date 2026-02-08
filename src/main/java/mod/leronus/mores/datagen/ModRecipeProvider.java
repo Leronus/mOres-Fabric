@@ -1723,114 +1723,56 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "hardened_steel_ingot"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "hardened_steel_ingot"))))
                 .offerTo(exporter, Identifier.of("mores", "hardened_steel_nuggets_from_ingot"));
         //Tools
-        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, Registries.ITEM.get(Identifier.of("mores", "hardened_steel_sword")), 1)
-                .pattern("$")
-                .pattern("$")
-                .pattern("#")
-                .input('#', Registries.ITEM.get(Identifier.of("minecraft", "stick")))
-                .input('$', TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "ingot/hardened_steel")))
-                .criterion(hasItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))))
-                .offerTo(exporter, Identifier.of("mores", "hardened_steel_sword"));
-        ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, Registries.ITEM.get(Identifier.of("mores", "hardened_steel_pickaxe")), 1)
-                .pattern("$$$")
-                .pattern(" # ")
-                .pattern(" # ")
-                .input('#', Registries.ITEM.get(Identifier.of("minecraft", "stick")))
-                .input('$', TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "ingot/hardened_steel")))
-                .criterion(hasItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))))
-                .offerTo(exporter, Identifier.of("mores", "hardened_steel_pickaxe"));
-        ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, Registries.ITEM.get(Identifier.of("mores", "hardened_steel_axe")), 1)
-                .pattern("$$")
-                .pattern("$#")
-                .pattern(" #")
-                .input('#', Registries.ITEM.get(Identifier.of("minecraft", "stick")))
-                .input('$', TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "ingot/hardened_steel")))
-                .criterion(hasItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))))
-                .offerTo(exporter, Identifier.of("mores", "hardened_steel_axe"));
-        ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, Registries.ITEM.get(Identifier.of("mores", "hardened_steel_shovel")), 1)
-                .pattern("$")
-                .pattern("#")
-                .pattern("#")
-                .input('#', Registries.ITEM.get(Identifier.of("minecraft", "stick")))
-                .input('$', TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "ingot/hardened_steel")))
-                .criterion(hasItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))))
-                .offerTo(exporter, Identifier.of("mores", "hardened_steel_shovel"));
-        ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, Registries.ITEM.get(Identifier.of("mores", "hardened_steel_hoe")), 1)
-                .pattern("$$")
-                .pattern(" #")
-                .pattern(" #")
-                .input('#', Registries.ITEM.get(Identifier.of("minecraft", "stick")))
-                .input('$', TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "ingot/hardened_steel")))
-                .criterion(hasItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))))
-                .offerTo(exporter, Identifier.of("mores", "hardened_steel_hoe"));
+        SmithingTransformRecipeJsonBuilder.create(Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "hardened_steel_upgrade_smithing_template"))), Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "carbon_steel_sword"))), Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "hardened_steel_ingot"))), RecipeCategory.COMBAT, Registries.ITEM.get(Identifier.of("mores", "hardened_steel_sword")))
+                .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "carbon_steel_sword"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "carbon_steel_sword"))))
+                .offerTo(exporter, Identifier.of("mores", "hardened_steel_sword_smithing"));
+        SmithingTransformRecipeJsonBuilder.create(Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "hardened_steel_upgrade_smithing_template"))), Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "carbon_steel_pickaxe"))), Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "hardened_steel_ingot"))), RecipeCategory.TOOLS, Registries.ITEM.get(Identifier.of("mores", "hardened_steel_pickaxe")))
+                .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "carbon_steel_pickaxe"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "carbon_steel_pickaxe"))))
+                .offerTo(exporter, Identifier.of("mores", "hardened_steel_pickaxe_smithing"));
+        SmithingTransformRecipeJsonBuilder.create(Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "hardened_steel_upgrade_smithing_template"))), Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "carbon_steel_shovel"))), Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "hardened_steel_ingot"))), RecipeCategory.TOOLS, Registries.ITEM.get(Identifier.of("mores", "hardened_steel_shovel")))
+                .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "carbon_steel_shovel"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "carbon_steel_shovel"))))
+                .offerTo(exporter, Identifier.of("mores", "hardened_steel_shovel_smithing"));
+        SmithingTransformRecipeJsonBuilder.create(Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "hardened_steel_upgrade_smithing_template"))), Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "carbon_steel_hoe"))), Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "hardened_steel_ingot"))), RecipeCategory.TOOLS, Registries.ITEM.get(Identifier.of("mores", "hardened_steel_hoe")))
+                .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "carbon_steel_hoe"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "carbon_steel_hoe"))))
+                .offerTo(exporter, Identifier.of("mores", "hardened_steel_hoe_smithing"));
+        SmithingTransformRecipeJsonBuilder.create(Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "hardened_steel_upgrade_smithing_template"))), Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "carbon_steel_axe"))), Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "hardened_steel_ingot"))), RecipeCategory.TOOLS, Registries.ITEM.get(Identifier.of("mores", "hardened_steel_axe")))
+                .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "carbon_steel_axe"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "carbon_steel_axe"))))
+                .offerTo(exporter, Identifier.of("mores", "hardened_steel_axe_smithing"));
         //Weapons
-        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, Registries.ITEM.get(Identifier.of("mores", "hardened_steel_battle_axe")), 1)
-                .pattern("$ $")
-                .pattern("$#$")
-                .pattern(" # ")
-                .input('#', Registries.ITEM.get(Identifier.of("minecraft", "stick")))
-                .input('$', TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "ingot/hardened_steel")))
-                .criterion(hasItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))))
-                .offerTo(exporter, Identifier.of("mores", "hardened_steel_battle_axe"));
-        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, Registries.ITEM.get(Identifier.of("mores", "hardened_steel_battle_mace")), 1)
-                .pattern(" $$")
-                .pattern(" $$")
-                .pattern("#  ")
-                .input('#', Registries.ITEM.get(Identifier.of("minecraft", "stick")))
-                .input('$', TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "ingot/hardened_steel")))
-                .criterion(hasItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))))
-                .offerTo(exporter, Identifier.of("mores", "hardened_steel_battle_mace"));
-        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, Registries.ITEM.get(Identifier.of("mores", "hardened_steel_dagger")), 1)
-                .pattern(" $ ")
-                .pattern(" # ")
-                .input('#', Registries.ITEM.get(Identifier.of("minecraft", "stick")))
-                .input('$', TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "ingot/hardened_steel")))
-                .criterion(hasItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))))
-                .offerTo(exporter, Identifier.of("mores", "hardened_steel_dagger"));
-        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, Registries.ITEM.get(Identifier.of("mores", "hardened_steel_spear")), 1)
-                .pattern("  $")
-                .pattern(" # ")
-                .pattern("#  ")
-                .input('#', Registries.ITEM.get(Identifier.of("minecraft", "stick")))
-                .input('$', TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "ingot/hardened_steel")))
-                .criterion(hasItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("minecraft", "stick"))))
-                .offerTo(exporter, Identifier.of("mores", "hardened_steel_spear"));
+        SmithingTransformRecipeJsonBuilder.create(Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "hardened_steel_upgrade_smithing_template"))), Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "carbon_steel_battle_axe"))), Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "hardened_steel_ingot"))), RecipeCategory.COMBAT, Registries.ITEM.get(Identifier.of("mores", "hardened_steel_battle_axe")))
+                .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "carbon_steel_battle_axe"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "carbon_steel_battle_axe"))))
+                .offerTo(exporter, Identifier.of("mores", "hardened_steel_battle_axe_smithing"));
+        SmithingTransformRecipeJsonBuilder.create(Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "hardened_steel_upgrade_smithing_template"))), Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "carbon_steel_battle_mace"))), Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "hardened_steel_ingot"))), RecipeCategory.COMBAT, Registries.ITEM.get(Identifier.of("mores", "hardened_steel_battle_mace")))
+                .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "carbon_steel_battle_mace"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "carbon_steel_battle_mace"))))
+                .offerTo(exporter, Identifier.of("mores", "hardened_steel_battle_mace_smithing"));
+        SmithingTransformRecipeJsonBuilder.create(Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "hardened_steel_upgrade_smithing_template"))), Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "carbon_steel_dagger"))), Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "hardened_steel_ingot"))), RecipeCategory.COMBAT, Registries.ITEM.get(Identifier.of("mores", "hardened_steel_dagger")))
+                .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "carbon_steel_dagger"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "carbon_steel_dagger"))))
+                .offerTo(exporter, Identifier.of("mores", "hardened_steel_dagger_smithing"));
+        SmithingTransformRecipeJsonBuilder.create(Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "hardened_steel_upgrade_smithing_template"))), Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "carbon_steel_spear"))), Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "hardened_steel_ingot"))), RecipeCategory.COMBAT, Registries.ITEM.get(Identifier.of("mores", "hardened_steel_spear")))
+                .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "carbon_steel_spear"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "carbon_steel_spear"))))
+                .offerTo(exporter, Identifier.of("mores", "hardened_steel_spear_smithing"));
         //Shield
-        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, Registries.ITEM.get(Identifier.of("mores", "hardened_steel_shield")), 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "hardened_steel_shield")), 1)
                 .pattern("WoW")
                 .pattern("WWW")
                 .pattern(" W ")
                 .input('W', TagKey.of(RegistryKeys.ITEM, Identifier.of("minecraft", "planks")))
                 .input('o', TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "ingot/hardened_steel")))
-                .criterion("has_planks", conditionsFromTag(TagKey.of(RegistryKeys.ITEM, Identifier.of("minecraft", "planks"))))
+                .criterion("has_planks", conditionsFromTag(TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "planks"))))
                 .offerTo(exporter, Identifier.of("mores", "hardened_steel_shield"));
         //Armor
-        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, Registries.ITEM.get(Identifier.of("mores", "hardened_steel_helmet")), 1)
-                .pattern("###")
-                .pattern("# #")
-                .input('#', TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "ingot/hardened_steel")))
-                .criterion("has_ingot_hardened_steel", conditionsFromTag(TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "ingot/hardened_steel"))))
-                .offerTo(exporter, Identifier.of("mores", "hardened_steel_helmet"));
-        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, Registries.ITEM.get(Identifier.of("mores", "hardened_steel_chestplate")), 1)
-                .pattern("# #")
-                .pattern("###")
-                .pattern("###")
-                .input('#', TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "ingot/hardened_steel")))
-                .criterion("has_ingot_hardened_steel", conditionsFromTag(TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "ingot/hardened_steel"))))
-                .offerTo(exporter, Identifier.of("mores", "hardened_steel_chestplate"));
-        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, Registries.ITEM.get(Identifier.of("mores", "hardened_steel_leggings")), 1)
-                .pattern("###")
-                .pattern("# #")
-                .pattern("# #")
-                .input('#', TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "ingot/hardened_steel")))
-                .criterion("has_ingot_hardened_steel", conditionsFromTag(TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "ingot/hardened_steel"))))
-                .offerTo(exporter, Identifier.of("mores", "hardened_steel_leggings"));
-        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, Registries.ITEM.get(Identifier.of("mores", "hardened_steel_boots")), 1)
-                .pattern("# #")
-                .pattern("# #")
-                .input('#', TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "ingot/hardened_steel")))
-                .criterion("has_ingot_hardened_steel", conditionsFromTag(TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "ingot/hardened_steel"))))
-                .offerTo(exporter, Identifier.of("mores", "hardened_steel_boots"));
+        SmithingTransformRecipeJsonBuilder.create(Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "hardened_steel_upgrade_smithing_template"))), Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "carbon_steel_helmet"))), Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "hardened_steel_ingot"))), RecipeCategory.COMBAT, Registries.ITEM.get(Identifier.of("mores", "hardened_steel_helmet")))
+                .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "carbon_steel_helmet"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "carbon_steel_helmet"))))
+                .offerTo(exporter, Identifier.of("mores", "hardened_steel_helmet_smithing"));
+        SmithingTransformRecipeJsonBuilder.create(Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "hardened_steel_upgrade_smithing_template"))), Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "carbon_steel_chestplate"))), Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "hardened_steel_ingot"))), RecipeCategory.COMBAT, Registries.ITEM.get(Identifier.of("mores", "hardened_steel_chestplate")))
+                .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "carbon_steel_chestplate"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "carbon_steel_chestplate"))))
+                .offerTo(exporter, Identifier.of("mores", "hardened_steel_chestplate_smithing"));
+        SmithingTransformRecipeJsonBuilder.create(Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "hardened_steel_upgrade_smithing_template"))), Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "carbon_steel_leggings"))), Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "hardened_steel_ingot"))), RecipeCategory.COMBAT, Registries.ITEM.get(Identifier.of("mores", "hardened_steel_leggings")))
+                .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "carbon_steel_leggings"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "carbon_steel_leggings"))))
+                .offerTo(exporter, Identifier.of("mores", "hardened_steel_leggings_smithing"));
+        SmithingTransformRecipeJsonBuilder.create(Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "hardened_steel_upgrade_smithing_template"))), Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "carbon_steel_boots"))), Ingredient.ofItems(Registries.ITEM.get(Identifier.of("mores", "hardened_steel_ingot"))), RecipeCategory.COMBAT, Registries.ITEM.get(Identifier.of("mores", "hardened_steel_boots")))
+                .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "carbon_steel_boots"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "carbon_steel_boots"))))
+                .offerTo(exporter, Identifier.of("mores", "hardened_steel_boots_smithing"));
         //Horse Armor
         ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, Registries.ITEM.get(Identifier.of("mores", "hardened_steel_horse_armor")), 1)
                 .pattern("  H")
@@ -3623,7 +3565,6 @@ public class ModRecipeProvider extends FabricRecipeProvider {
     private void generateObsidian(RecipeExporter exporter) {
         /* -- Obsidian -- */
         //Items
-        //TODO Obsidian ingot from scrap
         ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "obsidian_ingot")), 1)
                 .input(Registries.ITEM.get(Identifier.of("mores", "obsidian_scrap")))
                 .input(Registries.ITEM.get(Identifier.of("minecraft", "gold_ingot")))
@@ -3703,8 +3644,6 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .input('G', TagKey.of(RegistryKeys.ITEM, Identifier.of("mores", "ingot/obsidian")))
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "obsidian_helmet"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "obsidian_helmet"))))
                 .offerTo(exporter, Identifier.of("mores", "obsidian_horse_armor"));
-
-
     }
 
     private void generateNetherite(RecipeExporter exporter) {

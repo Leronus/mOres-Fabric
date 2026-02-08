@@ -357,10 +357,10 @@ public class ModPlacedFeatures {
                         HeightRangePlacementModifier.uniform(YOffset.getBottom(), YOffset.getTop())));
 
         register(context, ENDERITE_SMALL, configuredFeatureRegistryEntryLookup.getOrThrow(ModConfiguredFeatures.ENDERITE_SMALL_ORE),
-                ModOrePlacement.modifiersWithRarity(12, // VeinsPerChunk
+                ModOrePlacement.modifiersWithCount(2, // VeinsPerChunk
                         HeightRangePlacementModifier.uniform(YOffset.getBottom(), YOffset.getTop())));
         register(context, ENDERITE_LARGE, configuredFeatureRegistryEntryLookup.getOrThrow(ModConfiguredFeatures.ENDERITE_LARGE_ORE),
-                ModOrePlacement.modifiersWithRarity(10, // VeinsPerChunk
+                ModOrePlacement.modifiersWithCount(1, // VeinsPerChunk
                         HeightRangePlacementModifier.uniform(YOffset.getBottom(), YOffset.getTop())));
 
         register(context, LEMON_OAK, configuredFeatureRegistryEntryLookup.getOrThrow(ModConfiguredFeatures.LEMON_OAK_TREE_WG),

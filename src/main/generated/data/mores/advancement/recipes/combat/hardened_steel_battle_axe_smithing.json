@@ -1,11 +1,11 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_stick": {
+    "has_carbon_steel_battle_axe": {
       "conditions": {
         "items": [
           {
-            "items": "minecraft:stick"
+            "items": "mores:carbon_steel_battle_axe"
           }
         ]
       },
@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "mores:hardened_steel_hoe"
+        "recipe": "mores:hardened_steel_battle_axe_smithing"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -21,12 +21,12 @@
   "requirements": [
     [
       "has_the_recipe",
-      "has_stick"
+      "has_carbon_steel_battle_axe"
     ]
   ],
   "rewards": {
     "recipes": [
-      "mores:hardened_steel_hoe"
+      "mores:hardened_steel_battle_axe_smithing"
     ]
   }
 }

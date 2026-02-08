@@ -388,6 +388,34 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
                 ModItems.DIAMOND_WOLF_ARMOR
         );
 
+        getOrCreateTagBuilder(ModTags.Items.VANILLA_SHIELDS).add(
+                ModItems.TIN_SHIELD,
+                ModItems.SILVER_SHIELD,
+                ModItems.COPPER_SHIELD,
+                ModItems.STERLING_SILVER_SHIELD,
+                ModItems.ROSE_GOLD_SHIELD,
+                ModItems.BRONZE_SHIELD,
+                ModItems.COBALT_SHIELD,
+                ModItems.CARBON_STEEL_SHIELD,
+                ModItems.HARDENED_STEEL_SHIELD,
+                ModItems.TURQUOISE_SHIELD,
+                ModItems.LAPIS_LAZULI_SHIELD,
+                ModItems.AMETHYST_SHIELD,
+                ModItems.CITRINE_SHIELD,
+                ModItems.ONYX_SHIELD,
+                ModItems.TANZANITE_SHIELD,
+                ModItems.TOURMALINE_SHIELD,
+                ModItems.TOPAZ_SHIELD,
+                ModItems.SPINEL_SHIELD,
+                ModItems.EMERALD_SHIELD,
+                ModItems.RUBY_SHIELD,
+                ModItems.SAPPHIRE_SHIELD,
+                ModItems.MOISSANITE_SHIELD,
+                ModItems.OBSIDIAN_SHIELD,
+                ModItems.ADAMANTIUM_SHIELD,
+                ModItems.ENDERITE_SHIELD
+        );
+
         getOrCreateTagBuilder(ConventionalItemTags.SHIELD_TOOLS).add(
                 ModItems.TIN_SHIELD,
                 ModItems.SILVER_SHIELD,

@@ -1,11 +1,11 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_planks": {
+    "has_carbon_steel_dagger": {
       "conditions": {
         "items": [
           {
-            "items": "#minecraft:planks"
+            "items": "mores:carbon_steel_dagger"
           }
         ]
       },
@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "mores:hardened_steel_shield"
+        "recipe": "mores:hardened_steel_dagger_smithing"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -21,12 +21,12 @@
   "requirements": [
     [
       "has_the_recipe",
-      "has_planks"
+      "has_carbon_steel_dagger"
     ]
   ],
   "rewards": {
     "recipes": [
-      "mores:hardened_steel_shield"
+      "mores:hardened_steel_dagger_smithing"
     ]
   }
 }

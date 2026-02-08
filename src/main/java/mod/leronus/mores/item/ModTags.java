@@ -24,6 +24,10 @@ public class ModTags {
         public static final TagKey<Item> WOLF_ARMOR =
                 TagKey.of(RegistryKeys.ITEM, Identifier.of("minecraft", "wolf_armor"));
 
+        // This is the vanilla item tag "minecraft:shields"
+        public static final TagKey<Item> VANILLA_SHIELDS =
+                TagKey.of(RegistryKeys.ITEM, Identifier.of("minecraft", "shields"));
+
         public static final TagKey<Item> SHEAR_REMOVES_ANIMAL_ARMOR = createTag("shear_removes_animal_armor");
         public static final TagKey<Item> SHEAR_REMOVES_SADDLE = createTag("shear_removes_saddle");
 

@@ -1290,11 +1290,15 @@ public final class ModChestLootInjector {
 
         pool.with(ItemEntry.builder(OBSIDIAN_SCRAP)
                 .apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(2, 4)))
-                .weight(7));
+                .weight(12));
 
         pool.with(ItemEntry.builder(HARDENED_STEEL_INGOT)
                 .apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(1, 1)))
-                .weight(6));
+                .weight(9));
+
+        pool.with(ItemEntry.builder(ENDERITE_SCRAP)
+                .apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(1, 1)))
+                .weight(4));
 
         tableBuilder.pool(pool);
     }

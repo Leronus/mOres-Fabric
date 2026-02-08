@@ -1324,6 +1324,7 @@
   "mores.midnightconfig.enum.MaterialPreset.SOFTER": "Softer",
   "mores.midnightconfig.enum.MaterialPreset.HARDER": "Harder",
 
+  "entity.lootr.lootr_cart": "Lootr Minecart",
   "block.customnetherportals.horizontal_nether_portal": "Custom Nether Portal",
   "ftbessentials.chat.status.start_record": "is now recording!",
   "ftbessentials.chat.status.stop_record": "is no longer recording!",
