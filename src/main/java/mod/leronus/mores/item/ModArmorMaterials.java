@@ -125,11 +125,11 @@ public final class ModArmorMaterials {
 
     public static final RegistryEntry<ArmorMaterial> OBSIDIAN = register("obsidian",
             human(3, 6, 8, 3, 11, 19, SoundEvents.ITEM_ARMOR_EQUIP_NETHERITE,
-                    () -> Ingredient.ofItems(ModItems.OBSIDIAN_INGOT), "obsidian", 3.0f, 0.1f));
+                    () -> Ingredient.ofItems(ModItems.OBSIDIAN_INGOT), "obsidian", 2.5f, 0.1f));
 
     public static final RegistryEntry<ArmorMaterial> ADAMANTIUM = register("adamantium",
             human(3, 6, 8, 3, 13, 16, SoundEvents.ITEM_ARMOR_EQUIP_NETHERITE,
-                    () -> Ingredient.ofItems(ModItems.ADAMANTIUM_INGOT), "adamantium", 3.0f, 1.0f));
+                    () -> Ingredient.ofItems(ModItems.ADAMANTIUM_INGOT), "adamantium", 2.5f, 1.0f));
 
     public static final RegistryEntry<ArmorMaterial> NETHERITE = register("netherite",
             human(3, 6, 8, 3, 11, 15, SoundEvents.ITEM_ARMOR_EQUIP_NETHERITE,

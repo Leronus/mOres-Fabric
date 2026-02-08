@@ -81,7 +81,7 @@ public class ModEntityLootTableProvider extends SimpleFabricLootTableProvider {
                                 .rolls(ConstantLootNumberProvider.create(1))
                                 .with(ItemEntry.builder(ModItems.HARDENED_STEEL_INGOT)
                                         .apply(SetCountLootFunction.builder(
-                                                UniformLootNumberProvider.create(3.0F, 5.0F)))))
+                                                UniformLootNumberProvider.create(2.0F, 4.0F)))))
                         // poppy flower: 0–2 (example)
                         .pool(LootPool.builder()
                                 .rolls(ConstantLootNumberProvider.create(1))

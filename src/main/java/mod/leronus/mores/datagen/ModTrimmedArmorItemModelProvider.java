@@ -15,6 +15,8 @@ import net.minecraft.registry.Registries;
 import net.minecraft.util.Identifier;
 
 import java.nio.file.Path;
+import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 import java.util.concurrent.CompletableFuture;
 
@@ -25,21 +27,24 @@ public final class ModTrimmedArmorItemModelProvider implements DataProvider {
 
     private record TrimDef(String name, float idx) {}
 
-    // Vanilla trim_type values (Mojang)
+    /**
+     * Vanilla trim_type values for Minecraft 1.21 / 1.21.1.
+     * (These changed from earlier versions.)
+     */
     private static final List<TrimDef> VANILLA_TRIMS = List.of(
             new TrimDef("quartz", 0.1f),
             new TrimDef("iron", 0.2f),
-            new TrimDef("gold", 0.3f),
-            new TrimDef("diamond", 0.4f),
-            new TrimDef("netherite", 0.5f),
-            new TrimDef("redstone", 0.6f),
-            new TrimDef("copper", 0.7f),
-            new TrimDef("emerald", 0.8f),
+            new TrimDef("netherite", 0.3f),
+            new TrimDef("redstone", 0.4f),
+            new TrimDef("copper", 0.5f),
+            new TrimDef("gold", 0.6f),
+            new TrimDef("emerald", 0.7f),
+            new TrimDef("diamond", 0.8f),
             new TrimDef("lapis", 0.9f),
             new TrimDef("amethyst", 1.0f)
     );
 
-    // MUST match ModTrimMaterials itemModelIndex exactly
+    // MUST match your trim_material JSON item_model_index exactly
     private static final List<TrimDef> MORES_TRIMS = List.of(
             new TrimDef("tin", 0.11f),
             new TrimDef("silver", 0.12f),
@@ -64,6 +69,19 @@ public final class ModTrimmedArmorItemModelProvider implements DataProvider {
             new TrimDef("adamantium", 0.33f),
             new TrimDef("enderite", 0.34f)
     );
+
+    /**
+     * IMPORTANT:
+     * Model overrides must be sorted ascending by trim_type (item_model_index).
+     */
+    private static final List<TrimDef> ALL_TRIMS_SORTED;
+    static {
+        List<TrimDef> all = new ArrayList<>(VANILLA_TRIMS.size() + MORES_TRIMS.size());
+        all.addAll(VANILLA_TRIMS);
+        all.addAll(MORES_TRIMS);
+        all.sort(Comparator.comparingDouble(TrimDef::idx));
+        ALL_TRIMS_SORTED = List.copyOf(all);
+    }
 
     public ModTrimmedArmorItemModelProvider(FabricDataOutput output) {
         this.output = output;
@@ -249,11 +267,7 @@ public final class ModTrimmedArmorItemModelProvider implements DataProvider {
         JsonArray overrides = new JsonArray();
         CompletableFuture<?> all = CompletableFuture.completedFuture(null);
 
-        for (TrimDef t : VANILLA_TRIMS) {
-            overrides.add(makeOverride(modid, armorPath, t.name(), t.idx()));
-            all = CompletableFuture.allOf(all, writePerTrim(writer, models, modid, armorPath, piece, t.name()));
-        }
-        for (TrimDef t : MORES_TRIMS) {
+        for (TrimDef t : ALL_TRIMS_SORTED) {
             overrides.add(makeOverride(modid, armorPath, t.name(), t.idx()));
             all = CompletableFuture.allOf(all, writePerTrim(writer, models, modid, armorPath, piece, t.name()));
         }
@@ -268,8 +282,8 @@ public final class ModTrimmedArmorItemModelProvider implements DataProvider {
             DataWriter writer,
             DataOutput.PathResolver models,
             Item item,
-            String vanillaItemName,   // e.g. "diamond_helmet"
-            String piece              // "helmet", "chestplate", "leggings", "boots"
+            String vanillaItemName,
+            String piece
     ) {
         Identifier baseModelId = Identifier.of("minecraft", vanillaItemName);
 
@@ -280,23 +294,23 @@ public final class ModTrimmedArmorItemModelProvider implements DataProvider {
         textures.addProperty("layer0", "minecraft:item/" + vanillaItemName);
         base.add("textures", textures);
 
-        // overrides
         JsonArray overrides = new JsonArray();
+        List<CompletableFuture<?>> trimModelWrites = new ArrayList<>();
 
-        // vanilla trims + your trims
-        for (TrimDef t : VANILLA_TRIMS) {
-            overrides.add(trimOverride("minecraft:item/" + vanillaItemName + "_" + t.name + "_trim", t.idx));
-            writeVanillaTrimModel(writer, models, vanillaItemName, piece, t.name);
-        }
-        for (TrimDef t : MORES_TRIMS) {
-            overrides.add(trimOverride("minecraft:item/" + vanillaItemName + "_" + t.name + "_trim", t.idx));
-            writeVanillaTrimModel(writer, models, vanillaItemName, piece, t.name);
+        for (TrimDef t : ALL_TRIMS_SORTED) {
+            overrides.add(trimOverride("minecraft:item/" + vanillaItemName + "_" + t.name() + "_trim", t.idx()));
+            trimModelWrites.add(writeVanillaTrimModel(writer, models, vanillaItemName, piece, t.name()));
         }
 
         base.add("overrides", overrides);
 
         Path path = models.resolve(baseModelId, "json");
-        return DataProvider.writeToPath(writer, base, path);
+        CompletableFuture<?> baseWrite = DataProvider.writeToPath(writer, base, path);
+
+        return CompletableFuture.allOf(
+                baseWrite,
+                CompletableFuture.allOf(trimModelWrites.toArray(CompletableFuture[]::new))
+        );
     }
 
     private JsonObject trimOverride(String model, float idx) {
@@ -329,8 +343,14 @@ public final class ModTrimmedArmorItemModelProvider implements DataProvider {
         return DataProvider.writeToPath(writer, m, path);
     }
 
-
-    private static CompletableFuture<?> writePerTrim(DataWriter writer, DataOutput.PathResolver models, String modid, String armorPath, String piece, String trimName) {
+    private static CompletableFuture<?> writePerTrim(
+            DataWriter writer,
+            DataOutput.PathResolver models,
+            String modid,
+            String armorPath,
+            String piece,
+            String trimName
+    ) {
         JsonObject m = new JsonObject();
         m.addProperty("parent", "minecraft:item/generated");
 

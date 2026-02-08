@@ -28,6 +28,8 @@ public abstract class MobEntityEquipmentMixin {
     private void mores$afterInitEquipment(Random random, LocalDifficulty difficulty, CallbackInfo ci) {
         MobEntity mob = (MobEntity) (Object) this;
 
+        if (!CommonConfig.enableHostileGearGeneration) return;
+
         // initialize() below (final safety)
         if (mob instanceof PiglinEntity) return;
         if (mob instanceof ZombifiedPiglinEntity) return;
@@ -50,9 +52,9 @@ public abstract class MobEntityEquipmentMixin {
 
     /**
      * FINAL safety net: runs after full initialization (MobEntity declares this method, so it resolves).
-     * This ensures zombified piglins keep rose_gold if anything re-asserts gold sword after initEquipment.
      *
-     * Also: This is where we do the "Trial Chamber" detection and exotic gear roll.
+     * This is where we do the "Trial Chamber" detection and exotic gear roll,
+     * and where we finally apply trims (so trims match the final gear).
      */
     @Inject(
             method = "initialize(Lnet/minecraft/world/ServerWorldAccess;Lnet/minecraft/world/LocalDifficulty;Lnet/minecraft/entity/SpawnReason;Lnet/minecraft/entity/EntityData;)Lnet/minecraft/entity/EntityData;",
@@ -72,25 +74,30 @@ public abstract class MobEntityEquipmentMixin {
         if (mob instanceof ZombifiedPiglinEntity zp) {
             ModMobEquipmentHelper.maybeUpgradeZombifiedPiglin(zp, zp.getRandom());
         }
+
         if (mob instanceof PiglinEntity pe) {
             ModMobEquipmentHelper.maybeUpgradePiglin(pe, pe.getRandom());
         }
+
         if (mob instanceof PiglinBruteEntity pbe) {
             ModMobEquipmentHelper.maybeUpgradePiglinBrute(pbe, pbe.getRandom());
         }
-        if (mob instanceof VindicatorEntity vex) {
+
+        // FIX: Vex is VexEntity (not VindicatorEntity)
+        if (mob instanceof VexEntity vex) {
             ModMobEquipmentHelper.maybeUpgradeVex(vex, vex.getRandom());
         }
+
         if (mob instanceof VindicatorEntity vd) {
             ModMobEquipmentHelper.maybeUpgradeVindicator(vd, vd.getRandom());
         }
+
         if (mob instanceof WitherSkeletonEntity wk) {
             ModMobEquipmentHelper.maybeUpgradeWitherSkeleton(wk, wk.getRandom());
         }
 
-        // NEW: very rare exotic gear roll (more frequent in Trial Chambers)
-        // Apply to typical "diamond-like" spawners (zombie/skeleton variants + vindicator + wither skeleton etc).
-        if (mob instanceof ZombieEntity && !(mob instanceof DrownedEntity)
+        // Exotic gear roll (more frequent in Trial Chambers)
+        if ((mob instanceof ZombieEntity && !(mob instanceof DrownedEntity))
                 || mob instanceof SkeletonEntity
                 || mob instanceof StrayEntity
                 || mob instanceof HuskEntity
@@ -99,5 +106,8 @@ public abstract class MobEntityEquipmentMixin {
 
             ModMobEquipmentHelper.maybeApplyExoticLoadoutIfEligible(mob, mob.getRandom());
         }
+
+        // ✅ NEW: Apply trims last, so they apply to final equipped armor (vanilla + your overrides + exotics)
+        ModMobEquipmentHelper.maybeApplyMoresTrimsIfEligible(mob, mob.getRandom());
     }
 }

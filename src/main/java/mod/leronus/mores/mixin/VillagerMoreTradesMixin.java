@@ -13,14 +13,19 @@ public abstract class VillagerMoreTradesMixin {
     private int mores$moreTradesPerLevel(int original) {
         VillagerEntity self = (VillagerEntity) (Object) this;
         VillagerProfession prof = self.getVillagerData().getProfession();
+        int level = self.getVillagerData().getLevel();
+
+        if (prof == VillagerProfession.CLERIC) {
+            // Cleric keeps vanilla 2 trades at level 1-2, then gets 3 later.
+            return level <= 2 ? 2 : 3;
+        }
 
         if (prof == VillagerProfession.ARMORER
                 || prof == VillagerProfession.TOOLSMITH
-                || prof == VillagerProfession.WEAPONSMITH
-                || prof == VillagerProfession.CLERIC) {
-            return 3; // your boosted value
+                || prof == VillagerProfession.WEAPONSMITH) {
+            return 3;
         }
 
-        return original; // everyone else (including beekeeper) stays vanilla
+        return original;
     }
 }

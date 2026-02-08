@@ -47,7 +47,7 @@ public class Mores implements ModInitializer {
         ModItemGroups.registerItemGroups();
 		ModItems.registerModItems();
 		ModBlocks.registerModBlocks();
-		ModTradeOverride.registerCustomTrades();
+//		ModTradeOverride.registerCustomTrades();
 		ModSounds.registerSounds();
         ModRecipes.registerRecipes();
 		ModBlockEntities.registerBlockEntities();

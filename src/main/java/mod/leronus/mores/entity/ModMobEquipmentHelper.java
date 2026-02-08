@@ -2,14 +2,21 @@ package mod.leronus.mores.entity;
 
 import mod.leronus.mores.Mores;
 import mod.leronus.mores.config.CommonConfig;
+import net.minecraft.component.DataComponentTypes;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.mob.MobEntity;
+import net.minecraft.item.ArmorItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
+import net.minecraft.item.trim.ArmorTrim;
+import net.minecraft.item.trim.ArmorTrimMaterial;
+import net.minecraft.item.trim.ArmorTrimPattern;
 import net.minecraft.registry.Registries;
+import net.minecraft.registry.Registry;
 import net.minecraft.registry.RegistryKey;
 import net.minecraft.registry.RegistryKeys;
+import net.minecraft.registry.entry.RegistryEntry;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.structure.StructureStart;
 import net.minecraft.util.Identifier;
@@ -56,11 +63,19 @@ public final class ModMobEquipmentHelper {
 
     /**
      * Exotic roll chances:
-     * - NORMAL: extremely rare (0.05% => 1/2000)
-     * - TRIAL CHAMBER: much more frequent (1.0% => 1/100)
+     * - NORMAL: extremely rare (0.5% => 1/200)
+     * - TRIAL CHAMBER: much more frequent (5.0% => 1/20)
      */
-    private static final float EXOTIC_CHANCE_NORMAL = 0.0005f;
-    private static final float EXOTIC_CHANCE_TRIAL  = 0.01f;
+    private static final float EXOTIC_CHANCE_NORMAL = 0.005f; //0.5%
+    private static final float EXOTIC_CHANCE_TRIAL  = 0.05f; //5%
+
+    /**
+     * Trim roll chances:
+     * - NORMAL: rare, but possible
+     * - TRIAL CHAMBER: common
+     */
+    private static final float TRIM_CHANCE_NORMAL = 0.01f; //1%
+    private static final float TRIM_CHANCE_TRIAL  = 0.30f; //30%
 
     private static final RegistryKey<Structure> TRIAL_CHAMBERS_KEY =
             RegistryKey.of(RegistryKeys.STRUCTURE, Identifier.of("minecraft", "trial_chambers"));
@@ -89,19 +104,6 @@ public final class ModMobEquipmentHelper {
             "mores:sterling_silver_axe",
             "mores:carbon_steel_axe",
             "mores:cobalt_axe"
-    };
-
-    /** The “exotic” materials you asked for */
-    private static final String[] EXOTIC_MATERIALS = {
-            "emerald",
-            "spinel",
-            "tanzanite",
-            "tourmaline",
-            "topaz",
-            "ruby",
-            "sapphire",
-            "moissanite",
-            "obsidian"
     };
 
     /* ===========================
@@ -154,9 +156,36 @@ public final class ModMobEquipmentHelper {
         return "rose_gold";
     }
 
+    /**
+     * Exotic materials selection (NO moissanite).
+     *
+     * Tiers (about +10% relative per step):
+     * - topaz / tanzanite / tourmaline : slightly more common (weight 21)
+     * - ruby / sapphire / spinel       : next tier (weight 20)
+     * - obsidian / adamantium          : rarest tier (weight 19)
+     */
     private static String pickExoticMaterial(Random random) {
-        return EXOTIC_MATERIALS[random.nextInt(EXOTIC_MATERIALS.length)];
+        final int W_TOP = 21;   // topaz/tanzanite/tourmaline
+        final int W_MID = 19;   // ruby/sapphire/spinel
+        final int W_LOW = 17;   // obsidian/adamantium (rarest)
+
+        int total = (3 * W_TOP) + (3 * W_MID) + (2 * W_LOW);
+        int roll = random.nextInt(total);
+
+        // Top tier (each ~5% more likely than mid tier)
+        if ((roll -= W_TOP) < 0) return "topaz";
+        if ((roll -= W_TOP) < 0) return "tanzanite";
+        if ((roll -= W_TOP) < 0) return "tourmaline";
+
+        // Mid tier (each ~5% more likely than low tier)
+        if ((roll -= W_MID) < 0) return "ruby";
+        if ((roll -= W_MID) < 0) return "sapphire";
+        if ((roll -= W_MID) < 0) return "spinel";
+
+        // Low tier (rarest, equal odds)
+        return (random.nextBoolean()) ? "obsidian" : "adamantium";
     }
+
 
     /* ===========================
        ENTRY POINTS
@@ -242,9 +271,7 @@ public final class ModMobEquipmentHelper {
     }
 
     /**
-     * NEW: Very rare “exotic” loadout roll.
-     * Call this after initialization so we can detect Trial Chambers.
-     *
+     * Very rare “exotic” loadout roll.
      * - Outside Trial Chambers: 0.05% (1/2000)
      * - Inside Trial Chambers: 1% (1/100)
      */
@@ -267,6 +294,33 @@ public final class ModMobEquipmentHelper {
             equipExoticArmorOverride(mob, mat, random);
             setArmorDropChances(mob);
         }
+    }
+
+    /**
+     * Apply ANY/ALL of your mod's registered trim materials (everything in namespace "mores")
+     * to any equipped armor (vanilla OR mOres armor).
+     *
+     * Does NOT overwrite existing trims.
+     */
+    public static void maybeApplyMoresTrimsIfEligible(MobEntity mob, Random random) {
+        float chance = isInTrialChamber(mob) ? TRIM_CHANCE_TRIAL : TRIM_CHANCE_NORMAL;
+        if (random.nextFloat() >= chance) return;
+
+        if (!(mob.getWorld() instanceof ServerWorld sw)) return;
+        if (!hasAnyArmorEquipped(mob)) return;
+
+        RegistryEntry<ArmorTrimMaterial> material = pickAnyMoresTrimMaterial(sw, random);
+        if (material == null) return;
+
+        RegistryEntry<ArmorTrimPattern> pattern = pickTrimPattern(sw, random, isInTrialChamber(mob));
+        if (pattern == null) return;
+
+        ArmorTrim trim = new ArmorTrim(material, pattern);
+
+        applyTrimIfPossible(mob, EquipmentSlot.HEAD, trim);
+        applyTrimIfPossible(mob, EquipmentSlot.CHEST, trim);
+        applyTrimIfPossible(mob, EquipmentSlot.LEGS, trim);
+        applyTrimIfPossible(mob, EquipmentSlot.FEET, trim);
     }
 
     /* ===========================
@@ -452,7 +506,7 @@ public final class ModMobEquipmentHelper {
         return true;
     }
 
-    /** NEW: override armor even if occupied */
+    /** override armor even if occupied */
     private static boolean equipSlotOverride(MobEntity mob, EquipmentSlot slot, String itemId) {
         if (itemId == null) return false;
 
@@ -463,7 +517,7 @@ public final class ModMobEquipmentHelper {
         return true;
     }
 
-    /** NEW: override mainhand even if occupied */
+    /** override mainhand even if occupied */
     private static boolean equipMainhandOverride(MobEntity mob, String itemId) {
         Optional<Item> item = getItem(itemId);
         if (item.isEmpty()) return false;
@@ -483,6 +537,98 @@ public final class ModMobEquipmentHelper {
     }
 
     /* ===========================
+       TRIMS
+       =========================== */
+
+    private static boolean hasAnyArmorEquipped(MobEntity mob) {
+        return isArmorItem(mob.getEquippedStack(EquipmentSlot.HEAD))
+                || isArmorItem(mob.getEquippedStack(EquipmentSlot.CHEST))
+                || isArmorItem(mob.getEquippedStack(EquipmentSlot.LEGS))
+                || isArmorItem(mob.getEquippedStack(EquipmentSlot.FEET));
+    }
+
+    private static boolean isArmorItem(ItemStack stack) {
+        return !stack.isEmpty() && (stack.getItem() instanceof ArmorItem);
+    }
+
+    private static void applyTrimIfPossible(MobEntity mob, EquipmentSlot slot, ArmorTrim trim) {
+        ItemStack stack = mob.getEquippedStack(slot);
+        if (stack.isEmpty()) return;
+        if (!(stack.getItem() instanceof ArmorItem)) return;
+
+        // Don't overwrite existing trim (vanilla trial spawner may already apply one)
+        if (stack.contains(DataComponentTypes.TRIM)) return;
+
+        stack.set(DataComponentTypes.TRIM, trim);
+        mob.equipStack(slot, stack);
+    }
+
+    /**
+     * Picks uniformly from all registered trim materials in the mores namespace.
+     * (So it automatically includes any/all of your trim materials.)
+     */
+    private static RegistryEntry<ArmorTrimMaterial> pickAnyMoresTrimMaterial(ServerWorld sw, Random random) {
+        Registry<ArmorTrimMaterial> reg = sw.getRegistryManager().get(RegistryKeys.TRIM_MATERIAL);
+
+        List<RegistryKey<ArmorTrimMaterial>> keys = new ArrayList<>();
+        for (var entry : reg.getEntrySet()) {
+            Identifier id = entry.getKey().getValue();
+            if (id != null && Mores.MOD_ID.equals(id.getNamespace())) {
+                keys.add(entry.getKey());
+            }
+        }
+
+        if (keys.isEmpty()) return null;
+
+        RegistryKey<ArmorTrimMaterial> picked = keys.get(random.nextInt(keys.size()));
+        return reg.getEntry(picked).orElse(null);
+    }
+
+    /**
+     * Trial chambers bias toward FLOW/BOLT if present; otherwise pick from a wider pool.
+     * Uses registry IDs directly (version-safe).
+     */
+    private static RegistryEntry<ArmorTrimPattern> pickTrimPattern(ServerWorld sw, Random random, boolean inTrial) {
+        Registry<ArmorTrimPattern> reg = sw.getRegistryManager().get(RegistryKeys.TRIM_PATTERN);
+
+        List<Identifier> pool = new ArrayList<>();
+
+        if (inTrial) {
+            for (int i = 0; i < 6; i++) pool.add(Identifier.of("minecraft", "flow"));
+            for (int i = 0; i < 6; i++) pool.add(Identifier.of("minecraft", "bolt"));
+        }
+
+        pool.add(Identifier.of("minecraft", "sentry"));
+        pool.add(Identifier.of("minecraft", "dune"));
+        pool.add(Identifier.of("minecraft", "coast"));
+        pool.add(Identifier.of("minecraft", "wild"));
+        pool.add(Identifier.of("minecraft", "ward"));
+        pool.add(Identifier.of("minecraft", "vex"));
+        pool.add(Identifier.of("minecraft", "eye"));
+        pool.add(Identifier.of("minecraft", "tide"));
+        pool.add(Identifier.of("minecraft", "snout"));
+        pool.add(Identifier.of("minecraft", "rib"));
+        pool.add(Identifier.of("minecraft", "spire"));
+        pool.add(Identifier.of("minecraft", "wayfinder"));
+        pool.add(Identifier.of("minecraft", "shaper"));
+        pool.add(Identifier.of("minecraft", "raiser"));
+        pool.add(Identifier.of("minecraft", "host"));
+        pool.add(Identifier.of("minecraft", "silence"));
+
+        for (int attempts = 0; attempts < 8; attempts++) {
+            Identifier id = pool.get(random.nextInt(pool.size()));
+            Optional<ArmorTrimPattern> pat = reg.getOrEmpty(id);
+            if (pat.isEmpty()) continue;
+
+            RegistryKey<ArmorTrimPattern> key = RegistryKey.of(RegistryKeys.TRIM_PATTERN, id);
+            RegistryEntry<ArmorTrimPattern> entry = reg.getEntry(key).orElse(null);
+            if (entry != null) return entry;
+        }
+
+        return null;
+    }
+
+    /* ===========================
        TRIAL CHAMBER DETECTION
        =========================== */
 
@@ -491,7 +637,6 @@ public final class ModMobEquipmentHelper {
 
         BlockPos pos = mob.getBlockPos();
 
-        // Resolve the actual Structure instance from the registry
         Optional<Structure> trialOpt = sw.getRegistryManager()
                 .get(RegistryKeys.STRUCTURE)
                 .getOrEmpty(Identifier.of("minecraft", "trial_chambers"));
@@ -502,7 +647,6 @@ public final class ModMobEquipmentHelper {
             StructureStart start = sw.getStructureAccessor().getStructureContaining(pos, trialOpt.get());
             return start != null && start.hasChildren();
         } catch (Throwable t) {
-            // mapping/version-safe fallback
             return false;
         }
     }

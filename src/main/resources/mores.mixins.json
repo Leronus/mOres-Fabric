@@ -32,6 +32,7 @@
     "VexEntityMixin",
     "VindicatorEntityMixin",
     "WitherSkeletonEntityMixin",
+    "VillagerMoresRecipeMixin",
     "server.ZombieDuckJockeyMixin",
     "server.OverworldHostileDuckJockeyMixin"
   ],
