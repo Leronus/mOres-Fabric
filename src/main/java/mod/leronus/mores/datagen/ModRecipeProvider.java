@@ -1697,6 +1697,14 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .input(Registries.ITEM.get(Identifier.of("mores", "carbon_steel_ingot")))
                 .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "carbon_steel_scrap"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "carbon_steel_scrap"))))
                 .offerTo(exporter, Identifier.of("mores", "hardened_steel_ingot"));
+        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "hardened_steel_ingot")), 1)
+                .group("hardened_steel_ingot")
+                .pattern("###")
+                .pattern("###")
+                .pattern("###")
+                .input('#', Registries.ITEM.get(Identifier.of("mores", "hardened_steel_nugget")))
+                .criterion(hasItem(Registries.ITEM.get(Identifier.of("mores", "hardened_steel_nugget"))), conditionsFromItem(Registries.ITEM.get(Identifier.of("mores", "hardened_steel_nugget"))))
+                .offerTo(exporter, Identifier.of("mores", "hardened_steel_ingot_from_nuggets"));
         ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Registries.ITEM.get(Identifier.of("mores", "hardened_steel_upgrade_smithing_template")), 2)
                 .pattern("#S#")
                 .pattern("#C#")

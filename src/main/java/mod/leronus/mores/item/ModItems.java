@@ -1027,55 +1027,55 @@ public class ModItems {
     public static final Item TIN_HOE = registerItem("tin_hoe", new ModHoeItem(ModToolMaterials.TIN, new Item.Settings().attributeModifiers(HoeItem.createAttributeModifiers(ModToolMaterials.TIN,
     0, -3.0F))));
     public static final Item SILVER_HOE = registerItem("silver_hoe", new ModHoeItem(ModToolMaterials.SILVER, new Item.Settings().attributeModifiers(HoeItem.createAttributeModifiers(ModToolMaterials.SILVER,
-    0, -4.0F))));
+    0, -2.0F))));
     public static final Item COPPER_HOE = registerItem("copper_hoe", new ModHoeItem(ModToolMaterials.COPPER, new Item.Settings().attributeModifiers(HoeItem.createAttributeModifiers(ModToolMaterials.COPPER,
-    0, -4.0F))));
+    0, -2.0F))));
     public static final Item STERLING_SILVER_HOE = registerItem("sterling_silver_hoe", new ModHoeItem(ModToolMaterials.STERLING_SILVER, new Item.Settings().attributeModifiers(HoeItem.createAttributeModifiers(ModToolMaterials.STERLING_SILVER,
-    0, -5.0F))));
+    0, -1.0F))));
     public static final Item ROSE_GOLD_HOE = registerItem("rose_gold_hoe", new ModHoeItem(ModToolMaterials.ROSE_GOLD, new Item.Settings().attributeModifiers(HoeItem.createAttributeModifiers(ModToolMaterials.ROSE_GOLD,
-    0, -4.0F))));
+    0, -2.0F))));
     public static final Item BRONZE_HOE = registerItem("bronze_hoe", new ModHoeItem(ModToolMaterials.BRONZE, new Item.Settings().attributeModifiers(HoeItem.createAttributeModifiers(ModToolMaterials.BRONZE,
-    0, -5.0F))));
+    0, -1.0F))));
     public static final Item COBALT_HOE = registerItem("cobalt_hoe", new ModHoeItem(ModToolMaterials.COBALT, new Item.Settings().attributeModifiers(HoeItem.createAttributeModifiers(ModToolMaterials.COBALT,
-    0, -5.0F))));
+    0, -1.0F))));
     public static final Item CARBON_STEEL_HOE = registerItem("carbon_steel_hoe", new ModHoeItem(ModToolMaterials.CARBON_STEEL, new Item.Settings().attributeModifiers(HoeItem.createAttributeModifiers(ModToolMaterials.CARBON_STEEL,
-    0, -5.0F))));
+    0, -1.0F))));
     public static final Item HARDENED_STEEL_HOE = registerItem("hardened_steel_hoe", new ModHoeItem(ModToolMaterials.HARDENED_STEEL, new Item.Settings().fireproof().attributeModifiers(HoeItem.createAttributeModifiers(ModToolMaterials.HARDENED_STEEL,
-    0, -6.0F))));
+    0, -0.0F))));
     public static final Item LAPIS_LAZULI_HOE = registerItem("lapis_lazuli_hoe", new ModHoeItem(ModToolMaterials.LAPIS_LAZULI, new Item.Settings().attributeModifiers(HoeItem.createAttributeModifiers(ModToolMaterials.LAPIS_LAZULI,
-    0, -6.0F))));
+    0, -0.0F))));
     public static final Item TURQUOISE_HOE = registerItem("turquoise_hoe", new ModHoeItem(ModToolMaterials.TURQUOISE, new Item.Settings().attributeModifiers(HoeItem.createAttributeModifiers(ModToolMaterials.TURQUOISE,
-    0, -6.0F))));
+    0, -0.0F))));
     public static final Item TANZANITE_HOE = registerItem("tanzanite_hoe", new ModHoeItem(ModToolMaterials.TANZANITE, new Item.Settings().attributeModifiers(HoeItem.createAttributeModifiers(ModToolMaterials.TANZANITE,
-    0, -6.0F))));
+    0, -0.0F))));
     public static final Item AMETHYST_HOE = registerItem("amethyst_hoe", new ModHoeItem(ModToolMaterials.AMETHYST, new Item.Settings().attributeModifiers(HoeItem.createAttributeModifiers(ModToolMaterials.AMETHYST,
-    0, -6.0F))));
+    0, -0.0F))));
     public static final Item TOPAZ_HOE = registerItem("topaz_hoe", new ModHoeItem(ModToolMaterials.TOPAZ, new Item.Settings().attributeModifiers(HoeItem.createAttributeModifiers(ModToolMaterials.TOPAZ,
-    0, -6.0F))));
+    0, -0.0F))));
     public static final Item TOURMALINE_HOE = registerItem("tourmaline_hoe", new ModHoeItem(ModToolMaterials.TOURMALINE, new Item.Settings().attributeModifiers(HoeItem.createAttributeModifiers(ModToolMaterials.TOURMALINE,
-    0, -6.0F))));
+    0, -0.0F))));
     public static final Item EMERALD_HOE = registerItem("emerald_hoe", new ModHoeItem(ModToolMaterials.EMERALD, new Item.Settings().attributeModifiers(HoeItem.createAttributeModifiers(ModToolMaterials.EMERALD,
-    0, -6.0F))));
+    0, -0.0F))));
     public static final Item RUBY_HOE = registerItem("ruby_hoe", new ModHoeItem(ModToolMaterials.RUBY, new Item.Settings().fireproof().attributeModifiers(HoeItem.createAttributeModifiers(ModToolMaterials.RUBY,
-    0, -6.0F))));
+    0, -0.0F))));
     public static final Item SAPPHIRE_HOE = registerItem("sapphire_hoe", new ModHoeItem(ModToolMaterials.SAPPHIRE, new Item.Settings().attributeModifiers(HoeItem.createAttributeModifiers(ModToolMaterials.SAPPHIRE,
-    0, -6.0F))));
+    0, -0.0F))));
     public static final Item SPINEL_HOE = registerItem("spinel_hoe", new ModHoeItem(ModToolMaterials.SPINEL, new Item.Settings().attributeModifiers(HoeItem.createAttributeModifiers(ModToolMaterials.SPINEL,
-    0, -6.0F))));
+    0, -0.0F))));
     public static final Item CITRINE_HOE = registerItem("citrine_hoe", new ModHoeItem(ModToolMaterials.CITRINE, new Item.Settings().fireproof().attributeModifiers(ModHoeItem.addReach(HoeItem.createAttributeModifiers(ModToolMaterials.CITRINE,
-    /*baseDamage*/ 0, /*attackSpeed*/ -6.0f), 1.0 /*+1 block reach*/))));
+    /*baseDamage*/ 0, /*attackSpeed*/ -0.0f), 1.0 /*+1 block reach*/))));
     public static final Item MOISSANITE_HOE = registerItem("moissanite_hoe", new ModHoeItem(ModToolMaterials.MOISSANITE, new Item.Settings().attributeModifiers(HoeItem.createAttributeModifiers(ModToolMaterials.MOISSANITE,
-    0, -6.0F))));
+    0, -0.0F))));
     public static final Item ONYX_HOE = registerItem("onyx_hoe", new ModHoeItem(ModToolMaterials.ONYX, new Item.Settings().fireproof().attributeModifiers(HoeItem.createAttributeModifiers(ModToolMaterials.ONYX,
-    0, -6.0F))));
+    0, -0.0F))));
     public static final Item OBSIDIAN_HOE = registerItem("obsidian_hoe", new ModHoeItem(ModToolMaterials.OBSIDIAN, new Item.Settings().fireproof().attributeModifiers(HoeItem.createAttributeModifiers(ModToolMaterials.OBSIDIAN,
-    0, -6.0F))));
+    0, -0.0F))));
 //    public static final Item GRAPHENE_HOE = registerItem("graphene_hoe",new ModHoeItem(ModToolMaterials.GRAPHENE,new Item.Settings().attributeModifiers(HoeItem.createAttributeModifiers(ModToolMaterials.GRAPHENE,
 //    0, -3.0F))));
     public static final Item ADAMANTIUM_HOE = registerItem("adamantium_hoe", new ModHoeItem(ModToolMaterials.ADAMANTIUM,new Item.Settings().attributeModifiers(HoeItem.createAttributeModifiers(ModToolMaterials.ADAMANTIUM,
-    0, -6.0F))));
+    0, -0.0F))));
     public static final Item ENDERITE_HOE = registerItem("enderite_hoe", new ModHoeItem(ModToolMaterials.ENDERITE, new Item.Settings().fireproof().attributeModifiers(HoeItem.createAttributeModifiers(ModToolMaterials.ENDERITE,
-    0, -6.0F))));
+    0, -0.0F))));
 
 
     //Vanilla tools

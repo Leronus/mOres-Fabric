@@ -19,7 +19,7 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
     protected void configure(RegistryWrapper.WrapperLookup wrapperLookup) {
         //Ores & Blocks
         getOrCreateTagBuilder(BlockTags.PICKAXE_MINEABLE).add(
-                ModBlocks.ALLOY_FURNACE,
+                ModBlocks.ALLOY_FURNACE, ModBlocks.STEEL_CUTTER,
                 ModBlocks.ANTHRACITE_ORE, ModBlocks.DEEPSLATE_ANTHRACITE_ORE, ModBlocks.NETHER_ANTHRACITE_ORE,
                 ModBlocks.TIN_ORE, ModBlocks.DEEPSLATE_TIN_ORE, ModBlocks.ANDESITE_TIN_ORE, ModBlocks.GRANITE_TIN_ORE, ModBlocks.TUFF_TIN_ORE,
                 ModBlocks.SILVER_ORE,  ModBlocks.DEEPSLATE_SILVER_ORE, ModBlocks.NETHER_SILVER_ORE, ModBlocks.ENDER_SILVER_ORE, ModBlocks.ELECTRUM_ORE,
@@ -114,7 +114,8 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
 
         //Harvest Levels
         getOrCreateTagBuilder(BlockTags.NEEDS_STONE_TOOL).add(
-                ModBlocks.ALLOY_FURNACE, ModBlocks.TIN_BLOCK,
+                ModBlocks.ALLOY_FURNACE, ModBlocks.STEEL_CUTTER,
+                ModBlocks.TIN_BLOCK,
                 ModBlocks.ANTHRACITE_ORE, ModBlocks.DEEPSLATE_ANTHRACITE_ORE, ModBlocks.NETHER_ANTHRACITE_ORE,
                 ModBlocks.RAW_TIN_BLOCK, ModBlocks.DEEPSLATE_TIN_ORE, ModBlocks.ANDESITE_TIN_ORE, ModBlocks.GRANITE_TIN_ORE, ModBlocks.GRAVEL_TIN_ORE, ModBlocks.TUFF_TIN_ORE,
                 ModBlocks.SILVER_ORE, ModBlocks.DEEPSLATE_SILVER_ORE, ModBlocks.NETHER_SILVER_ORE, ModBlocks.ELECTRUM_ORE, ModBlocks.ENDER_SILVER_ORE, ModBlocks.ANDESITE_SILVER_ORE, ModBlocks.BASALT_SILVER_ORE, ModBlocks.BLACKSTONE_SILVER_ORE, ModBlocks.CALCITE_SILVER_ORE, ModBlocks.DIORITE_SILVER_ORE,
