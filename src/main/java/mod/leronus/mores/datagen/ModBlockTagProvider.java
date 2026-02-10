@@ -30,7 +30,7 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 ModBlocks.GRANITE_COBALT_ORE, ModBlocks.TUFF_COBALT_ORE,
                 ModBlocks.TURQUOISE_ORE, ModBlocks.DEEPSLATE_TURQUOISE_ORE,
                 ModBlocks.CITRINE_ORE, ModBlocks.NETHER_CITRINE_ORE,
-                ModBlocks.ENDER_ONYX_ORE,
+                ModBlocks.NETHER_ONYX_ORE, ModBlocks.ENDER_ONYX_ORE,
                 ModBlocks.QUARTZ_ORE, ModBlocks.DEEPSLATE_QUARTZ_ORE,
                 ModBlocks.TANZANITE_ORE, ModBlocks.DEEPSLATE_TANZANITE_ORE, ModBlocks.NETHER_TANZANITE_ORE, ModBlocks.ENDER_TANZANITE_ORE,
                 ModBlocks.ANDESITE_TANZANITE_ORE,  ModBlocks.BASALT_TANZANITE_ORE, ModBlocks.BLACKSTONE_TANZANITE_ORE, ModBlocks.CALCITE_TANZANITE_ORE, ModBlocks.DIORITE_TANZANITE_ORE,
