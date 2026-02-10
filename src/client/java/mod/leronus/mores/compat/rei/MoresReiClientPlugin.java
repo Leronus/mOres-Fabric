@@ -7,15 +7,13 @@ import me.shedaniel.rei.api.client.registry.display.DisplayRegistry;
 import me.shedaniel.rei.api.client.registry.screen.ScreenRegistry;
 import me.shedaniel.rei.api.common.util.EntryStacks;
 
-import mod.leronus.mores.block.ModBlocks;              // adjust if your package differs
+import mod.leronus.mores.block.ModBlocks;
 import mod.leronus.mores.recipe.AlloyingRecipe;
 import mod.leronus.mores.recipe.SteelCuttingRecipe;
 import mod.leronus.mores.registry.ModRecipes;
-import mod.leronus.mores.screen.AlloyFurnaceScreen;    // must extend HandledScreen<AlloyFurnaceScreenHandler>
-import mod.leronus.mores.screen.SteelCutterScreen;
+import mod.leronus.mores.screen.AlloyFurnaceScreen;
 
 public class MoresReiClientPlugin implements REIClientPlugin {
-
     @Override
     public void registerCategories(CategoryRegistry registry) {
         registry.add(new AlloyingCategory());
@@ -27,7 +25,6 @@ public class MoresReiClientPlugin implements REIClientPlugin {
 
     @Override
     public void registerDisplays(DisplayRegistry registry) {
-        // ✅ Matches the DisplayRegistry decompile you posted
         registry.registerRecipeFiller(
                 AlloyingRecipe.class,
                 ModRecipes.ALLOYING,
@@ -42,16 +39,11 @@ public class MoresReiClientPlugin implements REIClientPlugin {
 
     @Override
     public void registerScreens(ScreenRegistry registry) {
-        // ✅ Matches the ScreenRegistry decompile you posted
+        // REI "+" / click areas (on burn arrow e.g.)
         registry.registerContainerClickArea(
                 new Rectangle(78, 32, 28, 18),
                 AlloyFurnaceScreen.class,
                 AlloyingCategory.ID
-        );
-        registry.registerContainerClickArea(
-                new Rectangle(134, 32, 24, 17), // <-- adjust to match your texture/widget position
-                SteelCutterScreen.class,
-                SteelCuttingCategory.ID
         );
     }
 }

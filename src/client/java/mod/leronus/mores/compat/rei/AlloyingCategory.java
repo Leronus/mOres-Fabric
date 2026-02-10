@@ -54,7 +54,7 @@ public class AlloyingCategory implements DisplayCategory<AlloyingDisplay> {
      * Move the whole panel UP to reduce the gap under the category header.
      * If this overlaps for you, tweak between -10..0.
      */
-    private static final int Y_OFFSET = -8;
+    private static final int Y_OFFSET = 0;
 
     // Slot coords (from your handler/screen)
     private static final int SLOT_IN_A_X = 45;

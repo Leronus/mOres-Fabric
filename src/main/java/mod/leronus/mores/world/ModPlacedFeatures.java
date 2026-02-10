@@ -222,7 +222,7 @@ public class ModPlacedFeatures {
                         HeightRangePlacementModifier.uniform(YOffset.getBottom(), YOffset.getTop())));
 
         register(context, TANZANITE_SMALL, configuredFeatureRegistryEntryLookup.getOrThrow(ModConfiguredFeatures.TANZANITE_SMALL_ORE),
-                ModOrePlacement.modifiersWithCount(7, // VeinsPerChunk
+                ModOrePlacement.modifiersWithCount(6, // VeinsPerChunk
                         HeightRangePlacementModifier.trapezoid(YOffset.aboveBottom(-70), YOffset.aboveBottom(70))));
         register(context, TANZANITE_MEDIUM, configuredFeatureRegistryEntryLookup.getOrThrow(ModConfiguredFeatures.TANZANITE_MEDIUM_ORE),
                 ModOrePlacement.modifiersWithCount(2, // VeinsPerChunk
@@ -307,7 +307,7 @@ public class ModPlacedFeatures {
                 ModOrePlacement.modifiersWithRarity(6, // VeinsPerChunk
                         HeightRangePlacementModifier.trapezoid(YOffset.aboveBottom(-100), YOffset.aboveBottom(65))));
         register(context, RUBY_BURIED, configuredFeatureRegistryEntryLookup.getOrThrow(ModConfiguredFeatures.RUBY_BURIED_ORE),
-                ModOrePlacement.modifiersWithCount(4, // VeinsPerChunk
+                ModOrePlacement.modifiersWithCount(3, // VeinsPerChunk
                         HeightRangePlacementModifier.trapezoid(YOffset.aboveBottom(-90), YOffset.aboveBottom(70))));
         register(context, NETHER_RUBY, configuredFeatureRegistryEntryLookup.getOrThrow(ModConfiguredFeatures.NETHER_RUBY_ORE),
                 ModOrePlacement.modifiersWithCount(4, // VeinsPerChunk
@@ -318,7 +318,7 @@ public class ModPlacedFeatures {
 
 
         register(context, SAPPHIRE_SMALL, configuredFeatureRegistryEntryLookup.getOrThrow(ModConfiguredFeatures.SAPPHIRE_SMALL_ORE),
-                ModOrePlacement.modifiersWithCount(7, // VeinsPerChunk
+                ModOrePlacement.modifiersWithCount(6, // VeinsPerChunk
                         HeightRangePlacementModifier.trapezoid(YOffset.aboveBottom(-90), YOffset.aboveBottom(75))));
         register(context, SAPPHIRE_MEDIUM, configuredFeatureRegistryEntryLookup.getOrThrow(ModConfiguredFeatures.SAPPHIRE_MEDIUM_ORE),
                 ModOrePlacement.modifiersWithCount(2, // VeinsPerChunk

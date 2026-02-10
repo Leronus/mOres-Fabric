@@ -145,7 +145,7 @@ dependencies {
     modRuntimeOnly "maven.modrinth:sodium:${project.sodium_version}"
     modRuntimeOnly "maven.modrinth:lithium:${project.lithium_version}"
     modRuntimeOnly "maven.modrinth:iris:${project.iris_version}"
-    modRuntimeOnly "maven.modrinth:indium:${project.indium_version}"
+//    modRuntimeOnly "maven.modrinth:indium:${project.indium_version}"
 //    modRuntimeOnly "maven.modrinth:nvidium:${project.nvidium_version}"
 
     // Universal Ores (not needed at compile-time)
