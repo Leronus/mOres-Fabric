@@ -45,6 +45,7 @@
         "spears": "*"
     },
 	"suggests": {
-		"universal_ores": "*"
+		"universal_ores": "*",
+        "detailabreconst": "*"
 	}
 }

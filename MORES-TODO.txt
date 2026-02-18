@@ -1,15 +1,11 @@
 Fabric 1.21.1 
 
-LAST TODO FOR SEVER
-- Hardened Steel recipe
-- Villager trades -> smithing templates voor toolsmith en de rest afmaken
-- Armor trims
+- Adamantium recycling
+- book?
+- Copper detailab
 
 Testing:
-- Battle Mace shield disable
-- Tanzanite too much? Sapphire a little too much
-- Buff mineshaft loot a little bit
-- Electrum ore
+- Electrum ore ??
 
 
 - Check tooltips for wolf armor and spears, as well as updating the bonuses (& colors) also fix shulker shell durability>?>?

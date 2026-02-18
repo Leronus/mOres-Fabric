@@ -4931,6 +4931,9 @@ public class ModRecipeProvider extends FabricRecipeProvider {
         addToolRecyclingForMaterial(exporter, "tourmaline",  TOURMALINE_GEM);
         addArmorRecyclingForMaterial(exporter, "tourmaline",  TOURMALINE_GEM);
 
+        addToolRecyclingForMaterial(exporter, "tanzanite",  TOURMALINE_GEM);
+        addArmorRecyclingForMaterial(exporter, "tanzanite",  TOURMALINE_GEM);
+
         addToolRecyclingForMaterial(exporter, "spinel",      SPINEL_GEM);
         addArmorRecyclingForMaterial(exporter, "spinel",      SPINEL_GEM);
 

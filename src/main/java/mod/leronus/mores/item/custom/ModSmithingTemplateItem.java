@@ -61,8 +61,8 @@ public class ModSmithingTemplateItem extends SmithingTemplateItem {
     private static final Identifier EMPTY_SLOT_DIAMOND = Identifier.of("item/empty_slot_diamond");
     private static final Identifier EMPTY_SLOT_LAPIS_LAZULI = Identifier.of("item/empty_slot_lapis_lazuli");
     private static final Identifier EMPTY_SLOT_AMETHYST_SHARD = Identifier.of("item/empty_slot_amethyst_shard");
-    private static final Identifier EMPTY_SLOT_BATTLE_AXE = Identifier.of(Mores.MOD_ID, "item/empty_slot_battleaxe");
-    private static final Identifier EMPTY_SLOT_BATTLE_MACE = Identifier.of(Mores.MOD_ID,"item/empty_slot_mace");
+    private static final Identifier EMPTY_SLOT_BATTLE_AXE = Identifier.of(Mores.MOD_ID, "item/empty_slot_battle_axe");
+    private static final Identifier EMPTY_SLOT_BATTLE_MACE = Identifier.of(Mores.MOD_ID,"item/empty_slot_battle_mace");
     private static final Identifier EMPTY_SLOT_DAGGER = Identifier.of(Mores.MOD_ID,"item/empty_slot_dagger");
     private static final Identifier EMPTY_SLOT_COAL = Identifier.of(Mores.MOD_ID, "item/empty_slot_coal");
 

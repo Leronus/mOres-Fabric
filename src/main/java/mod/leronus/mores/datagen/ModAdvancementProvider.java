@@ -1225,12 +1225,13 @@ public class ModAdvancementProvider extends FabricAdvancementProvider {
     private static AdvancementCriterion<?> eatItem(ItemConvertible item) {
         return Criteria.CONSUME_ITEM.create(ConsumeItemCriterion.Conditions.item(item).conditions());
     }
-    private static AdvancementCriterion<?> killEntity(EntityType<?> type) {
-        return OnKilledCriterion.Conditions.createPlayerKilledEntity(EntityPredicate.Builder.create().type(type));
-    }
     private static AdvancementCriterion<?> summonEntity(EntityType<?> type) {
         return SummonedEntityCriterion.Conditions.create(EntityPredicate.Builder.create().type(type));
     }
+    private static AdvancementCriterion<?> killEntity(EntityType<?> type) {
+        return OnKilledCriterion.Conditions.createPlayerKilledEntity(EntityPredicate.Builder.create().type(type));
+    }
+
     private static AdvancementCriterion<?> itemUsedOnBlock(
             net.minecraft.predicate.entity.LocationPredicate.Builder location,
             net.minecraft.predicate.item.ItemPredicate.Builder item
